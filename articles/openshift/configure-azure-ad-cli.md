@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Retrieve your cluster-specific URLs that are going to be used to configure the Azure Active Directory application.
 
@@ -76,7 +76,7 @@ app_id=$(az ad app create \
 
 Retrieve the tenant ID of the subscription that owns the application.
 
-```azure
+```azurecli-interactive
 tenant_id=$(az account show --query tenantId -o tsv)
 ```
 

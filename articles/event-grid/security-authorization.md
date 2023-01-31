@@ -2,7 +2,7 @@
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 10/25/2022
 ---
 
 # Authorizing access to Event Grid resources

@@ -1,14 +1,14 @@
 ---
 title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: eross-msft
+author: kgremban
 keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 7/23/2021
-ms.author: lizross
+ms.date: 11/21/2022
+ms.author: kgremban
 ---
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
@@ -46,17 +46,21 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
-2. Enter the following information for the job.
+2. In the **Basics** tab of the working pane, enter the following information.
 
-   **Job name**: The name of the job. The name must be globally unique.
+   **Subscription**: Select the subscription for your IoT hub.
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+   **Resource group**: Select the resource group for your IoT hub.
 
-   **Location**: Use the same location as your resource group.
+   **Name**: Enter the name of the job. The name must be globally unique.
+
+   **Region**: Select the region for your IoT hub.
+
+   Leave all other fields at their defaults, as shown in the following picture.
 
    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png" alt-text="Create a Stream Analytics job in Azure":::
 
-3. Select **Create**.
+3. Select **Review + create**, then select **Create** to create the Stream Analytics job.
 
 ### Add an input to the Stream Analytics job
 
@@ -72,17 +76,17 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Subscription**: Select the Azure subscription you're using for this tutorial.
 
-   **IoT Hub**: Select the IoT Hub you're using for this tutorial.
-
-   **Endpoint**: Select **Messaging**.
-
-   **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-dev-guide-sas.md#access-control-and-permissions).
-
-   **Shared access policy key**: This field is autofilled based on your selection for the shared access policy name.
+   **IoT Hub**: Select the IoT hub you're using for this tutorial.
 
    **Consumer group**: Select the consumer group you created previously.
 
-   Leave all other fields at their defaults.
+   **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+   **Shared access policy key**: This field is automatically filled, based on your selection for the shared access policy name.
+
+   **Endpoint**: Select **Messaging**.
+   
+   Leave all other fields at their defaults, as shown in the following picture.
 
    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Add an input to a Stream Analytics job in Azure":::
 
@@ -169,7 +173,7 @@ The following steps show you how to create and publish a report using the Power 
      > Depending on the device or simulated device that you use to send telemetry data, you may have a slightly different list of fields.
      >
 
-8. Select **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
+8. Select **File** > **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
 
 10. Still on the report pane, select **File** > **Embed report** > **Website or portal**.
 
@@ -191,17 +195,17 @@ The following steps show you how to create and publish a report using the Power 
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
-## Cleanup resources
+## Clean up resources
 
 In this tutorial, you've created a resource group, an IoT hub, a Stream Analytics job, and a dataset in Power BI. 
 
-If you plan to complete other tutorials, you may want to leave the resource group and IoT hub and reuse them later. 
+If you plan to complete other tutorials, you may want to keep the resource group and IoT hub, so you can reuse them later. 
 
-If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
+If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the Azure portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
 
 ### Use the Azure CLI to clean up Azure resources
 
-To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name {your resource group}

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 02/07/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -60,11 +60,11 @@ If the **response_type** parameter in an `/authorize` request includes `token`, 
 
 ## Request a token
 
-To request an access token, you need an authorization code. Below is an example of a request to the `/authorize` endpoint for an authorization code. Custom domains are not supported for use with access tokens. Use your tenant-name.onmicrosoft.com domain in the request URL.
+To request an access token, you need an authorization code. Below is an example of a request to the `/authorize` endpoint for an authorization code.
 
 In the following example, you replace these values in the query string:
 
-- `<tenant-name>` - The name of your Azure AD B2C tenant.
+- `<tenant-name>` - The name of your [Azure AD B2C tenant](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`. 
 - `<policy-name>` - The name of your custom policy or user flow.
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
 - `<application-ID-URI>` - The application identifier URI that you set under **Expose an API** blade of the client application.
@@ -79,6 +79,10 @@ client_id=<application-ID>
 &scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
+
+To get a feel of how the request works, paste the request into your browser and run it. 
+
+This is the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
 
 The response with the authorization code should be similar to this example:
 
@@ -100,8 +104,10 @@ grant_type=authorization_code
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
 ```
- 
-You should see something similar to the following response:
+
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
+
+A successful token response looks like this:
 
 ```json
 {

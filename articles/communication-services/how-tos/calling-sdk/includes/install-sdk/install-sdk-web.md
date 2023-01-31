@@ -40,6 +40,6 @@ AzureLogger.log = (...args) => {
 const userToken = '<USER_TOKEN>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'optional ACS user name'});
+const callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'optional Azure Communication Services user name'});
 const deviceManager = await callClient.getDeviceManager()
 ```

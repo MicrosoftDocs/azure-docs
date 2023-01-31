@@ -24,7 +24,7 @@ This table describes the API responses and what to do if you receive them.
 | ------------ | ------------- | ------------- |
 | Unauthorized | 401 | This is an authentication exception. Check the correctness of the Azure Active Directory (Azure AD) token. The Azure AD token is valid for 60 minutes, after which time you would need to regenerate the Azure AD token. |
 | Invalid table name | 400 | The name of the dataset is wrong. Recheck the dataset name by calling the “Get All Datasets” API. |
-| Incorrect column name | 400| The name of the column in the query is incorrect. Recheck the column name by calling the “Get All Datasets” API or refer to the column names in the following tables:<br><ul><li>[Orders details table](orders-dashboard.md#orders-details-table)</li><li>[Usage details table](usage-dashboard.md#usage-details-table)</li><li>[Customer details table](customer-dashboard.md#customer-details-table)</li><li>[Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)</li></UL> |
+| Incorrect column name | 400| The name of the column in the query is incorrect. Recheck the column name by calling the “Get All Datasets” API or refer to the column names in the following tables:<br><ul><li>[Orders details table](orders-dashboard.md#orders-details-table)</li><li>[Usage details table](usage-dashboard.md#usage-details-table)</li><li>[Customer details table](customer-dashboard.md#customer-details-table)</li><li>[Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)</li><li>[Revenue dashboard](revenue-dashboard.md)</li><li>[Quality of Service dashboard](quality-of-service-dashboard.md)</li><li>[Customer retention dashboard](customer-retention-dashboard.md#dictionary-of-data-terms)</li></UL> |
 | Null or missing value | 400 | You may be missing mandatory parameters as part of the request payload of the API. |
 | Invalid report parameters | 400 | Make sure the report parameters are correct. For example, you may be giving a value of less than 4 for `RecurrenceInterval` parameter. |
 | Recurrence Interval must be between 4 and 90 | 400 | Make sure the value of the `RecurrenceInterval` request parameter is between 4 and 90. |
@@ -35,11 +35,10 @@ This table describes the API responses and what to do if you receive them.
 | There are no executions that have occurred for the given filter conditions. Please recheck the reportId or executionId and retry the API after the report's scheduled execution time | 404 | Make sure that the `reportId` is correct. Retry the API after the report’s scheduled execution time as specified in the request payload. |
 | Internal error encountered while creating report. Correlation ID <> | 500 | Make sure that the format of date for the fields "StartTime", "QueryStartTime" and "QueryEndTime" are correct. |
 | Service unavailable | 500 | If you continuously receive a service unavailable (5xx error), please create a [support ticket](support.md). |
-||||
 
 ## No records
 
-I receive API response 200 when I download the report from the secure location. Why am I getting no records?
+**I receive API response 200 when I download the report from the secure location. Why am I getting no records?**
 
 Check whether the string in the query has one of the allowable values for the column header. For example, this query will return zero results:
 
@@ -51,6 +50,9 @@ In this example, the allowable values for SKUBillingType are Paid or Free. Refer
 - [Usage details table](usage-dashboard.md#usage-details-table)
 - [Customer details table](customer-dashboard.md#customer-details-table)
 - [Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)
+- [Revenue dashboard](revenue-dashboard.md)
+- [Quality of Service dashboard](quality-of-service-dashboard.md)
+- [Customer retention dashboard](customer-retention-dashboard.md#dictionary-of-data-terms)
 
 ## Next steps
 

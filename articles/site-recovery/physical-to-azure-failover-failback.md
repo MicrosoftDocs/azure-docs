@@ -5,6 +5,8 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Fail over and fail back physical servers replicated to Azure

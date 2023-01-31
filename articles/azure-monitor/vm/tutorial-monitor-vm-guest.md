@@ -4,30 +4,30 @@ description: Create data collection rule to collect guest logs and metrics from 
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 11/08/2021
+ms.date: 12/03/2022
+ms.reviewer: Xema Pathak
 ---
 
 # Tutorial: Collect guest logs and metrics from Azure virtual machine
-When you [enable monitoring with VM insights](tutorial-monitor-vm-enable.md), it collects performance data using the Log Analytics agent. To collect logs from the guest operating system and to send performance data to Azure Monitor Metrics, install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
-
-> [!NOTE]
-> Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
+To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. VM insights will install the agent and collection performance data, but you need to create additional data collection rules to collect log data such as Windows event log and syslog. VM insights also doesn't send guest performance data to Azure Monitor Metrics where it can be analyzed with metrics explorer and used with metrics alerts.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a data collection rule that send guest performance data to Azure Monitor metrics and log events to Azure Monitor Logs. 
-> * View guest metrics in metrics explorer.
+> * Create a data collection rule that sends guest performance data to Azure Monitor Metrics and log events to Azure Monitor Logs. 
 > * View guest logs in Log Analytics.
+> * View guest metrics in metrics explorer.
 
 ## Prerequisites
 To complete this tutorial you need the following: 
 
 - An Azure virtual machine to monitor.
 
+> [!IMPORTANT]
+> This tutorial does not require VM insights to be enabled for the virtual machine. The Azure Monitor agent will be installed on the VM if it isn't already installed.
 
 ## Create data collection rule
-[Data collection rules](../agents/data-collection-rule-overview.md) in Azure Monitor define data to collect and where it should be sent. When you define the data collection rule using the Azure portal, you specify the virtual machines it should be applied to. The Azure Monitor agent will automatically be installed on any virtual machines that don't already have it.
+[Data collection rules](../essentials/data-collection-rule-overview.md) in Azure Monitor define data to collect and where it should be sent. When you define the data collection rule using the Azure portal, you specify the virtual machines it should be applied to. The Azure Monitor agent will automatically be installed on any virtual machines that don't already have it.
 
 > [!NOTE]
 > You must currently install the Azure Monitor agent from **Monitor** menu in the Azure portal. This functionality is not yet available from the virtual machine's menu. 
@@ -110,7 +110,7 @@ You can get a complete tutorial on viewing and analyzing metric data using metri
 
 
 ## Next steps
-Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as available memory and logical disk space.
+[Recommended alerts](tutorial-monitor-vm-alert-recommended.md) and the [VM Availability metric](tutorial-monitor-vm-alert-availability.md) alert from the virtual machine host but don't have any visibility into the guest operating system and its workloads. Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as logical disk space.
 
 > [!div class="nextstepaction"]
 > [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alert.md)

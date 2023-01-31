@@ -13,5 +13,6 @@ ms.author: tamram
 > * [PHP](../articles/cosmos-db/table-storage-how-to-use-php.md)
 > * [Ruby](../articles/cosmos-db/table-storage-how-to-use-ruby.md)
 > * [Python](../articles/cosmos-db/table-storage-how-to-use-python.md)
+> * [Go](../articles/cosmos-db/table-storage-how-to-use-go.md)
 > 
 >

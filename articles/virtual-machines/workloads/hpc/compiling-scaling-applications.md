@@ -1,13 +1,13 @@
 ---
 title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 04/16/2021
-ms.author: amverma
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Scaling HPC applications
@@ -110,7 +110,7 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## Next steps
 
-- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/training/modules/optimize-tightly-coupled-hpc-apps/).
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

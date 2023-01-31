@@ -2,17 +2,18 @@
 title: Pull images from a connected registry
 description: Use Azure Container Registry CLI commands to configure a client token and pull images from a connected registry on an IoT Edge device.
 ms.topic: quickstart
-ms.date: 10/21/2021
-ms.author: memladen
-author: toddysm
-ms.custom: ignite-fall-2021, mode-other
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Pull images from a connected registry on IoT Edge device
 
 To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens) and pass the token credentials to access registry content.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
 * Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [Tutorial: Deploy a connected registry to nested IoT Edge devices](tutorial-deploy-connected-registry-nested-iot-edge-cli.md). In the commands in this article, the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RW*.
 
@@ -49,7 +50,7 @@ The command will return details about the newly generated token including passwo
 
 ## Update the connected registry with the client token
 
-Use the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry with the newly created client token. 
+Use the az acr connected-registry update command to update the connected registry with the newly created client token. 
 
 ```azurecli
 az acr connected-registry update \
@@ -92,6 +93,6 @@ docker pull <IP_address_or_FQDN_of_connected_registry>:<port>/hello-world
 [az-acr-scope-map-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential#az_acr_token_credential_generate
-[az-acr-connected-registry-update]: /azure/container-registry/quickstart-connected-registry-cli#az_acr_connected_registry_update] 
+[az-acr-connected-registry-update]: ./quickstart-connected-registry-cli.md#az_acr_connected_registry_update] 
 [container-registry-intro]: container-registry-intro.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md

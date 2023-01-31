@@ -1,58 +1,72 @@
 ---
-title: Work with account keys and connection strings for an Azure Cosmos account
-description: Work with account keys and connection strings for an Azure Cosmos account
-author: markjbrown
-ms.author: mjbrown
+title: Work with account keys and connection strings for an Azure Cosmos DB account
+description: Work with account keys and connection strings for an Azure Cosmos DB account
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
-# Work with account keys and connection strings for an Azure Cosmos account using Azure CLI
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+# Work with account keys and connection strings for an Azure Cosmos DB account using Azure CLI
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-## Sample script
-
-This script demonstrates four operations.
+The script in this article demonstrates four operations.
 
 - List all account keys
 - List read only account keys
 - List connection strings
 - Regenerate account keys
 
-> [!NOTE]
-> This sample demonstrates using a SQL (Core) API account but the account key and connection string operations are identical across all database APIs in Cosmos DB.
+ This script uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/keys.sh "Keys and connection string operations for Cosmos DB.")]
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-## Clean up deployment
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+## Sample script
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/keys.sh" id="FullScript":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) | List the keys for an Azure Cosmos DB account. |
-| [az cosmosdb list-read-only-keys](/cli/azure/cosmosdb#az_cosmosdb_list_read_only_keys) | List the read only keys for an Azure Cosmos DB account. |
-| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | List the connection strings for an Azure Cosmos DB account. |
-| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az_cosmosdb_regenerate-key) | Regenerate keys for an Azure Cosmos DB account. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) | List the keys for an Azure Cosmos DB account. |
+| [az cosmosdb list-read-only-keys](/cli/azure/cosmosdb#az-cosmosdb-list-read-only-keys) | List the read only keys for an Azure Cosmos DB account. |
+| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | List the connection strings for an Azure Cosmos DB account. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az-cosmosdb-regenerate-key) | Regenerate keys for an Azure Cosmos DB account. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+For Azure CLI samples for specific APIs see:
+
+- [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
+- [CLI Samples for Gremlin](../../../graph/cli-samples.md)
+- [CLI Samples for API for MongoDB](../../../mongodb/cli-samples.md)
+- [CLI Samples for SQL](../../../sql/cli-samples.md)
+- [CLI Samples for Table](../../../table/cli-samples.md)

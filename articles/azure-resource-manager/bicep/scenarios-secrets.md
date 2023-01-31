@@ -4,7 +4,7 @@ description: Describes how to manage secrets by using Bicep and Azure Key Vault.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 07/20/2022
 ---
 # Manage secrets by using Bicep
 
@@ -30,6 +30,8 @@ Sometimes, you need to access a secret from one resource to configure another re
 
 For example, you might have created a storage account in another deployment, and need to access its primary key to configure an Azure Functions app. You can use the `existing` keyword to obtain a strongly typed reference to the pre-created storage account, and then use the storage account's `listKeys()` method to create a connection string with the primary key:
 
+> The following example is part of a larger example. For a Bicep file that you can deploy, see the [complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-secrets/function-app.bicep).
+
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/function-app.bicep" range="8-46" highlight="1-3, 5, 22, 34" :::
 
 By using this approach, you avoid passing secrets into or out of your Bicep file.
@@ -47,6 +49,8 @@ When you create a vault, you need to determine who and what can access its data.
 ### Add secrets to a key vault
 
 Secrets are a [child resource](child-resource-name-type.md) and can be created by using the type [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep). The following example demonstrates how to create a vault and a secret:
+
+> The following example is part of a larger example. For a Bicep file that you can deploy, see the [complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-secrets/key-vault-secret.bicep).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/key-vault-secret.bicep" range="4-25" :::
 
@@ -93,7 +97,7 @@ When you deploy your Azure resources by using a pipeline, you need to take care 
   - [Azure Key Vault](../../key-vault/general/overview.md)
 - Bicep features
   - [Secure parameters](parameters.md#secure-parameters)
-  - [Referencing existing resources](resource-declaration.md#existing-resources)
+  - [Referencing existing resources](existing-resource.md)
   - [`getSecret` function](bicep-functions-resource.md#getsecret)
 - Quickstart templates
   - [Create a user-assigned managed identity and role assignments](https://github.com/Azure/azure-quickstart-templates/tree/master/modules/Microsoft.ManagedIdentity/user-assigned-identity-role-assignment/1.0)

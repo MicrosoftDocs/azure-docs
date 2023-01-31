@@ -1,11 +1,8 @@
 ---
 title: Seattle Safety Data
-titleSuffix: Azure Open Datasets
 description: Learn how to use the Seattle Safety dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -27,7 +24,7 @@ This dataset is stored in the East US Azure region. We recommend locating comput
 
 ## Additional information
 
-This dataset is sourced from city of Seattle government. For more information, see the [city of Seattle website](http://web5.seattle.gov/MNM/incidentresponse.aspx). View the [Licensing and Attribution for the terms of using this dataset](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Email open.data@seattle.gov if you have any questions about the data source.
+This dataset is sourced from city of Seattle government. For more information, see the [city of Seattle website](http://www.seattle.gov/). View the [Licensing and Attribution for the terms of using this dataset](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Email open.data@seattle.gov if you have any questions about the data source.
 
 ## Columns
 
@@ -174,7 +171,7 @@ Sample not available for this platform/package combination.
 
 ```
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import SeattleSafety
 
 from datetime import datetime

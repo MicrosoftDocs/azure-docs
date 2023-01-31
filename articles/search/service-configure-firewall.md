@@ -17,11 +17,14 @@ Azure Cognitive Search supports IP rules for inbound access through a firewall, 
 
 You can set IP rules in the Azure portal, as described in this article, on search services provisioned at the Basic tier and above. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
+> [!NOTE]
+> To access a search service protected by an IP firewall through the portal, [allow access from a specific client and the portal IP address](#allow-access-from-your-client-and-portal-ip).
+
 <a id="configure-ip-policy"></a> 
 
 ## Set IP ranges in Azure portal
 
-To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the left navigation pane. Endpoint networking connectivity must be **Public Access**. If your connectivity is set to **Private Access** or **Shared Private Access**, you can only access your search service via a Private Endpoint.
+To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the left navigation pane. Set **Public Network Access** to **Selected Networks**. If your connectivity is set to **Disabled**, you can only access your search service via a private endpoint.
 
 :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal" border="true":::
 
@@ -29,15 +32,40 @@ The Azure portal provides the ability to specify IP addresses and IP address ran
 
 After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. 
 
-## Allow access from Azure portal
+<a id="allow-access-from-your-client-and-portal-ip"></a>
 
-By default, when IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to indexes, indexers, and other top-level resources is restricted.
+## Azure portal
 
-To retain service administration through the portal, select the "Allow access" option under **Exceptions**. Alternatively, use the [VS Code Extension](https://aka.ms/vscode-search) to manage content.
+When IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to indexes, indexers, and other top-level resources is restricted. You can restore portal access to the full range of search service operations by allowing access from the portal IP address and your client IP address, as described in the next section.
 
-## Allow access from your client
+## Allow access from your client IP address
 
-Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service). 
+Add your client IP address to allow access to the service from the portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
+
+   :::image type="content" source="media\service-configure-firewall\azure-portal-firewall.png" alt-text="Screenshot of adding client ip to search service firewall" border="true":::
+
+## Allow access from the Azure portal IP address
+
+To get the portal's IP address, perform `nslookup` (or `ping`) on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. For nslookup, the IP address is visible in the "Non-authoritative answer" portion of the response.
+
+In the example below, the IP address that you should copy is "52.252.175.48".
+
+```bash
+$ nslookup stamp2.ext.search.windows.net
+Server:  ZenWiFi_ET8-0410
+Address:  192.168.50.1
+
+Non-authoritative answer:
+Name:    azsyrie.northcentralus.cloudapp.azure.com
+Address:  52.252.175.48
+Aliases:  stamp2.ext.search.windows.net
+          azs-ux-prod.trafficmanager.net
+          azspncuux.management.search.windows.net
+```
+
+Services in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+
+For ping, the request will time out, but the IP address will be visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
 
 Providing IP addresses for clients ensures that the request is not rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 

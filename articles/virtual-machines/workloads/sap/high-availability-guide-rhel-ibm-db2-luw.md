@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 12/06/2022
 ms.author: juergent
 
 ---
@@ -108,10 +108,15 @@ Complete the planning process before you execute the deployment. Planning builds
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
 | Azure fencing | Method to avoid split brain situations is prevented. |
-| Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
+| Azure Load Balancer | Usage of Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
+
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. 
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker)
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 
 ## Deployment on Red Hat Enterprise Linux
 
@@ -334,19 +339,22 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    e. After the new front-end IP pool is created, note the pool IP address.
 
-1. Create a back-end pool:
+1. Create a single back-end pool: 
 
-   a. In the Azure portal, open the Azure Load Balancer, select **backend pools**, and then select **Add**.
+   1. Open the load balancer, select **Backend pools**, and then select **Add**.
+   
+   1. Enter the name of the new back-end pool (for example, **Db2-backend**).
+   
+   2. Select **NIC** for Backend Pool Configuration.
+    
+   1. Select **Add a virtual machine**.
+   
+   1. Select the virtual machines of the cluster.
+   
+   1. Select **Add**.
+        
+   2. Select **Save**.   
 
-   b. Enter the name of the new back-end pool (for example, **Db2-backend**).
-
-   c. Select **Add a virtual machine**.
-
-   d. Select the availability set or the virtual machines hosting IBM Db2 database created in the preceding step.
-
-   e. Select the virtual machines of the IBM Db2 cluster.
-
-   f. Select **OK**.
 
 1. Create a health probe:
 
@@ -354,7 +362,7 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    b. Enter the name of the new health probe (for example, **Db2-hp**).
 
-   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**, and keep the **Unhealthy threshold** value set to **2**.
+   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**.
 
    d. Select **OK**.
 
@@ -410,7 +418,7 @@ sudo pcs property set maintenance-mode=true
 
 **[1]** Create IBM Db2 resources:
 
-If building a cluster on **RHEL 7.x**, use the following commands:
+If building a cluster on **RHEL 7.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-61.el7_9.15` or higher. Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
@@ -434,7 +442,9 @@ sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master D
 sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
 </code></pre>
 
-If building a cluster on **RHEL 8.x**, use the following commands:
+
+
+If building a cluster on **RHEL 8.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-93.el8` or higher. For details see Red Hat KB [A `db2` resource with HADR fails promote with state `PRIMARY/REMOTE_CATCHUP_PENDING/CONNECTED`](https://access.redhat.com/solutions/6516791). Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' promotable meta notify=true resource-stickiness=5000

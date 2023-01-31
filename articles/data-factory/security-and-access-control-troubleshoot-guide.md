@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 12/15/2021
+ms.date: 11/04/2022
 ms.author: lle
 ---
 
@@ -56,12 +56,25 @@ The problem is usually caused by one of the following factors:
 
 If none of the preceding methods works, contact Microsoft for help.
 
+### Deleted or rejected private end point still shows Aprroved in ADF
+
+#### Symptoms
+
+You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows “Approved”.
+
+#### Cause 
+
+Currently, ADF stops pulling private end point status after the it is approved. Hence the status shown in ADF is stale.
+
+##### Resolution
+
+You should delete the managed private end point in ADF once existing private endpoints are rejected/deleted from source/sink datasets. 
 
 ### Invalid or empty authentication key issue after public network access is disabled
 
 #### Symptoms
 
-After you disable public network access for the service, the self-hosted integration runtime throws the following error: “The Authentication key is invalid or empty.”
+After you disable public network access for the service, the self-hosted integration runtime throws following errors: `The Authentication key is invalid or empty.` or `Cannot connect to the data factory. Please check whether the factory has enabled public network access or the machine is hosted in a approved private endpoint Virtual Network.`
 
 #### Cause
 
@@ -181,12 +194,12 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 `
 <LogProperties><Text>Invoke callback url with req:
-"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+"ErrorCode=AzureBlobFailedToCreateContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
 `
 
 #### Cause
 
-The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network).
 
 #### Solution
 

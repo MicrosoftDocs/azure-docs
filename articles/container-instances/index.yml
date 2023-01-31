@@ -41,7 +41,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
-            url: /learn/modules/run-docker-with-azure-container-instances/
+            url: /training/modules/run-docker-with-azure-container-instances/
   - title: Create multi-container groups
     linkLists:
       - linkListType: tutorial

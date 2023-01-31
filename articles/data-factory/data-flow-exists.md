@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/03/2022
 ---
 
 # Exists transformation in mapping data flow
@@ -42,6 +42,8 @@ To compare multiple columns from each stream, add a new exists condition by clic
 To create a free-form expression that contains operators other than "and" and "equals to", select the **Custom expression** field. Enter a custom expression via the data flow expression builder by clicking on the blue box.
 
 :::image type="content" source="media/data-flow/exists1.png" alt-text="Exists custom settings":::
+
+If you are building dynamic patterns in your data flows by using "late binding" of columns via schema drift, you can use the ```byName()``` expression function to use the exists transformation without hardcoding (i.e. early binding) the column names. Example: ```toString(byName('ProductNumber','source1')) == toString(byName('ProductNumber','source2'))```
 
 ## Broadcast optimization
 

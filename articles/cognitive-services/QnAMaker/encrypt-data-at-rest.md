@@ -3,7 +3,7 @@ title: QnA Maker encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for QnA Maker, and how to enable and manage CMK.
 author: erindormier
-manager: venkyv
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
@@ -16,6 +16,8 @@ ms.custom: ignite-fall-2021
 # QnA Maker encryption of data at rest
 
 QnA Maker automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
+
+[!INCLUDE [Custom question answering](includes/new-version.md)]
 
 ## About encryption key management
 

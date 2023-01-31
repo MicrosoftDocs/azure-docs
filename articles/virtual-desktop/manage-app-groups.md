@@ -3,7 +3,7 @@ title: Manage app groups for Azure Virtual Desktop portal - Azure
 description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 01/31/2022
 ms.author: helohr
 manager: femila
 ---
@@ -75,7 +75,7 @@ If you've already created a host pool and session host VMs using the Azure porta
       - Under **Application source**, select **Start menu** from the drop-down menu. Next, under **Application**, choose the application from the drop-down menu.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the add application screen with the Start menu selected.](media/add-app-start.png)
+     > ![A screenshot of the add application screen. The user has selected the Character Map as the application source and entered Character Map in the display name field.](media/add-app-start.png)
 
       - In **Display name**, enter the name for the application that will be shown to the user on their client.
 
@@ -92,7 +92,7 @@ If you've already created a host pool and session host VMs using the Azure porta
       - Select **Save**.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the add application page with file path selected.](media/add-app-file.png)
+     > ![A screenshot of the add application page. The user has entered the file path to the 7-Zip File Manager app.](media/add-app-file.png)
 
 14.  Repeat this process for every application you want to add to the application group.
 
@@ -123,7 +123,7 @@ The deployment process will do the following things for you:
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 >[!IMPORTANT]
->You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
+>You can only create 500 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
 
 ## Edit or remove an app
 

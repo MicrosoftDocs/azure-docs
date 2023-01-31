@@ -7,12 +7,15 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 
 ---
 
 # Add prebuilt models for common usage scenarios
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 LUIS includes a set of prebuilt models for quickly adding common, conversational user scenarios. This is a quick and easy way to add abilities to your conversational client application without having to design the models for those abilities.
 

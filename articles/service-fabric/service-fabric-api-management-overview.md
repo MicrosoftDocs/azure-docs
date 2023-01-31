@@ -2,7 +2,11 @@
 title: Azure Service Fabric with API Management overview 
 description: This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. 
 ms.topic: conceptual
-ms.date: 06/22/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric with Azure API Management overview
@@ -42,7 +46,7 @@ In the simplest case, traffic is forwarded to a stateless service instance. To a
 
 **Example**
 
-In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice`, that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
+In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice` that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
 
 ![Diagram that shows a Service Fabric application contains a stateless service that exposes an internal HTTP API.][sf-apim-static-stateless]
 

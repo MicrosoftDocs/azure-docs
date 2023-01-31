@@ -6,15 +6,25 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
+ms.reviewer: lagayhar
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 adobe-target: true
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
 
 The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm from the designer for a predictive analytics model.
+
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
 
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression***, and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
@@ -24,7 +34,7 @@ For more information, see [How to select algorithms](how-to-select-algorithms.md
 
 **Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-july-2021.pdf)**
 
-![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
+:::image type="content" source="./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png" alt-text="Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm." lightbox="./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png":::
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 

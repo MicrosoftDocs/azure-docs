@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 12/09/2022
 ---
 
 # String functions for Bicep
@@ -55,7 +55,7 @@ The output from the preceding example with the default values is:
 
 ## base64ToJson
 
-`base64tojson`
+`base64ToJson(base64Value)`
 
 Converts a base64 representation to a JSON object.
 
@@ -160,7 +160,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## contains
 
-`contains (container, itemToFind)`
+`contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
@@ -184,9 +184,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -471,6 +471,13 @@ This function is helpful when you need to create a value in the format of a glob
 
 The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
+> [!NOTE]
+> The order of the parameters affects the returned value. For example:
+>
+> `guid('hello', 'world')` and `guid('world', 'hello')`
+>
+> don't return the same value.
+
 The following examples show how to use guid to create a unique value for commonly used levels.
 
 Unique scoped to subscription
@@ -494,9 +501,6 @@ guid(resourceGroup().id, deployment().name)
 ### Return value
 
 A string containing 36 characters in the format of a globally unique identifier.
-
-> [!NOTE]
-> Importance of order: It is not just the same parameters, they need to be in the same order. For example: `guid('hello', 'world') != guid('world', 'hello')`
 
 ### Examples
 
@@ -549,6 +553,49 @@ The output from the preceding example with the default values is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
+
 <a id="json"></a>
 
 ## json
@@ -561,7 +608,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns last character of the string, or the last element of the array.
 
@@ -620,7 +667,7 @@ An integer that represents the last position of the item to find. The value is z
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```bicep
 output firstT int = indexOf('test', 't')
@@ -670,10 +717,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -992,8 +1039,8 @@ The following example shows how to convert different types of values to strings:
 
 ```bicep
 param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
+  valueA: 10
+  valueB: 'Example Text'
 }
 param testArray array = [
   'a'
@@ -1178,7 +1225,7 @@ The output from the preceding example with the default values is:
 
 ## trim
 
-`trim (stringToTrim)`
+`trim(stringToTrim)`
 
 Removes all leading and trailing white-space characters from the specified string.
 
@@ -1212,7 +1259,7 @@ The output from the preceding example with the default values is:
 
 ## uniqueString
 
-`uniqueString (baseString, ...)`
+`uniqueString(baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters.
 
@@ -1279,7 +1326,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 ## uri
 
-`uri (baseUri, relativeUri)`
+`uri(baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
 

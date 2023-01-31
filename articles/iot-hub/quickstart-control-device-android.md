@@ -1,14 +1,14 @@
 ---
 title: Control a device from Azure IoT Hub (Android) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications. One application is a service application that can remotely control devices connected to your hub. The other application runs on a physical or simulated device connected to your hub that can be controlled remotely.
-author: wesmc7777
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
 ms.date: 06/21/2019
-ms.author: wesmc
+ms.author: kgremban
 #Customer intent: As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
 
@@ -24,13 +24,13 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * [Git](https://git-scm.com/download/).
 
-* [Device SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample), included in [Azure IoT Samples (Java)](https://github.com/Azure-Samples/azure-iot-samples-java).
+* [Device SDK sample Android application](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/android-sample), included in the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java).
 
-* [Service SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample), included in Azure IoT Samples (Java).
+* [Service SDK sample Android application](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/android-sample), included in the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java).
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -81,7 +81,7 @@ You also need a _service connection string_ to enable the back-end service appli
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:
@@ -92,11 +92,11 @@ You use this value later in the quickstart. This service connection string is di
 
 ## Listen for direct method calls
 
-Both of the samples for this quickstart are part of the azure-iot-samples-java repository on GitHub. Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+Both of the samples for this quickstart are part of the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java) on GitHub. Download or clone the repository.
 
 The device SDK sample application can be run on a physical Android device or an Android emulator. The sample connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
-1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository: *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
+1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java): *\azure-iot-sdk-java\device\iot-device-samples\android-sample*.
 
 2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with the device connection string you made a note of earlier.
 
@@ -146,7 +146,7 @@ Run this app on a separate physical Android device or Android emulator.
 
 An IoT Hub back-end service application typically runs in the cloud, where it's easier to mitigate the risks associated with the sensitive connection string that controls all devices on an IoT Hub. In this example, we are running it as an Android app for demonstration purposes only. The other-language versions of this quickstart provide examples that align more closely with a typical back-end service application.
 
-1. Open the GitHub service sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository: *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample*.
+1. Open the GitHub service sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java): *\azure-iot-sdk-java\device\iot-device-samples\android-sample*.
 
 2. In Android Studio, open *gradle.properties* for the sample project. Update the values for the **ConnectionString** and **DeviceId** properties with the service connection string you noted earlier and the Android device ID you registered.
 

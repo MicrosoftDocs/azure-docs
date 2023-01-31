@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Video Analyzer in the cloud. This use case is referred to as [event-based video recording](../event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
@@ -33,7 +35,7 @@ Prerequisites for this tutorial are:
     [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 

@@ -4,7 +4,7 @@ description: Explains how to troubleshoot connectivity issues with Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 11/18/2021
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -26,7 +26,7 @@ This article explains how connectivity between Azure AD Connect and Azure AD wor
 Azure AD Connect uses the MSAL library for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these two are .NET applications.
 
 >[!NOTE]
->Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being depricated and support will end in June 2022.  Microsot recommendeds that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
+>Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being deprecated and support will end in June 2022.  Microsoft recommends that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
@@ -47,7 +47,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | mscrl.microsoft.com |HTTP/80 |Used to download CRL lists. |
 | \*.verisign.com |HTTP/80 |Used to download CRL lists. |
 | \*.entrust.net |HTTP/80 |Used to download CRL lists for MFA. |
-| \*.asazure.windows.net (Analysis Services)</br>\*.core.windows.net (Azure Storage)</br>\*.database.windows.net (SQL Server) </br>\*.graph.windows.net (Azure AD Graph)</br>\*.kusto.windows.net (Azure Data Explorer/Kusto)</br>\*.search.windows.net (search)</br>\*.servicebus.windows.net (Azure Service Bus)</br>|HTTPS/443|Used for the various Azure services|
+| \*.management.core.windows.net (Azure Storage)</br>\*.graph.windows.net (Azure AD Graph)|HTTPS/443|Used for the various Azure services|
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 | \*.crl3.digicert.com |HTTP/80 |Used to verify certificates. |
@@ -76,7 +76,7 @@ If you use a **Microsoft account** rather than a **school or organization** acco
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.
+This error appears if the endpoint `https://secure.aadcdn.microsoftonline-p.com` cannot be reached and your Hybrid Identity Administrator has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.
@@ -179,23 +179,23 @@ The multi-factor authentication (MFA) challenge was canceled.
 
 <div id="connect-msolservice-failed">
 <!--
-  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  Empty div just to act as an alias for the "Connect To MSOnline Failed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Connect To MS Online Failed
+### Connect To MSOnline Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
 <div id="get-msoluserrole-failed">
 <!--
-  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  Empty div just to act as an alias for the "Azure AD Global Administrator Role Needed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../roles/permissions-reference.md) to the user.
+### Azure AD Global Administrator Role Needed
+User was authenticated successfully. However user is not assigned Global Administrator role. This is [how you can assign Global Administrator role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--
@@ -205,7 +205,7 @@ User was authenticated successfully. However user is not assigned global admin r
 </div>
 
 ### Privileged Identity Management Enabled
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+Authentication was successful. Privileged identity management has been enabled and you are currently not a Hybrid Identity Administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 <div id="get-msolcompanyinformation-failed">
 <!--

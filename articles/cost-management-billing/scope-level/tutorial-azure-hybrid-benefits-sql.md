@@ -3,7 +3,7 @@ title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2021
+ms.date: 12/06/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -32,7 +32,7 @@ Have read and understand the [What is centrally managed Azure Hybrid Benefit?](o
 > [!NOTE]
 > Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers and customers buying directly from Azure.com with a Microsoft Customer Agreement.
 
-Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see [Register SQL Server VM with SQL IaaS Agent Extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) and [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
+Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see [Register SQL Server VM with SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) and [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 
 ## Gather license usage and availability details
 

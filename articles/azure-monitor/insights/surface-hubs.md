@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
+ms.reviewer: shijain
 
 ---
 
@@ -21,7 +22,16 @@ Use the following information to install and configure the solution. In order to
 
 * A [Log Analytics subscription](https://azure.microsoft.com/pricing/details/log-analytics/) level that will support the number of devices you want to monitor. Log Analytics pricing varies depending on how many devices are enrolled, and how much data it processes. You'll want to take this into consideration when planning your Surface Hub rollout.
 
-Next, you will either add an existing Log Analytics workspace or create a new one. Detailed instructions for using either method is at [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md). Once the Log Analytics workspace is configured, there are two ways to enroll your Surface Hub devices:
+The Surface Hub solution is offered as an Azure Marketplace application which is linked to a new or existing Log Analytics workspace within your Azure subscription. Detailed instructions for using either method is at [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md). 
+
+To configure the Surface Hub solution, follow these steps:
+
+1. Go to the [Surface Hub page in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SurfaceHubOMS?tab=Overview). You might need to login to your Azure subscription to access this.
+2. Select **Get it now**.
+3. Choose an existing or configure a new Log Analytics Workspace.
+4. After your workspace is configured and selected, select **Create**. You'll receive a notification when the solution has been successfully created.
+
+Once the Log Analytics workspace is configured and the solution created, there are two ways to enroll your Surface Hub devices:
 
 * Automatically through Intune
 * Manually through **Settings** on your Surface Hub device.

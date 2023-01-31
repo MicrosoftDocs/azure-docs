@@ -4,13 +4,13 @@ description: This document describes how to integrate AD FS sign-ins with the Az
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 01/26/2023
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---

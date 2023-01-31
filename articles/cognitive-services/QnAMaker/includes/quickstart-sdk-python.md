@@ -6,7 +6,7 @@ ms.date: 06/18/2020
 ms.custom: ignite-fall-2021
 ---
 
-Use the QnA Maker client library for python to:
+Use the QnA Maker client library for Python to:
 
 * Create a knowledgebase
 * Update a knowledgebase
@@ -28,7 +28,7 @@ Use the QnA Maker client library for python to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, create a [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -42,7 +42,7 @@ After installing Python, you can install the client library with:
 pip install azure-cognitiveservices-knowledge-qnamaker==0.2.0
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file named `quickstart-file.py` and import the following libraries.
 
@@ -60,7 +60,8 @@ Create variables for your resource's Azure endpoint and key.
 
  ![QnA Maker Runtime Endpoint](../media/runtime-endpoint.png)
    
-- For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=Resourcevariables)]
 
@@ -175,7 +176,7 @@ The _setTimeout_ call in the following code block is used to simulate asynchrono
 
 ## Run the application
 
-Run the application with the python command on your quickstart file.
+Run the application with the Python command on your quickstart file.
 
 ```console
 python quickstart-file.py

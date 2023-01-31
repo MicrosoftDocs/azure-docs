@@ -1,14 +1,16 @@
 ---
 title: Create or join parallel branches for actions in workflows
-description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps
+description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 10/10/2018
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/01/2022
 ---
 
 # Create or join parallel branches for workflow actions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 By default, your actions in logic app workflows run sequentially. 
 To perform independent actions at the same time, 
@@ -212,7 +214,7 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch statements)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

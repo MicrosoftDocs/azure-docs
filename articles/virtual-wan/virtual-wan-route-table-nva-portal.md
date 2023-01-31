@@ -58,7 +58,7 @@ Create the hub. You can use the following example values, or replace with your o
 * **Name:** westushub
 * **Hub private address space:** 10.0.1.0/24
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-empty-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-blank.md)]
 
 ## <a name="route"></a>4. Create and apply a hub route table
 

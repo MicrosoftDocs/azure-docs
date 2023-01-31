@@ -2,13 +2,14 @@
 title: Assign or remove custom security attributes for an application (Preview) - Azure Active Directory
 description: Assign or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: rolyon
+author: omondiatieno
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
-ms.author: rolyon
+ms.date: 02/03/2022
+ms.author: jomondi
+ms.reviewer: rolyon
 ---
 
 # Assign or remove custom security attributes for an application (Preview)
@@ -120,12 +121,16 @@ To manage custom security attribute assignments for applications in your Azure A
 
 #### Get the custom security attribute assignments for an application (service principal)
 
+Use the [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadmsserviceprincipal) command to get the custom security attribute assignments for an application (service principal).
+
 ```powershell
 Get-AzureADMSServicePrincipal -Select CustomSecurityAttributes
 Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select "CustomSecurityAttributes, Id"
 ```
 
 #### Assign a custom security attribute with a multi-string value to an application (service principal)
+
+Use the [Set-AzureADMSServicePrincipal](/powershell/module/azuread/set-azureadmsserviceprincipal) command to assign a custom security attribute with a multi-string value to an application (service principal).
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -144,6 +149,8 @@ Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSe
 ```
 
 #### Update a custom security attribute with a multi-string value for an application (service principal)
+
+Use the [Set-AzureADMSServicePrincipal](/powershell/module/azuread/set-azureadmsserviceprincipal) command to update a custom security attribute with a multi-string value for an application (service principal).
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -165,7 +172,11 @@ Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSe
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments.
 
+For other similar Microsoft Graph API examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Assign, update, or remove custom security attributes using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+
 #### Get the custom security attribute assignments for an application (service principal)
+
+Use the [Get servicePrincipal](/graph/api/serviceprincipal-get?view=graph-rest-beta&preserve-view=true) API to get the custom security attribute assignments for an application (service principal).
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}?$select=customSecurityAttributes
@@ -180,6 +191,8 @@ If there are no custom security attributes assigned to the application or if the
 ```
 
 #### Assign a custom security attribute with a string value to an application (service principal)
+
+Use the [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -199,10 +212,6 @@ PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
     }
 }
 ```
-
-#### Other examples
-
-For other similar Microsoft Graph API examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Apache Ambari UI shows down hosts and services in Azure HDInsight
 description: Troubleshooting an Apache Ambari UI issue when it shows down hosts and services in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/02/2019
+ms.date: 04/06/2022
 ---
 
 # Scenario: Apache Ambari UI shows down hosts and services in Azure HDInsight

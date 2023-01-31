@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric infrastructure as Code Best Practices
 description: Best practices and design considerations for managing Azure Service Fabric as infrastructure as code.
-author: peterpogorski
-
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Infrastructure as code
@@ -70,7 +70,7 @@ You can deploy applications and services onto your Service Fabric cluster via Az
 }
 ```
 
-To deploy your application using Azure Resource Manager, you first must [create a sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
+To deploy your application using Azure Resource Manager, you first must [create a sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric Application package. The following Python script is an example of how to create a sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container

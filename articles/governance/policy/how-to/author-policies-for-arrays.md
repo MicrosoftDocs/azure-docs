@@ -104,7 +104,7 @@ API. The values are passed through a JSON string that also includes the name of 
 To use this string with each SDK, use the following commands:
 
 - Azure CLI: Command
-  [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) with
+  [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) with
   parameter **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment)
   with parameter **PolicyParameter**
@@ -334,7 +334,7 @@ of `stringArray` are equal to '"value"'.
 }
 ```
 
-If the array contains objects, a `[*]` alias can be used to select the value of a specific property
+If the array is empty, the condition will evaluate to true because no member of the array is in violation. In this scenario, it is recommended to use the [count expression](../concepts/definition-structure.md#count) instead. If the array contains objects, a `[*]` alias can be used to select the value of a specific property
 from each array member. Example:
 
 ```json

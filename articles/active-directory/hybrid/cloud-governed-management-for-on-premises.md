@@ -3,12 +3,12 @@ title: 'Azure AD Cloud Governed Management for On-Premises Workloads - Azure'
 description: This topic describes cloud governed management for on-premises workloads.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -69,7 +69,7 @@ Azure AD Premium also includes Microsoft Identity Manager, which can import reco
 
 Business-to-business collaboration increasingly requires granting access to people outside your organization. [Azure AD B2B](/azure/active-directory/b2b/) collaboration enables organizations to securely share their applications and services with guest users and external partners while maintaining control over their own corporate data.
 
-Azure AD can [automatically create accounts in AD for guest users](../external-identities/hybrid-cloud-to-on-premises.md) as needed, enabling business guests to access on-premises AD-integrated applications without needing another password. Organizations can set up [multi-factor authentication (MFA) policies for guest user](../external-identities/conditional-access.md)s so MFA checks are done during application proxy authentication. Also, any [access reviews](../governance/manage-guest-access-with-access-reviews.md) that are done on cloud B2B users apply to on-premises users. For example, if the cloud user is deleted through lifecycle management policies, the on-premises user is also deleted.
+Azure AD can [automatically create accounts in AD for guest users](../external-identities/hybrid-cloud-to-on-premises.md) as needed, enabling business guests to access on-premises AD-integrated applications without needing another password. Organizations can set up [multi-factor authentication (MFA) policies for guest user](../external-identities/authentication-conditional-access.md)s so MFA checks are done during application proxy authentication. Also, any [access reviews](../governance/manage-guest-access-with-access-reviews.md) that are done on cloud B2B users apply to on-premises users. For example, if the cloud user is deleted through lifecycle management policies, the on-premises user is also deleted.
 
 **Credential management for Active Directory accounts**
 Azure AD's self-service password reset allows users who have forgotten their passwords to be reauthenticated and reset their passwords, with the changed passwords [written to on-premises Active Directory](../authentication/concept-sspr-writeback.md). The password reset process can also use the on-premises Active Directory password policies: When a user resets their password, it's checked to ensure it meets the on-premises Active Directory policy before committing it to that directory. The self-service password reset [deployment plan](../authentication/howto-sspr-deployment.md) outlines best practices to roll out self-service password reset to users via web and Windows-integrated experiences.
@@ -112,4 +112,4 @@ In hybrid environments, Microsoft's strategy is to enable deployments where the 
 
 ## Next steps
 
-For more information on how to get started on this journey, see the Azure AD deployment plans, located at <https://aka.ms/deploymentplans>. They provide end-to-end guidance about how to deploy Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.
+For more information on how to get started on this journey, see the [Azure AD deployment plans](https://aka.ms/deploymentplans). These plans provide end-to-end guidance for deploying Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.

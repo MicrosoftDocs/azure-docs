@@ -3,10 +3,10 @@ title: NDv2-series
 description: Specifications for the NDv2-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 12/20/2022
+ms.author: vikancha
 ---
 
 # Updated NDv2-series
@@ -40,6 +40,7 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 InfiniBand: Supported<br>
 Nvidia NVLink Interconnect: Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |

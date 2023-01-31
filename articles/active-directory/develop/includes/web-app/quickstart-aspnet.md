@@ -1,26 +1,27 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-titleSuffix: Microsoft identity platform
 description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
-author: jmprieur
+
+author: cilwerner
+
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/27/2021
-ms.author: jmprieur
+ms.date: 01/18/2023
+ms.author: cwerner
+
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
 # Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
+In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts. 
 
-The following diagram shows how the sample app works:
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -48,20 +49,20 @@ If you want to manually configure your application and code sample, use the foll
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. For **Name**, enter a name for your application. For example, enter **ASPNET-Quickstart**. Users of your app will see this name, and you can change it later.
-1. Add **https://localhost:44368/** in **Redirect URI**, and select **Register**.
+1. Set the **Redirect URI** type to **Web** and value to `https://localhost:44368/`.
+1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens**.
 1. Select **Save**.
 
 #### Step 2: Download the project
 
-
-[Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Download the ASP.NET code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
-#### Step 3: Run your Visual Studio project
+#### Step 3: Run the project
 
 1. Extract the .zip file to a local folder that's close to the root folder. For example, extract to *C:\Azure-Samples*.
    

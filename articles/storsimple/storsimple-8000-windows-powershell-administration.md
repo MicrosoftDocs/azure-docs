@@ -4,11 +4,13 @@ description: Learn how to use Windows PowerShell for StorSimple to manage your S
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use Windows PowerShell for StorSimple to administer your device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

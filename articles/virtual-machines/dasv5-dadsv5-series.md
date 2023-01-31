@@ -1,11 +1,11 @@
 ---
 title: 'Dasv5 and Dadsv5-series - Azure Virtual Machines'
 description: Specifications for the Dasv5 and Dadsv5-series VMs. 
-author: brbell 
-ms.author: brbell
+author: mamccrea 
+ms.author: mamccrea
 ms.reviewer: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/8/2021
 
@@ -32,7 +32,9 @@ Dasv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -62,7 +64,9 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -75,7 +79,7 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 80000/2000 | 8 | 32000 |
 | Standard_D96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 80000/2000 | 8 | 40000 |
 
-* These IOPs values can be achieved by using Gen2 VMs.<br>
+<sup>*</sup> These IOPs values can be achieved by using Gen2 VMs.<br>
 <sup>1</sup> Dadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 

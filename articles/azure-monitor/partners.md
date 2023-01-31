@@ -4,12 +4,15 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/27/2022
+ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
+
+This is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate additional appropropriate partners. 
 
 ## AIMS
 
@@ -55,7 +58,7 @@ Customers can deploy the BMC Helix platform with the cloud deployment of their c
 
 ## Botmetric
 
-See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/).
+See the [Botmetric introduction for Azure](https://nutanix.medium.com/announcing-botmetric-cost-governance-beta-in-microsoft-azure-ee6b361c303e).
 
 ## Circonus
 
@@ -136,7 +139,7 @@ Grafana is an open-source application that enables you to visualize metric data 
 
 ## InfluxData
 
-![InfluxData logo.](./media/partners/Influxdata.png)
+![InfluxData logo.](./media/partners/influxdata.png)
 
 InfluxData is the creator of InfluxDB, the open-source time series database. Its technology is purpose built to handle the massive volumes of time-stamped data produced by Internet of Things (IoT) devices, applications, networks, containers, and computers. 
 
@@ -144,15 +147,15 @@ InfluxData is on a mission to help developers and organizations, such as IBM, Vi
 
 [Learn more about Azure Monitor integration with InfluxData Telegraf](essentials/collect-custom-metrics-linux-telegraf.md). 
 
-## Logic Monitor
+## LogicMonitor
 
-![Logic Monitor logo.](./media/partners/logicmonitor.png)
+![LogicMonitor logo.](./media/partners/logicmonitor.png)
 
 LogicMonitor is an SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
 
 LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources—all from a single platform. Automated resource discovery, built-in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
-For more information, see the [Logic Monitor documentation](https://www.logicmonitor.com/lp/azure-monitoring/).
+For more information, see the [LogicMonitor documentation](https://www.logicmonitor.com/lp/azure-monitoring/).
 
 ## LogRhythm
 
@@ -161,6 +164,26 @@ For more information, see the [Logic Monitor documentation](https://www.logicmon
 LogRhythm, a leader in next-generation security information and event management (SIEM), empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm's Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers. It helps customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. 
 
 If you're a LogRhythm customer and are ready to start your Azure journey, you'll need to install and configure the LogRhythm Open Collector and Azure Event Hubs integration. For more information, see the [documentation on configuring Azure Monitor and the Open Collector](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+## Logz.io
+
+![Logz.io logo](./media/partners/logzio.png)
+
+Logz.io delivers the observability that today’s developers need to continuously innovate and optimize their modern applications. As a massively scalable, analytics-driven cloud native platform, Logz.io specifically provides DevOps teams with the visibility and data needed to address their most complex, microservices-driven Azure applications.
+
+As modern cloud environments generate overwhelming data volumes, Logz.io makes it easy to organize observability data into dedicated environments for every team, while identifying and eliminating noisy data that clutters the critical data. The result is a more secure, cost efficient, and productive way to implement cross-organizational observability.
+
+Logz.io provides you with seamless experience to provision Logz.io accounts and configure Azure resources to send logs to Logz.io from Azure portal through its direct integration with Azure.  
+
+With the integration you can 
+-	Provision a new Logz.io account from Azure client interfaces like Azure Portal Azure PowerShell and SDK
+-	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to setup and operate
+-	Seamlessly send logs and metrics to Logz.io. Without the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
+-	Easily install the Logz.io agent on virtual machines hosts through a single-click
+-	Streamline single-sign on (SSO) to Logz.io. Previously, a separate sign-on from the Logz.io was required.
+-	Get unified billing of Logz.io SaaS through Azure subscription invoicing
+
+The Logz.io integration with Azure is available in Azure Marketplace 
 
 ## Microfocus
 
@@ -192,9 +215,16 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ## New Relic
 
-![New Relic logo.](./media/partners/newrelic.png)
+![New Relic logo.](./media/partners/newrelic-logo.png)
 
-See the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
+Microsoft Azure integration monitoring from New Relic gives you an overview of your ecosystem – cloud migrations, digital transformations, and cloud native applications using New Relic Observability Platform.
+ 
+**NewRelic Azure monitoring helps you to:**
+* Monitor the entire software stack with Full-stack monitoring.
+* Reduce friction between engineers and ITOps teams by identifying, triaging, and delegating application and infrastructure issues quickly.
+* Identify service dependencies through cross-application tracing using New Relic APM.
+ 
+Refer to [New Relic Azure integration](https://newrelic.com/instant-observability/?category=azure&search=azure) for more information. 
 
 ## OpsGenie
 
@@ -341,7 +371,7 @@ For more information, see the [SquaredUp website](https://squaredup.com/).
 
 ## Sumo Logic
 
-![Sumo Logic logo.](./media/partners/SumoLogic.png)
+![Sumo Logic logo.](./media/partners/sumologic.png)
 
 Sumo Logic is a secure, cloud-native analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
 
@@ -351,13 +381,23 @@ For more information, see the [Sumo Logic documentation](https://www.sumologic.c
 
 ## Turbonomic
 
-![Turbonomic logo.](./media/partners/Turbonomic.png)
+![Turbonomic logo.](./media/partners/turbonomic.png)
 
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate. Applications constantly get the resources they require to deliver their SLA, and nothing more, across compute, storage, and network for the IaaS and PaaS layer. 
 
 Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on time and within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 For more information, see the [Turbonomic introduction](https://turbonomic.com/).
+
+## Zenduty
+
+![Zenduty logo.](./media/partners/zenduty.png)
+
+Zenduty is a novel collaborative incident management platform that provides end-to-end incident alerting, on-call management, and response orchestration, which gives teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value and centralizing all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
+
+Zenduty provides your NOC, SRE, and application engineers with detailed context around the Azure Monitor alert along with playbooks and a complete incident command framework to triage, remediate, and resolve incidents with speed.
+
+For more information, see the [Zenduty documentation](https://docs.zenduty.com/docs/microsoftazure).
 
 ## Partner tools with Event Hubs integration
 
@@ -367,7 +407,7 @@ If you use Azure Monitor to route monitoring data to an event hub, you can easil
 |:---|:---| :---|
 |  IBM QRadar | No | The Microsoft Azure DSM and the Microsoft Azure Event Hubs protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | No | The [Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open-source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance (because, for example, you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS). Azure Function For Splunk is triggered by new messages in the event hub. |
-| Sumo Logic | No | Instructions for setting up Sumo Logic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| Sumo Logic | No | Instructions for setting up Sumo Logic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/docs/integrations/microsoft-azure/audit/#collecting-logs-for-the-azure-audit-app-from-event-hub). |
 | ArcSight | No | The ArcSight smart connector for Azure Event Hubs is available as part of the [ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available on the [LogRhythm website](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 

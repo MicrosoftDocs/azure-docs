@@ -3,12 +3,12 @@ title: 'Azure AD Connect sync: Make a change to the default configuration'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/30/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

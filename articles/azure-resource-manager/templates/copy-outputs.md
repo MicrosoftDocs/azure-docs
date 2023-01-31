@@ -11,6 +11,9 @@ This article shows you how to create more than one value for an output in your A
 
 You can also use copy loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 Add the `copy` element to the output section of your template to return a number of items. The copy element has the following general format:

@@ -1,10 +1,11 @@
 ---
 title: Monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks
 description: This article describes how you can monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 # Monitor Azure Database for MySQL Flexible Server by using Azure Monitor workbooks
@@ -45,7 +46,7 @@ Azure Database for MySQL Flexible Server has three available templates:
     * List top 5 longest queries
     * Summarize slow queries by minimum, maximum, average, and standard deviation query time
 
-You can also edit and customize these templates according to your requirements. For more information, see [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+You can also edit and customize these templates according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
  ## Access the workbook templates
 
@@ -59,5 +60,5 @@ You can also display the list of templates by going to the **Public Templates** 
 
 
 ## Next steps
-- Learn about [access control](../../azure-monitor/visualize/workbooks-access-control.md) in Azure Monitor workbooks.
-- Learn more about [visualization options](../../azure-monitor/visualize/workbooks-overview.md#visualizations) in Azure Monitor workbooks. 
+- Learn about [Azure workbooks access control](../../azure-monitor/visualize/workbooks-overview.md#access-control).
+- Learn more about [Azure workbooks visualization options](../../azure-monitor/visualize/workbooks-visualizations.md). 

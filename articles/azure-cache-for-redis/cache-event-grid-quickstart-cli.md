@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
@@ -56,7 +56,7 @@ sitename=<your-site-name>
 
 az deployment group create \
   --resource-group <resource_group_name> \
-  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
 ```
 

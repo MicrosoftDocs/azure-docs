@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. It also explains concepts such as namespaces, queues, and topics in Service Bus. 
 ms.topic: overview
-ms.date: 11/11/2021
+ms.date: 01/24/2022
 ms.custom: contperf-fy22q2
 ---
 
@@ -50,7 +50,7 @@ Messages are sent to and received from **queues**. Queues store messages until t
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in queues are ordered and timestamped on arrival. Once accepted by the broker, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus never leaves messages in memory or volatile storage after they've been reported to the client as accepted.
+Messages in queues are ordered and timestamped on arrival. Once accepted by the broker, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus keeps messages in memory or volatile storage until they've been reported by the client as accepted.
 
 Messages are delivered in **pull** mode, only delivering messages when requested. Unlike the busy-polling model of some other cloud queues, the pull operation can be long-lived and only complete once a message is available. 
 
@@ -103,10 +103,6 @@ You can submit messages to a queue or topic [for delayed processing](message-seq
 
 When a queue or subscription client receives a message that it's willing to process, but for which processing isn't currently possible because of special circumstances within the application, the entity can [defer retrieval of the message](message-deferral.md) to a later point. The message remains in the queue or subscription, but it's set aside.
 
-### Batching
-
-[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends more messages during this time period, it transmits the messages in a single batch. 
-
 ### Transactions
 
 A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction.
@@ -117,7 +113,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 ### Auto-delete on idle
 
-[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there is traffic on the queue. The minimum duration is 5 minutes.
 
 ### Duplicate detection
 

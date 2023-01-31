@@ -47,7 +47,7 @@ This option enables you to find out if your application is having any issues. In
 Some of the metrics that you might want to monitor for your app are
 
 * Average memory working set
-* Average response time
+* Response time
 * CPU time
 * Memory working set
 * Requests
@@ -68,7 +68,7 @@ Uptime is monitored using HTTP response codes, and response time is measured in 
 
 To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 
-Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
+Also, see Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by using a *site extension*.

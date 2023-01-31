@@ -1,13 +1,12 @@
 ---
-title: Working with security policies | Microsoft Docs
+title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.custom: ignite-2022
+ms.date: 01/24/2023
 ---
 
 # Manage security policies
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
@@ -15,7 +14,7 @@ To understand the relationships between initiatives, policies, and recommendatio
 
 ## Who can edit security policies?
 
-Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defender for Cloud roles:
+Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defenders for Cloud roles:
 
 - **Security reader**: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
@@ -37,7 +36,7 @@ To view your security policies in Defender for Cloud:
     :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
-    > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
+    > If there is a label "MG Inherited" alongside your default initiative, it means that the initiative has been assigned to a management group and inherited by the subscription you're viewing.
 
 1. Choose from the available options on this page:
 
@@ -46,8 +45,6 @@ To view your security policies in Defender for Cloud:
     1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
     1. To view and edit the default initiative, select it and proceed as described below.
-
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
@@ -79,7 +76,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Open the **Security policy** page.
 
-1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 
@@ -95,7 +92,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 ## Enable a security policy
 
-Some policies in your initiatives might be disabled by default. For example, in the Azure Security Benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
+Some policies in your initiatives might be disabled by default. For example, in the Microsoft cloud security benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
 
 To enable a disabled policy and ensure it's assessed for your resources:
 
@@ -105,7 +102,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. Open the **Security policy** page.
 
-1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 

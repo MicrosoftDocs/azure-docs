@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/13/2021
+ms.date: 01/04/2023
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -33,7 +33,7 @@ For more information about Key Vault and certificates, see:
     - [Azure portal](../general/quick-create-portal.md) 
     - [Azure PowerShell](../general/quick-create-powershell.md)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli).
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sign in to Azure
 
@@ -111,7 +111,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## Code example
 
-The code samples below will show you how to create a client, set a certificate, retrieve a certificate, and delete a certificate. 
+These code samples demonstrate how to create a client, set a certificate, retrieve a certificate, and delete a certificate. 
 
 ### Set up the app framework
 
@@ -233,11 +233,11 @@ The code samples below will show you how to create a client, set a certificate, 
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultCertificateIdentifier](/javascript/api/@azure/keyvault-certificates#parseKeyVaultCertificateIdentifier_string_), to parse the given Key Vault certificate ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault certificate ID. You need the _parseKeyVaultCertificateIdentifier_ method to parse that ID to get the certificate name. Once you have the certificate name, you can get the current certificate using code from this quickstart. 
+The Azure SDK provides a helper method, [parseKeyVaultCertificateIdentifier](/javascript/api/@azure/keyvault-certificates#parseKeyVaultCertificateIdentifier_string_), to parse the given Key Vault certificate ID, which is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault certificate ID. You need the _parseKeyVaultCertificateIdentifier_ method to parse that ID to get the certificate name. Once you have the certificate name, you can get the current certificate using code from this quickstart. 
 
 ## Next steps
 
-In this quickstart, you created a key vault, stored a certificate, and retrieved that certificate. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a certificate, and retrieved that certificate. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of certificates](about-certificates.md)

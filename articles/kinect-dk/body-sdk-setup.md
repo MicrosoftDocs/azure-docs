@@ -3,10 +3,10 @@ title: Quickstart - Set up Azure Kinect body tracking
 description: In this quickstart, you will set up the body tracking SDK for Azure Kinect.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.service: azure-kinect-developer-kit
+ms.date: 03/15/2022
 ms.topic: quickstart
-keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
+keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, onnx, directml, cuda, trt, nvidia
 ms.custom: mode-other
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
 ---
@@ -50,6 +50,45 @@ If everything is set up correctly, a window with a 3D point cloud and tracked bo
 
 
 ![Body Tracking 3D Viewer](./media/quickstarts/samples-simple3dviewer.png)
+
+## Specifying ONNX Runtime execution environment
+
+The Body Tracking SDK supports CPU, CUDA, DirectML (Windows only) and TensorRT execution environments to inference the pose estimation model. The `K4ABT_TRACKER_PROCESSING_MODE_GPU` defaults to CUDA execution on Linux and DirectML execution on Windows. Three additional modes have been added to select specific execution environments: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA`, `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML`, and `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`.
+
+> [!NOTE]  
+> ONNX Runtime displays warnings for opcodes that are not accelerated. These may be safely ignored.
+
+ONNX Runtime includes environment variables to control TensorRT model caching. The recommended values are:
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
+- ORT_TENSORRT_CACHE_PATH="pathname"
+
+The folder must be created prior to starting body tracking.
+
+> [!IMPORTANT]  
+> TensorRT pre-processes the model prior to inference resulting in extended start up times when compared to other execution environments. Engine caching limits this to first execution however it is experimental and is specific to the model, ONNX Runtime version, TensorRT version and GPU model.
+
+The TensorRT execution environment supports both FP32 (default) and FP16. FP16 trades ~2x performance increase for minimal accuracy decrease. To specify FP16:
+- ORT_TENSORRT_FP16_ENABLE=1
+
+## Required DLLs for ONNX Runtime execution environments
+
+|Mode      | ORT 1.10                       | CUDA 11.4.3          | CUDNN 8.2.2.26      | TensorRT 8.0.3.4 |
+|----------|--------------------------------|----------------------|---------------------|------------------|
+| CPU      | msvcp140                       | -                    | -                   | -                |
+|          | onnxruntime                    |                      |                     |                  |
+| CUDA     | msvcp140                       | cudart64_110         | cudnn64_8           | -                |
+|          | onnxruntime                    | cufft64_10           | cudnn_ops_infer64_8 |                  |
+|          | onnxruntime_providers_cuda     | cublas64_11          | cudnn_cnn_infer64_8 |                  |
+|          | onnxruntime_providers_shared   | cublasLt64_11        |                     |                  |
+| DirectML | msvcp140                       | -                    | -                   | -                |
+|          | onnxruntime                    |                      |                     |                  |
+|          | directml                       |                      |                     |                  |
+| TensorRT | msvcp140                       | cudart64_110         | -                   | nvinfer          |
+|          | onnxruntime                    | cufft64_10           |                     | nvinfer_plugin   |
+|          | onnxruntime_providers_cuda     | cublas64_11          |                     |                  |
+|          | onnxruntime_providers_shared   | cublasLt64_11        |                     |                  |
+|          | onnxruntime_providers_tensorrt | nvrtc64_112_0        |                     |                  |
+|          |                                | nvrtc-builtins64_114 |                     |                  |
 
 ## Examples
 

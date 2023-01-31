@@ -2,8 +2,8 @@
 title: Reinforcement Learning - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses information about actions and current context to make better ranking suggestions. The information about these actions and context are attributes or properties that are referred to as features.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -26,7 +26,7 @@ While there are many subtypes and styles of reinforcement learning, this is how 
 * Your application provides information about each alternative and the context of the user.
 * Your application computes a _reward score_.
 
-Unlike some approaches to reinforcement learning, Personalizer does not require a simulation to work in. Its learning algorithms are designed to react to an outside world (versus control it) and learn from each data point with an understanding that it is a unique opportunity that cost time and money to create, and that there is a non-zero regret (loss of possible reward) if suboptimal performance happens.
+Unlike some approaches to reinforcement learning, Personalizer doesn't require a simulation to work in. Its learning algorithms are designed to react to an outside world (versus control it) and learn from each data point with an understanding that it's a unique opportunity that cost time and money to create, and that there's a non-zero regret (loss of possible reward) if suboptimal performance happens.
 
 ## What type of reinforcement learning algorithms does Personalizer use?
 
@@ -34,14 +34,14 @@ The current version of Personalizer uses **contextual bandits**, an approach to 
 
 The _decision memory_, the model that has been trained to capture the best possible decision, given a context, uses a set of linear models. These have repeatedly shown business results and are a proven approach, partially because they can learn from the real world very rapidly without needing multi-pass training, and partially because they can complement supervised learning models and deep neural network models.
 
-The explore/exploit traffic allocation is made randomly following the percentage set for exploration, and the default algorithm for exploration is epsilon-greedy.
+The explore / best action traffic allocation is made randomly following the percentage set for exploration, and the default algorithm for exploration is epsilon-greedy.
 
 ### History of Contextual Bandits
 
 John Langford coined the name Contextual Bandits (Langford and Zhang [2007]) to describe a tractable subset of reinforcement learning and has worked on a half-dozen papers improving our understanding of how to learn in this paradigm:
 
 * Beygelzimer et al. [2011]
-* Dudík et al. [2011a,b]
+* Dudík et al. [2011a, b]
 * Agarwal et al. [2014, 2012]
 * Beygelzimer and Langford [2009]
 * Li et al. [2010]

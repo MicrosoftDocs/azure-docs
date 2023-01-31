@@ -71,7 +71,7 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Overview
-        - url: /learn/paths/bicep-deploy
+        - url: /training/paths/bicep-deploy
           itemType: learn
           text: Learn path
         - url: bicep/file.md

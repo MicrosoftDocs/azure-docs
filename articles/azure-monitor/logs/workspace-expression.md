@@ -4,7 +4,7 @@ description: The workspace expression is used in an Azure Monitor log query to r
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2021
+ms.date: 08/06/2022
 
 ---
 

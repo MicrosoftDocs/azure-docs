@@ -4,7 +4,7 @@ description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Sto
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 04/05/2022
 ---
 
 # Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1

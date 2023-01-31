@@ -4,7 +4,7 @@ description: Learn how to use Kafka on HDInsight from container images hosted in
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
+ms.date: 11/17/2022
 ---
 
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
@@ -46,8 +46,9 @@ The following diagram illustrates the network topology used in this document:
 
 If you do not already have an AKS cluster, use one of the following documents to learn how to create one:
 
-* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/kubernetes-walkthrough-portal.md)
-* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/kubernetes-walkthrough.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md)
 
 > [!IMPORTANT]  
 > AKS creates a virtual network during installation in an **additional** resource group. The additional resource group follows the naming convention of **MC_resourceGroup_AKSclusterName_location**.  
@@ -153,7 +154,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 3. Edit the `index.js` file and change the following lines:
 
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
-    * `var brokerHost = '176.16.0.13:9092`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
+    * `var brokerHost = '176.16.0.13:9092'`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
         To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 
@@ -223,7 +224,6 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
 
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

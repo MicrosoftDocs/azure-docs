@@ -47,6 +47,10 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
     ![Configuration source](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     You can clone a configuration from any existing slot. Settings that can be cloned include app settings, connection strings, language framework versions, web sockets, HTTP version, and platform bitness.
+    
+  > [!NOTE]
+  > Currently, a Private Endpoint isn't cloned across slots.
+  > 
 
 4. After the slot is added, select **Close** to close the dialog box. The new slot is now shown on the **Deployment slots** page. By default, **Traffic %** is set to 0 for the new slot, with all customer traffic routed to the production slot.
 
@@ -141,6 +145,10 @@ Before you swap into production as the target slot, validate that the app runs w
 When you perform a swap with preview, App Service performs the same [swap operation](#AboutConfiguration) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
 
 If you cancel the swap, App Service reapplies configuration elements to the source slot.
+
+> [!NOTE]
+> Swap with preview can't be used when one of the slots has site authentication enabled.
+> 
 
 To swap with preview:
 
@@ -246,10 +254,10 @@ To route production traffic automatically:
 
 After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
 
-After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
+After a client is automatically routed to a specific slot, it's "pinned" to that slot for one hour or until the cookies are deleted. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > You can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) command in the Azure CLI to set the routing percentages from CI/CD tools like GitHub Actions, DevOps pipelines, or other automation systems.
+   > You can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like GitHub Actions, DevOps pipelines, or other automation systems.
 
 ### Route production traffic manually
 
@@ -333,6 +341,8 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
+
+To perform a slot swap from the production slot, the identity needs (at minimum) permissions to perform the `Microsoft.Web/sites/slotsswap/Action` operation. For more information, see the [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb)
 
 ## Automate with Resource Manager templates
 

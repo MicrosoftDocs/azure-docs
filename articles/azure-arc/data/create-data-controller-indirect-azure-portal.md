@@ -30,7 +30,7 @@ When you use direct connect mode, you can provision the data controller directly
 
 Follow the steps below to create an Azure Arc data controller using the Azure portal and Azure Data Studio.
 
-1. First, log in to the [Azure portal marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
+1. First, log in to the [Azure portal marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
 1. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
 1. Select the Azure Data Controller tile from the marketplace.
 1. Click on the **Create** button.
@@ -50,10 +50,10 @@ Follow the steps below to create an Azure Arc data controller using the Azure po
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
+> The example commands below assume that you created a data controller named `arc-dc` and Kubernetes namespace named `arc`. If you used different values update the script accordingly.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller/arc-dc --namespace arc
 ```
 
 ```console

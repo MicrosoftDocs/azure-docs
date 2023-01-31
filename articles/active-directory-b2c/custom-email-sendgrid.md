@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 10/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -66,7 +66,7 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
 1. Select **Blank Template** and then **Code Editor**.
 1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
-    ```HTML
+    ```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
     <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
@@ -154,16 +154,15 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
                <td valign="top" width="50%"></td>
            </tr>
        </table>
-    <img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
+    </body>
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Version Name**, enter a template version. 
+1. Expand **Settings** on the left, and for **Version Name**, enter a template version.
 1. For **Subject**, enter `{{subject}}`.
 1. A the top of the page, select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
-
 
 [!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
@@ -262,11 +261,13 @@ A verification display control is used to verify the email address with a verifi
 This example display control is configured to:
 
 1. Collect the `email` address claim type from the user.
-1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
-1. Return the `email` back to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
-![Send verification code email action](media/custom-email-sendgrid/display-control-verification-email-action-01.png)
+    ![Send verification code email action](media/custom-email-sendgrid/display-control-verification-email-action-01.png)
+
+1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
+1. Return the `email` back to the self-asserted technical profile that has a reference to this display control.
+
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
@@ -321,11 +322,12 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="Operation">GenerateCode</Item>
-          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeExpirationInSeconds">600</Item>
           <Item Key="CodeLength">6</Item>
           <Item Key="CharacterSet">0-9</Item>
-          <Item Key="ReuseSameCode">true</Item>
           <Item Key="NumRetryAttempts">5</Item>
+          <Item Key="NumCodeGenerationAttempts">10</Item>
+          <Item Key="ReuseSameCode">false</Item>
         </Metadata>
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />

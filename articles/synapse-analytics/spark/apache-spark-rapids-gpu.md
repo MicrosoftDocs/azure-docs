@@ -1,7 +1,6 @@
 ---
 title: Apache Spark on GPU
 description: Introduction to core concepts for Apache Spark on GPUs inside Synapse Analytics.
-services: synapse-analytics
 author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview
@@ -172,7 +171,7 @@ Most Spark jobs can see improved performance through tuning configuration settin
 
 ### Workspace level
 
-Every Azure Synapse workspace comes with a default quota of 50 GPU vCores. In order to increase your quota of GPU cores, send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region, and the total GPU quota required for your workload.
+Every Azure Synapse workspace comes with a default quota of 50 GPU vCores. In order to increase your quota of GPU cores, please [submit a support request through the Azure portal](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Next steps
 - [Azure Synapse Analytics](../overview-what-is.md)

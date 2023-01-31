@@ -95,7 +95,7 @@ ms.date: 08/23/2018
     }
     ```
 
-4. Add another class to handle token updates. Create `ToDoInstanceIdService` java class and replace the class declaration with:
+4. Add another class to handle token updates. Create `ToDoInstanceIdService` Java class and replace the class declaration with:
 
     ```java
     import com.google.firebase.iid.FirebaseInstanceIdService;

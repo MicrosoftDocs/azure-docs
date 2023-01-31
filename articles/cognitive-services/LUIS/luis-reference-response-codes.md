@@ -3,17 +3,21 @@ title: API HTTP response codes - LUIS
 titleSuffix: Azure Cognitive Services
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 03/04/2019
+ms.date: 06/14/2022
 
 ---
 
 # Common API response codes and their meaning
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
 
@@ -24,7 +28,7 @@ The following table lists some of the most common HTTP response status codes for
 |:--|--|--|
 |400|Authoring, Endpoint|request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
 |400|Authoring, Endpoint|request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Authoring|used endpoint subscription key, instead of authoring key|
+|401|Authoring|used endpoint key, instead of authoring key|
 |401|Authoring, Endpoint|invalid, malformed, or empty key|
 |401|Authoring, Endpoint| key doesn't match region|
 |401|Authoring|you are not the owner or collaborator|

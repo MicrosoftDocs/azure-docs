@@ -3,15 +3,15 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/17/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -133,7 +133,6 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid"/>
-            <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -167,7 +166,7 @@ To obtain the values, look at the OpenID Connect discovery metadata for each of 
 
 Perform these steps for each Azure AD tenant that should be used to sign in:
 
-1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the **issuer** object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/.well-known/openid-configuration`.
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
@@ -205,6 +204,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Check out the Azure AD multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Azure AD access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end

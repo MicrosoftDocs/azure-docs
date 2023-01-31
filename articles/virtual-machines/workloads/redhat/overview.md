@@ -24,9 +24,9 @@ Azure offers a wide offering of RHEL images on Azure. These images are made avai
 
 Azure offers a variety of RHEL pay-as-you-go images. These images come properly entitled for RHEL and are attached to a source of updates (Red Hat Update Infrastructure). These images charge a premium fee for the RHEL entitlement and updates. RHEL pay-as-you-go image variants include:
 
-* Standard RHEL.
-* RHEL for SAP.
-* RHEL for SAP with High Availability and Update Services.
+* RHEL
+* RHEL for SAP
+* RHEL for SAP with High Availability (HA) and Update Services
 
 You might want to use the pay-as-you-go images if you don't want to worry about paying separately for the appropriate number of subscriptions.
 
@@ -52,6 +52,10 @@ Azure provides Red Hat Update Infrastructure only for pay-as-you-go RHEL VMs. RH
 ### RHUI update behavior
 
 RHEL images connected to RHUI update by default to the latest minor version of RHEL when a `yum update` is run. This behavior means that a RHEL 7.4 VM might get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This behavior is by design for RHUI. To mitigate this upgrade behavior, switch from regular RHEL repositories to [Extended Update Support repositories](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
+
+## Red Hat Middleware
+
+Microsoft and Azure have partnered to develop a variety of solutions for running Red Hat Middleware on Azure. Learn more about JBoss EAP on Azure Virtual Machines and Azure App service at [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure).
 
 ## Next steps
 

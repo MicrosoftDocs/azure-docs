@@ -3,9 +3,9 @@ title: Migrate Log Analytics data for Azure HDInsight
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
-ms.author: ali
-author: AliciaLiMicrosoft
-ms.date: 04/19/2021
+ms.author: sairamyeturi
+author: yeturis
+ms.date: 11/17/2022
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -33,7 +33,7 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 
 
 > [!NOTE]  
-> New Azure Montitor integration is in Public Preview. It is only available in East US and West Europe regions.
+> New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
 
 
 ## Benefits of the new Azure Monitor integration
@@ -42,7 +42,7 @@ This document outlines the changes to the Azure Monitor integration and provides
 
 **Redesigned schemas**: The schema formatting for the new Azure Monitor integration is better organized and easy to understand. There are two-thirds fewer schemas to remove as much ambiguity in the legacy schemas as possible.
 
-**Selective Logging (releasing soon)**: There are logs and metrics available through Log Analytics. To help you save on monitoring costs, we'll be releasing a new selective logging feature. Use this feature to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use.
+**Selective Logging**: There are logs and metrics available through Log Analytics. To help you save on monitoring costs, we'll be releasing a new selective logging feature. Use this feature to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use. For more details see [Selective Logging](selective-logging-analysis.md)
 
 **Logs cluster portal integration**: The **Logs** pane is new to the HDInsight Cluster portal. Anyone with access to the cluster can go to this pane to query any table that the cluster resource sends records to. Users don't need access to the Log Analytics workspace anymore to see the records for a specific cluster resource.
 
@@ -189,7 +189,7 @@ If you're using a cluster created after mid-September 2020, you'll see the new p
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
-Creating new clusters with classic Azure Monitor integration is not available after July 1, 2021.
+Creating new clusters with classic Azure Monitor integration is not available after Jan 1, 2023.
 
 ## Release and support timeline
 
@@ -267,13 +267,6 @@ The following charts show the table mappings from the classic Azure Monitoring I
 | HDInsightHBaseMetrics | <ul><li>**Description**: This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric.</li><li>**Old table**: metrics\_regionserver\_CL, metrics\_regionserver\_wal\_CL, metrics\_regionserver\_ipc\_CL, metrics\_regionserver\_os\_CL, metrics\_regionserver\_replication\_CL, metrics\_restserver\_CL, metrics\_restserver\_jvm\_CL, metrics\_hmaster\_assignmentmanager\_CL, metrics\_hmaster\_ipc\_CL, metrics\_hmaser\_os\_CL, metrics\_hmaster\_balancer\_CL, metrics\_hmaster\_jvm\_CL, metrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL</li></ul>|
 | HDInsightHBaseLogs | <ul><li>**Description**: This table contains logs from HBase and its related components: Phoenix and HDFS.</li><li>**Old table**: log\_regionserver\_CL, log\_restserver\_CL, log\_phoenixserver\_CL, log\_hmaster\_CL, log\_hdfsnamenode\_CL, log\_garbage\_collector\_CL</li></ul>|
 
-## Storm workload
-
-| New Table | Details |
-| --- | --- |
-| HDInsightStormMetrics | <ul><li>**Description**: This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record.</li><li>**Old table**: metrics\_stormnimbus\_CL, metrics\_stormsupervisor\_CL</li></ul>|
-| HDInsightStormTopologyMetrics | <ul><li>**Description**: This table contains topology level metrics from Storm. It's the same shape as the table listed in Old Tables section.</li><li>**Old table**: metrics\_stormrest\_CL</li></ul>|
-| HDInsightStormLogs | <ul><li>**Description**: This table contains all logs generated from Storm.</li><li>**Old table**: log\_supervisor\_CL, log\_nimbus\_CL</li></ul>|
 
 ## Oozie workload
 

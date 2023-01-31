@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -28,6 +28,11 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Palantir Foundry single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -46,6 +51,8 @@ To configure the integration of Palantir Foundry into Azure AD, you need to add 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Palantir Foundry** in the search box.
 1. Select **Palantir Foundry** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Palantir Foundry
 
@@ -68,34 +75,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. In the **Basic SAML Configuration** section, if you see **Service Provider metadata file**, follow these steps:
-    1. Select **Upload metadata file**.
-    1. Select the folder icon to select the metadata file which you have downloaded in **Configure Palantir Foundry SSO** section, and then select **Upload**.
-    1. When the metadata file is successfully uploaded, the values for **Identifier** and **Reply URL** appear automatically in the Palantir Foundry section text box.
+1. Choose **Upload metadata file**, select the metadata file which you have downloaded in the **[Configure Palantir Foundry SSO](#configure-palantir-foundry-sso)** section, and then select **Add**.
+
+   ![Screenshot shows to browse Upload Metadata.](common/browse-upload-metadata.png "Metadata")
+
+1. When the metadata file is successfully uploaded, the values for **Identifier**, **Reply URL** and **Logout URL** appear automatically in the Palantir Foundry section text box.
 
     > [!Note]
-    > If the **Identifier** and **Reply URL** values don't appear automatically, fill in the values manually according to your requirements.
-
-1. If you don't see **Service Provider metadata file** in the **Basic SAML Configuration** section, perform the following steps:
-
-    1. In the **Identifier** text box, type a value using the following pattern: `urn:uuid:<SOME_UUID>`
-
-    1. In the **Reply URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/saml/SSO`
-
-    1. In the **Logout URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/SingleLogout`
-
-        > [!NOTE]
-        > These values are not real. Update these values with the actual Identifier, Reply URL and Logout URL. Contact [Palantir Foundry Client support team](mailto:support@palantir.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > If the **Identifier**, **Reply URL** and **Logout URL** values don't appear automatically, fill in the values manually which can be found in Foundry Control Panel.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
-
-1. On the **Set up Palantir Foundry** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 ### Create an Azure AD test user
 
@@ -123,17 +116,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palantir Foundry SSO
 
-1. Log in to the Palantir Foundry as an administrator.
+1. In Foundry Control Panel, go to the **Authentication** tab and click **Add SAML provider**. 
 
-1. In Foundry Control Panel tab, go to the **Authentication** and click **Add SAML provider**. 
-
-    ![Screenshot for Add SAML provider.](./media/palantir-foundry-tutorial/saml-provider.png)
+    ![Screenshot for Add S A M L provider.](./media/palantir-foundry-tutorial/saml-provider.png)
 
 1. Give a valid SAML provider name and click **Create**.
 
 1. Click **Manage** in the **SAML** section.
 
-    ![Screenshot for SAML.](./media/palantir-foundry-tutorial/authentication.png)
+    ![Screenshot for S A M L Configuration.](./media/palantir-foundry-tutorial/authentication.png)
 
 1. Perform the following steps in the **SAML** section:
 
@@ -155,7 +146,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Palantir Foundry Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Palantir Foundry Sign-on URL where you can initiate the login flow.  
 
 * Go to Palantir Foundry Sign-on URL directly and initiate the login flow from there.
 
@@ -163,7 +154,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Palantir Foundry for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Palantir Foundry tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Palantir Foundry for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Palantir Foundry tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Palantir Foundry for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -2,13 +2,18 @@
 title: Manage Service Fabric cluster upgrades
 description: Manage when and how your Service Fabric cluster runtime is updated
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage Service Fabric cluster upgrades
 
 An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric cluster.
 
-For further background on cluster upgrade concepts and processes, see [Upgrading and updating Azure Service Fabric clusters](service-fabric-cluster-upgrade.md)
+For further background on cluster upgrade concepts and processes, see [Upgrading and updating Azure Service Fabric clusters](service-fabric-cluster-upgrade.md).
 
 ## Set upgrade mode
 
@@ -186,7 +191,7 @@ Using a supported target version information, you can use following PowerShell s
 3) Invoke the API
    ```PowerShell
    $params = @{ "TargetVersion" = "<target version>"}
-   Invoke-AzResourceAction -ResourceId -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   Invoke-AzResourceAction -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
    ```
 
    Example: 

@@ -1,13 +1,13 @@
 ---
 title: Job size exceeded error
-description: Describes how to troubleshoot errors when job size or template are too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
+description: Describes how to troubleshoot errors for job size exceeded or if the template is too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/20/2021
+ms.date: 01/03/2023
 ---
 
 # Resolve errors for job size exceeded
 
-This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors can occur when you deploy a Bicep file or Azure Resource Manager template (ARM template).
+This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The job size exceeded errors can occur when you deploy a Bicep file or Azure Resource Manager template (ARM template).
 
 ## Symptom
 
@@ -29,11 +29,11 @@ Other template limits are:
 - 64 output values
 - 24,576 characters in a template expression
 
-## Solution 1 - use dependencies carefully
+## Solution 1: Use dependencies carefully
 
 # [Bicep](#tab/bicep)
 
-Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) that's created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
+Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) that's created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-dependencies.md#explicit-dependency).
 
 # [JSON](#tab/json)
 
@@ -53,7 +53,7 @@ dependsOn: [
 
 ---
 
-## Solution 2 - simplify template
+## Solution 2: Simplify template
 
 # [Bicep](#tab/bicep)
 
@@ -70,7 +70,7 @@ You can set other resources as dependent on the linked template, and [get values
 
 ---
 
-## Solution 3 - reduce name size
+## Solution 3: Reduce name size
 
 # [Bicep](#tab/bicep)
 

@@ -20,8 +20,16 @@
   href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
 - name: Responsible use of AI
   items:
-  - name: Ethics & responsible use
-    href: ethics-responsible-use.md
+  - name: Transparency notes
+    items:
+    - name: Use cases
+      href: responsible-use-cases.md
+    - name: Characteristics and limitations
+      href: responsible-characteristics-and-limitations.md
+  - name: Data and privacy
+    href: responsible-data-and-privacy.md
+  - name: Guidance for integration and responsible use
+    href: responsible-guidance-integration.md
 - name: How-to guides
   items:
   - name: Create Personalizer Resource
@@ -33,10 +41,16 @@
     href: how-to-learning-behavior.md
   - name: Use multi-slot
     href: how-to-multi-slot.md
+  - name: Use local inference
+    href: how-to-thick-client.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
-  - name: Analyze with an offline evaluation
+  - name: Run an offline evaluation
     href: how-to-offline-evaluation.md
+  - name: Run a feature evaluation
+    href: how-to-feature-evaluation.md
+  - name: Enable inference explainability
+    href: how-to-inference-explainability.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
@@ -56,7 +70,7 @@
     displayName: best practice, design
   - name: Personalizer fundamentals
     items:
-    - name: "Features Action and Context"
+    - name: "Context and Action Features"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,
     - name: Learning policy
@@ -80,35 +94,35 @@
   - name: Offline evaluation
     href: concepts-offline-evaluation.md
     displayName: learning policy, Counterfactual, features
-  - name: Feature evaluation
-    href: concept-feature-evaluation.md
   - name: Auto-optimization
     href: concept-auto-optimization.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md
 - name: Tutorials
   items:
-  - name: Use Web app
+  - name: Web app integration tutorial
     href: tutorial-use-personalizer-web-app.md
-  - name: Use Chat bot
+  - name: Chat bot integration tutorial
     href: tutorial-use-personalizer-chat-bot.md
-  - name: Use Azure Notebook
+  - name: Jupyter notebook walkthrough
     href: tutorial-use-azure-notebook-generate-loop-data.md
     displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
 - name: Reference
   items:
   - name: Personalizer REST API
     href: https://go.microsoft.com/fwlink/?linkid=2092082
+  - name: Personalizer REST API (v1.1 Preview)
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-3/operations/Rank
   - name: .NET
     items:
     - name: Reference
-      href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
+      href: /dotnet/api/overview/azure/personalizer
     - name: NuGet package
       href: https://go.microsoft.com/fwlink/?linkid=2092272
   - name: Go
     items:
     - name: Reference
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
+      href: https://github.com/Azure/azure-sdk-for-go/
   - name: Node.js
     items:
     - name: Reference
@@ -118,7 +132,7 @@
   - name: Python
     items:
     - name: Reference
-      href: /python/api/overview/azure/cognitiveservices/personalizer
+      href: /python/api/overview/azure/personalizer
     - name: Pypi package
       href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
@@ -129,8 +143,8 @@
         href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
       - name: Compliance and certification
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Microsoft Learn modules
-    href: /learn/browse/?terms=personalizer
+  - name: Training modules
+    href: /training/browse/?terms=personalizer
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Azure updates

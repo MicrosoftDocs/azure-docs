@@ -2,7 +2,7 @@
 title: Set deployment order for resources
 description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 03/02/2022
 ---
 
 # Define the order for deploying resources in ARM templates
@@ -10,6 +10,9 @@ ms.date: 12/21/2020
 When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Use the `dependsOn` element to define an explicit dependency. Use the **reference** or **list** functions to define an implicit dependency.
 
 Azure Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource dependencies](../bicep/resource-dependencies.md).
 
 ## dependsOn
 
@@ -32,7 +35,7 @@ The following example shows a network interface that depends on a virtual networ
 }
 ```
 
-While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. You can't query which resources were defined in the `dependsOn` element after deployment. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
+While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. After deployment, the resource doesn't retain deployment dependencies in its properties, so there are no commands or operations that let you see dependencies. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
 ## Child resources
 
@@ -107,6 +110,8 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
       "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
       ...
     }
+    ...
+}    
 ```
 
 To learn more, see [reference function](template-functions-resource.md#reference).
@@ -209,7 +214,7 @@ For information about assessing the deployment order and resolving dependency er
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: Create ARM templates with dependent resources](template-tutorial-create-templates-with-dependent-resources.md).
-* For a Microsoft Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+* For a Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations when setting dependencies, see [ARM template best practices](./best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

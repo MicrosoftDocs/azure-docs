@@ -1,22 +1,17 @@
 ---
-title: 'Azure Front Door Standard/Premium (Preview) Reports'
+title: 'Reports - Azure Front Door'
 description: This article explains how reporting works in Azure Front Door.
 services: frontdoor
-author: jessie-jyy
+author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 07/07/2021
-ms.author: yuajia
+ms.date: 03/20/2022
+ms.author: duau
 ---
 
-# Azure Front Door Standard/Premium (Preview) Reports
+# Azure Front Door reports
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
+Azure Front Door analytics reports provide a built-in and all-around view of how your Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -35,7 +30,7 @@ Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-a
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
 
 > [!NOTE]
-> Security reports is only available with Azure Front Door Premium SKU.
+> Security reports is only available with Azure Front Door Premium tier.
 
 Most of the reports are based on access logs and are offered free of charge to customers on Azure Front Door. Customer doesn’t have to enable access logs or do any configuration to view these reports. Reports are accessible through portal and API. CSV download is also supported. 
 
@@ -176,7 +171,7 @@ Cache Hits/Misses describe the request number cache hits and cache misses for cl
 
 This report takes caching scenarios into consideration and requests that met the following requirements are taken into calculation. 
 
-* The requested content was cached on the POP closest to the requester or origin shield. 
+* The requested content was cached on a Front Door PoP.
 
 * Partial cached contents for object chunking.
 
@@ -216,7 +211,7 @@ Top URLs allow you to view the amount of traffic incurred over a particular endp
 
 ## Top Referrers
 
-Top Referrers allow customers to view the top 50 referrer that originated the most requests to the contents on a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, http(s)://contoso.com/index.html) directly into the address line of a browser, the referrer for the requested is "Empty". Top referrers report includes the follow values. You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
+Top Referrers allow customers to view the top 50 referrer that originated the most requests to the contents on a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, http(s)://contoso.com/index.html) directly into the address line of a browser, the referrer for the requested is "Empty". Top referrers report includes the following values. You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
 
 * Referrer, the value of Referrer in raw logs 
 * Request counts 
@@ -261,11 +256,11 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
 
-## CVS format
+## CSV format
 
 You can download CSV files for different tabs in reports. This section describes the values in each CSV file.
 
-### General information about the CVS report
+### General information about the CSV report
 
 Every CSV report includes some general information and the information is available in all CSV files. with variables based on the report you download. 
 
@@ -364,4 +359,4 @@ The seven tables are for time, rule ID, countries/regions, IP address, URL, host
 
 ## Next steps
 
-Learn about [Azure Front Door Standard/Premium real time monitoring metrics](how-to-monitor-metrics.md).
+Learn about [Azure Front Door real time monitoring metrics](how-to-monitor-metrics.md).

@@ -4,14 +4,14 @@ description: This document describes the cause of "Health service data is not up
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/26/2018
+ms.date: 01/26/2023
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---

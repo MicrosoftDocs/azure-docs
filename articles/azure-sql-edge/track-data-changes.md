@@ -1,14 +1,13 @@
 ---
 title: Track data changes in Azure SQL Edge
 description: Learn about change tracking and change data capture in Azure SQL Edge.
-keywords:
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 05/19/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 05/19/2020
+services: sql-edge
 ---
 
 # Track data changes in Azure SQL Edge

@@ -4,6 +4,7 @@ description: Web app performance analysis and diagnostics during debugging and i
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
+ms.reviewer: daviste
 ---
 
 # Debug your applications with Azure Application Insights in Visual Studio
@@ -73,6 +74,7 @@ It's also useful if you have some [custom telemetry](./api-custom-events-metrics
   * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Next steps
 

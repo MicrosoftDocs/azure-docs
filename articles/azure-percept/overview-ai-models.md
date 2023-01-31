@@ -1,15 +1,17 @@
 ---
 title: Azure Percept sample AI models
 description: Learn more about the AI models available for prototyping and deployment
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 10/04/2022
 ms.custom: template-concept
 ---
 
 # Azure Percept sample AI models
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Percept enables you to develop and deploy AI models directly to your [Azure Percept DK](./overview-azure-percept-dk.md) from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Model deployment utilizes [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 
@@ -26,7 +28,7 @@ With pre-trained models, no coding or training data collection is required. Simp
 
 ## Reference solutions
 
-A [people counting reference solution](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) is also available. This reference solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure website. AI inferencing is provided by an open-source AI model for people detection.
+A people counting reference solution is also available. This reference solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premises edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure website. AI inferencing is provided by an open-source AI model for people detection.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Spatial analytics pre-built solution gif.":::
 

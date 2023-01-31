@@ -3,9 +3,9 @@ title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 05/10/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python
+ms.devlang: csharp, java, javascript, powershell, python
 ---
 
 # HTTP Features
@@ -45,11 +45,11 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 **index.js**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
 
 **function.json**
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json":::
 
 # [Python](#tab/python)
 
@@ -144,6 +144,24 @@ Push-OutputBinding -Name Response -Value $Response
   ]
 }
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStart")
+public HttpResponseMessage httpStart(
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        @BindingName("functionName") String functionName,
+        final ExecutionContext context) {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance(functionName);
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+    return durableContext.createCheckStatusResponse(req, instanceId);
+}
+```
+
 ---
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
@@ -256,7 +274,11 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-The feature is currently supported in PowerShell.
+This feature isn't available in PowerShell.
+
+# [Java](#tab/java)
+
+This feature isn't available in Java.
 
 ---
 
@@ -358,7 +380,11 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell) 
 
-The feature is currently supported in PowerShell.
+This feature isn't available in PowerShell.
+
+# [Java](#tab/java)
+
+This feature isn't available in Java.
 
 ---
 

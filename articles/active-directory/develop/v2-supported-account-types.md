@@ -1,9 +1,8 @@
 ---
-title: Supported account types | Azure
-titleSuffix: Microsoft identity platform 
+title: Supported account types
 description: Conceptual documentation about audiences and supported account types in applications
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
-ms.author: jmprieur
-ms.reviewer: saeeda
+ms.author: henrymbugua
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 

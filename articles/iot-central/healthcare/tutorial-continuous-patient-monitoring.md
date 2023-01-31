@@ -7,30 +7,42 @@ ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
 ---
 
-# Tutorial: Deploy and walkthrough the continuous patient monitoring app template
+# Tutorial: Deploy and walkthrough the continuous patient monitoring application template
 
-:::image type="content" source="media/cpm-architecture.png" alt-text="Continuous patient monitoring architecture":::
+In the healthcare IoT space, continuous patient monitoring is one of the key enablers of reducing the risk of readmissions, managing chronic diseases more effectively, and improving patient outcomes. Continuous patient monitoring can be split into two major categories:
 
-## Bluetooth Low Energy (BLE) medical devices
+1. **In-patient monitoring**: Using medical wearables and other devices in the hospital, care teams can monitor patient vital signs and medical conditions without having to send a nurse to check up on a patient multiple times a day. Care teams can understand the moment that a patient needs critical attention through notifications and prioritizes their time effectively.
+1. **Remote patient monitoring**: By using medical wearables and patient reported outcomes (PROs) to monitor patients outside of the hospital, the risk of readmission can be lowered. Data from chronic disease patients and rehabilitation patients can be collected to ensure that patients are adhering to care plans and that alerts of patient deterioration can be surfaced to care teams before they become critical.
+
+The application template enables you to:
+
+- Seamlessly connect different kinds of medical wearables to an IoT Central instance.
+- Monitor and manage the devices to ensure they remain healthy.
+- Create custom rules around device data to trigger appropriate alerts.
+- Export your patient health data to the Azure API for FHIR, a compliant data store.
+- Export the aggregated insights into existing or new business applications.
+
+:::image type="content" source="media/cpm-architecture.png" alt-text="Diagram of continuous patient monitoring application architecture." border="false":::
+
+### Bluetooth Low Energy (BLE) medical devices (1)
 
 Many medical wearables used in healthcare IoT solutions are BLE devices. These devices can't communicate directly to the cloud and need to use a gateway to exchange data with your cloud solution. This architecture uses a mobile phone application as the gateway.
 
-## Mobile phone gateway
+### Mobile phone gateway (2)
 
-The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [Continuous Patient Monitoring sample mobile app on GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
+The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [Continuous patient monitoring sample mobile app on GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
 
-## Export to Azure API for FHIR&reg;
+### Export to Azure API for FHIR&reg; (3)
 
 Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
 
-## Machine learning
+### Machine learning (4)
 
 Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure machine learning documentation](../../machine-learning/index.yml).
 
-## Provider dashboard
+### Provider dashboard (5)
 
 Use the Azure API for FHIR data to build a patient insights dashboard or integrate it directly into an electronic medical record used by care teams. Care teams can use the dashboard to assist patients and identify early warning signs of deterioration. To learn more, see the [Build a Power BI provider dashboard](tutorial-health-data-triage.md) tutorial.
 
@@ -41,15 +53,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create Continuous Patient Monitoring application
+## Create application
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab:
-    :::image type="content" source="media/app-manager-health.png" alt-text="Application template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab.
 
-1. Select **Create app** under **Continuous Patient Monitoring**.
+1. Select **Create app** under **Continuous patient monitoring**.
 
 To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
 
@@ -59,7 +69,7 @@ The following sections walk you through the key features of the application:
 
 ### Dashboards
 
-After deploying the app template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On the Woodgrove Hospital operator dashboard, you can:
+After deploying the application template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On the Woodgrove Hospital operator dashboard, you can:
 
 * See device telemetry and properties such as the **battery level** of your device or its **connectivity** status.
 
@@ -71,11 +81,9 @@ After deploying the app template, you'll first land on the **Lamna in-patient mo
 
 * Change the **patient status** of your device to indicate if the device is being used for an in-patient or remote scenario.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="In-patient status":::
-
 You can also select **Go to remote patient dashboard** to see the Burkville Hospital operator dashboard. This dashboard contains a similar set of actions, telemetry, and information. You can also see multiple devices in use and choose to **update the firmware** on each.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Remote operator dashboard":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Screenshot showing the continuous patient monitoring dashboard." lightbox="media/lamna-remote.png":::
 
 ### Device templates
 
@@ -85,7 +93,7 @@ If you select **Device templates**, you see the two device types in the template
 
 - **Smart Knee Brace**: This device represents a knee brace that patients use when recovering from a knee replacement surgery. If you select this template, you see capabilities such as device data, range of motion, and acceleration.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Smart patch template":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Screenshot showing the continuous patient monitoring device template." lightbox="media/smart-vitals-device-template.png":::
 
 ### Device groups
 
@@ -103,7 +111,7 @@ If you select **Rules**, you see the three rules in the template:
 
 - **Patch battery low**: This rule is triggers when the battery level on the device goes below 10%. Use this rule to trigger a notification to the patient to charge their device.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Rules":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Screenshot showing the continuous patient monitoring rule." lightbox="media/brace-temp-rule.png":::
 
 ### Jobs
 
@@ -123,14 +131,11 @@ The **Properties** tab lets you edit cloud properties and read/write device prop
 
 The **Commands** tab lets you run commands on the device.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee brace dashboard":::
-
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Screenshot showing the continuous patient monitoring device." lightbox="media/knee-brace-dashboard.png":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application by visiting **Administration > Application settings** and click **Delete**.
-
-:::image type="content" source="media/admin-delete.png" alt-text="Tidy resources":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
 ## Next steps
 

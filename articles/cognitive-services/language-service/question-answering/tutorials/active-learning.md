@@ -4,8 +4,8 @@ description: In this tutorial, learn how to enrich your question answering proje
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -52,6 +52,9 @@ Once the import of the test file is complete, active learning suggestions can be
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot with review suggestions page displayed.]( ../media/active-learning/review-suggestions.png) ]( ../media/active-learning/review-suggestions.png#lightbox)
+
+> [!NOTE]
+> Active learning suggestions are not real time. There is an approximate delay of 30 minutes before the suggestions can show on this pane. This delay is to ensure that we balance the high cost involved for real time updates to the index and service performance.
 
 We can now either accept these suggestions or reject them using the options on the menu bar to **Accept all suggestions** or **Reject all suggestions**.
 

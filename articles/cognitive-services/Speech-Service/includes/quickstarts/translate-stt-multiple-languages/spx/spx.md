@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/18/2020
-ms.author: eric-urban
+ms.author: eur
 ---
 
 
@@ -22,5 +22,5 @@ The Speech CLI will translate natural language spoken English into text printed 
 Press ENTER to stop the tool.
 
 > [!NOTE]
-> The Speech CLI defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
+> The Speech CLI defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md?tabs=stt).
 > For example, add `--source ja-JP` to recognize Japanese speech.

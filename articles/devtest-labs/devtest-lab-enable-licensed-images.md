@@ -2,6 +2,8 @@
 title: Enable a licensed image in your lab
 description: Learn how to enable a licensed image in Azure DevTest Labs using the Azure portal
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 
@@ -34,7 +36,7 @@ The first step to allowing users to create VMs from a licensed image is to make 
 	- **Terms review needed:** the licensed image is not currently available to users. The terms and conditions of the license must be accepted before lab users can use it to create VMs. 
 
 ## Making a licensed image available to lab users
-To make sure a licensed image is available to lab users, a lab owner with admin permissions must first accept the terms and conditions for that licensed image. Enabling programmatic deployment for the subscription associated with a licensed image automatically accepts the legal terms and privacy statements for that image. [Working with Marketplace Images on Azure Resource Manager](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) provides additional information about programmatic deployment of marketplace images.
+To make sure a licensed image is available to lab users, a lab owner with admin permissions must first accept the terms and conditions for that licensed image. Enabling programmatic deployment for the subscription associated with a licensed image automatically accepts the legal terms and privacy statements for that image. 
 
 You can enable programmatic deployment for a licensed image by following these steps:
 
@@ -67,14 +69,7 @@ You can enable programmatic deployment for a licensed image by following these s
 
 > [!NOTE]
 > Users can create a custom image from a licensed image. See [Create a custom image from a VHD file](devtest-lab-create-template.md) for more information.
->
->
 
-
-## Related blog posts
-
-- [Custom images or formulas?](./devtest-lab-faq.yml#blog-post)
-- [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps
 

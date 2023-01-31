@@ -2,12 +2,12 @@
 title: Schemas for the Microsoft Defender for Cloud alerts
 description: This article describes the different schemas used by Microsoft Defender for Cloud for security alerts.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
 # Security alerts schemas
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If your subscription has enhanced security features enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
 
@@ -15,7 +15,7 @@ You can view these security alerts in Microsoft Defender for Cloud's pages - [ov
 
 - [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Microsoft Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
-- [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
+- [The REST API](/rest/api/defenderforcloud/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/defenderforcloud/alerts).
 
 If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. Also, if you're exporting to an Event Hub or trying to trigger Workflow Automation with generic HTTP connectors, use the schemas to properly parse the JSON objects.
 
@@ -128,7 +128,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**subscriptionId**|The subscription ID of the compromised resource|
 |**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
 |**relatedEvents**|Constant - empty array|
-|||
+
 
 ### [Workflow automation](#tab/schema-workflow-automation)
 
@@ -138,7 +138,7 @@ For the alerts schema when using workflow automation, see the [connectors docume
 
 Defender for Cloud's continuous export feature passes alert data to:
 
-- Azure Event Hub using the same schema as [the alerts API](/rest/api/securitycenter/alerts).
+- Azure Event Hub using the same schema as [the alerts API](/rest/api/defenderforcloud/alerts).
 - Log Analytics workspaces according to the [SecurityAlert schema](/azure/azure-monitor/reference/tables/SecurityAlert) in the Azure Monitor data reference documentation.
 
 ### [MS Graph API](#tab/schema-graphapi)

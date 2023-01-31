@@ -3,16 +3,14 @@ title: Work with Microsoft Sentinel incidents in many workspaces at once | Micro
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 01/09/2022
+ms.date: 01/11/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Work with incidents in many workspaces at once
 
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recommends using a single-workspace environment. However, there are some use cases that require having several workspaces, in some cases – for example, that of a [Managed Security Service Provider (MSSP)](./multiple-tenants-service-providers.md) and its customers – across multiple tenants. **Multiple workspace view** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
+ To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recommends using a single-workspace environment. However, there are some use cases that require having several workspaces, in some cases – for example, that of a [Managed Security Service Provider (MSSP)](./multiple-tenants-service-providers.md) and its customers – across multiple tenants. **Multiple workspace view** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -21,9 +19,8 @@ To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recomme
 When you open Microsoft Sentinel, you are presented with a list of all the workspaces to which you have access rights, across all selected tenants and subscriptions. To the left of each workspace name is a checkbox. Selecting the name of a single workspace will bring you into that workspace. To choose multiple workspaces, select all the corresponding checkboxes, and then select the **View incidents** button at the top of the page.
 
 > [!IMPORTANT]
-> Multiple workspace view currently supports a maximum of 10 concurrently displayed workspaces.
+> Multiple Workspace View now supports a maximum of 100 concurrently displayed workspaces.
 >
-> If you check more than 10 workspaces, a warning message will appear.
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
 

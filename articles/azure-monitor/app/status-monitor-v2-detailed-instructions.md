@@ -2,10 +2,7 @@
 title: Azure Application Insights Agent detailed instructions | Microsoft Docs
 description: Detailed instructions for getting started with Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 04/23/2019
-
 ---
 
 # Application Insights Agent (formerly named Status Monitor v2): Detailed instructions
@@ -17,6 +14,8 @@ We've also provided manual download instructions in case you don't have internet
 ## Get an instrumentation key
 
 To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Run PowerShell as Admin with an elevated execution policy
 
@@ -37,10 +36,8 @@ Install-Module : The 'Install-Module' command was found in the module 'PowerShel
 loaded. For more information, run 'Import-Module PowerShellGet'.
 
 Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.3.1\PackageManagement.psm1 cannot
-be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at
-https:/go.microsoft.com/fwlink/?LinkID=135170.
+be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https://go.microsoft.com/fwlink/?LinkID=135170.
 ```
-
 
 ## Prerequisites for PowerShell
 

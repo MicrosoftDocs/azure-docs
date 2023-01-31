@@ -3,11 +3,11 @@ title: 'Azure AD Connect: Hybrid identity considerations for Azure Government cl
 description: Special considerations for deploying Azure AD Connect with the Azure Government cloud.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -30,8 +30,13 @@ The following information describes implementation of Pass-through Authenticatio
 
 Before you deploy the Pass-through Authentication agent, verify whether a firewall exists between your servers and Azure AD. If your firewall or proxy allows Domain Name System (DNS) blocked or safe programs, add the following connections.
 
-> [!NOTE]
-> The following guidance also applies to installing the [Azure AD Application Proxy connector](../app-proxy/what-is-application-proxy.md) for Azure Government environments.
+> [!IMPORTANT]
+> The following guidance applies only to the following:
+> - the pass-through authentication agent
+> - [Azure AD Application Proxy connector](../app-proxy/what-is-application-proxy.md) 
+>
+> For information on URLS for the Azure Active Directory Connect Provisioning Agent see the [installation pre-requisites](../cloud-sync/how-to-prerequisites.md)  for cloud sync.
+
 
 |URL |How it's used|
 |-----|-----|

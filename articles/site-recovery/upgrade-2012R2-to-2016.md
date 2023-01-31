@@ -2,12 +2,12 @@
 title: Upgrade Windows Server/System Center VMM 2012 R2 to Windows Server 2016-Azure Site Recovery 
 description: Learn how to upgrade Windows Server 2012 R2 hosts & SCVMM 2012 R2 that are configured with Azure Site Recovery, to Windows Server 2016 & SCVMM 2016.
 services: site-recovery
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
-ms.author: sharrai
+ms.author: ankitadutta
 ---
 
 # Upgrade Windows Server Server/System Center 2012 R2 VMM to Windows Server/VMM 2016 
@@ -60,7 +60,7 @@ The list of steps mentioned below applies to the user configuration from [Hyper-
 1. Follow the steps to perform the [rolling cluster upgrade.](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) to execute the rolling cluster upgrade process.
 2. With every new Windows Server 2016 host that is introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by following steps mentioned [here]. This should be the host you chose to drain & evict from the cluster.
 3. Once the *Update-VMVersion* command has been executed for all virtual machines, the upgrades have been completed. 
-4. Use the steps mentioned [here](./hyper-v-azure-tutorial.md#set-up-the-source-environment) to register the new Windows Server 2016 host to Azure Site Recovery. Please note that the Hyper-V site is already active and you just need to register the new host in the cluster. 
+4. Use the steps mentioned [here](./hyper-v-azure-tutorial.md#source-settings) to register the new Windows Server 2016 host to Azure Site Recovery. Please note that the Hyper-V site is already active and you just need to register the new host in the cluster. 
 5. Go to the Azure portal and verify the replicated health status inside the Recovery Services
 
 ## Upgrade Windows Server 2012 R2 hosts managed by stand-alone SCVMM 2012 R2 server

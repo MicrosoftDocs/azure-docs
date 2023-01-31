@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.date: 09/26/2022
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory

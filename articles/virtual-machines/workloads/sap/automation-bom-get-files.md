@@ -1,6 +1,6 @@
 ---
 title: Get SAP media for Bill of Materials
-description: How to download SAP media to use in your Bill of Materials (BOM) for the SAP deployment automation framework on Azure.
+description: How to download SAP media to use in your Bill of Materials (BOM) for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Acquire media for BOM creation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM). To create your BOM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM). To create your BOM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
 
 > [!NOTE]
 > This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
@@ -23,7 +23,7 @@ This guide is for configurations that use either the SAP Application (DB) or HAN
 - An SAP account with permissions to download the SAP software and access the Maintenance Planner.
 - An installation of the [SAP download manager](https://support.sap.com/en/my-support/software-downloads.html) on your computer.
 - Information about your SAP system:
-    - SAP account username and password
+    - SAP account username and password.  The SAP account cannot be linked to a SAP Universal ID.
     - The SAP system product to deploy (such as **S/4HANA**)
     - The SAP System Identifier (SAP SID)
     - Any language pack requirements

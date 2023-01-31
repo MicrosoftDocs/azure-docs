@@ -6,7 +6,7 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/01/2020
+ms.date: 12/20/2022
 ms.author: mimckitt
 
 ---
@@ -327,7 +327,7 @@ Premium Storage caching:  Supported
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Design for high performance](premium-storage-performance.md).
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>2</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 
 <sup>3</sup> Constrained core sizes available.
 
@@ -351,7 +351,7 @@ Premium Storage caching:  Not Supported
 | Standard_G4  | 16 | 224 | 3072 | 48000/750/375 | 64/64x500 | 8/16000 |
 | Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 <br>
 
 ### NV-series

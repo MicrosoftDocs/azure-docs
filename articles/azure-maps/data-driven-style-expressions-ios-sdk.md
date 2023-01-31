@@ -210,7 +210,7 @@ Using this approach can make it easy to reuse style expressions between mobile a
 
 This video provides an overview of data-driven styling in Azure Maps.
 
->[Internet of Things Show - Data-Driven Styling with Azure Maps](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny)
+>[Internet of Things Show - Data-Driven Styling with Azure Maps](/shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny)
 
 ### Constant values
 
@@ -706,7 +706,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ##### Step expression
 
-A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 Step expressions return the output value of the stop just before the input value, or the from value if the input is less than the first stop.
 

@@ -4,14 +4,14 @@ description: Technical resource and guidelines to help you configure a container
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
-# Prepare Azure container technical assets
+# Prepare Azure container technical assets for a container image
 
-This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
+This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace for a container image.
 
 ## Before you begin
 
@@ -52,7 +52,7 @@ You can't deploy an image to Azure Container Instances from an on-premises regis
 
 - If you already have a working container in your local registry, create an Azure Registry and upload your container image to the Azure Container Registry. To learn more, see [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
 
-- If don’t have a container image yet and need to containerize your existing application or create a new container based application,  clone the application source code from GitHub, create a container image from the application source, and test the image in a local Docker environment. To learn more, see [Tutorial: Create a container image for deployment to Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md).
+- If you don't have a container image yet, and you need to containerize your existing application or create a new container-based application, clone the application source code from GitHub, create a container image from the application source, and test the image in a local Docker environment. To learn more, see [Tutorial: Create a container image for deployment to Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md).
 
 ## Next steps
 

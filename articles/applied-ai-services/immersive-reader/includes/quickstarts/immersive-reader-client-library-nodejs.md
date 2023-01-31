@@ -3,13 +3,13 @@ title: Immersive Reader Node.js client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
@@ -54,6 +54,9 @@ npm install axios qs
 
 Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 Do not include quotation marks or the "{" and "}" characters.
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -203,7 +206,7 @@ script(type="text/javascript").
             .then(function (response) {
                 const token = response["token"];
                 const subdomain = response["subdomain"];
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                 const data = {
                     title: $("#ir-title").text(),
                     chunks: [{
@@ -211,7 +214,7 @@ script(type="text/javascript").
                         mimeType: "text/html"
                     }]
                 };
-                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                 const options = {
                     "onExit": exitCallback,
                     "uiZIndex": 2000

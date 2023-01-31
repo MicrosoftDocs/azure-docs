@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: overview
-ms.date: 04/02/2020
+ms.date: 06/23/2022
 
 ---
 
@@ -17,10 +17,17 @@ ms.date: 04/02/2020
 
 The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and pre-configured to jump-start building intelligent applications for advanced analytics.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 The DSVM is available on:
 
 + Windows Server 2019
-+ Ubuntu 18.04 LTS
++ Ubuntu 20.04 LTS
+
+Additionally, we are excited to offer Azure DSVM for PyTorch (preview), which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), as well as an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.
 
 ## Comparison with Azure Machine Learning
 
@@ -57,9 +64,9 @@ The key differences between these two product offerings are detailed below:
 |Built-in<br>Hosted Notebooks     |   No<br>(requires additional configuration)      |      Yes   |
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
-|Pre-installed Tools     |  Jupyter(lab), RStudio Server, VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab)<br> RStudio Server   |
+|Pre-installed Tools     |  Jupyter(lab), VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
-## Sample Use Cases
+## Sample use cases
 
 Below we illustrate some common use cases for DSVM customers.
 

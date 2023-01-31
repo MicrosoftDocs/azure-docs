@@ -48,13 +48,13 @@ This demo will show how you can take an existing Marketplace image (in this case
 
 ### Create the resource group and base VM:
 
-```bash
+```azurecli
 $ az group create --location eastus --name demo1
 ```
 
 Create the base VM:
 
-```bash
+```azurecli
 $ az vm create \
     --resource-group demo1 \
     --name demo1 \
@@ -284,14 +284,14 @@ Now the VM is ready to be generalized and have an image created from it.
 
 Back on your development machine, run the following to prepare for image creation from the base VM:
 
-```bash
+```azurecli
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 And create the image from this VM:
 
-```bash
+```azurecli
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -301,7 +301,7 @@ $ az image create \
 
 Now we are ready to create a new VM (or multiple VMs) from the image:
 
-```bash
+```azurecli
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \

@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 05/06/2021
+ms.date: 09/26/2022
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -235,6 +235,9 @@ the page.
     >|**SQL MI 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
     >|**SQL MI 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
     
+    >[!Note]
+    > Run the script again every time you restart the VMs behind the load balancer.
+
 ## Create a Private Endpoint to Private Link Service
 
 1. Select All services in the left-hand menu, select All resources, and then select your 

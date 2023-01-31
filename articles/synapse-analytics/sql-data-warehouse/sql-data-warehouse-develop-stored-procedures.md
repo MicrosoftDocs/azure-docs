@@ -1,7 +1,6 @@
 ---
 title: Using stored procedures
 description: Tips for developing solutions by implementing stored procedures for dedicated SQL pools in Azure Synapse Analytics.
-services: synapse-analytics
 author: MSTehrani 
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/02/2019
 ms.author: emtehran
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 

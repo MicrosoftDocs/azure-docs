@@ -7,7 +7,7 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 05/02/2022
 ---
 
 # Convert to new App Configuration Spring Boot library
@@ -29,12 +29,12 @@ All of the Azure Spring Boot libraries have had their Group and Artifact IDs upd
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.0.0-beta.2</version>
+    <version>2.6.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.0.0-beta.2</version>
+    <version>2.6.0</version>
 </dependency>
 ```
 
@@ -61,7 +61,7 @@ az appconfig kv import -n your-stores-name -s file --format properties --label d
 
 or use the Import/Export feature in the portal.
 
-When you are completely moved to the new version, you can removed the old keys by running:
+When you are completely moved to the new version, you can remove the old keys by running:
 
 ```azurecli
 az appconfig kv delete -n ConversionTest --key /application_dev/*
@@ -71,7 +71,7 @@ This command will list all of the keys you are about to delete so you can verify
 
 ## Which configurations are loaded
 
-The default case of loading configuration matching `/applicaiton/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
+The default case of loading configuration matching `/application/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=/${spring.application.name}/*

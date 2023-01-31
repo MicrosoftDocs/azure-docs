@@ -1,13 +1,12 @@
 ---
 title: Configure consulting service offer listing details for the commercial marketplace
 description: Configure consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: emuench
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 03/17/2022
 ---
 
 # Configure consulting service offer listing details
@@ -21,13 +20,13 @@ On the **Offer listing** page, provide the information described below. To learn
 
 ## Offer details
 
-1.	The **Name** box is pre-filled with the name you entered earlier in the **New offer** dialog box, but you can change it at any time. This name will appear as the title of your offer listing on the online store.
+1. The **Name** box is pre-filled with the name you entered earlier in the **New offer** dialog box, but you can change it at any time. This name will appear as the title of your offer listing on the online store.
 
     > [!IMPORTANT]
     > The offer name must be in the format *Name: Duration + type*. For more information, see [offer listing details](./plan-consulting-service-offer.md#offer-listing-details).
 
 2. In the **Search results summary** box, describe the purpose or goal of your offer in 200 characters or less.
-3. In the **Description** field, describe your consulting service offer. You can use HTML tags to format your description. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
+3. In the **Description** field, describe your consulting service offer. You can use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
 4. You have the option to enter up to three **search keywords**. These keywords will help customers find your offer in the online store. You don't need to include the offer name and description.
 5. Enter the expected duration of your consulting service in the **Duration** drop-down lists. The duration you select must match the duration you mentioned in the offer name.
 
@@ -40,6 +39,9 @@ Enter the name, email address, and phone number of two people in your company (y
 Add at least one and up to three PDF documents to support your offer listing. After you’ve uploaded each file, provide a name for the document. This name will be displayed in your offer listing.
 
 ## Marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 > [!NOTE]
 > If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.

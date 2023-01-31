@@ -1,13 +1,12 @@
 ---
 title: Test and publish an Azure application offer 
 description: Submit your Azure application offer to preview, preview your offer, test, and publish it to Azure Marketplace. 
-author: aarathin
-ms.author: aarathin
-ms.reviewer: dannyevers
+author: macerru
+ms.author: macerr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 9/14/2022
 ---
 
 # Test and publish an Azure application offer

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/12/2021
+ms.date: 10/03/2022
 ms.author: lajanuar
 ---
 
@@ -38,15 +38,12 @@ Request parameters passed on the query string are:
 
 ### Optional parameters
 
-
-
 | Query parameter | Description |
 | --- | --- |
 
-
 | Query parameter | Description |
 | --- | --- |
-| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. |
+| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to-create-project.md#view-project-details) to this parameter to use your deployed customized system. Default value is: `general`. |
 | profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
@@ -56,7 +53,7 @@ Request parameters passed on the query string are:
 | suggestedFrom | _Optional parameter_.  <br>Specifies a fallback language if the language of the input text can't be identified. Language autodetection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed. |
 | fromScript | _Optional parameter_.  <br>Specifies the script of the input text. |
 | toScript | _Optional parameter_.  <br>Specifies the script of the translated text. |
-| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system does not exist. |
+| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. |
 
 Request headers include:
 
@@ -77,48 +74,45 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 ]
 ```
 
-The following limitations apply:
-
-* The array can have at most 100 elements.
-* The entire text included in the request cannot exceed 10,000 characters including spaces.
+For information on character and array limits, _see_ [Request limits](../request-limits.md#character-and-array-limits-per-request).
 
 ## Response body
 
 A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
 
-  * `detectedLanguage`: An object describing the detected language through the following properties:
+* `detectedLanguage`: An object describing the detected language through the following properties:
 
-      * `language`: A string representing the code of the detected language.
+  * `language`: A string representing the code of the detected language.
 
-      * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
+  * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+    The `detectedLanguage` property is only present in the result object when language auto-detection is requested.
 
-  * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
+* `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
-    * `to`: A string representing the language code of the target language.
+  * `to`: A string representing the language code of the target language.
 
-    * `text`: A string giving the translated text.
+  * `text`: A string giving the translated text.
 
-    * `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
+* `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
 
-      * `script`: A string specifying the target script.
+  * `script`: A string specifying the target script.
 
-      * `text`: A string giving the translated text in the target script.
+  * `text`: A string giving the translated text in the target script.
 
-    The `transliteration` object is not included if transliteration does not take place.
+    The `transliteration` object isn't included if transliteration doesn't take place.
 
     * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the alignment element will be empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
-    * `sentLen`: An object returning sentence boundaries in the input and output texts.
+* `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-      * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
+  * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-      * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+  * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 
-  * `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
+* `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
 
 Examples of JSON responses are provided in the [examples](#examples) section.
 
@@ -126,18 +120,24 @@ Examples of JSON responses are provided in the [examples](#examples) section.
 
 | Headers | Description |
 | --- | --- |
-| X-RequestId | Value generated by the service to identify the request. It is used for troubleshooting purposes. |
-| X-MT-System | Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:  <br><br>* Custom - Request includes a custom system and at least one custom system was used during translation.<br>* Team - All other requests |
+| X-requestid | Value generated by the service to identify the request. It's used for troubleshooting purposes. |
+| X-mt-system | Specifies the system type that was used for translation for each 'to' language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:  <br><br>* Custom - Request includes a custom system and at least one custom system was used during translation.<br>* Team - All other requests |
+| X-metered-usage |Specifies consumption (the number of characters for which the user will be charged) for the translation job request. For example, if the word "Hello" is translated from English (en) to French (fr), this field will return the value '5'.|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-| ProfanityAction | Action |
+|Status code | Description |
 | --- | --- |
-| `NoAction` |NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
-| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is  |
-| `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;. |
+|200 | Success. |
+|400 |One of the query parameters is missing or not valid. Correct request parameters before retrying. |
+|401 | The request couldn't be authenticated. Check that credentials are specified and valid. |
+|403 | The request isn't authorized. Check the details error message. This status code often indicates that all free translations provided with a trial subscription have been used up. |
+|408 | The request couldn't be fulfilled because a resource is missing. Check the details error message. When the request includes a custom category, this status code often indicates that the custom translation system isn't yet available to serve requests. The request should be retried after a waiting period (for example, 1 minute). |
+|429 | The server rejected the request because the client has exceeded request limits. |
+|500 |  An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId. |
+|503 |Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId. |
 
 If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors).
 
@@ -167,7 +167,7 @@ The `translations` array includes one element, which provides the translation of
 
 ### Translate a single input with language autodetection
 
-This example shows how to translate a single sentence from English to Simplified Chinese. The request does not specify the input language. Autodetection of the source language is used instead.
+This example shows how to translate a single sentence from English to Simplified Chinese. The request doesn't specify the input language. Autodetection of the source language is used instead.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
@@ -270,9 +270,9 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 
 | ProfanityAction | Action |
 | --- | --- |
-| `NoAction` | NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
-| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a. |
-| `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;. |
+| `NoAction` | NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a jack---. |
+| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a** |
+| `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a &lt;profanity&gt;jack---&lt;/profanity&gt;. |
 
 For example:
 
@@ -312,14 +312,14 @@ That last request returns:
 
 ### Translate content with markup and decide what's translated
 
-It's common to translate content that includes markup such as content from an HTML page or content from an XML document. Include query parameter `textType=html` when translating content with tags. In addition, it's sometimes useful to exclude specific content from translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element will not be translated, while the content in the second `div` element will be translated.
+It's common to translate content that includes markup such as content from an HTML page or content from an XML document. Include query parameter `textType=html` when translating content with tags. In addition, it's sometimes useful to exclude specific content from translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element won't be translated, while the content in the second `div` element will be translated.
 
 ```
 <div class="notranslate">This will not be translated.</div>
 <div>This will be translated. </div>
 ```
 
-Here is a sample request to illustrate.
+Here's a sample request to illustrate.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -372,16 +372,17 @@ The response is:
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
 #### Limitations
-Obtaining alignment information is an experimental feature that we have enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this in the future. Here are some of the notable restrictions where alignments are not supported:
 
-* Alignment is not available for text in HTML format i.e., textType=html
+Obtaining alignment information is an experimental feature that we've enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this feature in the future. Here are some of the notable restrictions where alignments aren't supported:
+
+* Alignment isn't available for text in HTML format that is, textType=html
 * Alignment is only returned for a subset of the language pairs:
-  - English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
-  - from Japanese to Korean or from Korean to Japanese.
-  - from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
-  - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
-* You will not receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
-* Alignment is not available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
+  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
+  * from Japanese to Korean or from Korean to Japanese.
+  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
+  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
+* You won't receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
+* Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries
 
@@ -393,12 +394,12 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 The response is:
 
-```
+```json
 [
     {
         "translations":[
             {
-                "text":"La réponse se trouve dans la traduction automatique. La meilleure technologie de traduction automatique ne peut pas toujours fournir des traductions adaptées à un site ou des utilisateurs comme un être humain. Il suffit de copier et coller un extrait de code n’importe où.",
+                "text":"La réponse se trouve dans la traduction automatique. La meilleure technologie de traduction automatique ne peut pas toujours fournir des traductions adaptées à un site ou des utilisateurs comme un être humain. Il suffit de copier et coller un extrait de code n'importe où.",
                 "to":"fr",
                 "sentLen":{"srcSentLen":[40,117,46],"transSentLen":[53,157,62]}
             }
@@ -409,7 +410,7 @@ The response is:
 
 ### Translate with dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names.
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names. **Note**: the dynamic dictionary feature is case-sensitive.
 
 The markup to supply uses the following syntax.
 
@@ -420,7 +421,7 @@ The markup to supply uses the following syntax.
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">wordomatic</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -435,4 +436,9 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
+This dynamic-dictionary feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you can create training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../customization.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the Translator quickstart](../quickstart-translator.md)

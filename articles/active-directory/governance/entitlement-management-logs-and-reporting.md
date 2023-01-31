@@ -1,18 +1,18 @@
 ---
-title: Archive & report with Azure Monitor - Azure AD entitlement management
-description: Learn how to archive logs and create reports with Azure Monitor in Azure Active Directory entitlement management.
+title: Archive & report with Azure Monitor - entitlement management
+description: Learn how to archive logs and create reports with Azure Monitor in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 5/19/2021
-ms.author: ajburnle
+ms.date: 01/25/2023
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -21,27 +21,25 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator, I want to extend data retention in entitlement management past the default period by using Azure Monitor.
 
 ---
-# Archive logs and reporting on Azure AD entitlement management in Azure Monitor
+# Archive logs and reporting on entitlement management in Azure Monitor
 
 Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by routing it to an Azure Storage account or using Azure Monitor. You can then use workbooks and custom queries and reports on this data.
 
 
 ## Configure Azure AD to use Azure Monitor
-Before using the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
+Before you use the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
 Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
-**Prerequisite role**: Global Admin
+**Prerequisite role**: Global Administrator
 
-1. Sign in to the Azure portal as a user who is a Global Admin. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the Azure portal as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then click **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor)
-to send the Azure AD audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
-
 
 1. After the log is sent to Azure Monitor, select **Log Analytics workspaces**, and select the workspace that contains the Azure AD audit logs.
 
@@ -55,15 +53,14 @@ to send the Azure AD audit log to the Azure Monitor workspace.
     
     1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
 
-
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#azure-rbac) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
 - Security reader  
-- Report reader  
+- Reports reader  
 - Application administrator  
 
 Use the following procedure to view events: 
@@ -113,7 +110,7 @@ For more information on the columns that are stored for audit events in Azure Mo
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
-You can access logs through PowerShell after you've configured Azure AD to send logs to Azure Monitor. Then, send queries from scripts or the PowerShell command line, without needing to be a Global Admin in the tenant. 
+You can access logs through PowerShell after you've configured Azure AD to send logs to Azure Monitor. Then, send queries from scripts or the PowerShell command line, without needing to be a Global Administrator in the tenant. 
 
 ### Ensure the user or service principal has the correct role assignment
 
@@ -188,5 +185,5 @@ $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -
 $bResponse.Results |ft 
 ```
 
-## Next steps:
+## Next steps
 - [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

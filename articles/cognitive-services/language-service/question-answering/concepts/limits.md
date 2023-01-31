@@ -3,8 +3,8 @@ title: Limits and boundaries - question answering
 description: Question answering has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
 ms.date: 11/02/2021
 ---
@@ -17,11 +17,15 @@ Question answering limits provided below are a combination of the [Azure Cogniti
 
 The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md).
 
-|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
+Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of knowledge bases you need based on number of different subject domains. One subject domain (for a single language) should be in one knowledge base.
 
- For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (one index per published knowledge base). The 15th index, `testkb`, is used for all the knowledge bases for authoring and testing.
+With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://language.azure.com/).
+
+  > [!IMPORTANT]
+  > You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+
+For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
+
 
 ## Extraction limits
 
@@ -47,7 +51,7 @@ File names may not include the following characters:
 ### Maximum number of files
 
 > [!NOTE]
-> Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+> Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 text records per second for both management APIs and prediction APIs.
 
 ### Maximum number of deep-links from URL
 

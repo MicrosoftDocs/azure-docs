@@ -8,6 +8,9 @@ ms.date: 05/05/2021
 ---
 # Regular expression entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A regular expression entity extracts an entity based on a regular expression pattern you provide.
 
 A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.NET Regex](/dotnet/standard/base-types/regular-expressions) library.
@@ -83,5 +86,5 @@ This is the JSON if `verbose=true` is set in the query string:
 
 Learn more about entities:
 
-* [Concepts](luis-concept-entity-types.md)
-* [How to create](luis-how-to-add-entities.md)
+* [Entity types](concepts/entities.md)
+* [Create entities](how-to/entities.md)

@@ -1,12 +1,14 @@
 ---
 title: Change ReliableDictionaryActorStateProvider settings
 description: Learn about configuring Azure Service Fabric stateful actors of type ReliableDictionaryActorStateProvider.
-author: sumukhs
-
-ms.topic: conceptual
-ms.date: 10/2/2017
-ms.author: sumukhs
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Configuring Reliable Actors--ReliableDictionaryActorStateProvider
 You can modify the default configuration of ReliableDictionaryActorStateProvider by changing the settings.xml file generated in the Visual Studio package root under the Config folder for the specified actor.
 

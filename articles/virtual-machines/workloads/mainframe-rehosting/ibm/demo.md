@@ -5,10 +5,10 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 documentationcenter:
-author: njray
-manager: edprice
-ms.author: edprice
-editor: edprice
+author: swread
+ms.author: sread
+editor: swread
+manager: mamccrea 
 ms.topic: conceptual
 ms.date: 02/22/2019
 tags:
@@ -74,7 +74,7 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
     `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
-5. Upload the files using an SSH client such as[WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
+5. Upload the files using an SSH client such as [WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
 
 6. Initiate the upload to the Azure VM directory you created, which becomes the image storage for zD&T.
 
