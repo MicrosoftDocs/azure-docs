@@ -42,13 +42,13 @@ In this quickstart guide, you'll learn how to submit a Spark job using Azure Mac
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
-- [Install Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2).
+- [Install Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme).
 
 > [!TIP]
 > You can submit a Spark job from:
 >  - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
 >  - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
->  - your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+>  - your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
 # [Studio UI](#tab/studio-ui)
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.

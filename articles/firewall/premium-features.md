@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Azure Firewall Premium features
 
-:::image type="content" source="media/premium-features/icsa-cert-firewall-small.png" alt-text="ICSA certification logo" border="false"::::::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
+:::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
 
 Azure Firewall Premium provides advanced threat protection that meets the needs of highly sensitive and regulated environments, such as the payment and healthcare industries. 
 

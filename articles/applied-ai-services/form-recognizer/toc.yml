@@ -87,6 +87,9 @@ items:
     - name: Container image tags
       displayName: registry, mcr
       href: containers/form-recognizer-container-image-tags.md
+    - name: Disconnected containers
+      displayName: docker, commitment, plan, environment, usage
+      href: containers/form-recognizer-disconnected-containers.md
   - name: Configure secure communications
     items:
     - name: Set up Virtual Networks

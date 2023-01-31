@@ -164,7 +164,7 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
-Pre-allocation of SNAT ports to each virtual machine isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
+Pre-allocation of SNAT ports to each virtual machine is required for other SNAT methods. This pre-allocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound. With NAT gateway, pre-allocation of SNAT ports isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
 :::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
@@ -195,8 +195,8 @@ The following table provides information about when a TCP port becomes available
 | Timer | Description | Value |
 |---|---|---|
 | TCP FIN | After a connection is closed by a TCP FIN packet, a 65-second timer is activated that holds down the SNAT port. The SNAT port will be available for reuse after the timer ends. | 65 seconds |
-| TCP RST | After a connection is closed by a TCP RST packet (reset), a 20-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
-| TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 25-second timer is activated. If no traffic is detected, the connection will close. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 25 seconds |
+| TCP RST | After a connection is closed by a TCP RST packet (reset), a 16-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
+| TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 30-second timer is activated. If no traffic is detected, the connection will close. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 30 seconds |
 
 For UDP traffic, after a connection has closed, the port will be in hold down for 65 seconds before it's available for reuse.
 
