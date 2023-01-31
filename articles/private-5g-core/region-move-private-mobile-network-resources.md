@@ -19,10 +19,10 @@ You might move your resources to another region for a number of reasons. For exa
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Ensure Azure Private 5G Core supports the region to which you want to move your resources. <!-- Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) -->
+- Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file. <!-- TODO: See <link> for instructions on how to obtain this. -->
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Back up deployment information
 
@@ -34,6 +34,7 @@ The following list contains the data that will be lost over the region move. Bac
     - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 
+1. All traces are deleted during upgrade and cannot be retrieved. If you want to retain any traces, [export and save](distributed-tracing-share-traces.md#export-trace-from-the-distributed-tracing-web-gui) them securely before continuing.
 1. Any customizations made to the packet core dashboards won't be carried over the region move. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
 1. Most UEs will automatically re-register and recreate any sessions after the region move completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
@@ -125,5 +126,5 @@ Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packe
 
 ## Next steps
 
-If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
-<!-- TODO: Learn more about reliability in Azure Private 5G Core. -->
+- If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+- Learn more about [reliability in Azure Private 5G Core](reliability-private-5g-core.md).

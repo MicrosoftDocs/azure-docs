@@ -22,7 +22,7 @@ In this how-to guide, you'll carry out the steps you need to complete after depl
 - You must have deployed a site with Azure Active Directory set as the authentication type.
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
-- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file. <!-- TODO: See [Set up kubectl access](commission-a-cluster.md#set-up-kubectl-access) for instructions on how to obtain this. -->
+- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Configure domain system name (DNS) for local monitoring IP
 
