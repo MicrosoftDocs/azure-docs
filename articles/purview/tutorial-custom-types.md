@@ -47,7 +47,7 @@ Essentially, a *Type* can be seen as a *Class* from Object Oriented Programming 
 You can see all type definitions in your Purview account by sending a `GET` request to [All Type Definitions](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-all-type-definitions) endpoint:
 
 ```
-GET {Endpoint}/catalog/api/atlas/v2/types/typedefs
+GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedefs
 ```
 
 Alternatively, you can use the [Microsoft Purview Custom Types Tool](https://github.com/microsoft/Purview-Custom-Types-Tool-Solution-Accelerator) to visualize all the type definitions.
@@ -71,7 +71,7 @@ To better understand the Type system, let us look at an example and see how an *
 You can get the complete type definition by sending a `GET` request to the Type Definition [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP):
 
 ```
-GET {Endpoint}/catalog/api/atlas/v2/types/typedef/name/{name}
+GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
 ```
 
 >[!TIP]
@@ -174,7 +174,7 @@ In the example above, *azure_sql_table_columns* is the name of the relationship 
 For the full definition, you can do make a `GET` request to the following [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP) using *azure_sql_table_columns* as the name:
 
 ```
-GET {Endpoint}/catalog/api/atlas/v2/types/typedef/name/azure_sql_table_columns
+GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/azure_sql_table_columns
 ```
 
 Below you can see a simplified JSON result:
@@ -216,7 +216,7 @@ Below you can see a simplified JSON result:
 
   * **isContainer** is a boolean and is related to the *cardinality* of this relationship. If the *cardinality* is set to **SET** or **LIST** then *isContainer* should be set to True. This describes whether the relationship is a one-to-one relationship or one-to-many. For example, in a SQL Table, *columns* relationship (of type *azure_sql_table_columns*) is a one-to-many relationship between a table and its columns.
 
-**endDef2** is the second end of the definition and describes, similarly to endDef1, the properties of the second part of the relationship.
+* **endDef2** is the second end of the definition and describes, similarly to endDef1, the properties of the second part of the relationship.
 
 ## 4 - Schema tab
 
@@ -231,7 +231,7 @@ The question is, how did Purview select the *data_tye* property from the column 
 You can get the type definition of an Azure SQL Column by making a `GET` request to the [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP):
 
 ```
-GET {Endpoint}/catalog/api/atlas/v2/types/typedef/name/{name}
+GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
 ```
 
 > [!NOTE] {name} in this case is: azure_sql_column
@@ -276,8 +276,16 @@ Azure SQL Table used *schemaElementAttribute* to point to a relationship consist
 In this way the Schema tab in the table will display the attribute(s) listed in the *schemaAttributes* of the related assets.
 
 ## 5 - Create custom type definitions
+### Why? 
+First, why would someone like to create a custom type definition?
+ 
+There can be cases where there is no built-in type that corresponds to the structure of the metadata you want to import in Microsoft Purview.
+ 
+In such a case, a new type definition has to be defined.
 
-Now that we have an understanding of type definitions in general, let us create custom type definitions.
+> [!NOTE] The usage of built-in types should be favored over the creation of custom types, whenever possible.
+ 
+Now that we gained an understanding of type definitions in general, let us create custom type definitions.
 
 ### Scenario
 
@@ -293,7 +301,7 @@ They should be linked together through a 1:n relationship.
 ### 5.1 Create the *custom_type_parent* type defininion by making a `POST` request to:
 
 ``` 
-POST https://{{endpoint}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
+POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```
 
 with the body:
@@ -324,7 +332,7 @@ with the body:
 ### 5.2 Create the *custom_type_child* type defininion by making a `POST` request to:
 
 ```
-POST https://{{endpoint}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
+POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```
 
 with the body:
