@@ -3,7 +3,7 @@ title: "Create your first C# durable function running in the isolated worker"
 description: Create and publish a C# Azure Durable Function running in the isolated worker using Visual Studio or Visual Studio Code.
 author: jiayma
 ms.topic: quickstart
-ms.date: 01/26/2023
+ms.date: 01/31/2023
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
@@ -86,6 +86,7 @@ The most basic Durable Functions app contains the following three functions. Add
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;
+using Microsoft.DurableTask.Client;
 using Microsoft.Extensions.Logging;
 
 static class HelloSequence
@@ -111,15 +112,15 @@ static class HelloSequence
     [Function(nameof(StartHelloCities))]
     public static async Task<HttpResponseData> StartHelloCities(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-        [DurableClient] DurableClientContext durableContext,
+        [DurableClient] DurableTaskClient client,
         FunctionContext executionContext)
     {
         ILogger logger = executionContext.GetLogger(nameof(StartHelloCities));
 
-        string instanceId = await durableContext.Client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
+        string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
         logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
 
-        return durableContext.CreateCheckStatusResponse(req, instanceId);
+        return client.CreateCheckStatusResponse(req, instanceId);
     }
 }
 ```
@@ -170,14 +171,14 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
 
     ```json
     {
-        {"name":"HelloCities",
+        "name":"HelloCities",
         "instanceId":"7f99f9474a6641438e5c7169b7ecb3f2",
         "runtimeStatus":"Completed",
         "input":null,
         "customStatus":null,
         "output":"Hello, Tokyo! Hello, London! Hello, Seattle!",
         "createdTime":"2023-01-31T18:48:49Z",
-        "lastUpdatedTime":"2023-01-31T18:48:56Z"}
+        "lastUpdatedTime":"2023-01-31T18:48:56Z"
     }
     ```
 
@@ -236,7 +237,7 @@ The Azure Functions template creates a project that can be published to a functi
 
 4. Under **Additional information**, use the settings specified in the table that follows the image.
 
-    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolate-vs-new-function.png" alt-text="Screenshot of create a new Azure Functions Application dialog in Visual Studio.":::
+    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-function.png" alt-text="Screenshot of create a new Azure Functions Application dialog in Visual Studio.":::
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -305,6 +306,7 @@ static class HelloSequence
         return client.CreateCheckStatusResponse(req, instanceId);
     }
 }
+
 ```
 | Method | Description |
 | -----  | ----------- |
