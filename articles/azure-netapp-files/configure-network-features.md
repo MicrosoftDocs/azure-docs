@@ -54,7 +54,7 @@ Two settings are available for network features:
 
 * When restoring a backup to a new volume, the new volume can be configure with Basic or Standard network features. 
 
-* Conversion between Basic and Standard networking features in either direction is not currently supported.
+* Conversion between Basic and Standard network features in either direction is not currently supported.
   
 ## Set the Network Features option
 
