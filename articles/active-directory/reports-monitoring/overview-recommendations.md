@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory recommendations (preview)? | Microsoft Docs
+title: What is Azure Active Directory recommendations? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory recommendations.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/23/2023
+ms.date: 01/31/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -92,23 +92,23 @@ Azure AD only displays the recommendations that apply to your tenant, so you may
 
 The recommendations listed in the following table are available to all Azure AD tenants. The table provides the impacted resources and links to available documentation.
 
-| Recommendation  | Impacted resources |
-|---- |---- |
-| [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users |
-| [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users |
-| [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users |
-| [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users |
+| Recommendation  | Impacted resources | Availability |
+|---- |---- |---- |
+| [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users | Generally available |
+| [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users | Generally available |
+| [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | Preview |
+| [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users | Generally available |
 
 ### Recommendations available for Workload Identities premium licenses
 
 The recommendations listed in the following table are available to Azure AD tenants with a Workload Identities premium license. 
 
-| Recommendation  | Impacted resources |
-|---- |---- |
-| Remove unused applications | Applications | Workload Identities |
-| Remove unused credentials from applications | Applications | Workload Identities |
-| Renew expiring application credentials | Applications | Workload Identities |
-| Renew expiring service principal credentials | Applications | Workload Identities |
+| Recommendation  | Impacted resources | Availability |
+|---- |---- |---- |
+| Remove unused applications | Applications | Preview |
+| Remove unused credentials from applications | Applications | Preview |
+| Renew expiring application credentials | Applications | Preview |
+| Renew expiring service principal credentials | Applications | Preview |
 
 ## How to use Azure AD recommendations
 
@@ -138,8 +138,31 @@ The recommendations listed in the following table are available to Azure AD tena
 
 Continue to monitor the recommendations in your tenant for changes.
 
+### Use the Microsoft Graph API with Azure Active Directory recommendations
+
+Azure Active Directory recommendations can be viewed and managed using `/beta` Microsoft Graph APIs. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
+
+To get started, follow these instructions to list all your recommendations using the Microsoft Graph API in Graph Explorer:
+
+1. Sign in to the [Graph Explorer](https://aka.ms/ge).
+1. Select **GET** as the HTTP method from the dropdown.
+1. Set the API version to **beta**.
+1. Add the following query to use the [List recommendations](/graph/api/directory-list-recommendation)
+    ```http
+    GET https://graph.microsoft.com/beta/directory/recommendations
+    ```
+1. Select **Run query** to list any recommendations in your tenant.
+1. To view the details of a recommendation in the list, use the following API. The example is using the [Convert from per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) recommendation as an example.
+    ```http
+    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'
+    ```
+1. To view the impacted resources for the recommendation, find the response object `id` and enter it into the following API:
+    ```http
+    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=id eq '0cb31920-84b9-471f-a6fb-468c1a847088_Microsoft.Identity.IAM.Insights.switchFromPerUserMFA'&$expand=impactedResources
+    ```
 ## Next steps
 
-* [Activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md)
+* [Learn more about Microsoft Graph](/graph/overview)
+* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
 * [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Send logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)

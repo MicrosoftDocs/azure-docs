@@ -43,4 +43,6 @@ Updating to Azure AD Connect V2 brings into alignment several protocols and stan
 
 ## Next steps
 
-- [What is Azure Active Directory recommendations](overview-recommendations.md)
+* [What is Azure Active Directory recommendations](overview-recommendations.md)
+* [Learn more about Microsoft Graph](/graph/overview)
+* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
