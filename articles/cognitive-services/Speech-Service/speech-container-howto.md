@@ -508,7 +508,7 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
-For Speech Service container specific additional configuration see
+For Speech Service container specific additional configuration see [Speech Containers](..//containers/disconnected-containers#speech-containers).
 
 ## Query the container's prediction endpoint
 
@@ -697,4 +697,5 @@ In this article, you learned concepts and workflow for how to download, install,
 * Review [configure containers](speech-container-configuration.md) for configuration settings.
 * Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
 * Use more [Cognitive Services containers](../cognitive-services-container-support.md).
+
 
