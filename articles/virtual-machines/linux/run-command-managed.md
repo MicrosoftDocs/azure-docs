@@ -1,5 +1,5 @@
 ---
-title: Run scripts in a Linux VM in Azure using managed Run Commands (preview)
+title: Run scripts in a Linux VM in Azure using managed Run Commands
 description: This topic describes how to run scripts within an Azure Linux virtual machine by using the updated managed Run Command feature.
 services: automation
 ms.service: virtual-machines
