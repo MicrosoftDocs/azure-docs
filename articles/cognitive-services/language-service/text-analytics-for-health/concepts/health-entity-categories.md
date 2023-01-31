@@ -182,7 +182,7 @@ Text Analytics for health detects medical concepts that fall under the following
 
 :::image type="content" source="../media/entities/living-status-entity.png" alt-text="Example of a living status entity." lightbox="../media/entities/living-status-entity.png":::
 
-**SUBSTANCE_USE** – Mentions of use of legal or illegal drugs, tobacco or alcohol. For example, smoking, drinking, or heroine use.
+**SUBSTANCE_USE** – Mentions of use of legal or illegal drugs, tobacco or alcohol. For example, smoking, drinking, or heroin use.
 
 :::image type="content" source="../media/entities/substance-use-entity.png" alt-text="Example of a substance use entity." lightbox="../media/entities/substance-use-entity.png":::
 
