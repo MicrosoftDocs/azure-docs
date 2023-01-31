@@ -19,7 +19,15 @@ This article highlights the best methods for labeling custom model datasets in t
 
 ## Video: Custom labels best practices
 
+The following is the second of two videos intended to help you build custom
+models with higher accuracy.
 
+* This video (part two), explores the best practices for labeling your selected documents. With consistent labeling and following these best practices, you
+should see an improvement in model performance.
+
+> [!VIDEO ]
+
+* The first video (part one) explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers-part-one).
 
 ## Search
 

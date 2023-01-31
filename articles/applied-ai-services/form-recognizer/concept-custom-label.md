@@ -32,16 +32,16 @@ A labeled dataset consists of several files:
 
   * A `{file}.labels.json` file is created or updated when a field is labeled in a document. The label file contains the spans of text and associated polygons from the layout output for each span of text the user adds as a value for a specific field.
 
-## Video: Custom label tips and pointers (part 1)
+## Video: Custom label tips and pointers (part one)
 
-* The following is the first of two videos intended to help you build custom
-models with higher accuracy. Here, we'll look at the
-concept of a balanced data set and see how selecting the right
-documents to label can set you on the path to a higher quality model.
+The following is the first of two videos intended to help you build custom
+models with higher accuracy.
+
+* This video (part one), explores how to create a balanced data set and select the right documents to label. The process will set you on the path to a higher quality model.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
 
-* The second video presents [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices)
+* The second video (part two), presents the [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices).
 
 ## Create a balanced dataset
 
