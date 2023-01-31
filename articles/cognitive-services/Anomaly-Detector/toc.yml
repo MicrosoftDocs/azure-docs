@@ -10,7 +10,7 @@
     - name: What's new
       href: whats-new.md
     - name: Service limits
-      href: sevice-limits.md
+      href: service-limits.md
     - name: FAQ
       href: faq.yml
 - name: Quickstarts
