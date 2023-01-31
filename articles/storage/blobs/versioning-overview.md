@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: normesta
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Blob versioning

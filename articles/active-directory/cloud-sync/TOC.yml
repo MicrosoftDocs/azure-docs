@@ -72,6 +72,8 @@
       href: how-to-gmsa-cmdlets.md
     - name: How to map usertype with cloud sync
       href: how-to-map-usertype.md
+    - name: Azure AD cloud sync insights workbook
+      href: how-to-cloud-sync-workbook.md
   - name: Develop
     items:
     - name: Transformations
