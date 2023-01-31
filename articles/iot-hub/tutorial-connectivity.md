@@ -38,6 +38,8 @@ In this tutorial, you learn how to:
     * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
+  [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
+
 * The sample application that you run in this tutorial uses Node.js. You need Node.js v10.x.x or later on your development machine.
 
   * You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
@@ -51,7 +53,9 @@ In this tutorial, you learn how to:
 
 * Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [iot-hub-create-hub-quickstart](../../includes/iot-hub-create-hub-quickstart.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 
 ## Check device authentication
 
