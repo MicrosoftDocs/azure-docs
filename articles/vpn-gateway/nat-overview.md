@@ -7,7 +7,7 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cherylmc
-
+ms.custom: template-concept
 ---
 # About NAT on Azure VPN Gateway
 
