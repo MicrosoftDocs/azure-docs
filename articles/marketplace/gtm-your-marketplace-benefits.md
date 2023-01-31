@@ -72,7 +72,7 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 When you go live with your transactable offer in either Microsoft AppSource or Azure Marketplace, you can access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace.
 
 >[!NOTE]
->Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2022.
+>Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2023.
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
