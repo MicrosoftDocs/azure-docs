@@ -128,7 +128,7 @@ if (backgroundReplacementSupported) {
     await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
 } 
 
-You can change the image used for this effect by passing it in the a new configure method: 
+//You can change the image used for this effect by passing it in the a new configure method: 
 
 const newBackgroundImage = 'https://linkToNewImageFile';
 await backgroundReplacementEffect.configure({ 
@@ -137,7 +137,7 @@ await backgroundReplacementEffect.configure({
 
 }); 
 
-You can switch the effects using the same method on the video effects feature api: 
+//You can switch the effects using the same method on the video effects feature api: 
 
 // Switch to background blur 
 await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
