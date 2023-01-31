@@ -161,7 +161,7 @@ Use the following steps to try out APIs:
 
 ## Enable/Disable API portal after service creation
 
-You can enable/disable API portal after service creation using Azure portal or Azure CLI. Before deleting API portal, please unassign its endpoint.
+You can enable/disable API portal after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unassign its endpoint.
 
 ### [Azure portal](#tab/Portal)
 
