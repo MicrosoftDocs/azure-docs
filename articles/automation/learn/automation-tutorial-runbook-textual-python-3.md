@@ -1,16 +1,16 @@
 ---
-title: Create a Python 3 runbook (preview) in Azure Automation
+title: Create a Python 3.8 runbook (preview) in Azure Automation
 description: This article teaches you to create, test, and publish a simple Python 3 runbook (preview) in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/27/2022
+ms.date: 02/01/2023
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Create a Python 3 runbook (preview)
 
-This tutorial walks you through the creation of a [Python 3 runbook](../automation-runbook-types.md#python-runbooks) (preview) in Azure Automation. Python runbooks compile under Python 2 and 3. You can directly edit the code of the runbook using the text editor in the Azure portal.
+This tutorial walks you through the creation of a [Python 3.8 runbook](../automation-runbook-types.md#python-runbooks) (preview) in Azure Automation. Python runbooks compile under Python 2.7 and 3.8 You can directly edit the code of the runbook using the text editor in the Azure portal.
 
 > [!div class="checklist"]
 > * Create a simple Python runbook
@@ -24,10 +24,8 @@ To complete this tutorial, you need:
 
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This Automation account cam use a managed identity or a Run As Account to start and stop a virtual machine. A managed identity is automatically created for you when you create the Automation account.
-  > [!NOTE]
-  > Managed identity replaces [Run As account](../automation-security-overview.md#run-as-accounts), which will be retired on *September 30, 2023*. For more information, see [Migrate from an existing Run As account to a managed identity](../migrate-run-as-accounts-managed-identity.md).
-
+- An [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources using Managed Identities. A managed identity is automatically created for you when you create the Automation account.
+ 
 - An Azure virtual machine. During this tutorial, you'll start and stop this machine, so it shouldn't be a production VM.
 
 ## Create a new runbook
@@ -38,7 +36,7 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 
     The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account.
 
-    You should also have a managed identity enabled that's mentioned in the [prerequisites](#prerequisites). You can verify that but viewing the **Identity** resource under **Account Settings**.
+    You should also have a managed identity enabled that's mentioned in the [prerequisites](#prerequisites). You can verify that by viewing the **Identity** resource under **Account Settings**.
 
 1. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 
@@ -48,7 +46,7 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 
 1. Select **Python** for the **Runbook type**.
 
-1. Select **Python 3** for the **Runtime version**.
+1. Select **Python 3.8** for the **Runtime version**.
 
 1. Select **Create** to create the runbook and open the textual editor.
 
@@ -112,7 +110,7 @@ The runbook that you created is still in draft mode. You need to publish it befo
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
 To manage resources, the script has to authenticate. 
 
-The recommended way to authenticate is with **managed identity**. When you create an Azure Automation Account, a managed identity is automatically created for you. Azure Automation Run As accounts will retire on *September 30, 2023*. Microsoft won't provide support beyond that date.
+The recommended way to authenticate is with **managed identity**. When you create an Azure Automation Account, a managed identity is automatically created for you.
 
 To use these samples, [add the following packages](../python-3-packages.md) in the **Python Packages** resource of the Automation Account. You can add the WHL files for these packages with these links.
 
@@ -128,7 +126,7 @@ When you add these packages, select a runtime version that matches your runbook.
 > [!NOTE]
 > The following code was tested with runtime version 3.8.
 
-### [Managed identity](#tab/managed-identity)
+### Managed identity
 
 To use managed identity, ensure that:
 
@@ -141,6 +139,7 @@ With the manage identity role configured, you can start adding code.
 
 2. Add the following code to authenticate to Azure:
 
+**Example 1**
     ```python
     from azure.identity import DefaultAzureCredential
     from azure.mgmt.compute import ComputeManagementClient
@@ -149,41 +148,25 @@ With the manage identity role configured, you can start adding code.
 
     azure_credential = DefaultAzureCredential()
     ```
-
-### [Run As account](#tab/run-as-account)
-
-To use a Run As account, note that:
-
-* The Automation account must have been created with the Run As account for there to be a Run As certificate.
-* If your Automation account was not created with the Run As account, you can authenticate as described in [Authenticate with the Azure Management Libraries for Python](/azure/developer/python/sdk/authentication-overview) or [create a Run As account](../create-run-as-account.md).
-* The name of the certificate used in the code below is "AzureRunAsCertificate". Either create your certificate with that name or change the code.
-
-With the Run As Account is configured, you can start adding code.
-
-1. Open the textual editor by selecting **Edit** on the **MyFirstRunbook-Python3** pane.
-
-2. Add the following code to authenticate to Azure:
+**Example 2**
 
     ```python
-    import automationassets
-    import azure.mgmt.resource
-    from azure.identity import CertificateCredential
-    from azure.mgmt.compute import ComputeManagementClient
-    
-    # Get RunAs connection and certificate
-    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
-    runas_certificate = automationassets.get_automation_certificate("AzureRunAsCertificate")
-
-    SUBSCRIPTION_ID=runas_connection["SubscriptionId"]
-    
-    azure_credential = CertificateCredential(
-        tenant_id=runas_connection["TenantId"],
-        client_id=runas_connection["ApplicationId"],
-        certificate_data=runas_certificate
-    )
+    #!/usr/bin/env python3
+    import os
+    import requests
+    # printing environment variables
+    endpoint = os.getenv(`IDENTITY_ENDPOINT`)+"?resource=https://management.azure.com/"
+    identityHeader = os.getenv(`IDENTITY_HEADER)
+    payload={}
+    headers = {
+    `X-IDENTITY-HEADER` : identityHeader,
+    `Metadata` : `True`
+   }
+   response = requests.request("GET", endpoint, headers-headers, data-payload)
+   print(response.text)
     ```
 
----
+
 
 ## Add code to create Python Compute client and start the VM
 
