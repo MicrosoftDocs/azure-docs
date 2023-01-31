@@ -163,7 +163,7 @@
   - name: Pricing
     href: https://aka.ms/dms-pricing
   - name: Service updates
-    href: https://azure.microsoft.com/en-us/updates/?query=database%20migration
+    href: https://azure.microsoft.com/updates/?query=database%20migration
   - name: Tools and guidance
     items:
     - name: Services and tools available for data migration scenarios
