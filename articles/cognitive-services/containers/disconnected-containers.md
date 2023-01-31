@@ -15,8 +15,9 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Neural Text to Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
@@ -160,7 +161,6 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-
 #### Speech containers
 
 [Speech-to-Text](#tab/stt)
@@ -170,6 +170,9 @@ The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt) conta
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
 Below is a sample command to set file/directory ownership.
+
+
+
 
 
 ```bash
@@ -183,6 +186,9 @@ The [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntt
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
 Below is a sample command to set file/directory ownership.
+
+
+
 
 
 ```bash
@@ -208,24 +214,9 @@ When you're mounting these directories to the container with the `docker run -v`
 
 Below is a sample command to set file/directory ownership.
 
-
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
-
-#### -to-text and Neural text-to-speech containers
-
-The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
-
-When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
-
-Below is a sample command to set file/directory ownership.
-
-
-```bash
-sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
-```
-
 ## Usage records
 
 When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST endpoint to generate a report about service usage.
@@ -308,4 +299,3 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
-
