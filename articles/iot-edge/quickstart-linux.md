@@ -1,5 +1,5 @@
 ---
-title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs
+title: Quickstart creates an Azure IoT Edge device on Linux | Microsoft Docs
 description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
 author: PatAltimore
 ms.author: patricka
@@ -222,7 +222,7 @@ Select **Next: Routes** to continue to the next step of the wizard.
 
 A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
 
-   ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/delete-route-next-review-create.png)
+   ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/route-next-review-create.png)
 
 Select **Next: Review + create**.
 
