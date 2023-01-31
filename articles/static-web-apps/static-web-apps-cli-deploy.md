@@ -33,7 +33,7 @@ az staticwebapp secrets list --name <APPLICATION_NAME> --query "properties.apiKe
 
 - If you are using the Azure Static Web Apps CLI, you can use the following command:
 
-```azstatic-cli
+```azurecli
 swa deploy --print-token
 ```
 
