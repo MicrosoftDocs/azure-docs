@@ -68,4 +68,3 @@ Once reconnected, you can continue to manage your deployment:
 - [Modify the packet core instance in a site](modify-packet-core.md)
 - [Provision new SIMs for Azure Private 5G Core Preview - Azure portal](provision-sims-azure-portal.md)
 - [Provision new SIMs for Azure Private 5G Core Preview - ARM template](provision-sims-arm-template.md)
-- [Change the authentication method for local monitoring tools](modify-local-access-configuration.md)
