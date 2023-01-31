@@ -60,3 +60,6 @@ Before you create an Azure AD B2C tenant, make sure that you've the permission t
 
 
 ## Next steps 
+
+- [Read tenant name and ID](tenant-management-read-tenant-name.md)
+- [Clean up resources and delete tenant](tutorial-delete-tenant.md)

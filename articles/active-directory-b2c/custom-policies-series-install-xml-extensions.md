@@ -57,7 +57,7 @@ Azure AD B2C extension  allows you to understand the organization of your policy
 > [!NOTE] 
 > The community has developed the VS Code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft and is made available strictly as-is.
 
-## Next step
+## Next steps
 
 Next, learn:
 

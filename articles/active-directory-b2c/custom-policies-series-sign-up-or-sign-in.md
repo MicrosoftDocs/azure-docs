@@ -162,7 +162,7 @@ When your policy runs, the user needs to see a user interface that allows them t
 - Configure a self-asserted technical profile, which displays the sign-in form to the user.  
 - Configure content definition for the sign-in user interface.
 
-### Step 2.1 - Configure a sign-in user interface Technical Profile 
+### Step 2.1 - Configure a sign-in user interface technical profile 
 
 In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile and add a SelfAsserted Technical Profile after it by using the following code:   
 
@@ -197,7 +197,7 @@ Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *Valida
 
 In the next step ([step 2.2](#step-22---configure-sign-in-interface-content-definition)), we configure a content definition that we'll use in this SelfAsserted Technical Profile.    
 
-### Step 2.2 - Configure sign-in interface Content Definition
+### Step 2.2 - Configure sign-in interface content definition
 
 In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* section, and then sign-in [Content Definition](contentdefinitions.md) by using the following code: 
 
@@ -217,7 +217,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* section, 
 We've configured a content definition for our self-asserted technical profile, `SignupOrSigninContentDefinition`. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learnt how to specify a content definition directly in the self-asserted technical profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 3](#step-3---update-the-user-journey-orchestration-steps).
 
 
-## Step 3 - Update the User Journey Orchestration Steps
+## Step 3 - Update the User journey orchestration steps
 
 In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all its orchestration steps collection with the following code: 
 

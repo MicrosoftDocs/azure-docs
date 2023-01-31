@@ -183,7 +183,7 @@ You now need two new self-asserted technical profiles, one to collect the accoun
     1. Remove the `accountType` output claim, `<OutputClaim ClaimTypeReferenceId="accountType"/>`, from the `OutputClaims` collection. 
 
 
-## Step 4 - Update the User Journey Orchestration Steps
+## Step 4 - Update the User journey orchestration steps
 
 Now that you've set up your technical profiles, you need to update your user journey orchestration steps:
 
@@ -220,7 +220,7 @@ Now that you've set up your technical profiles, you need to update your user jou
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
-## Step 5 - Test the custom policy
+## Step 6 - Test the custom policy
 
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy:
 

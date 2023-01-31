@@ -1,7 +1,7 @@
 ---
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by providing user input options. Learn how to validate user input by using Predicates. Learn how t validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
+description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by limiting user input options. Learn how to validate user input by using Predicates. Learn how to validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -85,7 +85,7 @@ If you know all the possible values that a user can enter for a given input, you
         <OutputClaim ClaimTypeReferenceId="accountType" />
     ```
 
-## Step 2 - Validate user input by using Regular Expressions
+## Step 2 - Validate user input by using regular expressions
 
 When it's not possible to know all possible user input values in advance, you allow the user to input the data themselves. In this case, you can use *regular expressions (regex)* or [pattern](claimsschema.md#pattern) to dictate how a user input need to be formatted. For instance, an email must have the *at (@)* symbol and a *period (.)* somewhere in its text. 
 
@@ -126,7 +126,7 @@ When you declare a claim, custom policy allows you to define a regex, which the 
         <OutputClaim ClaimTypeReferenceId="email" />
     ```
 
-## Step 3 - Validate user input by using Predicates
+## Step 3 - Validate user input by using predicates
 
 You've used regex to validate user inputs. However, regex have one weakness, that's, the error message displays until you correct input without showing you the specific requirement the input is missing. 
 
@@ -482,9 +482,9 @@ Use the following steps to learn how to validate user input by using validation 
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-error-due-to-invalid-email-address.png" alt-text="screenshot of error due to invalid email address.":::
 
-## Next Steps
+## Next steps
 
 - Learn about [validation technical profile](validation-technical-profile.md).
 
--  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey.md)
+-  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md)
 

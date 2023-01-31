@@ -43,6 +43,8 @@
     - name: Manage emergency access
       href: tenant-management-emergency-access-account.md
       displayName: break glass account, emergence account
+    - name: Check tenant creation permission 
+      href: tenant-management-check-tenant-creation-permission.md
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
       displayName: tenant name, tenant ID, tenant details    

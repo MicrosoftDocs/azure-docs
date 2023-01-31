@@ -215,7 +215,7 @@ Replace:
 
 Notice the claims transformations we defined in [step 3.2](#step-32---define-claims-transformations) in the *OutputClaimsTransformations* collection.   
 
-### Step 3.4 - Create Azure AD Technical Profiles
+### Step 3.4 - Create Azure AD technical profiles
 
 Just like in sign-in with a local account, you need to configure the [Azure AD Technical Profiles](active-directory-technical-profile.md), which you use to connect to Azure AD storage, to store or read a user social account. 
 
@@ -292,7 +292,7 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
 
-### Step 3.5 - Configure Content Definition 
+### Step 3.5 - Configure content definition 
 
 After a user signs in, you can collect some information from them by using a self-asserted technical profile. So, you need to configure content definition for the self-asserted technical profile.  
 
@@ -376,7 +376,7 @@ The claims provider we've added contains a self-asserted technical profile, *Sel
 
 Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
-## Step 4 - Update the User Journey Orchestration Steps
+## Step 4 - Update the User journey orchestration steps
 
 In the `ContosoCustomPolicy.XML` file, locate the `HelloWorldJourney` user journey and replace all the orchestration steps with the steps shown in the following code: 
 
