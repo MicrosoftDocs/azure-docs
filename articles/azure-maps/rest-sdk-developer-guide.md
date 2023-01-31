@@ -47,7 +47,7 @@ Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js]
 
 | Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
+| [Search][js search readme] | [@azure-rest/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 | [Render][js render readme] | [@azure-rest/maps-render][js render package]|[render sample][js render sample] |
 | [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
@@ -102,9 +102,9 @@ For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-
 
 <!--  JavaScript/TypeScript SDK Developers Guide  --->
 [Node.js]: https://nodejs.org/en/download/
-[js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
-[js search package]: https://www.npmjs.com/package/@azure/maps-search
-[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta/javascript
+[js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
+[js search package]: https://www.npmjs.com/package/@azure-rest/maps-search
+[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta/javascript
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
