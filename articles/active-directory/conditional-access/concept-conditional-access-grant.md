@@ -148,6 +148,7 @@ The following client apps are confirmed to support this setting, this list isn't
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow Mobile
 - Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office

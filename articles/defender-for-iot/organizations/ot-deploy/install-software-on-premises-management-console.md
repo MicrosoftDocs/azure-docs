@@ -144,6 +144,8 @@ sudo ethtool -p <port value> <time-in-seconds>
 
 This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
+[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

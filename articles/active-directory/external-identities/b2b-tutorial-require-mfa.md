@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 01/07/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: CelesteDG
 ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management

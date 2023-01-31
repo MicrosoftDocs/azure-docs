@@ -109,6 +109,15 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 
 Dedicated SQL pool and serverless SQL pool use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](/sql/t-sql/language-reference).
 
+## Platform features
+
+|   | Dedicated | Serverless |
+| --- | --- | --- |
+| Scaling | [Yes](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) | Serverless SQL pool automatically scales depending on the workload. |
+| Pause/resume | [Yes](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) | Serverless SQL pool automatically deactivated when it is not used and activated when needed. User action is not required. |
+| Database backups | [Yes](../sql-data-warehouse/backup-and-restore.md) | No. Data is stored in external systems (ADLS, Cosmos DB), so make sure that you are doing backups of data at source. Make sure that you use store SQL metadata (table, view, procedure definitions, and user permissions) in the source control. Table definitions in the Lake database are stored in Spark metadata, so make sure that you are also keeping Spark table definitions in the source control.  |
+| Database restore | [Yes](../sql-data-warehouse/backup-and-restore.md) | No. Data is stored in external systems (ADLS, Cosmos DB), so you need to recover source systems to bring your data. Make sure that your SQL metadata (table, view, procedure definitions, and user permissions) is in the source control so you can re-create the SQL objects. Table definitions in the Lake database are stored in Spark metadata, so make sure that you are also keeping Spark table definitions in the source control. |
+
 ## Tools
 
 You can use various tools to connect to Synapse SQL to query data.

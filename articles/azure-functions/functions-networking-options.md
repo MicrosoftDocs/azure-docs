@@ -90,7 +90,7 @@ Azure Functions supports two kinds of virtual network integration:
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
 * [Regional virtual network integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
-* [Gateway-required virtual network integration](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md)
 
 To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 

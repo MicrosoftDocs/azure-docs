@@ -161,6 +161,8 @@
         href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Cognitive Search
         href: ../search/search-performance-optimization.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Communications Gateway
+        href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Container Instances
         href: reliability-containers.md
       - name: Azure Container Registry
@@ -183,6 +185,8 @@
         href: ../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure DNS - Azure DNS Private Resolver
         href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Energy Data Services
+        href: reliability-energy-data-services.md      
       - name: Azure Event Grid
         href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Event Hubs

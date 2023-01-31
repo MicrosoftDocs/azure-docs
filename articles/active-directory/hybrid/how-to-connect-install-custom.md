@@ -10,7 +10,7 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -73,11 +73,11 @@ You might want to use an account in the default *onmicrosoft.com* domain, which 
  
 ![Screenshot showing the "Connect to Azure AD" page.](./media/how-to-connect-install-custom/connectaad.png)
 
-If your global admin account has multifactor authentication enabled, you provide the password again in the sign-in window, and you must complete the multifactor authentication challenge. The challenge could be a verification code or a phone call.  
+If your Global Administrator account has multifactor authentication enabled, you provide the password again in the sign-in window, and you must complete the multifactor authentication challenge. The challenge could be a verification code or a phone call.  
 
 ![Screenshot showing the "Connect to Azure AD" page. A multifactor authentication field prompts the user for a code.](./media/how-to-connect-install-custom/connectaadmfa.png)
 
-The global admin account can also have [privileged identity management](../privileged-identity-management/pim-getting-started.md) enabled.
+The Global Administrator account can also have [privileged identity management](../privileged-identity-management/pim-getting-started.md) enabled.
 
 To use authentication support for non-password scenarios such as federated accounts, smartcards and MFA scenarios, you can provide the switch **/InteractiveAuth** when starting the wizard. Using this switch will bypass the Wizard's authentication user interface and use the MSAL library's UI to handle the authentication.
 

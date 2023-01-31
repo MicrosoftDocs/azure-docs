@@ -154,7 +154,11 @@ items:
       href: manage-credentials.md
       displayName: Create and manage credentials
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+      items:
+        - name: Create and manage a self-hosted integration runtime
+          href: manage-integration-runtimes.md
+        - name: Self-hosted integration runtime auto-update and expiration
+          href: self-hosted-integration-runtime-version.md
     - name: Manage assets with Metamodel
       href: how-to-metamodel.md
     - name: Create Service Principal
@@ -341,6 +345,8 @@ items:
       items:
       - name: Private endpoints overview
         href: catalog-private-link.md
+      - name: Network firewall settings
+        href: catalog-firewall.md        
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
       - name: Isolate network for account and portal

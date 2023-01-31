@@ -18,12 +18,13 @@ When you have more devices and need more capabilities, there are three ways to a
 
 * Add units within the IoT hub to increase the daily message limit for that hub. For example, each extra unit in a B1 IoT hub allows for an extra 400,000 messages per day.
 
-- Change the size of the IoT hub. For example, migrate a hub from the B1 tier to the B2 tier to increase the number of messages that each unit can support per day from 400,000 to 6 million.
-Both these changes can occur without interrupting existing operations.
+- Change the size of the IoT hub. For example, migrate a hub from the B1 tier to the B2 tier to increase the number of messages that each unit can support per day from 400,000 to 6 million. Both these changes can occur without interrupting existing operations.
 
-- * Upgrade to a higher tier. For example, upgrade a hub from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
-
-> When you are upgrading your IoT Hub to a higher tier, some messages may be received out of order for a short period of time. If your business logic relies on the order of messages, we recommend upgrading during non-business hours.
+- Upgrade to a higher tier. For example, upgrade a hub from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
+   > [!Warning]
+   > You cannot upgrade from a Free Hub to a Paid Hub through our upgrade function.  You must create a Paid hub and migrate the configurations and devices from the Free hub to the Paid hub. This process is documented at [How to clone an IoT Hub](/azure/iot-hub/iot-hub-how-to-clone). 
+  > [!Tip]
+   > When you are upgrading your IoT Hub to a higher tier, some messages may be received out of order for a short period of time. If your business logic relies on the order of messages, we recommend upgrading during non-business hours.
 
 If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub but you can't downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not from the S2 tier to the B1 tier. Only one type of [Iot Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
