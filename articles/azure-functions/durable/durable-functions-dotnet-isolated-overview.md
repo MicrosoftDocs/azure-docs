@@ -15,14 +15,14 @@ This article is an overview of Durable Functions in the [.NET isolated worker](.
 
 ## Why use Durable Functions in the .NET isolated worker?
 
-Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
+Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
 
 ### Feature parity with in-process Durable Functions
 
 Not all features from in-process Durable Functions have been migrated to the isolated worker yet. Some known missing features that will be addressed at a later date are:
 
-- Durable Entities not supported
-- `CallHttpAsync` not available.
+- Durable Entities
+- `CallHttpAsync`
 
 ### Feature improvements over in-process Durable Functions
 
@@ -99,7 +99,7 @@ This guide assumes you're starting a .NET Durable Functions 2.x project.
 
 ### Update your project
 
-The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). After that is done, the next step is to update your Durable Functions NuGet package references:
+The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). Then, update your Durable Functions NuGet package references:
 
 The following changes are required in the `.csproj` XML project file:
 

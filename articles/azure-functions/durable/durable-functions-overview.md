@@ -893,7 +893,7 @@ public class Counter
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-Durable entities are currently not supported in the dotnet-isolated worker.
+Durable entities are currently not supported in the .NET-isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -976,7 +976,7 @@ public static async Task Run(
 
 # [C# (Isolated)](#tab/csharp-inproc)
 
-Durable entities are currently not supported in the dotnet-isolated worker.
+Durable entities are currently not supported in the .NET-isolated worker.
 
 # [JavaScript](#tab/javascript)
 

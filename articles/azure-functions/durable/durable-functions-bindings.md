@@ -82,7 +82,7 @@ public static string Run([OrchestrationTrigger] TaskOrchestrationContext context
 ```
 
 > [!NOTE]
-> Durable functions in-proc requires input to be extracted via `context.GetInput<T>()`. This can also be done in dotnet-isolated, but input being supplied as a parameter (as shown above) is also supported. Parameter input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
+> In both Durable functions in-proc and in .NET-isolated, the orchestration input can be extracted via `context.GetInput<T>()`. However, .NET-isolated also supports the input being supplied as a parameter, as shown above. The input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
 
 # [JavaScript](#tab/javascript)
 
@@ -276,7 +276,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-In the dotnet-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
+In the .NET-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
 
 ```csharp
 [FunctionName("SayHello")]
@@ -552,7 +552,7 @@ If you're using JavaScript, Python, or PowerShell, the entity trigger is defined
 ```
 
 > [!NOTE]
-> Entity triggers are not yet supported in Java or dotnet-isolated worker.
+> Entity triggers are not yet supported in Java or in the .NET-isolated worker.
 
 By default, the name of an entity is the name of the function.
 

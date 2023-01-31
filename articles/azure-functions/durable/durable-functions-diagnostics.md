@@ -332,7 +332,7 @@ public static async Task Run(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-In Durable Functions dotnet-isolated, you can again create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+In Durable Functions for .NET-isolated, you can create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
 
 ```csharp
 [Function("FunctionChain")]
