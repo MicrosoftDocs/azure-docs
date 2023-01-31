@@ -196,7 +196,7 @@ In order to prepare and configure the Custom Speech-to-Text container you will n
    
 To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the  speech resource in step 1.
 
-After all required models have been downloaded into your container you need to download the disconnected license file the instruction from above chapter [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment) and use the #2 speech resource.
+After all required models have been downloaded into your container, you need to download the disconnected license file using the instructions in the above chapter, titled [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment), using the Speech resource from step 2.
 
 To run the container in disconnected mode follow the instructions from above chapter [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment).
 
