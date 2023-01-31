@@ -52,6 +52,12 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
 :::image type="content" source="media/configure-sensor-settings-portal/sensor-details-setting.png" alt-text="Screenshot of a sensor details page showing a setting applied.":::
 
+> [!TIP]
+> You may want to configure exceptions to your settings for a specific OT sensor or zone. In such cases, create an extra setting for the exception. 
+> 
+> Settings override eachother in a hierarchical manner, so that if your setting is applied to a specific OT sensor, it overrides any related settings that are applied to the entire zone or site. To create an exception for an entire zone, add a setting for that zone to override any related settings applied to the entire site.
+>
+
 ## View and edit current OT sensor settings
 
 **To view the current settings already defined for your subscription**:
@@ -115,6 +121,8 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 ### Subnet
 
+Configuring subnets from the Azure portal overwrites any subnets already configured on the OT sensors. 
+
 To define your sensor's subnets do any of the following:
 
 - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
@@ -123,7 +131,10 @@ To define your sensor's subnets do any of the following:
 
 ### VLAN naming
 
-To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
+Configuring VLANs from the Azure portal overwrites any VLANs already configured on the OT sensors. 
+
+To define a VLAN for your OT sensor, enter the VLAN ID and a meaningful name.
+
 Select **Add VLAN** to add more VLANs as needed.
 
 ## Next steps
