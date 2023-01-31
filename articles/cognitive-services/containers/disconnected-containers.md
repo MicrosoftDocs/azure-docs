@@ -191,7 +191,7 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 
 In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
 
-1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train your custom speech models and download and configure them for use in your container.
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train, download, and configure your custom speech models for use in your container.
 1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
    
 To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the #1 speech resource.
