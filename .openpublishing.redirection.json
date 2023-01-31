@@ -16085,8 +16085,33 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/sentinel/authentication-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/dhcp-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-dhcp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/user-management-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-user-management",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-file-event",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/registry-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-registry-event",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/process-events-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-process-event",
             "redirect_document_id": true
         },
         {
