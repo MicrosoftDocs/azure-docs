@@ -19,6 +19,9 @@ ms.custom: language-service-health, ignite-fall-2021
 
 Text Analytics for health can be used to extract and label relevant medical information from unstructured texts such as doctors' notes, discharge summaries, clinical documents, and electronic health records. The service performs [named entity recognition](../concepts/health-entity-categories.md), [relation extraction](../concepts/relation-extraction.md), [entity linking](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html), and [assertion detection](../concepts/assertion-detection.md) to uncover insights from the input text. For information  on the returned confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context).
 
+> [!TIP]
+> If you want to test out the feature without writing any code, use the [Language Studio](../../language-studio.md).
+
 There are two ways to call the service: 
 
 * A [Docker container](use-containers.md) (synchronous)
@@ -77,7 +80,7 @@ Analysis is performed upon receipt of the request. If you send a request using t
 
 ## Submitting a Fast Healthcare Interoperability Resources (FHIR) request
 
-To receive your result using the **FHIR** structure, you must send the FHIR version in the API request body. 
+Fast Healthcare Interoperability Resources (FHIR) is the health industry communication standard developed by the Health Level Seven International (HL7) organization.  The standard defines the data formats (resources) and API structure for exchanging electronic healthcare data. To receive your result using the **FHIR** structure, you must send the FHIR version in the API request body. 
 
 | Parameter Name  | Type |  Value |
 |--|--|--|
