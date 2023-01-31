@@ -37,10 +37,11 @@ A labeled dataset consists of several files:
 * The following is the first of two videos intended to help you build custom
 models with higher accuracy. Here, we'll look at the
 concept of a balanced data set and see how selecting the right
-documents to label can set you on the path to a higher quality model. 
+documents to label can set you on the path to a higher quality model.
 
-*The second video presents [Best practices for labeling documents]()
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
 
+* The second video presents [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices)
 
 ## Create a balanced dataset
 

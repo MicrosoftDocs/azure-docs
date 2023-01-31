@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/30/2023
 ms.author: vikurpad
 ms.custom: references_regions
 recommendations: false
@@ -16,6 +16,10 @@ recommendations: false
 # Tips for labeling custom model datasets
 
 This article highlights the best methods for labeling custom model datasets in the Form Recognizer Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
+
+## Video: Custom labels best practices
+
+
 
 ## Search
 
