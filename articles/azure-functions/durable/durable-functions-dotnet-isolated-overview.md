@@ -32,7 +32,7 @@ Not all features from in-process Durable Functions have been migrated to the iso
 
 ### Source generator and class-based activities and orchestrations
 
-Requirement: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.
+**Requirement**: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.
 
 By adding the source generator package, you get access to two new features:
 
@@ -95,7 +95,7 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 
 ## Migration Guide
 
-This guide assumes you're starting a .NET Durable Functions 2.x project.
+This guide assumes you're starting with a .NET Durable Functions 2.x project.
 
 ### Update your project
 
