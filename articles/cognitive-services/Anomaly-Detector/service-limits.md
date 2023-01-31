@@ -54,7 +54,7 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 
 
 ## How to increase the limit for your resource?
-For the Standard pricing tier, this limit can be increased. Increasing the Concurrent Request limit does not directly affect your costs. Anomaly Detector service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+For the Standard pricing tier, this limit can be increased. Increasing the **concurrent request limit** does not directly affect your costs. Anomaly Detector service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is not visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
