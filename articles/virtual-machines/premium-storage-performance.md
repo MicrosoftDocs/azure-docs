@@ -139,7 +139,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 ### Optimize IOPS, throughput, and latency at a glance
 
-The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor is much more depth.
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor in much more depth.
 
 For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Sizes for virtual machines in Azure](sizes.md).
 

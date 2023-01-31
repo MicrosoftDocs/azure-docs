@@ -367,19 +367,20 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Information Protection (Preview)
 
+> [!IMPORTANT]
+>
+> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+>
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+
+See the [Microsoft Purview Information Protection](#microsoft-purview-information-protection-preview) connector, which will replace this connector.
+
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
 | **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
-
-
-> [!NOTE]
-> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
->
-> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
->
 
 ## Azure Key Vault
 
@@ -1228,6 +1229,14 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
 | **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+
+## Microsoft Purview Information Protection (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-microsoft-purview.md)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | MicrosoftPurviewInformationProtection |
 | **Supported by** | Microsoft |
 
 

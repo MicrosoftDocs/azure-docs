@@ -71,7 +71,6 @@ spec:
         - name: powershell
           image: mcr.microsoft.com/powershell:lts-nanoserver-1809
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"

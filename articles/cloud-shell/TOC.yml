@@ -39,6 +39,8 @@ items:
         href: embed-cloud-shell.md
       - name: Cloud Shell in an Azure virtual network
         href: private-vnet.md
+      - name: Predictive IntelliSense in Cloud Shell
+        href: cloud-shell-predictive-intellisense.md
       - name: Use the Cloud Shell editor
         href: using-cloud-shell-editor.md
       - name: Troubleshooting

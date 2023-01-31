@@ -19,7 +19,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)  |
+|**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+
+### Update sensor software from the Azure portal (Public preview)
+
+For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
+
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
 
 ### Azure connectivity status shown on OT sensors
 
@@ -35,7 +43,7 @@ For more information, see [Manage individual sensors](how-to-manage-individual-s
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**OT networks**     |  [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
 |**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
 
 ### Enterprise IoT sensor alerts and recommendations (Public Preview)
@@ -222,11 +230,11 @@ Updates in this version of the solution include:
 
 - **Playbook updates**: The **Microsoft Defender for IoT** solution now supports the following SOC automation functionality with new playbooks:
 
-    - **Automation with CVE details**: Use the *AD4IoT-CVEAutoWorkflow* playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
+  - **Automation with CVE details**: Use the *AD4IoT-CVEAutoWorkflow* playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
 
-    - **Automation for email notifications to device owners**. Use the *AD4IoT-SendEmailtoIoTOwner* playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
+  - **Automation for email notifications to device owners**. Use the *AD4IoT-SendEmailtoIoTOwner* playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
 
-    - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
+  - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
 
 For more information, see [Investigate Microsoft Defender for IoT incidents with Microsoft Sentinel](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
 
@@ -268,7 +276,7 @@ For OT sensor versions 22.1.3 and higher, you can use the new sensor health widg
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
-For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
 ## July 2022
 
@@ -389,7 +397,7 @@ Now, for locally managed sensors, you can upload that diagnostic log directly on
 For more information, see:
 
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
 ### Improved security for uploading protocol plugins
 
@@ -415,7 +423,7 @@ The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md?#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md?#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected.
 
 For more information, see:
 
@@ -433,7 +441,6 @@ We've also recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
-
 
 ### Updated appliance catalog for OT environments
 
@@ -471,7 +478,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
 
-
 ## April 2022
 
 - [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
@@ -499,7 +505,6 @@ For more information, see [Manage your device inventory from the Azure portal](h
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
-
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
@@ -543,7 +548,6 @@ Starting in this version, CLI users are automatically signed out of their sessio
 
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
-
 ## February 2022
 
 **Sensor software version**: 22.1.1
@@ -564,7 +568,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
 
-Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
+Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location.
 
 For more information, see [Defender for IoT installation](how-to-install-software.md).
 
@@ -598,11 +602,11 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - Right-click a device on the map to view contextual information about the device, including related alerts, event timeline data, and connected devices.
 
-- To enable the ability to collapse IT networks, ensure that the **Toggle IT Networks Grouping** option is enabled. This option is now only available from the map.
+- Select **Disable Display IT Networks Groups** to prevent the ability to collapse IT networks in the map. This option is turned on by default.
 
 - The **Simplified Map View** option has been removed.
 
-We've also implemented global readiness and accessibility features to comply with Microsoft standards. In the on-premises sensor console, these updates include both high contrast and regular screen display themes and localization for over 15 languages. 
+We've also implemented global readiness and accessibility features to comply with Microsoft standards. In the on-premises sensor console, these updates include both high contrast and regular screen display themes and localization for over 15 languages.
 
 For example:
 
@@ -636,7 +640,7 @@ For more information, see [Download a diagnostics log for support](how-to-manage
 
 Alerts are now available in Defender for IoT in the Azure portal. Work with alerts to enhance the security and operation of your IoT/OT network.
 
-The new **Alerts** page is currently in Public Preview, and provides: 
+The new **Alerts** page is currently in Public Preview, and provides:
 
 - An aggregated, real-time view of threats detected by network sensors.
 - Remediation steps for devices and network processes.
@@ -701,7 +705,7 @@ As part of the containerized sensor, the following CLI commands have been modifi
 
 The `sudo cyberx-xsense-limit-interface-I eth0 -l value` CLI command was removed. This command was used to limit the interface bandwidth that the sensor uses for day-to-day procedures, and is no longer supported.
 
-For more information, see [Defender for IoT installation](how-to-install-software.md) and [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+For more information, see [Defender for IoT installation](how-to-install-software.md), [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 ### Update to version 22.1.x
 
@@ -736,6 +740,7 @@ This version of Defender for IoT provides improved support for:
 - Windows endpoint detection
 
 For more information, see [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md).
+
 ### Modified, replaced, or removed options and configurations
 
 The following Defender for IoT options and configurations have been moved, removed, and/or replaced:
@@ -743,87 +748,6 @@ The following Defender for IoT options and configurations have been moved, remov
 - Reports previously found on the **Reports** page are now shown on the **Data Mining** page instead. You can also continue to view data mining information directly from the on-premises management console.
 
 - Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor. For more information, see [Change the name of a sensor](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor).
-
-
-## December 2021
-
-**Sensor software version**: 10.5.4
-
-- [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
-- [Apache Log4j vulnerability](#apache-log4j-vulnerability)
-- [Alerting](#alerting)
-
-### Enhanced integration with Microsoft Sentinel (Preview)
-
-The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
-
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
-
-### Apache Log4j vulnerability
-
-Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
-
-### Alerting
-
-Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
-
-- Alerts for certain minor events or edge-cases are now disabled.
-- For certain scenarios, similar alerts are minimized in a single alert message.
-
-These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
-
-For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
-
-#### Alerts permanently disabled
-
-The alerts listed below are permanently disabled with version 10.5.4. Detection and monitoring are still supported for traffic associated with the alerts.
-
-**Policy engine alerts**
-
-- RPC Procedure Invocations
-- Unauthorized HTTP Server
-- Abnormal usage of MAC Addresses
-
-#### Alerts disabled by default
-
-The alerts listed below are disabled by default with version 10.5.4. You can re-enable the alerts from the Support page of the sensor console, if necessary.
-
-**Anomaly engine alert**
-- Abnormal Number of Parameters in HTTP Header
-- Abnormal HTTP Header Length
-- Illegal HTTP Header Content
-
-**Operational engine alerts**
-- HTTP Client Error
-- RPC Operation Failed
-
-**Policy engine alerts**
-
-Disabling these alerts also disables monitoring of related traffic. Specifically, this traffic won't be reported in Data Mining reports.
-
-- Illegal HTTP Communication alert and HTTP Connections Data Mining traffic
-- Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
-- Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
-
-#### Updated alert functionality
-
-**Unauthorized Database Operation alert**
-Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
-- DDL traffic: alerting and monitoring are supported.
-- DML traffic: Monitoring is supported.  Alerting isn't supported.
-
-**New Asset Detected alert**
-This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if necessary.
-
-### Minimized alerting
-
-Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
-
-This new functionality is available on the following alerts:
-
-- Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
-- Malware alerts, based on activity of the source device. (generated by the Malware engine). 
-- Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
 
 ## Next steps
 

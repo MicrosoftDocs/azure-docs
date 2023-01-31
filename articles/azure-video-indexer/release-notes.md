@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 11/22/2022
+ms.date: 01/24/2023
 ms.author: juliako
 ---
 
@@ -22,6 +22,31 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 ## Important notice
 
 [!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
+## January 2023
+
+### Notification experience
+
+The [Azure Video Indexer website](https://www.videoindexer.ai/) now has a notification panel where you can stay informed of important product updates, such as service impacting events, new releases, and more.
+
+### Textual logo detection
+
+**Textual logo detection** enables you to customize text logos to be detected within videos. For more information, see [Detect textual logo](detect-textual-logo.md).
+
+### Switching directories
+
+You can now switch Azure AD directories and manage Azure Video Indexer accounts across tenants using the [Azure Video Indexer website](https://www.videoindexer.ai/).
+
+### Language support
+
+* New languages are now supported: Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic,  Armenian, Gujarati, Malay, and Tamil.
+* Use an API to get all supported languages: [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
+
+For more information, see [supported languages](language-support.md).
+
+### Face grouping
+
+Significantly reduced number of low-quality face detection occurrences in the UI and [insights.json](video-indexer-output-json-v2.md#insights). Enhancing the quality and usability through improved grouping algorithm.
 
 ## November 2022
 

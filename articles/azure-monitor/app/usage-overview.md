@@ -40,7 +40,7 @@ The best experience is obtained by installing Application Insights both in your 
 
    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
-1. **Mobile app code:** Use the App Center SDK to collect events from your app. Then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
+1. **Mobile app code:** Use the App Center SDK to collect events from your app. Then send copies of these events to Application Insights for analysis by [following this guide](https://github.com/Microsoft/appcenter).
 
 1. **Get telemetry:** Run your project in debug mode for a few minutes. Then look for results in the **Overview** pane in Application Insights.
 
@@ -162,7 +162,7 @@ In the web app initializer, such as Global.asax.cs:
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

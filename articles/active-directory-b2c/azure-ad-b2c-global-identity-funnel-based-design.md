@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C global identity framework funnel-based design considerations 
+title: Build a global identity solution with funnel-based approach
 titleSuffix: Azure AD B2C
 description: Learn the funnel-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 services: active-directory-b2c

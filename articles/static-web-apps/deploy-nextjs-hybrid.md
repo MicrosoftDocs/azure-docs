@@ -207,6 +207,15 @@ Begin by adding an API route.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
 
+## Enable logging for Next.js
+
+Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
+
+* [Example preload script for Application Insights + Next.js](https://medium.com/microsoftazure/enabling-the-node-js-application-insights-sdk-in-next-js-746762d92507)
+* [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)
+* [Preloading with Next.js](https://jake.tl/notes/2021-04-04-nextjs-preload-hack)
+
+
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:

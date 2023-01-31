@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 01/31/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files

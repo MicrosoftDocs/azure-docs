@@ -12,6 +12,10 @@ ms.custom: ignite-fall-2021
 
 The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
 
+> [!IMPORTANT]
+>
+> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
+
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
 > [!NOTE]

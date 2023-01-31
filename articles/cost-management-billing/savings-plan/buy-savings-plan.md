@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 01/30/2023
 ms.author: banders
 ---
 
@@ -133,8 +133,8 @@ You can trade in one or more reservations for a savings plan. When you trade in 
 Depending on how you pay for your Azure subscription, email savings plan notifications are sent to the following users in your organization. Notifications are sent for various events including:
 
 - Purchase
-- Upcoming savings plan expiration
-- Expiry
+- Upcoming savings plan expiration - 30 days before
+- Expiry - 30 days before
 - Renewal
 - Cancellation
 - Scope change
@@ -142,11 +142,12 @@ Depending on how you pay for your Azure subscription, email savings plan notific
 For customers with EA subscriptions:
 
 - Notifications are sent to EA administrators and EA notification contacts.
-- Users added to a savings plan using Azure RBAC (IAM) permission don't receive any email notifications.
+- Azure RBAC owner of the savings plan receives all notifications.
 
 For customers with MCA subscriptions:
 
 - The purchaser receives a purchase notification.
+- Azure RBAC owner of the savings plan receives all notifications.
 
 For Microsoft Partner Agreement partners:
 

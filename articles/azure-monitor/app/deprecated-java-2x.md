@@ -82,7 +82,7 @@ If your project is already set up to use Gradle for build, merge the following c
 
 ---
 
-#### Questions
+#### Frequently asked questions
 
 * What's the relationship between the `-web-auto`, `-web`, and `-core` components?
   * `applicationinsights-web-auto` gives you metrics that track HTTP servlet request counts and response times by automatically registering the Application Insights servlet filter at runtime.
