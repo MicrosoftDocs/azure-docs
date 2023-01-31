@@ -145,25 +145,25 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```swift
 extension CallObserver: MediaDiagnosticsDelegate {
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeFlagDiagnosticValue args: MediaFlagDiagnosticChangedEventArgs) {
+                        didChangeBooleanDiagnosticValue args: MediaBooleanDiagnosticChangedEventArgs) {
     let diagnostic = args.diagnostic // Which media diagnostic value is changing.
-    let value = args.value // Boolean indicating new media flag value.
+    let value = args.value // Boolean indicating new value.
     // Handle the diagnostic event value changed...
   }
 }
 
 extension CallObserver: NetworkDiagnosticsDelegate {
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeFlagDiagnosticValue args: NetworkFlagDiagnosticChangedEventArgs) {
+                          didChangeBooleanDiagnosticValue args: NetworkBooleanDiagnosticChangedEventArgs) {
     let diagnostic = args.diagnostic // Which network diagnostic value is changing.
-    let value = args.value // Boolean indicating new media flag value.
+    let value = args.value // Boolean indicating new value.
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeQualityDiagnosticValue args: NetworkQualityDiagnosticChangedEventArgs) {
     let diagnostic = args.diagnostic // Which network diagnostic value is changing.
-    let value = args.value // Quality flag indicating the new value.
+    let value = args.value // DiagnosticQuality indicating the new value.
     // Handle the diagnostic event value changed...
   }
 }
@@ -183,11 +183,11 @@ self.networkDiagnostics?.delegate = self.callObserver
 - Get feature object and add listeners to the diagnostics events.
 
 ```java
-DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGONSTICS_CALL);
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
 
 /* NetworkQualityDiagnostic */
 NetworkQualityDiagnosticChangedListener networkQualityChangedListener = (NetworkQualityDiagnosticChangedEvent args) -> {
-    NetworkQualityDiagnostic diagnostic = args.getDiagnostic();
+    NetworkDiagnosticType diagnostic = args.getDiagnostic();
     DiagnosticQuality value = args.getValue();
     // Handle the diagnostic event value changed...
 };
@@ -198,31 +198,31 @@ networkDiagnostics.addOnNetworkQualityDiagnosticChangedListener(networkQualityCh
 // To remove listener for network quality event
 networkDiagnostics.removeOnNetworkQualityDiagnosticChangedListener(networkQualityChangedListener);
 
-/* NetworkFlagDiagnostic */
-NetworkFlagDiagnosticChangedListener networkFlagChangedListener = (NetworkFlagDiagnosticChangedEvent args) -> {
-    NetworkFlagDiagnostic diagnostic = args.getDiagnostic();
+/* NetworkBooleanDiagnostic */
+NetworkBooleanDiagnosticChangedListener networkBooleanChangedListener = (NetworkBooleanDiagnosticChangedEvent args) -> {
+    NetworkDiagnosticType diagnostic = args.getDiagnostic();
     Boolean value = args.getValue();
     // Handle the diagnostic event value changed...
 };
 
 NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
-networkDiagnostics.addOnNetworkFlagDiagnosticChangedListener(networkFlagChangedListener);
+networkDiagnostics.addOnNetworkBooleanDiagnosticChangedListener(networkBooleanChangedListener);
 
-// To remove listener for network flag event
-networkDiagnostics.removeOnNetworkFlagDiagnosticChangedListener(networkFlagDiagnosticListener);
+// To remove listener for network boolean event
+networkDiagnostics.removeOnNetworkBooleanDiagnosticChangedListener(networkBooleanChangedListener);
 
-/* MediaFlagDiagnostic */
-MediaFlagDiagnosticChangedListener mediaFlagChangedListener = (MediaFlagDiagnosticChangedEvent args) -> {
-    MediaFlagDiagnostic diagnostic = args.getDiagnostic();
+/* MediaBooleanDiagnostic */
+MediaBooleanDiagnosticChangedListener mediaBooleanChangedListener = (MediaBooleanDiagnosticChangedEvent args) -> {
+    MediaDiagnosticType diagnostic = args.getDiagnostic();
     Boolean value = args.getValue();
     // Handle the diagnostic event value changed...
 };
 
 MediaDiagnostics mediaDiagnostics = diagnosticsCallFeature.getMedia();
-mediaDiagnostics.addOnMediaFlagDiagnosticChangedListener(mediaFlagChangedListener);
+mediaDiagnostics.addOnMediaBooleanDiagnosticChangedListener(mediaBooleanChangedListener);
 
 // To remove listener for media flag event
-mediaDiagnostics.removeOnMediaFlagDiagnosticChangedListener(mediaFlagChangedListener);
+mediaDiagnostics.removeOnMediaDiagnosticTypeChangedListener(mediaBooleanChangedListener);
 
 ```
 
@@ -238,14 +238,14 @@ private async void Call__OnNetworkQualityDiagnosticsChanged(object sender, Netwo
     // Handle the diagnostic event value changed...
 }
 
-private async void Call__OnNetworkFlagDiagnosticChanged(object sender, NetworkFlagDiagnosticChangedEventArgs args)
+private async void Call__OnNetworkBooleanDiagnosticChanged(object sender, NetworkBooleanDiagnosticChangedEventArgs args)
 {
     var diagnostic = args.Diagnostic;
     var value = args.Value;
     // Handle the diagnostic event value changed...
 }
 
-private async void Call__OnMediaFlagDiagnosticChanged(object sender, MediaFlagDiagnosticChangedEventArgs args)
+private async void Call__OnMediaBooleanDiagnosticChanged(object sender, MediaBooleanDiagnosticChangedEventArgs args)
 {
     var diagnostic = args.Diagnostic;
     var value = args.Value;
@@ -261,14 +261,14 @@ this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
 this.networkDiagnostics.OnNetworkQualityDiagnosticChanged += Call__OnNetworkQualityDiagnosticsChanged;
-this.networkDiagnostics.OnNetworkFlagDiagnosticChanged += Call__OnNetworkFlagDiagnosticChanged;
-this.mediaDiagnostics.OnMediaFlagDiagnosticChanged += Call__OnMediaFlagDiagnosticChanged;
+this.networkDiagnostics.OnNetworkBooleanDiagnosticChanged += Call__OnNetworkBooleanDiagnosticChanged;
+this.mediaDiagnostics.OnMediaBooleanDiagnosticChanged += Call__OnMediaBooleanDiagnosticChanged;
 
 // Removing listeners
 
 this.networkDiagnostics.OnNetworkQualityDiagnosticChanged -= Call__OnNetworkQualityDiagnosticsChanged;
-this.networkDiagnostics.OnNetworkFlagDiagnosticChanged -= Call__OnNetworkFlagDiagnosticChanged;
-this.mediaDiagnostics.OnMediaFlagDiagnosticChanged -= Call__OnMediaFlagDiagnosticChanged;
+this.networkDiagnostics.OnNetworkBooleanDiagnosticChanged -= Call__OnNetworkBooleanDiagnosticChanged;
+this.mediaDiagnostics.OnMediaBooleanDiagnosticChanged -= Call__OnMediaBooleanDiagnosticChanged;
 
 ```
 
@@ -319,9 +319,9 @@ console.log(
 - Get the latest diagnostic values that were raised. If a we still didn't receive a value for the diagnostic, `nil` is returned.
 
 ```swift
-let lastMediaFlagValue = self.mediaDiagnostics.latestValue(for: .speakerNotFunctioning) // Boolean?
-let lastNetworkFlagValue = self.networkDiagnostics.latestValue(for: .networkRelaysNotReachable) // Boolean?
-let lastNetworkQualityValue = self.networkDiagnostics.latestValue(for: .networkReconnect) // DiagnosticQuality? (.good, .poor, .bad)
+let lastSpeakerNotFunctionValue = self.mediaDiagnostics.latest.speakerNotFunctioning // Boolean?
+let lastNetworkRelayNotReachableValue = self.networkDiagnostics.latest.networkRelaysNotReachable // Boolean?
+let lastReceiveQualityValue = self.networkDiagnostics.lates.networkReceiveQuality // DiagnosticQuality? (.good, .poor, .bad)
 
 ```
 
@@ -330,24 +330,19 @@ let lastNetworkQualityValue = self.networkDiagnostics.latestValue(for: .networkR
 - Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, an exception is thrown.
 
 ```java
-DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGONSTICS_CALL);
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
 NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
 MediaDiagnostics mediaDiagnostics = diagnosticsCallFeature.getMedia();
 
-if (networkDiagnostics.hasLatestFlagValue(NetworkFlagDiagnostic.NO_NETWORK)) {
-  Boolean lastNetworkFlagValue = networkDiagnostics.getLatestFlagValue(NetworkFlagDiagnostic.NO_NETWORK);
-  // Use the latest value...
-}
+LatestNetworkDiagnostics latestNetwork = networkDiagnostics.getLatest();
+java.util.Optional<Boolean> lastNetworkValue = latestNetwork.getNoNetwork();
+java.util.Optional<DiagnosticQuality> lastReceiveQualityValue = latestNetwork.getNetworkReceiveQuality();
 
-if (networkDiagnostics.hasLatestQualityValue(NetworkQualityDiagnostic.NETWORK_RECONNECT)) {
-  DiagnosticQuality lastNetworkQualityValue = networkDiagnostics.getLatestQualityValue(NetworkQualityDiagnostic.NETWORK_RECONNECT);
-  // Use the latest value in quality scale which can be GOOD, POOR or BAD
-}
 
-if (mediaDiagnostics.hasLatestFlagValue(MediaFlagDiagnostic.SPEAKER_NOT_FUNCTIONING)) {
-  Boolean lastMediaFlagValue = mediaDiagnostics.getLatestFlagValue(MediaFlagDiagnostic.SPEAKER_NOT_FUNCTIONING);
-  // Use the latest value...
-}
+LatestMediaDiagnostics latestMedia = networkDiagnostics.getLatest();
+java.util.Optional<Boolean> lastSpeakerNotFunctionValue = latestMedia.getSpeakerNotFunctioning();
+
+// Use the last values ...
 
 ```
 
@@ -360,18 +355,8 @@ this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtens
 this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
-if (networkDiagnostics.hasLatestFlagValue(NetworkFlagDiagnostic.NoNetwork)) {
-  bool lastNetworkFlagValue = networkDiagnostics.getLatestFlagValue(NetworkFlagDiagnostic.NoNetwork);
-  // Use the latest value...
-}
+bool? lastSpeakerNotFunctionValue = this.mediaDiagnostics.Latest.SpeakerNotFunctioning; // Boolean?
+bool? lastNetworkRelayNotReachableValue = this.networkDiagnostics.Latest.NetworkRelaysNotReachable; // Boolean?
+DiagnosticQuality? lastReceiveQualityValue = this.networkDiagnostics.Latest.NetworkReceiveQuality; // DiagnosticQuality? (.good, .poor, .bad)
 
-if (networkDiagnostics.hasLatestQualityValue(NetworkQualityDiagnostic.NetworkReconnect)) {
-  DiagnosticQuality lastNetworkQualityValue = networkDiagnostics.getLatestQualityValue(NetworkQualityDiagnostic.NetworkReconnect);
-  // Use the latest value in quality scale which can be Good, Poor or Bad
-}
-
-if (mediaDiagnostics.hasLatestFlagValue(MediaFlagDiagnostic.SpeakerNotFunctioning)) {
-  bool lastMediaFlagValue = mediaDiagnostics.getLatestFlagValue(MediaFlagDiagnostic.SpeakerNotFunctioning);
-  // Use the latest value...
-}
 ```
