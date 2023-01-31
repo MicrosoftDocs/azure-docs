@@ -51,10 +51,10 @@ TypeError: register() takes 3 positional arguments but 4 were given
 
 You have **Flask 2** installed in your python environment but are running a version of `azureml-inference-server-http` that doesn't support Flask 2. Support for Flask 2 is added in `azureml-inference-server-http>=0.7.0`, which is also in `azureml-defaults>=1.44`.
 
-1. If you're not using this package in an AzureML docker image, use the latest version of
+- If you're not using this package in an AzureML docker image, use the latest version of
    `azureml-inference-server-http` or `azureml-defaults`.
 
-2. If you're using this package with an AzureML docker image, make sure you're using an image built in or after July,
+- If you're using this package with an AzureML docker image, make sure you're using an image built in or after July,
    2022. The image version is available in the container logs. You should be able to find a log similar to the following:
 
     ```
@@ -69,9 +69,9 @@ You have **Flask 2** installed in your python environment but are running a vers
 
    The build date of the image appears after "Materialization Build", which in the above example is `20220708`, or July 8, 2022. This image is compatible with Flask 2. If you don't see a banner like this in your container log, your image is out-of-date, and should be updated. If you're using a CUDA image, and are unable to find a newer image, check if your image is deprecated in [AzureML-Containers](https://github.com/Azure/AzureML-Containers). If it's, you should be able to find replacements.
 
-   If you're using the server with an online endpoint, you can also find the logs under "Deployment logs" in the [online endpoint page in Azure Machine Learning studio](https://ml.azure.com/endpoints). If you deploy with SDK v1 and don't explicitly specify an image in your deployment configuration, it will default to using a version of `openmpi4.1.0-ubuntu20.04` that matches your local SDK toolset, which may not be the latest version of the image. For example, SDK 1.43 will default to using `openmpi4.1.0-ubuntu20.04:20220616`, which is incompatible. Make sure you use the latest SDK for your deployment.
+- If you're using the server with an online endpoint, you can also find the logs under "Deployment logs" in the [online endpoint page in Azure Machine Learning studio](https://ml.azure.com/endpoints). If you deploy with SDK v1 and don't explicitly specify an image in your deployment configuration, it will default to using a version of `openmpi4.1.0-ubuntu20.04` that matches your local SDK toolset, which may not be the latest version of the image. For example, SDK 1.43 will default to using `openmpi4.1.0-ubuntu20.04:20220616`, which is incompatible. Make sure you use the latest SDK for your deployment.
 
-   If for some reason you're unable to update the image, you can temporarily avoid the issue by pinning `azureml-defaults==1.43` or `azureml-inference-server-http~=0.4.13`, which will install the older version server with `Flask 1.0.x`.
+- If for some reason you're unable to update the image, you can temporarily avoid the issue by pinning `azureml-defaults==1.43` or `azureml-inference-server-http~=0.4.13`, which will install the older version server with `Flask 1.0.x`.
 
 #### 2. I encountered an ``ImportError`` or ``ModuleNotFoundError`` on modules ``opencensus``, ``jinja2``, ``MarkupSafe``, or ``click`` during startup like the following message:
 
