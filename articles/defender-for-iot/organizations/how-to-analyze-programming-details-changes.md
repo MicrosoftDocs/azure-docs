@@ -192,3 +192,5 @@ This section describes how to compare programming files.
 ## Next steps
 
 For more information, see [Import device information to a sensor](how-to-import-device-information.md).
+
+next step
