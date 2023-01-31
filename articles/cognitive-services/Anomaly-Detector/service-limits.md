@@ -38,7 +38,7 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 | **List model API per minute** | 1 | 20 |
 | **Delete model API per minute** | 1 | 20 |
 
-<sup>1</sup> All the quota and limit are defined for one Anomaly Detector resource.
+<sup>1</sup> All quotas and limits are defined for one Anomaly Detector resource.
 
 <sup>2</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)
 
