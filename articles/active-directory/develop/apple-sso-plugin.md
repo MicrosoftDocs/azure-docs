@@ -239,7 +239,7 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 These parameters specify whether the SSO extension should prevent native and web applications from bypassing SSO at the protocol layer and forcing the display of a sign-in prompt to the user.
 
-For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings for apps that don't use a Microsoft Authentication Library. You should only enable this for apps that use a Microsoft Authentication Library if your users are experiencing unexpected prompts. 
+For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings for apps that don't use MSAL. You should only enable this for apps that use MSAL if your users are experiencing unexpected prompts. 
 
 ##### Apps that don't use a Microsoft Authentication Library:
   
