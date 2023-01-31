@@ -354,7 +354,7 @@ If the SSO plug-in isn't enabled by MDM but the Microsoft Authenticator app is p
 
 ### Applications that don't use MSAL
 
-Applications that don't use a Microsoft Authentication Library, like MSAL, can still get SSO if an administrator adds these applications to the allowlist. 
+Applications that don't use MSAL, can still get SSO if an administrator adds these applications to the allowlist. 
 
 You don't need to change the code in those apps as long as the following conditions are satisfied:
 
