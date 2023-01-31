@@ -520,7 +520,7 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
-For Speech Service container specific additional configuration see [Speech Containers](..//containers/disconnected-containers#speech-containers).
+For Speech Service container specific additional configuration see [Speech Containers](../containers/disconnected-containers.md#speech-containers).
 
 ## Query the container's prediction endpoint
 
