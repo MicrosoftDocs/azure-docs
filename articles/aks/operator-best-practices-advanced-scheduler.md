@@ -247,4 +247,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
-[use-gpus-aks]: /aks/gpu-cluster.md
+[use-gpus-aks]: gpu-cluster.md

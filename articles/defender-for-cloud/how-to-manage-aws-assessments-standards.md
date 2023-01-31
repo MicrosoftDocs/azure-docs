@@ -3,7 +3,7 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 01/24/2023
 ---
 
 # Manage AWS assessments and standards
@@ -33,7 +33,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add an AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
