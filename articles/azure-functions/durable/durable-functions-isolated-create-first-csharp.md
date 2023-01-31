@@ -298,7 +298,7 @@ static class HelloSequence
     {
         ILogger logger = executionContext.GetLogger(nameof(StartHelloCities));
 
-        string instanceId = await durableContext.Client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
+        string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
         logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
 
         return durableContext.CreateCheckStatusResponse(req, instanceId);
