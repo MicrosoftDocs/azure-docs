@@ -297,7 +297,7 @@ Learn more about Just in Time Registration [here](https://techcommunity.microsof
 #### Conditional access policies and password changes
 Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
-Compatible events and policies are documented below. 
+Compatible events and policies are documented in the following sections:
 
 ##### Password change and token revocation
 When a user resets their password, all tokens that were issued before that will be revoked. If a user is trying to access a resource after a password reset event, user would normally need to sign in again in each of the apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
