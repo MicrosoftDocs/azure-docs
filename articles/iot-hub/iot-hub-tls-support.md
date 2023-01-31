@@ -128,11 +128,12 @@ After a successful TLS handshake, IoT Hub can authenticate a device using a symm
 
 ## Mutual TLS authentication support
 
-Mutual TLS authentication ensures that the client _authenticates_ the server certificate and the server _authenticates_ the [X.509 client certificate or X.509 Thumbprint](tutorial-x509-introduction). _Authorization_ is performed by IoT Hub after _authentication_ is complete. 
+Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the [X.509 client certificate or X.509 Thumbprint](iot-hub-dev-guide-sas.md#tutorial-x509-introduction). _Authorization_ is performed by IoT Hub after _authentication_ is complete.
 
-For AMQP and MQTT protocols, the server requests a client certificate in the initial TLS handshake. If one is provided, then the server _authenticates_ the client certificate and the client _authenticates_ the server certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and mutual TLS authentication was not completed during the initial handshake, then IoT Hub initiates a new TLS handshake requiring client authentication. Once the mutual TLS authentication is complete, IoT Hub performs _authorization_ again with the now _authenticated_ client. 
+For AMQP and MQTT protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
 
-For HTTP protocol, the server doesn't request a client certificate in the initial TLS handshake. Once the client makes its first request, then the server checks if the client requires X.509 authentication. If so, IoT Hub initiates a new TLS handshake requiring client authentication. Once the mutual TLS authentication is complete, IoT Hub performs _authorization_ with the _authenticated_ client. 
+For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication was not complete, then IoT Hub rejects the connection
+
 
 ## Certificate pinning
 
