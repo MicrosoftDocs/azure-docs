@@ -179,7 +179,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
    1. Start debugging session in VS Code.
       1. In VS Code, select "Run" -> "Start Debugging" (or `F5`).
       1. Enter the process ID of the `azmlinfsrv` (not the `gunicorn`) using the logs (from the inference server) displayed in the CLI.
-        :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" alt-text="Screenshot of the CLI which shows the process ID of the server":::
+        :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" alt-text="Screenshot of the CLI which shows the process ID of the server.":::
         > [!NOTE]
         > If the process picker does not display, manually enter the process ID in the `processId` field of the `launch.json`.
 
@@ -268,7 +268,7 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 1. The requests are then handled by a [Flask](https://flask.palletsprojects.com/) app, which loads the entry script & any dependencies.
 1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
-:::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
+:::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process.":::
 
 ## Understanding logs
 
