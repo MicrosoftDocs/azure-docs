@@ -110,7 +110,7 @@ def cosmosdb_input(req: func.HttpRequest, documents: func.DocumentList) -> str:
     return func.HttpResponse(documents[0].to_json())
 ```
 
-### Azure Cosmos DB output binding
+## Azure Cosmos DB output binding
 
 ```python
 import logging
