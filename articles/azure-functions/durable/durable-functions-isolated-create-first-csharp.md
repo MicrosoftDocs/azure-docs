@@ -1,7 +1,7 @@
 ---
 title: "Create your first C# durable function running in the isolated worker"
 description: Create and publish a C# Azure Durable Function running in the isolated worker using Visual Studio or Visual Studio Code.
-author: jiayma
+author: lilyjma
 ms.topic: quickstart
 ms.date: 01/31/2023
 ms.author: azfuncdf
@@ -132,7 +132,7 @@ static class HelloSequence
 
 ## Configure storage
 
-Your app needs a storage for runtime information. To use [Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio-code), which is an emulator for Azure Storage, set `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
+Your app needs a storage for runtime information. To use [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio-code), which is an emulator for Azure Storage, set `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
 
 ```json
 {
