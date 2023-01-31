@@ -368,7 +368,7 @@ You must have a function app in your Azure subscription before publishing your p
 
 ## Next steps
 
-You have used Visual Studio to create and publish a C# durable function app.
+You have used Visual Studio to create and publish a C# Durable Functions app.
 
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
