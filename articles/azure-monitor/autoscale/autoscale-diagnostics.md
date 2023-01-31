@@ -40,16 +40,16 @@ View the history of your autoscale activity in the run history tab. The run hist
 
 ## Resource log schemas 
 
-Following are the general formats for autoscale resource logs with example data included. Not all examples below are properly formed JSON because they may include multiple values that could be valid for a given field. 
+The following are the general formats for autoscale resource logs with example data included. Not all examples below are properly formed JSON as they may include a list of valid for a given field. 
 
-Use events of this type to troubleshoot problems you may be having with autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
+Use these logs to troubleshoot issues in autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
 
 ## Autoscale Evaluations Log
 The following schemas appear in the autoscale evaluations log.
 
 ### Profile evaluation
 
-Recorded when autoscale first looks at an autoscale profile
+Logged when autoscale first looks at an autoscale profile
 
 ```JSON
 {
@@ -68,7 +68,7 @@ Recorded when autoscale first looks at an autoscale profile
 
 ### Profile cooldown evaluation
 
-Recorded when autoscale evaluates if it shouldn't  scale because of a cool down period. 
+Logged when autoscale evaluates if it shouldn't  scale because of a cool down period. 
 
 ```JSON
 {
@@ -91,7 +91,7 @@ Recorded when autoscale evaluates if it shouldn't  scale because of a cool down 
 
 ### Rule evaluation
 
-Recorded when autoscale first starts evaluating a particular scale rule. 
+Logged when autoscale first starts evaluating a particular scale rule. 
 
 ```JSON
 {
@@ -118,7 +118,7 @@ Recorded when autoscale first starts evaluating a particular scale rule.
 
 ### Metric evaluation
 
-Recorded when autoscale evaluated the metric being used to trigger a scale action. 
+Logged when autoscale evaluated the metric being used to trigger a scale action. 
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Recorded when autoscale evaluated the metric being used to trigger a scale actio
 
 ### Instance count evaluation
 
-Recorded when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
+Logged when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
 
 ```JSON
 {
@@ -163,7 +163,7 @@ Recorded when autoscale evaluates the number of instances already running in pre
 
 ### Scale action evaluation
 
-Recorded when autoscale starts evaluation if a scale action should take place. 
+Logged when autoscale starts evaluation if a scale action should take place. 
 
 ```JSON
 {
@@ -183,7 +183,7 @@ Recorded when autoscale starts evaluation if a scale action should take place.
 
 ### Instance update evaluation
 
-Recorded when autoscale updates the number of compute instances running, either up or down.
+Logged when autoscale updates the number of compute instances running, either up or down.
 
 ```JSON
 {
@@ -209,7 +209,7 @@ The following schemas appear in the autoscale evaluations log.
 
 ### Scale action
 
-Recorded when autoscale initiates a scale action, either up or down. 
+Logged when autoscale initiates a scale action, either up or down. 
 ```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -232,7 +232,7 @@ Recorded when autoscale initiates a scale action, either up or down.
 
 ### Scale action tracking
 
-Recorded at different intervals of an instance scale action.
+Logged at different intervals of an instance scale action.
 
 ```JSON
 {
