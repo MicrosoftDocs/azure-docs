@@ -109,7 +109,8 @@ For more information on data residency in Microsoft Cloud offerings, see the fol
 
 ## Next steps
 
-* [Azure Active Directory and data resisency](azure-ad-data-residency.md) (You're here)
+* [Azure Active Directory and data residency](azure-ad-data-residency.md) (You're here)
+
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md)
 
