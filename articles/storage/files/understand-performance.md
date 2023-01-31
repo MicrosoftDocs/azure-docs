@@ -95,7 +95,7 @@ When thinking about latency, it's important to first understand how latency is d
 
 - **Service Latency (SuccessServerLatency)** is the time it takes for a transaction to round-trip only within the Azure Files service. This doesn't include any client or network latency.
 
-  :::image type="content" source="media/understanding-performance/storage-latency-diagram.png" alt-text="Diagram comparing client latency and service latency for Azure Files.":::
+  :::image type="content" source="media/understand-performance/storage-latency-diagram.png" alt-text="Diagram comparing client latency and service latency for Azure Files.":::
 
 The difference between **SuccessE2ELatency** and **SuccessServerLatency** values is the latency likely caused by the network and/or the client.
 
