@@ -1198,7 +1198,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 #### [Standard](#tab/standard)
 
-1. In your workflow, add an action that can send you the results from the **Join** action.
+1. In your workflow, add an action that can send you the results from the **Parse JSON** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
