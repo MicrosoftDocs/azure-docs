@@ -366,7 +366,7 @@ Native applications can also implement custom operations and communicate directl
 
 You don't need any special configuration if you followed [all recommended steps](./quickstart-v2-ios.md) and used the default [redirect URI format](./redirect-uris-ios.md). On devices that have the SSO plug-in, MSAL automatically invokes it for all interactive and silent token requests. It also invokes it for account enumeration and account removal operations. Because MSAL implements a native SSO plug-in protocol that relies on custom operations, this setup provides the smoothest native experience to the end user. 
 
-On iOS devices, if the SSO plug-in isn't enabled by MDM but the Microsoft Authenticator app is present on the device, MSAL instead uses the Authenticator app for any interactive token requests. The SSO plug-in shares SSO with the Authenticator app.
+On iOS and iPadOS devices, if the SSO plug-in isn't enabled by MDM but the Microsoft Authenticator app is present on the device, MSAL instead uses the Authenticator app for any interactive token requests. The SSO plug-in shares SSO with the Authenticator app.
 
 ### Applications that don't use MSAL
 
