@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Manage external access with Azure Active Directory entitlement management 
 
-Use the entitlement management feature to manage identity and access lifecycle. You can automate access request workflows, access assignments, reviews, and expiration. Delegated non-admins use entitlement management to create access packages that external users, from other organizations, can request access to. One and multi-stage approval workflows are configurable to evaluate requests, and provision users for time-limited access with recurring reviews. Use entitlement management for policy-based provisioning and deprovisioning of external accounts.
+Use the entitlement management feature to manage the identity and access lifecycle. You can automate access request workflows, access assignments, reviews, and expiration. Delegated non-admins use entitlement management to create access packages that external users, from other organizations, can request access to. One and multi-stage approval workflows are configurable to evaluate requests, and provision users for time-limited access with recurring reviews. Use entitlement management for policy-based provisioning and deprovisioning of external accounts.
 
 Learn more:
 
