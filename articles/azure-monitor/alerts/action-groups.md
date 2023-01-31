@@ -258,6 +258,7 @@ You may have a limited number of function actions per action group.
    > [!NOTE]
    >
    > The function must have access to the storage account. If not, no keys will be available and the function URI will not be accessible.
+   > [Learn about restoring access to the storage account](https://learn.microsoft.com/azure/azure-functions/functions-recover-storage-account)
 
 ### ITSM
 
