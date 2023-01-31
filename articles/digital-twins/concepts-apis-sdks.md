@@ -100,7 +100,7 @@ The available helper classes are:
 
 ## Bulk import API
 
-The [bulk import API]() is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [bulk import API]() is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 
@@ -133,7 +133,7 @@ Here's a sample input data file for the import API:
 ```
 
 >[!TIP]
->For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
+>For a sample project that converts models, twins, and relationships into the NDJSON supported by the import API, see [Azure Digital Twins Bulk Import NDJSON Generator](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/bulk-import/ndjson-generator). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
 
 Once the file has been created, upload it to an append blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the bulk import API call.
 
@@ -144,15 +144,28 @@ Once the file has been created, upload it to an append blob in Azure Blob Storag
 
 Now you can proceed with [bulk import API]() operations. For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api). You can also use the bulk API to import each resource type independently. For more information on using the bulk import API with individual resource types, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk).
 
-As the import job executes, a structured output log is generated and stored in a new file in your blob container. When the job is complete, you can see the total number of ingested entities in the [Azure Digital Twins metrics](how-to-monitor.md).
+As the import job executes, a structured output log is generated and stored in a new file in your blob container. Here's an example output log for a successful job importing models, twins, and relationships:
 
-It's also possible to cancel a running import job and delete it. For more information about this, see [Cancel API](/jobs/imports/cancel?api-version=2023-02-27-preview).
+```json
+{"timestamp":"2022-12-30T19:50:34.5540455Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"status":"Started"}}
+{"timestamp":"2022-12-30T19:50:37.2406748Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Models","status":"Started"}}
+{"timestamp":"2022-12-30T19:50:38.1445612Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Models","status":"Succeeded"}}
+{"timestamp":"2022-12-30T19:50:38.5475921Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Twins","status":"Started"}}
+{"timestamp":"2022-12-30T19:50:39.2744802Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Twins","status":"Succeeded"}}
+{"timestamp":"2022-12-30T19:50:39.7494663Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Relationships","status":"Started"}}
+{"timestamp":"2022-12-30T19:50:40.4480645Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"section":"Relationships","status":"Succeeded"}}
+{"timestamp":"2022-12-30T19:50:41.3043264Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"status":"Succeeded"}}
+```
+
+When the job is complete, you can see the total number of ingested entities using the [BulkOperationEntityCount metric](how-to-monitor.md#bulk-operation-metrics).
+
+It's also possible to cancel a running import job and delete it. For more information about this, see the [Cancel API]().
 
 ### Limits and considerations
 
 Keep the following considerations in mind while working with the bulk import API:
 * Currently, the bulk import API only supports "create" operations.
-* Bulk import is not an atomic operation. There is no rollback in the case of failure, partial job completion, or usage of the [cancel API](/jobs/imports/cancel?api-version=2023-02-27-preview).
+* Bulk import is not an atomic operation. There is no rollback in the case of failure, partial job completion, or usage of the [cancel API]().
 * Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the bulk import API in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Monitor API metrics
