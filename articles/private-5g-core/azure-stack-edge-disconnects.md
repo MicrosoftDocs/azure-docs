@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge disconnects 
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: An overview of Azure Private 5G Core's behavior during disconnects.
 author: James-Green-Microsoft
 ms.author: jamesgreen
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Azure Stack Edge disconnects
 
-There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. These disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to two days](#disconnected-mode-for-azure-private-5g-core-preview).
+There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. These disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to two days](#disconnected-mode-for-azure-private-5g-core).
 
 ## Temporary disconnects
 
@@ -39,7 +39,7 @@ Once ASE connectivity resumes, several features will resume:
 - **Resource Health** views will be viewable immediately.
 - [Workbooks](/azure/update-center/workbooks) for the ASE will be viewable immediately and will populate for the disconnected duration.
 
-## Disconnected mode for Azure Private 5G Core Preview
+## Disconnected mode for Azure Private 5G Core
 
 *Disconnected mode* allows for ASE disconnects of up to two days. During disconnected mode, AP5GC core functionality persists through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation. During disconnects, the ASE management GUI will display several banners alerting that it's currently disconnected and the impact on functions.
 
@@ -66,5 +66,5 @@ Once reconnected, you can continue to manage your deployment:
 
 - [Create a site using the Azure portal](create-a-site.md)
 - [Modify the packet core instance in a site](modify-packet-core.md)
-- [Provision new SIMs for Azure Private 5G Core Preview - Azure portal](provision-sims-azure-portal.md)
-- [Provision new SIMs for Azure Private 5G Core Preview - ARM template](provision-sims-arm-template.md)
+- [Provision new SIMs for Azure Private 5G Core - Azure portal](provision-sims-azure-portal.md)
+- [Provision new SIMs for Azure Private 5G Core - ARM template](provision-sims-arm-template.md)

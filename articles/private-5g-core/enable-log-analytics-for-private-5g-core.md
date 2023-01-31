@@ -1,6 +1,6 @@
 ---
 title: Enable Log Analytics for a packet core instance
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to enable Log Analytics to allow you to monitor and analyze activity for a packet core instance. 
 author: djrmetaswitch
 ms.author: drichards

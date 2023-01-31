@@ -1,6 +1,6 @@
 ---
 title: Export, upload and share traces
-titleSuffix: Azure Private 5G Core Preview 
+titleSuffix: Azure Private 5G Core 
 description: In this how-to guide, learn how to export, upload and share your detailed traces for diagnostics.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Export, upload and share traces
 
-Azure Private 5G Core Preview offers a distributed tracing web GUI, which you can use to collect detailed traces for signaling flows involving packet core instances. You can export these traces and upload them to a storage account to allow your support representative to access them and provide troubleshooting assistance.
+Azure Private 5G Core offers a distributed tracing web GUI, which you can use to collect detailed traces for signaling flows involving packet core instances. You can export these traces and upload them to a storage account to allow your support representative to access them and provide troubleshooting assistance.
 
 ## Prerequisites
 

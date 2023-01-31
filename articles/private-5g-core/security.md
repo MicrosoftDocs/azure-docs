@@ -1,6 +1,6 @@
 ---
 title: Security
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: An overview of security features provided by Azure Private 5G Core.
 author: richardwhiuk
 ms.author: rwhitehouse
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/25/2022
 ---
 
-# Security for Azure Private 5G Core Preview
+# Security for Azure Private 5G Core
 
 *Azure Private 5G Core* allows service providers and systems integrators to securely deploy and manage private mobile networks for an enterprise. It securely stores network configuration and SIM configuration used by devices connecting to the mobile network. This article lists details about the security capabilities provided by Azure Private 5G Core that help protect the mobile network.
 

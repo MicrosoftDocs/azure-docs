@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Active Directory (Azure AD) for local monitoring tools
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools. 
 author: b-branco
 ms.author: biancabranco

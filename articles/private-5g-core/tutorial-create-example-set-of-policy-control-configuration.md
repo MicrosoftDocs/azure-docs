@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure policy control
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this tutorial, you'll create an example policy control configuration set with traffic handling for common scenarios. 
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. This tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
+Azure Private 5G Core provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. This tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
 
 In this tutorial, you'll learn how to:
 

@@ -1,7 +1,7 @@
 ---
 title: Policy control
-titleSuffix: Azure Private 5G Core Preview
-description: Information on Azure Private 5G Core Preview's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
+titleSuffix: Azure Private 5G Core
+description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Policy control
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+Azure Private 5G Core provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 ## 5G quality of service (QoS) and QoS flows
 

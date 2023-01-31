@@ -1,6 +1,6 @@
 ---
-title: What is Azure Private 5G Core Preview?
-description: Azure Private 5G Core Preview is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
+title: What is Azure Private 5G Core?
+description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -9,9 +9,9 @@ ms.date: 02/20/2022
 ms.custom: template-overview
 ---
 
-# What is Azure Private 5G Core Preview?
+# What is Azure Private 5G Core?
 
-*Azure Private 5G Core Preview* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
+*Azure Private 5G Core* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
 
 Azure Private 5G Core provides: 
 

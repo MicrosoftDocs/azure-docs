@@ -1,7 +1,7 @@
 ---
 title: Key components of a private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Key components of a private mobile network
 
-This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
+This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core. It also details the resources you'll use to manage the private mobile network through Azure.
 
 Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for user equipment (UEs). The following diagram shows the main components of a single site.
 
