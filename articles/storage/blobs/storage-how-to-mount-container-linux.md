@@ -117,6 +117,7 @@ For example, suppose you are authorizing with the account access keys and storin
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
+authType Key
 ```
 
 The `accountName` is the name of your storage account, and not the full URL.
