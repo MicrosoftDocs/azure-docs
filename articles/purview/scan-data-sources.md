@@ -115,7 +115,7 @@ If you're unable to connect to your source, follow these steps:
 1. Review your [source page](microsoft-purview-connector-overview.md)prerequisites to make sure there's nothing you've missed.
 1. Review your authentication option in the **Scan** section of your source page to confirm you have set up the authentication method correctly.
 1. Review our [troubleshoot connections page](troubleshoot-connections.md).
-1. [Create a support request](how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header), so our support team can help you troubleshoot your specific environment.
+1. [Create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header), so our support team can help you troubleshoot your specific environment.
 
 ## Next steps
 
