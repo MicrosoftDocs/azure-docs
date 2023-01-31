@@ -57,7 +57,7 @@ Make sure your IoT Edge device meets the following requirements:
 
 Start by creating an IoT hub with the Azure CLI.
 
-:::image type="content" source="./media/quickstart/create-iot-hub.png" alt-text="Diagram that shows the step to create an I o T hub..":::
+:::image type="content" source="./media/quickstart/create-iot-hub.png" alt-text="Diagram that shows the step to create an I o T hub.":::
 
 The free level of Azure IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a hub created, you can use that IoT hub.
 
