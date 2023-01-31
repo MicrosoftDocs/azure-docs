@@ -25,7 +25,7 @@ In Visual Studio, you see a count of the events that were logged by the Applicat
 
 Select the **Application Insights** button to search your telemetry.
 
-## Application Insights search
+## Application Insights Search
 The **Application Insights Search** window shows logged events. If you signed in to Azure when you set up Application Insights, you can search the same events in the Azure portal. Right-click the project and select **Application Insights** > **Search**.
 
 ![Screenshot that shows the Application Insights Search window.](./media/visual-studio/34.png)

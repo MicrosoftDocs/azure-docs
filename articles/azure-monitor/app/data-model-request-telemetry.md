@@ -32,7 +32,7 @@ ID is the identifier of a request call instance. It's used for correlation betwe
 
 ## URL
 
-The request URL with all query string parameters.
+URL is the request URL with all query string parameters.
 
 **Maximum length**: 2,048 characters
 
@@ -56,7 +56,7 @@ The response code is the result of a request execution. It's the HTTP status cod
 
 Success indicates whether a call was successful or unsuccessful. This field is required. When a request isn't set explicitly to `false`, it's considered to be successful. Set this value to `false` if the operation was interrupted by an exception or a returned error result code.
 
-For web applications, Application Insights define a request as successful when the response code is less than `400` or equal to `401`. However, there are cases when this default mapping doesn't match the semantics of the application.
+For web applications, Application Insights defines a request as successful when the response code is less than `400` or equal to `401`. However, there are cases when this default mapping doesn't match the semantics of the application.
 
 Response code `404` might indicate "no records," which can be part of regular flow. It also might indicate a broken link. For broken links, you can implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing the URL referrer. Or you can mark them as failures when they're accessed from the company's mobile application. Similarly, `301` and `302` indicate failure when they're accessed from the client that doesn't support redirect.
 
@@ -75,6 +75,6 @@ You can read more about the request result code and status code in the [blog pos
 ## Next steps
 
 - [Write custom request telemetry](./api-custom-events-metrics.md#trackrequest).
-- See [data model](data-model.md) for Application Insights types and data model.
+- See the [data model](data-model.md) for Application Insights types and data models.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

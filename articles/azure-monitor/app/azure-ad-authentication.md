@@ -33,7 +33,6 @@ The following SDKs and features are unsupported for use with Azure AD authentica
  Azure AD authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
-
 - [Certificate/secret-based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead.
 - On-by-default codeless monitoring (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Availability tests](availability-overview.md).
@@ -145,10 +144,10 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
     > [!IMPORTANT]
     > Use the full connection string, which includes `IngestionEndpoint`, when you configure your app with the Java agent. For example, use `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
 
-    > [!NOTE]
-    >  For more information about migrating from the 2.X SDK to the 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
-
 1. Add the JSON configuration to the *ApplicationInsights.json* configuration file depending on the authentication you're using. We recommend using managed identities.
+
+> [!NOTE]
+>  For more information about migrating from the 2.X SDK to the 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
 
 #### System-assigned managed identity
 

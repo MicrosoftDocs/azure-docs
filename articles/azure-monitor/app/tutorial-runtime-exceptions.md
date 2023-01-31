@@ -60,29 +60,28 @@ Application Insights collects any failures in your application. It lets you view
 
 1. The operations detail also shows a format exception, which appears to have caused the failure. You can see that it's because of an invalid Zip Code. You can open the debug snapshot to see code-level debug information in Visual Studio.
 
-	![Screenshot that shows Exception details.](media/tutorial-runtime-exceptions/failed-requests-exception.png)
+	![Screenshot that shows exception details.](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## Identify failing code
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production. You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterward, you can debug the source code by downloading the snapshot and opening it in Visual Studio 2019 Enterprise.
 
 1. In the properties of the exception, select **Open debug snapshot**.
-1. The **Debug Snapshot** pane opens with the call stack for the request. Select any method to view the values of all local variables at the time of the request. Starting from the top method in this example, we can see local variables that have no value.
+1. The **Debug Snapshot** pane opens with the call stack for the request. Select any method to view the values of all local variables at the time of the request. Starting from the top method in this example, you can see local variables that have no value.
 
-	![Screenshot that shows the debug snapshot.](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
+	![Screenshot that shows the Debug Snapshot pane.](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-1. The first call that has valid values is **ValidZipCode**. We can see that a Zip Code was provided with letters that can't be translated into an integer. This issue appears to be the error in the code that must be corrected.
+1. The first call that has valid values is **ValidZipCode**. You can see that a Zip Code was provided with letters that can't be translated into an integer. This issue appears to be the error in the code that must be corrected.
 
 	![Screenshot that shows an error in the code that must be corrected.](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-1. You can then download this snapshot into Visual Studio where we can locate the actual code that must be corrected. To do so, select **Download Snapshot**.
+1. You can then download this snapshot into Visual Studio where you can locate the actual code that must be corrected. To do so, select **Download Snapshot**.
 1. The snapshot is loaded into Visual Studio.
 1. You can now run a debug session in Visual Studio Enterprise that quickly identifies the line of code that caused the exception.
 
-	![Screenshot that shows Exception in code.](media/tutorial-runtime-exceptions/exception-code.png)
-
+	![Screenshot that shows an exception in the code.](media/tutorial-runtime-exceptions/exception-code.png)
 
 ## Use analytics data
-All data collected by Application Insights is stored in Azure Log Analytics, which provides a rich query language that you can use to analyze the data in various ways. We can use this data to analyze the requests that generated the exception we're researching.
+All data collected by Application Insights is stored in Azure Log Analytics, which provides a rich query language that you can use to analyze the data in various ways. You can use this data to analyze the requests that generated the exception you're researching.
 
 1. Select the CodeLens information above the code to view telemetry provided by Application Insights.
 
@@ -92,17 +91,17 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 
    ![Screenshot that shows Application Insights window that includes several queries.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
-## Add work item
+## Add a work item
 If you connect Application Insights to a tracking system, such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
 
 1. Return to the **Exception Properties** pane in Application Insights.
 1. Select **New Work Item**.
 1. The **New Work Item** pane opens with details about the exception already populated. You can add more information before you save it.
 
-	![Screenshot that shows New Work Item.](media/tutorial-runtime-exceptions/new-work-item.png)
+	![Screenshot that shows the New Work Item pane.](media/tutorial-runtime-exceptions/new-work-item.png)
 
 ## Next steps
 Now that you've learned how to identify runtime exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 
 > [!div class="nextstepaction"]
-> * [Identify performance issues](./tutorial-performance.md)
+> [Identify performance issues](./tutorial-performance.md)
