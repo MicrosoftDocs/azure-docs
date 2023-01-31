@@ -88,10 +88,7 @@ Create an Azure Active Directory (Azure AD) application and give it the appropri
 ## Step 3: Authorize with Azure AD and configure an access policy
 
 1. Sign in to your organizational account.
-1. Select **Allow access**. 
-    
-     :::image type="content" source="media/authorizations-how-to/consent-to-authorization.png" alt-text="Screenshot of consenting to authorize with GitHub."::: 
-
+1. Select **Allow access**.
 1. After successful authorization, the browser is redirected to API Management and the window is closed. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
 1. Select **Managed identity** > **+ Add members** and then select your subscription. 
