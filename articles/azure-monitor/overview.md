@@ -89,7 +89,7 @@ Metrics are numerical values that describe an aspect of a system at a particular
 
 ### Azure Monitor logs
 
-Azure Monitor Logs stores structured and unstructured log data or all types. You can route and separate data from different sources into different [Log Analytics workspaces](link), (which are described later) for querying. 
+Azure Monitor Logs stores structured and unstructured log data or all types. You can route and separate data from different sources into different [Log Analytics workspaces](./logs/log-analytics-overview.md), for querying. 
 Logs are recorded system events that can have a greatly varying size and structure. They can contain different kinds of data and may be structured or free-form text with a timestamp. Azure Monitor Logs can also store metrics data, but in log form.
 
 ![Diagram that shows logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
