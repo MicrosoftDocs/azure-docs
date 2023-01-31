@@ -5,7 +5,7 @@ keywords: azure app service, web app, multiregion, multi-region, multiple region
 author: seligj95
 
 ms.topic: tutorial
-ms.date: 1/27/2023
+ms.date: 1/31/2023
 ms.author: jordanselig
 ---
 
@@ -58,10 +58,10 @@ az appservice plan create --name <app-service-plan-east-us> --resource-group myr
 az appservice plan create --name <app-service-plan-west-us> --resource-group myresourcegroup --is-linux --location westus
 ```
 
-Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region).
+Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region). Replace the `<runtime>` parameter with the language version of your app. Run `az webapp list-runtimes` for the list of available runtimes. If you plan on using the sample Node.js app given in this tutorial in the following sections, use "NODE:18-lts" as your runtime.
 
 ```azurecli-interactive
-az webapp create --name <web-app-east-us> --resource-group myresourcegroup --plan <app-service-plan-east-us>
+az webapp create --name <web-app-east-us> --resource-group myresourcegroup --plan <app-service-plan-east-us> --runtime <runtime>
 az webapp create --name <web-app-west-us> --resource-group myresourcegroup --plan <app-service-plan-west-us>
 ```
 
@@ -139,8 +139,8 @@ az afd profile show --resource-group myresourcegroup --profile-name myfrontdoorp
 Run the following commands to set the access restrictions on your web apps. Replace the placeholder for `<front-door-id>` with the result from the previous command. Replace the placeholders for the app names.
 
 ```azurecli-interactive
-az webapp config access-restriction add --resource-groupg myresourcegroup -n <web-app-east-us> --priority 100 --service-tag AzureFrontDoor.Backend --http-header x-azure-fdid=<front-door-id>
-az webapp config access-restriction add --resource-groupg myresourcegroup -n <web-app-west-us> --priority 100 --service-tag AzureFrontDoor.Backend --http-header x-azure-fdid=<front-door-id>
+az webapp config access-restriction add --resource-group myresourcegroup -n <web-app-east-us> --priority 100 --service-tag AzureFrontDoor.Backend --http-header x-azure-fdid=<front-door-id>
+az webapp config access-restriction add --resource-group myresourcegroup -n <web-app-west-us> --priority 100 --service-tag AzureFrontDoor.Backend --http-header x-azure-fdid=<front-door-id>
 ```
 
 ## Test the Front Door
