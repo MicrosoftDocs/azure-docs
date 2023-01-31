@@ -1,3 +1,4 @@
+items: 
 - name: Microsoft Dev Box documentation
   href: index.yml
 - name: Overview
@@ -20,6 +21,8 @@
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Components common to Dev Box and ADE
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
