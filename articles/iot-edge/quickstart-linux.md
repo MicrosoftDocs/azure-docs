@@ -247,7 +247,7 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    sudo iotedge list
    ```
 
-:::image type="content" source="./media/quickstart-linux/iotedge-list-2-version-1.4.png" alt-text="Screenshot that shows three modules on your device." lightbox="./media/quickstart-linux/iotedge-list-2-version-1.4.png":::
+:::image type="content" source="./media/quickstart-linux/iot-edge-list-2-version-1.4.png" alt-text="Screenshot that shows three modules on your device." lightbox="./media/quickstart-linux/iot-edge-list-2-version-1.4.png":::
 
 View the messages being sent from the temperature sensor module:
 
@@ -258,7 +258,7 @@ View the messages being sent from the temperature sensor module:
    >[!TIP]
    >IoT Edge commands are case-sensitive when referring to module names.
 
-   :::image type="content" source="./media/quickstart-linux/iotedge-logs.png" alt-text="Screenshot that shows data from your module in the output console." lightbox="./media/quickstart-linux/iotedge-logs.png":::
+   :::image type="content" source="./media/quickstart-linux/iot-edge-logs.png" alt-text="Screenshot that shows data from your module in the output console." lightbox="./media/quickstart-linux/iot-edge-logs.png":::
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 

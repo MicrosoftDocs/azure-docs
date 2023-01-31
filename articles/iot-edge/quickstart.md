@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 10/20/2022
+ms.date: 1/31/2023
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -238,7 +238,7 @@ The module that you pushed generates sample environment data that you can use fo
    sudo iotedge list
    ```
 
-   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Screenshot that shows where to verify that your temperature sensor, agent, and hub modules are running." lightbox="./media/quickstart/iotedge-list-screen.png":::
+   :::image type="content" source="./media/quickstart/iot-edge-list-screen.png" alt-text="Screenshot that shows where to verify that your temperature sensor, agent, and hub modules are running." lightbox="./media/quickstart/iot-edge-list-screen.png":::
 
 1. View the messages being sent from the temperature sensor module to the cloud using the following Linux command:
 
