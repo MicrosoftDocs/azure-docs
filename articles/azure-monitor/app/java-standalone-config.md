@@ -682,17 +682,13 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
 
 ## Metric interval
 
-This feature is in preview.
-
 By default, metrics are captured every 60 seconds.
 
 Starting from version 3.0.3, you can change this interval:
 
 ```json
 {
-  "preview": {
-    "metricIntervalSeconds": 300
-  }
+  "metricIntervalSeconds": 300
 }
 ```
 
