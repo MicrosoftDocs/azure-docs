@@ -21,7 +21,7 @@ The following diagram depicts a simple hub and spoke design with a hub VNet and 
 
 :::image type="content" source="./media/scenarios/route-injection.png" alt-text="This network diagram shows a basic hub and spoke topology.":::
 
-However, if the NVA advertises network prefixes to the Route Server, they will appear as effective routes in any virtual machine deployed in the hub VNet or spoke VNets that are peered with the hub VNet with the setting "Use remote virtual network's gateway". 
+However, if the NVA advertises network prefixes to the Route Server, they will appear as effective routes in any virtual machine deployed in the hub VNet or spoke VNets that are peered with the hub VNet with the setting "Use remote virtual network's gateway or Route Server". 
 
 ## Connectivity to on-premises through the NVA
 
