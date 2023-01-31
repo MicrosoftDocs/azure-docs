@@ -36,7 +36,7 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
-- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2).
+- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 # [Studio UI](#tab/ui)
@@ -339,7 +339,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
 You can submit a standalone Spark job from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
 - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
-- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
 This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning Managed (Automatic) Spark compute, using user identity.
 
@@ -615,7 +615,7 @@ To create an Azure Machine Learning pipeline with a Spark component, you should 
 You can submit a pipeline job with a Spark component from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
 - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
-- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
 This Python code snippet shows use of a managed identity, together with the creation of an Azure Machine Learning pipeline job. Additionally, it shows use of a Spark component and an Azure Machine Learning Managed (Automatic) Synapse compute:
 
