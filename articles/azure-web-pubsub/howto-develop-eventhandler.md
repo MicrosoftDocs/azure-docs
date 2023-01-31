@@ -50,7 +50,7 @@ To configure an event handler in a new hub:
 1. Select **Settings** from the menu. 
 1. Select **Add** to create a hub and configure your server-side webhook URL. Note: To add an event handler to an existing hub, select the hub and select **Edit**.
 
-:::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
+   :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
 1. Enter your hub name.
 1. Select **Add** under **Configure Even Handlers**.
@@ -64,7 +64,7 @@ To configure an event handler in a new hub:
 
 1. Select **Save** at the top of the **Configure Hub Settings** page.
 
-:::image type="content" source="media/quickstart-serverless/edit-event-handler.png" alt-text="Screenshot of Azure Web PubSub Configure Hub Settings.":::
+   :::image type="content" source="media/quickstart-serverless/edit-event-handler.png" alt-text="Screenshot of Azure Web PubSub Configure Hub Settings.":::
 
 ### Configure through Azure CLI
 
