@@ -1,7 +1,7 @@
 ---
 title: Manage a Virtual Instance for SAP solutions (preview)
 description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ms.topic: how-to
 ms.date: 02/03/2023
 author: lauradolan

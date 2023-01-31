@@ -3,7 +3,7 @@ title: Manage Azure Center for SAP solutions resources with Azure RBAC (preview)
 description: Use Azure role-based access control (Azure RBAC) to manage access to your SAP workloads within Azure Center for SAP solutions.
 author: kalyaninamuduri 
 ms.author: kanamudu 
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ms.topic: conceptual
 ms.date: 02/03/2023
 ms.custom: template-concept 
