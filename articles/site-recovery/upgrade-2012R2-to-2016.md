@@ -1,6 +1,6 @@
 ---
 title: Upgrade Windows Server and System Center Virtual Machine Manager 2012 R2 to 2016 
-description: Learn how to upgrade Windows Server 2012 R2 hosts & System Center Virtual Machine Manager 2012 R2 configured with Azure Site Recovery to Windows Server 2016 & Virtual Machine Manager 2016.
+description: Learn how to upgrade Windows Server 2012 R2 hosts and System Center Virtual Machine Manager 2012 R2 configured with Azure Site Recovery to Windows Server 2016 and Virtual Machine Manager 2016.
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
@@ -31,82 +31,84 @@ In this article, you learn how to upgrade the following configurations in your e
 Before you upgrade, note the following:
 
 - If you have Windows Server 2012 R2 hosts that Virtual Machine Manager doesn't manage, and it's a standalone environment setup, there will be a break in replication if you try to perform the upgrade.
-- If you selected **not store my Keys in Active Directory under Distributed Key Management** while installing Virtual Machine Manager 2012 R2 in the first place, the upgrades won't finish successfully.
+- If you selected **Do not store my keys in Active Directory under Distributed Key Management** while installing Virtual Machine Manager 2012 R2, the upgrades won't finish successfully.
 
 - If you're using System Center 2012 R2 Virtual Machine Manager:
 
-  - Check the database information on Virtual Machine Manager. You can find it by going to **VMM console** > **settings** > **General** > **Database connection**.
-  - Check the service accounts being used for System Center Virtual Machine Manager Agent service.
-  - Make sure that you have a backup of the Virtual Machine Manager Database.
-  - Note down the database name of the Virtual Machine Manager servers involved. You can find it by going to **VMM console** > **Settings** > **General** > **Database connection**.
-  - Note down the Virtual Machine Manager ID of both the 2012R2 primary and recovery Virtual Machine Manager servers. Virtual Machine Manager ID can be found from the registry: *HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup*.
-  - Ensure that you the new Virtual Machine Manager instances that you add to the cluster have the same names as before.
+  - Check the database information on Virtual Machine Manager. You can find it by going to the Virtual Machine Manager console and selecting **Settings** > **General** > **Database connection**.
+  - Check the service accounts that you're using for the System Center Virtual Machine Manager Agent service.
+  - Make sure that you have a backup of the Virtual Machine Manager database.
+  - Note down the database names of the Virtual Machine Manager servers involved. You can find them by going to the Virtual Machine Manager console and selecting **Settings** > **General** > **Database connection**.
+  - Note down the Virtual Machine Manager IDs of the 2012 R2 primary and recovery Virtual Machine Manager servers. You can find the Virtual Machine Manager IDs in the registry: *HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup*.
+  - Ensure that the new Virtual Machine Manager instances that you add to the cluster have the same names as before.
 
-- If you're replicating between two of your sites managed by Virtual Machine Manager on both sides, ensure that you upgrade your recovery side before you upgrade the primary side.
+- If you're replicating between two sites managed by Virtual Machine Manager on both sides, ensure that you upgrade the recovery side before you upgrade the primary side.
   > [!WARNING]
-  > When you're upgrading Virtual Machine Manager 2012 R2, under **Distributed Key Management**, select to **store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selection, encrypted data such as passwords in templates might not be available after the upgrade and can potentially affect replication with Azure Site Recovery.
+  > When you're upgrading Virtual Machine Manager 2012 R2, under **Distributed Key Management**, select **Store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selections, encrypted data such as passwords in templates might not be available after the upgrade and can potentially affect replication with Azure Site Recovery.
 
-> [!IMPORTANT]
-> Refer to the detailed Virtual Machine Manager documentation of [prerequisites](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#requirements-and-limitations).
+For more information, see the detailed Virtual Machine Manager [documentation of prerequisites](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#requirements-and-limitations).
 
 ## Windows Server 2012 R2 hosts that Virtual Machine Manager doesn't manage
 
 The following steps apply to the user configuration from [Hyper-V hosts to Azure](./hyper-v-azure-architecture.md). You can complete this configuration by following [this tutorial](./hyper-v-prepare-on-premises-tutorial.md).
 
 > [!WARNING]
-> As mentioned in the prerequisites, these steps only apply to a clustered environment scenario, and not in a standalone Hyper-V host configuration.
+> As mentioned in the prerequisites, these steps apply only to a clustered environment scenario and not in a standalone Hyper-V host configuration.
 
 1. Follow the [steps to perform the rolling cluster upgrade](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process).
-2. With every new Windows Server 2016 host that is introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps]. This should be the host you chose to drain and evict from the cluster.
-3. After the `Update-VMVersion` command has been run for all virtual machines, the upgrades have been completed.
+2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps]. This should be the host that you chose to drain and evict from the cluster.
+3. After you run the `Update-VMVersion` command for all virtual machines, the upgrades are completed.
 4. [Use these steps](./hyper-v-azure-tutorial.md#source-settings) to register the new Windows Server 2016 host to Azure Site Recovery. Note that the Hyper-V site is already active and you just need to register the new host in the cluster.
 5. Go to the Azure portal and verify the replicated health status inside the Recovery Services vault.
 
-## Upgrade Windows Server 2012 R2 hosts managed by a standalone Virtual Machine Manager 2012 R2 server
+## Upgrade Windows Server 2012 R2 hosts that a standalone Virtual Machine Manager 2012 R2 server manages
 
-Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade the Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. Use the following steps.
+Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. Use the following steps.
 
 ### Upgrade standalone Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016
 
-1. Uninstall ASR provider. Go to **Control Panel** > **Programs** > **Programs and Features** > **Microsoft Azure Site Recovery**, and then select **Uninstall**.
-2. [Retain the Virtual Machine Manager database and upgrade the operating system](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#back-up-and-upgrade-the-operating-system)
+1. Uninstall the Azure Site Recovery provider. Go to **Control Panel** > **Programs** > **Programs and Features** > **Microsoft Azure Site Recovery**, and then select **Uninstall**.
+2. [Retain the Virtual Machine Manager database and upgrade the operating system](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#back-up-and-upgrade-the-operating-system):
 
-   a. In **Add remove programs**, select **VMM** > **Uninstall**. 
+   a. In **Add or remove programs**, select **VMM** > **Uninstall**. 
+
    b. Select **Remove Features**, and then select **VMM management Server and VMM Console**.
+
    c. In **Database Options**, select **Retain database**.
+
    d. Review the summary and select **Uninstall**.
 
-4. [Install Virtual Machine Manager 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#install-vmm-2016)
-5. Open Virtual Machine Manager and check status of each host under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see status as **Needs Attention**.
-6. Install the latest [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) on Virtual Machine Manager.
-7. Install the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure Virtual Machine Manager can successfully query the hosts.
+4. [Install Virtual Machine Manager 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#install-vmm-2016).
+5. Open Virtual Machine Manager and check the status of each host under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see a status of **Needs Attention**.
+6. [Install the latest Azure Site Recovery provider (direct download)](https://aka.ms/downloaddra) on Virtual Machine Manager.
+7. Install the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure that Virtual Machine Manager can successfully query the hosts.
 
 ## Upgrade Windows Server 2012 R2 hosts to Windows Server 2016
 
 1. Follow [these steps](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) to perform the rolling cluster upgrade.
-2. After adding the new host to the cluster, refresh the host from the Virtual Machine Manager console to install the Virtual Machine Manager Agent on this updated host.
+2. After you add the new host to the cluster, refresh the host from the Virtual Machine Manager console to install the Virtual Machine Manager agent on this updated host.
 3. Run `Update-VMVersion` to update the versions of the virtual machines.
 4. Go to the Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services vault.
 
-## Upgrade Windows Server 2012 R2 hosts that are managed by highly available Virtual Machine Manager 2012 R2 server
+## Upgrade Windows Server 2012 R2 hosts that a highly available Virtual Machine Manager 2012 R2 server manages
 
-Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade the Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. The following modes of upgrade are supported while upgrading Virtual Machine Manager 2012 R2 servers configured with both:
+Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. The following modes of upgrade are supported while you're upgrading Virtual Machine Manager 2012 R2 servers configured with:
 
-- Azure Site Recovery mixed mode with no additional Virtual Machine Manager servers
-- Mixed mode with additional Virtual Machine Manager servers
+- Site Recovery mixed mode with no additional Virtual Machine Manager servers.
+- Site Recovery mixed mode with additional Virtual Machine Manager servers.
 
 ### Upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016
 
-1. Uninstall the Azure Site Recovery provider. Go to **Control Panel** > **Programs** > **Programs and Features** > **Microsoft Azure Site Recovery** , and then select **Uninstall**.
+1. Uninstall the Azure Site Recovery provider. Go to **Control Panel** > **Programs** > **Programs and Features** > **Microsoft Azure Site Recovery**, and then select **Uninstall**.
 2. Follow [these steps](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#upgrade-a-standalone-vmm-server) based on the mode of upgrade that you want to execute.
-3. Launch the Virtual Machine Manager console and check the status of each hosts under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see status as **Needs Attention**.
-4. Install the latest [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) on Virtual Machine Manager.
-5. Update the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure Virtual Machine Manager can successfully query the hosts.
+3. Open the Virtual Machine Manager console and check the status of each host under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see a status of **Needs Attention**.
+4. [Install the latest Azure Site Recovery provider (direct download)](https://aka.ms/downloaddra) on Virtual Machine Manager.
+5. Update the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure that Virtual Machine Manager can successfully query the hosts.
 
 ### Upgrade Windows Server 2012 R2 hosts to Windows Server 2016
 
 1. Follow [these steps](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) to perform the rolling cluster upgrade.
-2. After adding the new host to the cluster, refresh the host from the Virtual Machine Manager console to install the Virtual Machine Manager Agent on this updated host.
+2. After you add the new host to the cluster, refresh the host from the Virtual Machine Manager console to install the Virtual Machine Manager agent on this updated host.
 3. Run `Update-VMVersion` to update the VM versions of the virtual machines.
 4. Go to the Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services vault.
 
