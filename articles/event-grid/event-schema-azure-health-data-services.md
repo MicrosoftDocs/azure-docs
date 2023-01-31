@@ -29,7 +29,7 @@ These events are triggered when a DICOM image is created or deleted by calling t
  |**DicomImageDeleted** |The event emitted after a DICOM image is deleted successfully.|
 
 ## Example events
-This section contains examples of what events message data would look like for each FHIR resource and DICOM image event.
+This section contains examples of what events message data would look like for each FHIR Observation resource and DICOM image event.
 
 > [!NOTE]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
@@ -250,7 +250,7 @@ This section contains examples of what events message data would look like for e
 ---
 
 ## Next steps
-* For an overview of the Azure Health Data Services Events, see [What are Events?](../healthcare-apis/events/events-overview.md).
-* To learn how to deploy the Azure Health Data Services Events in the Azure portal, see [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
+* For an overview of the Azure Health Data Services Events feature, see [What are Events?](../healthcare-apis/events/events-overview.md).
+* To learn how to deploy the Azure Health Data Services Events feature in the Azure portal, see [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
  
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
