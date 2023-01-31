@@ -18,7 +18,7 @@ This document contains information about new features and other changes to the M
 
 ### [3.0.0-preview.3] (February 2, 2023)
 
-#### Installation
+#### Installation (3.0.0-preview.3)
 
 The preview is available on [npm][3.0.0-preview.3] and CDN.
 
@@ -31,7 +31,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.3/atlas.min.js"></script>
     ```
 
-#### New features
+#### New features (3.0.0-preview.3)
 
 - **\[BREAKING\]** Migrated from [adal-angular] to [@azure/msal-browser] used for authentication with Microsoft Azure Active Directory ([Azure AD]).
   Changes that may be required:
@@ -41,7 +41,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
 
 - Allow pitch and bearing being set with [CameraBoundsOptions] in [Map.setCamera(options)].
 
-#### Bug fixes
+#### Bug fixes (3.0.0-preview.3)
 
 - Fixed issue in [language mapping], now `zh-Hant-TW` will no longer revert back to `en-US`.
 
