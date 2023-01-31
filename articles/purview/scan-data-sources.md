@@ -11,9 +11,9 @@ ms.date: 01/25/2023
 
 # Scan data sources in Microsoft Purview
 
-In Microsoft Purview, after you [register a data source](manage-data-sources.md#register-a-new-source) your data source, you can scan your source to import metadata about the information stored in that source, and apply any classifications to sensitive data.
+In Microsoft Purview, after you [register your data source](manage-data-sources.md#register-a-new-source), you can scan your source to capture technical metadata, extract schema, and apply classifications to your data.
 
-* For more information about scanning in general, see our [scanning concept article](concept-scans-and-ingestion.md)
+* For more information about scanning in general, see our [scanning concept article](concept-scans-and-ingestion.md).
 * For best practices, see our [scanning best practices article.](concept-best-practices-scanning.md)
 
 In this article, you'll learn the basic steps for scanning any data source.
@@ -28,10 +28,10 @@ In this article, you'll learn the basic steps for scanning any data source.
 Before you can scan your data source, you must take these steps:
 
 1. [Register your data source](manage-data-sources.md#register-a-new-source) - This essentially gives Microsoft Purview the address of your data source, and maps it to a [collection](catalog-permissions.md#a-collections-example) in the Microsoft Purview Data Map.
-1. Consider your network - If your source is on an on-premises network, or a virtual private network (VPN), or if your [Microsoft Purview account is using private endpoints](catalog-private-link-end-to-end.md), you'll need a self-hosted integration runtime, which is a tool that will sit on a machine in your private network so your source and Microsoft Purview can connect during the scan. [Here are the instructions to create a self-hosted integration runtime.](manage-integration-runtimes.md)
+1. Consider your network - If your source is in an on-premises network, or a virtual private network (VPN), or if your [Microsoft Purview account is using private endpoints](catalog-private-link-end-to-end.md), you'll need a self-hosted integration runtime, which is a tool that will sit on a machine in your private network so your source and Microsoft Purview can connect during the scan. [Here are the instructions to create a self-hosted integration runtime.](manage-integration-runtimes.md)
 1. Consider what credentials you're going to use to connect to your source. All [source pages](microsoft-purview-connector-overview.md) will have a **Scan** section that will include details about what authentication types are available.
 
-## Creating a scan
+## Create a scan
 
 In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-storage-source.md) as an example, and authenticating with the Microsoft Purview Managed Identity.
 
@@ -39,7 +39,7 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 > These are the general steps for creating a scan, but you should refer to [the source page](microsoft-purview-connector-overview.md) for source-specific prerequistes and scanning instructions.
 
 
-1. In the [Azure portal](https://portal.azure.com), open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**.
+1. In the [Azure portal](https://portal.azure.com), open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal** button.
 
    :::image type="content" source="./media/scan-data-sources/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
@@ -50,11 +50,12 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 
 1. Provide a **Name** for the scan.
 1. Select your authentication method. Here we chose the Purview MSI (managed identity.)
-1. Choose the current collection, or a sub collection for the scan. The collection you choose will house the metadata discovered during the scan.
-
-1. Select **Test connection**. If it isn't successful, see our [troubleshooting] section. On a successful connection, select **Continue**
 
    :::image type="content" source="media/scan-data-sources/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
+
+1. Choose the current collection, or a sub collection for the scan. The collection you choose will house the metadata discovered during the scan.
+
+1. Select **Test connection**. If it isn't successful, see our [troubleshooting] section. On a successful connection, select **Continue**.
 
 1. Depending on the source, you can scope your scan to a specific subset of data. For Azure Blob Storage, we can select folders and subfolders by choosing the appropriate items in the list.
 
@@ -72,7 +73,7 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 
    :::image type="content" source="media/scan-data-sources/register-blob-review-scan.png" alt-text="review scan":::
 
-## Viewing Scan
+## View a scan
 
 Depending on the amount of data in your data source, a scan can take some time to run, so here's how you can check on progress and see results when the scan is complete.
 
@@ -90,7 +91,7 @@ Depending on the amount of data in your data source, a scan can take some time t
 
    :::image type="content" source="media/scan-data-sources/register-blob-scan-completed.png" alt-text="view scan completed":::
 
-## Managing Scan
+## Manage a scan
 
 After a scan is complete, it can be managed or run again.
 
@@ -102,7 +103,7 @@ After a scan is complete, it can be managed or run again.
 
    :::image type="content" source="media/scan-data-sources/register-blob-manage-scan-options.png" alt-text="manage scan options":::
 
-1. You can _run an incremental scan_ or a _full scan_ again.
+1. You can run a full scan, which will scan all the content in your scope, but some sources also have **incremental scan** available. Incremental scan will scan only those resources that have been updated since the last scan. Check the **supported capabilities** table in your source page to see if incremental scan is available for your source after the first scan.
 
    :::image type="content" source="media/scan-data-sources/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
@@ -112,7 +113,7 @@ Setting up the connection for your scan can complex since it's a custom set up f
 
 If you're unable to connect to your source, follow these steps:
 
-1. Review your [source page](microsoft-purview-connector-overview.md)prerequisites to make sure there's nothing you've missed.
+1. Review your [source page](microsoft-purview-connector-overview.md) prerequisites to make sure there's nothing you've missed.
 1. Review your authentication option in the **Scan** section of your source page to confirm you have set up the authentication method correctly.
 1. Review our [troubleshoot connections page](troubleshoot-connections.md).
 1. [Create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header), so our support team can help you troubleshoot your specific environment.
