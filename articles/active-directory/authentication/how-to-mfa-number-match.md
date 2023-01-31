@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 01/31/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -68,9 +68,9 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
+Although NPS doesn't support number matching, the latest NPS extension does support One-Time Password (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. OTP sign-in provides better security than the **Approve**/**Deny** experience that NPS extension users see otherwise. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. The NPS Server where the NPS extension is installed must be configured to use PAP protocol. 
+After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. 
 
 Users must have an OTP authentication method registered to see this behavior. Users who don't have an OTP method registered will continue to see **Approve**/**Deny** options. 
 
@@ -106,10 +106,10 @@ In addition:
 
 - Users who perform OTP must have either Microsoft Authenticator registered as an authentication method, or some other hardware or software OATH token. A user who can't use an OTP method will always see **Approve**/**Deny** options with push notifications if they use a version of NPS extension earlier than 1.2.2216.1.
 - Users must be [enabled for number matching](#enable-number-matching-in-the-portal). 
-- The VPN server must be configured to use PAP protocol. 
+- The NPS Server where the NPS extension is installed must be configured to use PAP protocol. 
 
   >[!NOTE] 
-  >MSCHAPv2 doesn't support One-Time Passwords. 
+  >MSCHAPv2 doesn't support OTP. If the NPS Server isn't configured to use PAP, users will see **Approve**/**Deny** options.
 
 If your organization uses Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
 
