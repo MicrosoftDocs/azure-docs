@@ -44,7 +44,7 @@ For more details, see [Create and manage network slices - Azure portal](create-m
 
 ### Enhanced provisioning status reporting
 
-**Type:** New Feature
+**Type:** New feature
 
 **Date available:** January 31, 2023
 
@@ -60,7 +60,7 @@ You can now gather diagnostics for a site remotely using the Azure portal. Diagn
 
 ### West Europe region
 
-**Type:** New Feature
+**Type:** New feature
 
 **Date available:** January 17, 2023
 
@@ -87,13 +87,6 @@ If you're experiencing issues with your packet core deployment, you can now rein
 You can check the installation state on the **Packet Core Control Plane** resource's overview page. Upon successful redeployment, the installation state will change from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome. You can reinstall the packet core if the installation state is **Installed** or **Failed**.
 
 If you attempt a reinstall after an upgrade, redeployment will be attempted with the upgraded packet core version. The reinstall is done using the latest packet core version currently defined in the ARM API version.
-
-This feature has the following limitations:
-
-- The provisioning state of resources **Packet Core Control Plane**, **Packet Core Data Plane** and **Attached Data Network** will not change with reinstall.
-- The status of the reinstallation operation can tracked only via **Activity Logs**.
-- Reinstalling the packet core may take 45 minutes or more.
-- Updated Installation states are only reflected when the **Packet Core Control Plane** resource's overview page is refreshed.
 
 To reinstall your packet core instance, see [Reinstall the packet core instance in a site - Azure portal](reinstall-packet-core.md).
 
