@@ -23,7 +23,7 @@ You can have multiple Azure AD admin users with Azure Database for PostgreSQL - 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: **Global Administrator**, **Privileged Role Administrator**, **Tenant Creator**.
+- One of the following roles: **Global Administrator**, **Privileged Role Administrator**, **Tenant Creator**,**Application Owner**.
 - Installation of the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Install the Azure AD PowerShell module
@@ -44,7 +44,7 @@ Account          Environment TenantId          TenantDomain                     
 <your account>   AzureCloud  <your tenant Id>  <your tenant name>.onmicrosoft.com    User
 ```
 
-Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. The ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.
+Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. **The ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.**
 
 > [!NOTE]  
 > The following script is an example of a created Azure App Registration you can use for testing. If you want to apply your ids, you need to use your own App Registration object and application id.
@@ -62,7 +62,7 @@ ObjectId                             AppId                                Displa
 ```
 
 > [!IMPORTANT]  
-> If you are not a **Global Administrator**, **Privileged Role Administrator**, **Tenant Creator** you can't proceed past this step.
+> If you are not a **Global Administrator**, **Privileged Role Administrator**, **Tenant Creator**,**Application Owner** you can't proceed past this step.
 
 ### Grant read access
 
