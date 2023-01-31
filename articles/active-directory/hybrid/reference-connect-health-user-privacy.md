@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect Health and user privacy
-description: Learn about user privacy with Azure AD Connect Health.
+description: Learn about user privacy and data collection with Azure AD Connect Health.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -30,7 +30,7 @@ Azure AD Connect Health doesn't generate reports, perform analytics, or provide 
 
 Servers that have active **Health service data is not up to date** error alerts for more than 30 consecutive days suggest that no data has reached Connect Health during that time. These servers will be disabled and not shown in the Connect Health portal. To re-enable the servers, you must uninstall and [reinstall the health agent](how-to-connect-health-agent-install.md). This doesn't apply to *warnings* for the same alert type. Warnings indicate that partial data is missing from the server you're alerted for.
 
-## Disable data collection and monitoring in Azure AD Connect Health
+## Disable data collection and monitoring
 
 You can use Azure AD Connect Health to stop data collection for a specific monitored server or for an instance of a monitored service. For example, you can stop data collection for individual Active Directory Federation Services (AD FS) servers that are monitored by using Azure AD Connect Health. You can also stop data collection for the entire AD FS instance that's being monitored by using Azure AD Connect Health. If you choose to stop data collection for a specific monitored server, the server is deleted from the Azure AD Connect Health portal after data collection is stopped.
 

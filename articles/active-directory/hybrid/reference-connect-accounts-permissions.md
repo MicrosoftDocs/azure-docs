@@ -121,7 +121,7 @@ The following table is a summary of the custom settings wizard pages, the creden
 | Connect your directories |Windows Server AD credentials for each forest that is connected to Azure AD. |The permissions depend on which features you enable and can be found in [Create the AD DS Connector account](#create-the-ad-ds-connector-account). |This account is used to read and write directory information during sync. |
 | AD FS Servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |The Domain Administrator account. |Used during installation and configuration of the Active Directory Federation Services (AD FS) server role. |
 | Web application proxy servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |Local admin on the target machine. |Used during installation and configuration of the web application proxy (WAP) server role. |
-| Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the federation services (FS). |The domain account that's a local administrator of the AD FS server. |Initial enrollment of FS-WAP trust certificate. |
+| Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the federation services (FS)). |The domain account that's a Local Administrator of the AD FS server. |Initial enrollment of the FS-WAP trust certificate. |
 | AD FS Service Account page **Use a domain user account option** |The Windows Server AD user account credentials. |A domain user. |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
 
 ### AD DS Connector account required permissions for custom settings
@@ -147,7 +147,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Device writeback |Permissions granted with a PowerShell script as described in [Device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Allows you to writeback *Microsoft 365 Groups* to a forest that has Exchange installed.|
 
-## Upgrade required permissions
+## Required permissions to upgrade
 
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
 
@@ -192,8 +192,8 @@ The following table describes default, recommended, and supported options for th
 
 Legend:
 
-- **Bold** indicates the default option and, in most cases, the recommended option.
-- *Italic* indicates the recommended option when it isn't the default option.
+- **Bold**= The default option and, in most cases, the recommended option.
+- *Italic* = The recommended option when it isn't the default option.
 - 2008 = The default option when installed on Windows Server 2008
 - Non-bold = A supported option
 - Local account = Local user account on the server
