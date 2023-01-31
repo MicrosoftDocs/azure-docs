@@ -286,8 +286,6 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
 
-    > [!NOTE]
-    > In App Service environment V3, the **Route All** setting is disabled by default and must be explicitly enabled.
 ::: zone-end
 
 ::: zone pivot="container-linux"
