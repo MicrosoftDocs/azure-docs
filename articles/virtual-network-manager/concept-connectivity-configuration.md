@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/09/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -24,7 +24,7 @@ In this article, you'll learn about the different types of configurations you ca
 
 ## Mesh network topology
 
-A mesh network is a topology in which all the virtual networks in the [network group](concept-network-groups.md) are connected to each other. All virtual networks are connected and can pass traffic bi-directionally to one another. By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can't overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets will be dropped, since routing is non-deterministic.
+A mesh network is a topology in which all the virtual networks in the [network group](concept-network-groups.md) are connected to each other. All virtual networks are connected and can pass traffic bi-directionally to one another. By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets will be dropped, since routing is non-deterministic.
 
 :::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
 
@@ -40,17 +40,20 @@ When you create a mesh topology, a new connectivity construct is created called 
 
 A hub-and-spoke is a network topology in which you have a virtual network selected as the hub virtual network. This virtual network gets bi-directionally peered with every spoke virtual network in the configuration. This topology is useful for when you want to isolate a virtual network but still want it to have connectivity to common resources in the hub virtual network. 
 
+:::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Diagram of a hub and spoke topology.":::
+
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you'll need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
 
 ### Direct connectivity
 
 Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connectedgroup) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
 
+
 For example, you create two network groups. You enable direct connectivity for the *Production* network group but not for the *Test* network group. This set up only allows virtual networks in the *Production* network group to communicate with one another but not the ones in the *Test* network group. 
 
 See example diagram below:
 
-:::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Diagram of a hub and spoke topology with two network groups.":::
+:::image type="content" source="./media/concept-configuration-types/hub-spoke-connected.png" alt-text="Diagram of a hub and spoke topology with two network groups.":::
 
 When you look at effective routes on a VM, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. With the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
 

@@ -6,10 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: balapv 
+author: balapv
+ms.reviewer: sgilley
 ms.date: 10/21/2021
-ms.custom: seoapril2019, seodec18
+ms.custom: seoapril2019, seodec18, ignite-2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
@@ -58,7 +59,7 @@ Azure Machine Learning introduces two fully managed cloud-based virtual machines
 
 * **Compute clusters**: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
-For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#deploy).
+For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#training-compute-targets).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#compute-targets-for-inference).
 
 ## Datasets and datastores
 
@@ -152,7 +153,7 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
    1. Management code is written to the user's Azure Files share.
    1. The container is started with an initial command. That is, management code as described in the previous step.
 
-* After the run completes, you can query runs and metrics. In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
+* After the run completes, you can query runs and metrics. In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Azure Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Azure Cosmos DB database and return them back to the client.
 
 [![Training workflow](media/concept-Azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
@@ -260,7 +261,7 @@ Azure Machine Learning provides the following monitoring and logging capabilitie
 
 ### Studio
 
-[Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](../overview-what-is-azure-machine-learning.md#studio) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 

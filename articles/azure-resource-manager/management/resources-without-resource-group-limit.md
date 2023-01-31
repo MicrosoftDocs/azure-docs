@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 08/31/2022
+ms.date: 10/20/2022
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -40,6 +40,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * galleries
 * galleries/images
 * galleries/images/versions
+* galleries/serviceArtifacts
 * images
 * snapshots
 * virtualMachines
@@ -84,7 +85,6 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.DevTestLab
 
-* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.DevTestLab/DisableLabVirtualMachineQuota 
 * schedules
 
 ## Microsoft.EdgeOrder
@@ -159,6 +159,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * dnszones/SRV
 * dnszones/TXT
 * expressRouteCrossConnections
+* loadBalancers - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 * networkIntentPolicies
 * networkInterfaces
 * networkSecurityGroups
@@ -203,6 +204,7 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.Security
 
 * assignments
+* securityConnectors
 
 ## Microsoft.ServiceBus
 

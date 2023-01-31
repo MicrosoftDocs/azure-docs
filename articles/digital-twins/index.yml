@@ -70,9 +70,9 @@ landingContent:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
           - text: Control plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins
           - text: Data plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
         links:
           - text: Call the Azure Digital Twins APIs with Postman
@@ -100,4 +100,4 @@ landingContent:
       - linkListType: learn
         links:
           - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
-            url: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

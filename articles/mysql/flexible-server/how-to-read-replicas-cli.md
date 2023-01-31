@@ -18,8 +18,6 @@ In this article, you will learn how to create and manage read replicas in the Az
 
 [!Note]
 >
-> * Replica is not supported on high availability enabled server.
->
 > * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## Azure CLI

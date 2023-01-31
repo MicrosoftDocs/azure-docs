@@ -59,7 +59,7 @@ The Key Vault VM extension supports these Linux distributions:
                   }
    `
 ## Key Vault VM extension version
-* Ubuntu-18.04 and  SUSE-15 users can chose to upgrade their key vault vm extension version to `V2.0` to avail full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
+* Users can chose to upgrade their key vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```
@@ -100,8 +100,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
         "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
-                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+          "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }
        }
       }
@@ -114,7 +114,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** for VMs with **user assigned identities**.
+> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension will not know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
 > Set msiClientId to the identity that will authenticate to Key Vault.
 > 
 > Also **required** for **Azure Arc-enabled VMs**.

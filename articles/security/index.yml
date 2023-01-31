@@ -60,7 +60,7 @@ conceptualContent:
 
     - title: Data security & governance, risk, and compliance
       links:
-        - url: /learn/modules/m365-compliance-information-governance/
+        - url: /training/modules/m365-compliance-information-governance/
           itemType: overview
           text: Introduction to information protection and governance in Microsoft 365
         - url: ../governance/policy/overview.md
@@ -119,18 +119,18 @@ additionalContent:
         - title: Continued learning
           summary:  Discover learning paths that help you improve your security in the cloud
           links: 
-            - url: /learn/modules/m365-compliance-information-governance/
+            - url: /training/modules/m365-compliance-information-governance/
               text: Information protection and governance in Microsoft 365
-            - url: /learn/paths/secure-your-cloud-apps/
+            - url: /training/paths/secure-your-cloud-apps/
               text: Secure your cloud applications in Azure
-            - url: /learn/modules/perimeter-security/
+            - url: /training/modules/perimeter-security/
               text: Implement perimeter security
 
     - title: Additional security guidance
       items:
-        - title: Microsoft Learn
-          summary: If you're new to security, build your skills with Microsoft Learn                         
-          url: /learn/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
+        - title: Microsoft Learn training
+          summary: If you're new to security, build your skills with Microsoft Learn training
+          url: /training/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
         - title: Microsoft Cloud Adoption Framework for Azure
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
           url: /azure/cloud-adoption-framework/secure/
@@ -165,7 +165,7 @@ additionalContent:
               text: Overview
             - url: ../sentinel/quickstart-onboard.md
               text: Onboard Microsoft Sentinel
-            - url: /learn/paths/security-ops-sentinel/
+            - url: /training/paths/security-ops-sentinel/
               text: "Learn: Cloud-native security operations with Microsoft Sentinel"
 
         - title: Microsoft Defender for Cloud
@@ -175,7 +175,7 @@ additionalContent:
               text: Overview
             - url: ../defender-for-cloud/tutorial-protect-resources.md
               text: Protect your resources
-            - url: /learn/modules/microsoft-cloud-app-security/
+            - url: /training/modules/microsoft-cloud-app-security/
               text: "Learn: Secure your cloud apps and services"
 
         - title: Microsoft Defender for Identity
@@ -185,7 +185,7 @@ additionalContent:
               text: Overview
             - url: /defender-for-identity/deploy-defender-identity
               text: Deploy Microsoft Defender for Identity with Microsoft 365 Defender
-            - url: /learn/modules/defender-identity-defend-attacks/
+            - url: /training/modules/defender-identity-defend-attacks/
               text: "Learn: Defend against attacks"
 
         - title: Azure Key Vault
@@ -195,7 +195,7 @@ additionalContent:
               text: Overview
             - url: ../key-vault/secrets/quick-create-cli.md
               text: Set and retrieve a secret
-            - url: /learn/modules/manage-secrets-with-azure-key-vault/
+            - url: /training/modules/manage-secrets-with-azure-key-vault/
               text: "Learn: Manage secrets in your server apps"
 
         - title: Microsoft Defender for Cloud Apps
@@ -215,7 +215,7 @@ additionalContent:
               text: Overview
             - url: ../defender-for-iot/getting-started.md
               text: Get started with Defender for IoT
-            - url: /learn/paths/enhance-iot-solution-security-by-using-azure-defender/
+            - url: /training/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
 
         - title: Azure Information Protection
@@ -235,7 +235,7 @@ additionalContent:
               text: Overview
             - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
-            - url: /learn/modules/secure-aad-users-with-mfa/
+            - url: /training/modules/secure-aad-users-with-mfa/
               text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
 
         - title: Microsoft 365 Defender

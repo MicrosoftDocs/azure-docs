@@ -24,7 +24,9 @@ The following scenarios aren't yet supported:
 
 ## Azure disk encryption
 
-You can't move a virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md). To move the VM, you must disable encryption.
+A virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md) can be moved to another resource group when it is in deallocated state. 
+
+However, to move such virtual machine to another subscription, you must disable encryption.
 
 # [Azure CLI](#tab/azure-cli)
 

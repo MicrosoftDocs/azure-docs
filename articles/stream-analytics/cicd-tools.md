@@ -2,16 +2,16 @@
 title: Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
 description: This article describes how to use Azure Stream Analytics CI/CD tools to auto build, test, and deploy an Azure Stream Analytics project.
 services: stream-analytics
-author: su-jie
-ms.author: sujie
+author: alexlzx
+ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 12/27/2022
 ---
 
 # Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
 
-You can use the Azure Stream Analytics CI/CD npm package to automatically build, test, and deploy your Azure Stream Analytics Visual Studio Code or Visual Studio projects. The projects can be created using development tools or they can be exported from existing Stream Analytics jobs. This article describes how to use the npm package with any CI/CD system. For deployment with Azure Pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
+After developing your Stream Analytics project in Visual Studio Code, you can use the Azure Stream Analytics (ASA) CI/CD npm package to automatically build, test, and deploy your Stream Analytics projects. This article shows how to use the npm package with any CI/CD system. For deployment with Azure Pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
 
 ## Installation
 
@@ -21,7 +21,7 @@ You can [download the package](https://www.npmjs.com/package/azure-streamanalyti
 
 The **asa-streamanalytics-cicd** npm package provides the tools to generate Azure Resource Manager templates of Stream Analytics [Visual Studio Code projects](./quick-create-visual-studio-code.md) or [Visual Studio projects](stream-analytics-quick-create-vs.md). You can also use the npm package on Windows, macOS, and Linux without installing Visual Studio Code or Visual Studio.
 
-Once you have installed the package, use the following command to build your Stream Analytics projects.
+Once you've installed the package, use the following command to build your Stream Analytics projects.
 
 ```powershell
 azure-streamanalytics-cicd build -project <projectFullPath> [-outputPath <outputPath>]
@@ -32,7 +32,7 @@ The *build* command does a keyword syntax check and outputs the Azure Resource M
 | Parameter | Description |
 |---|---|
 | `-project` | The absolute path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| `-outputPath` | The path of the output folder for Azure Resource Manager Templates. If it is not specified, the templates will be placed in the current directory. |
+| `-outputPath` | The path of the output folder for Azure Resource Manager Templates. If it isn't specified, the templates will be placed in the current directory. |
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -60,7 +60,7 @@ When a Stream Analytics project builds successfully, it generates the following 
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio Code or Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly.
 
-The default values for all credentials are **null**. You are required to set the values before you deploy to Azure.
+The default values for all credentials are **null**. You're required to set the values before you deploy to Azure.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -81,8 +81,8 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 | Parameter | Description |
 |---|---|
 | `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| `-outputPath` | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
-| `-customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
+| `-outputPath` | The path of the output folder. If it isn't specified, the output result files will be placed in the current directory. |
+| `-customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they're used. Package the DLLs into a zip file and specify this path. |
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -116,7 +116,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parameter | Description |
 |---|---|
 | `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| `-testConfigPath` | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
+| `-testConfigPath` | The path of the test configuration file. If it isn't specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
 
 > [!NOTE]
 > The `Script` value in the generated **testConfig.json** file is only for providing the context; It's not used in the testing logic. 
@@ -249,9 +249,9 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parameter | Description |
 |---|---|
 | `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| `-testConfigPath` | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
-| `-outputPath` | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
-| `-customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they are used. |
+| `-testConfigPath` | The path to the test configuration file. If it isn't specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
+| `-outputPath` | The path of the test result output folder. If it isn't specified, the output result files will be placed in the current directory. |
+| `-customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they're used. |
 
 As an example, in a PowerShell enabled terminal, if all test assets are located in a `test` subfolder of the project folder. With each test run output stored in a new timestamped subfolder of a `testResults` subfolder:
 

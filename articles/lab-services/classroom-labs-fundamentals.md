@@ -1,10 +1,8 @@
 ---
 title: Architecture Fundamentals in Azure Lab Services | Microsoft Docs
 description: This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.  
-author: emaher
 ms.topic: overview
 ms.date: 05/30/2022
-ms.author: enewman
 ms.service: lab-services
 ---
 

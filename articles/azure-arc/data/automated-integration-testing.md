@@ -167,7 +167,7 @@ export SPN_TENANT_ID="..."
 export SUBSCRIPTION_ID="..."
 
 # Optional: certain integration tests test upload to Log Analytics workspace:
-# https://docs.microsoft.com/azure/azure-arc/data/upload-logs
+# https://learn.microsoft.com/azure/azure-arc/data/upload-logs
 export WORKSPACE_ID="..."
 export WORKSPACE_SHARED_KEY="..."
 
@@ -413,7 +413,7 @@ At a high-level, the launcher performs the following sequence of steps:
 3. Perform CRD metadata scan to discover existing Arc and Arc Data Services Custom Resources
 4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, quit.
 5. Generate a unique set of environment variables based on timestamp for Arc Cluster name, Data Controller and Custom Location/Namespace. Prints out the environment variables, obfuscating sensitive values (e.g. Service Principal Password etc.)
-6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](/create-data-controller-direct-cli?tabs=linux#deploy---unified-experience)
+6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](create-data-controller-direct-cli.md?tabs=linux#deploy---unified-experience)
    b. For Indirect Mode: deploy the Data Controller
 7. Once Data Controller is `Ready`, generate a set of Azure CLI ([`az arcdata dc debug`](/cli/azure/arcdata/dc/debug?view=azure-cli-latest&preserve-view=true)) logs and store locally, labeled as `setup-complete` - as a baseline.
 8. Use the `TESTS_DIRECT/INDIRECT` environment variable from `.test.env` to launch a set of parallelized Sonobuoy test runs based on a space-separated array (`TESTS_(IN)DIRECT`). These runs execute in a new `sonobuoy` namespace, using `arc-sb-plugin` pod that contains the Pytest validation tests.

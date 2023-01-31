@@ -1,0 +1,78 @@
+### YamlMime:Landing
+
+title: Save with Azure savings plans
+summary: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources.
+metadata:
+  title: Save with Azure savings plans
+  description: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources. 
+  ms.service: cost-management-billing
+  ms.subservice: savings-plan
+  ms.custom: ignite-2022
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 11/28/2022
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Buy savings plans
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure savings-plans?
+        url: savings-plan-compute-overview.md
+      - text: Savings plan purchase recommendations
+        url: purchase-recommendations.md
+      - text: Windows and SQL software cost charged separately
+        url: software-costs-not-included.md
+                
+    - linkListType: how-to-guide
+      links:
+      - text: Buy a savings plan
+        url: buy-savings-plan.md
+      - text: Reservation trade ins
+        url: reservation-trade-in.md
+      - text: Renew a savings plan
+        url: renew-savings-plan.md
+
+  # Card (optional)
+  - title: Learn how discounts are applied
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: How a savings plan discount is applied
+        url: discount-application.md
+      - text: Decide between savings plans and reservations
+        url: decide-between-savings-plan-reservation.md
+    - linkListType: learn
+      links:
+      - text: Training - Azure savings plan for compute
+        url: /training/modules/azure-savings-plan-for-compute/
+
+  # Card (optional)
+  - title: Manage savings plans after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Permissions to view and manage savings plans
+        url: permission-view-manage.md
+      - text: Manage Azure savings plans
+        url: manage-savings-plan.md
+
+  # Card (optional)
+  - title: Report costs after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: View savings plan utilization
+        url: view-utilization.md
+      - text: View savings plan cost and usage
+        url: utilization-cost-reports.md
+      - text: Troubleshoot utilization
+        url: troubleshoot-savings-plan-utilization.md
+      - text: Charge back Azure savings plan costs
+        url: charge-back-costs.md

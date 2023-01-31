@@ -123,8 +123,8 @@ You can change the display name for a published remote desktop by setting a frie
 
 Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
- * [Connect with Windows 10 or Windows 7](./user-documentation/connect-windows-7-10.md)
- * [Connect with the web client](./user-documentation/connect-web.md)
- * [Connect with the Android client](./user-documentation/connect-android.md)
- * [Connect with the iOS client](./user-documentation/connect-ios.md)
- * [Connect with the macOS client](./user-documentation/connect-macos.md)
+ * [Connect with Windows](./users/connect-windows.md)
+ * [Connect with the web client](./users/connect-web.md)
+ * [Connect with the Android client](./users/connect-android-chrome-os.md)
+ * [Connect with the iOS client](./users/connect-ios-ipados.md)
+ * [Connect with the macOS client](./users/connect-macos.md)

@@ -13,6 +13,9 @@ ms.date: 01/05/2022
 ---
 # Machine-learning entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The machine-learning entity is the preferred entity for building LUIS applications.
 
 

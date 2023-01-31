@@ -71,15 +71,15 @@ Again, only if you're using an older version of the agent, the python2 executabl
 ### Supported Linux hardening
 The OMS Agent has limited customization and hardening support for Linux.
 
-The following are currently supported: 
-- FIPS
+The following are currently supported:
 - SELinux (Marketplace images for CentOS and RHEL with their default settings)
+- FIPS (Marketplace images for CentOS and RHEL 6/7 with their default settings)
 
 The following aren't supported:
 - CIS
 - SELinux (custom hardening like MLS)
 
-CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods aren't supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges aren't supported.
+CIS, FIPS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods aren't supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges aren't supported.
 
 ### Agent prerequisites
 
@@ -112,10 +112,10 @@ The Log Analytics agent for Linux is composed of multiple packages. The release 
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.13.9 | The Log Analytics Agent for Linux
+omsagent | 1.14.19 | The Log Analytics Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the Log Analytics agent
-omi | 1.6.4 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
-scx | 1.6.4 | OMI CIM Providers for operating system performance metrics
+omi | 1.6.9 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
+scx | 1.6.9 | OMI CIM Providers for operating system performance metrics
 apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.

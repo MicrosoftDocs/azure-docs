@@ -1,8 +1,6 @@
 ---
 title: Support matrix for VM restore points
 description: Support matrix for VM restore points
-author: dikethir
-ms.author: dikethir
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 07/05/2022

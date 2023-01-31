@@ -148,7 +148,7 @@ This section describes how to view and try out APIs with schema definitions in A
 
 Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
 
-:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
+:::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
 
 ## Try out APIs in API portal
 
@@ -157,7 +157,7 @@ Use the following steps to try out APIs:
 1. Select the API you would like to try.
 1. Select **EXECUTE**, and the response will be shown.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of A P I portal.":::
+   :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
 
 ## Next steps
 

@@ -32,7 +32,7 @@ Each example shows a snippet from the device model that defines the type and exa
 > [!NOTE]
 > IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
@@ -44,7 +44,7 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 1. Select the **Raw data** tab:
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Raw data view":::
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-telemetry-properties-commands/raw-data.png":::
 
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 

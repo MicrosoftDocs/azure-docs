@@ -16,6 +16,9 @@ ms.date: 07/19/2022
 
 # Entity types
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 An entity is an item or an element that is relevant to the user's intent. Entities define data that can be extracted from the utterance and is essential to complete a user's required action. For example:
 
 
@@ -47,9 +50,9 @@ Matching list entities is both case sensitive and it has to be an exact match. N
 
 | Normalized value | Synonyms |
 |--|--|
-| Small | sm, sml, tiny, smallest |
-| Medium | md, mdm, regular, average, middle |
-| Large | lg, lrg, big |
+| Small | `sm`, `sml`, `tiny`, `smallest` |
+| Medium | `md`, `mdm`, `regular`, `average`, `middle` |
+| Large | `lg`, `lrg`, `big` |
 
 See the [list entities reference article](../reference-entity-list.md) for more information.
 
@@ -59,8 +62,8 @@ A regular expression entity extracts an entity based on a regular expression pat
 
 | Entity | Regular expression | Example |
 |--|--|--|
-| Flight Number | flight [A-Z]{2} [0-9]{4} | flight AS 1234 |
-| Credit Card Number | [0-9]{16} | 5478789865437632 |
+| Flight Number | `flight [A-Z]{2} [0-9]{4}` | `flight AS 1234` |
+| Credit Card Number | `[0-9]{16}` | `5478789865437632` |
 
 See the [regex entities reference article](../reference-entity-regular-expression.md) for more information.
 
@@ -74,7 +77,7 @@ When a prebuilt entity is included in your application, its predictions are incl
 | Prebuilt entity | Example value |
 |--|--|
 | PersonName | James, Bill, Tom |
-| DatetimeV2 | 2019-05-02, May 2nd, 8am on May 2nd 2019 |
+| DatetimeV2 | `2019-05-02`, `May 2nd`, `8am on May 2nd 2019` |
 
 See the [prebuilt entities reference article](../luis-reference-prebuilt-entities.md) for more information.
 
@@ -85,9 +88,9 @@ A pattern.Any entity is a variable-length placeholder used only in a pattern's t
 
 | Example utterance | Pattern | Entity |
 |--|--|--|
-| Can I have a burger please? | Can I have a {meal} [please][?] | burger |
-| Can I have a pizza? | Can I have a {meal} [please][?] | pizza |
-| Where can I find The Great Gatsby? | Where can I find {bookName}? | The Great Gatsby |
+| Can I have a burger please? | `Can I have a {meal} [please][?]` | burger |
+| Can I have a pizza? | `Can I have a {meal} [please][?]` | pizza |
+| Where can I find The Great Gatsby? | `Where can I find {bookName}?` | The Great Gatsby |
 
 See the [Pattern.Any entities reference article](../reference-entity-pattern-any.md) for more information.
 

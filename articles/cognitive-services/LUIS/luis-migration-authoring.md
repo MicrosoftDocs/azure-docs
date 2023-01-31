@@ -15,6 +15,9 @@ ms.date: 03/21/2022
 ---
 # Migrate to an Azure resource authoring key
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 > [!IMPORTANT]
 >  As of December 3rd 2020, existing LUIS users must have completed the migration process to continue authoring LUIS applications.
 

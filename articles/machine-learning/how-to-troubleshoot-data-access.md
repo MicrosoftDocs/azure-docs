@@ -17,7 +17,7 @@ ms.custom: devx-track-python, mldata, references_regions, sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this guide, learn how to identify and resolve known issues with data access with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
+In this guide, learn how to identify and resolve known issues with data access with the [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install).
 
 ## Error Codes
 
@@ -93,6 +93,6 @@ Errors also include:
 
 - See more information on [data concepts in Azure Machine Learning](concept-data.md)
 
-- [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
-
+- [AzureML authentication to other services](how-to-identity-based-service-authentication.md).
+- [Create datastores](how-to-datastore.md)
 - [Read and write data in a job](how-to-read-write-data-v2.md)

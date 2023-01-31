@@ -1,12 +1,12 @@
 ---
 title:  DICOMcast overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of DICOMcast.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/03/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # DICOMcast overview

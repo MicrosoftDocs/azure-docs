@@ -2,13 +2,14 @@
 title: Set up image labeling project
 titleSuffix: Azure Machine Learning
 description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
-author: sdgilley
-ms.author: sgilley
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: data4ml, ignite-fall-2021
+ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
 # Create an image labeling project and export labels
@@ -119,8 +120,15 @@ For bounding boxes, important questions include:
 * How to label the object if there is no clear boundary of the object?
 * How to label the object which is not object class of interest but visually similar to an interested object type?
 
->[!NOTE]
+> [!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
+
+## Quality control (preview)
+
+[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+
+> [!NOTE]
+> **Instance Segmentation** projects cannot use consensus labeling.
 
 ## Use ML-assisted data labeling
 
@@ -130,13 +138,14 @@ At the beginning of your labeling project, the items are shuffled into a random 
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling. If you don't have one in your workspace, a GPU cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
 
-
 ML-assisted labeling consists of two phases:
 
 * Clustering
 * Prelabeling
 
 The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 items have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled items. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
+
+When you're using consensus labeling, the consensus label is used for training.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
@@ -191,6 +200,24 @@ On the right side is a distribution of the labels for those tasks that are compl
 
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
+If your project uses consensus labeling, you'll also want to review those images without a consensus.  To do so:
+
+1. Select the **Data** tab.
+1. On the left, select  **Review labels**.
+1. On the top right, select **All filters**.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot: select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
+
+1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus was not achieved among the labelers.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
+
+1. For each image in need of review, select the **Consensus label** dropdown to view the conflicting labels. 
+
+    :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
+
+1. While you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
+
 ### Details tab
 
 View and change details of your project.  In this tab you can:
@@ -206,13 +233,13 @@ View and change details of your project.  In this tab you can:
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
 
-## Add new label class to a project
+## Add new labels to a project
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
 ## Export the labels
 
-Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time. 
+Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time.
 
 * Image labels can be exported as:
     * [COCO format](http://cocodataset.org/#format-data).The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/coco*. 
@@ -222,7 +249,7 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
+Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md)
 
 ## Troubleshooting
 

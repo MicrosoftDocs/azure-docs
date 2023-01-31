@@ -17,7 +17,7 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 ### Training resources
 
-If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/).
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Deploy condition
 
@@ -107,6 +107,6 @@ output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!
 
 ## Next steps
 
-* Review the Learn module [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/).
+* Review the Learn module [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 * For recommendations about creating Bicep files, see [Best practices for Bicep](best-practices.md).
 * To create multiple instances of a resource, see [Iterative loops in Bicep](loops.md).

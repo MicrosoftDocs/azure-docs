@@ -1,7 +1,7 @@
 ---
 title: Monitoring Device Update for IoT Hub
 description: Start here to learn how to monitor Device Update for IoT Hub 
-author: eshashah
+author: eshashah-msft
 ms.author: eshashah
 ms.topic: conceptual 
 ms.service: iot-hub

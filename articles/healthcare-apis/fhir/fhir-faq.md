@@ -2,12 +2,12 @@
 title: FAQs about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ms.custom: references_regions
 ---
 
@@ -133,6 +133,11 @@ There are two basic Delete types supported within the FHIR service. These are [D
 * If you passed the `hardDelete` parameter with either Delete or Conditional Delete, all the records and history are deleted and unrecoverable.
 
 ## Using the FHIR service
+
+### Can I perform health checks on FHIR service?
+
+To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
 
 ### Where can I see some examples of using the FHIR service within a workflow?
 

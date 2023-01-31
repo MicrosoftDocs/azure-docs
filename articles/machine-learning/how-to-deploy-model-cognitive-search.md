@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: ssalgado
 author: ssalgadodev
+ms.reviewer: ssalgado
 ms.date: 03/11/2021
 ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
@@ -55,7 +56,7 @@ An Azure Machine Learning workspace provides a centralized place to work with al
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](v1/how-to-configure-environment-v1.md).
 
 ```python
 from azureml.core import Workspace

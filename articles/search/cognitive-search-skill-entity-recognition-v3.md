@@ -34,7 +34,7 @@ Parameters are case-sensitive and are all optional.
 | `categories`    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"personType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"phoneNumber"`, `"ipAddress"`. If no category is provided, all types are returned.|
 | `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md). Not all entity categories are supported for all languages; see note below.|
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/named-entity-recognition/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling the entity recognition API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
+| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling the entity recognition API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 

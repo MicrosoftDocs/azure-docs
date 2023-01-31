@@ -103,7 +103,7 @@ Commit changes to a KQL script to the Git repo|Requires Git permissions on the r
 APACHE SPARK POOLS|
 Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
 Monitor Apache Spark applications| Synapse User|read
-View the logs for notebook and job execution |Synapse Monitoring Operator|
+View the logs for completed notebook and job execution |Synapse Monitoring Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
 Create a notebook or job definition|Synapse User or </br>Azure Owner or Contributor, or Reader on the workspace</br></br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
 List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User or Synapse Monitoring Operator on the workspace|artifacts/read

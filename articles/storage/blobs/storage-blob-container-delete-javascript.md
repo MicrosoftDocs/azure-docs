@@ -1,16 +1,17 @@
 ---
-title: Delete and restore a blob container with JavaScript - Azure Storage 
+title: Delete and restore a blob container with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to delete and restore a blob container in your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2022
-ms.author: normesta
+ms.date: 11/30/2022
 ms.subservice: blobs
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Delete and restore a container in Azure Storage with JavaScript
@@ -21,7 +22,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 ## Delete a container
 
-To delete a container in JavaScript, use one of the following methods:
+To delete a container in JavaScript, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) or [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) then use one of the following methods:
 
 - BlobServiceClient.[deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer#@azure-storage-blob-blobserviceclient-deletecontainer)
 - ContainerClient.[delete](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer)
@@ -31,7 +32,7 @@ After you delete a container, you can't create a container with the same name fo
 
 ## Delete container with BlobServiceClient
 
-The following example deletes the specified container. Use the **BlobServiceClient** for the container:
+The following example deletes the specified container. Use the [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) to delete a container:
 
 ```javascript
 // delete container immediately on blobServiceClient
@@ -46,7 +47,7 @@ async function deleteContainerImmediately(blobServiceClient, containerName) {
 
 ## Delete container with ContainerClient
 
-The following example shows how to delete all of the containers whose name starts with a specified prefix.
+The following example shows how to delete all of the containers whose name starts with a specified prefix using a [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object).
 
 ```javascript
 async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
@@ -73,7 +74,7 @@ async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling.
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container using a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object:
 
 - BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
 

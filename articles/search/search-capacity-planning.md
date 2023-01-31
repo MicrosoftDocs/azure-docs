@@ -74,7 +74,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you should use REST and [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
++ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you could use [REST and Postman](search-get-started-rest.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
 + Collect information about the index, such as size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
 
   Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).

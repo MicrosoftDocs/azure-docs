@@ -15,8 +15,9 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Neural Text to Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
@@ -27,7 +28,7 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 
 Disconnected container usage is also available for the following Applied AI service:
 
-* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#required-containers)
+* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
 
@@ -44,7 +45,7 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
 Access is limited to customers that meet the following requirements:
 
-* Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.
+* Your organization should be identified as strategic customer or partner with Microsoft.
 * Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
   * Environment or device(s) with zero connectivity to internet.
   * Remote location that occasionally has internet access.
@@ -87,7 +88,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 ## Configure the container to be run in a disconnected environment
 
-Now that you've downloaded your container, you'll need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container.
+Now that you've downloaded your container, you'll need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container. Please do not rename or modify the license file as this will prevent the container from running successfully.
 
 > [!IMPORTANT]
 >
@@ -160,9 +161,9 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-#### Speech-to-text and Neural text-to-speech containers
+#### Speech-to-text, Custom Speech-to-Text and Neural text-to-speech containers
 
-The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt), [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) and [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 

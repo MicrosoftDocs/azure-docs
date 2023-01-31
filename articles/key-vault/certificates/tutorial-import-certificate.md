@@ -56,7 +56,7 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 
 # [Azure portal](#tab/azure-portal)
 
-1. On the Key Vault properties pages, select **Certificates**.
+1. On the page for your key vault, select **Certificates**.
 2. Click on **Generate/Import**.
 3. On the **Create a certificate** screen choose the following values:
     - **Method of Certificate Creation**: Import.
@@ -66,6 +66,15 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 4. Click **Create**.
 
 :::image type="content" source="../media/certificates/tutorial-import-cert/cert-import.png" alt-text="Importing a certificate through the Azure portal":::
+
+When importing a .pem file, check if the format is the following:
+
+-----BEGIN CERTIFICATE-----<br>
+MIID2TCCAsGg...<br>
+-----END CERTIFICATE-----<br>
+-----BEGIN PRIVATE KEY-----<br>
+MIIEvQIBADAN...<br>
+-----END PRIVATE KEY-----<br>
 
 When importing a certificate, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
 
@@ -97,7 +106,7 @@ $Password = ConvertTo-SecureString -String "123" -AsPlainText -Force
 Import-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate" -FilePath "C:\path\to\ExampleCertificate.pem" -Password $Password
 ```
 
-After importing the certificate, you can view the certificate using the Azure PowerShell [Import-AzKeyVaultCertificate](/powershell/module/az.keyvault/import-azkeyvaultcertificate) cmdlet
+After importing the certificate, you can view the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate) cmdlet
 
 ```azurepowershell
 Get-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate"

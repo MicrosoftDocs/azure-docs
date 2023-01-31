@@ -2,7 +2,10 @@
 title: Data model for Azure Backup diagnostics events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 10/19/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Data Model for Azure Backup Diagnostics Events
 
@@ -26,7 +29,7 @@ This table provides information about core backup entities, such as vaults and b
 | BackupItemFriendlyName            | Text          | Friendly name of the backup item                             |
 | BackupItemName                    | Text          | Name of the backup item                                      |
 | BackupItemProtectionState         | Text          | Protection State of the Backup Item                          |
-| BackupItemFrontEndSize            | Text          | Front-end size of the backup item                            |
+| BackupItemFrontEndSize            | Text          | Front-end size (in MBs) of the backup item                            |
 | BackupItemType                    | Text          | Type of backup item. For example: VM, FileFolder             |
 | BackupItemUniqueId                | Text          | Unique identifier of the backup item                         |
 | BackupManagementServerType        | Text          | Type of the Backup Management Server, as in MABS, SC DPM     |

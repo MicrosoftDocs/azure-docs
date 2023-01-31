@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.custom: ignite-fall-2021, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 # Deploy an Azure disk pool (preview)
@@ -65,7 +65,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 - The **StoragePool** resource provider must have been assigned an RBAC role that contains **Read** and **Write** permissions for every managed disk in the disk pool.
 - Must be either a premium SSD, standard SSD, or an ultra disk in the same availability zone as the disk pool.
     - For ultra disks, it must have a disk sector size of 512 bytes.
-- Disk pools can't be configured to contain both premium/standard SSDs and ultra disks. A disk pool configured for ultra disks can only contain ultra disks. Likewise, a disk pool configured for premium or standard SSDs can only contain premium and standard SSDs.
+- Disk pools can't be configured to contain both Premium/standard SSDs and ultra disks. A disk pool configured for ultra disks can only contain ultra disks. Likewise, a disk pool configured for premium or standard SSDs can only contain premium and standard SSDs.
 - Must be a shared disk with a maxShares value of two or greater.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

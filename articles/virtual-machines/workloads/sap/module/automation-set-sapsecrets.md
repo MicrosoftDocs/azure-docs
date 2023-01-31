@@ -158,4 +158,4 @@ Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-hana)

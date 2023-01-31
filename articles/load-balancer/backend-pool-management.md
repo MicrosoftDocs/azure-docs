@@ -214,14 +214,14 @@ az vm create \
 
 ### Limitations
   * IP based backends can only be used for Standard Load Balancers
-  * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
-  * [Private endpoint resources](/azure/private-link/private-endpoint-overview) can't be placed in a IP based backend pool
+  * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in a IP based backend pool
   * ACI containers aren't currently supported by IP based LBs
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+  * A virtual machine in the same virtual network as an internal load balancer cannot access the frontend of the ILB and its backend VMs simultaneously 
 
 >[!Important]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.

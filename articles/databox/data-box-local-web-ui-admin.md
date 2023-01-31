@@ -261,22 +261,22 @@ To enable Backup Operator privileges in your Azure Device:
 
 ## Enable ACLs for Azure Files
 
-Metadata on files is transferred by default when users upload data via SMB to your Data Box. The metadata includes access control lists (ACLs), file attributes, and timestamps. If you don't want this, use **ACLs for Azure files** to disable or enable this feature.
+Metadata on files is transferred by default when users upload data via SMB to your Data Box. The metadata includes access control lists (ACLs), file attributes, and timestamps. If you don't want this, use **ACLs for Azure Files** to disable or enable this feature.
 
 <!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
 
 > [!Note]
 > To transfer metadata with files, you must be a Backup Operator. When you use this feature, make sure local users of the web UI are Backup Operators. See [Enable Backup Operator privileges](#enable-backup-operator-privileges).
 
-To enable transfer of ACLs for Azure files:
+To enable transfer of ACLs for Azure Files:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**. 
 
     ![Screenshot of Connect and copy settings 4.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
-2. **Enable** ACLs for Azure files.
+2. **Enable** ACLs for Azure Files.
 
-     ![Screenshot of ACLs for Azure files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+     ![Screenshot of ACLs for Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
 3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.

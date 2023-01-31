@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/16/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.custom: contperf-fy22q3
 ---
@@ -106,4 +106,4 @@ When there's a performance issue, you can use the server-side metrics to analyze
 
 - Learn more about [exporting the load test results for reporting](./how-to-export-test-results.md).
 - Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
-- Learn more about [configuring automated performance testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md).
+- Learn more about [configuring automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

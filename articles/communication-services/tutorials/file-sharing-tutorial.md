@@ -238,7 +238,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   const fileExtension = file.name.split('.').pop();
 
   // Following is an example of calling an Azure Function to handle file upload
-  // The https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
+  // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // Note that the container in the tutorial is private by default. To get default downloads working in
   // this sample, you need to change the container's access level to Public via Azure Portal.

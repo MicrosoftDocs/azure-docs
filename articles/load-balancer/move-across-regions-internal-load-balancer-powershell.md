@@ -326,6 +326,31 @@ The following steps show how to prepare the internal load balancer for the move 
             },
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
+      
+    * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the zone property. If the zone property isn't specified, the frontend will be created as no-zone. You can specify a single zone to create a zonal frontend or all 3 zones for a zone-redundant frontend.
+         ```json
+          "frontendIPConfigurations": [
+                   {
+                         "name": "myfrontendIPinbound",
+                         "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
+                         "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
+                         "properties": {
+                             "provisioningState": "Succeeded",
+                             "privateIPAddress": "10.0.0.1",
+                             "privateIPAllocationMethod": "Static",
+                             "subnet": {
+                                 "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name')), '/subnet-1')]"
+                             },
+                             "privateIPAddressVersion": "IPv4"
+                         },
+                         "zones": [
+                             "1",
+                             "2",
+                             "3"
+                         ]
+                     }
+                 ],
+         ```
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **\<resource-group-name>.json** file:
 

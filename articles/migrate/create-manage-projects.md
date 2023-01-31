@@ -5,23 +5,24 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 01/25/2023
+ms.custom: engagement-fy23
 ---
 
 # Create and manage projects
 
 This article describes how to create, manage, and delete [projects](migrate-services-overview.md). 
 
-Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic projects, delete those projects and follow the steps to create a new project. You can't upgrade classic projects or components to the Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
+Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, the classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic projects, delete those projects and follow the steps to create a new project. You can't upgrade classic projects or components to Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
 
-Project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
+A project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
 
 ## Verify permissions
 
-Check you have the correct permissions to create a project:
+Ensure you have the correct permissions to create a project using the following steps:
 
 1. In the Azure portal, open the relevant subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and select it view permissions. You should have *Contributor* or *Owner* permissions. 
+2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions. 
 
 
 ## Create a project for the first time
@@ -56,7 +57,7 @@ Wait a few minutes for the project to deploy.
 
 ## Create a project in a specific region
 
-In the portal, you can select the geography in which you want to create the project. If you want to create the project within a specific Azure region, using the following API command to create the  project.
+In the portal, you can select the geography in which you want to create the project. If you want to create the project within a specific Azure region, use the following API command to create the  project.
 
 ```rest
 PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
@@ -67,7 +68,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 If you already have a project and you want to create an additional project, do the following:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-2. On the Azure Migrate dashboard > **Servers, databases and web apps**, select **Create project** on the top left.
+2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot containing Create Project button.":::
 
@@ -79,7 +80,7 @@ If you already have a project and you want to create an additional project, do t
 Find a project as follows:
 
 1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-2. In the Azure Migrate dashboard > **Servers, databases and web apps**, select **Current project** in the upper-right corner.
+2. In the Azure Migrate dashboard, select **Servers, databases and web apps** > **Current project** in the upper-right corner.
 
     :::image type="content" source="./media/create-manage-projects/current-project.png" alt-text="Screenshot to select the current project.":::
 
@@ -100,11 +101,11 @@ If you created the project in the [previous version](migrate-services-overview.m
 
 ## Delete a project
 
-Delete as follows:
+To delete a project, follow these steps: 
 
 1. Open the Azure resource group in which the project was created.
 2. In the resource group page, select **Show hidden types**.
-3. Select the project you want to delete, and its associated resources.
+3. Select the project that you want to delete and its associated resources.
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the project, you can delete the entire resource group.
 

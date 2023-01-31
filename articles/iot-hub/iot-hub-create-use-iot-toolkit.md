@@ -23,7 +23,7 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed for Visual Studio Code
 
-- An Azure resource group: [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups) in the Azure portal
+- An Azure resource group: [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) in the Azure portal
 
 ## Create an IoT hub without an IoT Project
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -52,7 +52,7 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
+With office phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 

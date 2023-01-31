@@ -65,6 +65,9 @@ To use Azure Toolkit for IntelliJ to create a local Azure Functions project, fol
 
 To run the project locally, follow these steps:
 
+> [!IMPORTANT]
+> You must have the JAVA_HOME environment variable set correctly to the JDK directory that is used during code compiling using Maven. Make sure that the version of the JDK is at least as high as the `Java.version` setting.
+
 1. Navigate to *src/main/java/org/example/functions/HttpTriggerFunction.java* to see the code generated. Beside the line *24*, you'll notice that there's a green **Run** button. Click it and select **Run 'Functions-azur...'**. You'll see that your function app is running locally with a few logs.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-project.png" alt-text="Local run project." lightbox="media/functions-create-first-java-intellij/local-run-functions-project.png":::

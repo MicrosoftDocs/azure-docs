@@ -88,7 +88,7 @@ To check the expiration date of service principal credentials run the following:
 # Service principal expiry in ISO 8601 UTC format
 SP_ID=$(az aro show --name MyManagedCluster --resource-group MyResourceGroup \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+az ad app credential list --id $SP_ID --query "[].endDate" -o tsv
 ```
 If the service principal credentials are expired please update using one of the two credential rotation methods.
 

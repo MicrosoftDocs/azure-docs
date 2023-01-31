@@ -2,7 +2,9 @@
 title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
-ms.date: 05/07/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Delete container images in Azure Container Registry
@@ -106,7 +108,7 @@ To maintain the size of a repository or registry, you might need to periodically
 The following Azure CLI command lists all manifest digests in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
 
 ```azurecli
-az acr manifest list-metadata --name <repositoryName> --registry <acrName> <repositoryName> \
+az acr manifest list-metadata --name <repositoryName> --registry <acrName> \
     --orderby time_asc -o tsv --query "[?lastUpdateTime < '2019-04-05'].[digest, lastUpdateTime]"
 ```
 

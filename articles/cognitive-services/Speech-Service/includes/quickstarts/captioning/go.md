@@ -22,7 +22,7 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 ## Create captions from speech
 
-Follow these steps to create a new GO module and install the Speech SDK.
+Follow these steps to build and run the captioning quickstart code example.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/go/captioning/"  title="Copy the samples"  target="_blank">scenarios/go/captioning/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.go`.
@@ -37,33 +37,17 @@ Follow these steps to create a new GO module and install the Speech SDK.
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
-    go run captioning --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
+    go run captioning --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
-    ```console
-    00:00:00,180 --> 00:00:01,600
-    Welcome to
-    
-    00:00:00,180 --> 00:00:01,820
-    Welcome to applied
-    
-    00:00:00,180 --> 00:00:02,420
-    Welcome to applied mathematics
-    
-    00:00:00,180 --> 00:00:02,930
-    Welcome to applied mathematics course
-    
-    00:00:00,180 --> 00:00:03,100
-    Welcome to applied Mathematics course 2
-    
-    00:00:00,180 --> 00:00:03,230
-    Welcome to applied Mathematics course 201.
-    ```
+
+## Check results
+
+[!INCLUDE [Example output](example-output.md)]
 
 ## Usage and arguments
 
@@ -74,8 +58,3 @@ Usage: `go run captioning.go helper.go --key <key> --region <region> --input <in
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-
-
-
-
-

@@ -2,7 +2,9 @@
 title: Registry roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
-ms.date: 09/02/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 

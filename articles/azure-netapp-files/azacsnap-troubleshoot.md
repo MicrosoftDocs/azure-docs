@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 08/05/2022
+ms.date: 01/16/2023
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
@@ -37,7 +37,7 @@ This naming convention allows for multiple configuration files, one per database
 
 ### Result files and syslog
 
-For the `-c backup` command, AzAcSnap writes to a *\*.result* file and to the system log, `/var/log/messages`, by using the `logger` command. The *\*.result* filename has the same base name as the log file, and goes into the same location. The *\*.result* file is a simple one line output file, such as the following example:
+For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose of the *\*.result* file is to provide high-level confirmation of success/failure.  If the *\*.result* file is empty, then assume failure.  Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file.  The *\*.result* file goes into the same location as the other log files and is a simple one line output file, such as the following example:
 
 ```output
 Database # 1 (PR1) : completed ok
@@ -160,7 +160,7 @@ To troubleshoot this error:
 1. Check the log file to see if the service principal has expired. The following log file example shows that the client secret keys are expired.
 
    ```output
-   [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
+   [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://learn.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
    ```
 
 > [!TIP]

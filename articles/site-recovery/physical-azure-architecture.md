@@ -3,6 +3,8 @@ title: Physical server disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used during disaster recovery of on-premises physical servers to Azure with the Azure Site Recovery service.
 ms.topic: conceptual
 ms.date: 02/11/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Physical server to Azure disaster recovery architecture

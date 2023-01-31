@@ -3,15 +3,15 @@ title: FAQ about using Azure Database Migration Service for Azure Database MySQL
 titleSuffix: "Azure Database Migration Service"
 description: Frequently asked questions about using Azure Database Migration Service to perform database migrations from Azure Database MySQL Single Server to Flexible Server.
 services: database-migration
-author: adig
+author: aditivgupta
 ms.author: adig
 manager: pariks
-ms.reviewer: pariks
+ms.reviewer: maghan
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: faq
-ms.date: 09/08/2022
+ms.date: 09/17/2022
 ---
 
 # Frequently Asked Questions (FAQs)
