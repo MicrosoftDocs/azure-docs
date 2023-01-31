@@ -268,6 +268,7 @@ The most basic Durable Functions app contains the following three functions. Add
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;
+using Microsoft.DurableTask.Client;
 using Microsoft.Extensions.Logging;
 
 static class HelloSequence
