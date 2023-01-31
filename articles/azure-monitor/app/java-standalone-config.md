@@ -325,7 +325,7 @@ Cloud role name overrides allow you to override the [default cloud role name](#c
 
 ## Connection string configured at runtime
 
-Starting from version 3.4.9, if you need the ability to configure the connection string at runtime,
+Starting from version 3.4.8, if you need the ability to configure the connection string at runtime,
 add this property to your json configuration:
 
 ```json
