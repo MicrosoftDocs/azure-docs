@@ -16,9 +16,9 @@ items:
   - name: Entra Internet Access
     expanded: false
   - name: Getting Started with Entra Internet Access
-    href: getting-started-with-entra-internet-access.md
+    href: get-started-with-entra-internet-access.md
   - name: Getting Started with Entra Private Access
-    href: getting-started-with-entra-private-access.md
+    href: get-started-with-entra-private-access.md
   - name: Troubleshoot
     expanded: false
     items:
