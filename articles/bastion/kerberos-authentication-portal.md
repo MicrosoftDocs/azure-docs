@@ -408,8 +408,8 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 ```
 The following resources have been defined in the template:
 - Deploys the following Azure resources: 
-  - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
-  - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled
+  - [**Microsoft.Network/virtualNetworks**](../templates/microsoft.network/virtualnetworks): create an Azure virtual network.
+  - [**Microsoft.Network/bastionHosts**](../templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled
   - Create a Windows 10 ClientVM and a Windows Server 2019 ServerVM
 - Have the DNS Server of the VNET point to the private IP address of the ServerVM (domain controller).
 - Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
