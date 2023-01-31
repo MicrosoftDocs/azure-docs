@@ -63,7 +63,7 @@ To resolve retryable copy errors during an upload, do these steps:
 
 1. Select **Resolve** to view help for the errors.
 
-   ![Screenshot of a Data Box Disk order with retryable upload error.Resolve option is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-02.png)
+   ![Screenshot of a Data Box Disk order with retryable upload error. Resolve option is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-02.png)
 
    Your screen will look similar to the one below. In the example, the **Enable large file share** error can be resolved by toggling **Not enabled** for each storage account.
 
