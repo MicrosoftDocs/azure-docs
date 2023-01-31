@@ -28,7 +28,7 @@ Microsoft offers Postgres database services in Azure in two ways:
 ### Features
 
 - Manage Postgres simply
-- Simplify monitoring, backup, patching/upgrade, access control & more
+- Simplify monitoring, back up, patching/upgrade, access control & more
 - Deploy Postgres on any [Kubernetes](https://kubernetes.io/) infrastructure
     - On-premises
     - Cloud providers like AWS, GCP, and Azure
