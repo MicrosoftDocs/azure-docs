@@ -73,7 +73,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## Use public IP tags on node public IPs (PREVIEW)
 
-Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](/azure/virtual-network/ip-services/routing-preference-overview.md) feature.
+Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](/azure/virtual-network/ip-services/routing-preference-overview) feature.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
