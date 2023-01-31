@@ -55,13 +55,13 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | **'www' subdomain** | If you buy the `contoso.com` domain, the `www` subdomain would be `www.contoso.com`. Select **No** if you don't want to map it to your app. |
 
     > [!NOTE]
-    > If you didn't launch the App Service domain wizard from an app's **Custom domains** page, you won't see this tab. You can still add them later by following the steps at [TODO]().
+    > If you didn't launch the App Service domain wizard from an app's **Custom domains** page, you won't see this tab. You can still add them later by following the steps at [Map a hostname manually](#map-a-hostname-manually).
 
 1. Select **Next: Advanced** and configure the optional settings:  
 
    | Setting  | Description |
    | -------- | ----------- |
-   | **Auto renewal** | Enabled by default. Your App Service domain is registered to you at one-year increments. Auto renewal makes sure that your domain registration doesn't expire and that you retain ownership of the domain. Your Azure subscription is automatically charged the yearly domain registration fee at the time of renewal. To opt out, select **Disable**. If auto-renewal is disabled, you can [renew it manually](#renew-the-domain). |
+   | **Auto renewal** | Your App Service domain is registered to you at one-year increments. Enable auto renewal so that your domain registration doesn't expire and that you retain ownership of the domain. Your Azure subscription is automatically charged the yearly domain registration fee at the time of renewal. If you leave it disabled, you must [renew it manually](#renew-the-domain). |
    | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database. Privacy protection is already included in the yearly domain registration fee. To opt out, select **Disable**. |
 
 1. Select **Next: Tags** and set the tags you want for your App Service domain. Tagging isn't required for using App Service domains, but is a [feature in Azure that helps you manage your resources](../azure-resource-manager/management/tag-resources.md).
@@ -81,8 +81,6 @@ You're now ready to assign an App Service app to this custom domain.
 
 > [!NOTE]
 > Depending on the subscription type, a sufficient payment history may be required prior to creating an App Service domain. 
-> 
-> If you have made payments and are still running into this error, you can contact support and provide proof of payments.
 
 ## Map a hostname manually
 
@@ -200,7 +198,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 ## Direct default URL to a custom directory
 
-By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](configure-common.md#redirect-to-a-custom-directory).
+This is not a DNS resolution scenario. By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](configure-common.md#redirect-to-a-custom-directory).
 
 ## Next steps
 
