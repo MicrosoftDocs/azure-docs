@@ -29,7 +29,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## January 2023
 
-> [!NOTE}
+> [!NOTE]
 > All January 2023 updates are available with [REST API version **2022-08-30 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
 * **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
