@@ -33,7 +33,7 @@ The Microsoft Enterprise SSO plug-in for Apple devices offers the following bene
 
 - It provides SSO for Azure AD accounts across all applications that support the Apple Enterprise SSO feature.
 - It can be enabled by any mobile device management (MDM) solution and is supported in both device and user enrollment. 
-- It extends SSO to applications that don't yet use Microsoft Authentication libraries.
+- It extends SSO to applications that don't yet use the Microsoft Authentication Library (MSAL).
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
 
 ## Requirements
