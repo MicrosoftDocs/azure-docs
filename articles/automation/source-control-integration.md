@@ -85,7 +85,7 @@ Use this procedure to configure source control using the Azure portal.
     |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
 
-    <sup>1</sup> To enable Auto Sync when configuring the source control integration with Azure DevOps, you must be the Project Administrator or the GitHub repo owner.</br>
+    <sup>1 To enable Auto Sync when configuring the source control integration with Azure DevOps, you must be the Project Administrator or the GitHub repo owner. Collaborators can only configure Source Control without Auto Sync.</sup></br>
     Auto Sync does not work with Automation Private Link. If you enable the Private Link, the source control webhook invocations will fail as it is outside the network.
 
    :::image type="content" source="./media/source-control-integration/source-control-summary-inline.png" alt-text="Screenshot that describes the Source control summary." lightbox="./media/source-control-integration/source-control-summary-expanded.png":::
