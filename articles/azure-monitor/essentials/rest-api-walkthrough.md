@@ -20,7 +20,7 @@ The Azure Monitor API also makes it possible to list alert rules, view activity 
 
 Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure Active Directory). One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve the authentication (JWT) token.
 
-## Create an service principal
+## Create an Azure Active Directory service principal
 
 ### [Azure Portal](#tab/portal)
 
@@ -29,7 +29,6 @@ To create an Azure Active Directory service principal using the Azure Portal see
 ### [Azure CLI](#tab/cli)
 
 
-##
 Run the following script to create a service principal and app. 
 
 ```azurecli
@@ -62,10 +61,17 @@ The example below assigns the `Reader` role to the service principal for all res
 For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 
+### [Powershell](#tab/powershell) 
 
-To retrieve an access token using a REST call submit the following request using the `appId` and `password`:
+To create an Azure Active Directory service principal using thePowershell see [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-```http
+---
+
+## Retrieve a token
+
+To retrieve an access token using a REST call submit the following request using the `appId` and `password` for your servide pricipal and app:
+
+```HTTP
 
     POST /<appId>/oauth2/v2.0/token
     Host: https://login.microsoftonline.com
@@ -91,7 +97,7 @@ curl --location --request POST 'https://login.microsoftonline.com/a1234bcd-5849-
 ```
 A successful request receives an access token in the response:
 
-```http
+```HTTP
 {
    token_type": "Bearer",
    "expires_in": "86399",
@@ -99,128 +105,10 @@ A successful request receives an access token in the response:
    "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
 }
 ```
-Use the access token in your Azure Monitor API requests
-
-### [Powershell](#tab/powershell)
-The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 
-```powershell
-$subscriptionId = "{azure-subscription-id}"
-$resourceGroupName = "{resource-group-name}"
 
-# Authenticate to a specific Azure subscription.
-Connect-AzAccount -SubscriptionId $subscriptionId
-
-# Password for the service principal
-$pwd = "{service-principal-password}"
-$secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
-
-# Create a new Azure Active Directory application
-$azureAdApplication = New-AzADApplication `
-                        -DisplayName "My Azure Monitor" `
-                        -HomePage "https://localhost/azure-monitor" `
-                        -IdentifierUris "https://localhost/azure-monitor" `
-                        -Password $secureStringPassword
-
-# Create a new service principal associated with the designated application
-New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-
-# Assign Reader role to the newly created service principal
-New-AzRoleAssignment -RoleDefinitionName Reader `
-                          -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-
-```
-
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach that uses the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) to obtain the authentication token.
-
-```powershell
-$ClientID           = "{client_id}"
-$loginURL           = "https://login.microsoftonline.com"
-$tenantdomain       = "{tenant_id}"
-$CertPassWord       = "{password_for_cert}"
-$certPath           = "C:\temp\Certs\testCert_01.pfx"
- 
-[string[]] $Scopes  = "https://graph.microsoft.com/.default"
- 
-Function Load-MSAL {
-    if ($PSVersionTable.PSVersion.Major -gt 5)
-    { 
-        $core = $true
-        $foldername =  "netcoreapp2.1"
-    }
-    else
-    { 
-        $core = $false
-        $foldername = "net45"
-    }
- 
-    # Download MSAL.Net module to a local folder if it does not exist there
-    if ( ! (Get-ChildItem $HOME/MSAL/lib/Microsoft.Identity.Client.* -erroraction ignore) ) {
-        install-package -Source nuget.org -ProviderName nuget -SkipDependencies Microsoft.Identity.Client -Destination $HOME/MSAL/lib -force -forcebootstrap | out-null
-    }
-   
-    # Load the MSAL assembly -- needed once per PowerShell session
-    [System.Reflection.Assembly]::LoadFrom((Get-ChildItem $HOME/MSAL/lib/Microsoft.Identity.Client.*/lib/$foldername/Microsoft.Identity.Client.dll).fullname) | out-null
-  }
-  
-Function Get-GraphAccessTokenFromMSAL {
- 
-    Load-MSAL
- 
-    $global:app = $null
- 
-    $x509cert = [System.Security.Cryptography.X509Certificates.X509Certificate2] (GetX509Certificate_FromPfx -CertificatePath $certPath -CertificatePassword $CertPassWord)
-    write-host "Cert = {$x509cert}"
- 
-    $ClientApplicationBuilder = [Microsoft.Identity.Client.ConfidentialClientApplicationBuilder]::Create($ClientID)
-        [void]$ClientApplicationBuilder.WithAuthority($("$loginURL/$tenantdomain"))
-        [void]$ClientApplicationBuilder.WithCertificate($x509cert)
-    $global:app = $ClientApplicationBuilder.Build()
- 
-    [Microsoft.Identity.Client.AuthenticationResult] $authResult  = $null
-    $AquireTokenParameters = $global:app.AcquireTokenForClient($Scopes)
-    try {
-        $authResult = $AquireTokenParameters.ExecuteAsync().GetAwaiter().GetResult()
-    }
-    catch {
-        $ErrorMessage = $_.Exception.Message
-        Write-Host $ErrorMessage
-    }
-     
-    return $authResult
-}
- 
-function GetX509Certificate_FromPfx($CertificatePath, $CertificatePassword){
-    #write-host "Path: '$CertificatePath'"
-    
-    if(![System.IO.Path]::IsPathRooted($CertificatePath))
-    {
-        $LocalPath = Get-Location
-        $CertificatePath = "$LocalPath\$CertificatePath"
-    }
- 
-    #Write-Host "Looking for '$CertificatePath'"
- 
-    $certificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($CertificatePath, $CertificatePassword)
-     
-    Return $certificate
-}
- 
-$myvar = Get-GraphAccessTokenFromMSAL
-Write-Host "Access Token: " $myvar.AccessToken
- 
-```
-
-Loading the certificate from a .pfx file in PowerShell can make it easier for an admin to manage certificates without having to install the certificate in the certificate store. However, this step shouldn't be done on a client machine because the user could potentially discover the file and the password for it and the method to authenticate. The client credentials flow is only intended to be run in a back-end service-to-service type of scenario where only admins have access to the machine.
-
----
-
-
-After authenticating and retrieving a token, queries can then be executed against the Azure Monitor REST API. 
-For metrics, the two most used queries are:
-- List the metric definitions for a resource.
-- Retrieve the metric values.
+After authenticating and retrieving a token, use the access token in your Azure Monitor API requests. 
 
 > [!NOTE]
 > For more information on working with the Azure REST API, see the [Azure REST API reference](/rest/api/azure/).
@@ -230,29 +118,23 @@ For metrics, the two most used queries are:
 
 Use the [Azure Monitor Metric Definitions REST API](/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
 
-**Method**: GET
-
-**Request URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
-
-To retrieve the metric definitions for an Azure Storage account, the request would appear as the following example:
-
-```powershell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
-
-
-Invoke-RestMethod -Uri $request ` 
-                  -Headers $authHeader `
-                  -Method Get `
-                  -OutFile ".\contosostorage-metricdef-results.json" `
-                  -Verbose
+```HTTP
+GET /subscriptions/<subscription id>/resourcegroups/<resourceGroupName>/providers/<resourceProviderNamespace>/<resourceType>/<resourceName>/providers/microsoft.insights/metricDefinitions?api-version=<apiVersion>
+Host: management.azure.com
+Content-Type: application/json
+Authorization: Bearer <access token>
 
 ```
 
-> [!NOTE]
-> Older versions of the metric definitions API didn't support dimensions. We recommend using API version "2018-01-01" or later.
->
+For example, The request below retrieves the metric definitions for an Azure Storage account
 
-The resulting JSON response body would be similar to the following example (note that the second metric has dimensions):
+```curl
+curl --location --request GET 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01'
+--header 'Authorization: Bearer eyJ0eXAiOi...xYz
+```
+
+The following JSON shows an example response body. 
+In this example, only the second metric has dimensions.
 
 ```json
 {
@@ -362,10 +244,12 @@ The resulting JSON response body would be similar to the following example (note
     ]
 }
 ```
+> [!NOTE]
+> We recommend using API version "2018-01-01" or later. Older versions of the metric definitions API don't support dimensions.  
 
 ## Retrieve dimension values
 
-After the available metric definitions are known, there might be some metrics that have dimensions. Before you query for the metric, you might want to discover the range of values that a dimension has. Based on these dimension values, you can then choose to filter or segment the metrics based on dimension values while you query for metrics. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all the possible values for a given metric dimension.
+After the retrieving the available metric definitions for metrics with dimensions, retrieve the range of values for the dimensions. Use the  dimension values to filter or segment the metrics based in your queries. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all the possible values for a given metric dimension.
 
 Use the metric's name `value` (not `localizedValue`) for any filtering requests. If no filters are specified, the default metric is returned. The use of this API only allows one dimension to have a wildcard filter. The key difference between a dimension values request and a metric data request is specifying the `"resultType=metadata"` query parameter.
 
@@ -373,23 +257,27 @@ Use the metric's name `value` (not `localizedValue`) for any filtering requests.
 > To retrieve dimension values by using the Azure Monitor REST API, use the API version "2019-07-01" or later.
 >
 
-**Method**: GET
-
-**Request URI**: https\://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
-
-For example, to retrieve the list of dimension values that were emitted for the `API Name` dimension for the `Transactions` metric, where the GeoType dimension = `Primary` during the specified time range, the request would be:
-
-```powershell
-$filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=GeoType eq 'Primary' and ApiName eq '*'&api-version=2019-07-01"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -OutFile ".\contosostorage-dimension-values.json" `
-    -Verbose
+```HTTP
+GET /subscriptions/<subscription-id>/resourceGroups/  
+<resource-group-name>/providers/<resource-provider-namespace>/  
+<resource-type>/<resource-name>/providers/microsoft.insights/  
+metrics?metricnames=<metric>  
+&timespan=<starttime/endtime>  
+&$filter=<filter>  
+&resultType=metadata  
+&api-version=<apiVersion>   HTTP/1.1
+Host: management.azure.com
+Content-Type: application/json
+Authorization: Bearer <access token>
 ```
+For example, to retrieve the list of dimension values that were emitted for the `API Name` dimension for the `Transactions` metric, where the GeoType dimension = `Primary` during the specified time range, the request would be: 
 
-The resulting JSON response body would be similar to the following example:
+```curl
+curl --location --request GET 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=GeoType eq \'Primary\' and ApiName eq \'*\'&api-version=2019-07-01'
+-header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJ0e..meG1lWm9Y
+```
+The following JSON shows an example response body. 
 
 ```json
 {
@@ -445,9 +333,16 @@ Use the metric's name `value` (not `localizedValue`) for any filtering requests.
 > To retrieve multi-dimensional metric values using the Azure Monitor REST API, use the API version "2019-07-01" or later.
 >
 
+```HTTP
+GET /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<resource-provider-namespace>/<resource-type>/<resource-name>/providers/microsoft.insights/metrics?metricnames=<metric>&timespan=<starttime/endtime>&$filter=<filter>&interval=<timeGrain>&aggregation=<aggreation>&api-version=<apiVersion>
+Host: management.azure.com
+Content-Type: application/json
+Authorization: Bearer <access token>
+```
+
 **Method**: GET
 
-**Request URI**: https:\//management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Request URI**: 
 
 For example, to retrieve the top three APIs, in descending value, by the number of `Transactions` during a 5-minute range, where the GeoType was `Primary`, the request would be:
 
