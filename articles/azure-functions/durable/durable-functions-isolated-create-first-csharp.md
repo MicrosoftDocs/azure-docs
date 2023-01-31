@@ -1,5 +1,5 @@
 ---
-title: "Create your first C# durable function running in an isolated worker process"
+title: "Create your first C# durable function running in the isolated worker"
 description: Create and publish a C# Azure Durable Function running in isolated worker process using Visual Studio or Visual Studio Code.
 author: jiayma
 ms.topic: quickstart
