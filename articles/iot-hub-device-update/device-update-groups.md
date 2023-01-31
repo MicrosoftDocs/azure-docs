@@ -73,7 +73,7 @@ All user-created groups as well as default groups are automatically sub-categori
 
 A group can have one or more best available update, one for each subgroup it contains. 
 
-[Learn more](./device-update-configuration-file) about setting compatibility properties on the Device Update agent
+[Learn more](./device-update-configuration-file.md) about setting compatibility properties on the Device Update agent
 
 ## Next steps
 
