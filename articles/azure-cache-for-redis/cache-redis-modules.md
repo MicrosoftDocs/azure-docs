@@ -29,11 +29,13 @@ Some popular modules are available for use in the Enterprise tier of Azure Cache
 |RedisTimeSeries |   No    |    Yes   |   No    |
 |RedisJSON  |     No    |  Yes    |   Yes      |
 
-Currently, `RediSearch` is the only module that can be used concurrently with active geo-replication.
 
 > [!NOTE]
 > Currently, you can't manually load any modules into Azure Cache for Redis. Manually updating modules version is also not possible.
->
+
+
+## Using modules with active geo-replication
+Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](cache-how-to-active-geo-replication.md). This allows search and JSON structures to be used on groups of caches that are synchronized in an active-active configuration. 
 
 ## Client library support
 
