@@ -89,7 +89,7 @@ Data Factory pipelines provides 100+ data source connectors that provides scalab
   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
 
 - Upload the **adf.py** file to your blob storage within a folder called **DAG**.
-- [Import the **DAG** folder into your Managed Airflow environment]().  If you do not have one, [create a new one]().
+- [Import the **DAG** folder into your Managed Airflow environment](./how-does-managed-airflow-work.md#import-dags).  If you do not have one, [create a new one](./how-does-managed-airflow-work.md#create-a-managed-airflow-environment).
   :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tabwith the Airflow section selected.":::
 
 ## Next steps
