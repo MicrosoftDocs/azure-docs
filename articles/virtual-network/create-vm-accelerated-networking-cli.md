@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
-ms.custom: 
 ms.custom: fasttrack-edit
 
 ---
@@ -230,9 +229,9 @@ Applications binding to the synthetic NIC is a **mandatory** requirement for all
 ## Enable Accelerated Networking on existing VMs
 If you have created a VM without Accelerated Networking, it is possible to enable this feature on an existing VM.  The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined above:
 
-* The VM must be a supported size for Accelerated Networking
-* The VM must be a supported Azure Gallery image (and kernel version for Linux)
-* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
+* The VM must be a supported size for Accelerated Networking.
+* The VM must be a supported Azure Gallery image (and kernel version for Linux).
+* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC.
 * All individual VMs that are not in an availability set or VMSS must also be stopped/deallocated before enabling Accelerated Networking on any NIC.
 
 ### Individual VMs & VMs in an availability set
