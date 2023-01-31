@@ -28,7 +28,7 @@ Not all features from in-process Durable Functions have been migrated to the iso
 
 - Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
 - Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
-- Plus all the benefits of Azure Functions .NET isolated worker.
+- Plus all the benefits of the Azure Functions .NET isolated worker.
 
 ### Source generator and class-based activities and orchestrations
 
