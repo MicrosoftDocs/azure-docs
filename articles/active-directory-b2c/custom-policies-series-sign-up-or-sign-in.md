@@ -214,7 +214,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* section, 
             </ContentDefinition>
     <!--</ContentDefinitions>-->
 ``` 
-We've configured a content definition for our self-asserted technical profile, `SignupOrSigninContentDefinition`. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learnt how to specify a content definition directly in the self-asserted technical profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 3](#step-3---update-the-user-journey-orchestration-steps).
+We've configured a content definition for our self-asserted technical profile, `SignupOrSigninContentDefinition`. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learned how to specify a content definition directly in the self-asserted technical profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 3](#step-3---update-the-user-journey-orchestration-steps).
 
 
 ## Step 3 - Update the User journey orchestration steps
