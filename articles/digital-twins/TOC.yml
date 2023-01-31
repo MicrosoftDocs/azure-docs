@@ -119,8 +119,8 @@
       href: how-to-ingest-iot-hub-data.md
     - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
-  - name: Integrate with Power Platform and Logic Apps
-    href: how-to-use-power-platform-logic-apps-connector.md
+    - name: Integrate with Power Platform and Logic Apps
+      href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -261,6 +261,8 @@
         href: https://pypi.org/project/azure-digitaltwins-core/
       - name: Python SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-digitaltwins-core
+  - name: Migrate from preview control plane APIs
+    href: resources-migrate-from-preview-apis.md
   - name: Digital Twins CLI package
     href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: Terraform modules
