@@ -119,7 +119,7 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 
 - **Key**: `Enable_SSO_On_All_ManagedApps`
 - **Type**: `Integer`
-- **Value**: 1 or 0 . This value is set to 0 by default.
+- **Value**: 1 or 0. This value is set to 0 by default.
 
 When this flag is on (its value is set to `1`), all MDM-managed apps not in the `AppBlockList` may participate in SSO.
 
