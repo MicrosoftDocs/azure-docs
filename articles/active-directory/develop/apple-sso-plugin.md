@@ -221,7 +221,7 @@ Use the bundle IDs to configure SSO for the apps. Disable admin mode once done.
 
 By default, the Microsoft Enterprise SSO plug-in will acquire a shared credential when it's called by another app that uses MSAL during a new token acquisition. Depending on the configuration, Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by apps that don't use MSAL. 
 
-When you enable the `browser_sso_interaction_enabled` flag, apps that don't use a Microsoft Authentication Library can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
+When you enable the `browser_sso_interaction_enabled` flag, apps that don't use MSAL can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
 
 If the Microsoft Enterprise SSO plug-in doesn't have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside the Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application. 
 
