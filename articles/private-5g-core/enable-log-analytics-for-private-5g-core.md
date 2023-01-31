@@ -12,6 +12,9 @@ ms.custom: template-how-to
 
 # Enable Log Analytics for a packet core instance
 
+> [!IMPORTANT] 
+> Monitoring Azure Private 5G Core using Log Analytics will soon become unsupported. If you're considering integrating Log Analytics into your deployment, we recommend contacting your support representative to discuss options to suit your cloud monitoring needs.
+
 Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network. In this how-to guide, you'll learn how to enable Log Analytics for a packet core instance.
 
 > [!IMPORTANT] 

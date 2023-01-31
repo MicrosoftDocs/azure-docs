@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Manage IoT Edge certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
@@ -32,9 +32,6 @@ All IoT Edge devices use certificates to create secure connections between the r
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
     ```
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 ## Format requirements
 
@@ -606,183 +603,6 @@ retry = "2%"
 ```
 
 Automatic renewal for Edge CA can't be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-## Device CA
-
-All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
-
-IoT Edge automatically generates device CA on the device in several cases, including:
-
-* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
-* The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate.
-
-For these two automatically generated certificates, you have the option of setting a flag in the config file to configure the number of days for the lifetime of the certificates.
-
-> [!NOTE]
-> There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 30 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
-
-## Customize quickstart device CA certificate lifetime
-
-Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate isn't renewed automatically.
-
-# [Linux containers](#tab/linux)
-
-1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
-
-   ```yaml
-   certificates:
-     device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
-     device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
-     trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
-     auto_generated_ca_lifetime_days: <value>
-   ```
-
-   > [!NOTE]
-   > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-1. Delete the contents of the `hsm` folder to remove any previously generated certificates.
-
-   * `/var/aziot/hsm/certs`
-   * `/var/aziot/hsm/cert_keys`
-
-1. Restart the IoT Edge service.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-1. Confirm the lifetime setting.
-
-   ```bash
-   sudo iotedge check --verbose
-   ```
-
-   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
-
-# [Windows containers](#tab/windows)
-
-1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
-
-   ```yaml
-   certificates:
-     device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
-     device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
-     trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
-     auto_generated_ca_lifetime_days: <value>
-   ```
-
-   > [!NOTE]
-   > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-1. Delete the contents of the `hsm` folder to remove any previously generated certificates.
-
-   * `C:\ProgramData\iotedge\hsm\certs`
-   * `C:\ProgramData\iotedge\hsm\cert_keys`
-
-1. Restart the IoT Edge service.
-
-   ```powershell
-   Restart-Service iotedge
-   ```
-
-1. Confirm the lifetime setting.
-
-   ```powershell
-   iotedge check --verbose
-   ```
-
-   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
-
----
-
-## Install device CA for production
-
-Once you move into a production scenario, or you want to create a gateway device, you need to provide your own certificates.
-
-### Create and install device CA for production
-
-1. Use your own certificate authority to create the following files:
-
-   * Root CA
-   * Device CA certificate
-   * Device CA private key
-
-   The *root CA* isn't the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
-
-   To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
-
-   > [!NOTE]
-   > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-1. Copy the three certificate and key files onto your IoT Edge device. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files. If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
-
-   > [!TIP]
-   > If you used the sample scripts to [create demo certificates](how-to-create-test-certificates.md), the three certificate and key files are located at the following paths:
-
-   * Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-   * Root CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
-
-# [Linux containers](#tab/linux)
-
-1. Open the IoT Edge security daemon config file: `/etc/iotedge/config.yaml`
-
-1. Set the **certificate** properties in config.yaml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
-
-   ```yaml
-   certificates:
-      device_ca_cert: "file:///<path>/<device CA cert>"
-      device_ca_pk: "file:///<path>/<device CA key>"
-      trusted_ca_certs: "file:///<path>/<root CA cert>"
-   ```
-
-1. Make sure that the user **iotedge** has read/write permissions for the directory holding the certificates.
-
-1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
-
-   * `/var/aziot/hsm/certs`
-   * `/var/aziot/hsm/cert_keys`
-
-1. Restart IoT Edge.
-
-   ```bash
-   sudo iotedge system restart
-   ```
-
-# [Windows containers](#tab/windows)
-
-1. Open the IoT Edge security daemon config file: `C:\ProgramData\iotedge\config.yaml`
-
-1. Set the **certificate** properties in config.yaml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
-
-   ```yaml
-   certificates:
-      device_ca_cert: "file:///C:/<path>/<device CA cert>"
-      device_ca_pk: "file:///C:/<path>/<device CA key>"
-      trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
-   ```
-
-1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
-
-   * `C:\ProgramData\iotedge\hsm\certs`
-   * `C:\ProgramData\iotedge\hsm\cert_keys`
-
-1. Restart IoT Edge.
-
-   ```powershell
-   Restart-Service iotedge
-   ```
-
----
-
-:::moniker-end
-<!-- end 1.1 -->
 
 ## Module server certificates
 

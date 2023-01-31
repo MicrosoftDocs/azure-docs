@@ -6,12 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 01/06/2023
-
-ms.author: jricketts
-author: janicericketts
-manager: martinco
-
+ms.date: 01/30/2023
+ms.author: billmath
+author: jricketts
+manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
 # Migrate from federation to cloud authentication  
@@ -366,7 +364,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
    ```powershell
     Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Update-MgDomain](https://learn.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0)
+    See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
 
 3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
 
@@ -448,7 +446,7 @@ If you don't use AD FS for other purposes (that is, for other relying party trus
 
 ### Remove AD FS
 
-For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](https://learn.microsoft.com/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 

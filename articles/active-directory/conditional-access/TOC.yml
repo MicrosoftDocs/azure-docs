@@ -120,8 +120,6 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
-    - name: FAQ
-      href: faqs.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies

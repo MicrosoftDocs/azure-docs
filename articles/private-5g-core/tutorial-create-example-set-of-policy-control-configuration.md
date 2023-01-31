@@ -392,8 +392,7 @@ Let's create the SIM policies.
 1. Check that the configuration for the SIM policy is as expected.
 
     - The top level settings for the SIM policy are shown under the **Essentials** heading.
-    - The network scope configuration is shown under the **Network scope** and **Quality of service (QoS)** headings.
-    - The configured services are shown under the **Service configuration** heading.
+    - The network scope configuration is shown under the **Network scope** heading including configured services under **Service configuration** and quality of service configuration under **Quality of Service (QoS)**.
     
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing the first SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png":::
 
@@ -444,8 +443,7 @@ Let's create the SIM policies.
 1. Check that the configuration for the SIM policy is as expected.
 
     - The top level settings for the SIM policy are shown under the **Essentials** heading.
-    - The network scope configuration is shown under the **Network scope** and **Quality of service (QoS)** headings.
-    - The configured services are shown under the **Service configuration heading**.
+    - The network scope configuration is shown under the **Network scope** heading including configured services under **Service configuration** and quality of service configuration under **Quality of Service (QoS)**.
     
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-2.png" alt-text="Screenshot of the Azure portal showing the second SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-2.png":::
 
