@@ -1,6 +1,6 @@
 ---
-title: Refresh a Power BI dataset with Managed Apache Airflow
-description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with Managed Apache Airflow.
+title: Refresh a Power BI dataset with Managed Airflow
+description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with Managed Airflow.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
@@ -9,20 +9,20 @@ ms.date: 01/24/2023
 ms.author: abnarain
 ---
 
-# Refresh a Power BI dataset with Managed Apache Airflow
+# Refresh a Power BI dataset with Managed Airflow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+> Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-This tutorial shows you how to refresh a Power BI dataset with Managed Apache Airflow in Azure Data Factory.
+This tutorial shows you how to refresh a Power BI dataset with Managed Airflow in Azure Data Factory.
 
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.*
-* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Apache Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
+* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
 
 ## Steps
 
@@ -74,7 +74,7 @@ This tutorial shows you how to refresh a Power BI dataset with Managed Apache Ai
 
   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, and **dataset_name** with your own values.
 
-  Also, you will need to install the **powerbi** python package to use the above code using Managed Apache Airflow requirements. Edit a Managed Apache Airflow environment and add the **powerbi** python package under **Airflow requirements**.
+  Also, you will need to install the **powerbi** python package to use the above code using Managed Airflow requirements. Edit a Managed Airflow environment and add the **powerbi** python package under **Airflow requirements**.
 
 - Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
 - [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
@@ -82,6 +82,6 @@ This tutorial shows you how to refresh a Power BI dataset with Managed Apache Ai
 
 ## Next Steps
 
-- [Run an existing pipeline with Managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Managed Apache Airflow pricing](airflow-pricing.md)
-- [Changing password for Managed Apache Airflow environments](password-change-airflow.md)
+- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Managed Airflow pricing](airflow-pricing.md)
+- [Changing password for Managed Airflow environments](password-change-airflow.md)
