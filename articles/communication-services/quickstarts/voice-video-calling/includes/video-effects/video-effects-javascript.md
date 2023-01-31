@@ -33,13 +33,12 @@ Use the `npm install` command to install the Azure Communication Services Effect
 npm install @azure/communication-calling-effects --save
 ```
 > [!NOTE]
-Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
+> Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 > [!NOTE]
 > Currently there are two available video effects:
 > - Background blur
 > - Background replacement with an image
->
 
 To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
