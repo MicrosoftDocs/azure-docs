@@ -28,16 +28,16 @@ You'll also learn about other common AD FS tasks that you might need to perform 
 | Task | Description |
 |:--- |:--- |
 | **Manage AD FS** | |
-| [Repair the trust](#repair-the-trust) |Learn how to repair the federation trust with Microsoft 361. |
-| [Federate with Azure AD by using an alternative sign-in ID](#federate-with-azure-ad-by-using-alternateid) | Learn how to configure federation by using an alternative sign-in ID.  |
-| [Add an AD FS server](#add-an-ad-fs-server) |Learn how to expand an AD FS farm with an extra AD FS server. |
-| [Add an AD FS Web Application Proxy (WAP) server](#add-an-ad-fs-wap-server) |Learn how to expand an AD FS farm with an additional WAP server. |
-| [Add a federated domain](#add-a-federated-domain) |Learn how to add a federated domain. |
+| [Repair the trust]((#repairthetrust) |Learn how to repair the federation trust with Microsoft 361. |
+| [Federate with Azure AD by using an alternative sign-in ID](#alternateid) | Learn how to configure federation by using an alternative sign-in ID.  |
+| [Add an AD FS server](#addadfsserver) |Learn how to expand an AD FS farm with an extra AD FS server. |
+| [Add an AD FS Web Application Proxy (WAP) server](#addwapserver) |Learn how to expand an AD FS farm with an additional WAP server. |
+| [Add a federated domain](#addfeddomain) |Learn how to add a federated domain. |
 | [Update the TLS/SSL certificate](how-to-connect-fed-ssl-update.md)| Learn how to update the TLS/SSL certificate for an AD FS farm. |
 | **Customize AD FS** | |
-| [Add a custom company logo or illustration](#add-a-custom-company-logo-or-illustration) |Learn how to customize an AD FS sign-in page with a company logo and illustration. |
-| [Add a sign-in description](#add-a-sign-in-description) |Learn how to add a sign-in page description. |
-| [Modify AD FS claim rules](#modify-ad-fs-claim-rules) |Learn how to modify AD FS claims for various federation scenarios. |
+| [Add a custom company logo or illustration](#customlogo) |Learn how to customize an AD FS sign-in page with a company logo and illustration. |
+| [Add a sign-in description](#addsignindescription) |Learn how to add a sign-in page description. |
+| [Modify AD FS claim rules](#modclaims) |Learn how to modify AD FS claims for various federation scenarios. |
 
 ## Manage AD FS
 
@@ -74,7 +74,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 > [!NOTE]
 > Azure AD Connect can repair or act on only certificates that are self-signed. Azure AD Connect can't repair third-party certificates.
 
-## Federate with Azure AD by using alternateID 
+## <a name="alternateid"></a>Federate with Azure AD by using alternateID 
 
 We recommend that you keep the *on-premises* User Principal Name (UPN) and the *cloud* User Principal Name the same. If the on-premises UPN uses a non-routable domain (for example, Contoso.local) or can't be changed because of local application dependencies, we recommend setting up an alternative sign-in ID.  By using an alternative sign-in ID, you can configure a sign-in experience where users can sign in with an attribute other than their UPN, such as an email address. 
 
@@ -97,7 +97,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 > [!NOTE]
 > For more information about alternateID and steps to manually configure it, see [Configure an alternative sign-in ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
-## Add an AD FS server 
+## <a name="addadfsserver"></a>Add an AD FS server 
 
 > [!NOTE]
 > To add an AD FS server, Azure AD Connect requires a PFX certificate. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
@@ -132,7 +132,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
     ![Screenshot that shows the "Installation complete" page. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
-## Add an AD FS WAP server 
+## <a name="addwapserver"></a>Add an AD FS WAP server 
 
 > [!NOTE]
 > To add a Web Application Proxy server, Azure AD Connect requires the PFX certificate. Therefore, you can perform this operation only after you've configured the AD FS farm by using Azure AD Connect.
@@ -166,7 +166,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
    ![Installation complete](./media/how-to-connect-fed-management/WapServer8.PNG)
 
-## Add a federated domain 
+## <a name="addfeddomain"></a>Add a federated domain 
 
 It's easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
@@ -203,7 +203,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
 The following sections provide details about some of the common tasks that you might have to perform to customize your AD FS sign-in page.
 
-## Add a custom company logo or illustration 
+## <a name="customlogo"></a>Add a custom company logo or illustration 
 To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
 > [!NOTE]
@@ -216,14 +216,14 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > [!NOTE]
 > The *TargetName* parameter is required. The default theme that's released with AD FS is named Default.
 
-## Add a sign-in description 
+## <a name="addsignindescription"></a>Add a sign-in description 
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Select <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 ```
 
-## Modify AD FS claim rules 
+## <a name="modclaims"></a>Modify AD FS claim rules 
 AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 The following sections describe how you can write custom rules for some scenarios that relate to Azure AD and AD FS federation.
