@@ -293,7 +293,7 @@ static class HelloSequence
     [Function(nameof(StartHelloCities))]
     public static async Task<HttpResponseData> StartHelloCities(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-        [DurableClient] DurableClientContext durableContext,
+        [DurableClient] DurableTaskClient client,
         FunctionContext executionContext)
     {
         ILogger logger = executionContext.GetLogger(nameof(StartHelloCities));
