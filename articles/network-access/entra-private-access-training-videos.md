@@ -1,5 +1,5 @@
 ---
-title: Entra Private Access Training Videos
+title: Entra Private Access training videos
 description: Training videos for Entra Private Access.
 author: kenwith
 ms.author: kenwith

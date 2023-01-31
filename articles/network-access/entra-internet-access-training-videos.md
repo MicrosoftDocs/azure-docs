@@ -1,5 +1,5 @@
 ---
-title: Entra Internet Access Training Videos
+title: Entra Internet Access training videos
 description: Training videos for Entra Internet Access.
 author: kenwith
 ms.author: kenwith
