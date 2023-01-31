@@ -4,7 +4,7 @@ description: Learn about the factors that can impact Azure file share performanc
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 01/31/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -27,25 +27,21 @@ Before reading this article, it's helpful to understand some key terms relating 
 
     IOPS measures the number of read and write operations per second. Standard Azure file shares offer up to 20,000 IOPS per share/volume and up to 1,000 IOPS per file, while premium shares can achieve up to 100,000 IOPS per share/volume and up to 8,000 IOPS per file.
 
--   **IO size**
+-   **I/O size**
 
-    IO size can range from very small sizes such as 4 KiB to much larger sizes. 
+    I/O size, sometimes referred to as block size, is the size of the request that an application uses to perform a single input/output (I/O) operation on storage. Depending on the application, I/O size can range from very small sizes such as 4 KiB to much larger sizes. I/O size plays a major role in achievable throughput.
 
 -  **Throughput**
 
-    Throughput measures the number of bits read or written per second, and is measured in megabytes per second (MB/s) or mebibytes per second (MiB/s). Standard Azure file shares offer up to 300 MiB/s per share/volume and up to 60 MiB/s per file. Premium shares offer up to 10 GiB/s per share/volume and 300 MiB/s per file (up to 1 GiB/s with SMB multichannel).
+    Throughput measures the number of bits read from or written to the storage per second, and is measured in mebibytes per second (MiB/s). Standard Azure file shares offer up to 300 MiB/s per share/volume and up to 60 MiB/s per file. Premium shares offer up to 10 GiB/s per share/volume and 300 MiB/s per file (up to 1 GiB/s with SMB multichannel). To calculate throughput, multiply IOPS by I/O size. For example, 10,000 IOPS * 1 MiB I/O size = 10 GiB/s, while 10,000 IOPS * 4 KiB I/O size = 38 MiB/s.
 
 -  **Latency**
 
     Latency is a synonym for delay and is usually measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
 
--  **Bandwidth**
-
-    Bandwidth represents the volume of data being transferred per second. To calculate data transfer speed, multiply IOPS by IO size. For example, 10,000 IOPS * 1 MiB IO size = 10 GiB/s, while 10,000 IOPS * 4 KiB IO size = 38 MiB/s. As you can see, IO size plays a major role in achievable bandwidth.
-
 -  **Queue depth**
 
-    Queue depth is the number of pending input/output (IO) requests that a storage resource can handle at any one time. For more information, see [Queue depth](#queue-depth).
+    Queue depth is the number of pending I/O requests that a storage resource can handle at any one time. For more information, see [Queue depth](#queue-depth).
 
 ## Choosing a performance tier based on usage patterns
 
@@ -59,10 +55,10 @@ The following table summarizes the expected performance targets between standard
 |-----------------------------------------------|--------------|-------------|
 | Write latency (single-digit milliseconds)     | Yes          | Yes         |
 | Read latency (single-digit milliseconds)      | No           | Yes         |
-| Bandwidth > 300 MiB/s                         | No           | Yes         |
+| Throughput > 300 MiB/s                         | No           | Yes         |
 | IOPS > 20,000                                 | No           | Yes         |
 
-Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model).
+Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
 
 | **Capacity (GiB)** | **Baseline IOPS** | **Burst IOPS** | **Burst credits** | **Throughput (ingress + egress)** |
 |--------------------|-------------------|----------------|-------------------|---------------------------------------------|
@@ -79,11 +75,11 @@ Premium file shares offer a provisioning model that guarantees the following per
 
 Whether you're assessing performance requirements for a new or existing workload, understanding your usage patterns will help you achieve predictable performance. Consult with your storage admin or application developer to determine the following usage patterns.
 
-- **Latency sensitivity:** Are users opening files or interacting with virtual desktops that run on Azure Files? These are examples of workloads that are sensitive to read latency and also have high visibility to end users. These types of workloads are more suitable for premium Azure file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small IO size).
+- **Latency sensitivity:** Are users opening files or interacting with virtual desktops that run on Azure Files? These are examples of workloads that are sensitive to read latency and also have high visibility to end users. These types of workloads are more suitable for premium Azure file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small I/O size).
 
-- **Maximum and average IOPS:** Is the workload 100% reads, 100% writes, or a mix such as 60%/40%? Do you need more than 20,000 IOPS at peak? Write IO intensive workloads that don't exceed 20,000 IOPS and aren't using large IO block size (64 KiB or greater) can achieve single-digit millisecond latency on a standard file share. Read IO with high queue depth (64) can also achieve single-digit latency on standard file shares.
+- **Maximum and average IOPS:** Is the workload 100% reads, 100% writes, or a mix such as 60%/40%? Do you need more than 20,000 IOPS at peak? Write I/O intensive workloads that don't exceed 20,000 IOPS and aren't using large I/O size (64 KiB or greater) can achieve single-digit millisecond latency on a standard file share. Read I/O with high queue depth (64) can also achieve single-digit latency on standard file shares.
 
-- **Throughput:** If the workload uses larger block size or more IOPS that will cause bandwidth to exceed 300 MiB/s per share or 60 MiB/s per file, then you should choose a premium file share over standard.
+- **Throughput:** If the workload uses larger block size or more IOPS that will cause throughput requirements to exceed 300 MiB/s per share or 60 MiB/s per file, then you should choose a premium file share over standard.
 
 - **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
 
@@ -93,13 +89,13 @@ Whether you're assessing performance requirements for a new or existing workload
 
 ## Latency
 
-When thinking about latency, it's important to first understand how latency is determined with Azure Files. The most common measurements are the latency associated with **end-to-end latency** and **service latency** metrics. Using these metrics can help identify client-side latency and/or networking issues by determining how much time your application traffic spends in transit to and from the client.
+When thinking about latency, it's important to first understand how latency is determined with Azure Files. The most common measurements are the latency associated with **end-to-end latency** and **service latency** metrics. Using these [transaction metrics](storage-files-monitoring-reference.md#metrics) can help identify client-side latency and/or networking issues by determining how much time your application traffic spends in transit to and from the client.
 
 - **End-to-end latency (SuccessE2ELatency)** is the total time it takes for a transaction to perform a complete round trip from the client, across the network, to the Azure Files service, and back to the client.
 
 - **Service Latency (SuccessServerLatency)** is the time it takes for a transaction to round-trip only within the Azure Files service. This doesn't include any client or network latency.
 
-  :::image type="content" source="media/understanding-performance/latency-diagram.png" alt-text="Diagram comparing client latency and service latency.":::
+  :::image type="content" source="media/understanding-performance/storage-latency-diagram.png" alt-text="Diagram comparing client latency and service latency for Azure Files.":::
 
 The difference between **SuccessE2ELatency** and **SuccessServerLatency** values is the latency likely caused by the network and/or the client.
 
@@ -112,7 +108,7 @@ Furthermore, as the diagram illustrates, the farther you are away from the servi
 
 ## Queue depth
 
-Queue depth is the number of outstanding IO requests that a storage resource can service. As the disks used by storage systems have evolved from HDD spindles (IDE, SATA, SAS) to solid state devices (SSD, NVMe), they've also evolved to support higher queue depth. A workload consisting of a single client that serially interacts with a single file within a large dataset is an example of low queue depth. In contrast, a workload that supports parallelism with multiple threads and multiple files can easily achieve high queue depth. Because Azure Files is a distributed file service that spans thousands of Azure cluster nodes and is designed to run workloads at scale, we recommend building and testing workloads with high queue depth.
+Queue depth is the number of outstanding I/O requests that a storage resource can service. As the disks used by storage systems have evolved from HDD spindles (IDE, SATA, SAS) to solid state devices (SSD, NVMe), they've also evolved to support higher queue depth. A workload consisting of a single client that serially interacts with a single file within a large dataset is an example of low queue depth. In contrast, a workload that supports parallelism with multiple threads and multiple files can easily achieve high queue depth. Because Azure Files is a distributed file service that spans thousands of Azure cluster nodes and is designed to run workloads at scale, we recommend building and testing workloads with high queue depth.
 
 High queue depth can be achieved in several different ways in combination with clients, files, and threads. To determine the queue depth for your workload, multiply the number of clients by the number of files by the number of threads (clients * files * threads = queue depth).
 
@@ -134,11 +130,11 @@ The table below illustrates the various combinations you can use to achieve high
 
 ## Single versus multi-thread applications
 
-Azure Files is best suited for multi-threaded applications. The easiest way to understand the performance impact that multi-threading has on a workload is to walk through the scenario by IO. In the following scenario, we have a workload that needs to copy 10,000 small files as quickly as possible to or from an Azure file share.
+Azure Files is best suited for multi-threaded applications. The easiest way to understand the performance impact that multi-threading has on a workload is to walk through the scenario by I/O. In the following example, we have a workload that needs to copy 10,000 small files as quickly as possible to or from an Azure file share.
 
 This table breaks down the time needed (in milliseconds) to create a single 16 KiB file on an Azure file share, based on a single-thread application that's writing in 4 KiB block sizes. 
 
-| **IO operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
+| **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
 |------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
 | Thread 1         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
@@ -146,7 +142,7 @@ In this example, it would take approximately 14 ms to create a single 16 KiB fil
 
 By using eight threads instead of one, the above workload can be reduced from 140,000 ms (140 seconds) down to 17,500 ms (17.5 seconds). As the table below shows, when you're moving eight files in parallel instead of one file at a time, you can move the same amount of data in 87.5% less time.
 
-| **IO operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
+| **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
 |------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
 | Thread 1         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 | Thread 2         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
