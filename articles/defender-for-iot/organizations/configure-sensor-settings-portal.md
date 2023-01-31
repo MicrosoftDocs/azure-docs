@@ -97,7 +97,8 @@ If you're in a situation where the OT sensor is disconnected from Azure, and you
 
     Edit the scope of the setting so that it no longer includes the OT sensor, and any changes you make while the OT sensor is disconnected aren't overwritten when you connect it back to Azure.
 
-    Settings defined on the Azure portal always override settings defined on the OT sensor.
+    > [!IMPORTANT]
+    > Settings defined on the Azure portal always override settings defined on the OT sensor.
 
 1. Sign into the affected OT sensor console, and select **Settings > Advanced configurations** > **Azure Remote Config**.
 
@@ -121,8 +122,6 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 ### Subnet
 
-Configuring subnets from the Azure portal overwrites any subnets already configured on the OT sensors. 
-
 To define your sensor's subnets do any of the following:
 
 - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
@@ -130,8 +129,6 @@ To define your sensor's subnets do any of the following:
 - Enter values in the **IP Address**, **Mask**,l and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
 
 ### VLAN naming
-
-Configuring VLANs from the Azure portal overwrites any VLANs already configured on the OT sensors. 
 
 To define a VLAN for your OT sensor, enter the VLAN ID and a meaningful name.
 
