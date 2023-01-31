@@ -47,7 +47,7 @@ If you wish to call Azure Communication Services' APIs manually using an access 
 
 The Azure platform provides role-based access (Azure RBAC) to control access to the resources. Azure RBAC security principal represents a user, group, service principal, or managed identity that is requesting access to Azure resources. Azure AD authentication provides superior security and ease of use over other authorization options. For example, by using managed identity, you avoid having to store your account access key within your code, as you do with Access Key authorization. While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Azure AD where possible. 
 
-To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
+To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
 Communication services support Azure AD authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Azure Active Directory documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
@@ -67,7 +67,7 @@ The user identity is intended to act as a primary key for logs and metrics colle
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
 
 > [!div class="nextstepaction"]
-> [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
+> [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli)
 
 > [!div class="nextstepaction"]
 > [Create user access tokens](../quickstarts/access-tokens.md)
