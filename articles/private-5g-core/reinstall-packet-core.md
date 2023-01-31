@@ -86,6 +86,6 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 ## Next steps
 
 You've finished reinstalling your packet core instance. You can now use Azure Monitor or the packet core dashboards to monitor your deployment.
-<!-- TODO: add link to platform metrics -->
+
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
