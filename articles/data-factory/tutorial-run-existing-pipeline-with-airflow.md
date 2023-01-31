@@ -1,6 +1,6 @@
 ---
-title: Run an existing pipeline with Managed Apache Airflow
-description: This tutorial provides step-by-step instructions for running an existing pipeline with Managed Apache Airflow in Azure Data Factory.
+title: Run an existing pipeline with Managed Airflow
+description: This tutorial provides step-by-step instructions for running an existing pipeline with Managed Airflow in Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
@@ -10,12 +10,12 @@ ms.author: abnarain
 ---
 
 
-# Run an existing pipeline with Managed Apache Airflow
+# Run an existing pipeline with Managed Airflow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+> Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
 Data Factory pipelines provides 100+ data source connectors that provides scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG.  This tutorial shows you how to do just that.
 
@@ -24,7 +24,7 @@ Data Factory pipelines provides 100+ data source connectors that provides scalab
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.*
 * **Azure Data Factory pipeline**. You can follow any of the tutorials and create a new data factory pipeline in case you do not already have one, or create one with one click in [Get started and try out your first data factory pipeline](quickstart-get-started.md). 
-* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Apache Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
+* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
 
 ## Steps
 
@@ -89,11 +89,11 @@ Data Factory pipelines provides 100+ data source connectors that provides scalab
   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
 
 - Upload the **adf.py** file to your blob storage within a folder called **DAG**.
-- [Import the **DAG** folder into your Managed Apache Airflow environment]().  If you do not have one, [create a new one]().
+- [Import the **DAG** folder into your Managed Airflow environment]().  If you do not have one, [create a new one]().
   :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tabwith the Airflow section selected.":::
 
 ## Next steps
 
-- [Refresh a Power BI dataset with Managed Apache Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
-- [Managed Apache Airflow pricing](airflow-pricing.md)
-- [Changing password for Managed Apache Airflow environments](password-change-airflow.md)
+- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
+- [Managed Airflow pricing](airflow-pricing.md)
+- [Changing password for Managed Airflow environments](password-change-airflow.md)
