@@ -11,73 +11,115 @@ ms.date: 01/25/2023
 
 # Scan data sources in Microsoft Purview
 
-In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
+In Microsoft Purview, after you [register a data source](manage-data-sources.md#register-a-new-source) your data source, you can scan your source to import metadata about the information stored in that source, and apply any classifications to sensitive data.
 
-## Register a new source
+* For more information about scanning in general, see our [scanning concept article](concept-scans-and-ingestion.md)
+* For best practices, see our [scanning best practices article.](concept-best-practices-scanning.md)
 
->[!NOTE]
-> You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details on roles and adding permissions.
+In this article, you'll learn the basic steps for scanning any data source.
 
+>[!TIP]
+>Each source has its own instructions and prerequisites for scanning. For the most complete scanning instructions, select your source from the [supported sources list](microsoft-purview-connector-overview.md) and review its scanning instructions.
 
-Use the following steps to register a new source:
+## Prerequisites
 
-1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
+[Here's a list of all the sources that are currently available to register and scan in Microsoft Purview.](microsoft-purview-connector-overview.md)
 
-   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Screenshot of the Microsoft Purview governance portal.":::
+Before you can scan your data source, you must take these steps:
 
-1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
+1. [Register your data source](manage-data-sources.md#register-a-new-source) - This essentially gives Microsoft Purview the address of your data source, and maps it to a [collection](catalog-permissions.md#a-collections-example) in the Microsoft Purview Data Map.
+1. Consider your network - If your source is on an on-premises network, or a virtual private network (VPN), or if your [Microsoft Purview account is using private endpoints](catalog-private-link-end-to-end.md), you'll need a self-hosted integration runtime, which is a tool that will sit on a machine in your private network so your source and Microsoft Purview can connect during the scan. [Here are the instructions to create a self-hosted integration runtime.](manage-integration-runtimes.md)
+1. Consider what credentials you're going to use to connect to your source. All [source pages](microsoft-purview-connector-overview.md) will have a **Scan** section that will include details about what authentication types are available.
 
-   :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Screenshot showing selecting a data source type in the Register sources page.":::
+## Creating a scan
 
-1. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
-
-1. Select **Register**.
+In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-storage-source.md) as an example, and authenticating with the Microsoft Purview Managed Identity.
 
 >[!IMPORTANT]
->Most data sources have additional information and prerequisites to register and scan them in Microsoft Purview. For a list of all available sources, and links to source-specific instructions for registeration and scanning, see our [supported sources article.](microsoft-purview-connector-overview.md#microsoft-purview-data-map-available-data-sources)
+> These are the general steps for creating a scan, but you should refer to [the source page](microsoft-purview-connector-overview.md) for source-specific prerequistes and scanning instructions.
 
-## View sources
 
-You can view all registered sources on the **Data Map** tab of the Microsoft Purview governance portal. 
-There are two view types: 
+1. In the [Azure portal](https://portal.azure.com), open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**.
 
-- [The map view](#map-view)
-- [The list view](#table-view)
+   :::image type="content" source="./media/scan-data-sources/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
-### Map view
+1. Navigate to the **Data map** -> **Sources** to view your registered sources either in a map or table view.
+1. Find your source and select the **New Scan** icon.
 
-In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called ContosoPurview. Two sources are housed in the root collection: An Azure Data Lake Storage Gen2 source and a Power BI source. There are also five subcollections: Finance, Marketing, Sales, Development, and Outreach.
+   :::image type="content" source="media/scan-data-sources/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
-:::image type="content" source="media/manage-data-sources/map-view-inline.png" alt-text="Screenshot of the Microsoft Purview data source map view." lightbox="media/manage-data-sources/map-view-expanded.png":::
+1. Provide a **Name** for the scan.
+1. Select your authentication method. Here we chose the Purview MSI (managed identity.)
+1. Choose the current collection, or a sub collection for the scan. The collection you choose will house the metadata discovered during the scan.
 
-Each of the subcollections can be opened and managed from the map view by selecting the **+** button.
-You can also register a new source by selecting the register source button, or view details by selecting **View details**.
+1. Select **Test connection**. If it isn't successful, see our [troubleshooting] section. On a successful connection, select **Continue**
 
-:::image type="content" source="media/manage-data-sources/collection-options.png" alt-text="Screenshot the map view showing the Root collection and the finance subcollection with its resource and subcollections expanded.":::
+   :::image type="content" source="media/scan-data-sources/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
-### Table view
+1. Depending on the source, you can scope your scan to a specific subset of data. For Azure Blob Storage, we can select folders and subfolders by choosing the appropriate items in the list.
 
-In the table view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
+   :::image type="content" source="media/scan-data-sources/register-blob-scope-scan.png" alt-text="Scope your scan":::
 
-:::image type="content" source="media/manage-data-sources/list-view.png" alt-text="Screenshot of the Microsoft Purview data source list view." lightbox="media/manage-data-sources/list-view.png":::
+1. Select a scan rule set. The scan rule set contains the kinds of data [classifications](concept-classification.md) your scan will check for. You can choose between the system default (that will contain all classifications available for the source), existing custom rule sets made by others in your organization, or [create a new rule set inline](create-a-scan-rule-set.md).
 
-## Manage collections
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Scan rule set":::
 
-You can group your data sources into collections. To create a new collection, select **+ New collection** on the *Sources* page of the Microsoft Purview governance portal. Give the collection a name and select *None* as the Parent. The new collection appears in the map view.
+1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
 
-To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="scan trigger":::
 
-To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *ContosoPurview* is a parent to the *Finance* collection, which contains an Azure SQL Database source and two subcollections: Investment and Revenue. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
+1. Review your scan and select **Save and run**.
 
-:::image type="content" source="media/manage-data-sources/collections.png" alt-text="Screenshot of a hierarchy of collections in the Microsoft Purview governance portal.":::
+   :::image type="content" source="media/scan-data-sources/register-blob-review-scan.png" alt-text="review scan":::
 
->[!TIP] 
->You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
+## Viewing Scan
+
+Depending on the amount of data in your data source, a scan can take some time to run, so here's how you can check on progress and see results when the scan is complete.
+
+1. Navigate to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan
+
+   :::image type="content" source="media/scan-data-sources/register-blob-view-scan.png" alt-text="view scan":::
+
+1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_
+
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-details.png" alt-text="view scan details":::
+
+1. The **Last run status** will be updated to **In progress** and then **Completed** once the entire scan has run successfully
+
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-in-progress.png" alt-text="view scan in progress":::
+
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-completed.png" alt-text="view scan completed":::
+
+## Managing Scan
+
+After a scan is complete, it can be managed or run again.
+
+1. Select the **Scan name** to manage the scan
+
+   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan.png" alt-text="manage scan":::
+
+1. You can _run the scan_ again, _edit the scan_, _delete the scan_  
+
+   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan-options.png" alt-text="manage scan options":::
+
+1. You can _run an incremental scan_ or a _full scan_ again.
+
+   :::image type="content" source="media/scan-data-sources/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
+
+## Troubleshooting
+
+Setting up the connection for your scan can complex since it's a custom set up for your network and your credentials.
+
+If you're unable to connect to your source, follow these steps:
+
+1. Review your [source page](microsoft-purview-connector-overview.md)prerequisites to make sure there's nothing you've missed.
+1. Review your authentication option in the **Scan** section of your source page to confirm you have set up the authentication method correctly.
+1. Review our [troubleshoot connections page](troubleshoot-connections.md).
+1. [Create a support request](how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header), so our support team can help you troubleshoot your specific environment.
 
 ## Next steps
 
-Learn how to discover and govern various data sources:
-
+* [Scanning best practices](concept-best-practices-scanning.md)
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
 * [Power BI tenant](register-scan-power-bi-tenant.md)
 * [Azure SQL Database](register-scan-azure-sql-database.md)
