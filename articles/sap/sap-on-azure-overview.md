@@ -32,9 +32,9 @@ For more information, see the [SAP HANA on Azure (Large Instances)](large-instan
 
 Azure Center for SAP solutions is a service that makes SAP a top-level workload in Azure. This end-to-end solution allows you to create and run SAP systems as a unified workload on Azure. You can use this service through the Azure portal, a REST API, and the Azure CLI. 
 
-For more information, see the [Azure Center for SAP solutions](overview.md) documentation.
+For more information, see the [Azure Center for SAP solutions](center-sap-solutions/overview.md) documentation.
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+[!INCLUDE [Preview content notice](./center-sap-solutions/includes/preview.md)]
 
 ## SAP on Azure deployment automation framework
 
