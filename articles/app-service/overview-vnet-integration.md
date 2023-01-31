@@ -183,6 +183,7 @@ There are some limitations with using virtual network integration:
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration. Currently you can only configure the first integration through Azure portal. The second integration must be created using Azure Resource Manager templates or Azure CLI commands.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
+* Your app service plan must be Premium V2 or Premium V3 to be used with a NAT Gateway.
 
 ## Access on-premises resources
 
