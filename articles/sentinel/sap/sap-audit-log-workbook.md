@@ -61,8 +61,8 @@ Shows different types of data regarding user sign-ins.
 
 |Area  |Description  |Options |
 |---------|---------|
-|**Unique user logons per system**     |Shows the amount of unique sign ins for each SAP system, and a graph with the sign in trends over the selected time for each system. For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
-|**Logon types trend**     |Shows a trend of the amount of sign ins according to type, for example, login via dialog. |You can hover over the graph to show the logon amount for different dates.         |
+|**Unique user logons per system**     |Shows the number of unique sign ins for each SAP system, and a graph with the sign in trends over the selected time for each system. For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
+|**Logon types trend**     |Shows a trend of the number of sign ins according to type, for example, login via dialog. |You can hover over the graph to show the number of logons for different dates.         |
 |**Logon failures Vs. success by unique users - trend**     |Shows a trend of successful and failed sign ins in the selected period. |You can hover over the graph to show the amount of successful and failed sign ins for different dates.         |
 
 ### Logon failures - anomaly detection
