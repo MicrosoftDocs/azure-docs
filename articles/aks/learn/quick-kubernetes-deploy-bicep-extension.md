@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.
-description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
+description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) by using Bicep Kubernetes provider
 services: container-service
 ms.topic: quickstart
 ms.date: 01/31/2023
@@ -9,15 +9,11 @@ ms.date: 01/31/2023
 
 # Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernets provider (Preview)
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll:
-
-* Deploy a sample multi-container application with a web front-end and a Redis instance to an AKS cluster
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll deploy a sample multi-container application with a web front-end and a Redis instance to an AKS cluster. This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
-
-The Bicep Kubernetes provider is currently in preview. To enable the provider for your subscription, contact ... In addition, you must also enable the feature from [bicepconfig.json](../../azure-resource-manager/bicep/bicep-config.md).
+The Bicep Kubernetes provider is currently in preview. To enable the provider for your subscription, contact ... In addition, you must also enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features).
 
 ```json
 {
@@ -31,21 +27,7 @@ The Bicep Kubernetes provider is currently in preview. To enable the provider fo
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-### Bicep developmentDev Environment
-
-To set up your environment for Bicep development, see [Install Bicep tools](../../azure-resource-manager/bicep/install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-
-### [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-* This article requires version 2.20.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-* If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. You'll also need Bicep CLI. For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell). If using Azure Cloud Shell, the latest version is already installed.
-
----
+* To set up your environment for Bicep development, see [Install Bicep tools](../../azure-resource-manager/bicep/install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
 * To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the Bicep file](#review-the-bicep-file) section.
 
@@ -69,7 +51,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/).
+The Bicep file used to create AKS cluster is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/main.bicep":::
 
@@ -79,7 +61,7 @@ The resource defined in the Bicep file:
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
-Save a copy of the file as **main.bicep** to your location computer.
+Save a copy of the file as **main.bicep** to your local computer.
 
 ## Add the application definition
 
@@ -95,7 +77,9 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
-1. Create a file named `azure-vote.yaml` in the same folder as **main.bicep** with the following YAML definition:
+Use the following procedure to add the application definition:
+
+1. Create a file named **azure-vote.yaml** in the same folder as **main.bicep** with the following YAML definition:
 
     ```yaml
     apiVersion: apps/v1
@@ -188,14 +172,14 @@ Two [Kubernetes Services][kubernetes-service] are also created:
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 1. Open **main.bicep** in Visual Studio Code.
-1. Press <kbd>Ctrl+Shift+P</kbd> to open Command Palette.
+1. Press <kbd>Ctrl+Shift+P</kbd> to open **Command Palette**.
 1. Type **bicep**, and then select **Import kubernetes Manifest**.
 
     :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extension/bicep-kubernetes-extension-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
 
-    This process create an **azure-vote.bicep** in the same folder.
+1. In the prompt, select **azure-vote.yml**. This process create an **azure-vote.bicep** in the same folder.
 
-1. Before the output statement in **main.bicep**, add the following Bicep:
+1. Before the `output` statement in **main.bicep**, add the following Bicep to reference the newly created **azure-vote.bicep** module:
 
     ```bicep
     module kubernetes './azure-vote.bicep' = {

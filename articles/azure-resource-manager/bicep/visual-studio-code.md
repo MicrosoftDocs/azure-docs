@@ -28,6 +28,7 @@ These commands include:
 - [Decompile into Bicep](#decompile-into-bicep)
 - [Deploy Bicep File](#deploy-bicep-file)
 - [Generate Parameters File](#generate-parameters-file)
+- [Import Kubernetes Manifest](#import-kubernetes-manifest)
 - [Insert Resource](#insert-resource)
 - [Open Bicep Visualizer](#open-bicep-visualizer)
 - [Open Bicep Visualizer to the side](#open-bicep-visualizer)
@@ -69,6 +70,10 @@ You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bic
 ### Generate parameters file
 
 This command creates a parameter file in the same folder as the Bicep file. The new parameter file name is `<bicep-file-name>.parameters.json`.
+
+### Import Kubernetes manifest
+
+This command imports a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests), and creates a [Bicep module](./modules.md). For more information, see [Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernets provider (Preview)](../../aks/learn/quick-kubernetes-deploy-bicep-extension.md).
 
 ### Insert resource
 

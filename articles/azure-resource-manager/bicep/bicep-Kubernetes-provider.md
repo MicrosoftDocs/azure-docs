@@ -2,7 +2,7 @@
 title: Bicep Kubernetes provider
 description: Learn how to Bicep extensibility to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 01/31/2023
 ---
 
 # Bicep Kubernetes provider (Preview)
@@ -23,19 +23,7 @@ This preview feature can be enabled by configure the [bicepconfig.json](./bicep-
 
 bla, bla, bla ...
 
-### Create an SSH key pair
 
-To access AKS nodes, you connect using an SSH key pair (public and private), which you generate using the `ssh-keygen` command. By default, these files are created in the *~/.ssh* directory. Running the `ssh-keygen` command will overwrite any SSH key pair with the same name already existing in the given location.
-
-1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-
-1. Run the `ssh-keygen` command. The following example creates an SSH key pair using RSA encryption and a bit length of 4096:
-
-    ```console
-    ssh-keygen -t rsa -b 4096
-    ```
-
-For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
 
 ## The main Bicep file
 
