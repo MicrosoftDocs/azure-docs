@@ -125,14 +125,14 @@ To add B2B collaboration users to an application, follow these steps:
 
 ## Resend invitations to guest users
 
-If a guest user has not yet redeemed their invitation, you can resend the invitation email.
+If a guest user hasn't yet redeemed their invitation, you can resend the invitation email.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Users**.
 4. In the list, select the user's name to open their user profile.
 5. Under **My Feed**, in the **B2B collaboration** tile, select the **Manage (resend invitation / reset status** link.
-6. If the user has not yet accepted the invitation, Select the **Yes** option to resend.
+6. If the user hasn't yet accepted the invitation, Select the **Yes** option to resend.
 
     ![Screenshot showing the Resend Invite radio button.](./media/add-users-administrator/resend-invitation.png)
 
@@ -142,3 +142,4 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 
 - To learn how non-Azure AD admins can add B2B guest users, see [How users in your organization can invite guest users to an app](add-users-information-worker.md)
 - For information about the invitation email, see [The elements of the B2B collaboration invitation email](invitation-email-elements.md).
+- To learn about the B2B collaboration user types, see the [B2B collaboration user properties](user-properties.md) article.

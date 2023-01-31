@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell, references_regions"
+ms.custom: "devx-track-azurepowershell, references_regions, engagement-fy23"
 ---
 
 # Optimize costs by automatically managing the data lifecycle
@@ -443,6 +443,10 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 ### If I update an existing policy, how long does it take for the actions to run?
 
 The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob won't then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
+
+### The run completes but doesn't move or delete some blobs
+
+Depending on the size and number of objects in a storage account, more than one run might be required to process all of the objects. 
 
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 

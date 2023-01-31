@@ -106,10 +106,10 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 
 In this article, you learned about the MedTech service and its capabilities.
 
-To learn about the MedTech service data flow, see
+To learn about how the MedTech service processes device messages, see
 
 > [!div class="nextstepaction"]
-> [The MedTech service data flow](data-flow.md)
+> [Understand the MedTech service device message data transformation](understand-service.md)
 
 To learn about the different deployment methods for the MedTech service, see
 

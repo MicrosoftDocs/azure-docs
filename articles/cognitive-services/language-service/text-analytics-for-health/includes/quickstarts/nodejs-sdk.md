@@ -66,10 +66,10 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
+// Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
 
-// Example method for extracting information from healthcare-related text 
+// Example method for extracting information from healthcare-related text.
 async function healthExample(client) {
     console.log("== Recognize Healthcare Entities Sample ==");
 
