@@ -341,7 +341,7 @@
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Isolate pod compute resources
-              href: pod-sandboxing.md
+              href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
             - name: Use pod security policies (preview)

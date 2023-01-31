@@ -273,6 +273,9 @@ kubectl delete pod pod-name
 
 ## Next steps
 
+* Learn about [Confidential virtual machines on AKS][cvm-on-aks] with AMD SEV-SNP support to protect data-in-use with full VM memory encryption for your highly sensitive container workloads.
+
+* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to leverage hardware isolation and control over Azure platform maintenance events. 
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
@@ -292,3 +295,5 @@ kubectl delete pod pod-name
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [create-ssh-public-key-linux]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
+[cvm-on-aks]: use-cvm.md
+[azure-dedicated-hosts]: use-azure-dedicated-hosts.md
