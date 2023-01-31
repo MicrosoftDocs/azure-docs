@@ -19,7 +19,17 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## February 2023
 
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
+- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
 - [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+
+### Audit and monitor the health of your analytics rules (Preview)
+
+Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+
+Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
 
 ### Advanced scheduling for analytics rules (Preview)
 
