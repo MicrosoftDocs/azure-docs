@@ -484,7 +484,7 @@
       - name: 4 - Validate user input custom policy
         href: custom-policies-series-validate-user-input.md 
       - name: 5 - Create branching in user journeys
-        href: custom-policies-series-branch-in-user-journey.md
+        href: custom-policies-series-branch-user-journey.md
       - name: 6 - Validate custom policy files
         href: custom-policies-series-install-xml-extensions.md
       - name: 7 - Make HTTP call from custom policy

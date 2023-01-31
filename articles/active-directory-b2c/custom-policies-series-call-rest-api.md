@@ -31,7 +31,7 @@ In this article, you'll learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -100,7 +100,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
         });
     ```
     
-    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allow you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse` variable. The source of the accessCode in the app could be read from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
+    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allow you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (Conflict) response status code with a response JSON body formatted as shown in `errorResponse` variable. The source of the accessCode in the app could be read from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
@@ -196,9 +196,9 @@ From the protocol, you can observe that we configure the Technical Profile to us
    
 ### Step 2.2 - Update validation technical profile
 
-In [Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-in-user-journey.md), you validated the *accessCode* by using a Claims Transformation. In this article, you validate the *accessCode* by making an HTTP call to an external service. So, you'll need to update your custom policy to reflect the new approach. 
+In [Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-user-journey.md), you validated the *accessCode* by using a claims transformation. In this article, you validate the *accessCode* by making an HTTP call to an external service. So, you'll need to update your custom policy to reflect the new approach. 
 
-Locate the *AccessCodeInputCollector* Technical Profile, and update the *ValidationTechnicalProfile* element's ReferenceId to *ValidateAccessCodeViaHttp*: 
+Locate the *AccessCodeInputCollector* technical profile, and update the *ValidationTechnicalProfile* element's *ReferenceId* to *ValidateAccessCodeViaHttp*: 
 
 from: 
 
