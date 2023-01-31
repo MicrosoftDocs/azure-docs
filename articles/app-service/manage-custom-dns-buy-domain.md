@@ -14,8 +14,8 @@ App Service domains are custom domains that are managed directly in Azure. They 
 ## Prerequisites
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The app should be in an Azure Public region. At this time, Azure National Clouds are not supported.
-* The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
-* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You can't buy App Service domains with free subscription credits.
+* To use an App Service domain, the app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
+* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove).
 
 ## Buy and map an App Service domain
 
@@ -208,7 +208,7 @@ Free subscriptions, which don't require a confirmed credit card, do not have the
 
 #### Why do I get a SubscriptionExceededMaxDomainLimit error when creating an App Service domain?
 
-The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of 1 App Service domain. To increase your limit, convert to a pay-per-use subscription. If you already have a pay-per-use subscription and see this error, contact Azure support to increase your limit.
+The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of 1 App Service domain. To increase your limit, convert to a pay-per-use subscription.
 
 #### How do I direct the default URL to a custom directory?
 
