@@ -28,7 +28,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, see [Set up kubectl access](commission-cluster.md#set-up-kubectl-access) for instructions on how to obtain this file.
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Plan a maintenance window
 

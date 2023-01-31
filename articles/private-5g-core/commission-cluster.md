@@ -16,9 +16,8 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 ## Prerequisites
 
-* [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-
-* You will need Owner permission on the resource group for your Azure Stack Edge resource.
+- [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- You will need Owner permission on the resource group for your Azure Stack Edge resource.
 
 ## Enter a minishell session
 
@@ -108,9 +107,9 @@ You can input all the settings on this page before selecting **Apply** at the bo
     :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
     
 1. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
-    - control plane access interface
-    - user plane access interface
-    - user plane data interface(s)
+    - Control plane access interface
+    - User plane access interface
+    - User plane data interface(s)
 
     You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
 
