@@ -126,5 +126,5 @@ Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packe
 
 ## Next steps
 
-If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
-<!-- TODO: Learn more about reliability in Azure Private 5G Core. -->
+- If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+- Learn more about [reliability in Azure Private 5G Core](reliability-private-5g-core.md).

@@ -227,7 +227,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
 
-1. Log in to the Azure CLI using Azure Cloud Shell.
+1. Sign in to the Azure CLI using Azure Cloud Shell.
 
 1. Set the following environment variables using the required values for your deployment:
 
