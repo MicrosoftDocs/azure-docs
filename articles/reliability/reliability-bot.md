@@ -19,7 +19,7 @@ When you create an application (bot) in Azure, you can choose whether or not you
 
 This article describes reliability support in Azure Bot Service, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery for bots with local data residency. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-For more information on deploying bots with local data residency and regional compliance, see [Regionalization in Azure Bot Service](/azure/bot-service/bot-builder-concept-regionalization?view=azure-bot-service-4.0).
+For more information on deploying bots with local data residency and regional compliance, see [Regionalization in Azure Bot Service](/azure/bot-service/bot-builder-concept-regionalization).
 
 ## Availability zone support
 
