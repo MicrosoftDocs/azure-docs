@@ -1,6 +1,6 @@
 ---
 title: Entra Private Access FAQ
-description: Entra Private Access FAQ desc.
+description: Frequently asked questions for Entra Private Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview

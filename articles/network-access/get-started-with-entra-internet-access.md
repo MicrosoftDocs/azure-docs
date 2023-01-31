@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Entra Private Access
-description: Getting started with Entra Private Access.
+title: Get started with Entra Internet Access
+description: Get started with Entra Internet Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
@@ -15,7 +15,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Get started with Entra Private Access
+# Get started with Entra Internet Access
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

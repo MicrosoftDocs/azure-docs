@@ -1,6 +1,6 @@
 ---
 title: Entra Internet Access Training Videos
-description: Entra Internet Access training videos.
+description: Training videos for Entra Internet Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview

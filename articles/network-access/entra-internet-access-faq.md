@@ -1,6 +1,6 @@
 ---
 title: Entra Internet Access FAQ
-description: Desc...
+description: Frequently asked questions for Entra Internet Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
