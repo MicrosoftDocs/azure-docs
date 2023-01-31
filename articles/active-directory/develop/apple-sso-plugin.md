@@ -110,7 +110,7 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 >[!IMPORTANT]
 > The Microsoft Enterprise SSO plug-in supports only apps that use native Apple network technologies or webviews. It doesn't support applications that ship their own network layer implementation.  
 
-Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft Authentication library.
+Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use MSAL.
 
 >[!IMPORTANT]
 > You don't need to add apps that use a Microsoft Authentication Library to this allow-list. Those apps will participate in SSO by default. Most of the Microsoft-built apps use a Microsoft Authentication Library. 
