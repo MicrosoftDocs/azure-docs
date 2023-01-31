@@ -17,7 +17,9 @@ ms.devlang: azurecli
 
 # Configure MLflow for Azure Machine Learning
 
-Azure Machine Learning workspaces are MLflow-compatible, which means they can act as an MLflow server without any extra configuration. Each workspace has an MLflow tracking URI that can be used by MLflow to connect to the workspace. Azure Machine Learning workspaces **are already configured to work with MLflow** so no extra configuration is required. However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
+Azure Machine Learning workspaces are MLflow-compatible, which means they can act as an MLflow server without any extra configuration. Each workspace has an MLflow tracking URI that can be used by MLflow to connect to the workspace. Azure Machine Learning workspaces **are already configured to work with MLflow** so no extra configuration is required.
+
+However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
 
 > [!IMPORTANT]
 > When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
