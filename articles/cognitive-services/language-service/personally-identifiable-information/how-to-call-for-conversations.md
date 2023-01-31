@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 01/31/2023
 ms.author: jboback
 ms.reviewer: bidishac
 ---
@@ -34,6 +34,9 @@ Currently the conversational PII preview API only supports English language.
 Currently the conversational PII preview API supports all Azure regions supported by the Language service.
 
 ## Submitting data
+
+> [!NOTE]
+> See the [Language Studio](../language-studio.md#valid-text-formats-for-conversation-features) article for information on formatting conversational text to submit using Language Studio. 
 
 You can submit the input to the API as list of conversation items. Analysis is performed upon receipt of the request. Because the API is asynchronous, there may be a delay between sending an API request, and receiving the results. For information on the size and number of requests you can send per minute and second, see the data limits below.
 
