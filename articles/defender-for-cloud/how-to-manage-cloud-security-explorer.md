@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/29/2023
+ms.date: 01/31/2023
 ---
 
 # Cloud security explorer
@@ -13,7 +13,7 @@ Defender for Cloud's contextual security capabilities assists security teams in 
 
 By using the cloud security explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more, including the ability to query multiple issues across multiple clouds (Azure and AWS EC2).
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and across multiple clouds (Azure and AWS EC2).
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
@@ -43,11 +43,12 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 ## Build a query with the cloud security explorer
 
-You can use the cloud security explorer to build queries that can proactively hunt for security risks in your environments. The cloud security explorer uses dynamic and efficient search features including:
+You can use the cloud security explorer to build queries that can proactively hunt for security risks in your environments. The cloud security explorer uses dynamic and efficient features including:
 
-- **Multi-clouds and multi-resource queries** - The entities selection control allows you to filter your search across cloud environments and across resources simultaneously  
-- **Entities Selection** - Filters are logically combined into control categories
-- **Search box**- You can use a free text search to conduct a search of any filter existing in the entities selection control.
+- **Multi-cloud and multi-resource queries** - The entity selection control filter are grouped combined into logical control categories so you can easily build queries across cloud environments and across resources simultaneously. 
+- **Custom Search**- You can use the main dropdown to search for filters, and we will auto-build the query for you.
+- **Query templates** -  You can use any of the available pre-built query templates to more efficiently build your query.
+- **Share query link** - You can copy and share a link of your query with other people.
 
 **To build a query**:
 
@@ -58,16 +59,20 @@ You can use the cloud security explorer to build queries that can proactively hu
     :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
 1. Do one of the following:
+    - Use the main search box to search for entities. 
     - Select a resource from the drop-down menu. 
-    - Use the main dropdown to search for filters. 
+
  
         :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
+    
 
 1. Select **+** to add other filters to your query. For each filter selected you can add more subfilters as needed.
 
-1. After you finish building your query, select **Search** to run the query.The results will populate on the bottom of the page.
-
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
+
+1. After you finish building your query, select **Search** to run the query. The results will populate on the bottom of the page.
+
+    :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
 
 ## Query templates
