@@ -39,10 +39,6 @@ The 2301 release has the following new features and enhancements:
 - Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you upgrade to the latest version as soon as possible.
 - Beginning in this release, you can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. 
 
-## Issues fixed in this release
-
-## Known issues in this release
-
 ## Known issues from previous releases
 
 The following table provides a summary of known issues carried over from the previous releases.
