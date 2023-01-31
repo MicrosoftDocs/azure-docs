@@ -163,7 +163,7 @@ If you're using the [Translator container](../translator/containers/translator-h
 
 #### Speech containers
 
-[Speech-to-Text](#tab/stt)
+# [Speech-to-text](#tab/stt)
 
 The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
@@ -175,7 +175,7 @@ Below is a sample command to set file/directory ownership.
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
 
-[Neural Text-to-Speech](#tab/ntts)
+# [Neural Text-to-Speech](#tab/ntts)
 
 The [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
@@ -187,7 +187,7 @@ Below is a sample command to set file/directory ownership.
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
 
-[Custom Speech-to-Text](#tab/cstt)
+# [Custom Speech-to-Text](#tab/cstt)
 
 In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
 
@@ -196,9 +196,9 @@ In order to prepare and configure the Custom Speech-to-Text container you will n
    
 To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the #1 speech resource.
 
-After all required models have been downloaded into your container you need to download the disconnected license file the instruction from above chapter [Configure the container to be run in a disconnected environment](./disconnected-containers#configure-the-container-to-be-run-in-a-disconnected-environment) and use the #2 speech resource.
+After all required models have been downloaded into your container you need to download the disconnected license file the instruction from above chapter [Configure the container to be run in a disconnected environment](../disconnected-containers#configure-the-container-to-be-run-in-a-disconnected-environment) and use the #2 speech resource.
 
-To run the container in disconnected mode follow the instructions from above chapter [Run the container in a disconnected environment](./disconnected-containers#run-the-container-in-a-disconnected-environment).
+To run the container in disconnected mode follow the instructions from above chapter [Run the container in a disconnected environment](../disconnected-containers#run-the-container-in-a-disconnected-environment).
 
 The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
@@ -291,4 +291,5 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+
 
