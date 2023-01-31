@@ -1,5 +1,6 @@
 ---
-title: Create and manage container leases with Java - Azure Storage 
+title: Create and manage container leases with Java
+titleSuffix: Azure Storage
 description: Learn how to manage a lock on a container in your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
