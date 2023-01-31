@@ -315,6 +315,8 @@ Sensor backup files are automatically named through the following format: `<sens
 
 You can restore a sensor from a backup file using the sensor console or the CLI.
 
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
+
 **To restore from the sensor console:**
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
