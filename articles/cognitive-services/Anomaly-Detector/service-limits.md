@@ -50,7 +50,7 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 | **Maximum running models** *(created, running)* | 1 | 20 |
 | **Maximum running inference** *(created, running)* | 10 | 60 |
 
-<sup>1</sup> All the quota and limit are defined for one Anomaly Detector resource. If you want to increase the limit, please contact AnomalyDetector@microsoft.com for further communication.
+<sup>1</sup> All quotas and limits are defined for one Anomaly Detector resource. If you want to increase the limit, please contact AnomalyDetector@microsoft.com for further communication.
 
 
 ## How to increase the limit for your resource?
