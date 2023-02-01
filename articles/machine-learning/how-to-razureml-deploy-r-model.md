@@ -268,7 +268,7 @@ A *deployment* is a set of resources required for hosting the model that does th
 
 1. To create your deployment, add the following code to the **deployment.yml** file. 
 
-    * Replace `<ENDPOINT-NAME>` with the endpoint name you defined in the **environment.yml** file
+    * Replace `<ENDPOINT-NAME>` with the endpoint name you defined in the **endpoint.yml** file
     * Replace `<DEPLOYMENT-NAME>` with the name you want to give the deployment
     * Replace `<MODEL-URI>` with the registered model's URI in the form of `azureml:modelname@latest`
     * Replace `<IMAGE-TAG>` with the value from:
