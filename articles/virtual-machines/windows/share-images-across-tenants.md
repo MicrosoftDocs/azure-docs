@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 01/31/2023
 author: sandeepraichura
 ms.author: saraic
 ms.reviewer: cynthn 
@@ -27,7 +27,7 @@ For more information about other sharing options, see [Share the gallery](../sha
 
 ## Create a VM using PowerShell
 
-Sign in to both tenants using the application ID, secret and tenant ID. 
+Sign in to both tenants using the application ID, secret and tenant ID.
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
