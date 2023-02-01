@@ -49,7 +49,7 @@ By adding the additions to your yaml file, you'll ensure that secret scanning on
 
 ## Remediate secrets findings
 
-When credentials are discovered in your code, you can remove them. Instead you can use an alternative method that won't expose the secrets directly in your source code. Some of the best practices that exists to handle this type of situation include:
+When credentials are discovered in your code, you can remove them. Instead you can use an alternative method that won't expose the secrets directly in your source code. Some of the best practices that exist to handle this type of situation include:
 
 - Eliminating the use of credentials (if possible).
 
