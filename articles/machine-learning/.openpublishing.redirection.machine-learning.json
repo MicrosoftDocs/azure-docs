@@ -6,6 +6,16 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
+        "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
+        "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-link-synapse-ml-workspaces.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-link-synapse-ml-workspaces",
         "redirect_document_id": true
@@ -886,6 +896,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/machine-learning-excel-add-in-for-web-services.md",
+        "redirect_url": "/azure/machine-learning/classic/excel-add-in-for-web-services",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/studio/excel-add-in-for-web-services.md",
         "redirect_url": "/azure/machine-learning/classic/excel-add-in-for-web-services",
         "redirect_document_id": true
@@ -1262,6 +1277,11 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
+        "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-understand-automated-m.md",
         "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
         "redirect_document_id": false
     },
@@ -2376,7 +2396,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-trigger-published-pipelines.md",
+        "source_path_from_root": "/articles/machine-learning/how-to-trigger-published-pipeline.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-trigger-published-pipeline",
         "redirect_document_id": true
     },
@@ -2566,8 +2586,13 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-machine-learning-pipelines",
+        "redirect_document_id": "/azure/machine-learning/how-to-create-component-pipeline-python",
+        " redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-create-your-first-pipeline.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-create-machine-learning-pipelines",
+        "redirect_url": "/azure/machine-learning/how-to-create-component-pipeline-python",
         "redirect_document_id": true
     },
     {
@@ -3023,6 +3048,11 @@
     {
         "source_path_from_root": "/articles/machine-learning/classic/deploy-a-machine-learning-web-service.md",
         "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-a-machine-learning-web-service",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md",
+        "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
         "redirect_document_id": false
     },
     {
