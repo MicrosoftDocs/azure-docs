@@ -396,7 +396,7 @@ If your *primary email* doesn't receive notifications, take the following steps:
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you'd like to review.
 
-   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the Azure portal All users page. On the left, All users is selected. Information about one user is visible but is indecipherable." border="true":::
+   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the Azure portal All users page. Information about one user is visible but is indecipherable." border="true":::
 
 1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
 
@@ -449,7 +449,7 @@ You may have a limited number of Logic Apps actions per action group.
 
 When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. 
  
-The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" AAD Application. To make the action group work, this AAD Webhook Service Principal needs to be added as member of a role on the target AAD application that grants access to the target endpoint.
+The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" Azure AD Application. To make the action group work, this Azure AD Webhook Service Principal needs to be added as member of a role on the target Azure AD application that grants access to the target endpoint.
  
 For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
 
@@ -648,7 +648,7 @@ Webhook action groups use the following rules:
 
   - A response isn't received within the timeout period.
   - One of the following HTTP status codes is returned: 408, 429, 503, 504 or TaskCancellationException.
-  - If any one of the above errors is encountered an additonal 5 seconds wait for the response.
+  - If any one of the above errors is encountered an additional 5 seconds wait for the response.
 
 - If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
 
