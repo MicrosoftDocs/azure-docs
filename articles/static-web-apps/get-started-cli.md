@@ -10,12 +10,13 @@ ms.author: cshoe
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-
 # Quickstart: Building your first static site using the Azure CLI
 
 Azure Static Web Apps publishes websites to production by building apps from a code repository.
 
 In this quickstart, you deploy a web application to Azure Static Web apps using the Azure CLI.
+
+TEST EDITS
 
 ## Prerequisites
 
