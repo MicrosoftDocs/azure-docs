@@ -26,7 +26,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
+* Completion of the prerequisites and steps in [Tutorial: Register an application with the Microsoft identity platform](web-app-tutorial-01-register-application.md).
 * Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
@@ -57,8 +57,7 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
 1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
 1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *NewWebAppLocal*.
-1. Using the terminal, run the following commands to change into the folder directory and create the project.
-1. Run the following command in the terminal:
+1. Using the terminal, run the following commands to change into the folder directory and create the project:
 
 ```powershell
 cd NewWebAppLocal
@@ -159,7 +158,7 @@ Now that the certificate is uploaded, the application needs to be configured for
 1. Save changes to the file.
 1. Record the value of the `CallbackPath`. This will be used later to define the **Redirect URI** on the Azure portal.
 1. Under **Properties**, open the *launchSettings.json* file.
-1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100` This will also be used when defining the **Redirect URI**.
+1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100`. This will also be used when defining the **Redirect URI**.
 
 
 ## Define the platform

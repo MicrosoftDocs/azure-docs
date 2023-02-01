@@ -102,11 +102,13 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
     ```
 
 1. Add the following code to define the API object:
+
     ```csharp
     private readonly IDownstreamWebApi _downstreamWebApi;
     ```
 
 1. Add the API object to the logger:
+
     ```csharp
     public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
     {
@@ -195,4 +197,4 @@ Completion of this tutorial set can be the first part of the potential developer
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to add multi-factor authentication to your web app](web-app-tutorial-01-register-application.md)
+> [Tutorial: Register a web API with the Microsoft identity platform](web-app-tutorial-01-register-application.md)

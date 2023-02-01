@@ -53,7 +53,6 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-<!-- Needs testing for confirmation -->
 1. In the top menu, select **Tools** > **Manage NuGet Packages**.
 1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
 1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
@@ -73,7 +72,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
     using Microsoft.Identity.Web.UI;
     ```
 
-1. Add the `AzureAD` service that was defined in the *appsettings.json* file to the existing `builder` object:
+1. Add the `AzureAd` service that was defined in the *appsettings.json* file to the existing `builder` object:
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
@@ -116,7 +115,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In the Explorer bar, select **Pages**, then right-click **Shared**, and then select **New File**, and name it *_LoginPartial.cshtml*.
+1. In the Explorer bar, select **Pages**, right-click **Shared**, and select **New File**. Give it the name *_LoginPartial.cshtml*.
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
@@ -152,15 +151,13 @@ After installing the NuGet packages and adding necessary code for authentication
     </ul>
     ```
 
-1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line is best placed between `</ul>` and `</div>`:
+1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line should be placed between `</ul>` and `</div>`:
 
     ```csharp
       </ul>
       <partial name="_LoginPartial" />
     </div>
     ```
-
-<!-- Suitable links required for See also TBD -->
 
 ## Next steps
 

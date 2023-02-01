@@ -13,7 +13,7 @@ ms.date: 10/18/2022
 
 # Tutorial: Register an application with the Microsoft identity platform
 
-Before an application can be authenticated with the Microsoft identity platform, it must be registered in a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal.
+Before an application can interact with the Microsoft identity platform, it must be registered in a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal.
 
 In this tutorial:
 
@@ -30,7 +30,7 @@ In this tutorial:
   * Cloud application administrator
 * Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
-## Register the application abd record identifiers
+## Register the application and record identifiers
 
 To complete registration, provide the application a name and specify the supported account types. Once registered, the application **Overview** page will display the identifiers needed in the source code.
 
@@ -48,15 +48,7 @@ To complete registration, provide the application a name and specify the support
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
-## See also
-
-The following articles are related to the concepts presented in this tutorial:
-
-* For more information about the kinds of applications that are supported by the Microsoft identity platform, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).
-* For more information about the application registration process, see [Application model](application-model.md).
-* For more information about adding applications to Azure AD, see [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare the application for authentication](web-app-tutorial-02-prepare-application.md)
+> [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md)
