@@ -214,7 +214,11 @@ The following metrics are used within the reports.
 
 ## Traffic by domain report
 
-The **traffic by domain** report provides a grid view of all the domains under this Azure Front Door profile. In this report you can view: 
+The **traffic by domain** report provides a grid view of all the domains under this Azure Front Door profile.
+
+:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
+
+In this report you can view:
 
 * Request counts
 * Data transferred out from Azure Front Door to client
@@ -224,11 +228,13 @@ Domains include endpoint domains and custom domains.
 
 You can go to other tabs to investigate further or view access log for more information if you find the metrics below your expectation. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
-
 ## Usage report
 
-The **usage report** shows the trends of traffic and response status code by different dimensions, including:
+The **usage report** shows the trends of traffic and response status code by various dimensions.
+
+:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
+
+The dimensions included in the usage report are:
 
 * Data transferred from edge to client and from origin to edge, in a line chart. 
 * Data transferred from edge to client by protocol, in a line chart. 
@@ -238,8 +244,6 @@ The **usage report** shows the trends of traffic and response status code by dif
 * Total latency, which measures the total time from the client request received by Azure Front Door until the last response byte sent from Azure Front Door to the client, in a line chart.
 * Number of requests from edge to clients by HTTP status code, in a line chart. Every request generates an HTTP status code. HTTP status code appears as the HTTPStatusCode in the raw access log. The status code describes how the Azure Front Door edge PoP handled the request. For example, a 2XX status code indicates that the request was successfully served to a client. While a 4XX status code indicates that an error occurred.
 * Number of requests from the edge to clients by HTTP status code, in a line chart. The percentage of requests by HTTP status code is shown in a grid. 
-
-:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
 
 ## Traffic by location report
 
@@ -251,7 +255,7 @@ The **traffic by location** report displays:
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
-The following are included in the reports:
+The following items are included in the reports:
 
 * A world map view of the top 50 countries/regions by data transferred out or requests of your choice.
 * Two line charts showing a trend view of the top five countries/regions by data transferred out and requests of your choice. 
@@ -259,7 +263,11 @@ The following are included in the reports:
 
 ## Caching report
 
-The **caching report** provides a chart view of cache hits and misses, and the cache hit ratio, based on requests. Understanding how Azure Front Door caches your content helps you to improve your application's performance because cache hits give you the fastest performance. You can optimize data delivery speeds by minimizing cache misses. This report includes:
+The **caching report** provides a chart view of cache hits and misses, and the cache hit ratio, based on requests. Understanding how Azure Front Door caches your content helps you to improve your application's performance because cache hits give you the fastest performance. You can optimize data delivery speeds by minimizing cache misses.
+
+:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of Reports for caching.":::
+
+The caching report includes:
 
 * Cache hit and miss count trend, in a line chart.
 * Cache hit ratio, in a line chart.
@@ -283,13 +291,13 @@ It excludes all of the following cases:
 * Requests that are blocked by the Azure Front Door WAF. 
 * Requests when the origin response headers indicate that they shouldn't be cached. For example, requests with `Cache-Control: private`, `Cache-Control: no-cache`, or `Pragma: no-cache` headers prevent the response from being cached. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of Reports for caching.":::
-
 ## Top URL report
 
-The **top URL report** allow you to view the amount of traffic incurred through a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days. Popular URLs will be displayed with the following values.
+The **top URL report** allow you to view the amount of traffic incurred through a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Screenshot of Reports for top URL.":::
+
+Popular URLs will be displayed with the following values:
 
 * URL, which refers to the full path of the requested asset in the format of `http(s)://contoso.com/index.html/images/example.jpg`. URL refers to the value of the RequestUri field in the raw access log. 
 * Request counts.
@@ -309,7 +317,11 @@ User can sort URLs by request count, request count percentage, data transferred,
 
 ## Top referrer report
 
-The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*. Top referrers report includes the following values.
+The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*.
+
+:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of Reports for top referrer.":::
+
+The top referrer report includes the following values.
 
 * Referrer, which is the value of the Referrer field in the raw access log.
 * Request counts.
@@ -321,8 +333,6 @@ The **top referrer** report shows you the top 50 referrers to a particular Azure
 * Requests with response code as 5XX.
 
 You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
-
-:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of Reports for top referrer.":::
 
 ## Top user agent report
 
