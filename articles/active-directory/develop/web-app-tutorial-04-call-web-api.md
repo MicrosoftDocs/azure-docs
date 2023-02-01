@@ -87,7 +87,7 @@ This previous configuration definition defines an endpoint for accessing Microso
 
 The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It makes sure that the user is asked for consent if needed, and incrementally.
 
-1. Under **Pages**, open the *Index.cshtml.cs* file and add the following to the top of the file;
+1. Under **Pages**, open the *Index.cshtml.cs* file and add the following to the top of the file:
 
     ```csharp
     using System.Text.Json;
@@ -134,9 +134,9 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
     }
     ```
 
-1. Now open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file.
+1. Now open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
 
-	```html
+	  ```html
     <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
 
     <p><pre><code class="language-js">@ViewData["ApiResult"]</code></pre></p>
@@ -150,7 +150,7 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 1. Start the application by selecting **Start without debugging**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
-1. Start the application by typing the following in the terminal;
+1. Start the application by typing the following in the terminal:
 
     ```powershell
     dotnet run

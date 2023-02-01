@@ -37,13 +37,13 @@ Identity related **NuGet packages** must be installed in the project for authent
 ### [Visual Studio](#tab/visual-studio)
 
 1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
-1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Click the **Project** checkbox, and then select **Install**.
+1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Select the **Project** checkbox, and then select **Install**.
 1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages;
+1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
 
 ```powershell
 dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
@@ -57,8 +57,8 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 1. In the top menu, select **Tools** > **Manage NuGet Packages**.
 1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
 1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
-1. In the pop-up, ensure the correct project is selected, then click **Ok**.
-1. Click **Accept** if additional **License Acceptance** windows appear. 
+1. In the pop-up, ensure the correct project is selected, then select **Ok**.
+1. Select **Accept** if additional **License Acceptance** windows appear. 
 
 ---
 
@@ -152,7 +152,7 @@ After installing the NuGet packages and adding necessary code for authentication
     </ul>
     ```
 
-1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line is best placed between `</ul>` and `</div>`.
+1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line is best placed between `</ul>` and `</div>`:
 
     ```csharp
       </ul>
