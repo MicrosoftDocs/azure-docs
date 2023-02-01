@@ -22,7 +22,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## Upcoming changes
 
-Use the following table to learn about changes including deprecations, retirements, breaking changes and rebranding. Also find key dates and recommendedations.
+Use the following table to learn about changes including deprecations, retirements, breaking changes and rebranding. Also find key dates and recommendations.
 
    > [!NOTE]
    > Dates and times are United States Pacific Standard Time, and are subject to change. 
