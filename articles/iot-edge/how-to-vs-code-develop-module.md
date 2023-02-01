@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop, build, and debug a module for Az
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/18/2022
+ms.date: 9/30/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
@@ -13,7 +13,7 @@ zone_pivot_groups: iotedge-dev
 
 # Use Visual Studio Code to develop and debug modules for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
@@ -55,7 +55,8 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 ::: zone pivot="iotedge-dev-ext"
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
+- [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
 
@@ -206,7 +207,7 @@ After solution creation, there are four items within the solution:
 
 ::: zone pivot="iotedge-dev-ext"
 
-Use Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
+Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
 
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.

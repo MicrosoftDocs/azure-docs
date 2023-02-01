@@ -3,7 +3,7 @@ title: VMware software update frequency
 description: Supported VMware software update frequency for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 09/17/2022
+ms.date: 12/12/2022
 author: suzizuber
 ms.author: v-szuber
 ---
@@ -13,7 +13,7 @@ ms.author: v-szuber
 One benefit of Azure VMware Solution private clouds is that the platform is maintained for you. Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN). Microsoft is also responsible for the lifecycle management of the NSX-T Data Center appliances and bootstrapping the network configuration, like creating the Tier-0 gateway and enabling North-South routing. You’re responsible for the NSX-T Data Center SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
 > [!NOTE]
-> A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
+> A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
 
 Microsoft is responsible for applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX-T Data Center in your private cloud. The impact of patches, updates, and upgrades on ESXi, vCenter Server, and NSX-T Data Center is different.
 
@@ -33,7 +33,7 @@ Microsoft is responsible for applying any patches, updates, or upgrades to ESXi,
  
    It's recommended that, during the upgrade time, you don't plan any other activities like scaling up private cloud, and so on, in your private cloud. Other activities can prevent the upgrade from starting or could have adverse impacts on the upgrade and the environment.
  
-You'll be notified before patches/updates or upgrades are applied to your private clouds. We'll also work with you to schedule a maintenance window before applying updates or upgrades to your private cloud.
+You'll be notified through Azure Service Health that includes the timeline of the upgrade. This notification also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. You can reschedule an upgrade as needed.
 
 
 Software updates include:

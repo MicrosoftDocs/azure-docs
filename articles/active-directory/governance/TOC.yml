@@ -24,6 +24,8 @@
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
+      - name: Governing a nonprovisionable application's users - PowerShell
+        href: identity-governance-applications-not-provisioned-users.md
     - name: Entitlement Management
       items:
       - name: Manage access to resources
@@ -36,6 +38,8 @@
         href: entitlement-management-group-licenses.md
       - name: Onboard external users to Azure AD through an approval process
         href: entitlement-management-onboard-external-user.md
+      - name: Migrate an organizational role model
+        href: identity-governance-organizational-roles.md
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
@@ -69,6 +73,8 @@
       href: entitlement-management-process.md
   - name: Access reviews
     items:
+    - name: Enable multi-stage reviews
+      href: using-multi-stage-reviews.md
     - name: Manage access with reviews
       href: manage-access-review.md
     - name: Manage users excluded from Conditional Access

@@ -4,7 +4,7 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 12/06/2022
+ms.date: 12/09/2022
 ---
 
 # Configure an AKS cluster
@@ -293,6 +293,32 @@ az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
 kubectl get pods --all-namespaces
 ```
 
+### Deploy an AKS Mariner cluster with Terraform
+
+To deploy a Mariner cluster with Terraform, you first need to set your `azurerm` provider to version 2.76 or higher.
+
+```
+required_providers {
+  azurerm = {
+    source = "hashicorp/azurerm"
+    version = "~> 2.76"
+  }
+}
+```
+
+Once you've updated your `azurerm` provider, you can specify the Mariner `os_sku` in `default_node_pool`.
+
+```
+default_node_pool {
+  name = "default"
+  node_count = 2
+  vm_size = "Standard_D2_v2"
+  os_sku = "CBLMariner"
+}
+```
+
+Similarly, you can specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_pool`][azurerm-mariner].
+
 ## Custom resource group name
 
 When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group is created for the worker nodes. By default, AKS names the node resource group `MC_resourcegroupname_clustername_location`, but you can also specify a custom name.
@@ -418,6 +444,7 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
+[azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -11,7 +11,7 @@ author: mingshen-ms
 
 # Commercial marketplace transact capabilities
 
-This article describes pricing, billing, invoicing and payout considerations for *transactable* offers sold through the commercial marketplace. For information about publishing non-transactable (free or BYOL) offers, see [Introduction to listing options](determine-your-listing-type.md).
+This article describes pricing, billing, invoicing, and payout considerations for *transactable* offers sold through the commercial marketplace. For information about publishing non-transactable (free or BYOL) offers, see [Introduction to listing options](determine-your-listing-type.md).
 
 > [!TIP]
 > To see the customer's view of purchasing in the commercial marketplace, see [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing). For SaaS offers, see [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
@@ -43,7 +43,7 @@ The transact publishing option is currently supported for the following offer ty
 
 [1] Azure Container offers support usage-based billing plans. These plans are billed monthly for hourly use of the usage based on per core, or per every core in cluster.
 
-[2] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+[2] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use based on free, flat rate, per vCPU, per vCPU size, or per market and vCPU size usage.
 
 [3] SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 
@@ -61,7 +61,7 @@ The *Marketplace metering service* lets you specify pay-as-you-go (consumption-b
 
 For **virtual machines**, **containers**, and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
-For **SaaS Apps**, the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item. It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
+For **SaaS Apps**, the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item. It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. The customer does not see actual infrastructure usage fees. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
 
 ## Pricing models
 
@@ -83,11 +83,12 @@ To change the prices associated with an active transactable offer, see [Changing
 
 Use this flowchart to determine the appropriate *transactable* offer type and pricing plan to sell your software in the commercial marketplace. This chart assumes you, the publisher, have a clear understanding of your software delivery and licensing/billing models.
 
-Generally, SaaS offers are a good fit if your customers just want to subscribe to your service and use it online. With SaaS, the publisher (you) host the software in your cloud infrastructure, managing technical infrastructure, app software, and data management responsibilities.
+SaaS offers are a good fit if your customers just want to subscribe to your service and use it online. With SaaS, the publisher (you) hosts the software in your cloud infrastructure, managing technical infrastructure, app software, and data management responsibilities.
 
 Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own Azure cloud infrastructure.
 
-[![Illustration showing a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+![Screenshot of the commercial marketplace plans offer types and pricing plan flowchat.](media/marketplace-commercial-transaction-capabilities-and-considerations/plans-offer-type-and-pricing-plan-flowchart-updated-12-21-2022.png)
+
 
 [1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
 
@@ -227,3 +228,11 @@ Private plans enable you to provide higher or lower pricing to specific customer
 - For listing and pricing options by online store, see [Introduction to listing options](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 - [Publishing guide by offer type](publisher-guide-by-offer-type.md).
 - [Plans and pricing for commercial marketplace offers](./plans-pricing.md)
+
+
+
+
+
+
+
+

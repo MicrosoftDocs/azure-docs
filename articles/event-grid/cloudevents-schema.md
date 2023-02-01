@@ -125,32 +125,8 @@ If you're already familiar with Event Grid, you might be aware of the endpoint v
 <a name="azure-functions"></a>
 
 ## Use with Azure Functions
-The following example shows an Azure Functions version 3.x function that uses a `CloudEvent` binding parameter and `EventGridTrigger`.
 
-```csharp
-using Azure.Messaging;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class CloudEventTriggerFunction
-    {
-        [FunctionName("CloudEventTriggerFunction")]
-        public static void Run(
-            ILogger logger,
-            [EventGridTrigger] CloudEvent e)
-        {
-            logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
-        }
-    }
-}
-```
-
-For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
-
-### Microsoft.Azure.WebJobs.Extensions.EventGrid
+### Visual Studio or Visual Studio Code
 
 If you're using Visual Studio or Visual Studio Code, and C# programming language to develop functions, make sure that you're using the latest [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) NuGet package (version **3.2.1** or above).
 
@@ -179,6 +155,62 @@ In VS Code, update the version number for the **Microsoft.Azure.WebJobs.Extensio
   </ItemGroup>
 </Project>
 ```
+
+The following example shows an Azure Functions version 3.x function that's developed in either Visual Studio or Visual Studio Code. It  uses a `CloudEvent` binding parameter and `EventGridTrigger`. 
+
+```csharp
+using Azure.Messaging;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class CloudEventTriggerFunction
+    {
+        [FunctionName("CloudEventTriggerFunction")]
+        public static void Run(
+            ILogger logger,
+            [EventGridTrigger] CloudEvent e)
+        {
+            logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
+        }
+    }
+}
+```
+
+### Azure portal development experience
+
+If you're using the Azure portal to develop an Azure function, follow these steps:
+
+1. Update the name of the parameter in `function.json` file to `cloudEvent`.
+
+    ```json
+    {
+      "bindings": [
+        {
+          "type": "eventGridTrigger",
+          "name": "cloudEvent",
+          "direction": "in"
+        }
+      ]
+    }    
+    ```
+1. Update the `run.csx` file as shown in the following sample code. 
+    
+    ```csharp
+    #r "Azure.Core"
+    
+    using Azure.Messaging;
+    
+    public static void Run(CloudEvent cloudEvent, ILogger logger)
+    {
+        logger.LogInformation("Event received {type} {subject}", cloudEvent.Type, cloudEvent.Subject);
+    }
+    ```
+
+> [!NOTE]
+> For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
 
 
 ## Next steps

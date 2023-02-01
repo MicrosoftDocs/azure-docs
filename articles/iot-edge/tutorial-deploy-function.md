@@ -4,7 +4,7 @@ description: In this tutorial, you develop an Azure Function as an IoT Edge modu
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/29/2020
+ms.date: 05/11/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Deploy Azure Functions as IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:
 
@@ -26,7 +26,6 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * View filtered data.
 
 <center>
-
 ![Diagram - Tutorial architecture: stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
@@ -41,7 +40,8 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and
+[Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine:
@@ -51,7 +51,7 @@ To develop an IoT Edge module in with Azure Functions, install the following add
 
 ## Create a function project
 
-The Azure IoT Tools for Visual Studio Code that you installed in the prerequisites provides management capabilities as well as some code templates. In this section, you use Visual Studio Code to create an IoT Edge solution that contains an Azure Function.
+The Azure IoT Edge for Visual Studio Code that you installed in the prerequisites provides management capabilities as well as some code templates. In this section, you use Visual Studio Code to create an IoT Edge solution that contains an Azure Function.
 
 ### Create a new project
 
@@ -206,7 +206,7 @@ Visual Studio Code outputs a success message when your container image is pushed
 
 ## Deploy and run the solution
 
-You can use the Azure portal to deploy your Function module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Tools for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already.
+You can use the Azure portal to deploy your Function module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge and IoT Hub for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already.
 
 1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
@@ -234,7 +234,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

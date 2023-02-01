@@ -14,21 +14,21 @@ ms.date: 12/06/2022
 
 # Schedule an indexer in Azure Cognitive Search
 
-Indexers can be configured to run on a schedule when you set the "schedule" property in the indexer definition. By default, an indexer runs once, immediately after it's created. Afterwards, you can run it again on demand or on a schedule. Some situations where indexer scheduling is useful include:
+Indexers can be configured to run on a schedule when you set the "schedule" property. Some situations where indexer scheduling is useful include:
 
 + Source data is changing over time, and you want the indexer to automatically process the difference.
++ Source data is very large, and you need a recurring schedule to index all of the content.
++ An index is populated from multiple sources, using multiple indexers, and you want to stagger the jobs to reduce conflicts.
 
-+ An index is populated from multiple data sources and indexers, and you want to stagger the indexer jobs to reduce conflicts.
+When indexing can't complete within the [typical 2-hour processing window](search-howto-run-reset-indexers.md#indexer-execution), you can schedule the indexer to run on a 2-hour cadence to work through a large volume of data. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run.
 
-+ Source data is very large and you want to spread the indexer processing over time. 
-
-If indexing isn't completing within the processing window, you can [schedule the indexer](search-howto-schedule-indexers.md) to run at specific intervals. Most indexers run within a 2-hour processing window, so scheduling on 2-hour cadence is recommended for working through a large volume of data  (many millions of documents). As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run, based on an internal high water mark that marks where indexing last ended. 
+Once an indexer is on a schedule, it remains on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for changed content is a relatively fast operation.
 
 ## Prerequisites
 
 + A valid indexer configured with a data source and index.
 
-+ Change detection in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Azure Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
++ [Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Azure Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
 
 ## Schedule definition
 

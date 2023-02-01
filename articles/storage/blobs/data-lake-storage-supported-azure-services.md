@@ -1,9 +1,11 @@
 ---
 title: Azure services that support Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about which Azure services integrate with Azure Data Lake Storage Gen2
 author: normesta
-ms.subservice: data-lake-storage-gen2
+
 ms.service: storage
+ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
 ms.date: 03/04/2022
 ms.author: normesta

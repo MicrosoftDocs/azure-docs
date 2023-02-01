@@ -27,7 +27,7 @@ Get started with facial recognition using the Face client library for JavaScript
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Identify faces
+## Identify and verify faces
 
 1. Create a new Node.js application
 

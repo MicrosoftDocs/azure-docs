@@ -4,10 +4,11 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+recommendations: false
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
@@ -22,7 +23,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 > [!NOTE]
 > Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption. We recommend using AES-256.
 >
-> Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization isn't supported.
+> Azure Files supports authentication for Azure AD DS with full or partial (scoped) synchronization with Azure AD. For environments with scoped synchronization present, administrators should be aware that Azure Files only honors Azure RBAC role assignments granted to principals that are synchronized. Role assignments granted to identities not synchronized from Azure AD to Azure AD DS will be ignored by the Azure Files service.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -97,10 +98,10 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
     :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Screenshot of the File shares pane in your storage account, Active directory is highlighted." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
 
-1. Select **Azure Active Directory Domain Services** then switch the toggle to **Enabled**.
+1. Select **Azure Active Directory Domain Services** then enable the feature by ticking the checkbox.
 1. Select **Save**.
 
-    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

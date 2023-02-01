@@ -2,14 +2,15 @@
 title: Overview of enterprise application ownership
 description: Learn about enterprise application ownership in Azure Active Directory
 services: active-directory
-author: saipradeepb23
+author: omondiatieno
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.date: 12/05/2022
-ms.author: saibandaru
+ms.author: jomondi
+ms.reviewer: saibandaru
 
 #Customer intent: As an Azure AD administrator, I want to learn about enterprise application ownership.
 
@@ -36,7 +37,7 @@ As a best practice, we recommend proactive monitoring applications in your envir
 
 **How can I find enterprise applications that are ownerless or at risk of being ownerless in my organization?**
 
-To learn how to identify ownerless enterprise apps or those with only one owner using Microsoft Graph API, see [List ownerless applications](/graph/tutorial-applications-basics.md#manage-application-ownership).
+To learn how to identify ownerless enterprise apps or those with only one owner using Microsoft Graph API, see [List ownerless applications](/graph/tutorial-applications-basics#manage-application-ownership).
 
 **How do you add yourself as an owner of an enterprise application?**
 

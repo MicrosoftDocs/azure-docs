@@ -1,18 +1,18 @@
 ---
 title: 'Connect to and manage Azure SQL Managed Instance'
 description: This guide describes how to connect to Azure SQL Managed Instance in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure SQL Managed Instance source.
-author: hophanms
-ms.author: hophan
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 12/13/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Connect to and manage an Azure SQL Managed Instance in Microsoft Purview
 
-This article outlines how to register and Azure SQL Managed Instance, as well as how to authenticate and interact with the Azure SQL Managed Instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md)
+This article outlines how to register and Azure SQL Managed Instance, as well as how to authenticate and interact with the Azure SQL Managed Instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -42,7 +42,7 @@ This section describes how to register an Azure SQL Managed Instance in Microsof
 
 ### Authentication for registration
 
-If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Microsoft Purview supports today:
+If you need to create new authentication, you need to [authorize database access to SQL Database SQL Managed Instance](/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Microsoft Purview supports today:
 
 - [System or user assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
@@ -141,7 +141,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 ## Scan
 
-Follow the steps below to scan an Azure SQL Managed Instance to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+Follow the steps below to scan an Azure SQL Managed Instance to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Create and run scan
 

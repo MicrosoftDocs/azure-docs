@@ -12,8 +12,11 @@ ms.custom: devx-track-csharp, ignite-2022
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 > [!NOTE]
+> There are some differences between the Basic / Standard and Premium SKU when it comes to partitioning.
 > - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. A namespace can have both partitioned and non-partitioned entities.
-> - When partitioning is enabled in the Basic or Standard SKUs, the entity is created 16 partitions.
+> - Partitioning is available at namespace creation for the Premium messaging SKU, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in Premium namespaces will continue to work as expected.
+> - When partitioning is enabled in the Basic or Standard SKUs, we will always create 16 partitions.
+> - When partitioning is enabled in the Premium SKU, the amount of partitions is specified during namespace creation.
  
 It isn't possible to change the partitioning option on any existing namespace, queue, or topic; you can only set the option when you create the entity.
 

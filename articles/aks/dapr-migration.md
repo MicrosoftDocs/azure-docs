@@ -4,7 +4,7 @@ description: Learn how to migrate your managed clusters from Dapr OSS to the Dap
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nigreenf
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 11/21/2022
 ms.custom: devx-track-azurecli
@@ -12,12 +12,10 @@ ms.custom: devx-track-azurecli
 
 # Migrate from Dapr OSS to the Dapr extension for Azure Kubernetes Service (AKS)
 
-You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you'll learn how Dapr moves your managed clusters from using Dapr OSS to the Dapr extension by either:
+You've installed and configured Dapr OSS (using Dapr CLI or Helm) on your Kubernetes cluster, and want to start using the Dapr extension on AKS. In this guide, you'll learn how the Dapr extension for AKS can use the Kubernetes resources created by Dapr OSS and start managing them, by either:
 
-- Checking for an existing Dapr installation via CLI prompts (default method), or
-- Using the Helm release name and namespace configuration settings to manually check for an existing Dapr installation. 
-
-This check allows the Dapr extension to reuse the already existing Kubernetes resources from your previous installation and start managing them. 
+- Checking for an existing Dapr installation via Azure CLI prompts (default method), or
+- Using the release name and namespace from `--configuration-settings` to explicitly point to an existing Dapr installation.
 
 ## Check for an existing Dapr installation
 
@@ -40,11 +38,11 @@ Enter the Helm release name for Dapr, or press Enter to use the default name [da
 Enter the namespace where Dapr is installed, or press Enter to use the default namespace [dapr-system]:
 ```
 
-## Configure the Dapr check using `--configuration-settings` 
+## Configuring the existing Dapr installation using `--configuration-settings`
 
 Alternatively, when creating the Dapr extension, you can configure the above settings via `--configuration-settings`. This method is useful when you are automating the installation via bash scripts, CI pipelines, etc.
 
-If you don't have Dapr already installed on your cluster, set `skipExistingDaprCheck` to `true`:
+If you don't have an existing Dapr installation on your cluster, set `skipExistingDaprCheck` to `true`:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -98,7 +96,7 @@ For more information, see [Dapr Production Guidelines][dapr-prod-guidelines].
 
 ## Next steps
 
-Learn more about [the cluster extension][dapr-overview] and [how to use it][dapr-howto].
+Learn more about [Dapr][dapr-overview] and [how to use it][dapr-howto].
 
 
 <!-- LINKS INTERNAL -->

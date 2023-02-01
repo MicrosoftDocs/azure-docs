@@ -1,8 +1,8 @@
 ---
 title: Connectivity architecture - Azure Database for MariaDB
 description: Describes the connectivity architecture for your Azure Database for MariaDB server.
-author: Bashar-MSFT
-ms.author: bahusse
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/24/2022

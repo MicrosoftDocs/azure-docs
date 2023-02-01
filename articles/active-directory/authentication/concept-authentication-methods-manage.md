@@ -6,10 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 01/10/2023
 
 ms.author: justinha
 author: justinha
+ms.reviewer: jpettere
 manager: amycolannino
 
 ms.collection: M365-identity-device-management
@@ -23,7 +24,7 @@ Azure Active Directory (Azure AD) allows the use of a range of authentication me
 
 ## Authentication methods policy
 
-The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable authentication methods for specific users and groups. 
+The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable authentication methods for all users or specific groups. 
 
 Methods enabled in the Authentication methods policy can typically be used anywhere in Azure AD - for both authentication and password reset scenarios. The exception is that some methods are inherently limited to use in authentication, such as FIDO2 and Windows Hello for Business, and others are limited to use in password reset, such as security questions. For more control over which methods are usable in a given authentication scenario, consider using the **Authentication Strengths** feature.
 
@@ -98,9 +99,16 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
-## Known issues
+>[!NOTE]
+>After all authentication methods are fully migrated, the following elements of the legacy SSPR policy remain active:
+> - The **Number of methods required to reset** control: admins can continue to change how many authentication methods must be verified before a user can perform SSPR.
+> - The SSPR administrator policy: admins can continue to register and use any methods listed under the legacy SSPR administrator policy or methods they're enabled to use in the Authentication methods policy.
+> 
+> In the future, both of these features will be integrated with the Authentication methods policy.
 
-* Currently, all users must be enabled for at least one MFA method that isn't passwordless and the user can register in interrupt mode. Possible methods include Microsoft Authenticator, SMS, voice calls, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will see an error during registration and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
+## Known issues and limitations
+- Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
+- As a part of the public preview we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
 
 ## Next steps
 
