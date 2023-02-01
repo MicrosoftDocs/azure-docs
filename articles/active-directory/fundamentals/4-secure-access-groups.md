@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/01/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -44,7 +44,7 @@ Determine who is granted permissions to create groups: Administrators, employees
 * Tenant members can create Azure AD security groups
 * Internal and external users can join groups in your tenant
 * Users can create Microsoft 365 Groups
-* [Manage who can create Microsoft 365 Groups](https://learn.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) 
+* [Manage who can create Microsoft 365 Groups](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide&preserve-view=true) 
   * Use Windows PowerShell to configure this setting 
 * [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
 * [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) 
@@ -143,8 +143,8 @@ Hybrid organizations have infrastructure for on-premises and an Azure AD. Hybrid
 Microsoft 365 Groups is the membership service for access across Microsoft 365. They can be created from the Azure portal, or the Microsoft 365 portal. When you create a Microsoft 365 Group, you grant access to a group of resources for collaboration.
 
 Learn more:
-[Overview of Microsoft 365 Groups for administrators](microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide)
-[Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide)
+[Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
+[Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
 [Azure portal](https://portal.azure.com/)
 [Microsoft 365 portal](https://admin.microsoft.com/)
 
