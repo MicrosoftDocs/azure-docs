@@ -163,8 +163,8 @@ Create or update Run Command on a VM, run the Run Command as a different user us
 ```azurepowershell-interactive
 Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVMEE -RunCommandName MyRunCommand -Location EastUS2EUAP EastUS2EUAP -SourceScriptUri <SourceScriptUri> -RunAsUser myusername -RunAsPassword mypassword
 ```
-### Create or update Run Command on a VMSS resource using SourceScriptUri (storage blob SAS URL).
-Create or update Run Command on a VMSS resource using a SAS URL of a storage blob that contains a bash script.
+### Create or update Run Command on a Virtual Machine Scale Sets resource using SourceScriptUri (storage blob SAS URL).
+Create or update Run Command on a Virtual Machine Scale Sets resource using a SAS URL of a storage blob that contains a bash script.
 
 ```azurepowershell-interactive
 Set-AzVmssVMRunCommand -ResourceGroupName MyRG0 -VMScaleSetName MyVMSS -InstanceId 0 -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceScriptUri <SourceScriptUri>
