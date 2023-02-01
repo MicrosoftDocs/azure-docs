@@ -124,26 +124,24 @@ In this code, the name of your key vault is used to create the key vault URI, in
 
 ## Code example
 
-These code samples demonstrate how to create a client, set a certificate, retrieve a certificate, and delete a certificate. 
+This code uses the following [Key Vault Certificate classes and methods](/javascript/api/overview/azure/keyvault-certificates-readme):
+    
+* [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
+* [CertificateClient class](/javascript/api/@azure/keyvault-certificates/certificateclient)
+    * [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begincreatecertificate)
+    * [getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificate)
+    * [getCertificateVersion](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificateversion)
+    * [updateCertificateProperties](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
+    * [updateCertificatePolicy](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
+    * [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begindeletecertificate)
+* [PollerLike Interface](/javascript/api/@azure/core-lro/pollerlike)
+    * [getResult](/javascript/api/@azure/core-lro/pollerlike#@azure-core-lro-pollerlike-getresult)
+    * [pollUntilDone](/javascript/api/@azure/core-lro/pollerlike@azure-core-lro-pollerlike-polluntildone)
 
 
 ### Set up the app framework
 
 1. Create new text file and paste the following code into the **index.js** file. 
-
-    This code uses the following [Key Vault Certificate classes and methods](/javascript/api/overview/azure/keyvault-certificates-readme):
-    
-    * [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
-    * [CertificateClient class](/javascript/api/@azure/keyvault-certificates/certificateclient)
-        * [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begincreatecertificate)
-        * [getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificate)
-        * [getCertificateVersion](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificateversion)
-        * [updateCertificateProperties](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
-        * [updateCertificatePolicy](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
-        * [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begindeletecertificate)
-    * [PollerLike Interface](/javascript/api/@azure/core-lro/pollerlike)
-        * [getResult](/javascript/api/@azure/core-lro/pollerlike#@azure-core-lro-pollerlike-getresult)
-        * [pollUntilDone](/javascript/api/@azure/core-lro/pollerlike@azure-core-lro-pollerlike-polluntildone)
 
     ```javascript
     const { CertificateClient, DefaultCertificatePolicy } = require("@azure/keyvault-certificates");
