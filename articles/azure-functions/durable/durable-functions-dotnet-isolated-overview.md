@@ -1,5 +1,5 @@
 ---
-title: Overview of Durable Functions in the .NET isolated worker
+title: Overview of Durable Functions in the .NET isolated worker - Azure
 description: Learn about Durable Functions in the Azure Functions .NET isolated worker process, which supports non-LTS versions of .NET and .NET Framework apps.
 author: jviau
 ms.topic: overview
@@ -36,10 +36,10 @@ Not all features from in-process Durable Functions have been migrated to the iso
 
 By adding the source generator package, you get access to two new features:
 
-1. **Class-based activities and orchestrations**, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
-2. **Strongly typed extension methods** for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
+- **Class-based activities and orchestrations**, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
+- **Strongly typed extension methods** for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
 
-#### Function-based Example
+#### Function-based example
 
 ```csharp
 public static class MyFunctions
@@ -59,7 +59,7 @@ public static class MyFunctions
 }
 ```
 
-#### Class-based Example
+#### Class-based example
 
 ```csharp
 [DurableTask(nameof(MyActivity))]
@@ -91,7 +91,7 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 }
 ```
 
-## Migration Guide
+## Migration guide
 
 This guide assumes you're starting with a .NET Durable Functions 2.x project.
 
@@ -140,6 +140,6 @@ This table isn't an exhaustive list of changes.
 | `CallHttpAsync` | No equivalent. Instead, write an activity that invokes your desired HTTP API. |
 | `CreateReplaySafeLogger(ILogger)` | `CreateReplaySafeLogger<T>()` or `CreateReplaySafeLogger(string)` |
 
-#### Behavioral Changes
+#### Behavioral changes
 
 - Serialization default behavior has changed from `Newtonsoft.Json` to `System.Text.Json`. For more information, see [here](./durable-functions-serialization-and-persistence.md).
