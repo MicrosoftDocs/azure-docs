@@ -78,7 +78,7 @@ This tutorial shows you how to refresh a Power BI dataset with Managed Airflow i
 
 1. Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
 1. [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
-   :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
+   :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow-environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
 
 ## Next Steps
 
