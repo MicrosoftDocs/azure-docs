@@ -31,7 +31,7 @@ For this tutorial, you'll need:
 *   An Azure Active Directory tenant associated with your subscription.
 *   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](../storage/common/storage-account-create.md).
 *   A Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
-* A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+* A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication).
 
 ## Give Microsoft Purview access to the Storage account
 
@@ -66,7 +66,7 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     * Tenant ID (or Directory ID)
 
         :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot of the service principal page in the Azure portal with the Client ID and Tenant ID highlighted.":::
-    * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+    * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication)
 
         :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Screenshot of the service principal page in the Azure portal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
 
