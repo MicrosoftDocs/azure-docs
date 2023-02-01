@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: javascript
+ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 01/23/2023
 ms.custom: mqtt, devx-track-azurecli
