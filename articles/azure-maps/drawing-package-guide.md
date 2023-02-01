@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: Learn how to prepare a Drawing package for the Azure Maps Conversion service
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 03/08/2023
+ms.date: 01/31/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
