@@ -1,6 +1,6 @@
 ---
-title: Control external access to resources in Azure Active Directory with sensitivity labels. 
-description: Use sensitivity labels as a part of your overall security plan for external access.
+title: Control external access to resources in Azure Active Directory with sensitivity labels 
+description: Use sensitivity labels as a part of your overall security plan for external access
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 02/01/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Control access with sensitivity labels 
+# Control external access to resources in Azure Active Directory with sensitivity labels 
 
 [Sensitivity labels](/microsoft-365/compliance/sensitivity-labels) help you control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They can protect your content without hindering your users’ collaboration and production abilities. Sensitivity labels allow you to send your organization’s content across devices, apps, and services, while protecting your data and meeting your compliance and security policies. 
 
