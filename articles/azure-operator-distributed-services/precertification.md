@@ -16,7 +16,6 @@ pre-certified network functions (from the Azure Marketplace). The NFM
 provides consistent Azure managed applications experience for Network Functions.
 
 ### Pre-Certification Process
-<<<<<<< HEAD
 
 This section outlines the Network Function Deployment Precertification process. Microsoft uses this process with Network Equipment Providers (NEP) that
 provide network function(s).  This process guides the partner through
@@ -27,22 +26,6 @@ deployment process is predictable and repeatable on the AODS platform.
 Microsoft provides a precertification environment for the partners to validate
 the deployment of their network function. As a result, the partners' network functions will be published in the Microsoft catalog of
 network functions. This catalog will be available to operators using the AODS platform.
-
-
-Here are the steps of the NF Deployment Precertification:
-=======
->>>>>>> 8ccc9daca70687ddc46ae49b75357fb440411d08
-
-This section outlines the Network Function Deployment Precertification process. Microsoft uses this process with Network Equipment Providers (NEP) that
-provide network function(s).  This process guides the partner through
-onboarding the network function onto AODS and
-certifies the network function deployment methods using Azure deployment
-services. The goal of this program is to ensure that the partner's network function
-deployment process is predictable and repeatable on the AODS platform.
-Microsoft provides a precertification environment for the partners to validate
-the deployment of their network function. As a result, the partners' network functions will be published in the Microsoft catalog of
-network functions. This catalog will be available to operators using the AODS platform.
-
 
 Here are the steps of the NF Deployment Precertification:
 
