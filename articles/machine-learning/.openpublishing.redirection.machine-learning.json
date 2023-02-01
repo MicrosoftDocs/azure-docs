@@ -2598,7 +2598,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-create-machine-learning-pipelines",
         "redirect_document_id": "/azure/machine-learning/how-to-create-component-pipeline-python",
-        " redirect_document_id": false
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-create-your-first-pipeline.md",
