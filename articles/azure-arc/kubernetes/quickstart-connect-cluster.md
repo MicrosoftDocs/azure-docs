@@ -26,6 +26,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   > [!IMPORTANT]
   >
   > * The identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+  > * If connecting the cluster to an existing resource group (rather than a new one created by this identity), the identity must have 'Read' permission for that resource group.
   > * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) can be used for this identity. This role is useful for at-scale onboarding, as it has only the granular permissions required to connect clusters to Azure Arc, and doesn't have permission to update, delete, or modify any other clusters or other Azure resources.
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
@@ -61,10 +62,13 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
+* An identity (user or service principal) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
 
-* [Log in to Azure PowerShell](/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
-  * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
-  * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
+  > [!IMPORTANT]
+  >
+  > * The identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+  > * If connecting the cluster to an existing resource group (rather than a new one created by this identity), the identity must have 'Read' permission for that resource group.
+  > * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
 
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
