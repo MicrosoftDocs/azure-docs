@@ -51,7 +51,7 @@ If your **SAP authentication** infrastructure is based on **SNC**, using **X.509
 
 If you're not using SNC, then your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
 
-- **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
+- **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
 
     In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
 
@@ -60,6 +60,8 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     If for some reason a registered-application service principal can't be used, you can use a configuration file, though this is not preferred.
 
 ## Deploy the data connector agent container via the UI
+
+In this section, you deploy the data connector agent. After you deploy the agent, you configure the agent to [connect to an SAP system](#connect-to-a-new-sap-system). 
 
 ### Prerequisites
 
@@ -95,7 +97,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
     - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
-        - If you select **Application Identity**, provide the application ID and secret.
+        - If you select **Application Identity**, provide the [application ID and secret](/active-directory/develop/howto-create-service-principal-portal).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
@@ -114,7 +116,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
-#### Create a new system
+#### Connect to a new SAP system
 
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
