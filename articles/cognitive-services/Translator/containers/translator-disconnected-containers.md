@@ -129,7 +129,7 @@ docker run --rm -it -p 5000:5000
 
 -e apikey={API_KEY} \
 
--e Languages={LANGUAGES_LIST}
+-e Languages={LANGUAGES_LIST} \
 
 [image]
 ```
