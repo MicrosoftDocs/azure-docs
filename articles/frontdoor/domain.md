@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2023
+ms.date: 02/01/2023
 ms.author: jodowns
 ---
 
@@ -65,14 +65,14 @@ The following table lists the validation states that a domain might show.
 
 | Domain validation state | Description and actions |
 |--|--|
-| Submitting | The custom domain is being created. <br /> Please wait until the domain resource is ready. |
-| Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
-| Pending re-validation | The managed certificate is less than 45 days from expiring. <br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
+| Submitting | The custom domain is being created. <br /><br /> Please wait until the domain resource is ready. |
+| Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /><br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
+| Pending re-validation | The managed certificate is less than 45 days from expiring. <br /><br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
 | Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. <br /> No action is required. |
-| Approved | The domain has been successfully validated, and Azure Front Door can accept traffic that uses this domain. <br /> No action is required. |
-| Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then, select **Add** to add the TXT record in the DNS provider. |
-| Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. <br /> Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add a new TXT record to the DNS provider. Ensure that you use the updated value. |
-| Internal error | An unknown error occurred. <br /> Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
+| Approved | The domain has been successfully validated, and Azure Front Door can accept traffic that uses this domain. <br /><br /> No action is required. |
+| Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /><br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then, select **Add** to add the TXT record in the DNS provider. |
+| Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. <br /><br /> Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add a new TXT record to the DNS provider. Ensure that you use the updated value. |
+| Internal error | An unknown error occurred. <br /><br /> Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
 
 > [!NOTE]
 > - The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
@@ -91,7 +91,7 @@ For more information on how Azure Front Door works with TLS, see [End-to-end TLS
 
 Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
 
-Azure Front Door's certificates are issued by our partner certification authority, DigiCert. <!-- TODO is there ever any extra verification needed from Digicert? -->
+Azure Front Door's certificates are issued by our partner certification authority, DigiCert.
 
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete.
 
@@ -166,14 +166,21 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ### Renewing Azure Front Door-managed certificates
 
-Azure Front Door-managed certificates are automatically renewed (rotated), if your custom domain uses a CNAME record that points to an Azure Front Door Standard or Premium endpoint.
+For most custom domains, Azure Front Door automatically renews (rotates) managed certificates when they're close to expiry, and you don't need to do anything.
 
-Azure Front Door won't automatically rotate certificates in the following scenarios:
+However, Azure Front Door won't automatically rotate certificates in the following scenarios:
 
-* The custom domain CNAME record is pointing to other DNS records.
-* The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
+* The custom domain's CNAME record is pointing to other DNS records.
+* The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`. Azure Front Door can't verify the whole chain.
+* The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
+* The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
 
-The domain validation state becomes *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority. Refer to [Domain validation states](#domain-validation-states) for the actions you should take if you see these domain states.
+If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expires, the domain validation state becomes one of the following states:
+
+- *Pending Revalidation*, which indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
+- *Rejected*, which indicates that the certificate authority has rejected the request for reissuing a managed certificate.
+
+For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
 ### Renewing Azure-managed certificates for domains pre-validated by other Azure services
 
