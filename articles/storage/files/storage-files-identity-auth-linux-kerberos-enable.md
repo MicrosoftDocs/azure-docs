@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 02/01/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -454,6 +454,20 @@ Choose one of the following three mount options to convert file ownership UID/GI
 Performance is important, even if file attributes aren't always accurate. The default value for **actimeo** is 1 (second), which means that the file attributes are fetched again from the server if the cached attributes are more than 1 second old. Increasing the value to 60 means that attributes are cached for at least 1 minute. For most use cases, we recommend using a value of 30 for this option (**actimeo=30**).
 
 For newer kernels, consider setting the actimeo features more granularly, using **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
+
+## Verify that configuration is correct
+
+Verify that DNS is correctly configured:
+
+```bash
+nslookup <storageaccountname>.file.core.windows.net
+```
+
+Verify that the client can get a Kerberos ticket:
+
+```bash
+klist get cifs/<storageaccountname>.file.core.windows.net
+```
 
 ## Access control models
 
