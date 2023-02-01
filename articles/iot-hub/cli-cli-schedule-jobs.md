@@ -96,6 +96,7 @@ To create and start a simulated device:
 1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the device identity for your simulated device.
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
 
     ```azurecli
@@ -105,6 +106,7 @@ To create and start a simulated device:
 1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates the device you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
     
     ```azurecli
@@ -124,8 +126,11 @@ In this section, you schedule a job in the second CLI session to invoke a direct
 1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and returns a payload.
 
     *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
+
     *{HubName}*. The name of your IoT hub.
+
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
+
     *{DeviceName}*. The name of your simulated device.
 
     ```azurecli
@@ -146,7 +151,9 @@ In this section, you schedule a job in the second CLI session to update a desire
 1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, we're scheduling a job to set the value of the desired twin property `BuildingNo` to 45 for our simulated device.
 
     *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
+
     *{HubName}*. The name of your IoT hub.
+
     *{DeviceName}*. The name of your simulated device.
 
     ```azurecli
