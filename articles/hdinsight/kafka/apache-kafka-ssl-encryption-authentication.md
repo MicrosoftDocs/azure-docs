@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 03/31/2022
+ms.date: 02/03/2023
 ---
 
 # Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
@@ -13,9 +13,6 @@ This article shows you how to set up Transport Layer Security (TLS) encryption, 
 
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use TLS for both producing and consuming. The console producer client `console-producer.sh` does not work with TLS.
-
-> [!Note]
-> HDInsight Kafka console producer with version 1.1 does not support SSL.
 
 ## Apache Kafka broker setup
 
@@ -125,30 +122,15 @@ To complete the configuration modification, do the following steps:
 
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
 
-1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. This step is only required if you are setting up authentication and encryption.
+1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. 
 
+   
+   > [!Note] 
+   > Note: This step is only required if you are setting up authentication and encryption.
+   
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
 
-1. For HDI version 3.6, go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
-
-    ```bash
-    # Configure Kafka to advertise IP addresses instead of FQDN
-    IP_ADDRESS=$(hostname -i)
-    echo advertised.listeners=$IP_ADDRESS
-    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    ```
-
 1. Here is the screenshot that shows Ambari configuration UI with these changes.
-
-    For HDI version 3.6:
-
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png" alt-text="Editing kafka-env template property in Ambari" border="true":::
 
     For HDI version 4.0:
 
@@ -325,26 +307,6 @@ Run these steps on the client machine.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
-    ```
-
-### Kafka 1.1
-
-1. Create a topic if it doesn't exist already.
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
-    ```
-
-1. Start console producer and provide the path to client-ssl-auth.properties as a configuration file for the producer.
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
-    ```
-
-1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
-
-    ```bash
-    $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
     ```
 
 ## Next steps
