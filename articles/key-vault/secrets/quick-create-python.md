@@ -173,7 +173,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### Save a secret
 
-Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?##azure-keyvault-secrets-secretclient-set-secret) method: 
+Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#azure-keyvault-secrets-secretclient-set-secret) method: 
 
 ```python
 client.set_secret(secretName, secretValue)
