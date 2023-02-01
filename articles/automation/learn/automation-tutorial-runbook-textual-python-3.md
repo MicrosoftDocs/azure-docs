@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ---
 
-# Tutorial: Create a Python 3 runbook (preview)
+# Tutorial: Create a Python 3.8 runbook (preview)
 
 This tutorial walks you through the creation of a [Python 3.8 runbook](../automation-runbook-types.md#python-runbooks) (preview) in Azure Automation. Python runbooks compile under Python 2.7 and 3.8 You can directly edit the code of the runbook using the text editor in the Azure portal.
 
@@ -107,8 +107,7 @@ The runbook that you created is still in draft mode. You need to publish it befo
 
 ## Add authentication to manage Azure resources
 
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
-To manage resources, the script has to authenticate. 
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. To manage resources, the script has to authenticate. 
 
 The recommended way to authenticate is with **managed identity**. When you create an Azure Automation Account, a managed identity is automatically created for you.
 
@@ -140,6 +139,7 @@ With the manage identity role configured, you can start adding code.
 2. Add the following code to authenticate to Azure:
 
 **Example 1**
+
     ```python
     from azure.identity import DefaultAzureCredential
     from azure.mgmt.compute import ComputeManagementClient
@@ -156,7 +156,7 @@ With the manage identity role configured, you can start adding code.
     import requests
     # printing environment variables
     endpoint = os.getenv(`IDENTITY_ENDPOINT`)+"?resource=https://management.azure.com/"
-    identityHeader = os.getenv(`IDENTITY_HEADER)
+    identityHeader = os.getenv(`IDENTITY_HEADER`)
     payload={}
     headers = {
     `X-IDENTITY-HEADER` : identityHeader,
@@ -164,9 +164,7 @@ With the manage identity role configured, you can start adding code.
    }
    response = requests.request("GET", endpoint, headers-headers, data-payload)
    print(response.text)
-    ```
-
-
+   ```
 
 ## Add code to create Python Compute client and start the VM
 
