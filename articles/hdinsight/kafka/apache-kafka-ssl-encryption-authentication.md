@@ -27,7 +27,6 @@ The Kafka TLS broker setup will use four HDInsight cluster VMs in the following 
 The summary of the broker setup process is as follows:
 
 1. The following steps are repeated on each of the three worker nodes:
-
     1. Generate a certificate.
     1. Create a cert signing request.
     1. Send the cert signing request to the Certificate Authority (CA).
