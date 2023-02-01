@@ -48,7 +48,7 @@ import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/commun
 
 // Get the video effects feature api on the LocalVideoStream 
 // (here, localVideoStream is the LocalVideoStream object you created while setting up video calling)
-const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
+const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
 
 // Subscribe to useful events 
