@@ -15,18 +15,9 @@ Read more about [data type support for different clouds in Microsoft Sentinel](d
 
 ## Microsoft Defender for Endpoint
 
-| Data type | Commercial | GCC       | GCC-High  | DoD       |
-| --------- | ---------- | --------- | --------- | --------- |
-| **DeviceInfo**                | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceNetworkInfo**         | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceProcessEvents**       | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceNetworkEvents**       | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceFileEvents**          | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceRegistryEvents**      | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceLogonEvents**         | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceImageLoadEvents**     | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceEvents**              | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
-| **DeviceFileCertificateInfo** | GA | GA | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview | <li>**Microsoft 365 Defender:** GA<li>**Microsoft Sentinel:** Public preview |
+| Data type | Commercial / GCC | GCC-High / DoD |
+| --------- | ---------------- | -------------- |
+| **DeviceInfo**<br>**DeviceNetworkInfo**<br>**DeviceProcessEvents**<br>**DeviceNetworkEvents**<br>**DeviceFileEvents**<br>**DeviceRegistryEvents**<br>**DeviceLogonEvents**<br>**DeviceImageLoadEvents**<br>**DeviceEvents**<br>**DeviceFileCertificateInfo** | Generally available | Microsoft 365 Defender: Generally available<br>Microsoft Sentinel: Public preview |
 
 ## Microsoft Defender for Identity
 
