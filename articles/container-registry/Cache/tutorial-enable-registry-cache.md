@@ -36,59 +36,70 @@ This article is part two in a three-part tutorial series. [Part one](tutorial-re
 
         2. A Source registry Login Server - This is the login server of your source registry.
 
-        3. A username and password - This is the username and password for your source repository from key vault.
-
-## Configure Registry Cache - Azure CLI
-
-1. Description of the step.
-
-    ```azurecli-interactive
-
-    ```
-
-2. Description of the step.
-
-    ```azurecli-interactive
-
-    ```
-
-3. Description of the step.
-
-    ```azurecli-interactive
-
-    ```
-
-4. Description of the step.
-
-    ```azurecli-interactive
-
-    ```
-5. Description of the step.
-
-    ```azurecli-interactive
-
-    ```
+        3. A username and password - This is the username and password for your source repository from Secert URI or Key Vault.
 
 ## Configure Registry Cache - Azure portal
 
-1. Navigate to your Azure Container Registry. . 
-2. In the **Overview tab**, find **Registry Cache** (Preview).
-3. If the **Status** is **Disabled**, Select **Update**.
+1. Navigate to your Azure Container Registry. 
 
+<br>
 
+2. In the **Side Menu**, find **Cache** (Preview).
+
+<br>
+
+3. Click on **Create Rule**
 
 :::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
 
+<br>
+
+4. Name your **Cache rule**
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+5. Select a Source Registry from the dropdown menu to cache artifacts from. Caching for ACR current supports Docker Hub and Microsoft Artifact Registry 
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+6. Specfiy the path of the artifacts you'd like cached
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+7. If the repository being cached needs authenication check the Authentication box. If not, skip to step 12
 
 
-4. Select the checkbox to **Enable Registry Cache**.
-1. 
-1. 
-1. 
-1. 
-1. 
-1. 
-1. 
+8. Click on **create new credentials** 
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+9. Choose a **Source Authentication**. Caching for ACR currently supports Key Vault Credentials and Secert URIs 
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+10. Click on **Create**
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+12. Name the Repository you will be storing cached artifacts 
+
+:::image type="content" source="./media/container-registry-registry-cache/01-demo.png" alt-text="Screenshot for Registry Cache Demo.":::
+
+<br>
+
+13. Pull the image from your cache using the Azure CLI command <br> `docker pull MyRegistry.azurecr.io/hello-world`
 
 ## Next steps
 
