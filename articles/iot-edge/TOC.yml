@@ -225,8 +225,6 @@
       href: troubleshoot-in-portal.md
     - name: Resolve common errors
       href: troubleshoot-common-errors.md
-- name: Azure IoT Edge 1.1
-  href: /previous-versions/azure/iot-edge
 - name: Azure IoT Edge for Linux on Windows (EFLOW)
   expanded: false
   items:
@@ -300,6 +298,8 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
+- name: Azure IoT Edge 1.1
+  href: /previous-versions/azure/iot-edge
 - name: Reference
   items:
   - name: Runtime modules environment variables
