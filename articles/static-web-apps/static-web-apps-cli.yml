@@ -7,7 +7,6 @@ directCommands:
   summary: Log in to Azure
   description: 'Authenticate with Azure to get a deployment token for Azure Static Web Apps, using the `swa deploy` command.'
   syntax: >-
-    ```azstatic-cli
     swa login
               [--subscription-id]
               [--resource-group]
@@ -18,7 +17,6 @@ directCommands:
               [--clear-credentials]
               [--use-keychain]
               [--no-use-keychain]
-      ```
   examples:
   - summary: Interactive log in to Azure
     syntax: swa login
@@ -68,12 +66,10 @@ directCommands:
         }
       }
     }
-    ````
+    ```
   syntax: >-
-    ```azstatic-cli
     swa init
               [--yes]
-    ```
   examples:
   - summary: Create a new configuration interactively.
     syntax: swa init
