@@ -69,7 +69,9 @@ Consider the content categories that external users can't have access to, such a
 
 ### Email and content
 
-Sensitivity labels can be applied automatically or manually to content. See, [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
+Sensitivity labels can be applied automatically or manually to content. 
+
+See, [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
 
 #### Sensitivity labels on email and content
 
