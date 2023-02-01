@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/04/2020
+ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
@@ -65,10 +65,10 @@ To delegate the creation, update and deletion of [app consent policies](../manag
 > | ---------- | ----------- |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Grants the ability to consent to apps on behalf of self (user consent), subject to app consent policy `{id}`. |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Grants the permission to consent to apps on behalf of all (tenant-wide admin consent), subject to app consent policy `{id}`. |
-> | microsoft.directory/permissionGrantPolicies/standard/read | Grants the ability to read app consent policies. |
-> | microsoft.directory/permissionGrantPolicies/basic/update | Grants the ability to update basic properties on existing app consent policies. |
-> | microsoft.directory/permissionGrantPolicies/create | Grants the ability to create app consent policies. |
-> | microsoft.directory/permissionGrantPolicies/delete | Grants the ability to delete app consent policies. |
+> | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
+> | microsoft.directory/permissionGrantPolicies/basic/update | Update basic properties of permission grant policies |
+> | microsoft.directory/permissionGrantPolicies/create | Create permission grant policies |
+> | microsoft.directory/permissionGrantPolicies/delete | Delete permission grant policies |
 
 ## Next steps
 
