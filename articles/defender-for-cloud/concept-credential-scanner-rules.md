@@ -1,7 +1,7 @@
 ---
 title: Credential scanner rules
 titleSuffix: Defender for Cloud
-description: Learn more about the Defender for DevOps credential scanner's rules, descriptions and the supported file types in Microsoft's Defender for Cloud.
+description: Learn more about the Defender for DevOps credential scanner's rules, descriptions and the supported file types in Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
@@ -114,7 +114,7 @@ Azure SQL Connection String
 
 **Sample**: `<add key="ConnectionString" value="server=tcp:server.database.windows.net;database=database;user=user;password=ZYXWVU_2;"`
 
-Learn more about [SQL database AAD authentication configure](/azure/sql-database/sql-database-aad-authentication-configure).
+Learn more about [SQL database Azure AD authentication configure](/azure/sql-database/sql-database-aad-authentication-configure).
 
 ### CSCAN-AZURE0030
 
@@ -230,7 +230,7 @@ Learn more about [Authorizing access to REST APIs with OAuth 2.0](/azure/devops/
 
 ### CSCAN-AZURE0120
 
-Azure Function Master / API Key
+Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
@@ -238,7 +238,7 @@ Learn more about [Getting your function access keys](../azure-functions/function
 
 ### CSCAN-AZURE0121
 
-Identifiable Azure Function Master / API Key
+Identifiable Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
@@ -326,11 +326,11 @@ Learn more about [How to rotate access key for Azure SignalR Service](../azure-s
 
 ### CSCAN-AZURE0200
 
-Azure EventGrid Access Key
+Azure Event Grid Access Key
 
 **Sample**: `host: account.eventgrid.azure.net; accesskey: abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=;`
 
-Learn more about [Getting access keys for Event Grid resources (topics or domains)](../event-grid/get-access-keys.md)
+Learn more about [Getting access keys for Event Grid resources (articles or domains)](../event-grid/get-access-keys.md)
 
 ### CSCAN-AZURE0210
 
@@ -398,7 +398,7 @@ Learn more about [Getting started with Key Vault certificates](../key-vault/cert
 
 ### CSCAN-GENERAL0030
 
-User Login Credentials
+User sign in Credentials
 
 **Sample**: `{ "user": "user_name", "password": "ZYXWVU_2" }`
 
@@ -459,7 +459,7 @@ General Symmetric Key
 
 **Sample**: `key=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=;`
 
-Learn more about [Aes Class](/dotnet/api/system.security.cryptography.aes?view=net-5.0).
+Learn more about [AES Class](/dotnet/api/system.security.cryptography.aes?view=net-5.0).
 
 ### CSCAN-GENERAL0150
 
