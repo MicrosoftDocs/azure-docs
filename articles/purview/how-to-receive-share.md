@@ -112,11 +112,10 @@ Once you accepted a share, you can update asset mapping, or stop the sharing rel
 
 ### Update asset mapping
 
-You can map or remap a received share depending on its state.
+You can remap a received share depending on its state.
 
-You can map or attach a share in the *detached* state. To map, first select the received share, and then specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the attach activity to complete, and then you will see the shared data in your target data store. 
+You can remap a received share to a different storage account or to a different path in the storage account to which it is already mapped to. To remap, first select the received share, and then specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the attach activity to complete, and then you will see the shared data in your target data store. 
 
-You can remap a received share to a different storage account or to a different path in the storage account to which it is already mapped to. 
 > [!NOTE]
 > While remapping, if you selected a storage account that is registered to a collection that you don't have permissions to or a storage account that is not registered in Microsoft Purview, you will be shown the appropriate message. You will see the shared data in your target data store. 
 
