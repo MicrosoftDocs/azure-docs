@@ -2,35 +2,35 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is AODS?
-    href: introduction.md
+#  - name: What is AODS?
+#    href: introduction.md
   - name: Precertification 
     href: precertification.md
 - name: Concepts
   items:
-  - name: Resource Types
-    href: concepts-resource-types.md
+#  - name: Resource Types
+#    href: concepts-resource-types.md
   - name: Observability
     href: concepts-observability.md
 - name: Quickstarts
   items:
-  - name: Before you start platform deployment
-    href: quickstarts-platform-prerequisites.md
-  - name: Platform deployment
-    href: quickstarts-platform-deployment.md
-  - name: Before you start tenant deployment
-    href: quickstarts-tenant-prerequisites.md
-  - name: Tenant workload deployment
-    href: quickstarts-tenant-deployment.md
+#  - name: Before you start platform deployment
+#    href: quickstarts-platform-prerequisites.md
+#  - name: Platform deployment
+#    href: quickstarts-platform-deployment.md
+#  - name: Before you start tenant deployment
+#    href: quickstarts-tenant-prerequisites.md
+#  - name: Tenant workload deployment
+#    href: quickstarts-tenant-deployment.md
 - name: How-To Guides
   items:
-  - name: BareMetal Functions
-    href: bare-metal-functions.md
-  - name: Workbooks and Alerts
-    href: workbooks-alerts.md
+#  - name: BareMetal Functions
+#    href: bare-metal-functions.md
+#  - name: Workbooks and Alerts
+#    href: workbooks-alerts.md
 - name: Sample Deployment
-  items:
-  - name: VNF Deployment
-    href: sample-vnf-deployment.md
-  - name: CNF Deployment
-    href: sample-cnf-deployment.md
+#  items:
+#  - name: VNF Deployment
+#    href: sample-vnf-deployment.md
+#  - name: CNF Deployment
+#    href: sample-cnf-deployment.md
