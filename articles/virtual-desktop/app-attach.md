@@ -3,7 +3,7 @@ title: Test and troubleshoot packages with MSIX app attach - Azure
 description: Learn how to use MSIX app attach to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 ms.author: helohr
 manager: femila
 ---
@@ -15,7 +15,13 @@ To use MSIX app attach with Azure Virtual Desktop, you can use [the Azure portal
 
 ## Prerequisites
 
-<!--Ask Jim what to put here-->
+Before you can use MSIX app attach to follow the directions in this article, you'll need the following things:
+
+- A Windows 10 or 11 session host client.
+- The latest version of [one of the Remote Desktop clients](users/remote-desktop-clients-overview.md).
+- An application you've expanded from MSIX format into app attach format. To learn how to expand an MSIX application, see [Using the MSIXMGR tool](app-attach-msixmgr.md).
+
+These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
 
 ## Phases of MSIX app attach
 
