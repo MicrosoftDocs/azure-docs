@@ -22,9 +22,9 @@ Tasks executed using the Azure Monitor API use the Azure Resource Manager authen
 
 ## Create an Azure Active Directory service principal
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
-To create an Azure Active Directory service principal using the Azure Portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
+To create an Azure Active Directory service principal using the Azure portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
 
 ### [Azure CLI](#tab/cli)
 
@@ -48,7 +48,7 @@ The response looks as follows:
 >[!Important]
 > The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control.
 
-Add a role and scope for the resouces that you want to access using the API
+Add a role and scope for the resource that you want to access using the API
 
 ```azurecli
 az role assignment create --assignee <`appId`> --role <Role> --scope <resource URI>
@@ -61,15 +61,15 @@ The example below assigns the `Reader` role to the service principal for all res
 For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 
-### [Powershell](#tab/powershell) 
+### [PowerShell](#tab/powershell) 
 
-To create an Azure Active Directory service principal using thePowershell see [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+To create an Azure Active Directory service principal using thePowershell, see [using Azure PowerShell to create a service principal for accessing resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ---
 
 ## Retrieve a token
 
-To retrieve an access token using a REST call submit the following request using the `appId` and `password` for your servide pricipal and app:
+To retrieve an access token using a REST call submit the following request using the `appId` and `password` for your service principal and app:
 
 ```HTTP
 
@@ -440,7 +440,7 @@ For example
 * **Azure Virtual Machines**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachines/\<vm-name>
 * **Azure Event Hubs**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.EventHub/namespaces/\<eventhub-namespace>
 
-Use the Azure portal, PowerShell or the Azure CLI to find the resource Id.
+Use the Azure portal, PowerShell or the Azure CLI to find the resource ID.
 
 
 ### [Azure portal](#tab/portal)
@@ -454,7 +454,7 @@ The Resource JSON page is displayed. The resource ID can be copied using the ico
 :::image type="content" source="./media/rest-api-walkthrough/resourceid_azure_portal.png" alt-text="A screenshot showing the Resource JSON page for a resource":::
 
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 The resource ID can be retrieved by using Azure PowerShell cmdlets too. For example, to obtain the resource ID for an Azure logic app, execute the `Get-AzureLogicApp` cmdlet, as in the following example:
 

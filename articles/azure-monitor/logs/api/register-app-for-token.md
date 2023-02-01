@@ -13,8 +13,8 @@ To access Azure REST APIs such as the Log analytics API, or to send custom metri
 
 ## Register an App
 
-Create a service proncipal and refister an usign the Azure Portal, Azure CLI, or Powershell.
-### [Azure Portal](#tab/portal)
+Create a service principal and register an app using the Azure portal, Azure CLI, or PowerShell.
+### [Azure portal](#tab/portal)
 
 1. To register an app, open the Active Directory Overview page in the Azure portal.
 
@@ -69,13 +69,14 @@ Add a role and scope for the resources that you want to access using the API
 az role assignment create --assignee <`appId`> --role <Role> --scope <resource URI>
 ```
 
-The example below assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
+The CLI example below assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
+
 ```azurecli
  az role assignment create --assignee 0a123b56-c987-1234-abcd-1a2b3c4d5e6f --role Reader --scope '\/subscriptions/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/rg-001'
 ```
 For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 
@@ -115,9 +116,9 @@ For example,
 
 - To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [ Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
 
-For more information see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal)  
+For more information, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal)  
 
-Once you have assigned a role you can use your app, client ID, and client secret to generate a bearer token to access the REST API.
+Once you've assigned a role, you can use your app, client ID, and client secret to generate a bearer token to access the REST API.
 
 > [!NOTE]
 > When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403.
