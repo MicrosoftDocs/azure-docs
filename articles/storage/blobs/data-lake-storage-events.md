@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implement the data lake capture pattern to update an Azure Databricks Delta table'
 titleSuffix: Azure Storage
-description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure DataLake Storage Gen2.
+description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure Data Lake Storage Gen2.
 author: normesta
 
 ms.subservice: data-lake-storage-gen2
