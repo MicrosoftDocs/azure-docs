@@ -242,7 +242,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. 
 
-You can upload many models in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples with this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets). 
+You can upload many models in a single API call using the [jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api). 
 
 An alternative to the bulk API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies.
 

@@ -80,16 +80,16 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 >twin.Id = "myRoomId";
 >```
 
-### Create twins in bulk
+### Create twins in bulk with the jobs API
 
-You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) for bulk jobs and your Azure Digital Twins graph.
+You can use the [jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) for bulk jobs and your Azure Digital Twins graph.
 
 >[!TIP]
->The bulk import API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
+>The jobs API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
 
-To import twins in bulk, you'll need to structure your twins (and any other resources included in the bulk import) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties.
+To import twins in bulk, you'll need to structure your twins (and any other resources included in the bulk import job) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties.
 
-You can view an example import file and a sample project for creating these files in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
+You can view an example import file and a sample project for creating these files in the [jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
