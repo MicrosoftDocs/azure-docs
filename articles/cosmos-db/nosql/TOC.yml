@@ -626,8 +626,8 @@
               href: performance-tips-java.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+        - name: Benchmarking framework
+          href: benchmarking-framework.md
         - name: Cost-effective reads and writes
           href: ../key-value-store-cost.md
     - name: Troubleshooting
