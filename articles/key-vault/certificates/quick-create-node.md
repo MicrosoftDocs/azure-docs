@@ -3,12 +3,12 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/04/2023
+ms.date: 02/01/2023
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
 # Quickstart: Azure Key Vault certificate client library for JavaScript (version 4)
@@ -84,30 +84,35 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants key permissions to your user account
+Create a vault access policy for your key vault that grants key permissions to your user account
 
 ```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create purge update
 ```
 
 ## Set environment variables
 
 This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-Windows
+### [Windows](#tab/windows)
+
 ```cmd
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
+
+### [PowerShell](#tab/powershell)
 
 Windows PowerShell
 ```powershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
-macOS or Linux
+### [macOS or Linux](#tab/linux)
+
 ```cmd
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
+---
 
 ## Code example
 
@@ -116,6 +121,20 @@ These code samples demonstrate how to create a client, set a certificate, retrie
 ### Set up the app framework
 
 1. Create new text file and paste the following code into the **index.js** file. 
+
+    This code uses the following [Key Vault Certificate classes and methods](/javascript/api/overview/azure/keyvault-certificates-readme):
+    
+    * [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
+    * [CertificateClient class](/javascript/api/@azure/keyvault-certificates/certificateclient)
+        * [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begincreatecertificate)
+        * [getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificate)
+        * [getCertificateVersion](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificateversion)
+        * [updateCertificateProperties](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
+        * [updateCertificatePolicy](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
+        * [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begindeletecertificate)
+    * [PollerLike Interface](/javascript/api/@azure/core-lro/pollerlike)
+        * [getResult](/javascript/api/@azure/core-lro/pollerlike#@azure-core-lro-pollerlike-getresult)
+        * [pollUntilDone](/javascript/api/@azure/core-lro/pollerlike@azure-core-lro-pollerlike-polluntildone)
 
     ```javascript
     const { CertificateClient, DefaultCertificatePolicy } = require("@azure/keyvault-certificates");
@@ -127,10 +146,10 @@ These code samples demonstrate how to create a client, set a certificate, retrie
       // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
       // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
-      const url = process.env["AZURE_KEY_VAULT_URI"] || "<keyvault-url>";
       const credential = new DefaultAzureCredential();
 
       const keyVaultName = process.env["KEY_VAULT_NAME"];
+      if(!keyVaultName) throw new Error("KEY_VAULT_NAME is empty");
       const url = "https://" + keyVaultName + ".vault.azure.net";
     
       const client = new CertificateClient(url, credential);
