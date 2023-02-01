@@ -21,16 +21,18 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 ## Prerequisites
 
+To follow the steps in this guide you must have:
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
-- An SMTP server
+- An SMTP server.
 
 ## Enable and configure SMTP settings
 
 To activate SMTP settings, enable email notifications and configure an email contact point in Azure Managed Grafana, follow the steps below.
 
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Configuration**.
-  1. Select the **Email Settings (Preview)** tab
+  1. Select the **Email Settings (Preview)** tab.
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
   1. SMTP settings appear. Fill out the form with the following configuration:
 
@@ -44,25 +46,25 @@ To activate SMTP settings, enable email notifications and configure an email con
         | Skip Verify    | Disable               | SSL verification for the SMTP server. This setting is set to **Disable** by default. Optionally select **Enable** to skip verification. |
         | StartTLSPolicy | OpportunisticStartTLS | From the drop-down menu, select **OpportunisticStartTLS**, **“MandatoryStartTLS”**, or **“NoStartTLS”**                             |
 
-  1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**.
+  1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes.
+  1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Provisioning**, and then **Succeeded** once the update is complete.
 
-Once you've entered and saved new SMTP settings, in the **Overview** page, the provisioning state of the instance turns to **Provisioning**, and then **Succeeded** once the update is complete.
-
-## Configure Grafana notifications and send a test email
+## Configure Grafana contact points and send a test email
 
 To create or update notification settings, follow these steps:
 
-  1. In the Azure portal, open your Grafana instance
-  1. Select **Alerting > Contact points**, where you'll find all your new contact point.
-  1. Optionally edit the contact point **Name**, and **Contact point type**
-  1. Enter a destination email under **Addresses**, and select **Test**
+  1. In the Azure portal, open your Grafana instance.
+  1. Select **Alerting > Contact points**, where you'll find your new contact points.
+  1. Select **Add new contact point** or Edit contact point to update an existing contact point.
+  1. Add or update the **Name**, and **Contact point type**.
+  1. Enter a destination email under **Addresses**, and select **Test**.
   1. Select **Send test notification** to send the notification with the predefined test message or select **Custom** to first edit the message.
   1. A notification "Test alert sent" is displayed, meaning that the email setup has been successfully configured. The test email has been sent to the provided email address. In case of misconfiguration, an error message will be displayed instead.
 
 ## Disable SMTP settings
 
-1. To disable SMTP settings, in the Azure portal, in **Configuration**, toggle **SMTP Settings** off, so that **Disable** is displayed.
-1. Select **Save** to validate and start updating your Azure Managed Grafana instance.
+1. To disable SMTP settings, in the Azure portal, go to **Configuration > Email Settings (Preview)** and toggle **SMTP Settings** off, so that **Disable** is displayed.
+1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
 
 > [!NOTE]
 > When a users disables SMTP settings, all SMTP credentials are removed from the backend.
@@ -81,4 +83,4 @@ Below are some common error messages you may encounter.
 In this how-to guide, you learned how to configure Grafana SMTP settings. To learn how to create and configure Grafana dashboards, go to:
 
 > [!div class="nextstepaction"]
-> [Create dashboards](how-to-create-dashboards.md)
+> [Create dashboards](how-to-create-dashboard.md)
