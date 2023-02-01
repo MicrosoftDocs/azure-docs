@@ -158,7 +158,7 @@ Use the `check` tool to verify configuration and connection status of the device
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::   
 
    Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
