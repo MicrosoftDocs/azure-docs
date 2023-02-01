@@ -35,15 +35,15 @@ The ASIM Web Session schema represents HTTP and HTTPS protocol activity. Since t
 
 The Web Session schema doesn't represent audit events from source devices. For example, an event modifying a Web Security Gateway policy can't be represented by the Web Session schema.
 
-Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](network-normalization-schema.md).
+Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](normalization-schema-network.md).
 
 The most important fields in a Web Session schema are:
 
 - [Url](#url), which reports the url that the client requested from the server.
-- The [SrcIpAddr](network-normalization-schema.md#srcipaddr) (aliased to [IpAddr](network-normalization-schema.md#ipaddr)), which represents the IP address from which the request was generated. 
+- The [SrcIpAddr](normalization-schema-network.md#srcipaddr) (aliased to [IpAddr](normalization-schema-network.md#ipaddr)), which represents the IP address from which the request was generated. 
 - [EventResultDetails](#eventresultdetails) field, which typically reports the HTTP Status Code.
 
-Web Session events may also include [User](network-normalization-schema.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
+Web Session events may also include [User](normalization-schema-network.md#user) and [Process](normalization-schema-process-event.md) information for the user and process initiating the request. 
 
 
 ## Parsers
@@ -76,8 +76,8 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. The list of values can include IP addresses and IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
-| **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](network-normalization-schema.md#dstipaddr) or [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](normalization-schema-network.md#srcipaddr) prefix is in one of the listed values. The list of values can include IP addresses and IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](normalization-schema-network.md#dstipaddr) or [source IP address field](normalization-schema-network.md#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. The parser may ignore the schema of the URL passed as a parameter, if the source does not report it. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items.|  
 | **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items. | 
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
@@ -117,7 +117,7 @@ The following list mentions fields that have specific guidelines for Web Session
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name='eventtype'></a>**EventType** | Mandatory | Enumerated | Describes the operation reported by the record. Allowed values are:<br> - `HTTPsession`: Denotes a network session used for HTTP or HTTPS, typically reported by an intermediary device, such as a proxy or a Web security gateway.<br> - `WebServerSession`: Denotes an HTTP request reported by a web server. Such an event typically has less network related information. The URL reported should not include a schema and a server name, but only the path and parameters part of the URL. <br> - `Api`: Denotes an HTTP request reported associated with an API call, typically reported by an application server. Such an event typically has less network related information. When reported by the application server, the URL reported should not include a schema and a server name, but only the path and parameters part of the URL. |
+| <a name='eventtype'></a>**EventType** | Mandatory | Enumerated | Describes the operation reported by the record. Allowed values are:<br> - `HTTPsession`: Denotes a network session used for HTTP or HTTPS, typically reported by an intermediary device, such as a proxy or a Web security gateway.<br> - `WebServerSession`: Denotes an HTTP request reported by a web server. Such an event typically has less network related information. The URL reported should not include a schema and a server name, but only the path and parameters part of the URL. <br> - `ApiRequest`: Denotes an HTTP request reported associated with an API call, typically reported by an application server. Such an event typically has less network related information. When reported by the application server, the URL reported should not include a schema and a server name, but only the path and parameters part of the URL. |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes, refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | String | The HTTP status code.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
@@ -139,16 +139,16 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 ### Network session fields
 
-HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all the Network Schema Fields are also included in the Web Session schema.
+HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](normalization-schema-network.md) and all the Network Schema Fields are also included in the Web Session schema.
 
 
 The following ASIM Network Session schema fields have specific guidelines when used for a Web Session event:
-- The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
+- The alias User should refer to the [SrcUsername](normalization-schema-network.md#srcusername) and not to [DstUsername](normalization-schema-network.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
-- For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
+- For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](normalization-schema-network.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
 - The fields `NetworkRuleName` and `NetworkRuleNumber` are renamed `RuleName` and `RuleNumber` respectively.
 
-Web Session events are commonly reported by intermediate devices that terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
+Web Session events are commonly reported by intermediate devices that terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](normalization-schema-network.md) [Intermediary device fields](normalization-schema-network.md#Intermediary)
 
 
 ### <a name="http-session-fields"></a>HTTP session fields
@@ -157,7 +157,7 @@ The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL should include the schema and server parts. For `WebServerSession` and for `ApiRequest` the URL would typlicaly not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL should include the schema and server parts. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version.<br><br>Example: `2.0` |
@@ -185,11 +185,11 @@ The following are additional fields that are specific to web sessions:
 
 ### Other fields
 
-If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
+If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](normalization-schema-process-event.md) to normalize this information.
 
 ### Schema updates
 
-The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](network-normalization-schema.md#schema-updates) apply to the Web Session schema as well. 
+The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](normalization-schema-network.md#schema-updates) apply to the Web Session schema as well. 
 
 The following are the changes in version 0.2.5 of the schema:
 - Added the field `HttpHost`.
