@@ -60,7 +60,7 @@ In this article, you learn how to:
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-vm-with-infrastructure/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-windows-vm-with-iis-server/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 

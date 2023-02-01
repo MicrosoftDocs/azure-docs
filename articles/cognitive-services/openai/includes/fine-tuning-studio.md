@@ -210,7 +210,7 @@ The following hyperparameters are available:
 | **Learning rate multiplier** | The learning rate multiplier to use for training. The fine-tuning learning rate is the original learning rate used for pre-training, multiplied by this value. |
 | **Prompt loss weight** | The weight to use for loss on the prompt tokens. This value controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0.) Increasing this value can add a stabilizing effect to training when completions are short. |
 
-For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenai/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenai/fine-tunes) documentation.
+For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaistable/fine-tunes) documentation.
 
 After you've chosen either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 
