@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/24/2023
+ms.date: 1/26/2023
 ms.author: jasteppe
 ---
 
@@ -99,7 +99,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/how-to-enable-diagnostic-settings/select-logs-button.png":::
 
-2. Copy the below table query string into your Log Analytics workspace query area and select **Run**. Using the *AHDSMedTechDiagnosticLogs* table will provide you with all logs contained in the entire table for the selected **Time range** setting (the default value is **Last 24 hours**). The MedTech service provides five pre-defined queries that will be addressed in the article section titled [Accessing the MedTech service pre-defined Azure Log Analytics queries](how-to-enable-diagnostic-settings.md#accessing-the-medtech-service-pre-defined-azure-log-analytics-queries).
+2. Copy the below table query string into your Log Analytics workspace query area and select **Run**. Using the *AHDSMedTechDiagnosticLogs* table will provide you with all logs contained in the entire table for the selected **Time range** setting (the default value is **Last 24 hours**). The MedTech service provides five pre-defined queries that will be addressed in the article section titled [Accessing the MedTech service pre-defined Azure Log Analytics queries](#accessing-the-medtech-service-pre-defined-azure-log-analytics-queries).
 
    ```Kusto
    AHDSMedTechDiagnosticLogs

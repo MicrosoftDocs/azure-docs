@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.date: 04/27/2022
+ms.date: 01/26/2023
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -213,7 +213,7 @@ The command takes following parameters:
 * **AttributeFiltering**: `$true` (default) if Azure AD Connect isn't syncing the default attribute set and has been customized to use a filtered attribute set. Otherwise, use `$false`.
 * **StagingMode**: `$false` (default) if the Azure AD Connect server is *not* in staging mode. If the server is configured to be in staging mode, use `$true`.
 
-When you're prompted for authentication, use the same global admin account (such as admin@domain.onmicrosoft.com) that you used to configure Azure AD Connect.
+When you're prompted for authentication, use the same Global Administrator account (such as admin@domain.onmicrosoft.com) that you used to configure Azure AD Connect.
 
 ## Install the agent for Azure AD DS
 

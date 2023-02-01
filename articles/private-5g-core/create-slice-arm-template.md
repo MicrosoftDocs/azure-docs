@@ -1,6 +1,6 @@
 ---
 title: Create a slice - ARM template
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a slice in your private mobile network using an Azure Resource Manager (ARM) template. 
 author: b-branco
 ms.author: biancabranco

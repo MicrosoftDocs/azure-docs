@@ -1,7 +1,7 @@
 ---
 title: Deploy a private mobile network - Azure portal
-titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
+titleSuffix: Azure Private 5G Core
+description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core using the Azure portal 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -10,13 +10,13 @@ ms.date: 01/03/2022
 ms.custom: template-how-to
 ---
 
-# Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal
+# Deploy a private mobile network through Azure Private 5G Core - Azure portal
 
 Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
 ## Prerequisites
 
-- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Commission the AKS cluster](commission-cluster.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). You may also need to take the following steps based on the decisions you made when collecting this information.
 

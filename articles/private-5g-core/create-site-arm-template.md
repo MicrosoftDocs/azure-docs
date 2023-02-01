@@ -1,6 +1,6 @@
 ---
 title: Create a site - ARM template
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network using an Azure Resource Manager (ARM) template. 
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Create a site using an ARM template
 
-Azure Private 5G Core Preview private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using an Azure Resource Manager template (ARM template).
+Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -94,6 +94,6 @@ Four Azure resources are defined in the template.
 
 ## Next steps
 
-If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+If you decided to set up Azure AD for local monitoring access, follow the steps in [Modify the local access configuration in a site](modify-local-access-configuration.md) and [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
-- [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

@@ -20,8 +20,6 @@
     displayName: version policy
 - name: Flexible Server
   items:
-  - name: Flexible Server documentation
-    href: flexible-server/index.yml
   - name: Overview
     items:
     - name: What is Flexible Server?
@@ -157,7 +155,7 @@
     - name: Application Development
       items:
       - name: WordPress on App Service
-        href: flexible-server/tutorial-wordpress-app-service.md
+        href: ../app-service/quickstart-wordpress.md
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: PHP (Laravel) app on App Service in VNet
@@ -310,9 +308,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Single Server
   items:
-  - name: Single Server documentation
-    href: single-server/index.yml
-    displayName: single server
   - name: What's happening to Single Server?
     href: single-server/whats-happening-to-mysql-single-server.md
     displayName: What's happening to Single Server?
@@ -329,9 +324,6 @@
     items:
     - name: Create a MySQL Single Server
       items:
-       - name: Azure portal
-         href: single-server/quickstart-create-mysql-server-database-using-azure-portal.md
-         displayName: portal, create, server
        - name: Azure CLI
          href: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
          displayName: cli, create, server
@@ -519,8 +511,6 @@
       items:
       - name: Design a database
         items:
-        - name: Azure portal
-          href: single-server/tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: single-server/tutorial-design-database-using-cli.md
         - name: Azure PowerShell
