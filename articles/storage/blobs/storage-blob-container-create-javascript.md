@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Create a container in Azure Storage with JavaScript
+# Create a blob container with JavaScript
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
