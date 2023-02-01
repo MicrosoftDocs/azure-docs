@@ -78,7 +78,8 @@ You can configure data collection to retrieve data and route it to the data plat
 - Diagnostic settings
 - Data collection rules
 - Application SDK
-- the Azure Monitor REST API
+- Azure Monitor REST API
+- Azure Monitor Agents
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
