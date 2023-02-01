@@ -76,7 +76,7 @@ For your own custom TLS/SSL certificate:
 
 ## Supported cipher suites
 
-For TLS1.2 the following cipher suites are supported:
+For TLS 1.2 the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -84,6 +84,11 @@ For TLS1.2 the following cipher suites are supported:
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+
+> [!IMPORTANT]
+> As a part of our ongoing platform improvement processes, we will deprecate the weak DHE ciphers, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, by the end of June 2023.
+>
+> If your clients experience TLS handshake issues, consider temporarily allowing legacy TLS versions (TLS 1.0 and TLS 1.1) in your Azure Front Door profile, until your clients are able to support the more secure TLS 1.2 cipher suites.
 
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE cipher suites for better security. CBC ciphers are enabled to support Windows 8.1, 8, and 7 operating systems.  The DHE cipher suites will be disabled in the future.
@@ -106,6 +111,7 @@ Using custom domains with TLS1.0/1.1 enabled the following cipher suites are sup
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 Azure Front Door doesn’t support configuring specific cipher suites.
+
 ## Next steps
 
 * [Configure a custom domain](front-door-custom-domain.md) for Azure Front Door.
