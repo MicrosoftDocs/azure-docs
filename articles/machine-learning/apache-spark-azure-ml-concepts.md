@@ -17,7 +17,7 @@ ms.custom: cliv2, sdkv2
 # Apache Spark in Azure Machine Learning (preview)
 The Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to distributed computing, using the Apache Spark framework. This integration offers these Apache Spark computing experiences:
 - Managed (Automatic) Spark compute
-2. Attached Synapse Spark pool
+- Attached Synapse Spark pool
 
 ## Managed (Automatic) Spark compute
 Azure Machine Learning Managed (Automatic) Spark compute is the easiest way to execute distributed computing tasks in the Azure Machine Learning environment, using the Apache Spark framework. Azure Machine Learning users can use a fully managed, serverless, on-demand Apache Spark compute cluster. Those users can avoid the need to create an Azure Synapse Workspace and an Azure Synapse Spark pool. Users can define the resources, including
@@ -34,22 +34,22 @@ to access the Managed (Automatic) Spark compute in Azure Machine Learning Notebo
 ### Some points to consider
 Managed (Automatic) Spark compute works well for most user scenarios that require quick access to distributed computing using Apache Spark. To make an informed decision, however, users should consider the advantages and disadvantages of this approach.
 
->  ### Advantages
->  
->  - No dependencies on other Azure resources to be created for Apache Spark
->  - No permissions required in the subscription to create Synapse-related resources
->  - No need for SQL pool quota
+### Advantages
+  
+- No dependencies on other Azure resources to be created for Apache Spark
+- No permissions required in the subscription to create Synapse-related resources
+- No need for SQL pool quota
 
->  ### Disadvantages
->  
->  - Persistent Hive metastore is missing. Therefore, Managed (Automatic) Spark compute only supports in-memory Spark SQL
->    - No available tables or databases
->    - Missing Purview integration
->  - Linked Services not available
->  - Fewer Data sources/connectors
->  - Missing pool-level configuration
->  - Missing pool-level library management
->  - Partial support for `mssparkutils`
+### Disadvantages
+ 
+- Persistent Hive metastore is missing. Therefore, Managed (Automatic) Spark compute only supports in-memory Spark SQL
+- No available tables or databases
+- Missing Purview integration
+- Linked Services not available
+- Fewer Data sources/connectors
+- Missing pool-level configuration
+- Missing pool-level library management
+- Partial support for `mssparkutils`
 
 ### Network configuration
 As of January 2023, the Managed (Automatic) Spark compute doesn't support managed VNet or private endpoint creation to Azure Synapse.
