@@ -164,7 +164,7 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ### Certificate renewal
 
-#### Azure Front Door-managed certificates
+#### Renew Azure Front Door-managed certificates
 
 For most custom domains, Azure Front Door automatically renews (rotates) managed certificates when they're close to expiry, and you don't need to do anything.
 
@@ -182,11 +182,11 @@ If one of the scenarios above applies to your custom domain, then 45 days before
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
-#### Azure-managed certificates for domains pre-validated by other Azure services
+#### Renew Azure-managed certificates for domains pre-validated by other Azure services
 
 Azure-managed certificates are automatically rotated by the Azure service that validates the domain.
 
-#### <a name="rotate-own-certificate"></a>Renewing customer-managed TLS certificates
+#### <a name="rotate-own-certificate"></a>Renew customer-managed TLS certificates
 
 In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
 
