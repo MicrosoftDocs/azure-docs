@@ -19,7 +19,7 @@ Network Watcher packet capture creates capture sessions to track traffic in and 
 
 This capability can be started remotely from other automation scenarios such as Azure Functions. Packet capture gives you the capability to run proactive captures based on defined network anomalies. Other uses include gathering network statistics, getting information about network intrusions, debugging client-server communications, and more.
 
-Resources that are deployed in Azure run 24 * 7. It is difficult to actively monitor the status of all resources 24 * 7. For example, what happens if an issue occurs at 2 AM?
+Resources that are deployed in Azure run 24 * 7. It's difficult to actively monitor the status of all resources 24 * 7. For example, what happens if an issue occurs at 2 AM?
 
 By using Network Watcher alerting and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
@@ -325,7 +325,7 @@ You can configure alerts to notify individuals when a specific metric crosses a 
 
 Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). Do the following in the **Create an Alert rule** screen.
 
-1. In the **Select a signal** pane, search for the name of the signal and select it. In this example, Network Out Total is the selected signal. It denotes the The number of bytes out on all network interfaces by the Virtual Machine.
+1. In the **Select a signal** pane, search for the name of the signal and select it. In this example, Network Out Total is the selected signal. It denotes the number of bytes out on all network interfaces by the Virtual Machine.
 
 2. In the **Conditions** tab, set the following values and select **Next: Actions >**.
 
