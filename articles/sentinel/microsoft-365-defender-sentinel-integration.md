@@ -85,5 +85,5 @@ The Microsoft 365 Defender connector also lets you stream **advanced hunting** e
 In this document, you learned how to benefit from using Microsoft 365 Defender together with Microsoft Sentinel, using the Microsoft 365 Defender connector.
 
 - Get instructions for [enabling the Microsoft 365 Defender connector](connect-microsoft-365-defender.md).
-- Check [availability of different Microsoft 365 Defender data types](microsoft-365-defender-cloud-support.md) in the different M365 and Azure clouds.
+- Check [availability of different Microsoft 365 Defender data types](microsoft-365-defender-cloud-support.md) in the different Microsoft 365 and Azure clouds.
 - Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-incidents.md).
