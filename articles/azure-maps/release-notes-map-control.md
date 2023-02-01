@@ -24,7 +24,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
 
 - **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.3][3.0.0-preview.3]
 
-  - **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
 
     ```html
     <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.3/atlas.min.css" rel="stylesheet" />
