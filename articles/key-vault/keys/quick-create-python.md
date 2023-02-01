@@ -31,6 +31,8 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 ### Sign in to Azure
 
+### [Azure CLI](#tab/azure-cli)
+
 1. Run the `login` command.
 
     ```azurecli-interactive
@@ -43,6 +45,23 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
     authorization code displayed in your terminal.
 
 2. Sign in with your account credentials in the browser.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Run the `Connect-AzAccount` command.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    If the PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
+
+---
 
 ### Install the packages
 
@@ -71,11 +90,21 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permission to your user account.
+Create an access policy for your key vault that grants key permission to your user account.
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault set-policy --name <<your-unique-keyvault-name> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --key-permissions delete get list set
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToKeys delete,get,list,set
+```
+
+---
 
 ## Create the sample code
 
