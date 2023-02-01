@@ -128,7 +128,7 @@ The high availability setup of SAP NetWeaver or ABAP platform uses enqueue repli
 
 ### SAP Application Servers
 
-In primary region, the redundancy of SAP application servers is achieved by installing instances in multiple VMs. To have DR for SAP application servers, [Azure Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md) can be set up for each application server VM. For shared storages (transport filesystem, interface data filesystem) that is attached to the application servers, follow the appropriate DR practice based on the type of [shared storage](disaster-recovery-overview-guide.md#storage).
+In the primary region, the redundancy of the SAP application servers is achieved by installing instances in multiple VMs. To have DR for SAP application servers, [Azure Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md) can be set up for each application server VM. For shared storages (transport filesystem, interface data filesystem) that is attached to the application servers, follow the appropriate DR practice based on the type of [shared storage](disaster-recovery-overview-guide.md#storage).
 
 ### SAP Database Servers
 
