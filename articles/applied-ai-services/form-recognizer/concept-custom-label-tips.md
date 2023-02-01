@@ -22,7 +22,7 @@ This article highlights the best methods for labeling custom model datasets in t
 The following is the second of two videos intended to help you build custom
 models with higher accuracy.
 
-* This video (part two), explores the best practices for labeling your selected documents. With consistent labeling and following these best practices, you
+* This video, explores the best practices for labeling your selected documents. With consistent labeling and following these best practices, you
 should see an improvement in model performance.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB ]
