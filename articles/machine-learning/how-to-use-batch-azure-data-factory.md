@@ -37,9 +37,6 @@ Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web
 
 You can use a service principal or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
 
-> [!IMPORTANT]
-> Batch Endpoints can consume data stored in storage accounts instead of Azure Machine Learning Data Stores or Data Assets. However, you may need to configure additional permissions for the identity of the compute where the batch endpoint runs on. See [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data).
-
 # [Using a Managed Identity](#tab/mi)
 
 1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a managed identity.
@@ -127,7 +124,7 @@ The pipeline requires the following parameters to be configured:
 
 To create this pipeline in your existing Azure Data Factory and invoke batch endpoints, follow these steps:
 
-1. Ensure the compute where the batch endpoint is running has access to mount the data Azure Data Factory is providing. Notice that access is still granted by the identity that invokes the endpoint (in this case Azure Data Factory). However, the compute where the batch endpoint runs needs to have permission to mount the storage account your Azure Data Factory will provide. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
+1. Ensure the compute where the batch endpoint is running has permissions to mount the data Azure Data Factory is providing as input. Notice that access is still granted by the identity that invokes the endpoint (in this case Azure Data Factory). However, the compute where the batch endpoint runs needs to have permission to mount the storage account your Azure Data Factory provide. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 
