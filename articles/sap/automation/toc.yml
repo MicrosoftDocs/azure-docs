@@ -1,8 +1,6 @@
 items:
   - name: Overview
     href: deployment-framework.md
-  - name: FAQ
-    href: faq.yml
   - name: Concepts
     items:
     - name: Supported platforms and features
@@ -89,25 +87,3 @@ items:
           href: bash/advanced-state-management.md
         - name: Update the SAP Library SAS token
           href: bash/update-sas-token.md
-    - name: PowerShell
-      items:
-        - name: PowerShell cmdlets for automation framework
-          href: reference-powershell.md
-        - name: Deploying the control plane using PowerShell
-          href: module/new-sapautomationregion.md
-        - name: Deploying the Workload Zone using PowerShell
-          href: module/new-sapworkloadzone.md
-        - name: Deploying the SAP System using PowerShell
-          href: module/new-sapsystem.md
-        - name: Bootstrapping the Deployer using PowerShell
-          href: module/new-sapdeployer.md
-        - name: Bootstrapping the Library using PowerShell
-          href: module/new-saplibrary.md
-        - name: Removing the control plane using PowerShell
-          href: module/remove-sapautomationregion.md
-        - name: Removing an SAP deployment using PowerShell
-          href: module/remove-sapsystem.md
-        - name: Set the Keyvault secrets using PowerShell
-          href: module/set-sapsecrets.md
-        - name: Update the Terraform state file using PowerShell
-          href: module/update-tfstate.md
