@@ -23,7 +23,7 @@ To get started using partition merge, navigate to the **Features** page in your 
 Before enabling the feature, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria). Once you've enabled the feature, it will take 15-20 minutes to take effect.
 
 > [!CAUTION]
-> When merge is enabled on an account, only requests from .NET SDK version >= 3.27.0 will be allowed on the account, regardless of whether merges are ongoing or not. Requests from other SDKs (older .NET SDK, Java, JavaScript, Python, Go) or unsupported connectors (Azure Data Factory, Azure Search, Azure Cosmos DB Spark connector, Azure Functions, Azure Stream Analytics, and others) will be blocked and fail. Ensure you have upgraded to a supported SDK version before enabling the feature. After the feature is enabled or disabled, it may take 15-20 minutes to fully propagate to the account. If you plan to disable the feature after you've completed using it, it may take 15-20 minutes before requests from SDKs and connectors that are not supported for merge are allowed.
+> When merge is enabled on an account, only requests from .NET SDK version >= 3.27.0 will be allowed on the account, regardless of whether merges are ongoing or not. Requests from other SDKs (older .NET SDK, Java, JavaScript, Python, Go) or unsupported connectors (Azure Data Factory, Azure Search, Azure Cosmos DB Spark connector, Azure Functions extension <= 3.x, Azure Stream Analytics, and others) will be blocked and fail. Ensure you have upgraded to a supported SDK version before enabling the feature. After the feature is enabled or disabled, it may take 15-20 minutes to fully propagate to the account. If you plan to disable the feature after you've completed using it, it may take 15-20 minutes before requests from SDKs and connectors that are not supported for merge are allowed.
 
 :::image type="content" source="media/merge/merge-feature-blade.png" alt-text="Screenshot of Features pane and Partition merge feature.":::
 
@@ -166,7 +166,7 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
   - Azure Data Factory
   - Azure Stream Analytics
   - Logic Apps
-  - Azure Functions
+  - Azure Functions extension <= 3.x (Azure Functions extension 4.0 and higher is supported)
   - Azure Search
   - Azure Cosmos DB Spark connector
   - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET V3 SDK v3.27.0 or higher
@@ -205,7 +205,7 @@ If you enroll in the preview, the following connectors will fail.
 - Azure Data Factory <sup>1</sup>
 - Azure Stream Analytics <sup>1</sup>
 - Logic Apps <sup>1</sup>
-- Azure Functions <sup>1</sup>
+- Azure Functions extension <= 3.x (Azure Functions extension 4.0 and higher is supported) <sup>1</sup>
 - Azure Search <sup>1</sup>
 - Azure Cosmos DB Spark connector <sup>1</sup>
 - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET V3 SDK v3.27.0 or higher
