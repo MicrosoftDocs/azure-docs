@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/01/2023
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python, py-fresh-zinc
@@ -41,6 +41,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
   See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
 
+- An Azure Databricks workspace. See [Create an Azure Databricks workspace](/databricks/getting-started/#--create-an-azure-databricks-workspace).
+
+- An Azure Databricks cluster. See [Create a cluster](/databricks/getting-started/quick-start#step-1-create-a-cluster).
+
 ### Download the flight data
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
@@ -72,26 +76,6 @@ In this section, you create an Azure Databricks service by using the Azure porta
 3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
 4. Select **Pin to dashboard** and then select **Create**.
-
-## Create a Spark cluster in Azure Databricks
-
-1. In the Azure portal, go to the Databricks service that you created, and select **Launch Workspace**.
-
-2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
-
-    ![Databricks on Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks on Azure")
-
-3. In the **New cluster** page, provide the values to create a cluster.
-
-    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
-
-    Fill in values for the following fields, and accept the default values for the other fields:
-
-    - Enter a name for the cluster.
-
-    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-
-4. Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Ingest data
 
@@ -125,15 +109,20 @@ In this section, you'll create a container and a folder in your storage account.
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
 
-2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+2. In the sidebar, select **Workspace**.
 
-    ![Create a notebook in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
+3. In the Workspace folder, select **Create > Notebook**.
 
-3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Python** as the language, and then select the Spark cluster that you created earlier.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of create notebook option](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
 
-4. Select **Create**.
+4. In the **Create Notebook** dialog, enter a name and then select **Python** in the **Default Language** drop-down list. This selection determines the default language of the notebook.
 
-5. Copy and paste the following code block into the first cell, but don't run this code yet.
+5. In the **Cluster** drop-down list, make sure that the cluster you created earlier is selected.
+
+6. Click **Create**. The notebook opens with an empty cell at the top.
+
+7. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
