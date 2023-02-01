@@ -356,6 +356,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 > * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
+> * In the following table, replace `<region>` with the Azure region that contains your Azure Machine Learning workspace.
 > * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.
 
 # [Azure public](#tab/public)
@@ -365,7 +366,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.windows.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
-| Compute instance | `*.tundra.azureml.ms` | UDP | 5831 |
+| Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
 | Compute instance | `*.batch.azure.com` | ANY | 443 |
 | Compute instance | `*.service.batch.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
