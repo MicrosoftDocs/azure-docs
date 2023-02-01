@@ -22,15 +22,15 @@ Blob containers support system properties and user-defined metadata, in addition
 
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you.
 
-- **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
+- **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 ## Retrieve container properties
 
 To retrieve container properties, create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object then use the following method:
 
-- ContainerClient.[getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) which returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties)
+- ContainerClient.[getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) (returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties))
 
 The following code example fetches a container's properties and writes the property values to a console window:
 
@@ -70,7 +70,7 @@ async function setContainerMetadata(containerClient, metadata) {
 
 To retrieve metadata, [get the container properties](#retrieve-container-properties) then use the returned **metadata** property. 
 
-- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) which returns metadata inside the ContainerProperties object.
+- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties)
 
 
 ## See also
