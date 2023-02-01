@@ -49,7 +49,7 @@ A typical workflow for using R with Azure Machine Learning:
 ## Known limitations
  
 
-| Limitation | Workaround |
+| Limitation | Do this instead |
 |---|---|
 | There's no R _control-plane_ SDK. | Use the Azure CLI or Python control script to submit jobs. |
 | RStudio running as a custom application (such as Posit or RStudio) within a container on the compute instance can't access workspace assets or MLflow. | Use Jupyter Notebooks with the R kernel on the compute instance. |
