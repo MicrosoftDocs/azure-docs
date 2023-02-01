@@ -2,12 +2,10 @@
 title: 'Azure AD Connect: Troubleshoot Azure AD connectivity issues'
 description: Learn how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: amycolannino
 editor: ''
 
-ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,7 +17,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Troubleshoot Azure AD Connect connectivity
+# Troubleshoot Azure AD Connect connectivity issues
 
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
 
@@ -41,13 +39,13 @@ First we need to make sure [machine.config](how-to-connect-install-prerequisites
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Of these URLs, the URLs listed in the following table is the absolute bare minimum to be able to connect to Azure AD at all. This list does not include any optional features, such as password writeback or Azure AD Connect Health. The information is provided here to help with troubleshooting for the initial configuration.
+Of these URLs, the URLs listed in the following table are the absolute bare minimum to be able to connect to Azure AD at all. This list doesn't include any optional features, such as password writeback or Azure AD Connect Health. The information is provided here to help with troubleshooting for the initial configuration.
 
 | URL | Port | Description |
 | --- | --- | --- |
 | `mscrl.microsoft.com` |HTTP/80 |Used to download certificate revocation list (CRL) lists. |
 | `*.verisign.com` |HTTP/80 |Used to download CRL lists. |
-| `*.entrust.net` |HTTP/80 |Used to download CRL lists for multifactor authentication (MFA). |
+| `*.entrust.net` |HTTP/80 |Used to download CRL lists for multi-factor authentication (MFA). |
 | `*.management.core.windows.net` (Azure Storage)</br>`*.graph.windows.net` (Azure AD Graph)|HTTPS/443|Used for the various Azure services.|
 | `secure.aadcdn.microsoftonline-p.com` |HTTPS/443 |Used for MFA. |
 | `*.microsoftonline.com` |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
@@ -66,9 +64,9 @@ The installation wizard uses two different security contexts. On the **Connect t
 
 The following issues are the most common errors you might encounter in the installation wizard.
 
-### The installation wizard has not been correctly configured
+### The installation wizard hasn't been correctly configured
 
-This error appears when the wizard itself cannot reach the proxy.
+This error appears when the wizard itself can't reach the proxy.
 
 :::image type="content" source="media/tshoot-connect-connectivity/nomachineconfig.png" alt-text="Screenshot shows an error Unable to validate credentials.":::
 
@@ -106,11 +104,11 @@ If the proxy is correctly configured, you should get a success status:
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequest200.png" alt-text="Screenshot that shows the success status when the proxy is configured correctly.":::
 
-If you see the message **Unable to connect to the remote server**, PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure that the *machine.config* file is correctly configured.
+If you see the message **Unable to connect to the remote server**, PowerShell is trying to make a direct call without using the proxy or DNS isn't correctly configured. Make sure that the *machine.config* file is correctly configured.
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequestunable.png" alt-text="Screenshot of an error message when PowerShell can't connect to the remote server.":::
 
-If the proxy is not correctly configured, you get an error:
+If the proxy isn't correctly configured, you get an error:
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequest403.png" alt-text="Screenshot of a 403 proxy error in PowerShell.":::
 
@@ -120,20 +118,22 @@ The following table describes 403 and 407 proxy errors:
 
 | Error | Error Text | Comment |
 | --- | --- | --- |
-| 403 |Forbidden |The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure that the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
-| 407 |Proxy Authentication Required |The proxy server required a sign-in and none was provided. If your proxy server requires authentication, make sure that you have this setting configured in *machine.config*. Also make sure that you're using domain accounts for the user running the wizard and for the service account. |
+| 403 |Forbidden |The proxy hasn't been opened for the requested URL. Revisit the proxy configuration and make sure that the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
+| 407 |Proxy Authentication Required |The proxy server required a sign-in and none was provided. If your proxy server requires authentication, make sure that you configured this setting in *machine.config*. Also make sure that you're using domain accounts for the user running the wizard and for the service account. |
 
 ### Proxy idle timeout setting
 
-When Azure AD Connect sends an export request to Azure AD, Azure AD can take up to 5 minutes to process the request before generating a response. This can happen especially if there are a number of group objects with large group memberships included in the same export request. Ensure that the proxy idle timeout is configured to be greater than 5 minutes. Otherwise, you might have intermittent connectivity issues with Azure AD on the Azure AD Connect server.
+When Azure AD Connect sends an export request to Azure AD, Azure AD can take up to 5 minutes to process the request before generating a response. A response might be delayed especially if many group objects that have large group memberships are included in the same export request. Ensure that the proxy idle timeout is configured to be greater than 5 minutes. Otherwise, you might have intermittent connectivity issues with Azure AD on the Azure AD Connect server.
 
 ## The communication pattern between Azure AD Connect and Azure AD
 
-If you have followed all these preceding steps and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored when you are reading the network logs.
+If you've followed all the steps described in this article and you still can't connect, at this point you might look at network logs. This section describes a normal and successful connectivity pattern.
 
-- There are calls to `https://dc.services.visualstudio.com`. It is not required to have this URL open in the proxy for the installation to succeed and these calls can be ignored.
-- You see that dns resolution lists the actual hosts to be in the DNS name space nsatc.net and other namespaces not under microsoftonline.com. However, there are not any web service requests on the actual server names and you do not have to add these URLs to the proxy.
-- The endpoints adminwebservice and provisioningapi are discovery endpoints and used to find the actual endpoint to use. These endpoints are different depending on your region.
+Here are some common concerns about data in the network logs that you can ignore:
+
+- There are calls to `https://dc.services.visualstudio.com`. It's not required to have this URL open in the proxy for the installation to succeed, and these calls can be ignored.
+- You see that DNS resolution lists the actual hosts as being in the DNS namespace `nsatc.net` and other namespaces that aren't under `microsoftonline.com`. However, there aren't any web service requests on the actual server names. You don't have to add these URLs to the proxy.
+- The endpoints `adminwebservice` and `provisioningapi` are discovery endpoints and are used to find the actual endpoint to use. These endpoints are different depending on your region.
 
 ### Reference proxy logs
 
@@ -177,19 +177,19 @@ The following example is a dump from an actual proxy log and the installation wi
 
 ## Authentication errors
 
-This section covers errors that might be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
+This section covers errors that might be returned from Active Directory Authentication Library (ADAL), the authentication library used by Azure AD Connect, and PowerShell. The error explanation should help you identify your next steps.
 
 ### Invalid Grant
 
-Invalid username or password. For more information, see [The password cannot be verified](#the-password-cannot-be-verified).
+You entered an invalid user name or password. For more information, see [The password can't be verified](#the-password-cant-be-verified).
 
 ### Unknown User Type
 
-Your Azure AD directory cannot be found or resolved. Maybe you try to login with a username in an unverified domain?
+Your Azure AD directory can't be found or resolved. Maybe you tried to sign in with a user name in an unverified domain?
 
 ### User Realm Discovery Failed
 
-Network or proxy configuration issues. The network cannot be reached. See [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Network or proxy configuration issues. The network can't be reached. See [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### User Password Expired
 
@@ -197,11 +197,11 @@ Your credentials have expired. Change your password.
 
 ### Authorization Failure
 
-Failed to authorize user to perform action in Azure AD.
+Azure AD Connect failed to authorize the user to perform an action in Azure AD.
 
 ### Authentication Canceled
 
-The multi-factor authentication (MFA) challenge was canceled.
+The MFA challenge was canceled.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -223,7 +223,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 
 ### Azure AD Global Administrator Role Needed
 
-User was authenticated successfully. However user is not assigned Global Administrator role. This is [how you can assign Global Administrator role](../roles/permissions-reference.md) to the user.
+The user was authenticated successfully, but the user isn't assigned the Global Administrator role. You can [assign the Global Administrator role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--
@@ -234,7 +234,7 @@ User was authenticated successfully. However user is not assigned Global Adminis
 
 ### Privileged Identity Management Enabled
 
-Authentication was successful. Privileged identity management has been enabled and you are currently not a Hybrid Identity Administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+Authentication was successful. Privileged Identity Management has been enabled and the user currently isn't a Hybrid Identity Administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 <div id="get-msolcompanyinformation-failed">
 <!--
@@ -245,7 +245,7 @@ Authentication was successful. Privileged identity management has been enabled a
 
 ### Company Information Unavailable
 
-Authentication was successful. Could not retrieve company information from Azure AD.
+Authentication was successful, but company information couldn't be retrieved from Azure AD.
 
 <div id="get-msoldomain-failed">
 <!--
@@ -256,31 +256,32 @@ Authentication was successful. Could not retrieve company information from Azure
 
 ### Domain Information Unavailable
 
-Authentication was successful. Could not retrieve domain information from Azure AD.
+Authentication was successful, but domain information couldn't be retrieved from Azure AD.
 
-### Unspecified Authentication Failure
+### Unspecified authentication failure
 
-Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft account** rather than a **school or organization account**.
+Shown as *Unexpected error* in the installation wizard. This error might occur if you try to use a *Microsoft account* instead of a *school or organization account*.
 
 ## Troubleshooting steps for earlier releases
 
-With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
+In releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. Configuring the sign-in assistant should no longer be required, but the information in the next sections is kept as reference.
 
-For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
+For the single sign-in assistant to work, Microsoft Windows HTTP Services (WinHTTP) must be configured. You can configure WinHTTP by using [netsh](how-to-connect-install-prerequisites.md#connectivity).
 
-![Screenshot shows a command prompt window running the netsh tool to set a proxy.](./media/tshoot-connect-connectivity/netsh.png)
+:::image type="content" source="media/tshoot-connect-connectivity/netsh.png" alt-text="Screenshot that shows a command prompt window running the netsh tool to set a proxy.":::
 
-### The Sign-in assistant has not been correctly configured
+### The sign-in assistant isn't configured correctly
 
-This error appears when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
+This error appears when the sign-in assistant can't reach the proxy or the proxy isn't allowing the request.
 
-![Screenshot shows an error: Unable to validate credentials, Verify network connectivity and firewall or proxy settings.](./media/tshoot-connect-connectivity/nonetsh.png)
+:::image type="content" source="media/tshoot-connect-connectivity/nonetsh.png" alt-text="Screenshot of the error Unable to validate credentials, Verify network connectivity and firewall or proxy settings.":::
 
-* If you see this error, look at the proxy configuration in [netsh](how-to-connect-install-prerequisites.md#connectivity) and verify it is correct.
+If you see this error, look at the proxy configuration in [netsh](how-to-connect-install-prerequisites.md#connectivity) and verify that it's correct.
 
-  ![Screenshot shows a command prompt window running the netsh tool to show the proxy configuration.](./media/tshoot-connect-connectivity/netshshow.png)
-* If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
+:::image type="content" source="media/tshoot-connect-connectivity/netshshow.png" alt-text="Screenshot that shows a command prompt window running the netsh tool to show the proxy configuration.":::
+
+If the proxy configuration looks correct, complete the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue occurs outside the wizard.
 
 ## Next steps
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
