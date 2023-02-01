@@ -93,21 +93,22 @@ The following operations are available on Call Automation API request metrics:
 
 | Operation / Route  | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| Create Call  | Create an outbound call to user. 
-|   Answer Call   | Answer an inbound call. |
-|   Redirect Call    | Redirect an inbound call to another user. |
-| Reject Call    | Reject an inbound call. |
-|  Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
-| Play  | Play audio to call participants.  |
-|  Recognize | Recognize user input from call participants. |
-|  Add Participants   |  Add a participant to a call.    |
-|   Remove Participants  | Remove a participant from a call.   |
-| HangUp Call | Hang up your call leg. | 
-| Terminate Call | End the call for all participants.  | 
-|   Get Call  | Get details about a call.     |
-|  Get Participant   |  Get details on a call participant.   |
-|  Get Participants   |  Get all participants in a call.   |
-|   Delete Call  |  Delete a call.    |
+| Create Call           | Create an outbound call to user. 
+| Answer Call           | Answer an inbound call. |
+| Redirect Call         | Redirect an inbound call to another user. |
+| Reject Call           | Reject an inbound call. |
+| Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
+| Play                  | Play audio to call participants.  |
+| PlayPrompt            | Play a prompt to users as part of the Recognize action. |
+| Recognize             | Recognize user input from call participants. |
+| Add Participants      |  Add a participant to a call.    |
+| Remove Participants   | Remove a participant from a call.   |
+| HangUp Call           | Hang up your call leg. | 
+| Terminate Call        | End the call for all participants.  | 
+| Get Call              | Get details about a call.     |
+| Get Participant       |  Get details on a call participant.   |
+| Get Participants      |  Get all participants in a call.   |
+| Delete Call           |  Delete a call.    |
 | Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. | 
 
 

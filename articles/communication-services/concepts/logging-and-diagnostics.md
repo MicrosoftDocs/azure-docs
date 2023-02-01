@@ -213,6 +213,6 @@ Communication Services offers the following types of logs that you can enable:
 | CallConnectionId | ID representing the call connection, if available. This ID is different for each participant and is used to identify their connection to the call.  |
 | ServerCallId | A unique ID to identify a call. |
 | SDKVersion | SDK version used for the request. |
-| SdkType | The SDK type used for the request. |
+| SDKType | The SDK type used for the request. |
 | ParticipantId | ID to identify the call participant that made the request. |
 | SubOperationName | Used to identify the sub type of media operation (play, recognize) |
