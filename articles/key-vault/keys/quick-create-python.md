@@ -95,13 +95,13 @@ Create an access policy for your key vault that grants key permission to your us
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --key-permissions delete get list set
+az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --key-permissions get list create delete
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToKeys delete,get,list,set
+Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToKeys getl,ist,create,delete
 ```
 
 ---
