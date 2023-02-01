@@ -2,7 +2,7 @@
 title: How to handle Intelligent Tracking Protection (ITP) in Safari
 description: Single-page app (SPA) authentication when third-party cookies are no longer allowed.
 services: active-directory
-author: nickludwig
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/14/2022
-ms.author: ludwignick
-ms.reviewer: kkrishna
+ms.author: owenrichards
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 

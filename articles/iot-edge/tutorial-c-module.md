@@ -35,7 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-This tutorial demonstrates how to develop a module in **C** using **Visual Studio Code**, and how to deploy it to an IoT Edge device. If you're developing modules using Windows containers, go to [Develop a C IoT Edge module using Windows containers](tutorial-c-module-windows.md) instead.
+This tutorial demonstrates how to develop a module in **C** using **Visual Studio Code**, and how to deploy it to an IoT Edge device.
 
 Use the following table to understand your options for developing and deploying C modules using Linux containers:
 

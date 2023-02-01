@@ -8,10 +8,10 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Build scalable apps
+# Build scalable apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

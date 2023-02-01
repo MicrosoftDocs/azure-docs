@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/06/2023
 ms.author: davidmu
-ms.reviewer: ludwignick, jeedes, luleon
+ms.reviewer: ludwignick, jeedes
 ---
 
 # Claims mapping policy type

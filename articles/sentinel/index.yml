@@ -96,7 +96,7 @@ landingContent:
           - text: CEF log field mapping
             url: cef-name-mapping.md
           - text: Network normalization schema
-            url: ./network-normalization-schema.md
+            url: ./normalization-schema-network.md
 
  # Card (optional)
   - title: Kusto Query Language in Microsoft Sentinel

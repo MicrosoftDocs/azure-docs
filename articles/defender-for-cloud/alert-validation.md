@@ -3,7 +3,8 @@ title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.date: 10/06/2022
-
+ms.author: benmansheim
+author: bmansheim
 ---
 # Alert validation in Microsoft Defender for Cloud
 
@@ -116,7 +117,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create created using this sample yaml configuration:
+1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
     
     ```yaml
     apiVersion: v1
