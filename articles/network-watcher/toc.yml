@@ -252,6 +252,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=network-watcher
   - name: SLA
-    href: https://azure.microsoft.com/en-us/support/legal/sla/network-watcher/
+    href: https://azure.microsoft.com/support/legal/sla/network-watcher/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher
