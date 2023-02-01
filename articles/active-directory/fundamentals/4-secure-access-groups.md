@@ -39,7 +39,7 @@ Learn more: [Determine your security posture for external access](1-secure-acces
 
 ### Group creation 
 
-Determine who is granted permissions to create groups: Administrators, employees, and/or external users. Consider the following options:
+Determine who is granted permissions to create groups: Administrators, employees, and/or external users. Consider the following scenarios:
 
 * Tenant members can create Azure AD security groups
 * Internal and external users can join groups in your tenant
@@ -82,7 +82,7 @@ When using groups, it's important they have a single function. If a group is use
 
 ### Group types
 
-You can create Azure AD security groups and Microsoft 365 groups in the Azure portal or the Microsoft 365 Admin portal. Use either group type for securing external access.
+You can create Azure AD security groups and Microsoft 365 Groups in the Azure portal or the Microsoft 365 Admin portal. Use either group type for securing external access.
 
 | Considerations |Manual and dynamic Azure AD security groups| Microsoft 365 Groups |
 | - | - | - |
@@ -94,7 +94,7 @@ You can create Azure AD security groups and Microsoft 365 groups in the Azure po
 | Can be used with| Conditional Access<br>entitlement management<br>group licensing| Conditional Access<br>entitlement management<br>sensitivity labels |
 
 > [!NOTE]
-> Use Microsoft 365 groups to create and manage a set of Microsoft 365 resources, such as a Team and its associated sites and content. 
+> Use Microsoft 365 Groups to create and manage a set of Microsoft 365 resources, such as a Team and its associated sites and content. 
 
 ## Azure AD security groups 
 
@@ -103,7 +103,7 @@ Azure AD security groups can have users or devices. Use these groups to manage a
 * Azure resources
   * Microsoft 365 apps
   * Custom apps
-  * Software as a service (SaaS) apps such as Dropbox ServiceNow
+  * Software as a Service (SaaS) apps such as Dropbox ServiceNow
 * Azure data and subscriptions
 * Azure services
 
@@ -143,10 +143,11 @@ Hybrid organizations have infrastructure for on-premises and an Azure AD. Hybrid
 Microsoft 365 Groups is the membership service for access across Microsoft 365. They can be created from the Azure portal, or the Microsoft 365 portal. When you create a Microsoft 365 Group, you grant access to a group of resources for collaboration.
 
 Learn more:
-[Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
-[Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
-[Azure portal](https://portal.azure.com/)
-[Microsoft 365 portal](https://admin.microsoft.com/)
+
+* [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
+* [Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
+* [Azure portal](https://portal.azure.com/)
+* [Microsoft 365 portal](https://admin.microsoft.com/)
 
 ### Microsoft 365 Groups roles
 
@@ -183,7 +184,7 @@ See the following articles to learn more about securing external access to resou
 
 3. [Create a security plan for external access](3-secure-access-plan.md)
 
-4. [Securing external access with groups](4-secure-access-groups.md) (You're here)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You're here)
 
 5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
