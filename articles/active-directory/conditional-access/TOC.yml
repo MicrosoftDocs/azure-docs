@@ -120,8 +120,6 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
-    - name: FAQ
-      href: faqs.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies
@@ -134,16 +132,18 @@
   items:
   - name: Office 365 application
     href: reference-office-365-application-contents.md
-  - name: Beta Graph APIs
+  - name: Microsoft Graph APIs
     items: 
-    - name: conditionalAccessPolicy API
+    - name: conditionalAccessPolicy
       href: /graph/api/resources/conditionalaccesspolicy
-    - name: namedLocation API
+    - name: namedLocation
       href: /graph/api/resources/namedlocation
-    - name: countryNamedLocation API
+    - name: countryNamedLocation
       href: /graph/api/resources/countrynamedlocation
-    - name: ipNamedLocation API
+    - name: ipNamedLocation
       href: /graph/api/resources/ipnamedlocation
+    - name: conditionalAccessTemplate
+      href: /graph/api/resources/conditionalaccesstemplate
 - name: Resources
   items:
   - name: Azure feedback forum

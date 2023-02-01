@@ -2,12 +2,12 @@
 title: Monitor network connectivity by using Azure Monitor Agent
 description: This article describes how to monitor network connectivity in Connection Monitor by using Azure Monitor Agent.
 services: network-watcher
-author: v-ksreedevan
+author: halkazwini
 ms.service: network-watcher
-ms.custom: ignite-2022
+ms.custom: ignite-2022, engagement-fy23
 ms.topic: how-to
-ms.date: 09/11/2022
-ms.author: v-ksreedevan
+ms.date: 10/27/2022
+ms.author: halkazwini
 #Customer intent: I need to monitor a connection by using Azure Monitor Agent.
 ---
 
@@ -38,7 +38,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and virtual machine scale sets, see the "Agents for Azure virtual machines and virtual machine scale sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and Virtual Machine Scale Sets, see the "Agents for Azure virtual machines and Virtual Machine Scale Sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 

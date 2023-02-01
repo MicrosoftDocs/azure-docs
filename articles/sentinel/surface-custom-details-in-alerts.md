@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Surface custom event details in alerts in Microsoft Sentinel 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Introduction
 
 [Scheduled query analytics rules](detect-threats-custom.md) analyze **events** from data sources connected to Microsoft Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Microsoft Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.

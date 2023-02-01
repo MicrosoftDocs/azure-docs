@@ -35,6 +35,8 @@
     href: storage-snapshots-files.md
   - name: Performance and scale
     items:
+    - name: Understanding performance
+      href: understand-performance.md
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
     - name: Scalability and performance targets
@@ -289,7 +291,7 @@
     - name: REST API
       href: /rest/api/storagerp/
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/storage/management
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK

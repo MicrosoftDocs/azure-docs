@@ -55,7 +55,7 @@ To configure and deploy your ConfigMap configuration file to your cluster:
 
     - To exclude specific namespaces for stdout log collection, configure the key/value by using the following example:
     `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
-    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally. Then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
+    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally. Then follow the steps [here](container-insights-manage-agent.md#disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
     - To disable stderr log collection cluster-wide, configure the key/value by using the following example: `[log_collection_settings.stderr] enabled = false`.
     
     Save your changes in the editor.

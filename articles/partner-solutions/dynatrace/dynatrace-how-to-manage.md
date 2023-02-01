@@ -1,5 +1,5 @@
 ---
-title: Manage your Dynatrace for Azure integration
+title: Manage your Azure Native Dynatrace Service integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
 author: flang-msft
 
@@ -9,7 +9,7 @@ ms.date: 10/12/2022
 
 ---
 
-# Manage the Dynatrace integration with Azure
+# Manage the Azure Native Dynatrace Service
 
 This article describes how to manage the settings for Dynatrace for Azure.
 

@@ -4,8 +4,8 @@ description: Learn which versions of the MySQL server are supported in the Azure
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---

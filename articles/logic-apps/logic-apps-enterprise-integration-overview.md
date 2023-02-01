@@ -39,9 +39,7 @@ Although organizations use different protocols and formats for B2B communication
    > Don't install this extension alongside the BizTalk Server extension. Having both extensions might 
    > produce unexpected behavior. Make sure that you only have one of these extensions installed.
    >
-   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
-   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
-   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+   > On high resolution monitors, you might experience a display problem with the map designer. To resolve this display scaling problem for Visual Studio, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
    To install the extension from inside Visual Studio, follow these steps:
 

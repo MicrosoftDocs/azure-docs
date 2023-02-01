@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure File Sync | Microsoft Docs
+title: Deploy Azure File Sync
 description: Learn how to deploy Azure File Sync from start to finish using the Azure portal, PowerShell, or the Azure CLI.
 author: khdownie
 ms.service: storage

@@ -22,7 +22,7 @@ This tutorial outlines the steps to build a device side application on Android T
 
 * Latest version of [Git](https://git-scm.com/)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
@@ -65,13 +65,13 @@ A device must be registered with your IoT hub before it can connect. In this qui
    adb devices
    ```
 
-3. Download our sample for Android/Android Things from this [repository](https://github.com/Azure-Samples/azure-iot-samples-java) or use Git.
+3. Download our sample for Android/Android Things from the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java/#samples) or use Git to clone the repository as shown in the following example.
 
    ```
-   git clone https://github.com/Azure-Samples/azure-iot-samples-java.git
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
 
-4. In Android Studio, open the Android Project in located in "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
+4. In Android Studio, open the Android Project from the *\azure-iot-sdk-java\device\iot-device-samples\android-sample* folder in your copy of the repository.
 
 5. Open gradle.properties file, and replace "Device_connection_string" with your device connection string noted earlier.
  

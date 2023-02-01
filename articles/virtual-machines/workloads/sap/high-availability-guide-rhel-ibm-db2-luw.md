@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/15/2022
+ms.date: 12/06/2022
 ms.author: juergent
 
 ---
@@ -108,7 +108,7 @@ Complete the planning process before you execute the deployment. Planning builds
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
 | Azure fencing | Method to avoid split brain situations is prevented. |
-| Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
+| Azure Load Balancer | Usage of Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
@@ -339,19 +339,22 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    e. After the new front-end IP pool is created, note the pool IP address.
 
-1. Create a back-end pool:
+1. Create a single back-end pool: 
 
-   a. In the Azure portal, open the Azure Load Balancer, select **backend pools**, and then select **Add**.
+   1. Open the load balancer, select **Backend pools**, and then select **Add**.
+   
+   1. Enter the name of the new back-end pool (for example, **Db2-backend**).
+   
+   2. Select **NIC** for Backend Pool Configuration.
+    
+   1. Select **Add a virtual machine**.
+   
+   1. Select the virtual machines of the cluster.
+   
+   1. Select **Add**.
+        
+   2. Select **Save**.   
 
-   b. Enter the name of the new back-end pool (for example, **Db2-backend**).
-
-   c. Select **Add a virtual machine**.
-
-   d. Select the availability set or the virtual machines hosting IBM Db2 database created in the preceding step.
-
-   e. Select the virtual machines of the IBM Db2 cluster.
-
-   f. Select **OK**.
 
 1. Create a health probe:
 
@@ -359,7 +362,7 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    b. Enter the name of the new health probe (for example, **Db2-hp**).
 
-   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**, and keep the **Unhealthy threshold** value set to **2**.
+   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**.
 
    d. Select **OK**.
 

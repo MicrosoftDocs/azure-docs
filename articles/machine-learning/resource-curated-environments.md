@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about Azure Machine Learning curated environments, a set of pre-configured environments that help reduce experiment and deployment preparation times.
 services: machine-learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: osiotugo
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
@@ -50,6 +50,9 @@ The following configurations are supported:
 | AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.12.0 | 0.7.3 | 1.12.0 |
 | AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
 | AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
+
+> [!NOTE]
+> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu with cuda 11.3 can be used.
 
 ### PyTorch
 

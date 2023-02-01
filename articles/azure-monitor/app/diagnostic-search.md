@@ -131,7 +131,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 Learn how to [send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md).
 
-## <a name="questions"></a>Q & A
+## <a name="questions"></a>Frequently asked questions
 
 Find answers to common questions.
 

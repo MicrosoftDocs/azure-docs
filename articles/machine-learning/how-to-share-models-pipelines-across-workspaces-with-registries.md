@@ -118,7 +118,7 @@ print(ml_client_registry)
 
 ## Create environment in registry
 
-Environments define the docker container and python dependencies required to run training jobs or deploy models. For more information on environments, see the following articles:
+Environments define the docker container and Python dependencies required to run training jobs or deploy models. For more information on environments, see the following articles:
 
 * [Environment concepts](./concept-environments.md)
 * [How to create environments (CLI)](./how-to-manage-environments-v2.md) articles. 
@@ -587,10 +587,7 @@ The following screenshot shows a model in a registry in AzureML studio. If you c
 
 In the last section, you'll deploy a model from registry to an online endpoint in a workspace. You can choose to deploy any workspace you have access to in your organization, provided the location of the workspace is one of the locations supported by the registry. This capability is helpful if you trained a model in a `dev` workspace and now need to deploy the model to `test` or `prod` workspace, while preserving the lineage information around the code, environment and data used to train the model.
 
-Online endpoints let you deploy model and submit inference requests through the REST APIs. For more information, see the following articles:
-
-* [Managed endpoints (CLI)](how-to-deploy-managed-online-endpoints.md)
-* [Managed endpoints (SDK)](how-to-deploy-managed-online-endpoint-sdk-v2.md) 
+Online endpoints let you deploy models and submit inference requests through the REST APIs. For more information, see [How to deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
 # [Azure CLI](#tab/cli)
 
