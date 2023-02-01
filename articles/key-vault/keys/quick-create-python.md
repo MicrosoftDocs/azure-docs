@@ -20,7 +20,7 @@ Get started with the Azure Key Vault client library for Python. Follow these ste
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment)
+- [Python 3.7+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
@@ -120,7 +120,7 @@ from azure.identity import DefaultAzureCredential
 keyVaultName = os.environ["KEY_VAULT_NAME"]
 KVUri = "https://" + keyVaultName + ".vault.azure.net"
 
-credential = DefaultAzureCredential()
+credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
 client = KeyClient(vault_url=KVUri, credential=credential)
 
 keyName = input("Input a name for your key > ")
@@ -165,7 +165,7 @@ In the example code, the name of your key vault is expanded to the key vault URI
 
 
 ```python
-credential = DefaultAzureCredential()
+credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
 client = KeyClient(vault_url=KVUri, credential=credential)
 ```
 
