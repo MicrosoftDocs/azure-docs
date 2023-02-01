@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # What is the Azure AD Connect Administration Agent?
 
-The Azure AD Connect Administration Agent is a component of Azure AD Connect that can be installed on an Azure AD Connect server. The agent is used to collect specific data from your Active Directory environment. The collected data helps a Microsoft support engineer troubleshoot issues when you open a support case.
+The Azure AD Connect Administration Agent is a component of Azure AD Connect that can be installed on an Azure AD Connect server. The agent is used to collect specific data from your hybrid Active Directory environment. The collected data helps a Microsoft support engineer troubleshoot issues when you open a support case.
 
 > [!NOTE]
 > The Azure AD Connect Administration Agent is no longer part of the Azure AD Connect installation, and it can't be used with Azure AD Connect version 2.1.12.0 or later.
@@ -26,12 +26,14 @@ The information that the Azure AD Connect Administration Agent retrieves from yo
 
 By default, the Azure AD Connect Administration Agent isn't installed on the Azure AD Connect server. To assist with support cases, you must install the agent to collect data.
 
-## Install the Azure AD Connect Administration Agent on the Azure AD Connect server
+## Install the Azure AD Connect Administration Agent
+
+To install the Azure AD Connect Administration Agent on the Azure AD Connect server, first be sure you meet some prerequisites, and then install the agent.
 
 Prerequisites:
 
-1. Azure AD Connect is installed on the server.
-1. Azure AD Connect Health is installed on the server.
+- Azure AD Connect is installed on the server.
+- Azure AD Connect Health is installed on the server.
 
 :::image type="content" source="media/whatis-aadc-admin-agent/adminagent0.png" alt-text="Screenshot that shows the admin agent on the server.":::
 
@@ -53,9 +55,9 @@ After the agent is installed, you'll see the following two new programs in **Add
 
 When you open a support case, the Microsoft support engineer can see this information for a specific user:
 
-- The relevant data in Active Directory.
-- The Active Directory connector space in the Azure AD Connect server.
-- The Azure Active Directory connector space in the Azure AD Connect server.
+- The relevant data in Windows Server Active Directory (Windows Server AD).
+- The Windows Server AD connector space on the Azure AD Connect server.
+- The Azure AD connector space on the Azure AD Connect server.
 - The metaverse in the Azure AD Connect server.
 
 The Microsoft support engineer can't change any data in your system, and they can't see any passwords.
@@ -65,7 +67,7 @@ The Microsoft support engineer can't change any data in your system, and they ca
 After the agent is installed, if you don't want the Microsoft support engineer to access your data for a support call, you can disable the functionality by modifying the service config file:
 
 1. In Notepad, open *C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config*.
-1. Disable the **UserDataEnabled** setting as shown in the following example. If the**UserDataEnabled** setting exists and is set to **true**, set it to **false**. If the setting doesn't exist, add the setting:
+1. Disable the **UserDataEnabled** setting as shown in the following example. If the **UserDataEnabled** setting exists and is set to **true**, set it to **false**. If the setting doesn't exist, add the setting.
 
     ```xml
     <appSettings>

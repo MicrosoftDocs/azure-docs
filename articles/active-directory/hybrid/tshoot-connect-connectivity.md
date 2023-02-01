@@ -19,23 +19,23 @@ ms.custom: has-adal-ref
 ---
 # Troubleshoot Azure AD Connect connectivity issues
 
-This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
+This article explains how connectivity between Azure AD Connect and Azure Active Directory (Azure AD) works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment that uses a proxy server.
 
 ## Troubleshoot connectivity issues in the installation wizard
 
-Azure AD Connect uses the MSAL library for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these two are .NET applications.
+Azure AD Connect uses the Microsoft Authentication Library (MSAL) for authentication. The installation wizard and the sync engine require machine.config to be properly configured because these two are .NET applications.
 
 > [!NOTE]
-> Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
+> Azure AD Connect v1.6.xx.x uses the Active Directory Authentication Library (ADAL). The ADAL is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named `fabrikamproxy` and uses port 8080.
 
-First we need to make sure [machine.config](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and that the Microsoft Azure AD Sync service has been restarted once after the *machine.config file* update.
+First, make sure that [machine.config](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and that the Microsoft Azure AD Sync service has been restarted once after the *machine.config* file update.
 
-![Screenshot shows part of the machine dot config file.](./media/tshoot-connect-connectivity/machineconfig.png)
+:::image type="content" source="media/tshoot-connect-connectivity/machineconfig.png" alt-text="Screenshot that shows part of the machine dot config file.":::
 
 > [!NOTE]
-> In some non-Microsoft blogs, it is documented that changes should be made to *miiserver.exe.config* instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system stops working on first upgrade. For that reason, we recommend that you update *machine.config* instead.
+> Some non-Microsoft blogs indicate you should make changes to *miiserver.exe.config* instead of the *machine.config* file. However, the *miiserver.exe.config* file is overwritten on every upgrade. Even if the file works during the initial installation, the system stops working during the first upgrade. For that reason, we recommend that you update *machine.config* as described in this article.
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -54,7 +54,7 @@ Of these URLs, the URLs listed in the following table are the absolute bare mini
 | `*.ocsp.digicert.com` |HTTP/80 |Used to verify certificates. |
 | `*.www.d-trust.net` |HTTP/80 |Used to verify certificates. |
 | `*.root-c3-ca2-2009.ocsp.d-trust.net` |HTTP/80 |Used to verify certificates. |
-| `*.crl.microsoft.com |HTTP/80` |Used to verify certificates. |
+| `*.crl.microsoft.com` |HTTP/80 |Used to verify certificates. |
 | `*.oneocsp.microsoft.com` |HTTP/80 |Used to verify certificates. |
 | `*.ocsp.msocsp.com` |HTTP/80 |Used to verify certificates. |
 
@@ -92,7 +92,7 @@ If the installation wizard is successful in connecting to Azure AD but the passw
 
 :::image type="content" source="media/tshoot-connect-connectivity/badpassword.png" alt-text="Screenshot that shows an error that occurs when the password can't be verified.":::
 
-- Is the password a temporary password that must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` on a different computer than the Azure AD Connect server and verify that the account is usable.
+Is the password a temporary password that must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` on a different computer than the Azure AD Connect server and verify that the account is usable.
 
 ### Verify proxy connectivity
 
@@ -100,7 +100,7 @@ To check whether the Azure AD Connect server is connecting to the proxy and the 
 
 PowerShell uses the configuration in *machine.config* to contact the proxy. The settings in *winhttp/netsh* shouldn't affect these cmdlets.
 
-If the proxy is correctly configured, you should get a success status:
+If the proxy is correctly configured, a success status appears:
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequest200.png" alt-text="Screenshot that shows the success status when the proxy is configured correctly.":::
 
@@ -108,7 +108,7 @@ If you see the message **Unable to connect to the remote server**, PowerShell is
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequestunable.png" alt-text="Screenshot of an error message when PowerShell can't connect to the remote server.":::
 
-If the proxy isn't correctly configured, you get an error:
+If the proxy isn't correctly configured, an error message appears:
 
 :::image type="content" source="media/tshoot-connect-connectivity/invokewebrequest403.png" alt-text="Screenshot of a 403 proxy error in PowerShell.":::
 
@@ -177,7 +177,7 @@ The following example is a dump from an actual proxy log and the installation wi
 
 ## Authentication errors
 
-This section covers errors that might be returned from Active Directory Authentication Library (ADAL), the authentication library used by Azure AD Connect, and PowerShell. The error explanation should help you identify your next steps.
+This section covers errors that might be returned from the ADAL and PowerShell. The error explanation should help you identify your next steps.
 
 ### Invalid Grant
 

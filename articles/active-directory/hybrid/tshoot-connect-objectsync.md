@@ -20,11 +20,11 @@ This article provides steps for troubleshooting issues with object synchronizati
 
 ## Troubleshooting task
 
-For Azure AD Connect deployment with version 1.1.749.0 or later, use the troubleshooting task in the wizard to troubleshoot object sync issues. For earlier versions, you can [troubleshoot manually](tshoot-connect-object-not-syncing.md).
+For Azure AD Connect deployments of version 1.1.749.0 or later, use the troubleshooting task in the wizard to troubleshoot object sync issues. For earlier versions, you can [troubleshoot manually](tshoot-connect-object-not-syncing.md).
 
 ### Run the troubleshooting task in the wizard
 
-To run the troubleshooting task in the wizard:
+To run the troubleshooting task:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server by using the Run as Administrator option.
 1. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
@@ -37,7 +37,7 @@ To run the troubleshooting task in the wizard:
 
 ### Troubleshoot input parameters
 
-The following input parameters are needed by the troubleshooting task:
+The troubleshooting task requires the following input parameters:
 
 - **Object Distinguished Name**: The distinguished name of the object that needs troubleshooting.
 - **AD Connector Name**: The name of the Windows Server Active Directory (Windows Server AD) forest where the object resides.
@@ -49,13 +49,13 @@ The following input parameters are needed by the troubleshooting task:
 
 The troubleshooting task performs the following checks:
 
-- Detect UPN mismatch if the object is synced to Azure AD.
+- Detect user principal name (UPN) mismatch if the object is synced to Azure AD.
 - Check whether object is filtered due to domain filtering.
 - Check whether object is filtered due to organizational unit (OU) filtering.
 - Check whether object sync is blocked due to a linked mailbox.
 - Check whether the object is in a dynamic distribution group that isn't intended to be synced.
 
-The rest of this section describes specific results that are returned by the task. In each case, the task provides an analysis followed by recommended actions to resolve the issue.
+The rest of the article describes specific results that are returned by the troubleshooting task. In each case, the task provides an analysis followed by recommended actions to resolve the issue.
 
 ## Detect UPN mismatch if the object is synced to Azure AD
 
@@ -63,13 +63,13 @@ Check for the UPN mismatch issues that are described in the next sections.
 
 ### UPN suffix is not verified with the Azure AD tenant
 
-When the user principal name (UPN) or alternate login ID suffix isn't verified with the Azure AD tenant, Azure AD replaces the UPN suffixes with the default domain name `onmicrosoft.com`.
+When the UPN or alternate login ID suffix isn't verified with the Azure AD tenant, Azure AD replaces the UPN suffixes with the default domain name `onmicrosoft.com`.
 
 :::image type="content" source="media/tshoot-connect-objectsync/objsynch2.png" alt-text="Screenshot that shows an example of an unverified UPN suffix error in PowerShell.":::
 
 ### Azure AD tenant DirSync feature SynchronizeUpnForManagedUsers is disabled
 
-When the Azure AD tenant DirSync feature SynchronizeUpnForManagedUsers is disabled, Azure AD doesn't allow sync updates to the UPN or alternate login ID for licensed user accounts with managed authentication.
+When the Azure AD tenant DirSync feature SynchronizeUpnForManagedUsers is disabled, Azure AD doesn't allow sync updates to the UPN or alternate login ID for licensed user accounts that use managed authentication.
 
 :::image type="content" source="media/tshoot-connect-objectsync/objsynch4.png" alt-text="Screenshot that shows an example of a UPN sync for managed users error in PowerShell.":::
 
@@ -103,13 +103,13 @@ A linked mailbox is supposed to be associated with an external primary account t
 
 ## Dynamic distribution group issue
 
-Due to various differences between on-premises Windows Server AD and Azure Active Directory, Azure AD Connect doesn't sync dynamic distribution groups to the Azure AD tenant.
+Due to various differences between on-premises Windows Server AD and Azure AD, Azure AD Connect doesn't sync dynamic distribution groups to the Azure AD tenant.
 
 :::image type="content" source="media/tshoot-connect-objectsync/objsynch13.png" alt-text="Screenshot that shows an example of a dynamic distribution group error in PowerShell.":::
 
 ## HTML report
 
-In addition to analyzing the object, the troubleshooting task generates an HTML report that includes everything that's known about the object. This HTML report can be shared with the support team for further troubleshooting if needed.
+In addition to analyzing the object, the troubleshooting task generates an HTML report that includes everything that's known about the object. The HTML report can be shared with the support team for further troubleshooting if needed.
 
 :::image type="content" source="media/tshoot-connect-objectsync/objsynch8.png" alt-text="Screenshot that shows an example of an HTML report in PowerShell.":::
 

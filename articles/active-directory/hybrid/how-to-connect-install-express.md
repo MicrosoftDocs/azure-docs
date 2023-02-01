@@ -16,43 +16,46 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure AD Connect by using express settings
 
-Installing Azure AD Connect by using express settings is a good option when you have a single-forest topology and use [password hash sync](how-to-connect-password-hash-synchronization.md) for authentication. Express settings is the default option to install Azure AD Connect, and it's used for the most commonly deployed scenario. It's only a few short steps to extend your on-premises directory to the cloud.
+If you have a single-forest topology and use [password hash sync](how-to-connect-password-hash-synchronization.md) for authentication, express settings is a good option to use when you install Azure AD Connect. Express settings is the default option to install Azure AD Connect, and it's used for the most commonly deployed scenario. It's only a few short steps to extend your on-premises directory to the cloud.
 
-Before you start installing Azure AD Connect, [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and be sure to complete the prerequisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md).
+Before you start installing Azure AD Connect, [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771), and be sure to complete the prerequisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md).
 
 If the express settings installation doesn't match your topology, see [Related articles](#related-articles) for information about other scenarios.
 
 ## Express installation of Azure AD Connect
 
-1. Sign in as Local Administrator on the server you want to install Azure AD Connect on. The server you sign in on will be the sync server.
+1. Sign in as Local Administrator on the server you want to install Azure AD Connect on.
+
+   The server you sign in on will be the sync server.
 1. Go to *AzureADConnect.msi* and double-click to open the installation file.
 1. In **Welcome**, select the checkbox to agree to the licensing terms, and then select **Continue**.
 1. In **Express settings**, select **Use express settings**.
 
-   ![Welcome to Azure AD Connect](./media/how-to-connect-install-express/express.png)
+   :::image type="content" source="media/how-to-connect-install-express/express.png" alt-text="Screenshot that shows the welcome page in the Azure AD Connect installation wizard.":::
 
-1. In **Connect to Azure AD**, enter the user name and password of the Hybrid Identity Administrator account you created earlier, and then select **Next**.
+1. In **Connect to Azure AD**, enter the user name and password of the Hybrid Identity Administrator account, and then select **Next**.
 
-   ![Connect to Azure AD](./media/how-to-connect-install-express/connectaad.png)  
+   :::image type="content" source="media/how-to-connect-install-express/connectaad.png" alt-text="Screenshot that shows the Connect to Azure AD page in the installation wizard.":::
 
-   If an error message appears or you have problems with connectivity, see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
+   If an error message appears or if you have problems with connectivity, see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
-1. In **Connect to AD DS**, enter the user name and password for an Enterprise Admin account. You can enter the domain part in either NetBios or FQDN format, like `FABRIKAM\administrator` or `fabrikam.com\administrator`. Select **Next**. 
+1. In **Connect to AD DS**, enter the user name and password for an Enterprise Admin account. You can enter the domain part in either NetBIOS or FQDN format, like `FABRIKAM\administrator` or `fabrikam.com\administrator`. Select **Next**.
 
-   ![Connect to AD DS](./media/how-to-connect-install-express/connectad.png)
+   :::image type="content" source="media/how-to-connect-install-express/connectad.png" alt-text="Screenshot that shows the Connect to AD DS page in the installation wizard.":::
 
 1. The [Azure AD sign-in configuration](plan-connect-user-signin.md#azure-ad-sign-in-configuration) page appears only if you didn't complete the step to [verify your domains](../fundamentals/add-custom-domain.md) in the [prerequisites](how-to-connect-install-prerequisites.md).
 
-   ![Unverified domains](./media/how-to-connect-install-express/unverifieddomain.png)  
+   :::image type="content" source="media/how-to-connect-install-express/unverifieddomain.png" alt-text="Screenshot that shows examples of unverified domains in the installation wizard.":::
 
-   If you see this page, review each domain that's marked **Not Added** and **Not Verified**. Make sure that those domains have been verified in Azure AD. When you've verified your domains, select the **Refresh** icon.
+   If you see this page, review each domain that's marked **Not Added** or **Not Verified**. Make sure that those domains have been verified in Azure AD. When you've verified your domains, select the **Refresh** icon.
 1. In **Ready to configure**, select **Install**.
 
-   - Optionally in **Ready to configure**, you can clear the **Start the synchronization process as soon as configuration completes** checkbox. You should clear this checkbox if you want to do additional configuration, such as add [filtering](how-to-connect-sync-configure-filtering.md). If you clear this option, the wizard configures sync but leaves the scheduler disabled. The scheduler doesn't run until you enable it manually by [rerunning the installation wizard](how-to-connect-installation-wizard.md).
-   - If you leave the **Start the synchronization process as soon as configuration completes** checkbox selected, a full sync to Azure AD of all users, groups, and contacts begins immediately.
-   - If you have Exchange in your on-premises instance of Windows Server Active Directory, you also have an option to enable [Exchange Hybrid deployment](/exchange/exchange-hybrid). Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
+   - Optionally in **Ready to configure**, you can clear the **Start the synchronization process as soon as configuration completes** checkbox. You should clear this checkbox if you want to do more configuration, such as to add [filtering](how-to-connect-sync-configure-filtering.md). If you clear this option, the wizard configures sync but leaves the scheduler disabled. The scheduler doesn't run until you enable it manually by [rerunning the installation wizard](how-to-connect-installation-wizard.md).
+   - If you leave the **Start the synchronization process when configuration completes** checkbox selected, a full sync of all users, groups, and contacts to Azure AD begins immediately.
+   - If you have Exchange in your instance of Windows Server Active Directory, you also have the option to enable [Exchange Hybrid deployment](/exchange/exchange-hybrid). Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
 
-     ![Ready to configure Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
+      :::image type="content" source="media/how-to-connect-install-express/readytoconfigure.png" alt-text="Screenshot that shows the Ready to configure Azure AD Connect page in the wizard.":::
+  
 1. When the installation is finished, select **Exit**.
 1. Before you use Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.
 
