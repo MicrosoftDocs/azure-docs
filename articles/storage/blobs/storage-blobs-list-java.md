@@ -14,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# List blobs using the Azure Storage client library for Java
+# List blobs with Java
 
 This article shows how to list blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

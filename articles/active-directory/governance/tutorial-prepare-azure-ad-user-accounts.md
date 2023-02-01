@@ -238,7 +238,7 @@ In this scenario, we'll use this feature of Azure AD to generate a temporary acc
 
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 
-1. Sign in to the Azure portal as a Global admin and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
+1. Sign in to the Azure portal as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
 2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
 
 ## Additional steps for leaver scenario

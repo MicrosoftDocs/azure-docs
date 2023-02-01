@@ -5,8 +5,8 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 12/07/2022
-ms.custom: references_regions
+ms.date: 01/17/2023
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Business case (preview) - Common questions

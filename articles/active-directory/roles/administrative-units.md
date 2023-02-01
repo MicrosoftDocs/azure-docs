@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/30/2022
+ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -129,7 +129,8 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped creation and deletion of groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Administrative unit-scoped management of group properties and membership | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of group properties and membership for Microsoft 365 groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of group properties and membership for all other groups | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Administrative unit-scoped management of group licensing | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Device management
