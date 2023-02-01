@@ -633,9 +633,9 @@
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
-                - name: Invoke batch endpoints from Azure Data Factory
+                - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
-                - name: Invoke batch endpoints from Event Grid events in storage
+                - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
