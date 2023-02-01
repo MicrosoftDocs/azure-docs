@@ -158,13 +158,13 @@ For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front 
 
 You can change a domain between using an Azure Front Door-managed certificate and a user-managed certificate.
 
-> * It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
-> * If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime. When switching to a managed certificate, unless the domain ownership is re-validated and the domain state becomes *Approved*, you will continue to be served by the previous certificate.
-> * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
+* It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
+* If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime. When switching to a managed certificate, unless the domain ownership is re-validated and the domain state becomes *Approved*, you will continue to be served by the previous certificate.
+* If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
 
-## Certificate renewal
+### Certificate renewal
 
-### Renewing Azure Front Door-managed certificates
+#### Azure Front Door-managed certificates
 
 For most custom domains, Azure Front Door automatically renews (rotates) managed certificates when they're close to expiry, and you don't need to do anything.
 
@@ -182,11 +182,11 @@ If one of the scenarios above applies to your custom domain, then 45 days before
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
-### Renewing Azure-managed certificates for domains pre-validated by other Azure services
+#### Azure-managed certificates for domains pre-validated by other Azure services
 
 Azure-managed certificates are automatically rotated by the Azure service that validates the domain.
 
-### <a name="rotate-own-certificate"></a>Renewing customer-managed TLS certificates
+#### <a name="rotate-own-certificate"></a>Renewing customer-managed TLS certificates
 
 In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
 
