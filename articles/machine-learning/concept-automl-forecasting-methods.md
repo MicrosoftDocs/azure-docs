@@ -37,7 +37,7 @@ Again, $g$ generally has a set of parameters, including those governing regulari
 > [!IMPORTANT]
 > AutoML's forecasting regression models assume that all features provided by the user are known into the future, at least up to the forecast horizon.  
 
-AutoML's forecasting regression models can also be augmented to use historical values of the target and predictors. The result is a hybrid model with characteristics of a time series model and a pure regression model. Historical quantities are additional predictor variables in the regression and we refer to them as **lagged quantities**. The _order_ of the lag refers to how far back the value is known. For example, the current value of an order two lag of the target for our orange juice demand example is the observed juice demand from two days ago.
+AutoML's forecasting regression models can also be augmented to use historical values of the target and predictors. The result is a hybrid model with characteristics of a time series model and a pure regression model. Historical quantities are additional predictor variables in the regression and we refer to them as **lagged quantities**. The _order_ of the lag refers to how far back the value is known. For example, the current value of an order-two lag of the target for our orange juice demand example is the observed juice demand from two days ago.
 
 Another notable difference between the time series models and the regression models is in the way they generate forecasts. Time series models are generally defined by recursion relations and produce forecasts one-at-a-time. To forecast many periods into the future, they iterate up-to the forecast horizon, feeding previous forecasts back into the model to generate the next one-period-ahead forecast as needed. In contrast, the regression models are so-called **direct forecasters** that generate _all_ forecasts up to the horizon in one go. Direct forecasters can be preferable to recursive ones because recursive models compound prediction error when they feed previous forecasts back into the model. When lag features are included, AutoML makes some important modifications to the training data so that the regression models can function as direct forecasters. See the [lag features article](./concept-automl-forecasting-lags.md) for more details. 
 
@@ -59,7 +59,7 @@ Importantly, AutoML also includes **ensemble** models that create weighted combi
 
 ## How AutoML uses your data
 
-AutoML accepts time series data in tabular, "wide" format; that is, each variable must have its own corresponding column. AutoML requires that one of the columns must be the time axis for the forecasting problem which is parsable into a datetime type. The simplest time series data set consists of a **time column** and a numeric **target column**. The target is the variable one intends to predict into the future. An example of the format in this simple case follows below: 
+AutoML accepts time series data in tabular, "wide" format; that is, each variable must have its own corresponding column. AutoML requires one of the columns to be the time axis for the forecasting problem. This column must be parsable into a datetime type. The simplest time series data set consists of a **time column** and a numeric **target column**. The target is the variable one intends to predict into the future. The following is an example of the format in this simple case: 
 
 timestamp | quantity
 --------- | --------
@@ -95,7 +95,7 @@ where $H$ is the forecast horizon, $l_{\text{max}}$ is the maximum lag order, an
 where $n_{\text{CV}}$ is the number of cross-validation folds and $n_{\text{step}}$ is the CV step size, or offset between CV folds. The basic logic behind these formulas is that you should always have at least a horizon of training observations for each time series, including some padding for lags and cross-validation splits. See [forecasting model selection](./concept-automl-forecasting-sweeping.md#model-selection) for more details on cross-validation for forecasting.
 
 ### Missing data handling
-AutoML's time series models require regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Prior to modeling, AutoML must ensure that series values are not missing _and_ that the observations are regular. Hence, there are two missing data cases:
+AutoML's time series models require regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Prior to modeling, AutoML must ensure there are no missing series values _and_ that the observations are regular. Hence, there are two missing data cases:
 
 * A value is missing for some cell in the tabular data
 * A _row_ is missing which corresponds with an expected observation given the time series frequency
@@ -112,7 +112,7 @@ timestamp | quantity
 ...        | ...
 2013-12-31 | 347
 
-This series ostensibly has a daily frequency, but there's no observation for 2012-01-02. In this case, AutoML will attempt to fill in the data by adding a new row for 2012-01-02. The new value for the `quantity` column, and any other columns in the data, will then be imputed like other missing values. Clearly, AutoML must know the series frequency in order to fill in observation gaps like this. AutoML automatically detects this frequency, or, optionally, the user can provide it in the configuration.
+This series ostensibly has a daily frequency, but there's no observation for Jan. 2, 2012. In this case, AutoML will attempt to fill in the data by adding a new row for Jan. 2, 2012. The new value for the `quantity` column, and any other columns in the data, will then be imputed like other missing values. Clearly, AutoML must know the series frequency in order to fill in observation gaps like this. AutoML automatically detects this frequency, or, optionally, the user can provide it in the configuration.
 
 The imputation method for filling missing values can be [configured](./how-to-auto-train-forecast.md#custom-featurization) in the input. The default methods are listed in the following table:
 
@@ -124,7 +124,7 @@ Numeric Feature     | Median value
 Missing values for categorical features are handled during numerical encoding by including an additional category corresponding to a missing value. Imputation is implicit in this case.
 
 ### Automated feature engineering
-AutoML generally adds new columns to user data in an effort to increase modeling accuracy. Engineered feature can include the following:
+AutoML generally adds new columns to user data to increase modeling accuracy. Engineered feature can include the following:
 
 Feature Group | Default/Optional
 ------------ | ----------------
@@ -141,18 +141,18 @@ You can configure featurization from the AutoML SDK via the [ForecastingJob](/py
 
 ### Non-stationary time series detection and handling
 
-A time series where mean and variance change over time is called a **non-stationary**. For example, time series that exhibit stochastic trends are non-stationary by nature. To visualize this, the below image plots a series that is generally trending upward. Now, compute and compare the mean (average) values for the first and the second half of the series. Are they the same? Here, the mean of the series in the first half of the plot is significantly smaller than in the second half. The fact that the mean of the series depends on the time interval one is looking at, is an example of the time-varying moments. Here, the mean of a series is the first moment.
+A time series where mean and variance change over time is called a **non-stationary**. For example, time series that exhibit stochastic trends are non-stationary by nature. To visualize this, the following image plots a series that is generally trending upward. Now, compute and compare the mean (average) values for the first and the second half of the series. Are they the same? Here, the mean of the series in the first half of the plot is significantly smaller than in the second half. The fact that the mean of the series depends on the time interval one is looking at, is an example of the time-varying moments. Here, the mean of a series is the first moment.
 
 :::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
 
-Next, let's examine the image below, which plots the the original series in first differences, $x_t = y_t - y_{t-1}$ where $x_t$ is the change in retail sales and $y_t$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a first order stationary times series. The reason we added the first order term is because the first moment (mean) does not change with time interval, the same cannot be said about the variance, which is a second moment.
+Next, let's examine the following image, which plots the original series in first differences, $\Delta y_{t} = y_t - y_{t-1}$. The mean of the series is roughly constant over the time range while the variance appears to vary. Thus, this is an example of a first order stationary times series. 
 
 
 :::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::
 
-AutoML Machine learning models can not inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
+AutoML regression models can't inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, out-of-sample forecast accuracy can be  poor if such trends are present.
 
-AutoML automatically analyzes time series dataset to check whether it is stationary or not. When non-stationary time series are detected, AutoML applies a differencing transform automatically to mitigate the impact of non-stationary time series.
+AutoML automatically analyzes time series dataset to determine stationarity. When non-stationary time series are detected, AutoML applies a differencing transform automatically to mitigate the impact of non-stationary behavior.
 
 ### Model sweeping
 After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See the [model sweeping and selection](./concept-automl-forecasting-sweeping.md) article for more details.
