@@ -17,7 +17,7 @@ In this article, you'll learn how to install and activate the VMware HCX Cloud M
 
 HCX Cloud manager is typically deployed as the destination (cloud side), but it can also be used as the source in cloud-to-cloud deployments. HCX Connector is deployed at the source (on-premises environment). A download link is provided for deploying HCX Connector appliance from within the HCX Cloud Manager. 
 
-In this how-to, you'll:
+You'll also learn how to do the following tasks:
 
 * Install VMware HCX Cloud through the Azure portal.
 * Download and deploy the VMware HCX Connector in on-premises.
@@ -48,7 +48,7 @@ After HCX is deployed, follow the recommended [Next steps](#next-steps).
 
 ## HCX license edition 
 
-HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) based on the type of license installed with the system. Advanced delivers basic connectivity and mobility services to enable hybrid interconnect and migration services. HCX Enterprise offers more services than what standard licenses provide, such as Mobility Groups, Replication assisted vMotion (RAV), Mobility Optimized Networking, Network Extension High availability, OS assisted Migration, etc. 
+HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) based on the type of license installed with the system. Advanced delivers basic connectivity and mobility services to enable hybrid interconnect and migration services. HCX Enterprise offers more services than what standard licenses provide. Some of those services include; Mobility Groups, Replication assisted vMotion (RAV), Mobility Optimized Networking, Network Extension High availability, OS assisted Migration, and others. 
 
 >[!Note]
 > VMware HCX Enterprise is available for Azure VMware Solution customers at no additional cost.  
