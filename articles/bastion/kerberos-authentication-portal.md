@@ -19,6 +19,7 @@ This article shows you how to configure Azure Bastion to use Kerberos authentica
 * During Preview, the Kerberos setting for Azure Bastion can be configured in the Azure portal only.
 * VMs migrated from on-premises to Azure are not currently supported for Kerberos. 
 * Cross-realm authentication is not currently supported for Kerberos. 
+* Changes to DNS server are not currently supported for Kerberos. After making any changes to DNS server, you will need to delete and re-create the Bastion resource.
 
 ## Prerequisites
 
