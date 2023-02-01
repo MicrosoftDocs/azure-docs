@@ -50,7 +50,7 @@ Networking ISV partners include software vendors that provide network functions 
 |---------|---------|
 | [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-1-5?exp=ubp8&tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
 | | [Nuage Networks by Nokia](https://aka.ms/nokianuage)|
-| | [VMWare SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
+| | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
 | | [Versa Networks](https://aka.ms/versa) |
 |||
 
@@ -89,6 +89,6 @@ Our application ISV partners include:
 
 ## Next steps
 - To partner with Microsoft and deploy Azure private MEC solutions:
-    - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you are an operator and system integrator managed service providers.
+    - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you're an operator and system integrator managed service providers.
     - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a network function or hardware vendor.
     - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
