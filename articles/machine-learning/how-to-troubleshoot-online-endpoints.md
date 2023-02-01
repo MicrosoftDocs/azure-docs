@@ -34,7 +34,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * For Azure Machine Learning CLI v2, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
-* For Azure Machine Learning Python SDK v2, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+* For Azure Machine Learning Python SDK v2, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
 
 ## Deploy locally
 
