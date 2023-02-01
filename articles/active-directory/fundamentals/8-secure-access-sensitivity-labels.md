@@ -88,7 +88,7 @@ A sensitivity label in a document or email is customizable, clear text, and pers
 
 Determine the access criteria if Microsoft 365 Groups, Teams, or SharePoint sites are restricted with sensitivity labels. You can label content in containers or use automatic labeling for files in SharePoint, OneDrive, etc.
 
-Learn more: [Get started with sensitivity labels](microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+Learn more: [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 
 #### Sensitivity labels on containers
 
@@ -112,7 +112,7 @@ Learn more:
 
 After you determine use of sensitivity labels, see the following documentation for implementation.
 
-* [Get started with sensitivity labels](microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 * [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 * [Restrict access to content by using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 
