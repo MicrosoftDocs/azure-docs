@@ -139,34 +139,32 @@ With the manage identity role configured, you can start adding code.
 2. Add the following code to authenticate to Azure:
 
 **Example 1**
-    ```python
-    from azure.identity import DefaultAzureCredential
-    from azure.mgmt.compute import ComputeManagementClient
+```python
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.compute import ComputeManagementClient
 
-    SUBSCRIPTION_ID="YOUR_SUBSCRIPTION_ID"
+SUBSCRIPTION_ID="YOUR_SUBSCRIPTION_ID"
 
-    azure_credential = DefaultAzureCredential()
-    ```
+azure_credential = DefaultAzureCredential()
+```
 
     
 **Example 2**
-    ```python
-    #!/usr/bin/env python3
-    import os
-    import requests
-    # printing environment variables
-    endpoint = os.getenv(`IDENTITY_ENDPOINT`)+"?resource=https://management.azure.com/"
-    identityHeader = os.getenv(`IDENTITY_HEADER`)
-    payload={}
-    headers = {
-    `X-IDENTITY-HEADER` : identityHeader,
-    `Metadata` : `True`
-    }
-    response = requests.request("GET", endpoint, headers-headers, data-payload)
-    print(response.text)
-    ```
-
-
+```python
+#!/usr/bin/env python3
+import os
+import requests
+# printing environment variables
+endpoint = os.getenv(`IDENTITY_ENDPOINT`)+"?resource=https://management.azure.com/"
+identityHeader = os.getenv(`IDENTITY_HEADER`)
+payload={}
+headers = {
+`X-IDENTITY-HEADER` : identityHeader,
+`Metadata` : `True`
+}
+response = requests.request("GET", endpoint, headers-headers, data-payload)
+print(response.text)
+```
 
 ## Add code to create Python Compute client and start the VM
 
