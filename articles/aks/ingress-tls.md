@@ -154,9 +154,9 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
 > * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
 > * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
 
-3. Add the --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>" parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
+3. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
 
-4. Add the --set controller.service.loadBalancerIP="<STATIC_IP>" parameter. Specify your own public IP address that was created in the previous step.
+4. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
 
     ```azurepowershell-interactive
     $DnsLabel = "<DNS_LABEL>"
@@ -175,20 +175,20 @@ For more information, see [Use a static public IP address and DNS label with the
 
 #### Use a dynamic public IP address
 
-An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address *doesn't* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address.
+An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address *doesn't* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address. Your output should look similar to the following sample output.
 
 * Use the `kubectl get service` command to get the public IP address for your ingress controller.
 
     ```console
+    # Get the public IP address for your ingress controller
+
     kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+    # Sample output
+
+    NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+    nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
     ```
-
-Your output should look similar to the following example output:
-
-```console
-NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
-```
 
 ### Add an A record to your DNS zone
 
