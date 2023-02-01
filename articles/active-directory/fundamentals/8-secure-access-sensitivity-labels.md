@@ -44,6 +44,7 @@ Team members who need to create sensitivity labels require permissions to:
 * Microsoft 365 Defender portal,
 * Microsoft Purview compliance portal, or 
 * Office 365 Security & Compliance Center
+  * See, [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
 
 By default, tenant Global Administrators have access to admin centers and can provide access, without granting tenant Admin permissions. For this delegated limited admin access, add users to the following role groups: 
 
@@ -87,7 +88,7 @@ Determine the access criteria if Microsoft 365 Groups, Teams, or SharePoint site
 
 Learn more: [Get started with sensitivity labels](microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 
-### Sensitivity labels on containers
+#### Sensitivity labels on containers
 
 You can apply sensitivity labels to containers such as Microsoft 365 Groups, Microsoft Teams, and SharePoint sites. Sensitivity labels on a supported container apply the classification and protection settings to the connected site or group. Sensitivity labels on these containers can control:
 
@@ -131,6 +132,6 @@ See the following articles to learn more about securing external access to resou
 
 7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
 
 9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
