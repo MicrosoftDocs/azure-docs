@@ -26,62 +26,62 @@ This tutorial shows you how to refresh a Power BI dataset with Managed Airflow i
 
 ## Steps
 
-- Create a new Python file **pbi-dataset-refresh.py** with the below contents:
-  ```python
-  from airflow import DAG
-  from airflow.operators.python_operator import PythonOperator
-  from datetime import datetime, timedelta
-  from powerbi.datasets import Datasets
+1. Create a new Python file **pbi-dataset-refresh.py** with the below contents:
+   ```python
+   from airflow import DAG
+   from airflow.operators.python_operator import PythonOperator
+   from datetime import datetime, timedelta
+   from powerbi.datasets import Datasets
 
-  # Default arguments for the DAG
-  default_args = {
+   # Default arguments for the DAG
+   default_args = {
       'owner': 'me',
       'start_date': datetime(2022, 1, 1),
       'depends_on_past': False,
       'retries': 1,
       'retry_delay': timedelta(minutes=5),
-  }
+   }
 
-  # Create the DAG
-  dag = DAG(
+   # Create the DAG
+   dag = DAG(
       'refresh_power_bi_dataset',
-      default_args=default_args,
-      schedule_interval=timedelta(hours=1),
-  )
+       default_args=default_args,
+       schedule_interval=timedelta(hours=1),
+   )
 
-  # Define a function to refresh the dataset
-  def refresh_dataset(**kwargs):
+   # Define a function to refresh the dataset
+   def refresh_dataset(**kwargs):
       # Create a Power BI client
       datasets = Datasets(client_id='your_client_id',
                           client_secret='your_client_secret',
                           tenant_id='your_tenant_id')
     
-  # Refresh the dataset
-  dataset_name = 'your_dataset_name'
-  datasets.refresh(dataset_name)
-  print(f'Successfully refreshed dataset: {dataset_name}')
+   # Refresh the dataset
+   dataset_name = 'your_dataset_name'
+   datasets.refresh(dataset_name)
+   print(f'Successfully refreshed dataset: {dataset_name}')
 
-  # Create a PythonOperator to run the dataset refresh
-  refresh_dataset_operator = PythonOperator(
+   # Create a PythonOperator to run the dataset refresh
+   refresh_dataset_operator = PythonOperator(
       task_id='refresh_dataset',
       python_callable=refresh_dataset,
       provide_context=True,
       dag=dag,
-  )
+   )
 
-  refresh_dataset_operator
-  ```
+   refresh_dataset_operator
+   ```
 
-  You will have to fill in your **client_id**, **client_secret**, **tenant_id**, and **dataset_name** with your own values.
+   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, and **dataset_name** with your own values.
 
-  Also, you will need to install the **powerbi** python package to use the above code using Managed Airflow requirements. Edit a Managed Airflow environment and add the **powerbi** python package under **Airflow requirements**.
+   Also, you will need to install the **powerbi** python package to use the above code using Managed Airflow requirements. Edit a Managed Airflow environment and add the **powerbi** python package under **Airflow requirements**.
 
-- Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
-- [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
-  :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
+1. Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
+1. [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
+   :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
 
 ## Next Steps
 
-- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Managed Airflow pricing](airflow-pricing.md)
-- [Changing password for Managed Airflow environments](password-change-airflow.md)
+* [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+* [Managed Airflow pricing](airflow-pricing.md)
+* [Changing password for Managed Airflow environments](password-change-airflow.md)

@@ -17,9 +17,9 @@ This article describes the pricing for Managed Airflow usage within data factory
 
 ## Pricing details
 
-Managed Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small can support up to 50 DAGs simultaneously, and large can support up to 1000 DAGs.The following table describes pricing for each option:
+Managed Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small can support up to 50 DAGs simultaneously, and large can support up to 1000 DAGs. The following table describes pricing for each option:
 
-:::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Image showing a table of pricing options for Managed Airflow configuration.":::
+:::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Shows a screenshot of a table of pricing options for Managed Airflow configuration.":::
 
 ## Next steps
 

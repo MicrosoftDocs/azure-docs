@@ -19,68 +19,75 @@ ms.date: 01/20/2023
 Azure Data Factory Managed Airflow orchestrates your workflows using Directed Acyclic Graphs (DAGs) written in Python. You must provide your DAGs and plugins in Azure Blob Storage. Airflow requirements or library dependencies can be installed during the creation of the new Managed Airflow environment or by editing an existing Managed Airflow environment. Then run and monitor your DAGs by launching the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK).
 
 ## Create a Managed Airflow environment
+The following steps setup and configure your Managed Airflow environment.
 
-* **Prerequisite**
-    * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-    * Create or select an existing Data Factory in the region where the managed airflow preview is supported. Supported regions
+### Prerequisites
+**Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+    Create or select an existing Data Factory in the region where the managed airflow preview is supported.
 
-* Create new Managed Airflow environment.  
-Go to ‘Manage’ hub -> ‘Airflow (Preview)’ -> ‘+New’ to create a new Airflow environment
+### Steps to create the environment
+1. Create new Managed Airflow environment.  
+Go to **Manage** hub -> **Airflow (Preview)** -> **+New** to create a new Airflow environment
 
-   :::image type="content" source="media/how-does-managed-airflow-work/create-new-airflow.png" alt-text="Screenshot that shows that how to create a new Managed Apache Airflow environment.":::
+   :::image type="content" source="media/how-does-managed-airflow-work/create-new-airflow.png" alt-text="Screenshot that shows how to create a new Managed Apache Airflow environment.":::
 
-*  Provide the details (Airflow config.)
+1.  Provide the details (Airflow config)
 
    :::image type="content" source="media/how-does-managed-airflow-work/airflow-environment-details.png" alt-text="Screenshot that shows some Managed Airflow environment details.":::
 
-  Important:<br>
-1. When using ‘Basic’ authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is ‘AAD’ and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user’s credential to Azure Data Factory to login/ monitor DAGs.<br>
-2. ‘Environment variables’ a simple key value store within Airflow to store and retrieve arbitrary content or settings.<br>
-3. ‘Requirements’ can be used to pre-install python libraries. You can update these later as well.
+   > [!IMPORTANT]
+   > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **AAD** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user**s credential to Azure Data Factory to login/ monitor DAGs.
+1. **Environment variables** a simple key value store within Airflow to store and retrieve arbitrary content or settings.
+1. **Requirements** can be used to pre-install python libraries. You can update these later as well.
 
 ## Import DAGs
 
-* Prerequisite
+The following steps describe how to import DAGs into Managed Airflow.
 
-    * You will need to upload a sample DAG onto an accessible Storage account.
+### Prerequisite
+
+You will need to upload a sample DAG onto an accessible Storage account.
+
 > [!NOTE]
 > Blob Storage behind VNet are not supported during the preview. We will be adding the support shortly.
 
- [Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).<br>
- [Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).
+[Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+[Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).
 
-Copy-paste the content (either v2.x or v1.10 based on the Airflow environment that you have setup) into a new file called as ‘tutorial.py’.<br>
+1. Copy-paste the content (either v2.x or v1.10 based on the Airflow environment that you have setup) into a new file called as **tutorial.py**.
 
-Upload the ‘tutorial.py’ to a blob storage. ([How to upload a file into blob](/storage/blobs/storage-quickstart-blobs-portal.md))
+   Upload the **tutorial.py** to a blob storage. ([How to upload a file into blob](/storage/blobs/storage-quickstart-blobs-portal.md))
+
+   > [!NOTE]
+   > You will need to select a directory path from a blob storage account that contains folders named **dags** and **plugins** to import those into the Airflow environment. **Plugins** are not mandatory. You can also have a container named **dags** and upload all Airflow files within it.  
+
+1. Click on **Airflow (Preview)** under **Manage** hub. Then hover over the earlier created **Airflow** environment and click on **Import files** to Import all DAGs and dependencies into the Airflow Environment.
+
+   :::image type="content" source="media/how-does-managed-airflow-work/import-files.png" alt-text="Screenshot shows import files in manage hub.":::
+
+1. Create a new Linked Service to the accessible storage account mentioned in the prerequisite (or use an existing one if you already have your own DAGs).
+
+   :::image type="content" source="media/how-does-managed-airflow-work/create-new-linked-service.png" alt-text="Screenshot that shows how to create a new linked service.":::
+
+1. Use the storage account where you uploaded the DAG (check prerequisite). Test connection, then click **Create**.
+
+   :::image type="content" source="media/how-does-managed-airflow-work/linked-service-details.png" alt-text="Screenshot shows some linked service details.":::
+
+1. Browse and select **airflow** if using the sample SAS URL or select the folder that contains **dags** folder with DAG files.
+
+   > [!NOTE]
+   > You can import DAGs and their dependencies through this interface. You will need to select a directory path from a blob storage account that contains folders named **dags** and **plugins** to import those into the Airflow environment. **Plugins** are not mandatory.
+
+   :::image type="content" source="media/how-does-managed-airflow-work/browse-storage.png" alt-text="Screenshot shows browse storage in import files.":::
+
+   :::image type="content" source="media/how-does-managed-airflow-work/browse.png" alt-text="Screenshot that shows browse in airflow.":::
+
+   :::image type="content" source="media/how-does-managed-airflow-work/import-in-import-files.png" alt-text="Screenshot shows import in import files.":::
+
+   :::image type="content" source="media/how-does-managed-airflow-work/import-dags.png" alt-text="Screenshot shows import dags.":::
+
 > [!NOTE]
->You will need to select a directory path from a blob storage account that contains folders named 'dags' and 'plugins' to import those into the Airflow environment. ‘Plugins’ are not mandatory. You can also have a container named ‘dags’ and upload all Airflow files within it.  
-
-* Click on ‘Airflow (Preview)’ under ‘Manage’ hub. Then hover over the earlier created ‘Airflow’ environment and click on ‘Import files’ to Import all DAGs and dependencies into the Airflow Environment.
-
-    :::image type="content" source="media/how-does-managed-airflow-work/import-files.png" alt-text="Screenshot shows import files in manage hub.":::
-
-* Create a new Linked Service to the accessible storage account mentioned in the prerequisite (or use an existing one if you already have your own DAGs).
-
-    :::image type="content" source="media/how-does-managed-airflow-work/create-new-linkservice.png" alt-text="Screenshot shows that how to create a new linked service.":::
-
-    *  Use the storage account where you uploaded the DAG (check prerequisite). Test connection, then click ‘Create’.
-
-    :::image type="content" source="media/how-does-managed-airflow-work/linkservice-details.png" alt-text="Screenshot shows some linked service details.":::
-
-    * Browse and select ‘airflow’ if using the sample SAS URL or select the folder that contains ‘dags’ folder with DAG files.
-> [!NOTE]
-> You can import DAGs and their dependencies through this interface. You will need to select a directory path from a blob storage account that contains folders named 'dags' and 'plugins' to import those into the Airflow environment. ‘Plugins’ are not mandatory.
-
-:::image type="content" source="media/how-does-managed-airflow-work/browse-storage.png" alt-text="Screenshot shows browse storage in import files.":::
-
-:::image type="content" source="media/how-does-managed-airflow-work/browse.png" alt-text="Screenshot shows browse in airflow":::
-
-:::image type="content" source="media/how-does-managed-airflow-work/import-in-import-files.png" alt-text="Screenshot shows import in import files.":::
-
-:::image type="content" source="media/how-does-managed-airflow-work/import-dags.png" alt-text="Screenshot shows import dags.":::
-
-> [!NOTE]
-> Importing DAGs could take a couple of minutes during ‘Preview’. The notification center (bell icon in ADF UI) can be used to track the import status updates.
+> Importing DAGs could take a couple of minutes during **Preview**. The notification center (bell icon in ADF UI) can be used to track the import status updates.
 
 ## Troubleshooting import DAG issues
 
@@ -97,28 +104,27 @@ Mitigation: Login into the Airflow UI and see if there are any DAG parsing error
 
 To monitor the Airflow DAGs, login into Airflow UI with the earlier created username and password.
 
-* Click on the Airflow environment created.
+1. Click on the Airflow environment created.
 
-   :::image type="content" source="media/how-does-managed-airflow-work/airflow-environment-monitor-dag.png" alt-text="Screenshot shows that click on the Airflow environment created":::
+   :::image type="content" source="media/how-does-managed-airflow-work/airflow-environment-monitor-dag.png" alt-text="Screenshot that shows the Airflow environment created.":::
 
-* Login using the username-password provided during the Airflow Integration Runtime creation. ([You can reset the username or password by editing the Airflow Integration runtime]() if needed)
+1. Login using the username-password provided during the Airflow Integration Runtime creation. ([You can reset the username or password by editing the Airflow Integration runtime]() if needed)
 
-   :::image type="content" source="media/how-does-managed-airflow-work/login-in-dags.png" alt-text="Screenshot shows that login using the username-password provided during the Airflow Integration Runtime creation.":::
+   :::image type="content" source="media/how-does-managed-airflow-work/login-in-dags.png" alt-text="Screenshot that shows login using the username-password provided during the Airflow Integration Runtime creation.":::
 
 ## Remove DAGs from the Airflow environment
 
-* If you are using Airflow version 2.x,  
-
 If you are using Airflow version 1.x, delete DAGs that are deployed on any Airflow environment (IR), you need to delete the DAGs in two different places.
+
 1. Delete the DAG from Airflow UI 
 1. Delete the DAG in ADF UI
 
 > [!NOTE]
 > This is the current experience during the Public Preview, and we will be improving this experience. 
 
-## Next Steps
+## Next steps
 
-- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
-- [Managed Airflow pricing](airflow-pricing.md)
-- [How to change the password for Managed Airflow environments](password-change-airflow.md)
+* [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+* [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
+* [Managed Airflow pricing](airflow-pricing.md)
+* [How to change the password for Managed Airflow environments](password-change-airflow.md)
