@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub device management (.NET/.NET) | Microsoft Docs
+title: Get started with Azure IoT Hub device management (Azure CLI) | Microsoft Docs
 description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure CLI to implement a simulated device and invoke a direct method from that device.
 author: kgremban
 
@@ -12,7 +12,7 @@ ms.author: kgremban
 ms.custom:  "mqtt, devx-track-csharp"
 ---
 
-# Get started with device management (.NET)
+# Get started with device management (Azure CLI)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -68,7 +68,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, you'll run these sessions in separate Cloud Shell tabs. If using a local CLI client, you'll run separate CLI instances. Use the separate CLI sessions for the following tasks:
 - The first session simulates an IoT device that communicates with your IoT hub. 
-- The second session schedules jobs for your simulated device with your IoT hub. 
+- The second session invokes a direct method from your simulated device using your IoT hub. 
 
 > [!NOTE]
 > Azure CLI requires you to be logged into your Azure account. If you're using the Cloud Shell, you're automatically logged into your Azure account. If you're using a local CLI client, you must log into each CLI session. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about logging in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -87,27 +87,23 @@ Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, 
 
 ## Create and simulate a device
 
-In this section, you create a device identity for your IoT hub in the first CLI session, and then simulate a device using that device identity. The simulated device responds to the jobs that you schedule in the second CLI session.
+In this section, you create a device identity for your IoT hub in the first CLI session, and then simulate a device using that device identity. The simulated device responds to the direct methods that you invoke in the second CLI session.
 
 To create and start a simulated device:
 
 1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the device identity for your simulated device.
 
-    | Placeholder | Value |
-    | --- | --- |
-    |{HubName} | The name of your IoT hub. |
-    |{DeviceName} | The name of your simulated device. |
+    *{DeviceName}*. The name of your simulated device.
+    *{HubName}*. The name of your IoT hub.
 
     ```azurecli
     az iot hub device-identity create -d {DeviceName} -n {HubName} 
     ```
 
-1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates the device you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
+1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates a device using the device identity that you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
 
-    | Placeholder | Value |
-    | --- | --- |
-    |{DeviceName} | The name of your simulated device. |
-    |{HubName} | The name of your IoT hub. |
+    *{DeviceName}*. The name of your simulated device.
+    *{HubName}*. The name of your IoT hub.
     
     ```azurecli
     az iot device simulate -d {DeviceName} -n {HubName} \
@@ -117,52 +113,55 @@ To create and start a simulated device:
     > [!TIP]
     > By default, the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command sends 100 device-to-cloud messages with an interval of 3 seconds between messages. The simulation ends after all messages have been sent. If you want the simulation to run longer, you can use the `--msg-count` parameter to specify more messages or the `--msg-interval` parameter to specify a longer interval between messages. You can also run the command again to restart the simulated device. 
 
-## Schedule a job to invoke a direct method
+## Invoke a direct method
 
-In this section, you schedule a job in the second CLI session to invoke a direct method on the simulated device running in the first CLI session.
-
-1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
-
-1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and returns a payload.
-
-    | Placeholder | Value |
-    | --- | --- |
-    |{JobName} | The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.|
-    |{HubName} | The name of your IoT hub. |
-    |{MethodName} | The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command. |
-    |{DeviceName} | The name of your simulated device. |
-
-    ```azurecli
-    az iot hub job create --job-id {JobName} --jt scheduleDeviceMethod -n {HubName} \
-                          --method-name {MethodName} --method-payload 1 \
-                          --query-condition "deviceId = '{DeviceName}'"
-    ```
-1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleMethod` for the `{MethodName}` placeholder in the `az iot hub job create` CLI command from the previous step. 
-
-    :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-direct-method.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
-
-## Schedule a job to update a device twin's properties
-
-In this section, you schedule a job in the second CLI session to update a desired device twin property on the simulated device running in the first CLI session.
+In this section, you use the second CLI session to invoke a direct method on the simulated device running in the first CLI session.
 
 1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
 
-1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, we're scheduling a job to set the value of the desired twin property `BuildingNo` to 45 for our simulated device.
+1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device. The method provides a status code and payload in its response.
 
-    | Placeholder | Value |
-    | --- | --- |
-    |{JobName} | The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.|
-    |{HubName} | The name of your IoT hub. |
-    |{MethodName} | The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command. |
-    |{DeviceName} | The name of your simulated device. |
+    *{DeviceName}*. The name of your simulated device.
+    *{HubName}*. The name of your IoT hub.
+    *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
 
     ```azurecli
-    az iot hub job create --job-id {JobName} --jt scheduleUpdateTwin -n {HubName} \
-                          --twin-patch '{"properties":{"desired": {"BuildingNo": 45}}}' \
-                          --query-condition "deviceId = '{DeviceName}'"
+    az iot hub invoke-device-method -d {DeviceName} -n {HubName} \
+                                    --method-name {MethodName}
     ```
-1. In the first CLI session, confirm the output shows the update for the desired device twin property. 
+    
+1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleDevice` and `SampleMethod` for the `{DeviceName}` and `{MethodName}` placeholders, respectively, in the `az iot hub invoke-device-method` CLI command. 
 
-    :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-update-twin.png" alt-text="Screenshot of a simulated device displaying output after a device twin property was updated.":::
+    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-invocation.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
+
+1. In the second CLI session, confirm that the output shows the status code and payload received from the invoked method. 
+
+    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
+
+## Invoke a direct method with a payload
+
+In this section, you use the second CLI session to invoke a direct method and provide a payload to the simulated device running in the first CLI session. 
+
+1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
+
+1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and provides a payload for that method. The method provides a status code and payload in its response.
+
+    *{DeviceName}*. The name of your simulated device.
+    *{HubName}*. The name of your IoT hub.
+    *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
+    
+    ```azurecli
+    az iot hub invoke-device-method -d {DeviceName} -n {HubName} \
+                                    --method-name {MethodName} \
+                                    --method-payload '{ "SamplePayload": "PayloadValue" }'
+    ```
+
+1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleDevice` and `SampleMethod` for the `{DeviceName}` and `{MethodName}` placeholders, respectively, in the `az iot hub invoke-device-method` CLI command. 
+
+    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-invocation-payload.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked with a payload.":::
+
+1. In the second CLI session, confirm that the output shows the status code and payload received from the invoked method. 
+
+    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
