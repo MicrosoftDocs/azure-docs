@@ -112,12 +112,12 @@ Mount options for Azure Files will generally be dependent on the workload that y
 
 Mandatory parameters: 
 - "mfsymlinks" to map symlinks to a form the client can use
-- "noperm" to disable permission checks on the client side 
+- "noperm" to disable permission checks on the client side
 
 Recommended parameters: 
-- "nossharesock" to disable reusing sockets if the client is already connected via an existing mount point.
+- "nossharesock" to disable reusing sockets if the client is already connected via an existing mount point
 - "actimeo=30" (or higher) to increase the time the CIFS client caches file and directory attributes
-- "nobrl" to disable sending byte range lock requests to the server. For application which have challenges with posix locks.
+- "nobrl" to disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 
 ## Change the default StorageClass (optional)
 
