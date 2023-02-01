@@ -27,7 +27,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md) 
 - [Enable Defender for CSPM](enable-enhanced-security.md) 
-- [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
+- [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. Enabling Defender for Containers gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
 - Required plan: Defender Cloud Security Posture Management (CSPM) plan enabled 
 - Required roles and permissions: 
     - Security Reader
@@ -58,12 +58,9 @@ You can use the cloud security explorer to build queries that can proactively hu
 
     :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
-1. Do one of the following:
-    - Use the main search box to search for entities. 
-    - Select a resource from the drop-down menu. 
-
+1. Either use the main search box to search for a resource or select a resource from the drop-down menu. 
  
-        :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
+      :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
     
 
 1. Select **+** to add other filters to your query. For each filter selected you can add more subfilters as needed.
