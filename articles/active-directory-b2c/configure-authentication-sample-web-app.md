@@ -75,14 +75,13 @@ To create the web app registration, use the following steps:
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
 1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:44316/signin-oidc`.
-1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the web application.
-
-    ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
-
+    ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png) 
+1. Select **Authentication**
+1. Select the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** checkboxes, and then select **Save**.
 
 ## Step 3: Get the web app sample
 
