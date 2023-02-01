@@ -57,7 +57,7 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
 
-    :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map.":::
+    :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map." lightbox="media/analyze-programming/select-programming-timeline-from-device-map.png":::
 
 1. Select a file to view programming details. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities).
 
@@ -75,7 +75,7 @@ The device inventory indicates if a device is a programming device, and the devi
 
 1. On the device properties page, go to the **Programming timeline** tab to select a file and view programming details. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities). For example:
 
-    :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device properties page.":::
+    :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device properties page." lightbox="media/analyze-programming/programming-timeline-window-device-inventory.png":::
 
 ### Access programming data from an event timeline
 
@@ -138,11 +138,11 @@ You may want to compare the programming details of multiple files to determine i
 
 1. In the **Compare** pane, select a file for comparison by selecting the scale icon under **Action** next to the file. 
 
-    :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane.":::
+    :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane." lightbox="media/analyze-programming/compare-file-pane.png":::
 
     The selected file opens up in a new pane for side by side comparison with the first file. The current file installed on the programmed device will always appear on the right, and is indicated with the *Current* :::image type="icon" source="media/analyze-programming/current-file-indication.png" border="false"::: label.
 
-    :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side.":::
+    :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side." lightbox="media/analyze-programming/compare-files-side-by-side.png":::
 
     Scroll through the files to see the programming details and any differences between the files. Differences between the two files are highlighted, in green for the current file and in red for the comparison file.
 
