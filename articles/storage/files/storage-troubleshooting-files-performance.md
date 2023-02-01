@@ -326,6 +326,7 @@ Depending on the exact compression method and unzip operation used, decompressio
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## See also
-- [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  
+- [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)  
+- [Understand Azure Files performance](understand-performance.md)
 - [Azure Files FAQ](storage-files-faq.md)
