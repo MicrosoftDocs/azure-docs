@@ -3868,6 +3868,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-create-templates.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-create-resource-manager-template.md",
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-create-templates.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-logs.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-logs",
             "redirect_document_id": false
