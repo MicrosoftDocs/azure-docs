@@ -189,7 +189,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-   :::image type="content" source="./media/quickstart/select-set-modules.png" alt-text="Screenshot that shows location of the Set Modules tab.":::
+   :::image type="content" source="./media/quickstart-linux/select-set-modules.png" alt-text="Screenshot that shows location of the Set Modules tab.":::
 
 1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
 
@@ -201,7 +201,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Select **Next: Routes** to continue to the next step of the wizard.
 
-   :::image type="content" source="./media/quickstart/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows where to select the Next:Routes button.":::
+   :::image type="content" source="./media/quickstart-linux/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows where to select the Next:Routes button.":::
 
 1. On the **Routes** tab select **Next: Review + create** to continue to the next step of the wizard.
 
@@ -218,7 +218,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
-   :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart/view-deployed-modules.png":::
+   :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart-linux/view-deployed-modules.png":::
 
 ## View the generated data
 
