@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/overview.md) without any downtime.
 
-When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app pre-emptively.
+When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app preemptively.
 
 If you're not worried about downtime in DNS resolution, see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
 
@@ -23,7 +23,7 @@ To complete the steps, [make sure that your App Service app isn't in FREE tier](
 
 ## 1. Get a domain verification ID
 
-When you bind a custom domain pre-emptively, you accomplish both of the following before making any changes to
+When you bind a custom domain preemptively, you accomplish both of the following before making any changes to
 your existing DNS records:
 
 - Verify domain ownership by adding a domain verification ID with your domain provider.
@@ -81,7 +81,7 @@ Add a TXT record for domain verification. The hostname for the TXT record depend
 
 1. You should see the custom domain added to the list. You may also see a red X with **No binding**. 
 
-    Sinc you selected **Add certificate later**, you see a red X with **No binding**. It will remain until you [add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
+    Since you selected **Add certificate later**, you see a red X with **No binding**. It will remain until you [add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain-preempt-complete.png" alt-text="A screenshot showing the custom domains page with the new secured custom domain." border="true":::
 
@@ -114,10 +114,10 @@ DNS queries should start resolving to your App Service app immediately after DNS
 
 ## Frequently asked questions
 
-- [Can I add a App Service managed certificate when migrating a live domain?](#can-i-add-a-app-service-managed-certificate-when-migrating-a-live-domain)
+- [Can I add an App Service managed certificate when migrating a live domain?](#can-i-add-an-app-service-managed-certificate-when-migrating-a-live-domain)
 - [How do I migrate a domain from another app?](#how-do-i-migrate-a-domain-from-another-app)
 
-#### Can I add a App Service managed certificate when migrating a live domain?
+#### Can I add an App Service managed certificate when migrating a live domain?
 
 You can add an App Service managed certificate to a migrated live domain, but only after you [remap the active DNS name](#4-remap-the-active-dns-name). To add the App Service managed certificate, see [Create a free managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
 
