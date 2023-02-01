@@ -28,11 +28,16 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create a shell variable for the name of your existing Azure Cosmos DB for NoSQL account named `cosmosAccountName`.
+1. If you haven't already, sign in to the Azure CLI using the [`az login`](/cli/azure/reference-index#az-login) command.
+
+1. Create a shell variable for the name of your existing Azure Cosmos DB for NoSQL account named `cosmosAccountName`. Create another shell variable for the name of your resource group named `resourceGroupName`.
 
     ```azurecli-interactive
     # Variable for Azure Cosmos DB for NoSQL account name
     cosmosAccountName="<existing-account-name>"
+
+    # Variable for resource group name
+    resourceGroupName="<existing-resource-group-name>"
     ```
 
 1. Get the API for NoSQL endpoint `URI` for the account using the [`az cosmosdb show`](/cli/azure/cosmosdb#az-cosmosdb-show) command.
@@ -40,7 +45,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
     ```azurecli-interactive
     az cosmosdb show \
         --resource-group $resourceGroupName \
-        --name $accountName \
+        --name $cosmosAccountName \
         --query "documentEndpoint"
     ```
 
@@ -50,7 +55,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
     cosmosEndpoint=$( \
         az cosmosdb show \
             --resource-group $resourceGroupName \
-            --name $accountName \
+            --name $cosmosAccountName \
             --query "documentEndpoint" \
     )
     ```
@@ -60,7 +65,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
     ```azurecli-interactive
     az cosmosdb keys list \
         --resource-group $resourceGroupName \
-        --name $accountName \
+        --name $cosmosAccountName \
         --type "keys" \
         --query "primaryMasterKey"
     ```
@@ -71,10 +76,43 @@ First, you'll create a database and container in the existing API for NoSQL acco
     cosmosPrimaryKey=$( \
         az cosmosdb keys list \
             --resource-group $resourceGroupName \
-            --name $accountName \
+            --name $cosmosAccountName \
             --type "keys" \
             --query "primaryMasterKey" \
     )
+    ```
+
+1. Using the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command, create a new database with the following settings:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Database id** | `ycsb` |
+    | **Database throughput type** | **Manual** |
+    | **Database throughput amount** | `400` |
+
+    ```azurecli-interactive
+    az cosmosdb sql database create \
+        --resource-group $resourceGroupName \
+        --account-name $cosmosAccountName \
+        --name "ycsb" \
+        --throughput 400
+    ```
+
+1. Using the [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) command, create a new container with the following settings:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Database id** | `ycsb` |
+    | **Container id** | `usertable` |
+    | **Partition key** | `/id` |
+
+    ```azurecli-interactive
+    az cosmosdb sql container create \
+        --resource-group $resourceGroupName \
+        --account-name $cosmosAccountName \
+        --database-name "ycsb" \
+        --name "usertable" \
+        --partition-key-path "/id"
     ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -115,29 +153,7 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create a shell variable for the name of a new resource group named `resourceGroupName`. Create another shell variable named `location`.
-
-    ```azurecli-interactive
-    let suffix=$RANDOM*$RANDOM
-
-    # Variable for resource group name
-    resourceGroupName="msdocs-$suffix"
-
-    # Variable for resource group location
-    location="westus"
-    ```
-
-1. If you haven't already, sign in to the Azure CLI using the [`az login`](/cli/azure/reference-index#az-login) command.
-
-1. Use the [`az group create`](/cli/azure/group#az-group-create) command to create a new resource group in your subscription.
-
-    ```azurecli-interactive
-    az group create \
-        --name $resourceGroupName \
-        --location $location
-    ```
-
-1. Create a shell variable for the name of a new resource group named `resourceGroupName`.
+1. Create a shell variable for the name of a new Azure Storage account named `storageAccountName`.
 
     ```azurecli-interactive
     # Variable for storage account name
