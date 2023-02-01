@@ -120,7 +120,7 @@ containerName mycontainer
 authType Key
 ```
 
-The `accountName` is the name of your storage account, and not the full URL.
+The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information. 
 
 Create this file using:
 
