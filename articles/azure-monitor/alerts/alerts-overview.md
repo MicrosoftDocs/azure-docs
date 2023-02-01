@@ -91,10 +91,10 @@ You can configure whether log or metric alerts are stateful or stateless. Activi
 
 - Stateful alerts fire when the condition is met. They don't fire again or trigger any more actions until the conditions are resolved, as described in this table:
 
-|Alert type |The alert is resolved when |
-|---------|---------|
-|Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
+    |Alert type |The alert is resolved when |
+    |---------|---------|
+    |Metric alerts|The alert condition isn't met for three consecutive checks.|
+    |Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When an alert is considered resolved, the alert rule sends out a resolved notification by using webhooks or email. The monitor state in the Azure portal is set to **resolved**.
 
