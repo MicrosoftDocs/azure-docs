@@ -14,9 +14,9 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Download a blob in Azure Storage using the Java client library
+# Download a blob with Java
 
-This article shows how to download a blob with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can download a blob by using any of the following methods:
+This article shows how to download a blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can download a blob by using any of the following methods:
 
 - [downloadContent](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 - [downloadStream](/java/api/com.azure.storage.blob.specialized.blobclientbase)

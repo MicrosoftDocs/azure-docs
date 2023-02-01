@@ -490,7 +490,7 @@ sections:
           * [Cloud Services on Azure](app/azure-web-apps-net-core.md)
           * [Single-page web apps](app/javascript.md)
           * [SharePoint](app/sharepoint.md)
-          * [Windows desktop app](app/windows-desktop.md)
+          * [Windows desktop app](https://github.com/Microsoft/appcenter)
           * [Other platforms](app/app-insights-overview.md#supported-languages)
           
       - question: |

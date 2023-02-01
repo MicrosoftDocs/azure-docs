@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 11/14/2022
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 

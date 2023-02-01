@@ -10,18 +10,18 @@ ms.date: 01/09/2023
 
 # Azure Web PubSub supported JSON WebSocket subprotocol
 
-The JSON WebSocket subprotocol, `json.webpubsub.azure.v1`, enables the exchange of publish/subscribe messages directly between clients.  A WebSocket connection using the `json.webpubsub.azure.v1` subprotocol is called a *PubSub WebSocket client*.
+The JSON WebSocket subprotocol, `json.webpubsub.azure.v1`, enables the exchange of publish/subscribe messages between clients through the service without a round trip to the upstream server.  A WebSocket connection using the `json.webpubsub.azure.v1` subprotocol is called a *PubSub WebSocket client*.
 
 
 ## Overview
 
-In a simple WebSocket client, a *server* role is required to handle events from clients. A simple WebSocket connection triggers a `message` event when it sends messages and relies on the server-side to process messages and do other operations. 
+A simple WebSocket connection triggers a `message` event when it sends messages and relies on the server-side to process messages and do other operations. 
 
 With the `json.webpubsub.azure.v1` subprotocol, you can create *PubSub WebSocket clients* that can:
 
 * join a group using [join requests](#join-groups).
 * publish messages directly to a group using [publish requests](#publish-messages).
-* route messages directly to upstream event handlers using [event requests](#send-custom-events).
+* route messages to different upstream event handlers using [event requests](#send-custom-events).
 
 For example, you can create a *PubSub WebSocket client* with the following JavaScript code:
 
@@ -44,7 +44,7 @@ Message types received by the client can be:
 
 * ack - The response to a request containing an `ackId`.
 * message - Messages from the group or server.
-* system - Responses from the Web PubSub service to system related client requests.
+* system - Messages from the Web PubSub service.
 
 ### Ack response
 
@@ -142,11 +142,11 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 ### System response
 
-The Web PubSub service sends system related responses to client requests. 
+The Web PubSub service sends system-related messages to clients. 
 
 #### Connected
 
-The response to the client connect request:
+The message sent to the client when the client successfully connects:
 
 ```json
 {
@@ -159,7 +159,7 @@ The response to the client connect request:
 
 #### Disconnected
 
-The response when the server closes the connection, or when the service declines the client.
+The message sent to the client when the server closes the connection, or when the service declines the client.
 
 ```json
 {
