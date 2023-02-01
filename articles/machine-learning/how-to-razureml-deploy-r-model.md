@@ -30,12 +30,12 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 Create this folder structure for your project:
 
 ```
-📁 r-deploy-azureml
- ├─ docker-context
- │  ├─ Dockerfile
- │  ├─ start_plumber.R
- ├─ src
- │  ├─ plumber.R
+📂 r-deploy-azureml
+ ├─📂 docker-context
+ │      ├─ Dockerfile
+ │      ├─ start_plumber.R
+ ├─📂 src
+ │      ├─ plumber.R
  ├─ deployment.yml
  ├─ endpoint.yml
 ```
