@@ -15,14 +15,14 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Determine your security posture for external access 
+# Determine your security posture for external access with Azure Active Directory 
 
-As you consider governing external access, you’ll need to assess the security and collaboration needs for your organization overall, and within each scenario. At the organizational level, consider the amount of control you need your IT team to have over day-to-day collaboration. Organizations in regulated industries may require more IT control. For example, a defense contractor may be required to positively identify and document each external user, their access, and the removal of access. This requirement may be on all access, or on specific scenarios or workloads. On the other end of the spectrum, a consulting firm may generally allow end users to determine the external users they need to collaborate with, within certain IT guard rails. 
+As you consider the governance of external access, assess your organization's security and collaboration needs, by scenario. You can start with the level of control the IT team has over the day-to-day collaboration of end users. Organizations in highly regulated industries might require more IT team control. For example, defense contractors can have a requirement to positively identify and document external users, their access, and access removal: all access, scenario-based, or workloads. By using certain security features, consulting agencies can allow end users to determine the external users they collaborate with. 
 
-![IT versus end-user control of collaboration](media/secure-external-access/1-overall-control.png)
+  ![Bar graph of the span from full IT team control, to end-user self service.](media/secure-external-access/1-overall-control.png)
 
-> [!NOTE]
-> Overly tight control on collaboration can lead to higher IT budgets, reduced productivity, and delayed business outcomes. When official collaboration channels are perceived as too onerous, end users tend to go around IT provided systems to get their jobs done, by for example emailing unsecured documents.
+   > [!NOTE]
+   > A high degree of control over collaboration can lead to higher IT budgets, reduced productivity, and delayed business outcomes. When official collaboration channels are perceived as onerous, end users tend to evade official channels to get their jobs done. An example is end users sending unsecured documents by email.
 
 ## Think in terms of scenarios
 
@@ -30,7 +30,7 @@ In many cases IT can delegate partner access, at least in some scenarios, while 
 
 As you consider the scenarios within your organization, assess the need for employee versus business partner access to resources. A bank may have compliance needs that restrict access to certain resources, like user account information, to a small group of internal employees. Conversely, the same bank may enable delegated access for partners working on a marketing campaign.
 
-![continuum of governance per scenario](media\secure-external-access\1-scenarios.png)
+![continuum of governance per scenario](media/secure-external-access/1-scenarios.png)
 
 In each scenario, consider 
 
