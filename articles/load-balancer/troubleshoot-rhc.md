@@ -50,7 +50,7 @@ The next place we need to look is our health probe status metric to determine wh
 ## Diagnose health probe failures
 Let's say we check our health probe status and find out that all instances are showing as unhealthy. This finding explains why our data path is unavailable as traffic has nowhere to go. We should then go through the following checklist to rule out common configuration errors:
 * Check the CPU utilization for your resources to check if your instances are in fact healthy
-  * You can check this 
+  * You can check this by viewing the resource's Percentage CPU metric via the Metrics blade. To troubleshoot high-CPU related issues, please refer to [Troubleshoot high-CPU issues for Azure virtual machines](../virtual-machines/troubleshoot-high-cpu-issues-azure-windows-vm.md) for more guidance.
 * If using an HTTP or HTTPS probe check if the application is healthy and responsive
   * Validate this is functional by directly accessing the applications through the private IP address or instance-level public IP address associated with your backend instance
 * Review the Network Security Groups applied to our backend resources. Ensure that there are no rules of a higher priority than AllowAzureLoadBalancerInBound that will block the health probe
