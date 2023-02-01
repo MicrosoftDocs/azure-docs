@@ -122,8 +122,6 @@ For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/lo
 
 ## Console application
 
-<!--DEV: Do we need to add a link to the install page for the Microsoft.Extensions.DependencyInjection package (https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection)? -->
-
 To add Application Insights logging to console applications, first install the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] NuGet provider package.
 
 The following example uses the Microsoft.Extensions.Logging.ApplicationInsights package and demonstrates the default behavior for a console application. The Microsoft.Extensions.Logging.ApplicationInsights package should be used in a console application or whenever you want a bare minimum implementation of Application Insights without the full feature set such as metrics, distributed tracing, sampling, and telemetry initializers.
@@ -186,10 +184,7 @@ namespace ConsoleApp
 
 ```
 
-<!-- DEV: Do any more FAQs need to be removed (to align with only talking about ILogger aspects in this article)? -->
 ## Frequently asked questions
-
-<!-- DEV: I deleted the FAQ "What are the old and new versions of ApplicationInsightsLoggerProvider?" (https://learn.microsoft.com/en-gb/azure/azure-monitor/app/ilogger#what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider). Do you agree with deleting it or should we instead move it to asp-net-core.md? -->
 
 ### Why are some ILogger logs shown twice in Application Insights?
 
@@ -216,8 +211,6 @@ public void ConfigureServices(IServiceCollection services)
     // ...
 }
 ```
-
-<!-- DEV: I deleted the FAQ "I updated to Microsoft.ApplicationInsights.AspNet SDK version 2.7.1, and logs from ILogger are captured automatically. How do I turn off this feature completely?" (https://learn.microsoft.com/en-us/azure/azure-monitor/app/ilogger#i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely). Do you agree with deleting it or should we instead move it to asp-net-core.md? -->
 
 ### Why do some ILogger logs not have the same properties as others?
 
@@ -261,8 +254,6 @@ builder.AddApplicationInsights(
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 
 The Application Insights extension in Azure Web Apps uses the new provider. You can modify the filtering rules in the *appsettings.json* file for your application.
-
-<!-- DEV: I deleted the FAQ "I can't see some of the logs from my application in the workspace." (https://learn.microsoft.com/en-us/azure/azure-monitor/app/ilogger#i-cant-see-some-of-the-logs-from-my-application-in-the-workspace). Do you agree with deleting it or should we instead move it to asp-net-core.md? -->
 
 ## Next steps
 
