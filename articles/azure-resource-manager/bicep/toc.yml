@@ -262,6 +262,8 @@
   - name: Variables (var)
     href: variables.md
     displayName: configuration
+  - name: Import (import)
+    href: bicep-import-schemas.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -357,7 +359,7 @@
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider
-        href: ../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md?toc=/azure/azure-resource-manager/bicep/toc.json
+        href: ./bicep-extensibility-kubernetes-provider.md
     - name: Patterns
       items:
       - name: Configuration set
@@ -504,8 +506,6 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
-  - name: Kubernetes provider
-    href: bicep-kubernetes-provider.md
   - name: Contribute to Bicep
     href: contribute.md
 - name: Reference

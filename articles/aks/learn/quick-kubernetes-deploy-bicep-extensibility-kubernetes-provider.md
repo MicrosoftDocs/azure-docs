@@ -31,7 +31,7 @@ The Bicep Kubernetes provider is currently in preview. To enable the feature fro
 
 * To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the Bicep file](#review-the-bicep-file) section.
 
-* The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 * To deploy a Bicep file, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -177,7 +177,7 @@ Use the following procedure to add the application definition:
 
     :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
 
-1. In the prompt, select **azure-vote.yml**. This process create an **azure-vote.bicep** in the same folder.
+1. In the prompt, select **azure-vote.yml**. This process creates an **azure-vote.bicep** in the same folder.
 
 1. Before the `output` statement in **main.bicep**, add the following Bicep to reference the newly created **azure-vote.bicep** module:
 

@@ -44,6 +44,8 @@ You can enable preview features by adding:
 }
 ```
 
+The preceding sample enables two features:
+
 - userDefineType: enable [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
 - extensibility: enable [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Import schemas in Bicep
-description: Describes how to imoprt schemas in Bicep.
+description: Describes how to import schemas in Bicep.
 ms.topic: conceptual
 ms.date: 02/01/2023
 ---
@@ -9,9 +9,9 @@ ms.date: 02/01/2023
 
 This article describes the syntax you use to import schemas in Bicep file.
 
-## Declaration
+## Import schemas
 
-Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
+The syntax for importing schemas is:
 
 ```bicep
 import '<schema-name>@<schema-version>' with {
@@ -41,5 +41,5 @@ For more information, see [Bicep extensibility Kubernetes provider](./bicep-exte
 
 ## Next steps
 
-- To learn about how use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
+- To learn about how to use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 - To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).

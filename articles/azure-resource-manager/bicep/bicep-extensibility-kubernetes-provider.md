@@ -11,7 +11,7 @@ Learn how to Bicep extensibility Kubernetes provider to deploy .NET applications
 
 ## Enable the preview feature
 
-This preview feature can be enabled by configure the [bicepconfig.json](./bicep-config.md):
+This preview feature can be enabled by configuring the [bicepconfig.json](./bicep-config.md):
 
 ```bicep
 {
@@ -36,21 +36,20 @@ import 'kubernetes@1.0.0' with {
 }
 ```
 
-The AKS cluster can be a new resource or an existing resource. The `Import Kubernetes manifest` function from Visual Studio Code can automatically add the code snippet.
+The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the code snippet automatically.
 
 ## How provider-specific resource types are exposed/accessed
-
 
 ```bicep
 resource appsDeployment_azureVoteBack 'apps/Deployment@v1' = {}
 ```
 
-.apiVersion	Specifies the API group and API resource you want to use when creating the resource.
-.kind	Specifies the type of resource you want to create.
+- .apiVersion: Specifies the API group and API resource you want to use when creating the resource.
+- .kind: Specifies the type of resource you want to create.
 
 ## Visual Studio Code import
 
-From Visual Studio Code, you can import a Kubernetes manifest to create a Bicep module file. For more information, see [Visual Studio Code](./visual-studio-code.md#bicep-commands)
+From Visual Studio Code, you can import Kubernetes manifest files to create Bicep module files. For more information, see [Visual Studio Code](./visual-studio-code.md#bicep-commands)
 
 ## Next steps
 
