@@ -56,7 +56,9 @@ For more information, see [Enhance security posture with security recommendation
 
 OT event timeline data is stored on OT network sensors only, and the storage capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
 
-The retention of event timeline data isn't limited by time. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
+The retention of event timeline data isn't limited by time. However, assuming a frequency of 500 events per day, all hardware profiles will be able to retain the events for at least **90 day**s.
+
+If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
 
 The following table lists the maximum number of events that can be stored for each hardware profile:
 
@@ -77,14 +79,6 @@ For more information, see [Track sensor activity](how-to-track-sensor-activity.m
 Service and processing log files are stored on the Azure portal for 30 days from their creation date.
 
 Other OT monitoring log files are stored only on the OT network sensor and the on-premises management console.
-
-On both OT sensors and the on-premises management console, log files are stored in two different ways:
-
-- Logs are saved on one file where the oldest content is overridden when the file reaches its maximum capacity.
-
-- Logs are saved on several files, and once the number of files reaches a maximum, the oldest file is deleted to make room for a new one.
-
-Log files sizes differ depending on the amount of content, but the average size per log file is 100-150 MB.
 
 For more information, see:
 
