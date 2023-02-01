@@ -939,12 +939,6 @@
     },
 
     {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/.md",
-      "redirect_url": "/azure/sap/workloads/",
-      "redirect_document_id": true
-    },
-
-    {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-availability-across-regions.md",
       "redirect_url": "/azure/sap/workloads/sap-hana-availability-across-regions",
       "redirect_document_id": true
@@ -1219,71 +1213,79 @@
       "redirect_url": "/azure/sap/workloads/supported-product-on-azure",
       "redirect_document_id": false
     },
+
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md",
       "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md",
       "redirect_url": "/azure/sap/center-sap-solutions/deploy-s4hana",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/faq.yml",
       "redirect_url": "/azure/sap/center-sap-solutions/faq",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/get-quality-checks-insights.md",
       "redirect_url": "/azure/sap/center-sap-solutions/get-quality-checks-insights",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/index.yml",
       "redirect_url": "/azure/sap/index",
       "redirect_document_id": true
     },
-    {
-      "source_path_from_root": "/articles/center-sap-solutions/.md",
-      "redirect_url": "/azure/sap/",
-      "redirect_document_id": true
-    },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/install-software.md",
       "redirect_url": "/azure/sap/center-sap-solutions/install-software",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/manage-virtual-instance.md",
       "redirect_url": "/azure/sap/center-sap-solutions/manage-virtual-instance",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/monitor-portal.md",
       "redirect_url": "/azure/sap/center-sap-solutions/monitor-portal",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/overview.md",
       "redirect_url": "/azure/sap/center-sap-solutions/overview",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/prepare-network.md",
       "redirect_url": "/azure/sap/center-sap-solutions/prepare-network",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/register-existing-system.md",
       "redirect_url": "/azure/sap/center-sap-solutions/register-existing-system",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/start-stop-sap-systems.md",
       "redirect_url": "/azure/sap/center-sap-solutions/start-stop-sap-systems",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/center-sap-solutions/view-cost-analysis.md",
       "redirect_url": "/azure/sap/center-sap-solutions/view-cost-analysis",
