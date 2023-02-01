@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 02/01/2023
 adobe-target: true
 ---
 
@@ -15,9 +15,9 @@ adobe-target: true
 
 Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with the tools, source code, and pre-built binaries specific to your project, so you can immediately start work. Whether you’re a developer, tester, or QA professional, you can use dev boxes in your day-to-day workflows. 
 
-The Dev Box service was designed with three distinct roles in mind: dev infrastructure (infra) admins, project admins, and dev box users. 
+The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, project admins, and dev box users. 
 
-:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles-placeholder.png" alt-text="Graphic showing dev box roles and responsibilities.":::
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles-placeholder.png" alt-text="Diagram showing dev box roles and responsibilities.":::
 
 Dev infra admins are responsible for providing developer infrastructure and tools to the dev teams. Dev infra admins set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely. 
 
@@ -29,7 +29,7 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
 
 ## Scenarios for Microsoft Dev Box
 
-Microsoft Dev Box can be used in a wide range of scenarios. 
+Microsoft Dev Box can be used in a range of scenarios. 
 ### Developer scenarios
 An organization with  globally distributed development teams can configure Dev Box to enable developers to create their own dev boxes in their closest region, as and when needed, without waiting for the IT admin team. Dev boxes can be accessed from any device and from any OS.
 
