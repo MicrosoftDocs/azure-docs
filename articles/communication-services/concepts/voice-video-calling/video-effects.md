@@ -47,7 +47,9 @@ For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tok
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
 
-'npm install @azure/communication-calling-effects –save'
+```console
+npm install @azure/communication-calling-effects --save
+```
 
 ## Supported video effects:
 Currently the video effects support the following ability:

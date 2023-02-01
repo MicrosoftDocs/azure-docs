@@ -26,7 +26,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[3Di inc](https://www.3disystems.com)|
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
-|[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
+|[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
 |[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
