@@ -14,6 +14,9 @@ This article shows you how to set up Transport Layer Security (TLS) encryption, 
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use TLS for both producing and consuming. The console producer client `console-producer.sh` does not work with TLS.
 
+> [!Note]
+> HDInsight Kafka console producer with version 1.1 does not support SSL.
+
 ## Apache Kafka broker setup
 
 The Kafka TLS broker setup will use four HDInsight cluster VMs in the following way:
@@ -68,7 +71,15 @@ Use the following detailed instructions to complete the broker setup:
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
+> [!Note]
+> FQDN_WORKER_NODE is Fully Qualified Domain Name of worker node machine.You can get that details from /etc/hosts file in head node
+ 
+For example, 
+`wn0-espkaf.securehadooprc.onmicrosoft.com`
+`wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net`
 
+  :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output" border="true":::
+ 
 1. On the CA machine run the following command to create ca-cert and ca-key files:
 
     ```bash
