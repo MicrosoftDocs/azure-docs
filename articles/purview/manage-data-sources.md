@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/01/2023
 ---
 
 # Manage data sources in Microsoft Purview
