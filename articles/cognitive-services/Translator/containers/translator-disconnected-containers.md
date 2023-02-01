@@ -66,7 +66,7 @@ There are three required parameters for all Cognitive Services' containers:
 
 Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal:
 
-  :::image type="content" source="../media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+  :::image type="content" source="../media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot of Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
 > You will only use your key and endpoint to configure the container to run in a disconnected environment. After you configure the container, you won't need the key and endpoint values to send API requests. Store them securely, for example, using Azure Key Vault. Only one key is necessary for this process.
