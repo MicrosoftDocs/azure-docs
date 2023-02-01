@@ -5,7 +5,7 @@ author: kalyaninamuduri
 ms.author: kanamudu 
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/01/2023
 ms.custom: template-concept 
 ---
 
