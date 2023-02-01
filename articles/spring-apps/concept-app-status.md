@@ -32,7 +32,6 @@ To view general status of an application type, select **Apps** in the left navig
 
 :::image type="content" source="media/spring-cloud-concept-app-status/apps-ui-status.png" alt-text="Shows the status of an application type in an Azure Spring Apps." lightbox="media/spring-cloud-concept-app-status/apps-ui-status.png":::
 
-
 ## Deployment status
 
 The deployment status shows the running state of the deployment. The status is reported as one of the following values:
