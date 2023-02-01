@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Dynatrace?
+  - name: What is Azure Native Dynatrace Service?
     href: dynatrace-overview.md
 - name: Quickstarts
   expanded: true
