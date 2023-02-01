@@ -22,10 +22,14 @@ attendees while enabling some attendees to share their live audio and video, int
 ## Prerequisites
 [!INCLUDE [Public Preview](../../includes/private-preview-include-section.md)]
 
--[Rooms](../rooms/get-started-rooms.md)
+>[!IMPORTANT]
+> [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role based streaming
 
 >[!IMPORTANT]
-> The quick start examples here are available with the private preview version [1.*.*-alpha.*](https://www.npmjs.com/package/@azure/communication-calling/v/1.*.*-alpha.*) of the calling Web SDK. Make sure to use that version when trying this quickstart.
+> The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quickstart.
+
+>[!IMPORTANT]
+> Please contact with ACS Support team to enable live streaming for your resource.
 
 ## Live Streaming with Rooms
 Rooms prticipants will have four roles: 
@@ -34,7 +38,8 @@ Rooms prticipants will have four roles:
 3. Attendee 
 4. Consumer 
 
-Participant with `Consumer` roles will be receving only the live stream. We can use open or closed Rooms to start live streaming. In Open Rooms the default role is `Consumer`.
+Participants with `Consumer` role will be receving only the live stream. They would not be able to speak or share video or screen. So Contoso should not show the unmute, share video and screen option to the Consumers. Live stream supports both open or closed Rooms. In Open Rooms the default role is `Consumer`.
+On the other hand Participants with other roles will receive both real-time and live stream. Contoso can choose either stream to play. 
 
 
 ### Place a Rooms call (start live streaming)
