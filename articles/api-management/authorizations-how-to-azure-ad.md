@@ -40,26 +40,26 @@ Create an Azure AD application for the API and give it the appropriate permissio
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating an Azure AD app registration in the portal.":::
     
 1. On the **Register an application** page, enter your application registration settings:
-    * In **Name**, enter a meaningful name that will be displayed to users of the app, such as *MicrosoftGraphAuth*.
-    * In **Supported account types**, select an option that suits your scenario, for example, **Accounts in this organizational directory only (Single tenant)**.
-    * Set the **Redirect URI** to **Web**,  and enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management service where you will configure the authorization provider.
-    * Select **Register**.
+    1. In **Name**, enter a meaningful name that will be displayed to users of the app, such as *MicrosoftGraphAuth*.
+    1. In **Supported account types**, select an option that suits your scenario, for example, **Accounts in this organizational directory only (Single tenant)**.
+    1. Set the **Redirect URI** to **Web**,  and enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management service where you will configure the authorization provider.
+    1. Select **Register**.
 1. On the left menu, select **API permissions**, and then select **+ Add a permission**.
     :::image type="content" source="./media/authorizations-how-to-azure-ad/add-permission.png" alt-text="Screenshot of adding an API permission in the portal.":::
 
-    * Select **Microsoft Graph**, and then select **Delegated permissions**.
+    1. Select **Microsoft Graph**, and then select **Delegated permissions**.
         > [!NOTE]
         > Make sure the permission **User.Read** with the type **Delegated** has already been added.
-    * Type **Team**, expand the **Team** options, and then select **Team.ReadBasic.All**. Select **Add permissions**.
-    * Next, select **Grant admin consent for Default Directory**. The status of the permissions will change to **Granted for Default Directory**.
+    1. Type **Team**, expand the **Team** options, and then select **Team.ReadBasic.All**. Select **Add permissions**.
+    1. Next, select **Grant admin consent for Default Directory**. The status of the permissions will change to **Granted for Default Directory**.
 1. On the left menu, select **Overview**. On the **Overview** page, find the **Application (client) ID** value and record it for use in Step 2.
 1. On the left menu, select **Certificates & secrets**, and then select **+ New client secret**.    
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-secret.png" alt-text="Screenshot of creating an app secret in the portal.":::
     
-    * Enter a **Description**.
-    * Select any option for **Expires**.
-    * Select **Add**.
-    * Copy the client secret's **Value** before leaving the page. You will need it in Step 2.
+    1. Enter a **Description**.
+    1. Select any option for **Expires**.
+    1. Select **Add**.
+    1. Copy the client secret's **Value** before leaving the page. You will need it in Step 2.
 
 ## Step 2: Configure an authorization in API Management
 

@@ -4,8 +4,9 @@ description: Learn about authorizations in Azure API Management, a feature that 
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 02/01/2023
 ms.author: danlep
+ms.custom: references_regions
 ---
 
 # Authorizations overview
