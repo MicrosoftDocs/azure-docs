@@ -16,9 +16,9 @@ ms.custom:  "mqtt, devx-track-csharp"
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md) and [direct methods](../articles/iot-hub/iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices. This article shows you how Azure CLI and a device can work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end apps can use Azure IoT Hub primitives, such as [device twins](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices. This article shows you how Azure CLI and a device can work together to initiate and monitor a remote device reboot using IoT Hub.
 
-[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from an Azure CLI session. The device is responsible for:
 
@@ -132,11 +132,11 @@ In this section, you use the second CLI session to invoke a direct method on the
     
 1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleDevice` and `SampleMethod` for the `{DeviceName}` and `{MethodName}` placeholders, respectively, in the `az iot hub invoke-device-method` CLI command. 
 
-    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-invocation.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
+    :::image type="content" source="media/cli-cli-device-management-get-started/device-method-receive-invocation.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
 
 1. In the second CLI session, confirm that the output shows the status code and payload received from the invoked method. 
 
-    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
+    :::image type="content" source="media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
 
 ## Invoke a direct method with a payload
 
@@ -158,10 +158,10 @@ In this section, you use the second CLI session to invoke a direct method and pr
 
 1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleDevice` and `SampleMethod` for the `{DeviceName}` and `{MethodName}` placeholders, respectively, in the `az iot hub invoke-device-method` CLI command. 
 
-    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-invocation-payload.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked with a payload.":::
+    :::image type="content" source="media/cli-cli-device-management-get-started/device-method-receive-invocation-payload.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked with a payload.":::
 
 1. In the second CLI session, confirm that the output shows the status code and payload received from the invoked method. 
 
-    :::image type="content" source="./media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
+    :::image type="content" source="media/cli-cli-device-management-get-started/device-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
