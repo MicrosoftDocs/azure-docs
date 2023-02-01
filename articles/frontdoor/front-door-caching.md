@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/16/2023
+ms.date: 02/02/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -28,6 +28,11 @@ Azure Front Door delivers large files without a cap on file size. If caching is 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection. For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the origin. This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, this optimization isn't effective.
+
+Your origin needs to handle range requests correctly. When your origin responds to a request with a `Range` header, it must respond in one of the following ways:
+
+- **Return a ranged response.** The response must use HTTP status code 206. Also, the `Content-Range` response header must be present, and must match the actual length of the content that your origin returns. If your origin doesn't send the correct response headers with valid values, Azure Front Door won't cache the response. If your origin compresses the response, ensure that the `Content-Range` header value matches the actual length of the compressed response.
+- **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a non-ranged response. Ensure that origin returns a response status code other than 206.
 
 ## File compression
 
