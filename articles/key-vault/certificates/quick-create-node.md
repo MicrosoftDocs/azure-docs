@@ -39,7 +39,7 @@ This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli)
 
 1. Run the `login` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -76,7 +76,7 @@ Create a Node.js application that uses your key vault.
     npm install @azure/keyvault-certificates
     ```
 
-1. Install the Azure Identity library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
+1. Install the Azure Identity client library, [@azure/identity](https://www.npmjs.com/package/@azure/identity), to authenticate to a Key Vault.
 
     ```terminal
     npm install @azure/identity
@@ -114,9 +114,18 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 ---
 
+### Authenticate and create a client
+
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
+
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this code, the name of your key vault is used to create the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+
 ## Code example
 
 These code samples demonstrate how to create a client, set a certificate, retrieve a certificate, and delete a certificate. 
+
 
 ### Set up the app framework
 
