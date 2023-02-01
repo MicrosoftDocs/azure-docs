@@ -18,18 +18,19 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 You can set a blob's access tier in any of the following ways:
 
-- By setting the default online access tier (hot, cool, or cold) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By setting the default online access tier (hot or cool) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation, typically to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation, typically to move from a cooler tier to a hotter one.
 
-This article describes how to manage a blob in an online access tier (hot, cool, or cold). For more information about how to move a blob to the archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
+This article describes how to manage a blob in an online access tier. For more information about how to move a blob to the archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 For more information about access tiers for blobs, see [Access tiers for blob data](access-tiers-overview.md).
 
 > [!IMPORTANT]
 > The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> You can use this [form](https://forms.office.com/r/788B1gr3Nq) to enroll in the preview.
 
 ## Set the default access tier for a storage account
 
@@ -47,9 +48,6 @@ To set the default access tier for a storage account at create time in the Azure
 
 3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot* or *Cool*. The default setting is *Hot*.
 
-   > [!NOTE]
-   > The cold tier is in preview and appears as an option if the storage account is in a region that supports the preview.
-
 4. Select **Review + Create** to validate your settings and create your storage account.
 
     :::image type="content" source="media/access-tiers-online-manage/set-default-access-tier-create-portal.png" alt-text="Screenshot showing how to set the default access tier when creating a storage account.":::
@@ -61,9 +59,6 @@ To update the default access tier for an existing storage account in the Azure p
 2. Under **Settings**, select **Configuration**.
 
 3. Locate the **Blob access tier (default)** setting, and select either *Hot* or *Cool*. The default setting is *Hot*, if you have not previously set this property.
-
-   > [!NOTE]
-   > The cold tier is in preview and appears as an option if the storage account is in a region that supports the preview.
 
 4. Save your changes.
 
@@ -215,19 +210,16 @@ azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.blob.core
 
 ### Upload a blob to the default tier
 
-Storage accounts have a default access tier setting that indicates in which online tier a new blob is created. The default access tier setting can be set to either hot, cool, or cold. The behavior of this setting is slightly different depending on the type of storage account:
+Storage accounts have a default access tier setting that indicates in which online tier a new blob is created. The default access tier setting can be set to either hot or cool. The behavior of this setting is slightly different depending on the type of storage account:
 
 - The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it's created.
-- When you create a legacy Blob Storage account, you must specify the default access tier setting as hot, cool, or cold when you create the storage account. You can change the default access tier setting for the storage account after it's created.
+- When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool when you create the storage account. You can change the default access tier setting for the storage account after it's created.
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. You can determine whether a blob's access tier is inferred by using the Azure portal, PowerShell, or Azure CLI.
 
 #### [Portal](#tab/azure-portal)
 
 If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
-
-> [!NOTE]
-> The cold tier is in preview. **Cold (inferred)** appears as an option if the storage account is in a region that supports the preview.
 
 :::image type="content" source="media/access-tiers-online-manage/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal.":::
 
@@ -315,7 +307,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob's access tier to cool.
+# Change the blob's access tier.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Cool", $null, "Standard")
 ```
@@ -347,6 +339,9 @@ To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\com
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=cool
 ```
+
+> [!NOTE]
+> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, [enroll](https://forms.office.com/r/788B1gr3Nq) in the cold tier preview, and then change the blob's tier to cold by using the Azure portal, PowerShell, or the Azure CLI.
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 

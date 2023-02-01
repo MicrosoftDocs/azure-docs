@@ -24,6 +24,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 > [!IMPORTANT]
 > The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> You can use this [form](https://forms.office.com/r/788B1gr3Nq) to enroll in the preview.
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
@@ -91,15 +92,15 @@ Migrating a storage account from LRS to GRS is supported as long as no blobs wer
 
 ## Default account access tier setting
 
-Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot, cool, or cold. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
+Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
 
 The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it's created. If you don't change this setting on the storage account or explicitly set the tier when uploading a blob, then a new blob is uploaded to the hot tier by default.
 
-A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)**, **Cool (inferred)**, or **Cold (inferred)**.
+A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
 Changing the default access tier setting for a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. If you toggle the default access tier setting to a cooler tier in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a general-purpose v2 account.
 
-When you create a legacy Blob Storage account, you must specify the default access tier setting as hot, cool, or cold at create time. There's no charge for changing the default account access tier setting to a cooler tier in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
+When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting to a cooler tier in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
 
 > [!NOTE]
 > The archive tier is not supported as the default access tier for a storage account.
@@ -197,6 +198,51 @@ The following table summarizes how tier changes are billed.
 | **Set Blob Tier** operation | Hot to cool<br> Hot to archive<br> Cool to cold<br> Cool to archive <br> Cold to archive | Archive to cold <br> Archive to cool<br> Archive to hot<br> Cold to cool <br> Cold to hot<br> Cool to hot |cool to hot |
 
 Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
+
+## Cold tier (preview)
+
+The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+
+### Enrolling in the preview 
+
+To get started, enroll in the preview by using this [form](https://forms.office.com/r/788B1gr3Nq).
+
+You'll receive an email notification when your application is approved and the `ColdTier` feature flag will be registered on your subscription.
+
+### Verifying that you enrolled in the preview
+
+If the the `ColdTier` feature flag is registered on your subscription, then you are enrolled in the preview, and you can begin using the cold tier. Use the following steps to ensure that the feature is registered.
+
+#### [Portal](#tab/azure-portal)
+
+In the **Preview features** page of your subscription, locate the **ColdTier** feature, and then make sure that **Registered** appears in the **State** column.
+
+> [!div class="mx-imgBorder"]
+> ![Verify that the feature is registered in Azure portal](./media/access-tiers-overview/cold-tier-feature-registration.png)
+
+#### [PowerShell](#tab/powershell)
+
+To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName ColdTier
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage --name ColdTier
+```
+
+---
+
+### Limitations and known issues
+
+- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
+- The default access tier setting of the account can't be set to cold tier.
+- blobs can't be set to the cold tier by using AzCopy. During the preview, you can set the blob's tier to the cold tier by using the Azure portal, PowerShell, or the Azure CLI.
 
 ## Feature support
 
