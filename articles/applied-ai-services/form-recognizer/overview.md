@@ -34,9 +34,9 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 ## Video: Form Recognizer models
 
-The following video introduces the Form Recognizer models and their associated output to help you choose which one is best to address your document scenario needs.
+The following video introduces Form Recognizer models and their associated output to help you choose which one is best to address your document scenario needs.</br></br>
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
 ## Which Form Recognizer model should I use?
 

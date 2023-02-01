@@ -17,17 +17,13 @@ recommendations: false
 
 This article highlights the best methods for labeling custom model datasets in the Form Recognizer Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
 
-## Video: Custom labels best practices (part two)
+## Video: Custom labels best practices
 
-The following is the second of two videos intended to help you build custom
-models with higher accuracy.
+* The following video is the second of two presentations intended to help you build custom models with higher accuracy (the first presentation explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers)).
 
-* This video, explores the best practices for labeling your selected documents. With consistent labeling and following these best practices, you
-should see an improvement in model performance.
+* Here, we'll examine best practices for labeling your selected documents. With consistent labeling and following these suggestions, you should see an improvement in model performance.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB ]
-
-* The first video (part one) explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers-part-one).
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB ]
 
 ## Search
 
