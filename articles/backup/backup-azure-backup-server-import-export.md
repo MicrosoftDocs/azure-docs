@@ -3,9 +3,9 @@ title: Offline seeding workflow for DPM and MABS using customer-owned disks with
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
 ms.topic: how-to
 ms.date: 12/05/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export
 
@@ -150,7 +150,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 1. After the successful copy of the data from the staging location to the disks, the tool shows the following details:
 
    - The list of disks prepared for seeding.
-   - The name of the storage account, resource group, country, and region of the Import/Export Job.
+   - The name of the storage account, resource group, and country/region of the Import/Export Job.
 
    The tool lists the fields required to create the Import/Export Job.* Enter the following details:
 
@@ -160,7 +160,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    | Contact Number | Phone number of the contact for the Import/Export Job |
    | Valid Email Id | Email ID to notify for the Import/Export Job |
    | Shipping Address | The return shipping address |
-   | Country | Return shipping country |
+   | Country | Return shipping country/region |
    | Postal Code | Return shipping postal code |
 
    **All fields are required.*

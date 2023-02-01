@@ -240,7 +240,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ---
    
    > [!NOTE]
-   > `scoring_script` and `environment` auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+   > Batch deployments only support deploying MLflow models with a `pyfunc` flavor. To use a different flavor, see [Customizing MLflow models deployments with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script)..
 
 6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
@@ -433,7 +433,7 @@ The following data types are supported for batch inference when deploying MLflow
 > Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.parquet'. File type 'parquet' is not supported."*.
 
 > [!TIP]
-> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 ### Signature enforcement for MLflow models
 
@@ -446,9 +446,9 @@ You can inspect the model signature of your model by opening the `MLmodel` file 
 
 ### Flavor support
 
-Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
 
-## Using MLflow models with a scoring script
+## Customizing MLflow models deployments with a scoring script
 
 MLflow models can be deployed to batch endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate this file (usually referred as the *batch driver*) to customize how inference is executed. 
 
@@ -471,7 +471,19 @@ You will typically select this workflow when:
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create a scoring script:
+1. Identify the folder where your MLflow model is placed.
+
+    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+    b. Go to the section __Models__.
+
+    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+    d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
    __batch_driver.py__
 

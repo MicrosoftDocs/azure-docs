@@ -3,7 +3,6 @@ title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
 author: kgremban
-
 ms.author: kgremban
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 ms.date: 10/26/2021
@@ -21,60 +20,62 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
+>
 > * Check your device authentication
 > * Check device-to-cloud connectivity
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+* This tutorial uses the Azure CLI to create cloud resources. There are two ways to run CLI commands:
 
-The device simulator application you run in this tutorial is written using Node.js. You need Node.js v10.x.x or later on your development machine.
+  * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). For more information, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md).
+   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  * If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+    * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
+    * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-You can verify the current version of Node.js on your development machine using the following command:
+  [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-```cmd/sh
-node --version
-```
+* The sample application that you run in this tutorial uses Node.js. You need Node.js v10.x.x or later on your development machine.
 
-Download the sample device simulator Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
+  * You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+  * You can verify the current version of Node.js on your development machine using the following command:
 
-Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+    ```cmd/sh
+    node --version
+    ```
+
+* Clone or download the sample Node.js project from [Azure IoT samples for Node.js](https://github.com/Azure-Samples/azure-iot-samples-node).
+
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
-If you created a free or standard tier IoT hub in a previous quickstart or tutorial, you can skip this step.
-
-[!INCLUDE [iot-hub-tutorials-create-free-hub](../../includes/iot-hub-tutorials-create-free-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## Check device authentication
 
-A device must authenticate with your hub before it can exchange any data with the hub. You can use the **IoT Devices** tool in the **Device Management** section of the portal to manage your devices and check the authentication keys they're using. In this section of the tutorial, you add a new test device, retrieve its key, and check that the test device can connect to the hub. Later you reset the authentication key to observe what happens when a device tries to use an outdated key. This section of the tutorial uses the Azure portal to create, manage, and monitor a device, and the sample Node.js device simulator.
+A device must authenticate with your hub before it can exchange any data with the hub. You can use the **IoT Devices** tool in the **Device Management** section of the portal to manage your devices and check the authentication keys they're using. In this section of the tutorial, you add a new test device, retrieve its key, and check that the test device can connect to the hub. Later you reset the authentication key to observe what happens when a device tries to use an outdated key.
 
-Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
+### Register a device
 
-:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT Devices tool":::
+[!INCLUDE [iot-hub-include-create-device-cli](../../includes/iot-hub-include-create-device-cli.md)]
 
-To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
+### Simulate a test device
 
-:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Add new device":::
-
-To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
-
-:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Retrieve device connection string}":::
-
-To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
+To simulate a device sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
 In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests** folder.
 
-In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connection string you made a note of when you added the device in the portal.
+In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connection string you made a note of when you registered the device.
 
 ```cmd/sh
 npm install
-node SimulatedDevice-1.js "{your device connection string}"
+node SimulatedDevice-1.js "{your_device_connection_string}"
 ```
 
 The terminal window displays information as it tries to connect to your hub:
@@ -87,24 +88,21 @@ You've now successfully authenticated from a device using a device key generated
 
 In this section, you reset the device key and observe the error when the simulated device tries to connect.
 
-To reset the primary device key for **MyTestDevice**, run the following commands:
+To reset the primary device key for your device, run the following commands:
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI
-# az extension add --name azure-iot
-
-# Reset the primary device key for MyTestDevice
-az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}
+# Reset the primary device key for test device
+az iot hub device-identity update --device-id {your_device_id} --set authentication.symmetricKey.primaryKey=$key --hub-name {your_iot_hub_name}
 ```
 
 In the terminal window on your development machine, run the simulated device application again:
 
 ```cmd/sh
 npm install
-node SimulatedDevice-1.js "{your device connection string}"
+node SimulatedDevice-1.js "{your_device_connection_string}"
 ```
 
 This time you see an authentication error when the application tries to connect:
@@ -123,10 +121,10 @@ In some scenarios, such as in a cloud protocol gateway or as part of a custom au
 To generate a known-good SAS token using the CLI, run the following command:
 
 ```azurecli-interactive
-az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
+az iot hub generate-sas-token --device-id {your_device_id} --hub-name {your_iot_hub_name}
 ```
 
-Make a note of the full text of the generated SAS token. A SAS token looks like the following: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
+Make a note of the full text of the generated SAS token. A SAS token looks like the following example: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests** folder.
 
@@ -161,12 +159,12 @@ If the outbound port is blocked by a firewall, the device can't connect:
 
 ## Check device-to-cloud connectivity
 
-After a device connects, it typically tries to send telemetry to your IoT hub. This section shows you how you can verify that the telemetry sent by the device reaches your hub.
+After a device connects, it can start sending telemetry to your IoT hub. This section shows you how you can verify that the telemetry sent by the device reaches your hub.
 
 First, retrieve the current connection string for your simulated device using the following command:
 
 ```azurecli-interactive
-az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id {your_device_id} --output table --hub-name {your_iot_hub_name}
 ```
 
 To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests** folder in the code you downloaded.
@@ -175,14 +173,16 @@ In the terminal window, run the following commands to install the required libra
 
 ```cmd/sh
 npm install
-node SimulatedDevice-3.js "{your device connection string}"
+node SimulatedDevice-3.js "{your_device_connection_string}"
 ```
 
 The terminal window displays information as it sends telemetry to your hub:
 
 ![Simulated device sending messages](media/tutorial-connectivity/sim-3-sending.png)
 
-You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub. Select your IoT hub in the **Resource** drop-down, select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
+You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub. 
+
+In the [Azure portal](https://portal.azure.com), select your IoT hub in the **Resource** drop-down. Select **Metrics** from the **Monitoring** section of the navigation menu. Select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
 
 :::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="Screenshot showing left pane metrics." border="true":::
 
@@ -195,13 +195,13 @@ This section shows how you can make a test direct method call to a device to che
 In a terminal window, use the following command to run the simulated device application:
 
 ```cmd/sh
-node SimulatedDevice-3.js "{your device connection string}"
+node SimulatedDevice-3.js "{your_device_connection_string}"
 ```
 
 Use a CLI command to call a direct method on the device:
 
 ```azurecli-interactive
-az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMethod --timeout 10 --method-payload '{"key":"value"}' --hub-name {YourIoTHubName}
+az iot hub invoke-device-method --device-id {your_device_id} --method-name TestMethod --timeout 10 --method-payload '{"key":"value"}' --hub-name {your_iot_hub_name}
 ```
 
 The simulated device prints a message to the console when it receives a direct method call:
@@ -214,20 +214,20 @@ When the simulated device successfully receives the direct method call, it sends
 
 ## Check twin synchronization
 
-Devices use twins to synchronize state between the device and the hub. In this section, you use CLI commands to send _desired properties_ to a device and read the _reported properties_ sent by the device.
+Devices use twins to synchronize state between the device and the hub. In this section, you use CLI commands to send *desired properties* to a device and read the *reported properties* sent by the device.
 
 The simulated device you use in this section sends reported properties to the hub whenever it starts up, and prints desired properties to the console whenever it receives them.
 
 In a terminal window, use the following command to run the simulated device application:
 
 ```cmd/sh
-node SimulatedDevice-3.js "{your device connection string}"
+node SimulatedDevice-3.js "{your_device_connection_string}"
 ```
 
 To verify that the hub received the reported properties from the device, use the following CLI command:
 
 ```azurecli-interactive
-az iot hub device-twin show --device-id MyTestDevice --hub-name {YourIoTHubName}
+az iot hub device-twin show --device-id {your_device_id} --hub-name {your_iot_hub_name}
 ```
 
 In the output from the command, you can see the **devicelaststarted** property in the reported properties section. This property shows the date and time you last started the simulated device.
@@ -237,7 +237,7 @@ In the output from the command, you can see the **devicelaststarted** property i
 To verify that the hub can send desired property values to the device, use the following CLI command:
 
 ```azurecli-interactive
-az iot hub device-twin update --set properties.desired='{"mydesiredproperty":"propertyvalue"}' --device-id MyTestDevice --hub-name {YourIoTHubName}
+az iot hub device-twin update --set properties.desired='{"mydesiredproperty":"propertyvalue"}' --device-id {your_device_id} --hub-name {your_iot_hub_name}
 ```
 
 The simulated device prints a message when it receives a desired property update from the hub:
@@ -248,7 +248,7 @@ In addition to receiving desired property changes as they're made, the simulated
 
 ## Clean up resources
 
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the **tutorials-iot-hub-rg** resource group that contains your IoT hub and click **Delete**.
+If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and select **Delete**.
 
 ## Next steps
 

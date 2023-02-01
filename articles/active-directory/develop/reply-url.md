@@ -1,11 +1,11 @@
 ---
 title: Redirect URI (reply URL) restrictions
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: madansr7
+author: henrymbuguakiarie
 manager: CelesteDG
-ms.author: saumadan
+ms.author: henrymbugua
 ms.date: 08/25/2022
-ms.reviewer: marsma
+ms.reviewer: madansr7
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference

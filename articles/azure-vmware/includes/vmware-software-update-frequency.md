@@ -33,7 +33,7 @@ Microsoft is responsible for applying any patches, updates, or upgrades to ESXi,
  
    It's recommended that, during the upgrade time, you don't plan any other activities like scaling up private cloud, and so on, in your private cloud. Other activities can prevent the upgrade from starting or could have adverse impacts on the upgrade and the environment.
  
-You'll be notified before patches/updates or upgrades are applied to your private clouds. We'll also work with you to schedule a maintenance window before applying updates or upgrades to your private cloud.
+You'll be notified through Azure Service Health that includes the timeline of the upgrade. This notification also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. You can reschedule an upgrade as needed.
 
 
 Software updates include:

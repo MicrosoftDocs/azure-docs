@@ -91,9 +91,6 @@ In the storage browser that appears in the Azure portal, you can't access a file
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
 
-## Storage Analytics logs (classic)
-
-The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ## Windows Azure Storage Blob (WASB) driver
 

@@ -58,7 +58,7 @@ Azure Database for MySQL – Single Server supports the following the backend st
 > Basic storage does not provide an IOPS guarantee. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 ### Basic storage 
-Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
+Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage uses Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
 
 ### General purpose storage 
 General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio. There are two generations of general purpose storage as described below:
@@ -104,7 +104,7 @@ General purpose storage v2 is supported in the following Azure regions:
 | West US | :heavy_check_mark: | 
 | West US 2 | :heavy_check_mark: | 
 | West Europe | :heavy_check_mark: | 
-| Central India* | :heavy_check_mark: | 
+| Central India | :heavy_check_mark: | 
 | France Central* | :heavy_check_mark: | 
 | UAE North* | :heavy_check_mark: | 
 | South Africa North* | :heavy_check_mark: |

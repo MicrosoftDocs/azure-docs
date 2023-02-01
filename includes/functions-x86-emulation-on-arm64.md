@@ -38,7 +38,7 @@ Reinstall all dependencies required by Functions in this environment, which incl
 
 * [homebrew](https://brew.sh/), installed to the path `/usr/local/bin/brew`.
 * Python 
-* [Azure Functions Core Tools](/articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
+* [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 Also, reinstall any other packages required by your Python project.
 

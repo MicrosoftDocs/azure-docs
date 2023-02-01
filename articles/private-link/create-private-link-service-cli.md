@@ -17,7 +17,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -35,16 +35,6 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --name CreatePrivLinkService-rg \
     --location eastus2
 
-```
-
-## Create a DDoS protection plan
-
-Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
-
-```azurecli-interactive
-az network ddos-protection create \
-    --resource-group CreatePrivLinkService-rg  \
-    --name myDDoSPlan
 ```
 
 ## Create an internal load balancer
@@ -72,20 +62,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
-    --subnet-prefixes 10.1.0.0/24 \
-    --ddos-protection-plan myDDoSPlan \
-    --ddos-protection true
-
-```
-
-To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnet \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNet \
-    --disable-private-link-service-network-policies true
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### Create standard load balancer
@@ -220,19 +197,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNetPE \
     --address-prefixes 11.1.0.0/16 \
     --subnet-name mySubnetPE \
-    --subnet-prefixes 11.1.0.0/24 \
-    --ddos-protection-plan myDDoSPlan \
-    --ddos-protection true
-```
-
-To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnetPE \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNetPE \
-    --disable-private-endpoint-network-policies true
+    --subnet-prefixes 11.1.0.0/24
 ```
 
 ### Create endpoint and connection

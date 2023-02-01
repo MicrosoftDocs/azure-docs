@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 01/30/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -39,7 +39,7 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * blob.core.windows.net
 * core.windows.net
 * vaultcore.windows.net
-* vault.azure.com
+* vault.azure.net
 * azure.com
 
 You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
@@ -94,7 +94,7 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 ### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ## <a name="vm"></a>VM features and connection FAQs
 
