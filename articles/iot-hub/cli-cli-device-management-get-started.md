@@ -16,7 +16,7 @@ ms.custom:  "mqtt, devx-track-azurecli"
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twins](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices. This article shows you how Azure CLI and a device can work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end apps can use Azure IoT Hub primitives, such as [device twins](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices. This article shows you how Azure CLI and a device can work together to invoke a direct method for a device using IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -34,13 +34,13 @@ This article shows you how to create two Azure CLI sessions:
 
 * A session that creates a simulated device. The simulated device is configured to return a status code and JSON payload when any direct method is invoked.
 
-* A session that creates two scheduled jobs. The first job invokes a direct method and the second job updates a desired device twin property on the simulated device created in the other session.
+* A session that invokes a direct method on the simulated device created in the other session.
 
 ## Prerequisites
 
 * Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](/azure/cloud-shell/overview), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
@@ -52,7 +52,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 1. Select the **Cloud Shell** icon from the page header in the Azure portal.
 
-    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-new-session.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
+    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-button.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
 
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
@@ -170,4 +170,9 @@ In this section, you use the second CLI session to invoke a direct method and pr
 
     :::image type="content" source="./media/cli-cli-device-management-get-started/direct-method-receive-payload.png" alt-text="Screenshot of an Azure Cloud Shell window displaying the status code and payload of an invoked direct method.":::
 
-[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
+## Next steps
+
+To learn how to use Azure CLI to extend your IoT solution and schedule method invocations on devices, see [Schedule and broadcast jobs](cli-cli-schedule-jobs.md).
+
+To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in [Device Update for Azure IoT Hub article using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
+
