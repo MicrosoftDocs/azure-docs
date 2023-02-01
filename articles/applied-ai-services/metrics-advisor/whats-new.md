@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor what's new
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn about what is new with Metrics Advisor
 author: mrbullwinkle
 manager: nitinme

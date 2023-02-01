@@ -64,6 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- January 27, 2023: Mark Azure Active Directory Domain Services as supported AD solution in [SAP workload on Azure virtual machine supported scenarios](planning-supported-configurations.md) after successful testing
 - December 28, 2022: Update documents [Azure Storage types for SAP workload](./planning-guide-storage.md) and [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md) to provide more details on ANF deployment processes to achieve proximity and low latency. Introduction of zonal deployment process of NFS shares on ANF
 - December 28, 2022: Updated the guide [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) across all topics. Also added VM configuration examples for different sizes of databases
 - December 27, 2022: Introducing new configuration for SAP ASE on E96(d)s_v5 in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) 

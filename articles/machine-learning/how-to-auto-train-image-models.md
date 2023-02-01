@@ -5,6 +5,7 @@ description: Set up Azure Machine Learning automated ML to train computer vision
 services: machine-learning
 author: swatig007
 ms.author: swatig
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.custom: event-tier1-build-2022, ignite-2022

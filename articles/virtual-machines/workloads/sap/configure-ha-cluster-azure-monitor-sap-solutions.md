@@ -72,6 +72,10 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 1. Data will then be collected by PCP on the system. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
 
+## Prerequisites to enable secure communication 
+
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication)
+
 ## Create provider for Azure Monitor for SAP solutions
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -83,6 +87,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
     ![Diagram of Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)
 
 1. For **Type**, select **High-availability cluster (Pacemaker)**.
+1. *Optional* Select **Enable secure communciation**, choose a certificate type
 1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**.
 
     1. For SUSE-based clusters, enter `http://<IP-address> :9664/metrics`.
