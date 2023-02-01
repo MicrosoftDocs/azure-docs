@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/24/2022
+ms.date: 01/30/2023
 ---
 
-# Create and manage read replicas
+# Create and manage read replicas in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -1,5 +1,35 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/security/develop/security-code-analysis-customize.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-faq.yml",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-onboard.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-overview.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-releases.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/yaml-configuration.md",
+      "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
+      "redirect_document_id": false
+    },
         {
             "source_path": "articles/vmware-cloudsimple/access-cloudsimple-portal.md",
             "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
@@ -16085,8 +16115,33 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/sentinel/authentication-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/dhcp-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-dhcp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/user-management-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-user-management",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-file-event",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/registry-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-registry-event",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/process-events-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-process-event",
             "redirect_document_id": true
         },
         {
@@ -22595,6 +22650,36 @@
           "source_path": "articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
           "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/tutorial-protect-load-balancer.md",
+            "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/bastion/tutorial-protect-bastion-host.md",
+            "redirect_URL": "/azure/bastion/tutorial-protect-bastion-host-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/firewall/tutorial-protect-firewall.md",
+            "redirect_URL": "/azure/firewall/tutorial-protect-firewall-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/tutorial-protect-route-server.md",
+            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
+            "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/tutorial-protect-application-gateway.md",
+            "redirect_URL": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
+            "redirect_document_id": false
         }
     ]
 }
