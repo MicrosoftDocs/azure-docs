@@ -196,7 +196,7 @@ Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk
 
 ### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled the Standard tier, and is limited to an SLO of 99.5%.
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
 Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
