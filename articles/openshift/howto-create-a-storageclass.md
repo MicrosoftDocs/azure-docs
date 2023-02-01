@@ -108,7 +108,7 @@ EOF
 oc create -f azure-storageclass-azure-file.yaml
 ```
 
-Mount options for Azure Files will generally be dependent on the workload that you are deploying and what the application depends on. You can get a lot of details regarding the various mount options available here: https://linux.die.net/man/8/mount.cifs Specifically for Azure files, we do have some additional mandatory and recommended parameters that you should consider using.
+Mount options for Azure Files will generally be dependent on the workload that you are deploying and the requirements of the application. Specifically for Azure files, there are additional parameters that you should consider using.
 
 Mandatory parameters: 
 - "mfsymlinks" to map symlinks to a form the client can use
