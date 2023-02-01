@@ -29,7 +29,7 @@ You can host function apps in a couple of ways:
 
 Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
 
-* Bicep, Arm, and Terraform templates:
+* ARM, Bicep, and Terraform templates:
     * [Private HTTP Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
     * [Private Event Hubs Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-eventhub)
 * Only ARM templates:
