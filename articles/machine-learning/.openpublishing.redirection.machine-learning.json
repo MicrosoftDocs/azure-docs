@@ -791,6 +791,16 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/machine-learning-retrain-models-programmatically.md",
+        "redirect_url": "/azure/machine-learning/classic/retrain-machine-learning-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/service/concept-accelerate-with-fpgas.md",
+        "redirect_url": "/azure/machine-learning/concept-endpoints",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/studio/retrain-models-programmatically.md",
         "redirect_url": "/azure/machine-learning/classic/retrain-machine-learning-model",
         "redirect_document_id": false
