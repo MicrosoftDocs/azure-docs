@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage secrets
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/22/2022
+ms.date: 02/01/2023
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -20,7 +20,7 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment).
+- [Python 3.7+](/azure/developer/python/configure-local-development-environment).
 - [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
 This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) in a Linux terminal window.
@@ -154,7 +154,7 @@ python kv_secrets.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same secret name may produce the error, "(Conflict) Secret \<name\> is currently in a deleted but recoverable state." Use a different secret name.
+- Rerunning the code with the same secret name may produce the error, "(Conflict) Secret \<name\> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
 
@@ -179,7 +179,7 @@ client.set_secret(secretName, secretValue)
 
 Calling `set_secret` generates a call to the Azure REST API for the key vault.
 
-When handling the request, Azure authenticates the caller's identity (the service principal) using the credential object you provided to the client.
+When Azure handles the request, it authenticates the caller's identity (the service principal) using the credential object you provided to the client.
 
 ### Retrieve a secret
 
