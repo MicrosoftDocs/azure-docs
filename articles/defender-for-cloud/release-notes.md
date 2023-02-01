@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 01/29/2023
+ms.date: 02/01/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -75,7 +75,7 @@ The Defender for SQL vulnerability assessment email report is still available an
 
 ## Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
 
-The recommendation [`Diagnostic logs in Virtual Machine Scale Sets should be enabled`](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/961eb649-3ea9-f8c2-6595-88e9a3aeedeb/showSecurityCenterCommandBar~/false) has been deprecated. 
+The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated. 
 
 The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) has also been deprecated from any standards displayed in the regulatory compliance dashboard. 
 
