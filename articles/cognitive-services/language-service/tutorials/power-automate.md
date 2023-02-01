@@ -64,7 +64,7 @@ In this tutorial, you'll create a Power Automate flow to extract entities found 
     :::image type="content" source="../media/language-auth.png" alt-text="A screenshot of adding the language key and endpoint to the Power Automate flow." lightbox="../media/language-auth.png":::
 
 9. Add the data in the connector
-:::image type="content" source="../media/ner-connector.png" alt-text="A screenshot of the NER connector." lightbox="../media/ner-connector.png":::
+:::image type="content" source="../media/connector-data.png" alt-text="A screenshot of data being added to the connector." lightbox="../media/connector-data.png":::
     
     > [!NOTE]
     > You will need deployment name and project name if you are using custom language capability.
