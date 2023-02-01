@@ -28,7 +28,7 @@ There are [Azure built-in roles](../role-based-access-control/built-in-roles.md)
     - View the health and status of SAP systems.
     - Perform operations such as **Start** and **Stop** on the VIS resource.
     - Do all possible actions with Azure Center for SAP solutions, including the deletion of the VIS resource.
-- The **Azure Center for SAP solutions service** role is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Center for SAP solutions.
+- The **Azure Center for SAP solutions service role** is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Center for SAP solutions.
 - The **Azure Center for SAP solutions reader** role has permissions to view all VIS resources.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ To deploy infrastructure for a new SAP system, a *user* and *user-assigned manag
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions service** |
+| **Azure Center for SAP solutions service role** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -134,7 +134,7 @@ To install SAP software, a *user* and *user-assigned managed identity* requires 
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions service** |
+| **Azure Center for SAP solutions service role** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -174,7 +174,7 @@ To register an existing SAP system and manage that system with Azure Center for 
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions service** |
+| **Azure Center for SAP solutions service role** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -236,7 +236,7 @@ To start the SAP system from a VIS resource, a *user* and *user-assigned managed
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions service** |
+| **Azure Center for SAP solutions service role** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -259,7 +259,7 @@ To stop the SAP system from a VIS resource, a *user* and *user-assigned managed 
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions service** |
+| **Azure Center for SAP solutions service role** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
