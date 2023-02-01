@@ -2,6 +2,8 @@
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
 
+
+
 ms.topic: conceptual
 ms.date: 01/18/2023
 
@@ -21,7 +23,7 @@ Azure Native ISV Services are available through the Marketplace.
 |[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
 |[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
-|[New Relic Preview](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
+|[Azure Native New Relic Service Preview](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
 
 
 ## Data and storage

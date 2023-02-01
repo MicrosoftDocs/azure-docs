@@ -47,7 +47,7 @@ This option enables you to find out if your application is having any issues. In
 Some of the metrics that you might want to monitor for your app are
 
 * Average memory working set
-* Average response time
+* Response time
 * CPU time
 * Memory working set
 * Requests

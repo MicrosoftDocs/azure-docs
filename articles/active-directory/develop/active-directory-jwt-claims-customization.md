@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: davidmu
 ms.custom: aaddev
+ms.reviewer: rahulnagraj, alamaral
 ---
 
 # Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)

@@ -71,16 +71,16 @@ netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" 
 
 Start NTTTCP on the RECEIVER (**run from CMD**, not from PowerShell):
 
-ntttcp -r –m [2\*\#num\_cores],\*,a.b.c.r -t 300
+ntttcp -r -m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
 If the VM has four cores and an IP address of 10.0.0.4, it would look like this:
 
-ntttcp -r –m 8,\*,10.0.0.4 -t 300
+ntttcp -r -m 8,\*,10.0.0.4 -t 300
 
 
 Start NTTTCP on the SENDER (**run from CMD**, not from PowerShell):
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s -m 8,\*,10.0.0.4 -t 300 
 
 Wait for the results.
 

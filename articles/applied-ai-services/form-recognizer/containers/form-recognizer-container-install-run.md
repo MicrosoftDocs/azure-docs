@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
@@ -20,6 +20,10 @@ recommendations: false
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
 In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you'll also need the **Read** OCR container).
+
+> [!IMPORTANT]
+>
+> * To use Form Recognizer containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
 
 ## Prerequisites
 
@@ -39,6 +43,12 @@ You'll also need the following to use Form Recognizer containers:
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
 
+## Request approval to run container
+
+Complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
+
+[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
+
 ## Host computer requirements
 
 The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
@@ -49,7 +59,7 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 
 ### Container requirements and recommendations
 
-#### Required containers
+#### Required supporting containers
 
 The following table lists the supporting container(s) for each Form Recognizer container you download. For more information, see the [Billing](#billing) section.
 

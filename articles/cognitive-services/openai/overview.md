@@ -96,23 +96,23 @@ The models used by the Azure OpenAI service use natural language instructions an
 
 There are three main approaches for in-context learning: Few-shot, one-shot and zero-shot. These approaches vary based on the amount of task-specific data that is given to the model:
 
-**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples:
+**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples (the model will generate the last answer):
 
 ```
     Convert the questions to a command:
-    Q: Ask Constance if we need some bread
+    Q: Ask Constance if we need some bread.
     A: send-msg `find constance` Do we need some bread?
     Q: Send a message to Greg to figure out if things are ready for Wednesday.
     A: send-msg `find greg` Is everything ready for Wednesday?
-    Q: Ask Ilya if we're still having our meeting this evening
+    Q: Ask Ilya if we're still having our meeting this evening.
     A: send-msg `find ilya` Are we still having a meeting this evening?
-    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday
+    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday.
     A: send-msg `find ski store` Would it be possible to get my skis fixed before I leave on Thursday?
-    Q: Thank Nicolas for lunch
+    Q: Thank Nicolas for lunch.
     A: send-msg `find nicolas` Thank you for lunch!
     Q: Tell Constance that I won't be home before 19:30 tonight — unmovable meeting.
     A: send-msg `find constance` I won't be home before 19:30 tonight. I have a meeting I can't move.
-    Q: Tell John that I need to book an appointment at 10:30
+    Q: Tell John that I need to book an appointment at 10:30.
     A: 
 ```
 

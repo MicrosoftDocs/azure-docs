@@ -35,7 +35,7 @@ The following table lists accepted data types, when each data type should be use
 | [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
-| [Structured text](#structured-text-data-for-training) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
+| [Structured text](#structured-text-data-for-training) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
 
 Training with plain text or structured text usually finishes within a few minutes. 
@@ -94,6 +94,9 @@ Consider these details:
 A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should upload only high-quality transcripts.
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
+
+> [!IMPORTANT]
+> For more information about the best practices of preparing human-labeled transcripts, see [Human-labeled transcripts with audio](how-to-custom-speech-human-labeled-transcriptions.md). 
 
 Custom Speech projects require audio files with these properties:
 

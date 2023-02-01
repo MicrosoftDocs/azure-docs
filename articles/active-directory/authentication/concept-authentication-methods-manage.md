@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) allows the use of a range of authentication me
 
 ## Authentication methods policy
 
-The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable authentication methods for specific users and groups. 
+The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable authentication methods for all users or specific groups. 
 
 Methods enabled in the Authentication methods policy can typically be used anywhere in Azure AD - for both authentication and password reset scenarios. The exception is that some methods are inherently limited to use in authentication, such as FIDO2 and Windows Hello for Business, and others are limited to use in password reset, such as security questions. For more control over which methods are usable in a given authentication scenario, consider using the **Authentication Strengths** feature.
 
@@ -106,8 +106,9 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 > 
 > In the future, both of these features will be integrated with the Authentication methods policy.
 
-## Known issues
-Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
+## Known issues and limitations
+- Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
+- As a part of the public preview we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
 
 ## Next steps
 
