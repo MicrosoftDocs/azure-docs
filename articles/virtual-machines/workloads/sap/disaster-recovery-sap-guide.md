@@ -121,7 +121,7 @@ The high availability setup of SAP NetWeaver or ABAP platform uses enqueue repli
 
 | SAP file share directories | Cross region replication mechanism                           |
 | -------------------------- | ------------------------------------------------------------ |
-| SMB on Azure Files         | [Robocopy](https://learn.microsoft.com/azure/storage/files/storage-files-migration-robocopy) |
+| SMB on Azure Files         | [Robocopy](../../../storage/files/storage-files-migration-robocopy.md) |
 | SMB on Azure NetApp Files  | [Cross Region Replication](../../../azure-netapp-files/cross-region-replication-introduction.md) |
 
 ---
