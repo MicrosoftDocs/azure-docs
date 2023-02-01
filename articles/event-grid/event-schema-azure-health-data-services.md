@@ -7,13 +7,13 @@ ms.date: 01/31/2023
 
 # Azure Health Data Services as an Event Grid source
 
-This article provides the properties and schema for Azure Health Data Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for Azure Health Data Services Events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available Event types
 
 ### List of Events for Azure Health Data Services REST APIs
 
-These events are triggered when a Fast Healthcare Interoperability Resources (FHIR&#174;) resource is created, updated, or deleted by calling the FHIR service REST APIs.
+These events are triggered when a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation is created, updated, or deleted by calling the FHIR service REST APIs.
 
  |Event name|Description|
  |----------|-----------|
@@ -29,7 +29,7 @@ These Events are triggered when a DICOM image is created or deleted by calling t
  |**DicomImageDeleted** |The event emitted after a DICOM image is deleted successfully.|
 
 ## Example events
-This section contains examples of what Azure Health Data Services Events message data would look like for each FHIR resource and DICOM image event.
+This section contains examples of what Azure Health Data Services Events message data would look like for each FHIR Observation and DICOM image event.
 
 > [!NOTE]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
