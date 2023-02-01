@@ -70,9 +70,18 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-basics.png" alt-text="Image of the basic virtual network config":::
 
-1. Select __IP Addresses__ tab. The default settings should be similar to the following image:
+1. Select __Security__. Select to __Enable Azure Bastion__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you'll create inside the VNet in a later step. Use the following values for the remaining fields:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen":::
+    * __Bastion name__: A unique name for this Bastion instance
+    * __Public IP address__: Create a new public IP address.
+
+    Leave the other fields at the default values.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config.":::
+
+1. Select __IP Addresses__. The default settings should be similar to the following image:
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen.":::
 
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
@@ -88,45 +97,28 @@ To create a virtual network, use the following steps:
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet.":::
 
-    1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and set the subnet name and address range. The following are the values used in this tutorial:
-        * __Subnet name__: Training
-        * __Subnet address range__: 172.16.0.0/24
+    1. To create a subnet to contain the workspace, dependency services, and resources used for _training_, select __+ Add subnet__ and set the subnet name, starting address, and subnet size. The following are the values used in this tutorial:
+        * __Name__: Training
+        * __Starting address__: 172.16.0.0
+        * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet.":::
 
-        > [!TIP]
-        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
-        > * __Microsoft.Storage__
-        > * __Microsoft.KeyVault__
-        > * __Microsoft.ContainerRegistry__
-        >
-        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
-
-    1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and set the name and address range:
+    1. To create a subnet for compute resources used to _score_ your models, select __+ Add subnet__ again, and set the name and address range:
         * __Subnet name__: Scoring
-        * __Subnet address range__: 172.16.1.0/24
+        * __Starting address__: 172.16.1.0
+        * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet.":::
 
-        > [!TIP]
-        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
-        > * __Microsoft.Storage__
-        > * __Microsoft.KeyVault__
-        > * __Microsoft.ContainerRegistry__
-        >
-        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
+    1. To create a subnet for _Azure Bastion_, select __+ Add subnet__ and set the template, starting address, and subnet size:
+        * __Subnet template__: Azure Bastion
+        * __Starting address__: 172.16.2.0
+        * __Subnet size__: /26 (64 addresses)
 
-1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you'll create inside the VNet in a later step. Use the following values for the remaining fields:
-
-    * __Bastion name__: A unique name for this Bastion instance
-    * __AzureBastionSubnetAddress space__: 172.16.2.0/27
-    * __Public IP address__: Create a new public IP address.
-
-    Leave the other fields at the default values.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-azure-bastion-subnet.png" alt-text="Screenshot of Azure Bastion subnet.":::
 
 1. Select __Review + create__.
 
@@ -475,9 +467,9 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 > [!IMPORTANT]
 > The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot deploy a model to Azure Container Instances inside the VNet. We do not recommend using Azure Container Instances with Azure Machine Learning in a virtual network. For more information, see [Secure the inference environment (SDK/CLI v1)](./v1/how-to-secure-inferencing-vnet.md).
 >
-> As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
+> As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
 
-At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+At this point, you can use the studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 ## Stop compute instance and jump box
 

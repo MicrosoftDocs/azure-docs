@@ -369,7 +369,7 @@ The `pollingConfig` section includes the following properties:
 | ------------ | ----------- | ------------ |
 | **id**       | String      | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in Azure Cosmos DB |
 | **auth**     | String      | Describes the authentication properties for polling the data. For more information, see [auth configuration](#auth-configuration). |
-| <a name="authtype"></a>**auth.authType** | String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2`, `Session`, `CiscoDuo` |
+| <a name="authtype"></a>**auth.authType** | String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2` |
 | **request**  | Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration). |
 | **response** | Nested JSON | Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
 | **paging**   | Nested JSON | Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration). |
@@ -406,7 +406,7 @@ After the user returns to the client via the redirect URL, the application will 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported values:<br>- `AuthCode` - requires an authorization flow<br>- `ClientCredentials` - doesn't require authorization flow. |
+| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported value: `AuthCode` - requires an authorization flow |
 | **AccessToken** | String | Optional. Defines an OAuth2 access token, relevant when the access token doesn't expire. |
 | **AccessTokenPrepend** | String | Optional. Defines an OAuth2 access token prepend. Default is `Bearer`. |
 | **RefreshToken** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |

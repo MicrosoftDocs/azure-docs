@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage dashboards in Azure IoT Central
 description: How to use the IoT Central REST API to manage dashboards in an application
-author: eross-msft
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/06/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -54,7 +54,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId
 The request body has some required fields:
 
 * `@displayName`: Display name of the dashboard.
-* `@favorite`: Is the dashboard in the favorites list.
+* `@favorite`: Is the dashboard in the favorites list?
 * `group`: Device group ID.
 * `Tile` : Configuration specifying tile object, including the layout, display name, and configuration.
 

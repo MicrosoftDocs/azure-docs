@@ -261,7 +261,7 @@ For step-by-step instructions, see the [ExpressRoute circuit routing configurati
 
 ### Link a virtual network to an ExpressRoute circuit
 
-Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](howto-linkvnet-cli.md) article.
+Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-cli.md) article.
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 

@@ -53,15 +53,15 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 >[!NOTE]
 > Currently, Microsoft Purview roles related to publishing Data Owner policies must be configured at the root collection level.
 
-#### Delegation of access provisioning responsibility to roles in Microsoft Purview
+#### Delegate access provisioning responsibility to roles in Microsoft Purview
 
 After a resource has been enabled for **Data use management**, any Microsoft Purview user with the *Policy author* role at the root collection level can provision access to that data source from Microsoft Purview.
 
 The *IAM Owner* role for a data resource can be inherited from a parent resource group, a subscription, or a subscription management group. Check which Azure AD users, groups, and service principals hold or are inheriting the *IAM Owner* role for the resource.
 
 > [!NOTE]
-> Any Microsoft Purview root *Collection admin* can assign new users to root *Policy author* roles. Any *Collection admin* can assign new users to a *Data source admin* role under the collection. Minimize and carefully vet the users that hold Microsoft Purview *Collection admin*, *Data source admin*, or *Policy author* roles.
+> Any Microsoft Purview root *Collection admin* can assign new users to root *Policy author* roles. Any *Collection admin* can assign new users to a *Data source admin* role under the collection. Minimize and carefully vet the users who hold Microsoft Purview *Collection admin*, *Data source admin*, or *Policy author* roles.
 
 If a Microsoft Purview account with published policies is deleted, such policies will stop being enforced within an amount of time that depends on the specific data source. This change can have implications on both security and data access availability. The Contributor and Owner roles in IAM can delete Microsoft Purview accounts. 
 
-You can check these permissions by going to the **Access control (IAM)** section for your Microsoft Purview account and selecting **Role Assignments**. You can also place a lock to prevent the Microsoft Purview account from being deleted through [Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).
+You can check these permissions by going to the **Access control (IAM)** section for your Microsoft Purview account and selecting **Role Assignments**. You can also use a lock to prevent the Microsoft Purview account from being deleted through [Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).

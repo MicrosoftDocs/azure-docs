@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use script action to configure 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
-ms.date: 04/29/2020
+ms.date: 01/31/2023
 ---
 
 # Safely manage Python environment on Azure HDInsight using Script Action

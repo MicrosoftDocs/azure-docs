@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to route Azure Digital Twins events, both within the service and externally to other Azure services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 07/18/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy23q1
@@ -63,6 +63,8 @@ When defining an endpoint, you'll need to provide:
 * The primary connection string and secondary connection string to authenticate 
 * The topic path of the endpoint, such as `your-topic.westus2.eventgrid.azure.net`
 
+Optionally, you can choose to create your endpoint with identity-based authentication, to use the endpoint with a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
+
 The endpoint APIs that are available in control plane are:
 * Create endpoint
 * Get list of endpoints
@@ -73,7 +75,7 @@ The endpoint APIs that are available in control plane are:
  
 To [create an event route](how-to-manage-routes.md#create-an-event-route), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
-Here's an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call: 
+Here's an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) call: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 

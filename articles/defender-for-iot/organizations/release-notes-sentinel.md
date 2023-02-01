@@ -1,11 +1,11 @@
 ---
-title: Release notes for the Microsoft Defender for IoT solution in Microsoft Sentinel
+title: Microsoft Defender for IoT solution versions in Microsoft Sentinel
 description: Learn about the updates available in each version of the Microsoft Defender for IoT solution, available from the Microsoft Sentinel content hub.
 ms.date: 09/22/2022
 ms.topic: overview
 ---
 
-# Release notes for the Microsoft Defender for IoT solution in Microsoft Sentinel
+# Microsoft Defender for IoT solution versions in Microsoft Sentinel
 
 This article lists the updates to out-of-the-box security content available from each version of the **Microsoft Defender for IoT** solution. The **Microsoft Defender for IoT** solution is available from the Microsoft Sentinel content hub.
 

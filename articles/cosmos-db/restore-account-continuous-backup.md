@@ -192,6 +192,9 @@ Restore-AzCosmosDBAccount `
   -TablesToRestore $tablesToRestore
   -Location "West US"
 ```
+### To restore a continuous account that is configured with managed identity using CLI
+
+To restore Customer Managed Key (CMK) continuous account please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md)
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 

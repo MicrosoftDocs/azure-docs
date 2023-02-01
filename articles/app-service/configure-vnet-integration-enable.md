@@ -35,7 +35,7 @@ The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting VNet integration.":::
 
-1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
+1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty pre-existing subnet or create a new subnet.
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
@@ -54,18 +54,45 @@ az webapp vnet-integration add --resource-group <group-name> --name <app-name> -
 
 ## Configure with Azure PowerShell
 
+Prepare parameters.
+
 ```azurepowershell
-# Parameters
 $siteName = '<app-name>'
-$resourceGroupName = '<group-name>'
+$vNetResourceGroupName = '<group-name>'
+$webAppResourceGroupName = '<group-name>'
 $vNetName = '<vnet-name>'
 $integrationSubnetName = '<subnet-name>'
-$subscriptionId = '<subscription-guid>'
+$vNetSubscriptionId = '<subscription-guid>'
+```
 
-# Configure VNet Integration
-$subnetResourceId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/$vNetName/subnets/$integrationSubnetName"
-$webApp = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName $resourceGroupName -ResourceName $siteName
+> [!NOTE]
+> If the virtual network is in another subscription than webapp, you can use the *Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"* command to set the current subscription context. Set the current subscription context to the subscription where the virtual network was deployed.
+
+Check if the subnet is delegated to Microsoft.Web/serverFarms.
+
+```azurepowershell
+$vnet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroupName
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $integrationSubnetName -VirtualNetwork $vnet
+Get-AzDelegation -Subnet $subnet
+```
+
+If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using below commands.
+
+```azurepowershell
+$subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.Web/serverFarms" -Subnet $subnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
+Configure VNet Integration.
+
+> [!NOTE]
+> If the webapp is in another subscription than virtual network, you can use the *Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"* command to set the current subscription context. Set the current subscription context to the subscription where the web app was deployed.
+
+```azurepowershell
+$subnetResourceId = "/subscriptions/$vNetSubscriptionId/resourceGroups/$vNetResourceGroupName/providers/Microsoft.Network/virtualNetworks/$vNetName/subnets/$integrationSubnetName"
+$webApp = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName $webAppResourceGroupName -ResourceName $siteName
 $webApp.Properties.virtualNetworkSubnetId = $subnetResourceId
+$webApp.Properties.vnetRouteAllEnabled = 'true'
 $webApp | Set-AzResource -Force
 ```
 

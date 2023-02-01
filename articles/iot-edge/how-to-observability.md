@@ -11,7 +11,7 @@ services: iot-edge
 
 # How to implement IoT Edge observability using monitoring and troubleshooting
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In this article, you'll learn the concepts and techniques of implementing both observability dimensions *measuring and monitoring* and *troubleshooting*. You'll learn about the following topics:
 * Define what indicators of the service performance to monitor 
