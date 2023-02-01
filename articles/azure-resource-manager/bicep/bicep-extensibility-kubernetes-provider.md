@@ -1,13 +1,15 @@
 ---
-title: Bicep Kubernetes provider
-description: Learn how to Bicep extensibility to deploy .NET applications to Azure Kubernetes Service clusters.
+title: Bicep extensiblity Kubernetes provider
+description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/01/2023
 ---
 
-# Bicep Kubernetes provider (Preview)
+# Bicep extensibility Kubernetes provider (Preview)
 
-Learn how to Bicep extensibility to deploy .NET applications to [Azure Kubernetes Service clusters](../../aks/intro-kubernetes.md).
+Learn how to Bicep extensibility Kubernetes provider to deploy .NET applications to [Azure Kubernetes Service clusters](../../aks/intro-kubernetes.md).
+
+## Enable the preview feature
 
 This preview feature can be enabled by configure the [bicepconfig.json](./bicep-config.md):
 
@@ -19,10 +21,34 @@ This preview feature can be enabled by configure the [bicepconfig.json](./bicep-
 }
 ```
 
-## Prerequisites
+## Import schema for Kubernetes provider
 
-bla, bla, bla ...
+Use the following syntax to import schema for Kubernetes provider:
 
+```bicep
+import 'kubernetes@1.0.0' with {
+  namespace: 'default'
+  kubeConfig: kubeConfig
+}
+```
+
+*** talk about the version
+*** talk about the schema
+*** talk about the kubeConfig value
+*** add import to the Bicep syntax
+*** update resource to the Bicep syntax
+
+## how provider-specific resource types are exposed/accessed
+
+```bicep
+resource appsDeployment_azureVoteBack 'apps/Deployment@v1' = {}
+```
+
+.apiVersion	Specifies the API group and API resource you want to use when creating the resource.
+.kind	Specifies the type of resource you want to create.
+
+
+## Visual Studio Code import
 
 
 ## The main Bicep file
@@ -162,9 +188,6 @@ resource buildService 'core/Service@v1' = {
 
 output dnsLabel string = build.name
 ```
-
-
-
 
 ## Next steps
 

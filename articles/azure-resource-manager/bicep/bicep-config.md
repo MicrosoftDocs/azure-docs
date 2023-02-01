@@ -33,16 +33,19 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+You can enable certain preview features by adding:
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "imports": true,
-    "userDefineTypes": true
+    "userDefineTypes": true,
+    "extensibility": true
   }
 }
 ```
+
+- userDefineType: enable [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+- extensibility: enable [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 
 ## Next steps
 
