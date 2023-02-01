@@ -13,28 +13,25 @@ author: ryschwa-msft
 manager: 
 ms.reviewer: 
 
-#Customer intent: As an IT admin, I want to learn how to discover and fix issues related to the Microsoft Enterprise SSO plug-in on macOS.
+#Customer intent: As an IT admin, I want to learn how to discover and fix issues related to the Microsoft Enterprise SSO plug-in on macOS and iOS.
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting Microsoft Enterprise SSO Extension Plugin on macOS Devices
+# Troubleshooting Microsoft Enterprise SSO Extension Plugin on Apple Devices
 ## Background
-Organizations may opt to deploy SSO to their corporate devices to provide a better experience for their end users. On the macOS platform, this involves implementing Single Sign On (SSO) via [Primary Refresh Tokens](concept-primary-refresh-token.md).  SSO relieves end users of the burden of excessive authentication prompts.
+Organizations may opt to deploy SSO to their corporate devices to provide a better experience for their end users. On Apple platforms, this involves implementing Single Sign On (SSO) via [Primary Refresh Tokens](concept-primary-refresh-token.md).  SSO relieves end users of the burden of excessive authentication prompts.
 
-Apple has developed an **[SSO extension framework](https://devstreaming-cdn.apple.com/videos/tutorials/20190910/301fgloga45ths/introducing_extensible_enterprise_sso/introducing_extensible_enterprise_sso.pdf?dl=1)** where IDP vendors, such as Microsoft with Azure AD, can provide plugins that enable SSO for MDM-managed devices. Microsoft has implemented such a plugin built on top of Apple's SSO framework, which provides brokered authentication for applications integrated with Microsoft Entra Azure Active Directory (Azure AD). For more information, see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
+Microsoft has implemented a plugin built on top of Apple's SSO framework, which provides brokered authentication for applications integrated with Microsoft Entra Azure Active Directory (Azure AD). For more information, see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
 ### Redirect vs Credential Extension Types
-Apple supports two distinct types of SSO Extensions that are part of its framework: **Redirect** and **Credential**. The Microsoft Enterprise SSO plugin has been implemented as a Redirect type and is best suited for brokering authentication to Azure AD.  The following table compares the two types of extensions.
+Apple supports two types of SSO Extensions that are part of its framework: **Redirect** and **Credential**. The Microsoft Enterprise SSO plugin has been implemented as a Redirect type and is best suited for brokering authentication to Azure AD.  The following table compares the two types of extensions.
 
 |**Extension Type**|**Best Suited For**|**How it Works**|**Key Differences**|
 |---------|---------|---------|---------|
 |Redirect|Modern authentication methods such as OpenID Connect, OAUTH2, and SAML (Azure Active Directory)| Operating System intercepts the authentication request from the application to the Identity provider URLs defined in the extension MDM configuration profile. Redirect extensions receive: URLs, headers, and body.| Request credentials before requesting data. Uses URLs in MDM configuration profile|
 |Credential|Challenge and response authentication types like **Kerberos** (on-premises Active Directory Domain Services)| Request is sent from the application to the authentication server (AD domain controller). Credential extensions are configured with HOSTS in the MDM configuration profile. If the authentication server returns a challenge that matches a host listed in the profile, the operating system will route the challenge to the extension. The extension has the choice of handling or rejecting the challenge. If handled, the extension returns the authorization headers to complete the request, and authentication server will return response to the caller.|Request data then get challenged for authentication. Use HOSTs in MDM configuration profile |
 
-
 Microsoft has implementations for brokered authentication for the following client operating systems:
-
-
 
 |**OS**       |**Authentication Broker**  |
 |---------|---------|
@@ -43,14 +40,18 @@ Microsoft has implementations for brokered authentication for the following clie
 |Android     |Microsoft Authenticator or Microsoft Intune Company Portal         |
 |macOS |Microsoft Intune Company Portal (via SSO Extension) |
 
-All Microsoft broker applications use a key artifact known as a Primary Refresh Token (PRT), which is a JSON Web Token (JWT) used to acquire access tokens for applications and web resources secured with Azure AD. When deployed through an MDM, the Enterprise SSO extension for macOS obtains a PRT that is similar to the PRTs used on Windows devices by the Web Account Manager (WAM). For more information, see the article [**What is a Primary Refresh Token?**](concept-primary-refresh-token.md)  
+All Microsoft broker applications use a key artifact known as a Primary Refresh Token (PRT), which is a JSON Web Token (JWT) used to acquire access tokens for applications and web resources secured with Azure AD. When deployed through an MDM, the Enterprise SSO extension for macOS or iOS obtains a PRT that is similar to the PRTs used on Windows devices by the Web Account Manager (WAM). For more information, see the article [**What is a Primary Refresh Token?**](concept-primary-refresh-token.md)
+
 ## Purpose
-This article provides troubleshooting guidance used by macOS administrators to resolve issues with deploying and using the [Enterprise SSO plugin](../develop/apple-sso-plugin.md). The Apple SSO extension can also be deployed to iOS/iPadOS, however this article focuses on macOS troubleshooting. 
+This article provides troubleshooting guidance used by administrators to resolve issues with deploying and using the [Enterprise SSO plugin](../develop/apple-sso-plugin.md). The Apple SSO extension can be deployed to iOS/iPadOS and macOS.
+
  ## Troubleshooting Model
 The following flowchart outlines a logical flow for approaching troubleshooting the SSO Extension.  The rest of this article will go into detail on the steps depicted in this flowchart. The troubleshooting can be broken down into two separate focus areas: [Deployment](#deployment-troubleshooting) and [Application Auth Flow](#application-auth-flow-troubleshooting).
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for macOS extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
+
 ## Deployment Troubleshooting
 Most issues that customers encounter stem from either improper Mobile Device Management (MDM) configuration(s) of the SSO extension profile, or an inability for the macOS device to receive the configuration profile from the MDM. This section will cover the steps you can take to ensure that the MDM profile has been deployed to a Mac and that it has the correct configuration.
+
 ### Deployment Requirements:
 - macOS operating system: **version 10.15 (Catalina)** or greater
 - Device is managed by any MDM vendor that supports [Apple macOS](https://support.apple.com/guide/deployment/dep1d7afa557/web)  (MDM Enrollment)
