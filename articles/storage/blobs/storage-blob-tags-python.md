@@ -1,5 +1,5 @@
 ---
-title: Use blob index tags to find data with Python
+title: Use blob index tags to manage and find data with Python
 titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the Python client library.  
 services: storage
