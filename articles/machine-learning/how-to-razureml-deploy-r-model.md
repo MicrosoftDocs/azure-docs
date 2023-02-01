@@ -32,10 +32,10 @@ Create this folder structure for your project:
 ```
 📂 r-deploy-azureml
  ├─📂 docker-context
- │      ├─ Dockerfile
- │      ├─ start_plumber.R
+ │  ├─ Dockerfile
+ │  ├─ start_plumber.R
  ├─📂 src
- │      ├─ plumber.R
+ │  ├─ plumber.R
  ├─ deployment.yml
  ├─ endpoint.yml
 ```
