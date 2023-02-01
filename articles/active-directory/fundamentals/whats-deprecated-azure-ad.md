@@ -49,7 +49,7 @@ Use the definitions in this section help clarify the state, availability, and su
 
 |Category|Definition|Communication schedule|
 |---|---|---|
-|Deprecation|The state of a feature, functionality, or service no longer in active development. A deprecated feature might be retired and removed from future releases.|?|
+|Deprecation|The state of a feature, functionality, or service no longer in active development. A deprecated feature might be retired and removed from future releases.|2 times per year: March and September|
 |Retirement|Signals retirement in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
 |Breaking change|A change that might break the customer or partner experience if action isn’t taken, or a change made, for continued operation.|4 times per year: March, June, September, and December|
 |Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
@@ -57,9 +57,9 @@ Use the definitions in this section help clarify the state, availability, and su
 
 ### Terminology
 
-* **End-of-life** - Engineering investments have ended, and the feature is unavailable to any customer
-* **Current tenant change date** - The change date goes into effect for tenants created before the new tenant change date
-* **New tenant change date** - The change date goes into effect for tenants created after the change date
+* **End-of-life** - engineering investments have ended, and the feature is unavailable to any customer
+* **Current tenant change date** - the change date goes into effect for tenants created before the new tenant change date
+* **New tenant change date** - the change date goes into effect for tenants created after the change date
 
 ## Next steps
 [What's new in Azure Active Directory?](../../active-directory/fundamentals/whats-new.md)
