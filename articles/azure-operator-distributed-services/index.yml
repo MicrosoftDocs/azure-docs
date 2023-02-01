@@ -22,7 +22,7 @@ landingContent:
   # Card
   - title: AODS Overview
     linkLists:
-      - linkListType: overview
+#     - linkListType: overview
 #       links:
 #          - text: What is Azure Operator Distributed Services?
 #            url: introduction.md
@@ -33,7 +33,7 @@ landingContent:
         links:
            - text: Observability
              url: concepts-observability.md
-      - linkListType: how-to-guide
+#     - linkListType: how-to-guide
 #       links:
 #          - text: Deploy agents and monitoring
 #            url: howto-monitoring-vnf-aks-h-vms.md
@@ -42,14 +42,14 @@ landingContent:
 #  
   # Card
   - title: QuickStart Guides
-    linkLists:
-      - linkListType: quickstart
+#   linkLists:
+#     - linkListType: quickstart
 #       links:
 #          - text: Before you start platform deployment
 #            url: quickstarts-platform-prerequisites.md
 #          - text: Platform deployment
 #            url: quickstarts-platform-deployment.md
-      - linkListType: quickstart
+#     - linkListType: quickstart
 #       links:
 #          - text: Before you start tenant workload deployment
 #            url: quickstarts-tenant-workload-prerequisites.md
@@ -58,8 +58,8 @@ landingContent:
 #
   # Card
   - title: How-To Guides
-    linkLists:
-      - linkListType: how-to-guide
+#   linkLists:
+#     - linkListType: how-to-guide
 #       links:
 #          - text: BareMetal Functions
 #            url: bare-metal-functions.md
@@ -72,14 +72,14 @@ landingContent:
 #
   # Card
   - title: Deploy Platform
-    linkLists:
-      - linkListType: quickstart
+#   linkLists:
+#     - linkListType: quickstart
 #       links:
 #          - text: Before you start platform deployment
 #            url: quickstarts-platform-prerequisites.md
 #          - text: Platform deployment
 #            url: quickstarts-platform-deployment.md
-      - linkListType: how-to-guide
+#     - linkListType: how-to-guide
 #       links:
 #          - text: Network Fabric controller
 #            url: howto-configure-networkfabriccontroller.md
@@ -91,22 +91,22 @@ landingContent:
 #            url: howto-configure-networkfabric.md
   # Card
   - title: Deploy workloads
-    linkLists:
-      - linkListType: sample
+#   linkLists:
+#     - linkListType: sample
 #       links:
 #          - text: Sample VNF Deployment
 #            url: sample-vnf-deployment.md
 #       links:
 #          - text: Sample CNF Deployment
 #            url: sample-cnf-deployment.md
-      - linkListType: quickstart
+#     - linkListType: quickstart
 #       links:
 #          - text: Before you start tenant workload deployment
 #            url: quickstarts-tenant-workload-prerequisites.md
 #       links:
 #          - text: Tenant workload deployment
 #            url: quickstarts-tenant-workload-deployment.md           
-      - linkListType: how-to-guide
+#     - linkListType: how-to-guide
 #       links:
 #          - text: Bare metal operations
 #            url: howto-baremetal-functions.md
@@ -122,8 +122,8 @@ landingContent:
 #
  # Card
   - title: References and resources
-    linkLists:
-      - linkListType: reference
+#   linkLists:
+#     - linkListType: reference
 #       links:
           #- text: Resource and other links
           #  url: #### <TBD>
