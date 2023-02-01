@@ -99,7 +99,7 @@ For SAP system, the redundancy of SPOF component in the primary region is achiev
 
 ##### SAP system configured with File share
 
-If you've configured your SAP system using file share on primary region, you need to make sure all the component along with the data in the file share (SMB on Azure Files, SMB on ANF) is available in disaster recovery region if there is failover. With SAP system configured with File share, you can use Azure Site Recovery to replicate cluster and other application server VMs to disaster recovery region. But there are some additional considerations that you need to keep in mind.
+If you've configured your SAP system using file share on primary region, you need to make sure all components and the data in the file share (SMB on Azure Files, SMB on ANF) are replicated to the disaster recovery region if there is failover. You can use Azure Site Recovery to replicate the cluster VMs and other application server VMs to the disaster recovery region. There are some additional considerations that are outlined below.
 
 ###### Load balancer
 
