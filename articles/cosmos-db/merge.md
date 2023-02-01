@@ -75,38 +75,25 @@ In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a 
 
 #### [PowerShell](#tab/azure-powershell)
 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. To launch the Cloud Shell, navigate to the Data Explorer in the Azure Portal and click on the icon in the upper right corner next to the search bar. Then, follow the script
+
 ```azurepowershell
-// Add the preview extension
-$parameters = @{
-    Name = "Az.CosmosDB"
-    AllowPrerelease = $true
-    Force = $true
-}
-Install-Module @parameters
+// Install modules
+Install-Module -Name Az.CosmosDB -AllowPrerelease -Force
+Install-Module -Name Az.Accounts -RequiredVersion 2.10.1
+
 ```
 
 ```azurepowershell
-// API for NoSQL
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    DatabaseName = "<cosmos-database-name>"
-    Name = "<cosmos-container-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBSqlContainerMerge @parameters
+// Enter your subscription ID
+Set-AzContext –Subscription "<your subscription id">
+
 ```
 
 ```azurepowershell
-// API for MongoDB
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    DatabaseName = "<cosmos-database-name>"
-    Name = "<cosmos-container-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
+// Run the what-if command with your account information
+Invoke-AzCosmosDBSqlContainerMerge -ResourceGroupName "<your resource group>" -AccountName "<your account name>" -DatabaseName "<your database name>" -Name "<your collection name>" -WhatIf
+
 ```
 
 #### [Azure CLI](#tab/azure-cli)
