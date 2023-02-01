@@ -25,7 +25,7 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 
 There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups require initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
 
-||Automatic backups | Custom backups |
+|Feature|Automatic backups | Custom backups |
 |-|-|-|
 | Pricing tiers | **Basic**, **Standard**, **Premium**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
