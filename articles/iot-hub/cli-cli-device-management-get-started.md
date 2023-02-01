@@ -94,6 +94,7 @@ To create and start a simulated device:
 1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the device identity for your simulated device.
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
 
     ```azurecli
@@ -103,6 +104,7 @@ To create and start a simulated device:
 1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates a device using the device identity that you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
     
     ```azurecli
@@ -122,7 +124,9 @@ In this section, you use the second CLI session to invoke a direct method on the
 1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device. The method provides a status code and payload in its response.
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
+
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
 
     ```azurecli
@@ -147,7 +151,9 @@ In this section, you use the second CLI session to invoke a direct method and pr
 1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and provides a payload for that method. The method provides a status code and payload in its response.
 
     *{DeviceName}*. The name of your simulated device.
+
     *{HubName}*. The name of your IoT hub.
+
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
     
     ```azurecli
