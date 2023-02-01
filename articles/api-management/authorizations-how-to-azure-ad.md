@@ -1,6 +1,6 @@
 ---
-title: Create and use authorization in Azure API Management - Microsoft Graph API | Microsoft Docs
-description: Learn how to create and use an authorization to Azure AD in Azure API Management. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
+title: Create authorization with Microsoft Graph API - Azure API Management | Microsoft Docs
+description: Learn how to create and use an authorization to the Microsoft Graph API in Azure API Management. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Create an authorization with the Microsoft Graph API
 
-This article guides you through the steps required to create an authorization with the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example
+This article guides you through the steps required to create an [authorization](authorizations-overview.md) with the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
 You learn how to:
 
@@ -152,7 +152,7 @@ The preceding policy definition consists of two parts:
 * The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the authorization provider and authorization that were created earlier. 
 * The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched authorization token.
 
-## Test the API 
+## Step 5: Test the API 
 1. On the **Test** tab, select one operation that you configured.
 1. Select **Send**. 
     
@@ -163,4 +163,4 @@ The preceding policy definition consists of two parts:
 ## Next steps
 
 * Learn more about [access restriction policies](api-management-access-restriction-policies.md)
-* Learn more about [scopes and permissions](../active-directory/develop/scopes-oid.md) in Azure AD.
+* Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Azure AD.

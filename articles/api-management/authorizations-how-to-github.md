@@ -1,15 +1,15 @@
 ---
-title: Create and use authorization in Azure API Management - GitHub API | Microsoft Docs
-description: Learn how to create and use an authorization to GitHub in Azure API Management. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
+title: Create authorization with GitHub API - Azure API Management | Microsoft Docs
+description: Learn how to create and use an authorization to the GitHub API in Azure API Management. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 02/01/2023
 ms.author: danlep
 ---
 
-# Configure and use an authorization
+# Create an authorization with the GitHub API
 
 In this article, you learn how to create an [authorization](authorizations-overview.md) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type is used in this example  
 
@@ -35,9 +35,9 @@ You learn how to:
 
     
     :::image type="content" source="media/authorizations-how-to-github/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
-    1. Enter an **Application name** and **Homepage URL** for the application. 
+    1. Enter an **Application name** and **Homepage URL** for the application. For this example, you can supply a placeholder URL such as `http://localhost`.
     1. Optionally, add an **Application description**.
-    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management instance where you will configure the authorization profile.  
+    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management instance where you will configure the authorization provider.  
 1. Select **Register application**.
 1. On the **General** page, copy the **Client ID**, which you'll use in Step 2.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in Step 2. 
@@ -46,7 +46,7 @@ You learn how to:
 
 ## Step 2: Configure an authorization in API Management
 
-1. Sign into [Azure portal](https://portal.azure.com) and go to your API Management instance.
+1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
 1. On the left menu, select **Authorizations** > **+ Create**.
     
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-authorization.png" alt-text="Screenshot of creating an API Management authorization in the Azure portal.":::    
@@ -59,7 +59,7 @@ You learn how to:
     |**Grant type**     | Select **Authorization code**        |
     |**Client id**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
-    |**Scope**     |    Set the scope to *User*      |
+    |**Scope**     |    For this example, set the scope to *User*      |
     |**Authorization name**    | A name of your choice, such as *github-auth-01*        |
 
 1. After the authorization provider and authorization are created, select **Next**.
@@ -143,7 +143,7 @@ The preceding policy definition consists of three parts:
 * The first [set-header](set-header-policy.md) policy creates an HTTP header with the fetched authorization token.
 * The second [set-header](set-header-policy.md) policy creates a `User-Agent` header (GitHub API requirement).
 
-## Test the API
+## Step 5: Test the API
 
 1. On the **Test** tab, select one operation that you configured.
 1. Select **Send**. 
