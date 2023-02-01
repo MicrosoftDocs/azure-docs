@@ -1,102 +1,202 @@
 ---
-title: Performance and scale testing with Azure Cosmos DB
-description: Learn how to do scale and performance testing with Azure Cosmos DB. You can then evaluate the functionality of Azure Cosmos DB for high-performance application scenarios.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: jucocchi
+title: Measure performance with a benchmarking framework
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Use YCSB to benchmark Azure Cosmos DB for NoSQL with recipes to measure read, write, scan, and update performance.
+author: ravitella
+ms.author: ratella
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.custom: seodec18
+ms.date: 01/31/2023
+ms.custom: template-how-to-pattern
+---
+
+# Measure Azure Cosmos DB for NoSQL performance with a benchmarking framework
+
+There are more choices, now than ever, on the type of database to use with your data workload. One of the key factors to picking a database is the performance of the database or service, but benchmarking performance can be cumbersome and error-prone. The [benchmarking framework for Azure Databases](https://github.com/Azure/azure-db-benchmarking) simplifies the process of measuring performance by using popular open-source benchmarking frameworks with low-friction recipes that implement common best practices. In Azure Cosmos DB for NoSQL, the framework implements [best practices for the Java SDK](performance-tips-java-sdk-v4.md) and uses the open-source [YCSB](https://ycsb.site) tool. In this guide, you'll use this benchmarking framework to implement a common "read recipe" benchmark.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
+- [Azure Command-Line Interface (CLI)](/cli/azure/).
+
+## Configure and create Azure resources
+
+First, you'll create a database and container in the existing API for NoSQL account. Then, you'll create an Azure Storage account and an empty resource group. The resource group will be used as the target of the benchmarking framework deployment.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Create a shell variable for the name of your existing Azure Cosmos DB for NoSQL account named `cosmosAccountName`.
+
+    ```azurecli-interactive
+    # Variable for Azure Cosmos DB for NoSQL account name
+    cosmosAccountName="<existing-account-name>"
+    ```
+
+1. Get the API for NoSQL endpoint `URI` for the account using the [`az cosmosdb show`](/cli/azure/cosmosdb#az-cosmosdb-show) command.
+
+    ```azurecli-interactive
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --query "documentEndpoint"
+    ```
+
+1. Store the `URI` in a variable named `cosmosEndpoint`.
+
+    ```azurecli-interactive
+    cosmosEndpoint=$( \
+        az cosmosdb show \
+            --resource-group $resourceGroupName \
+            --name $accountName \
+            --query "documentEndpoint" \
+    )
+    ```
+
+1. Find the `PRIMARY KEY` from the list of keys for the account with the [`az cosmosdb keys list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+
+    ```azurecli-interactive
+    az cosmosdb keys list \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --type "keys" \
+        --query "primaryMasterKey"
+    ```
+
+1. Store the `PRIMARY KEY` in a variable named `cosmosPrimaryKey`.
+
+    ```azurecli-interactive
+    cosmosPrimaryKey=$( \
+        az cosmosdb keys list \
+            --resource-group $resourceGroupName \
+            --name $accountName \
+            --type "keys" \
+            --query "primaryMasterKey" \
+    )
+    ```
+
+### [Azure portal](#tab/azure-portal)
+
+1. Navigate to your existing API for NoSQL account in the [Azure portal](https://portal.azure.com/).
+
+1. In the resource menu, select **Keys**.
+
+    :::image type="content" source="media/benchmarking-framework/resource-menu-keys.png" lightbox="media/benchmarking-framework/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
+
+1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values will be used throughout the tutorial.
+
+    :::image type="content" source="media/benchmarking-framework/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String fields highlighted.":::
+
+1. In the resource menu, select **Data Explorer**.
+
+    :::image type="content" source="media/benchmarking-framework/resource-menu-data-explorer.png" alt-text="Screenshot of the Data Explorer option highlighted in the resource menu.":::
+
+1. On the **Data Explorer** page, select the **New Container** option in the command bar.
+
+    :::image type="content" source="media/benchmarking-framework/page-data-explorer-new-container.png" alt-text="Screenshot of the New Container option in the Data Explorer command bar.":::
+
+1. In the **New Container** dialog, create a new container with the following settings:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Database id** | `ycsb` |
+    | **Database throughput type** | **Manual** |
+    | **Database throughput amount** | `400` |
+    | **Container id** | `usertable` |
+    | **Partition key** | `/id` |
 
 ---
-# Performance and scale testing with Azure Cosmos DB
-[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on overall performance and scalability. Therefore, it's a critical component of performance testing. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is purpose-built for elastic scale and predictable performance. These capabilities make it a great fit for applications that need a high-performance database tier. 
+## Deploy benchmarking framework to Azure
 
-This article is a reference for developers implementing performance test suites for their Azure Cosmos DB workloads. It also can be used to evaluate Azure Cosmos DB for high-performance application scenarios. It focuses primarily on isolated performance testing of the database, but also includes best practices for production applications.
+Now, you'll use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to deploy the benchmarking framework to Azure with the default read recipe. Prior to deploying this template, you will need to create a prerequisite storage account to store the benchmarking results. After the template is deployed and the benchmarking is finished, you'll observe the CSV results of the read recipe in a file stored within the storage account.
 
-After reading this article, you'll be able to answer the following questions: 
+### [Azure CLI](#tab/azure-cli)
 
-* Where can I find a sample .NET client application for performance testing of Azure Cosmos DB? 
-* How do I achieve high throughput levels with Azure Cosmos DB from my client application?
+1. Create a shell variable for the name of a new resource group named `resourceGroupName`. Create another shell variable named `location`.
 
-To get started with code, download the project from [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark). 
+    ```azurecli-interactive
+    let suffix=$RANDOM*$RANDOM
 
-> [!NOTE]
-> The goal of this application is to demonstrate how to get the best performance from Azure Cosmos DB with a small number of client machines. The goal of the sample is not to achieve the peak throughput capacity of Azure Cosmos DB (which can scale without any limits).
+    # Variable for resource group name
+    resourceGroupName="msdocs-$suffix"
 
-If you're looking for client-side configuration options to improve Azure Cosmos DB performance, see [Azure Cosmos DB performance tips](performance-tips.md).
+    # Variable for resource group location
+    location="westus"
+    ```
 
-## Run the performance testing application
-The quickest way to get started is to compile and run the .NET sample, as described in the following steps. You can also review the source code and implement similar configurations on your own client applications.
+1. If you haven't already, sign in to the Azure CLI using the [`az login`](/cli/azure/reference-index#az-login) command.
 
-**Step 1:** Download the project from [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark), or fork the GitHub repository.
+1. Use the [`az group create`](/cli/azure/group#az-group-create) command to create a new resource group in your subscription.
 
-**Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput, and DocumentTemplate (optional) in App.config.
+    ```azurecli-interactive
+    az group create \
+        --name $resourceGroupName \
+        --location $location
+    ```
 
-> [!NOTE]
-> Before you provision collections with high throughput, refer to the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to estimate the costs per collection. Azure Cosmos DB bills storage and throughput independently on an hourly basis. You can save costs by deleting or lowering the throughput of your Azure Cosmos DB containers after testing.
-> 
-> 
+1. Create a shell variable for the name of a new resource group named `resourceGroupName`.
 
-**Step 3:** Compile and run the console app from the command line. You should see output like the following:
+    ```azurecli-interactive
+    # Variable for storage account name
+    storageAccountName="msdocs-storage-$suffix"
+    ```
 
-```bash
-C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
-Summary:
----------------------------------------------------------------------
-Endpoint: https://arramacquerymetrics.documents.azure.com:443/
-Collection : db.data at 100000 request units per second
-Document Template*: Player.json
-Degree of parallelism*: -1
----------------------------------------------------------------------
-DocumentDBBenchmark starting...
-Found collection data with 100000 RU/s
-Starting Inserts with 100 tasks
-Inserted 4503 docs @ 4491 writes/s, 47070 RU/s (122B max monthly 1KB reads)
-Inserted 17910 docs @ 8862 writes/s, 92878 RU/s (241B max monthly 1KB reads)
-Inserted 32339 docs @ 10531 writes/s, 110366 RU/s (286B max monthly 1KB reads)
-Inserted 47848 docs @ 11675 writes/s, 122357 RU/s (317B max monthly 1KB reads)
-Inserted 58857 docs @ 11545 writes/s, 120992 RU/s (314B max monthly 1KB reads)
-Inserted 69547 docs @ 11378 writes/s, 119237 RU/s (309B max monthly 1KB reads)
-Inserted 80687 docs @ 11345 writes/s, 118896 RU/s (308B max monthly 1KB reads)
-Inserted 91455 docs @ 11272 writes/s, 118131 RU/s (306B max monthly 1KB reads)
-Inserted 102129 docs @ 11208 writes/s, 117461 RU/s (304B max monthly 1KB reads)
-Inserted 112444 docs @ 11120 writes/s, 116538 RU/s (302B max monthly 1KB reads)
-Inserted 122927 docs @ 11063 writes/s, 115936 RU/s (301B max monthly 1KB reads)
-Inserted 133157 docs @ 10993 writes/s, 115208 RU/s (299B max monthly 1KB reads)
-Inserted 144078 docs @ 10988 writes/s, 115159 RU/s (298B max monthly 1KB reads)
-Inserted 155415 docs @ 11013 writes/s, 115415 RU/s (299B max monthly 1KB reads)
-Inserted 166126 docs @ 10992 writes/s, 115198 RU/s (299B max monthly 1KB reads)
-Inserted 173051 docs @ 10739 writes/s, 112544 RU/s (292B max monthly 1KB reads)
-Inserted 180169 docs @ 10527 writes/s, 110324 RU/s (286B max monthly 1KB reads)
-Inserted 192469 docs @ 10616 writes/s, 111256 RU/s (288B max monthly 1KB reads)
-Inserted 199107 docs @ 10406 writes/s, 109054 RU/s (283B max monthly 1KB reads)
-Inserted 200000 docs @ 9930 writes/s, 104065 RU/s (270B max monthly 1KB reads)
+1. Use [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) to create a new Azure Storage account.
 
-Summary:
----------------------------------------------------------------------
-Inserted 200000 docs @ 9928 writes/s, 104063 RU/s (270B max monthly 1KB reads)
----------------------------------------------------------------------
-DocumentDBBenchmark completed successfully.
-Press any key to exit...
-```
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group $resourceGroupName \
+        --name $storageAccountName \
+        --location $location \
+        --sku Standard_LRS \
+        --kind StorageV2
+    ```
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection or a set of collections. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step file a support ticket from the [Azure portal](https://portal.azure.com).
+1. Use [`az storage account show-connection-string`](/cli/azure/storage/account#az-storage-account-show-connection-string) to view the connection string for the storage account.
 
-After you have the app running, you can try different [indexing policies](../index-policy.md) and [consistency levels](../consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
+    ```azurecli-interactive
+    az storage account show-connection-string \
+        --resource-group $resourceGroupName \
+        --name $storageAccountName
+    ```
+
+1. Store the connection string in a variable named `storageConnectionString`.
+
+    ```azurecli-interactive
+    storageConnectionString=$( \
+        az storage account show-connection-string \
+            --resource-group $resourceGroupName \
+            --name $storageAccountName \
+    )
+    ```
+
+1. Use [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create) to deploy the benchmarking framework using an Azure Resource Manager template.
+
+    ```azurecli-interactive
+    az deployment group create \
+        --resource-group $resourceGroupName \
+        --name "benchmarking-framework" \
+        --template-uri "https://raw.githubusercontent.com/Azure/azure-db-benchmarking/main/cosmos/sql/tools/java/ycsb/recipes/read/getting-started-read/azuredeploy.json" \
+        --parameters \
+            adminPassword='P@ssw.rd' \
+            resultsStorageConnectionString=@storageConnectionString \
+            cosmosURI=$cosmosEndpoint \
+            cosmosKey=$cosmosPrimaryKey
+    ```
+
+1. TODO steps to query table data.
+
+1. TODO steps to query download blob content.
+
+### [Azure portal](#tab/azure-portal)
+
+1. TODO
+
+---
 
 ## Next steps
 
-In this article, we looked at how you can perform performance and scale testing with Azure Cosmos DB by using a .NET console app. For more information, see the following articles:
-
-* [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark)
-* [Client configuration options to improve Azure Cosmos DB performance](performance-tips.md)
-* [Server-side partitioning in Azure Cosmos DB](../partitioning-overview.md)
-* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
+- Implement cost-effective read and writes by implementing a [key value store](../key-value-store-cost.md).
