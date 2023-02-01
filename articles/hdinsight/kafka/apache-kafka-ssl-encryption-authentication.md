@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka TLS encryption & authentication  - Azure HDInsight
-description: Set up TLS encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Set up SSL authentication of clients.
+description: Set up TLS encryption for communication between Kafka clients and Kafka brokers, Set up SSL authentication of clients.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -61,7 +61,7 @@ Use the following detailed instructions to complete the broker setup:
     cd ssl
     ```
 
-1. On each of the worker nodes, execute the following steps using the code snippet below.
+1. On each of the worker nodes, execute the following steps using the code snippet.
     1. Create a keystore and populate it with a new private certificate.
     1. Create a certificate signing request.
     1. SCP the certificate signing request to the CA (headnode0)
@@ -81,7 +81,7 @@ Use the following detailed instructions to complete the broker setup:
     ```
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output" border="true":::
  
-1. On the CA machine run the following command to create ca-cert and ca-key files:
+1. On the CA machine, run the following command to create ca-cert and ca-key files:
 
     ```bash
     openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/CN=Kafka-Security-CA" -keyout ca-key -out ca-cert -nodes
@@ -141,9 +141,9 @@ To complete the configuration modification, do the following steps:
    
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
 
-1. Here is the screenshot that shows Ambari configuration UI with these changes.
+1. Here's the screenshot that shows Ambari configuration UI with these changes.
 
-    For HDI version 4.0:
+    For HDI version 4.0 or 5.0
 
      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
 
@@ -201,7 +201,7 @@ These steps are detailed in the following code snippets.
     ssl.truststore.password=MyClientPassword123
     ```
 
-1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section below for steps needed to verify the setup using console producer/consumer.
+1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section for steps needed to verify the setup using console producer/consumer.
 
 ## Client setup (with authentication)
 
@@ -215,7 +215,7 @@ The following four steps summarize the tasks needed to complete the client setup
 1. Switch to the CA machine (active head node) to sign the client certificate.
 1. Go to the client machine (standby head node) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
 
-The details of each step are given below.
+The details of each step are given.
 
 1. Sign in to the client machine (standby head node).
 
