@@ -1,19 +1,18 @@
 ---
 title: Migrate Azure API Management instance to stv2 platform  | Microsoft Docs
-description: Follow the steps in this article to migrate your Azure API Management instance automatically from the stv1 compute platform to the stv2 compute platform. Migration steps depend on whether the instance is deployed (injected) in a VNet.
+description: Follow the steps in this article to migrate your Azure API Management instance from the stv1 compute platform to the stv2 compute platform. Migration steps depend on whether the instance is deployed (injected) in a VNet.
 
 author: dlepow
 ms.service: api-management
-ms.custom: 
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 02/01/2023
 ms.author: danlep
 
 ---
 
 # Migrate an API Management instance hosted on the stv1 platform to stv2
 
-An API Management instance hosted on the `stv1` compute platform can be migrated to the `stv2` platform. Migration steps depend on whether or not your API Management is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet.
+You can migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform. This article provides migration steps for two scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet.
 
 * **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API
 
@@ -74,7 +73,8 @@ Trigger migration of a network-injected API Management instance to the `stv2` pl
 
 * A new or existing Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
-For more information, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+
 #### Update VNet configuration
 
 To update the existing external or internal VNet configuration:
@@ -95,7 +95,7 @@ The virtual network configuration is updated, and the instance is migrated to th
 
 ## Verify migration
 
-To verify that the migration was successful, check the [`platformVersion` property](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+To verify that the migration was successful, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
 
 ## Next steps
 

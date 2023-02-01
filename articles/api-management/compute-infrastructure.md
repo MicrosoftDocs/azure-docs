@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 02/01/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -33,31 +33,27 @@ The following table summarizes the compute platforms currently used for instance
 
 ## How do I know which platform hosts my API Management instance?
 
-Starting with API version `2021-04-01-preview`, the API Management instance exposes a read-only `platformVersion` property that shows this platform information. 
+Starting with API version `2021-04-01-preview`, the API Management instance exposes a read-only `platformVersion` property with this platform information. 
 
-You can find this information using the portal or the API Management [REST API](/rest/api/apimanagement/current-ga/api-management-service/get).
+You can find the platform version of your instance using the portal, the API Management [REST API](/rest/api/apimanagement/current-ga/api-management-service/get), or other Azure tools.
 
-To find the `platformVersion` property in the portal:
+To find the platform version in the portal:
 
 1. Go to your API Management instance.
-1. On the **Overview** page, select **JSON view**.
-1. In **API version**, select a current version such as `2021-08-01` or later.
-1. In the JSON view, scroll down to find the `platformVersion` property.
+1. On the **Overview** page, the **Platform Version** is displayed.
 
-    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="platformVersion property in JSON view":::
+    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="Screenshot of the API Management platform version in the portal.":::
 
 ## How do I migrate to the `stv2` platform? 
 
 > [!IMPORTANT]
 > Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
 
-To migrate an instance from the `stv1` platform to `stv2`:
+Migration steps depend on features enabled in your API Management instance. For details, see the [migration guidance](migrate-stv1-to-stv2.md):
 
 * **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API
 
 * **VNet-injected API Management instance** - Update the VNet connection, or enable zone redundancy
-
-For details, see the [migration guidance](migrate-stv1-to-stv2.md).
 
 ## Next steps
 
