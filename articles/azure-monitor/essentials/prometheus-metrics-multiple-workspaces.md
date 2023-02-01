@@ -13,7 +13,7 @@ Routing metrics to more Azure Monitor Workspaces can be done through the creatio
 
 ## Send same metrics to multiple Azure Monitor workspaces
 
-You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. In case you have a very high volume of metrics, a new Data Collection Endpoint can be created as well. Please refer to the service limits [document](https://learn.microsoft.com/azure/azure-monitor/service-limits#prometheus-metrics) regarding ingestion limits. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](prometheus-metrics-enable.md) and then edit the same Resource Manager templates to add additional DCRs and DCEs(if applicable) for your additional Azure Monitor Workspaces. You'll need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, add another DCE (if applicable) and add an additional Azure Monitor workspace integration for Grafana.
+You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. In case you have a very high volume of metrics, a new Data Collection Endpoint can be created as well. Please refer to the service limits [document](https://learn.microsoft.com/azure/azure-monitor/service-limits#prometheus-metrics) regarding ingestion limits. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](prometheus-metrics-enable.md) and then edit the same Resource Manager templates to add additional DCRs and DCEs(if applicable) for your additional Azure Monitor Workspaces. You'll need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, add another DCE (if applicable), add the Monitor Reader Role for the new Azure Monitor Workspace and add an additional Azure Monitor workspace integration for Grafana.
 
 - Add the following parameters:
   ```json
@@ -162,7 +162,21 @@ You can create multiple Data Collection Rules that point to the same Data Collec
         }
       }
   ```
+  - Assign `Monitoring Data Reader` role to read data from the new Azure Monitor Workspace:
 
+  ```json
+  {
+    "type": "Microsoft.Authorization/roleAssignments",
+    "apiVersion": "2022-04-01",
+    "name": "[parameters('roleNameGuid')]",
+    "scope": "[parameters('azureMonitorWorkspaceResourceId2')]",
+    "properties": {
+        "roleDefinitionId": "[concat('/subscriptions/', variables('clusterSubscriptionId'), '/providers/Microsoft.Authorization/roleDefinitions/', 'b0d8363b-8ddd-447d-831f-62ca05bff136')]",
+        "principalId": "[reference(resourceId('Microsoft.Dashboard/grafana', split(parameters('grafanaResourceId'),'/')[8]), '2022-08-01', 'Full').identity.principalId]"
+    }
+  }
+
+  ```
 ## Send different metrics to different Azure Monitor workspaces
 
 If you want to send some metrics to one Azure Monitor Workspace and other metrics to a different one, follow the above steps to add additional DCRs. The value of `microsoft_metrics_include_label` under the `labelIncludeFilter` in the DCR is the identifier for the workspace. To then configure which metrics are routed to which workspace, you can add an extra pre-defined label, `microsoft_metrics_account` to the metrics. The value should be the same as the corresponding `microsoft_metrics_include_label` in the DCR for that workspace. To add the label to the metrics, you can utilize `relabel_configs` in your scrape config. To send all metrics from one job to a certain workspace, add the following relabel config:
