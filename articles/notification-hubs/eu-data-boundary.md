@@ -15,38 +15,6 @@ The EU Data Boundary is a geographically defined boundary within which Microsoft
 > [!IMPORTANT]
 > For complete details about Microsoft's EU Data Boundary commitment, [see the Azure EU Data Boundary documentation](/privacy/eudb/eu-data-boundary-learn?culture=en-us&country=us).
 
-## EUDB in Azure
-
-If you use the Azure portal to create an Azure Notification Hubs namespace in an EU country, your data will remain in the EU region, and will not be transferred outside the EU data boundary. A full list of countries in scope for EUDB is as follows:
-
-- Austria
-- Belgium
-- Bulgaria
-- Croatia
-- Republic of Cyprus
-- Czech Republic
-- Denmark
-- Estonia
-- Finland
-- France
-- Germany
-- Greece
-- Hungary
-- Ireland
-- Italy
-- Latvia
-- Lithuania
-- Luxembourg
-- Malta
-- Netherlands
-- Poland
-- Portugal
-- Romania
-- Slovakia
-- Slovenia
-- Spain
-- Sweden
-
 ## Next steps
 
 - [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
