@@ -137,13 +137,13 @@ If you have followed all these preceding steps and still cannot connect, you mig
 
 ### Reference proxy logs
 
-Here is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This section can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular those URLs in *italic*).
+The following example is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This section can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular, the URLs in *italic*).
 
 **Connect to Azure AD**
 
 | Time | URL |
 | --- | --- |
-| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect:/login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
@@ -177,7 +177,7 @@ Here is a dump from an actual proxy log and the installation wizard page from wh
 
 ## Authentication errors
 
-This section covers errors that can be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
+This section covers errors that might be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
 
 ### Invalid Grant
 
