@@ -6,7 +6,7 @@ ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
 ms.service: Azure Operator Distributed Services #Required
 
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 01/31/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
