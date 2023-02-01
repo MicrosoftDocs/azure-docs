@@ -33,7 +33,7 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-You can enable certain preview features by adding:
+You can enable preview features by adding:
 
 ```json
 {

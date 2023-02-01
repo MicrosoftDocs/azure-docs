@@ -1,19 +1,19 @@
 ---
-title: Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.
-description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) by using Bicep Kubernetes provider
+title: Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider.
+description: Learn how to quickly create a Kubernetes cluster and deploy Azure applications in Azure Kubernetes Service (AKS) by using Bicep extensibility Kubernetes provider.
 services: container-service
 ms.topic: quickstart
 ms.date: 01/31/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernets provider (Preview)
+# Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep extensibility Kubernetes provider (Preview)
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll deploy a sample multi-container application with a web front-end and a Redis instance to an AKS cluster. This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-The Bicep Kubernetes provider is currently in preview. To enable the provider for your subscription, contact ... In addition, you must also enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features).
+The Bicep Kubernetes provider is currently in preview. To enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features).
 
 ```json
 {
@@ -175,7 +175,7 @@ Use the following procedure to add the application definition:
 1. Press <kbd>Ctrl+Shift+P</kbd> to open **Command Palette**.
 1. Type **bicep**, and then select **Import kubernetes Manifest**.
 
-    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extension/bicep-kubernetes-extension-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
+    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
 
 1. In the prompt, select **azure-vote.yml**. This process create an **azure-vote.bicep** in the same folder.
 
