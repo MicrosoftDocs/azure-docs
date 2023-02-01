@@ -65,7 +65,7 @@ This quickstart is using Azure Identity library with Azure CLI or Azure PowerShe
 
 ### Install the packages
 
-1. In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
+1. In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment#configure-python-virtual-environment).
 
 1. Install the Azure Active Directory identity library:
 
@@ -120,7 +120,7 @@ from azure.identity import DefaultAzureCredential
 keyVaultName = os.environ["KEY_VAULT_NAME"]
 KVUri = f"https://{keyVaultName}.vault.azure.net"
 
-credential = DefaultAzureCredential()
+credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
 client = SecretClient(vault_url=KVUri, credential=credential)
 
 secretName = input("Input a name for your secret > ")
