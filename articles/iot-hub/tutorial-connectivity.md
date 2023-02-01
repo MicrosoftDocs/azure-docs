@@ -240,7 +240,7 @@ The simulated device you use in this section sends reported properties to the hu
 
    In the output from the command, you can see the **devicelaststarted** property in the reported properties section. This property shows the date and time you last started the simulated device.
 
-   :::image type="content" source="(media/tutorial-connectivity/reported-properties.png" alt-text="Screenshot showing the reported properties of a device.":::
+   :::image type="content" source="media/tutorial-connectivity/reported-properties.png" alt-text="Screenshot showing the reported properties of a device.":::
 
 1. To verify that the hub can send desired property values to the device, use the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command:
 
