@@ -8,10 +8,9 @@ ms.reviewer: damendo
 
 # Syslog collection with Container Insights (preview)
 
->[!NOTE]
-> During the ongoing public preview, only command line onboarding is available. Portal onboarding is not available and will be added in March 2023.
-
 Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
+
+[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites 
 
@@ -32,7 +31,7 @@ az aks create -g syslog-rg -n new-cluster --enable-managed-identity --node-count
 Use the following command in Azure CLI to enable syslog collection on an existing AKS cluster.
 
 ```azurecli
-az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-syslog -g syslog-rg -n existing-cluster`
+az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-syslog -g syslog-rg -n existing-cluster
 ```
 
 
