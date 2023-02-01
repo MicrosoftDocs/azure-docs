@@ -24,7 +24,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 > [!IMPORTANT]
 > The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> You can use this [form](https://forms.office.com/r/788B1gr3Nq) to enroll in the preview.
+> To enroll, see [Cold tier (preview)](#cold-tier-preview).
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 

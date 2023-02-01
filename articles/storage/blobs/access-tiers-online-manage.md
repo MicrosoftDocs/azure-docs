@@ -30,7 +30,7 @@ For more information about access tiers for blobs, see [Access tiers for blob da
 > [!IMPORTANT]
 > The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> You can use this [form](https://forms.office.com/r/788B1gr3Nq) to enroll in the preview.
+> To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 
 ## Set the default access tier for a storage account
 
