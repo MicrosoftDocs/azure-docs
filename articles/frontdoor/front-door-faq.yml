@@ -190,7 +190,7 @@ sections:
           resource information. Upon enabling the blocking of domain fronting, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP/HTTPS requests that exhibit this behavior.
          
           When Front Door blocks a request due to a mismatch: 
-          - The client will receive a HTTP "421 Misdirected Request" error code response. 
+          - The client will receive an HTTP "421 Misdirected Request" error code response. 
           - Azure Front Door will log the block in the diagnostic logs under the "Error Info" property with the value **SSLMismatchedSNI**.
           
           For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).

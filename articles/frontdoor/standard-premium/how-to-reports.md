@@ -90,7 +90,7 @@ Reports support any selected date range from the previous 90 days. With data poi
     
     - **Domains** - Select one or more endpoints or custom domains. By default, all endpoints and custom domains are selected.
     
-        * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile, the new endpoint is considered a second endpoint.
+        * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile, the report counts the new endpoint as a second endpoint.
         * If you delete a custom domain and bind it to a different endpoint, the behavior depends on how you view the report. If you view the report by custom domain then they'll be treated as one custom domain. If you view the report by endpoint, they'll be treated as separate items.
     
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension.":::
@@ -101,7 +101,7 @@ Reports support any selected date range from the previous 90 days. With data poi
 
 ### Export reports in CSV format
 
-You can download any of the Azure Front Door reports as a CSV file Every CSV report includes some general information and the information is available in all CSV files:
+You can download any of the Azure Front Door reports as a CSV file. Every CSV report includes some general information and the information is available in all CSV files:
 
 | Value | Description |
 |---------|---------|
@@ -185,7 +185,7 @@ Report for HTTP Status Code.
 
 # [Security](#tab/security)
 
-There are seven tables all with the same fields below.  
+There are seven tables, all with the following fields:  
 
 * BlockedRequests 
 * AllowedRequests 
@@ -231,7 +231,7 @@ You can go to other tabs to investigate further or view access log for more info
 The **usage report** shows the trends of traffic and response status code by different dimensions, including:
 
 * Data transferred from edge to client and from origin to edge, in a line chart. 
-* Data tansferred from edge to client by protocol, in a line chart. 
+* Data transferred from edge to client by protocol, in a line chart. 
 * Number of requests from edge to clients, in a line chart.  
 * Number of requests from edge to clients by protocol (HTTP and HTTPS), in a line chart.
 * Bandwidth from edge to client, in a line chart. 
@@ -309,7 +309,7 @@ User can sort URLs by request count, request count percentage, data transferred,
 
 ## Top referrer report
 
-The **top referrer** report shows you the top 50 referrers to your a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*. Top referrers report includes the following values.
+The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*. Top referrers report includes the following values.
 
 * Referrer, which is the value of the Referrer field in the raw access log.
 * Request counts.
