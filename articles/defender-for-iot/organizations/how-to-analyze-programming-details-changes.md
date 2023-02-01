@@ -13,7 +13,7 @@ When working with DeltaV traffic, use the OT sensor to watch for programming eve
   - **Corrupted programming automation**: Programming errors due to automation failures.
   - **Hacked systems**: Unauthorized users logged into a programming device.
 
-Use the **Programming Timeline** tabs on your OT network sensor to review programming data, such as when investigating an alert about unauthorized programming, after a planned controller update, or when a process or machine isn't working correctly and you want to understand who made the last update and when.
+Use the **Programming Timeline** tab on your OT network sensor to review programming data, such as when investigating an alert about unauthorized programming, after a planned controller update, or when a process or machine isn't working correctly and you want to understand who made the last update and when.
 
 Programming activity shown on OT sensors include both *authorized* and *unauthorized* events. Authorized events are performed by devices that are either learned or manually defined as programming devices. Unauthorized events are performed by devices that haven't been learned or manually defined as programming devices.
 
@@ -33,7 +33,6 @@ To perform the procedures in this article, make sure that you have:
 The **Programming Timeline** tab can be accessed from unauthorized programming alerts, and the **Device map**, **Device inventory**, and **Event timeline** pages in the sensor console.
 
 ### Access programming data from an alert
-<!--TBD can't validate-->
 
 Unauthorized programming alerts are triggered when unauthorized programming devices carry out programming activities.
 
@@ -47,8 +46,6 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Select **Programming** to open the **Programming timeline**.
 
-    :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts.":::
-
 ### Access programming data from the device map
 
 1. Sign into the OT sensor console and select **Device map**.
@@ -57,9 +54,9 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
 
-  :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map." lightbox="media/analyze-programming/select-programming-timeline-from-device-map.png":::
+      :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map." lightbox="media/analyze-programming/select-programming-timeline-from-device-map.png":::
 
-  The device details page opens with the **Programming Timeline** tab open.
+      The device details page opens with the **Programming Timeline** tab open.
   
 ### Access programming data from the device inventory
 
@@ -69,11 +66,13 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Select the device you want to analyze, and then select **View full details** to open the device details page.
 
-1. On the device detials page, select the **Programming Timeline** tab.
+1. On the device details page, select the **Programming Timeline** tab.
+
+    For example: 
+
+    :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device details page." lightbox="media/analyze-programming/programming-timeline-window-device-inventory.png":::
 
 ### Access programming data from an event timeline
-
-<!--can't validate-->
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
@@ -92,20 +91,22 @@ The **Programming Timeline** tab shows details about each device that was progra
 - The **Files** area lists programming files detected for the selected device. The OT sensor can display a maximum of 300 files per device, where each file has a maximum size of 15 MB. The **Files** area lists each file's name and size, and one of the following statuses to indicate the programming event that occurred:
 
   - **Added**: The programming file was added to the endpoint
-  - **Updated**: The programming file was updated on endpoint 
+  - **Updated**: The programming file was updated on endpoint
   - **Deleted**: The programming file was removed from the endpoint
-  - **Unknown**: No changes were detected for the programming file <!--what's No label? is this what unknown means?--> 
+  - **Unknown**: No changes were detected for the programming file
 
-- When a programming file is opened on the right, the device that was programmed is listed as the *programmed asset*. Multiple devices may have made programming changes on the device. Details about any devices that made changes are lsited as *programming assets*, incliding the hostname, when the change was made, and the user that was signed in to the device at the time. <!--which device? where was the sign in?-->
-
-<!--where is this "current" file indication?| :::image type="content" source="media/analyze-programming/current-file-indication.png" alt-text="Image of current file indication."::: | Indicates the current file installed on the programmed device. |-->
+- When a programming file is opened on the right, the device that was programmed is listed as the *programmed asset*. Multiple devices may have made programming changes on the device. Details about any devices that made changes are listed as *programming assets*, including the hostname, when the change was made, and the user that was signed in to the device at the time.
 
 > [!TIP]
-> Select the <!--image--> download button to dowlnload a copy of the currently displayed programming file.
+> Select the :::image type="icon" source="media/analyze-programming/download-icon.png" border="false"::: download button to download a copy of the currently displayed programming file.
+
+For example: 
+
+:::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of viewing programming details in programming timeline." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
 ## Compare programming detail files
 
-This procedure describes how to compare multiple programming detail files to identify discrepencies or investigate them for suspicious activity.
+This procedure describes how to compare multiple programming detail files to identify discrepancies or investigate them for suspicious activity.
 
 **To compare files:**
 
@@ -117,11 +118,11 @@ This procedure describes how to compare multiple programming detail files to ide
 
     :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane." lightbox="media/analyze-programming/compare-file-pane.png":::
 
-    The selected file opens up in a new pane for side-by-side comparison with the first file. The current file installed on the programmed device will always appear on the right, and is indicated with the *Current* <!--i don't see this icon at all. Are we sure? in any case, this shouldn't be an inline image-->
+    The selected file opens up in a new pane for side-by-side comparison with the first file. The current file installed on the programmed device is labeled *Current* at the top of the file.
 
     :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side." lightbox="media/analyze-programming/compare-files-side-by-side.png":::
 
-    Scroll through the files to see the programming details and any differences between the files. Differences between the two files are highlighted, in green for the current file and in red for the comparison file.
+    Scroll through the files to see the programming details and any differences between the files. Differences between the two files are highlighted in green and red.
 
 ## Next steps
 
