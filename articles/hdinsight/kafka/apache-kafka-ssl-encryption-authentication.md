@@ -71,14 +71,15 @@ Use the following detailed instructions to complete the broker setup:
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
-> [!Note]
-> FQDN_WORKER_NODE is Fully Qualified Domain Name of worker node machine.You can get that details from /etc/hosts file in head node
+    > [!Note]
+    > FQDN_WORKER_NODE is Fully Qualified Domain Name of worker node machine.You can get that details from /etc/hosts file in head node
  
-For example, 
-`wn0-espkaf.securehadooprc.onmicrosoft.com`
-`wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net`
-
-  :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output" border="true":::
+    For example, 
+    ```
+    wn0-espkaf.securehadooprc.onmicrosoft.com
+    wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net
+    ```
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output" border="true":::
  
 1. On the CA machine run the following command to create ca-cert and ca-key files:
 
