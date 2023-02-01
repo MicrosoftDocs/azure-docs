@@ -127,7 +127,7 @@ The pipeline requires the following parameters to be configured:
 
 To create this pipeline in your existing Azure Data Factory and invoke batch endpoints, follow these steps:
 
-1. Ensure the compute where the batch endpoint is running has access to mount the data Azure Data Factory is providing. Notice that acccess is still granted by the identity that invokes the endpoint (in this case Azure Data Factory). However, the compute where the batch endpoint runs needs to have permission to mount the storage account your Azure Data Factory will provide. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
+1. Ensure the compute where the batch endpoint is running has access to mount the data Azure Data Factory is providing. Notice that access is still granted by the identity that invokes the endpoint (in this case Azure Data Factory). However, the compute where the batch endpoint runs needs to have permission to mount the storage account your Azure Data Factory will provide. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 
