@@ -19,24 +19,24 @@ items:
     href: get-started-with-entra-internet-access.md
   - name: Getting Started with Entra Private Access
     href: get-started-with-entra-private-access.md
-  - name: Troubleshoot
+- name: Troubleshoot
+  expanded: false
+  items:
+  - name: Troubleshoot Entra Internet Access
+    href: troubleshoot-entra-internet-access.md
+  - name: Troubleshoot Entra Private Access
+    href: troubleshoot-entra-private-access.md
+  - name: Training videos
     expanded: false
     items:
-    - name: Troubleshoot Entra Internet Access
-      href: troubleshoot-entra-internet-access.md
-    - name: Troubleshoot Entra Private Access
-      href: troubleshoot-entra-private-access.md
-    - name: Training videos
-      expanded: false
-      items:
-      - name: Get started with Entra Internet Access training videos
-        href: entra-internet-access-training-videos.md
-      - name: Get started with Entra Private Access training videos
-        href: entra-private-access-training-videos.md
-  - name: Reference
-    expanded: false
-    items:
-    - name: Entra Internet Access FAQ
-      href: entra-internet-access-faq.md
-    - name: Entra Private Access FAQ
-      href: entra-private-access-faq.md
+    - name: Get started with Entra Internet Access training videos
+      href: entra-internet-access-training-videos.md
+    - name: Get started with Entra Private Access training videos
+      href: entra-private-access-training-videos.md
+- name: Reference
+  expanded: false
+  items:
+  - name: Entra Internet Access FAQ
+    href: entra-internet-access-faq.md
+  - name: Entra Private Access FAQ
+    href: entra-private-access-faq.md
