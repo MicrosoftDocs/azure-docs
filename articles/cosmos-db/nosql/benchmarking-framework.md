@@ -214,9 +214,10 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
 
 1. Wait for the deployment to complete. Results should take about 15-20 minutes to be ready.
 
-1. TODO steps to query table data.
+    > [!TIP]
+    > At some point after deployment, you can check the status of the benchmarking framework's jobs by running querying the `ycsbbenchmarkingMetadata` table in targeted storage account.
 
-1. TODO steps to query download blob content.
+1. TODO steps to query blob content.
 
 ### [Azure portal](#tab/azure-portal)
 
