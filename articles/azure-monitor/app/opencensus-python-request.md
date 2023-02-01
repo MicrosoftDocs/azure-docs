@@ -149,8 +149,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
     
-    APPINSIGHTS_CONNECTION_STRING='<your-appinsights_connection-string-here>'
-    exporter=AzureExporter(connection_string=f'{APPINSIGHTS_CONNECTION_STRING}')
+    exporter=AzureExporter(connection_string='<your-appinsights-connection-string-here>')
     sampler=ProbabilitySampler(1.0)
 
     # fastapi middleware for opencensus
