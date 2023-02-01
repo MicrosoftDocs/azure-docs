@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -177,7 +177,7 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > | microsoft.directory/applicationPolicies/owners/update | Update the owner property of application policies |
 > | microsoft.directory/applicationPolicies/policyAppliedTo/read | Read application policies applied to objects list |
 > | microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies |
-> | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete service principals, and read and update all properties |
 > | microsoft.directory/servicePrincipals/allProperties/read | Read all properties (including privileged properties) on servicePrincipals |
 > | microsoft.directory/servicePrincipals/allProperties/update | Update all properties (including privileged properties) on servicePrincipals |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service principal role assignments |
@@ -218,9 +218,9 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > | microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups |
 > | microsoft.directory/connectors/create | Create application proxy connectors |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
-> | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with the application object |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 
 ## Next steps

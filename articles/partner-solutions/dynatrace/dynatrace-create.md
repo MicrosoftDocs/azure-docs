@@ -65,13 +65,15 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 ### Configure metrics and logs
 
-1. Your next step is to configure metrics and logs.  When creating the Dynatrace resource, you can set up automatic log forwarding for two types of logs:
+1. Your next step is to configure metrics and logs. When creating the Dynatrace resource, you can set up automatic log forwarding for three types of logs:
 
     :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
-    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+   - **Send subscription activity logs** - Subscription activity logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+   - **Send Azure resource logs for all defined sources** - Azure resource logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+
+   - **Send Azure Active Directory logs** – Azure Active Directory logs allow you to route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Azure AD activity logs in Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). The global administrator or security administrator for your Azure Active Directory (AAD) tenant can enable AAD logs.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
