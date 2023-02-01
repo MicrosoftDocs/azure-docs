@@ -939,12 +939,6 @@
     },
 
     {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/.md",
-      "redirect_url": "/azure/sap/workloads/",
-      "redirect_document_id": true
-    },
-
-    {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-availability-across-regions.md",
       "redirect_url": "/azure/sap/workloads/sap-hana-availability-across-regions",
       "redirect_document_id": true
@@ -1242,11 +1236,6 @@
     {
       "source_path_from_root": "/articles/center-sap-solutions/index.yml",
       "redirect_url": "/azure/sap/index",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/center-sap-solutions/.md",
-      "redirect_url": "/azure/sap/",
       "redirect_document_id": true
     },
     {
