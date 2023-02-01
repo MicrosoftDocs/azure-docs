@@ -225,7 +225,10 @@ If you're using a custom domain, you need to add an *A* record to your DNS zone.
 
 ### Configure an FQDN for your ingress controller
 
-Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain by setting a DNS label. Your FQDN should follow this form: `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`. Your DNS label must be unique within its Azure location.
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain by setting a DNS label. Your FQDN should follow this form: `<CUSTOM DNS LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+
+> [!IMPORTANT]
+> Your DNS label must be unique within its Azure location.
 
 You can configure your FQDN using one of the following methods:
 
@@ -236,6 +239,8 @@ For more information, see [Public IP address DNS name labels](../virtual-network
 
 #### Set the DNS label using Azure CLI or Azure PowerShell
 
+Make sure to replace `<DNS_LABEL>` with your unique DNS label.
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -243,13 +248,13 @@ For more information, see [Public IP address DNS name labels](../virtual-network
 IP="MY_EXTERNAL_IP"
 
 # Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
+DNSLABEL="<DNS_LABEL>"
 
 # Get the resource-id of the public IP
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
 # Update public IP address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSLABEL
 
 # Display the FQDN
 az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
@@ -265,7 +270,7 @@ $AksIpAddress = "MY_EXTERNAL_IP"
 $PublicIp = Get-AzPublicIpAddress | Where-Object {$_.IpAddress -eq $AksIpAddress}
 
 # Update public IP address with DNS name
-$PublicIp.DnsSettings = @{"DomainNameLabel" = "demo-aks-ingress"}
+$PublicIp.DnsSettings = @{"DomainNameLabel" = "<DNS_LABEL>"}
 $UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $publicIp
 
 # Display the FQDN
@@ -278,17 +283,17 @@ Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
 
 You can pass an annotation setting to your Helm chart configuration using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set when the ingress controller is first deployed, or it can be configured later.
 
-The following example shows how to update this setting after the controller has been deployed.
+The following example shows how to update this setting after the controller has been deployed. Make sure to replace `<DNS_LABEL>` with your unique DNS label.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```bash
-DNS_LABEL="<DNS_LABEL>"
+DNSLABEL="<DNS_LABEL>"
 NAMESPACE="ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
