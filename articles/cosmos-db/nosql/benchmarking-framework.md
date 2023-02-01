@@ -149,15 +149,20 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 ## Deploy benchmarking framework to Azure
 
-Now, you'll use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to deploy the benchmarking framework to Azure with the default read recipe. Prior to deploying this template, you will need to create a prerequisite storage account to store the benchmarking results. After the template is deployed and the benchmarking is finished, you'll observe the CSV results of the read recipe in a file stored within the storage account.
+Now, you'll use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to deploy the benchmarking framework to Azure with the default read recipe. Prior to deploying this template, you'll need to create a prerequisite storage account to store the benchmarking results. After the template is deployed and the benchmarking is finished, you'll observe the results. The results of the read recipe are stored in a CSV file within the storage account.
 
 ### [Azure CLI](#tab/azure-cli)
 
 1. Create a shell variable for the name of a new Azure Storage account named `storageAccountName`.
 
     ```azurecli-interactive
+    let suffix=$RANDOM*$RANDOM
+
     # Variable for storage account name
-    storageAccountName="msdocs-storage-$suffix"
+    storageAccountName="msdocsstor$suffix"
+
+    # Variable for storage account location
+    location="westus"
     ```
 
 1. Use [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) to create a new Azure Storage account.
@@ -186,22 +191,28 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
         az storage account show-connection-string \
             --resource-group $resourceGroupName \
             --name $storageAccountName \
+            --query connectionString \
     )
     ```
 
 1. Use [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create) to deploy the benchmarking framework using an Azure Resource Manager template.
 
     ```azurecli-interactive
+    # Variable for raw template JSON on GitHub
+    templateUri="https://raw.githubusercontent.com/Azure/azure-db-benchmarking/main/cosmos/sql/tools/java/ycsb/recipes/read/try-it-read/azuredeploy.json"
+
     az deployment group create \
         --resource-group $resourceGroupName \
         --name "benchmarking-framework" \
-        --template-uri "https://raw.githubusercontent.com/Azure/azure-db-benchmarking/main/cosmos/sql/tools/java/ycsb/recipes/read/getting-started-read/azuredeploy.json" \
+        --template-uri $templateUri \
         --parameters \
             adminPassword='P@ssw.rd' \
             resultsStorageConnectionString=@storageConnectionString \
             cosmosURI=$cosmosEndpoint \
             cosmosKey=$cosmosPrimaryKey
     ```
+
+1. Wait for the deployment to complete. Results should take about 15-20 minutes to be ready.
 
 1. TODO steps to query table data.
 
