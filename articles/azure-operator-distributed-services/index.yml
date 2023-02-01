@@ -41,7 +41,7 @@ landingContent:
 #            url: howto-workbooks-alerts.md
 #  
   # Card
-  - title: QuickStart Guides
+# - title: QuickStart Guides
 #   linkLists:
 #     - linkListType: quickstart
 #       links:
@@ -57,7 +57,7 @@ landingContent:
 #            url: quickstarts-tenant-workload-deployment.md
 #
   # Card
-  - title: How-To Guides
+# - title: How-To Guides
 #   linkLists:
 #     - linkListType: how-to-guide
 #       links:
@@ -71,7 +71,7 @@ landingContent:
 #            url: howto-aks-h-manager.md
 #
   # Card
-  - title: Deploy Platform
+# - title: Deploy Platform
 #   linkLists:
 #     - linkListType: quickstart
 #       links:
@@ -90,7 +90,7 @@ landingContent:
 #          - text: Configure: Network Fabric
 #            url: howto-configure-networkfabric.md
   # Card
-  - title: Deploy workloads
+# - title: Deploy workloads
 #   linkLists:
 #     - linkListType: sample
 #       links:
@@ -121,7 +121,7 @@ landingContent:
 #            url: howto-install-networkcloud-cli-extensions.md            
 #
  # Card
-  - title: References and resources
+# - title: References and resources
 #   linkLists:
 #     - linkListType: reference
 #       links:
