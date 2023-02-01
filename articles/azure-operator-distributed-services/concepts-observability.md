@@ -35,7 +35,7 @@ These logs and metrics are used to observe the state of the platform. You can se
 
 AODS observability allows you to collect the same kind of data as other Azure
 resources as described in
- [monitor Azure resource](https://learn.microsoft.com/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data).
+ [monitor Azure resource](../azure-monitor/essentials/monitor-azure-resource#monitoring-data).
 
 You can view the detailed information on the metrics collected from each AODS instance in the [AODS observability data reference]()
 
@@ -59,7 +59,7 @@ created for running Containerized and Virtualized Network Functions. The log dat
 * Collection of logs from AKS-Hybrid clusters and the applications deployed on top.
 
 You'll need to enable the collection of the logs from the tenant AKS-Hybrid clusters and Virtual Machines.
-You should follow the steps to deploy the [Azure monitoring agents](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#install-the-agent-and-configure-data-collection). The data would be collected in your Azure Log
+You should follow the steps to deploy the [Azure monitoring agents](../azure-monitor/agents/agents-overview#install-the-agent-and-configure-data-collection). The data would be collected in your Azure Log
 Analytics Workspace.
 
 ### Analyzing Logs
@@ -68,7 +68,7 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set
 of unique properties.
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in
-<https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema>.
+<../azure-monitor/essentials/resource-logs-schema#top-level-common-schema>.
 
 The logs from AODS platform are stored in the following tables:
 
@@ -89,7 +89,7 @@ The logs from AODS platform are stored in the following tables:
 
 To view these tables, navigate to Log Analytics Workspace configured at the time of AODS instance creation and select *'Logs'* on left navigation panel.
 
-More information about the schema for these tables can be found at <https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#azure-arc-enabled-kubernetes>.
+More information about the schema for these tables can be found at <../azure-monitor/reference/tables/tables-resourcetype#azure-arc-enabled-kubernetes>.
 
 To perform log analytics, there are multiple options. Each starts with a different scope. For access to all data in workspace, on Monitoring Menu, select logs. To limit to a single Undercloud cluster, select scope to Resource Type set as 'Kubernetes – Azure Arc' and select the Cluster resource under Hosted Resource Group associated to your cluster.
 
@@ -106,7 +106,7 @@ There's yet another option to directly select the Log Analytics Workspace that w
 :::image type="content" source="media/AODS_Logs_Option_C.png" alt-text="Logs Option C.":::
 Figure: Logs Option C
 
-You can run log analytic queries on data collected in the Log Analytics Workspace as shown in these [sample queries](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-log-query).
+You can run log analytic queries on data collected in the Log Analytics Workspace as shown in these [sample queries](../azure-monitor/containers/container-insights-log-query).
 
 #### Analyzing Metrics
 
@@ -115,7 +115,7 @@ The 'InsightMetrics' table in the Logs section contains the metrics collected fr
 :::image type="content" source="media/AODS_Azure_Monitor_Metrics_Selection.png" alt-text="Azure Monitor Metrics Selection.":::
 Figure: Azure Monitor Metrics Selection
 
-See **[Getting Started with Azure Metrics Explorer](https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)** for details on using this tool.
+See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started)** for details on using this tool.
 
 #### Workbooks
 
@@ -127,7 +127,7 @@ You can use the sample Azure Resource Manager alarm templates for [AODS alerting
 
 ## Log Analytic Workspace
 
-A [Log Analytics Workspace (LAW)](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview)
+A [Log Analytics Workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview)
 is a unique environment to log data from Azure Monitor and
 other Azure services. Each workspace has its own data repository and configuration but may
 combine data from multiple services. Each workspace consists of multiple data tables.
