@@ -57,6 +57,8 @@ For example, suppose you want to use the custom subdomain `myapplication.contoso
 | Record value | *use the value provided by Azure Front Door* |
 | Time to live (TTL) | 1 hour |
 
+After your domain has been validated successfully, you can safely delete the TXT record from your DNS server.
+
 For more information on adding a DNS TXT record for a custom domain, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 ### Domain validation states
@@ -175,10 +177,12 @@ However, Azure Front Door won't automatically rotate certificates in the followi
 * The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
 * The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
 
-If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expires, the domain validation state becomes one of the following states:
+If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expires, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
-- *Pending Revalidation*, which indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
-- *Rejected*, which indicates that the certificate authority has rejected the request for reissuing a managed certificate.
+> [!NOTE]
+> DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
+
+If your domain can't be validated, the domain validastion state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
