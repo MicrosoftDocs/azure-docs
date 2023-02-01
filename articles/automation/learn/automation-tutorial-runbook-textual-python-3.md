@@ -139,7 +139,6 @@ With the manage identity role configured, you can start adding code.
 2. Add the following code to authenticate to Azure:
 
 **Example 1**
-
     ```python
     from azure.identity import DefaultAzureCredential
     from azure.mgmt.compute import ComputeManagementClient
@@ -148,8 +147,9 @@ With the manage identity role configured, you can start adding code.
 
     azure_credential = DefaultAzureCredential()
     ```
-**Example 2**
 
+    
+**Example 2**
     ```python
     #!/usr/bin/env python3
     import os
@@ -161,10 +161,12 @@ With the manage identity role configured, you can start adding code.
     headers = {
     `X-IDENTITY-HEADER` : identityHeader,
     `Metadata` : `True`
-   }
-   response = requests.request("GET", endpoint, headers-headers, data-payload)
-   print(response.text)
-   ```
+    }
+    response = requests.request("GET", endpoint, headers-headers, data-payload)
+    print(response.text)
+    ```
+
+
 
 ## Add code to create Python Compute client and start the VM
 
