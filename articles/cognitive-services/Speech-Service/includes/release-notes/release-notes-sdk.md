@@ -19,7 +19,7 @@ ms.author: eur
 - **Unity**: Android x86_64 architecture added to Unity package ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1715))
 - **Go**:
   - ALAW/MULAW direct streaming support added for speech recognition ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-go/issues/81))
-  - Added support for PhraseGrammar. Thank you GitHub user [czkoko](https://github.com/czkoko) for the community contribution!
+  - Added support for PhraseListGrammar. Thank you GitHub user [czkoko](https://github.com/czkoko) for the community contribution!
 - **C#/C++**: Intent Recognizer now supports Conversational Language Understanding models in C++ and C# with orchestration on the Microsoft service
 
 #### Bug fixes
