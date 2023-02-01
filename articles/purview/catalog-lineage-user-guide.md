@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 01/09/2023
 ---
 # Microsoft Purview Data Catalog lineage user guide
 
@@ -44,6 +44,7 @@ Databases & storage solutions such as Oracle, Teradata, and SAP have query engin
 
 |**Category**|  **Data source**  |
 |---|---|
+|Azure| [Azure Databricks](register-scan-azure-databricks.md)
 |Database|    [Cassandra](register-scan-cassandra-source.md)|
 || [Db2](register-scan-db2.md) |
 || [Google BigQuery](register-scan-google-bigquery-source.md)|

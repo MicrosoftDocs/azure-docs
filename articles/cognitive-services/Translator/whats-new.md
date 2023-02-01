@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/16/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -130,7 +130,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-client-sdks.md)—now available in prerelease
 
 ## May 2021
 

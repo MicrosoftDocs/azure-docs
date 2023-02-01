@@ -4,6 +4,8 @@ description: Learn how you can use Azure Backup to send data off the network by 
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
+author: jyothisuri
+ms.author: jsuri
 ---
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export
 
@@ -161,7 +163,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 1. After successful copy of the data from the staging location to the disks, the tool shows the following details:
 
    - The list of disks prepared for seeding.
-   - The name of the storage account, resource group, country, and region of the Import/Export Job.
+   - The name of the storage account, resource group, and country/region of the Import/Export Job.
 
    The tool lists the fields required to create the Import/Export Job.* Enter the following details:
 
@@ -171,7 +173,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    | Contact Number | Phone number of the contact for the Import/Export Job |
    | Valid Email Id | Email ID to notify for the Import/Export Job |
    | Shipping Address | The return shipping address |
-   | Country | Return shipping country |
+   | Country | Return shipping country/region |
    | Postal Code | Return shipping postal code |
 
    **All fields are required.*
@@ -252,7 +254,7 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 To monitor the status of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
 
-For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview).
+For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview).
 
 ### Finish the workflow
 

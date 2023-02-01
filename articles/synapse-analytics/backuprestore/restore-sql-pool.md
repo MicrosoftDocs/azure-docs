@@ -6,7 +6,7 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/07/2022
+ms.date: 12/14/2022
 ms.author: stevehow
 ms.reviewer: joanpo, wiassaf
 ms.custom: seo-lt-2019, engagement-fy23
@@ -206,97 +206,6 @@ $RestoredDatabase.status
 # # Restore to destination synapse workspace
 # $FinalRestore = Restore-AzSynapseSqlPool –FromRestorePoint -RestorePoint $RestorePoint.RestorePointCreationDate -ResourceGroupName $TargetResourceGroupName `
 #     -WorkspaceName $TargetWorkspaceName -TargetSqlPoolName $TargetDatabaseName –ResourceId $RestoredDatabase.ResourceID -PerformanceLevel DW100c
-
-```
-
-## Restore an existing dedicated SQL pool to a different tenant through PowerShell
-
-When performing a cross-tenant-subscription restore, a dedicated SQL pool in an Azure Synapse workspace can only restore directly to a standalone dedicated SQL pool (formerly SQL DW). If it is required to restore a dedicated SQL pool in an Azure Synapse workspace to a workspace in the destination subscription across a different tenant, an additional restore step is required.
-
-For cross-tenant-subscription restore, the user must have a '(Guest)' account with either the 'Owner' or 'Contributor' access permissions to the destination tenant to which the dedicated SQL pool (formerly SQL DW) will be restored to.
-
-The following PowerShell script for cross-tenant restore works in the same way as a cross-subscription restore when the user is given '(Guest)' access to the destination tenant.
- 
-Steps:
-
-1. Open a PowerShell terminal.
-1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to validate the version is below.
-   ```powershell
-   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
-   ```
-1. Connect to your Azure account using `Connect-AzAccount`. 
-1. List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the dedicated SQL pool to be restored.
-1. List the restore points for the dedicated SQL pool using `Get-AzSynapseSqlPoolRestorePoint`.
-1. Pick the desired restore point, setting the variable `$PointInTime`.
-1. In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
-1. Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
-1. Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
-1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
-1. If the desired destination is a Synapse workspace, uncomment the code to perform the additional restore step.
-   1. Create a restore point for the newly created data warehouse.
-   2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
-   3. Perform the restore to the desired Azure Synapse workspace.
-
-
-```powershell
-$SourceTenantID="<YourSourceTenantID>"  # like '00000000-0000-0000-0000-000000000000' 
-$SourceSubscriptionName="<YourSubscriptionName>"
-$SourceResourceGroupName="<YourResourceGroupName>"
-$SourceWorkspaceName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without sql.azuresynapse.net
-$SourceSQLPoolName="<YourDatabaseName>"
-$TargetTenantID="<YourTargetTenantID>" # like '00000000-0000-0000-0000-000000000000' 
-$TargetSubscriptionName="<YourTargetSubscriptionName>"
-$TargetResourceGroupName="<YourTargetResourceGroupName>"
-$TargetServerName="<YourTargetServerNameWithoutURLSuffixSeeNote>"  # Without sql.azuresynapse.net
-$TargetDatabaseName="<YourDatabaseName>"
-#$TargetWorkspaceName="<YourTargetWorkspaceName>" # uncomment if restore to an Azure Synapse workspace is required
-
-# Update Az.Sql module to the latest version (3.8.0 or above)
-# Update-Module -Name Az.Sql
-
-Connect-AzAccount
-Get-AzSubscription
-Select-AzSubscription -SubscriptionName $SourceSubscriptionName 
-
-# Set content to the source subscription and tenant
-Set-AzContext -Subscription $SourceSubscriptionName -Tenant $SourceTenantID
-
-# list all restore points
-Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $SourceResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
-# Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
-$PointInTime="<RestorePointCreationDate>"
-
-# Get the specific SQL pool to restore
-$SQLPool = Get-AzSynapseSqlPool -ResourceGroupName $SourceResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
-# Transform Synapse SQL pool resource ID to SQL database ID because currently the restore command only accepts the SQL database ID format.
-$DatabaseID = $SQLPool.Id -replace "Microsoft.Synapse", "Microsoft.Sql" `
-    -replace "workspaces", "servers" `
-    -replace "sqlPools", "databases"
-
-# Switch context to the destination subscription and tenant
-Set-AzContext -Subscription $TargetSubscriptionName -Tenant $TargetTenantID
-
-# Restore database from a desired restore point of the source database to the target server in the desired subscription
-$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $TargetResourceGroupName `
-    -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName –ResourceId $DatabaseID
-
-# Verify the status of restored database
-$RestoredDatabase.status
-
-# uncomment below cmdlets to perform one more restore to push the dedicated SQL pool to an existing workspace in the destination subscription
-
-# # Create restore point
-# New-AzSqlDatabaseRestorePoint -ResourceGroupName $RestoredDatabase.ResourceGroupName -ServerName $RestoredDatabase.ServerName `
-#     -DatabaseName $RestoredDatabase.DatabaseName -RestorePointLabel "UD-001"
-
-# # Gets the last restore point of the dedicated SQL pool (formerly SQL DW) (will use the RestorePointCreationDate property)
-# $RestorePoint = Get-AzSqlDatabaseRestorePoint -ResourceGroupName $RestoredDatabase.ResourceGroupName -ServerName $RestoredDatabase.ServerName `
-#     -DatabaseName $RestoredDatabase.DatabaseName | Select -Last 1
-
-# # Restore to destination synapse workspace
-# # Set performance level as desired
-# $FinalRestore = Restore-AzSynapseSqlPool –FromRestorePoint -RestorePoint $RestorePoint.RestorePointCreationDate -ResourceGroupName $TargetResourceGroupName `
-#     -WorkspaceName $TargetWorkspaceName -TargetSqlPoolName $TargetDatabaseName –ResourceId $RestoredDatabase.ResourceID -PerformanceLevel DW100c 
 
 ```
 

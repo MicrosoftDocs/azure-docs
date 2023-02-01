@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
@@ -289,8 +289,6 @@ The high-level procedure is as follows:
 [dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
-
-[ha-guide]:sap-high-availability-guide.md
 
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md

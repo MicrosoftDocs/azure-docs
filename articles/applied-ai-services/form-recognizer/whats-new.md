@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 01/30/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -27,9 +27,47 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
-## December 2022
+## January 2023
 
-December 2022
+> [!TIP]
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
+
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
+
+   The **prebuilt receipt model** now has added support for the following languages:
+
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
+
+* **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
+
+  The **prebuilt invoice model** now has added support for the following languages:
+
+  * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
+  * Portuguese - Brazil (pt-br)
+
+  The **prebuilt invoice model** now has added support for the following field extractions:
+
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-in only)
+
+* **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
+
+  The **prebuilt ID document model** now has added support for the following document types:
+
+  * Passport, driver's license, and residence permit ID expansion
+  * US military ID cards and documents
+  * India ID cards and documents
+  * Australia ID cards and documents
+  * Canada ID cards and documents
+  * United Kingdom ID cards and documents
+
+## December 2022
 
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
 
@@ -48,6 +86,10 @@ December 2022
     * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
 
     * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
+
+* Building custom neural models is now supported in the US Gov Virginia region.
+
+* Preview API versions ```2022-01-30-preview``` and ```2021-09-30-preview``` will be retired January 31 2023. Update to the ```2022-08-31``` API version to avoid any service disruptions.
 
 ---
 
@@ -173,7 +215,7 @@ December 2022
   * Form Recognizer SDK version 4.0.0 GA release
     * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
     * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
-    * Update your applications using your programming language's **migration guide** (see above).
+    * Update your applications using your programming language's **migration guide**.
 
 ---
 
@@ -303,7 +345,7 @@ December 2022
 ---
 * [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
-  * **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
+  * **Code sample for JavaScript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
   * **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
   * **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 
@@ -823,7 +865,7 @@ December 2022
 
 ## April 2020
 
-* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use these links to get started with your language of choice:
 * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
 * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
 * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
@@ -886,7 +928,7 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 ## January 2020
 
-This release introduces the Form Recognizer 2.0. In the sections below, you'll find more information about new features, enhancements, and changes.
+This release introduces the Form Recognizer 2.0. In the next sections, you'll find more information about new features, enhancements, and changes.
 
 * New features
 

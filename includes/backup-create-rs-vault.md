@@ -6,7 +6,7 @@ author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 06/01/2021
+ms.date: 12/14/2022
 ms.author: v-amallick
 ms.custom: include file
 ---
@@ -43,14 +43,10 @@ To create a Recovery Services vault:
       
     ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
-1. After you provide the values, select **Review + create**.
+1. After providing the values, select **Review + create**.
 
-    ![Screenshot that shows the 'Review + create' button for creating a Recovery Services vault.](./media/backup-create-rs-vault/review-and-create.png)
+1. To finish creating the Recovery Services vault, select **Create**.
 
-1. When you're ready to finish creating the Recovery Services vault, select **Create**.
-
-    ![Screenshot that shows the final 'Create' button for creating the Recovery Services vault.](./media/backup-create-rs-vault/click-create-button.png)
-
-    It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper right. After your vault is created, it's visible in the list of Recovery Services vaults. If your vault isn't displayed, select **Refresh**.
+   It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper right. After the vault is created, it appears in the list of Recovery Services vaults. If the vault doesn't appear, select **Refresh**.
 
     ![Screenshot that shows the button for refreshing the list of backup vaults.](./media/backup-create-rs-vault/refresh-button.png)

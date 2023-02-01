@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 09/26/2022
 author: KarlErickson
 ms.author: karler
-ms.custom: passwordless-java
+ms.custom: passwordless-java, service-connector
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity

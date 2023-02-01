@@ -2,7 +2,6 @@
 title: Enable soft delete for blobs
 titleSuffix: Azure Storage
 description: Enable soft delete for blobs to protect blob data from accidental deletes or overwrites.
-services: storage
 author: normesta
 
 ms.service: storage

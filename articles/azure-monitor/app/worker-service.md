@@ -4,7 +4,7 @@ description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monito
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
+ms.date: 01/24/2023
 ms.reviewer: cithomas
 ---
 
@@ -602,6 +602,6 @@ For the latest updates and bug fixes, [see the Release Notes](./release-notes.md
 ## Next steps
 
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* [Track more dependencies not automatically tracked](./auto-collect-dependencies.md).
+* [Track more dependencies not automatically tracked](asp-net-dependencies.md#dependency-auto-collection).
 * [Enrich or filter auto-collected telemetry](./api-filtering-sampling.md).
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
