@@ -129,7 +129,7 @@ Authorization: Bearer <access token>
 For example, The request below retrieves the metric definitions for an Azure Storage account
 
 ```curl
-curl --location --request GET 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01'
+curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01'
 --header 'Authorization: Bearer eyJ0eXAiOi...xYz
 ```
 
@@ -140,8 +140,8 @@ In this example, only the second metric has dimensions.
 {
     "value": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
             "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Capacity",
             "name": {
@@ -177,8 +177,8 @@ In this example, only the second metric has dimensions.
             ]
         },
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
             "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Transaction",
             "name": {
@@ -273,18 +273,23 @@ Authorization: Bearer <access token>
 For example, to retrieve the list of dimension values that were emitted for the `API Name` dimension for the `Transactions` metric, where the GeoType dimension = `Primary` during the specified time range, the request would be: 
 
 ```curl
-curl --location --request GET 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=GeoType eq \'Primary\' and ApiName eq \'*\'&api-version=2019-07-01'
+curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics  \
+?metricnames=Transactions \
+&timespan=2023-03-01T00:00:00Z/2023-03-02T00:00:00Z \
+&resultType=metadata \
+&$filter=GeoType eq \'Primary\' and ApiName eq \'*\' \
+&api-version=2019-07-01'
 -header 'Content-Type: application/json' \
---header 'Authorization: Bearer eyJ0e..meG1lWm9Y
+--header 'Authorization: Bearer eyJ0e..meG1lWm9Y'
 ```
 The following JSON shows an example response body. 
 
 ```json
 {
-  "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
+  "timespan": "2023-03-01T00:00:00Z/2023-03-02T00:00:00Z",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -327,7 +332,11 @@ The following JSON shows an example response body.
 
 After the available metric definitions and possible dimension values are known, it's then possible to retrieve the related metric values. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to retrieve the metric values.
 
-Use the metric's name `value` (not `localizedValue`) for any filtering requests. If no dimension filters are specified, the rolled up aggregated metric is returned. To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`. To return a time series for every value of a given dimension, use an `*` filter such as `"&$filter=ApiName eq '*'"`. The `Top` and `OrderBy` query parameters can be used to limit and order the number of time series returned.
+Use the metric's `value` element (not `localizedValue`) for any filtering requests. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
+
+To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`.   
+
+To return a time series for every value of a given dimension, use an `*` filter such as `"&$filter=ApiName eq '*'"`. The `Top` and `OrderBy` query parameters can be used to limit and order the number of time series returned.  
 
 > [!NOTE]
 > To retrieve multi-dimensional metric values using the Azure Monitor REST API, use the API version "2019-07-01" or later.
@@ -340,32 +349,31 @@ Content-Type: application/json
 Authorization: Bearer <access token>
 ```
 
-**Method**: GET
-
-**Request URI**: 
-
 For example, to retrieve the top three APIs, in descending value, by the number of `Transactions` during a 5-minute range, where the GeoType was `Primary`, the request would be:
 
-```powershell
-$filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=apiname eq 'GetBlobProperties'&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2019-07-01"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -OutFile ".\contosostorage-metric-values.json" `
-    -Verbose
+```curl
+curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics \
+?metricnames=Transactions \
+&timespan=2023-03-01T02:00:00Z/2023-03-01T02:05:00Z \
+& $filter=apiname eq '\''GetBlobProperties'\'
+&interval=PT1M \
+&aggregation=Total  \
+&top=3 \
+&orderby=Total desc \
+&api-version=2019-07-01"' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer yJ0eXAiOi...g1dCI6Ii1LS'
 ```
-
-The resulting JSON response body would be similar to the following example:
+The following JSON shows an example response body. 
 
 ```json
 {
   "cost": 0,
-  "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
+  "timespan": "2023-03-01T02:00:00Z/2023-03-01T02:05:00Z",
   "interval": "PT1M",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -385,23 +393,23 @@ The resulting JSON response body would be similar to the following example:
           ],
           "data": [
             {
-              "timeStamp": "2017-09-19T02:00:00Z",
+              "timeStamp": "2023-09-19T02:00:00Z",
               "total": 2
             },
             {
-              "timeStamp": "2017-09-19T02:01:00Z",
+              "timeStamp": "2023-09-19T02:01:00Z",
               "total": 1
             },
             {
-              "timeStamp": "2017-09-19T02:02:00Z",
+              "timeStamp": "2023-09-19T02:02:00Z",
               "total": 3
             },
             {
-              "timeStamp": "2017-09-19T02:03:00Z",
+              "timeStamp": "2023-09-19T02:03:00Z",
               "total": 7
             },
             {
-              "timeStamp": "2017-09-19T02:04:00Z",
+              "timeStamp": "2023-09-19T02:04:00Z",
               "total": 2
             }
           ]
@@ -415,54 +423,38 @@ The resulting JSON response body would be similar to the following example:
 }
 ```
 
-### Use ARMClient
+### Retrieve the resource ID
 
-Another approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure Active Directory authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
+Using the REST API requires the resource ID of the target Azure resource.
+Resource IDs follow the following pattern:
 
-1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/armclient).
-1. In a terminal window, enter **armclient.exe login**. Doing so prompts you to sign in to Azure.
-1. Enter **armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01**.
-1. Enter **armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01**.
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider>/<resource name>/`
 
-For example, to retrieve the metric definitions for a specific logic app, issue the following command:
+For example 
 
-```console
-armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
-```
+* **Azure IoT Hub**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Devices/IotHubs/\<iot-hub-name>
+* **Elastic SQL pool**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<pool-db>/elasticpools/\<sql-pool-name>
+* **Azure SQL Database (v12)**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<server-name>/databases/\<database-name>
+* **Azure Service Bus**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.ServiceBus/\<namespace>/\<servicebus-name>
+* **Azure Virtual Machine Scale Sets**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachineScaleSets/\<vm-name>
+* **Azure Virtual Machines**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachines/\<vm-name>
+* **Azure Event Hubs**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.EventHub/namespaces/\<eventhub-namespace>
 
-## Retrieve the resource ID
+Use the Azure portal, PowerShell or the Azure CLI to find the resource Id.
 
-Using the REST API can help you to understand the available metric definitions, granularity, and related values. That information is helpful when you use the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
 
-For the preceding code, the resource ID to use is the full path to the desired Azure resource. For example, to query against an Azure Web App, the resource ID would be:
+### [Azure portal](#tab/portal)
 
-*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
+To find the resourceID in the portal, from the resource's overview page, select **JSON view**
+:::image type="content" source="./media/rest-api-walkthrough/jsonview_azure_portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted":::
 
-The following list contains a few examples of resource ID formats for various Azure resources:
 
-* **Azure IoT Hub**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
-* **Elastic SQL pool**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
-* **Azure SQL Database (v12)**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
-* **Azure Service Bus**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
-* **Azure Virtual Machine Scale Sets**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
-* **Azure Virtual Machines**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
-* **Azure Event Hubs**: /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
+The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID 
 
-There are alternative approaches to retrieving the resource ID. You can use Azure Resource Explorer, view the desired resource in the Azure portal, and use PowerShell or the Azure CLI.
+:::image type="content" source="./media/rest-api-walkthrough/resourceid_azure_portal.png" alt-text="A screenshot showing the Resource JSON page for a resource":::
 
-### Azure Resource Explorer
 
-To find the resource ID for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Go to the desired resource and then look at the ID shown, as in the following screenshot:
-
-![Screenshot that shows Azure Resource Explorer.](./media/rest-api-walkthrough/azure_resource_explorer.png)
-
-### Azure portal
-
-The resource ID can also be obtained from the Azure portal. To do so, go to the desired resource and then select **Properties**. The resource ID appears in the **Properties** section, as seen in the following screenshot:
-
-![Screenshot that shows resource ID displayed in the Properties pane in the Azure portal.](./media/rest-api-walkthrough/resourceid_azure_portal.png)
-
-### Azure PowerShell
+### [Powershell](#tab/powershell)
 
 The resource ID can be retrieved by using Azure PowerShell cmdlets too. For example, to obtain the resource ID for an Azure logic app, execute the `Get-AzureLogicApp` cmdlet, as in the following example:
 
@@ -473,7 +465,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 The result should be similar to the following example:
 
 ```output
-Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
+Id             : /subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
 Location       : centralus
@@ -490,12 +482,12 @@ PlanId         :
 Version        : 08586982649483762729
 ```
 
-### Azure CLI
+### [Azure CLI](#tab/cli)
 
 To retrieve the resource ID for an Azure Storage account by using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
 
 ```azurecli
-az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
+az storage account show -g azmon-rest-api-walkthrough -n azmonstorage001
 ```
 
 The result should be similar to the following example:
@@ -503,22 +495,22 @@ The result should be similar to the following example:
 ```json
 {
   "accessTier": null,
-  "creationTime": "2017-08-18T19:58:41.840552+00:00",
+  "creationTime": "2023-08-18T19:58:41.840552+00:00",
   "customDomain": null,
   "enableHttpsTrafficOnly": false,
   "encryption": null,
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/contosotweets2017",
+  "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/azmonstorage001",
   "identity": null,
   "kind": "Storage",
   "lastGeoFailoverTime": null,
   "location": "centralus",
-  "name": "contosotweets2017",
+  "name": "azmonstorage001",
   "networkAcls": null,
   "primaryEndpoints": {
-    "blob": "https://contosotweets2017.blob.core.windows.net/",
-    "file": "https://contosotweets2017.file.core.windows.net/",
-    "queue": "https://contosotweets2017.queue.core.windows.net/",
-    "table": "https://contosotweets2017.table.core.windows.net/"
+    "blob": "https://azmonstorage001.blob.core.windows.net/",
+    "file": "https://azmonstorage001.file.core.windows.net/",
+    "queue": "https://azmonstorage001.queue.core.windows.net/",
+    "table": "https://azmonstorage001.table.core.windows.net/"
   },
   "primaryLocation": "centralus",
   "provisioningState": "Succeeded",
@@ -539,34 +531,38 @@ The result should be similar to the following example:
 > [!NOTE]
 > Azure logic apps aren't yet available via the Azure CLI. For this reason, an Azure Storage account is shown in the preceding example.
 >
-
+---
 ## Retrieve activity log data
 
-In addition to metric definitions and related values, it's also possible to use the Azure Monitor REST API to retrieve other interesting insights related to Azure resources. As an example, it's possible to query [activity log](/rest/api/monitor/activitylogs) data. The following sample requests use the Azure Monitor REST API to query an activity log.
+Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activitylogs) data. 
 
-Get activity logs with filter:
+```curl 
+GET /subscriptions/<subscriptionId>/providers/Microsoft.Insights/eventtypes/management/values \
+?api-version=2015-04-01 \
+&$filter=<$filter> \
+&$select={$select}
+host: management.azure.com
+```
+The following sample requests use the Azure Monitor REST API to query an activity log.
+
+### Get activity logs with filter:
 
 ``` HTTP
-GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
 
-Get activity logs with filter and select:
+### Get activity logs with filter and select:
 
 ```HTTP
-GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-01-21T20:00:00Z' and eventTimestamp le '2023-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Get activity logs with select:
+### Get activity logs with select:
 
 ```HTTP
-GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Get activity logs without filter or select:
-
-```HTTP
-GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
-```
 
 ## Troubleshooting
 
