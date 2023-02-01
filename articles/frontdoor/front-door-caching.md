@@ -32,7 +32,7 @@ Front Door caches any chunks as they're received so the entire file doesn't need
 Your origin needs to handle range requests correctly. When your origin responds to a request with a `Range` header, it must respond in one of the following ways:
 
 - **Return a ranged response.** The response must use HTTP status code 206. Also, the `Content-Range` response header must be present, and must match the actual length of the content that your origin returns. If your origin doesn't send the correct response headers with valid values, Azure Front Door won't cache the response. If your origin compresses the response, ensure that the `Content-Range` header value matches the actual length of the compressed response.
-- **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a non-ranged response. Ensure that origin returns a response status code other than 206.
+- **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a non-ranged response. Ensure that the origin returns a response status code other than 206.
 
 ## File compression
 
