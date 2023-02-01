@@ -84,8 +84,8 @@ If a single zone becomes unavailable, your applications continue to run if the c
 
 When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The control plane components such as etcd or the API are spread across the available zones in the region if you define the `--zones` parameter at cluster creation time. The specific zones which the control plane components are spread across are independent of what explicit zones are selected for the initial node pool.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, control plane will not be in Availability Zones.
-If later, you add additional node pools using the az aks nodepool add command and specify --zones for new nodes, the Control Plane will be converted to Availability Zones.
+If you don't define any zones for the default agent pool when you create an ASK cluster, the control plane components won't be present in availability zones.
+Later if you add additional node pools using the `az aks nodepool add` command with the `--zones` argument for new nodes, the AKS control plan is converted to spread across availability zones.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*.
 
