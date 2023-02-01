@@ -575,6 +575,9 @@
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
       href: ./policy-reference.md
+    - name: X.509 certificates
+      displayName: X.509 
+      href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
