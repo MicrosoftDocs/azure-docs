@@ -196,7 +196,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - Rules Engine policies
 
-  A BizTalk Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common BizTalk Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The BizTalk Rules Engine caches these rules, so if you make any updates to these rules, you must restart the BizTalk Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
+  A Business Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common Business Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The Business Rules Engine caches these rules, so if you make any updates to these rules, you must restart the Business Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
 
 #### Azure Integration Services
 
@@ -936,7 +936,7 @@ To help address BizTalk customers' needs in migrating their workloads and interf
 | Timeframe | Functionality investments |
 |-----------|---------------------------|
 | Short term | - [XSLT + .NET Framework support (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120) <br>- [SWIFT MT encoder and decoder (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014) <br>- Call custom .NET Framework code from Azure Logic Apps (Standard) |
-| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- BizTalk Rules Engine support |
+| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- Business Rules Engine support |
 | Long term | Business event tracking |
 
 To stay updated about the latest investments, subscribe to the [Integrations on Azure Blog - Tech Community](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/bg-p/IntegrationsonAzureBlog).
