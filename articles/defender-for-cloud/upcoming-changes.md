@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/29/2023
+ms.date: 02/01/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -19,7 +19,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | February 2023 |
-| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | January 2023 |
+| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | February 2023 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | January 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
@@ -29,7 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
 
-We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't affect your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
+We recommend that you use the recommendation to remediate vulnerabilities in your containers. Remediating the recommendation won't affect your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
@@ -45,7 +45,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 ### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault is set to be deprecated
 
-**Estimated date for change: January 2023**
+**Estimated date for change: February 2023**
 
 The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
 
