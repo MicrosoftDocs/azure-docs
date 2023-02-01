@@ -10,6 +10,8 @@
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
     href: durable-functions-versions.md
+  - name: Durable Functions for .NET isolated
+    href: durable-functions-dotnet-isolated-overview.md
 - name: Quickstarts
   expanded: true
   items:
