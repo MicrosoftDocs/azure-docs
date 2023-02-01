@@ -2,7 +2,7 @@
 title: 'Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using the REST API Azure Resource Manager template version.
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 02/01/2023
 ---
 
 # Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
@@ -305,7 +305,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot that shows DCR details.":::
 
-1. Copy the **Resource ID** for the DCR. You'll use it in the next step.
+1. Copy the **Immutable ID** for the DCR. You'll use it in a later step when you send sample data using the API.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 
@@ -357,6 +357,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     #information needed to send data to the DCR endpoint
     $dcrImmutableId = "dcr-000000000000000"; #the immutableId property of the DCR object
     $dceEndpoint = "https://my-dcr-name.westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
+    $streamName = "Custom-MyTableRawData"; #name of the stream in the DCR that represents the destination table
 
     ##################
     ### Step 1: Obtain a bearer token used later to authenticate against the DCE.
@@ -404,7 +405,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     ##################
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
-    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
+    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$streamName?api-version=2021-11-01-preview"
 
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
