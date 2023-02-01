@@ -27,24 +27,17 @@ Read more about [data type support for different clouds in Microsoft Sentinel](d
 
 | Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
 | ----------------- | ------------------- | -------------- |
-| **Microsoft 365 Defender alerts: *SecurityAlert*** | Generally available | Generally available |
+| **Microsoft 365 Defender alerts: *SecurityAlert*** | Generally available | Public preview |
 
 #### From standalone component connectors
 
 | Data type         | Commercial | GCC | GCC-High / DoD            |
 | ----------------- | ---------- | --- | ------------------------- |
-| **Microsoft Defender for Endpoint: *SecurityAlert (MDATP)*** | Public preview | Public preview | Public preview |
+| **Microsoft Defender for Endpoint: *SecurityAlert (MDATP)*** | Generally available | Generally available | Generally available |
 | **Microsoft Defender for Office 365: *SecurityAlert (OATP)*** | Public preview | Public preview | Public preview |
-| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Public preview | Unsupported | Unsupported |
-| **Microsoft Defender for Cloud Apps: *SecurityAlert (MCAS)*** | Public preview | Unsupported | Unsupported |
-| **Microsoft Defender for Cloud Apps: *McasShadowItReporting*** | Public preview | Unsupported | Unsupported |
-
-#### From Azure Active Directory Identity Protection
-
-| Data type         | Commercial | GCC | GCC-High       | DoD            |
-| ----------------- | ---------- | --- | -------------- | -------------- |
-| **SecurityAlert (IPC)** | Public preview/GA | Supported | Supported | Supported |
-| **AlertEvidence** | Public preview | Unsupported | Unsupported | Unsupported |
+| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Unsupported | Unsupported |
+| **Microsoft Defender for Cloud Apps: *SecurityAlert (MCAS)*** | Generally available | Generally available | Unsupported |
+| **Microsoft Defender for Cloud Apps: *McasShadowItReporting*** | Generally available | Generally available | Unsupported |
 
 ## Raw event data
 
