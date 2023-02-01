@@ -18,7 +18,7 @@ Azure Communication Services currently provides metrics for all ACS primitives. 
 
 ## Where to find metrics
 
-Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
+Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
 
 ## Metric definitions
 
@@ -100,7 +100,7 @@ The following operations are available on Call Automation API request metrics:
 |  Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
 | Play  | Play audio to call participants.  |
 |  Recognize | Recognize user input from call participants. |
-|  Add Participants   |  Add a aprticipant to a call.    |
+|  Add Participants   |  Add a participant to a call.    |
 |   Remove Participants  | Remove a participant from a call.   |
 | HangUp Call | Hang up your call leg. | 
 | Terminate Call | End the call for all participants.  | 
@@ -108,7 +108,7 @@ The following operations are available on Call Automation API request metrics:
 |  Get Participant   |  Get details on a call participant.   |
 |  Get Participants   |  Get all participants in a call.   |
 |   Delete Call  |  Delete a call.    |
-| Cancel All Media Operations | Call all ongoing or queued media operations in a call. | 
+| Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. | 
 
 
 ### Network Traversal API requests
