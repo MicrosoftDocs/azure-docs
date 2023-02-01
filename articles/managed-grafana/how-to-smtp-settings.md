@@ -36,10 +36,10 @@ To activate SMTP settings, enable email notifications and configure an email con
 
         | Parameter      | Example               | Description                                                                                                                             |
         |----------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-        | Host           | smtp.smtphost.net:01  | Enter the SMTP host. Default is localhost:25.                                                                                           |
+        | Host           | smtp.mail.com:01  | Enter the SMTP host. Default is localhost:25.                                                                                           |
         | User           | admin                 | Enter the name of the SMTP user.                                                                                                        |
-        | Password       | password              | Enter the SMTP password.                                                                                                                |
-        | From Address   | email@outlook.com     | Enter the email address used when sending out emails. Default is `admin@grafana.localhost`                                                |
+        | Password       | password              | Enter the email password. password.                                                                                                                |
+        | From Address   | example@mail.com     | Enter the email address used when sending out emails. Default is `admin@grafana.localhost`.                                                |
         | From Name      | Grafana Monitoring    | Enter the name used when sending out emails. Default is Grafana.                                                                        |
         | Skip Verify    | Disable               | SSL verification for the SMTP server. This setting is set to **Disable** by default. Optionally select **Enable** to skip verification. |
         | StartTLSPolicy | OpportunisticStartTLS | From the drop-down menu, select **OpportunisticStartTLS**, **“MandatoryStartTLS”**, or **“NoStartTLS”**                             |
@@ -50,14 +50,14 @@ Once you've entered and saved new SMTP settings, in the **Overview** page, the p
 
 ## Configure Grafana notifications and send a test email
 
-To create or update notification settings, follow the steps below :
+To create or update notification settings, follow these steps:
 
   1. In the Azure portal, open your Grafana instance
-  1. Select **Alerting > Contact points**, where you will find all your new contact point.
+  1. Select **Alerting > Contact points**, where you'll find all your new contact point.
   1. Optionally edit the contact point **Name**, and **Contact point type**
   1. Enter a destination email under **Addresses**, and select **Test**
   1. Select **Send test notification** to send the notification with the predefined test message or select **Custom** to first edit the message.
-  1. A notification "Test alert sent" is displayed, meaning that the email set up has been successfully configured. The test email has been sent to the provided email address. In case of misconfiguration, an error message will be displayed instead.
+  1. A notification "Test alert sent" is displayed, meaning that the email setup has been successfully configured. The test email has been sent to the provided email address. In case of misconfiguration, an error message will be displayed instead.
 
 ## Disable SMTP settings
 
