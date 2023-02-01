@@ -160,18 +160,18 @@ python kv_secrets.py
 
 ### Authenticate and create a client
 
-In this quickstart, the logged in user is used to authenticate to key vault, which is the preferred method for local development. For applications deployed to Azure, a managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
+In this quickstart, the logged in user is used to authenticate to Azure Key Vault, which is the preferred method for local development. For applications deployed to Azure, a managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In this example, the name of your key vault is expanded using the value of the "KVUri" variable, in the format: "https://\<your-key-vault-name>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
+In this example, the name of your key vault is expanded using the value of the `KVUri` variable, in the format: "https://\<your-key-vault-name>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
-credential = DefaultAzureCredential()
+credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
 client = SecretClient(vault_url=KVUri, credential=credential)
 ```
 
 ### Save a secret
 
-Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#set-secret-name--value----kwargs-) method: 
+Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?##azure-keyvault-secrets-secretclient-set-secret) method: 
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -183,7 +183,7 @@ When Azure handles the request, it authenticates the caller's identity (the serv
 
 ### Retrieve a secret
 
-To read a secret from Key Vault, use the [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#get-secret-name--version-none----kwargs-) method:
+To read a secret from Key Vault, use the [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#azure-keyvault-secrets-secretclient-get-secret) method:
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -195,7 +195,7 @@ You can also retrieve a secret with the Azure CLI command [az keyvault secret sh
 
 ### Delete a secret
 
-To delete a secret, use the [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#begin-delete-secret-name----kwargs-) method:
+To delete a secret, use the [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#azure-keyvault-secrets-secretclient-begin-delete-secret) method:
 
 ```python
 poller = client.begin_delete_secret(secretName)
