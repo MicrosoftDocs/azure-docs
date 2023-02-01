@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: MedTech service documentation
-summary: MedTech service documentation for the Azure Health Data Services. The MedTech service is a service of the Azure Health Data Services designed to ingest device message data from multiple devices, transform the data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service.
+summary: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service.
 
 metadata:
   title: Azure Health Data Services MedTech service
-  description: MedTech service documentation for the Azure Health Data Services. The MedTech service is a service of the Azure Health Data Services designed to ingest device message data from multiple devices, transform the data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
+  description: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
