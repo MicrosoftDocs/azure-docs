@@ -54,7 +54,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 1. Select the **Cloud Shell** icon from the page header in the Azure portal.
 
-    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-new-session.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
+    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-button.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
 
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
