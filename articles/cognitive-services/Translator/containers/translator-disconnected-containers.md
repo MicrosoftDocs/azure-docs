@@ -113,7 +113,7 @@ The following example shows the formatting for the `docker run` command with pla
 
 ```docker
 
-docker run --rm -it -p 5000:5000
+docker run --rm -it -p 5000:5000 \
 
 -v {MODEL_MOUNT_PATH} \
 
