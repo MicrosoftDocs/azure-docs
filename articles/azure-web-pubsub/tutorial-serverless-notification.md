@@ -475,6 +475,9 @@ In this tutorial, you learn how to:
     ```
 
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
+    
+    > [!NOTE]
+    > Some browers will automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 
