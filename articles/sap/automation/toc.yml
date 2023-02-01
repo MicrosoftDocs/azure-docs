@@ -9,6 +9,8 @@ items:
       href: supportability.md
     - name: Naming conventions
       href: naming.md
+    - name: Plan your automated deployment
+      href: plan-deployment.md
     - name: Using a custom naming convention
       href: naming-module.md
     - name: Configuration
@@ -33,8 +35,6 @@ items:
     items:
     - name: Get started with automation framework
       href: get-started.md
-    - name: Plan your automated deployment
-      href: plan-deployment.md
     - name: Deployment
       items:
       - name: Deploy the control plane
