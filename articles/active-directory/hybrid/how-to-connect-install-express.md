@@ -26,7 +26,7 @@ If the express settings installation doesn't match your topology, see [Related a
 
 1. Sign in as Local Administrator on the server you want to install Azure AD Connect on. The server you sign in on will be the sync server.
 1. Go to *AzureADConnect.msi* and double-click to open the installation file.
-1. In **Welcome**, select the checkbox to agree to the licensing terms, and then select **Continue**.  
+1. In **Welcome**, select the checkbox to agree to the licensing terms, and then select **Continue**.
 1. In **Express settings**, select **Use express settings**.
 
    ![Welcome to Azure AD Connect](./media/how-to-connect-install-express/express.png)
@@ -41,7 +41,7 @@ If the express settings installation doesn't match your topology, see [Related a
 
    ![Connect to AD DS](./media/how-to-connect-install-express/connectad.png)
 
-1. The [**Azure AD sign-in configuration**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) page appears only if you didn't complete the step to [verify your domains](../fundamentals/add-custom-domain.md) in the [prerequisites](how-to-connect-install-prerequisites.md).
+1. The [Azure AD sign-in configuration](plan-connect-user-signin.md#azure-ad-sign-in-configuration) page appears only if you didn't complete the step to [verify your domains](../fundamentals/add-custom-domain.md) in the [prerequisites](how-to-connect-install-prerequisites.md).
 
    ![Unverified domains](./media/how-to-connect-install-express/unverifieddomain.png)  
 

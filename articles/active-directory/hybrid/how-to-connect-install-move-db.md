@@ -1,6 +1,6 @@
 ---
-title: 'Move Azure AD Connect database from SQL Server Express to SQL Server. | Microsoft Docs'
-description: This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.
+title: 'Move the Azure AD Connect database from SQL Server Express to remote SQL Server'
+description: Learn how to move the Azure AD Connect database from the default local SQL Server Express server to a computer running remote SQL Server.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,66 +15,66 @@ ms.collection: M365-identity-device-management
 
 # Move Azure AD Connect database from SQL Server Express to SQL Server
 
-This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.  You can use the following procedures below to accomplish this task.
+This article describes how to move the Azure AD Connect database from the local SQL Server Express server to a computer running remote SQL Server. You can use the steps described in this article to accomplish this task.
 
 ## About this scenario
 
-The following is some brief information about this scenario.  In this scenario, Azure AD Connect version (1.1.819.0) is installed on a single Windows Server 2016 domain controller.  It is using the built-in SQL Server 2012 Express Edition for its database.  The database will be moved to a SQL Server 2017 server.
+In this scenario, Azure AD Connect version 1.1.819.0 is installed on a single Windows Server 2016 domain controller. Azure AD Connect is using the built-in SQL Server 2012 Express Edition for its database. The database will be moved to a SQL Server 2017 server.
 
 ![scenario architecture](media/how-to-connect-install-move-db/move1.png)
 
 ## Move the Azure AD Connect database
 
-Use the following steps to move the Azure AD Connect database to a remote SQL Server.
+Use the following steps to move the Azure AD Connect database to a computer running remote SQL Server:
 
-1. On the Azure AD Connect server, go to **Services** and stop the **Microsoft Azure AD Sync** service.
-1. Go to the *%ProgramFiles%\Microsoft Azure AD Sync\Data* folder and copy the *ADSync.mdf* and *ADSync_log.ldf* files to the remote SQL Server instance.
+1. On the Azure AD Connect server, go to **Services** and stop the Microsoft Azure AD Sync service.
+1. Go to the *%ProgramFiles%\Microsoft Azure AD Sync\Data* folder and copy the *ADSync.mdf* and *ADSync_log.ldf* files to the computer running remote SQL Server.
 1. Restart the **Microsoft Azure AD Sync** service on the Azure AD Connect server.
-1. Uninstall Azure AD Connect by going to **Control Panel** > **Programs** > **Programs and Features**.  Select **Microsoft Azure AD Connect**, and then select **Uninstall**.
-1. On the remote SQL Server instance, open SQL Server Management Studio.
+1. Uninstall Azure AD Connect by going to **Control Panel** > **Programs** > **Programs and Features**. Select **Microsoft Azure AD Connect**, and then select **Uninstall**.
+1. On the computer running remote SQL Server, open SQL Server Management Studio.
 1. Right-click **Databases** and select **Attach**.
 1. In **Attach Databases**, select **Add** and go to the *ADSync.mdf* file. Select **OK**.
 
    ![attach database](media/how-to-connect-install-move-db/move2.png)
 
-1. Once the database is attached, go back to the Azure AD Connect server and install Azure AD Connect.
-1. Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
+1. When the database is attached, go back to the Azure AD Connect server and install Azure AD Connect.
+1. When the MSI installation is finished, the Azure AD Connect wizard starts in express settings mode. Select the **Exit** icon to close the page.
 
    ![Screenshot that shows the Welcome to Azure AD Connect page with Express Settings in the left menu highlighted.](./media/how-to-connect-install-move-db/db1.png)
 
-1. Start a new command prompt or PowerShell session. Navigate to folder \<drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
+1. Open a new Command Prompt window or PowerShell session. Go to the folder *\<drive>\program files\Microsoft Azure AD Connect*. Run the command `.\AzureADConnect.exe /useexistingdatabase` to start the Azure AD Connect wizard in **Use existing database** setup mode.
 
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 
-1. You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
+1. In **Welcome to Azure AD Connect**. Review and agree to the license terms and privacy notice, and then select **Continue**.
 
     ![Screenshot that shows the Welcome to Azure AD Connect page](./media/how-to-connect-install-move-db/db3.png)
 
-1. On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:
+1. In **Install required components**, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL Server instance that's hosting the ADSync database. If the SQL engine instance that's used to host the ADSync database isn't the default instance on the SQL Server instance, you must specify the name of the SQL engine instance. Also, if SQL browsing is not enabled, you must specify the SQL engine instance port number. For example:
 
     ![Screenshot that shows the Install required components page.](./media/how-to-connect-install-move-db/db4.png)
 
-1. On the **Connect to Azure AD** screen, you must provide the credentials of a Hybrid Identity Administrator of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
+1. In **Connect to Azure AD**, you must provide the credentials of a Hybrid Identity Administrator for your Azure AD directory. We recommend that you use an account in the default `onmicrosoft.com` domain. This account is used only to create a service account in Azure AD and is not used after the wizard has completed.
 
     ![Connect](./media/how-to-connect-install-move-db/db5.png)
 
-1. On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
+1. In **Connect your directories**, the existing Windows Server AD forest that's configured for directory sync is listed with a red cross icon beside it. To sync changes from a Windows Server AD, an Active Directory Domain Services (AD DS) account is required. The Azure AD Connect wizard can't retrieve the credentials of the AD DS account that's stored in the ADSync database because the credentials are encrypted. The credentials can be decrypted only by the earlier Azure AD Connect server. Select **Change Credentials** to specify the AD DS account for the Windows Server AD forest.
 
     ![Directories](./media/how-to-connect-install-move-db/db6.png)
 
-1. In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
+1. In the dialog, you can either enter the credentials for an Enterprise Admin and let Azure AD Connect create the AD DS account for you, or you can create the AD DS account yourself and enter its credentials in Azure AD Connect. After you select an option and enter the credentials, select **OK**.
 
     ![Screenshot of the AD forest account pop-up dialog with Create new AD account selected.](./media/how-to-connect-install-move-db/db7.png)
 
-1. Once the credentials are provided, the red cross icon is replaced with a green tick icon. Click **Next**.
+1. After the credentials are entered, the red cross icon is replaced with a green checkmark icon. Select **Next**.
 
     ![Screenshot that shows the Connect your directories page after entering account credentials.](./media/how-to-connect-install-move-db/db8.png)
 
-1. On the **Ready to configure** screen, click **Install**.
+1. In **Ready to configure**, select **Install**.
 
     ![Welcome](./media/how-to-connect-install-move-db/db9.png)
 
-1. Once installation completes, the Azure AD Connect server is automatically enabled for Staging Mode. It is recommended that you review the server configuration and pending exports for unexpected changes before disabling Staging Mode.
+1. When installation is finished, the Azure AD Connect server is automatically enabled for Staging Mode. We recommend that you review the server configuration and pending exports for unexpected changes before you disable Staging Mode.
 
 ## Next steps
 
