@@ -1356,10 +1356,10 @@ items:
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Alert processing rules
       href: alerts/alerts-processing-rules.md
+      displayName: Azure CLI, az monitor action rule
     - name: Notifications and actions
       items:
-        displayName: Azure CLI, az monitor action rule
-      - name: Action groups
+      - name: Create an action group
         href: alerts/action-groups.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
