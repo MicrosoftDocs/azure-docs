@@ -99,16 +99,16 @@ Common settings:
 Use the following deployment guides to enable the SSO plug-in using your chosen MDM solution:
 
 #### Intune:
-* iOS Guide: Link TBD
-* macOS Guide: Link TBD
+* [iOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune?tabs=prereq-intune%2Ccreate-profile-intune)
+* [macOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune?tabs=prereq-intune%2Ccreate-profile-intune)
 
 #### Jamf Pro:
-* iOS Guide: Link TBD
-* macOS Guide: Link TBD
+* [iOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune?tabs=prereq-jamf-pro%2Ccreate-profile-jamf-pro)
+* [macOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune?tabs=prereq-jamf-pro%2Ccreate-profile-jamf-pro)
 
 #### Other MDM:
-* iOS Guide: Link TBD
-* macOS Guide: Link TBD
+* [iOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune?tabs=prereq-other-mdm%2Ccreate-profile-other-mdm)
+* [macOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune?tabs=prereq-other-mdm%2Ccreate-profile-other-mdm)
   
 ### More configuration options
 You can add more configuration options to extend SSO functionality to other apps.
