@@ -71,9 +71,6 @@ Cost presets are available for selection in the Azure Portal to allow easy confi
 | Standard | 1m | None | Not enabled |
 | Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Advanced | Custom | Custom | Enabled by default (but can be turned off) |
-| ContainerLog only | None | None | Off by default |
-
-If you are using the ContainerLog only profile and would still like to collect metrics on your AKS cluster, then please use the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md).
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -293,6 +290,7 @@ To update your data collection Settings, modify the values in parameter files, a
 ## Troubleshooting
 
 - Only clusters using[managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), are able to use this feature.
+- Missing data or gaps in your Container Insights charts are expected behaviors as a result of enabling this feature.
 
 ## Known Issues/Limitations
 
