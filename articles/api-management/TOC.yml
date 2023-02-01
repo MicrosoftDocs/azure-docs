@@ -288,8 +288,10 @@
             items:
             - name: Authorizations overview
               href: authorizations-overview.md
-            - name: Configure and use authorization
-              href: authorizations-how-to.md
+            - name: Configure and use authorization - Azure AD
+              href: authorizations-how-to-azure-ad.md
+            - name: Configure and use authorization - GitHub
+              href: authorizations-how-to-github.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
