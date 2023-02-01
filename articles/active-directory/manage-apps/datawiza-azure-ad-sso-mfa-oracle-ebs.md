@@ -30,7 +30,7 @@ This article focuses on modern identity providers (IdPs) integrating with the le
 
 ## Architecture
 
-The solution contains the following components:
+The solution has the following components:
 
 * **Azure AD**: Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 * **Oracle EBS**: The legacy application that Azure AD will help protect.
@@ -92,7 +92,7 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 
 1. For **Name**, enter a name for the deployment.
 
-   [![Screenshot of the text box for the deployment name.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png#lightbox)
+   [![Screenshot of the text box for a deployment name.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png#lightbox)
 1. For **Description**, enter a description of the deployment.
 1. Select **Next**.
 
@@ -117,7 +117,7 @@ Use the DCMC one-click integration to help you complete Azure AD configuration. 
 
 ### Docker Compose file
 
-Configuration on the management console is complete. You're prompted to deploy Datawiza Access Proxy with your application. Make a note of the deployment Docker Compose file. The file includes the DAP image, `PROVISIONING_KEY`, and `PROVISIONING_SECRET`. DAP uses this information to pull the latest configuration and policies from DCMC.
+Configuration on the management console is complete. You're prompted to deploy DAP with your application. Make a note of the deployment Docker Compose file. The file includes the DAP image, `PROVISIONING_KEY`, and `PROVISIONING_SECRET`. DAP uses this information to pull the latest configuration and policies from DCMC.
 
 ![Screenshot of Docker information.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/docker-information.png)
 
@@ -134,11 +134,11 @@ Configuration on the management console is complete. You're prompted to deploy D
 
    There's a self-signed certificate for localhost. To use that certificate for testing, select **Self Signed**.
 
-   [![Screenshot of the Self Signed option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png#lightbox)
+   [![Screenshot of the option to use a self-signed certificate.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png#lightbox)
 
    Optionally, you can upload a certificate from a file. For **Cert Type**, select **Upload**. Then, for **Select Option**, select **File Based**.
 
-   [![Screenshot of the option for uploading a file-based certificate.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png#lightbox)
+   [![Screenshot of the option to upload a file-based certificate.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png#lightbox)
 
 4. Select **Save**.
 
