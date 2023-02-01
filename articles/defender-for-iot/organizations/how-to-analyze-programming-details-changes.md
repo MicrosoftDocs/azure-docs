@@ -106,7 +106,7 @@ In a **Programming timeline**,  you can [Review programming detail files](#revie
 | Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
 | :::image type="content" source="media/analyze-programming/current-file-indication.png" alt-text="Image of current file indication."::: | Indicates the current file installed on the programmed device. |
 | :::image type="icon" source="media/analyze-programming/download-icon.png" border="false"::: | Download a text file of the code displayed. |
-| :::image type="icon" source="media/analyze-programming/compare-icon.png" border="false"::: | Compare the current file with another file detected on a selected date. |
+| :::image type="icon" source="media/analyze-programming/compare-icon.png" border="false"::: | Compare the current file with another recent file. |
 
 ### Review a specific programming detail file
 
@@ -120,7 +120,7 @@ Open specific files to review programming details.
 
    :::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of the programming timeline window." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
-    Review the programming details, download the file, or compare it to another file. 
+    Review the programming details, download the file, or compare it to another recent file.
 
 ### Compare programming detail files
 
@@ -132,7 +132,7 @@ You may want to compare the programming details of multiple files to determine i
 
 1. Select an event period from the **Recent Events** pane.
 
-1. Select a file from the **File** pane. The file appears in the pane on the right. You can compare this file to other files.
+1. Select a file from the **File** pane. The file appears in the pane on the right. You can compare this file to other recent files.
 
 1. Select the compare :::image type="icon" source="media/analyze-programming/compare-icon.png" border="false"::: indicator to open the **Compare** pane.
 
