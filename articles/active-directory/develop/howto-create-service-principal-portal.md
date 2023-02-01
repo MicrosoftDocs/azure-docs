@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/01/2023
 ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
 
 # Create an Azure Active Directory application and service principal that can access resources
 
-In this article, you'll learn how to create a Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you register a new application in Azure AD, a service principal is automatically created for the app registration. The service principal is the app's identity in the Azure AD tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
+In this article, you'll learn how to create an Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you register a new application in Azure AD, a service principal is automatically created for the app registration. The service principal is the app's identity in the Azure AD tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
 
 In this article, you'll create a single tenant application in the Azure portal. This example is applicable for line-of-business applications used within one organization. You can also [use Azure PowerShell](howto-authenticate-service-principal-powershell.md) or the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
 
@@ -121,7 +121,7 @@ If you choose not to use a certificate, you can create a new application secret.
 
 Once you've saved the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. You'll provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/copy-secret.png" alt-text="Copy the secret value because you can't retrieve it later.":::
+   :::image type="content" source="media/howto-create-service-principal-portal/copy-secret.png" alt-text="Screenshot showing the client secret.":::
 
 ## Configure access policies on resources
 

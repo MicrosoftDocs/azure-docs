@@ -223,7 +223,7 @@ In this section, you'll register your Blob Storage.
 	    return credentials
     ```
 
-1. All collections in the Microsoft Purview data map have a **friendly name** and a **name**. 
+1. All collections in the Microsoft Purview Data Map have a **friendly name** and a **name**. 
     * The **friendly name** name is the one you see on the collection. For example: Sales. 
     * The **name** for all collections (except the root collection) is a six-character name assigned by the data map. 
     
@@ -291,7 +291,7 @@ In this section, you'll register your Blob Storage.
 
 When the registration process succeeds, you can see an enriched body response from the client.
 
-In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be very similarly structured to this registration script.
+In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be similarly structured to this registration script.
 
 ### Full code
 

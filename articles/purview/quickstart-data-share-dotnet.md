@@ -398,7 +398,7 @@ var assetMapping = await assetMappingsClient.CreateAsync(WaitUntil.Completed, re
 
 ## Clean up resources
 
-To clean up the resources created for the quick start, follow the steps below: 
+To clean up the resources created for the quick start, use the following guidelines: 
 
 1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-a-sent-share).
 1. Also [delete your received share](how-to-receive-share.md#delete-received-share).
