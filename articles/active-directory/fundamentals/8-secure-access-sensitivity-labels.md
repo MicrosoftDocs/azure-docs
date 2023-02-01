@@ -43,8 +43,7 @@ Team members who need to create sensitivity labels require permissions to:
 
 * Microsoft 365 Defender portal,
 * Microsoft Purview compliance portal, or 
-* Office 365 Security & Compliance Center
-  * See, [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
+* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
 
 By default, tenant Global Administrators have access to admin centers and can provide access, without granting tenant Admin permissions. For this delegated limited admin access, add users to the following role groups: 
 
