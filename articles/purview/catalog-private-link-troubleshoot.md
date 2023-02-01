@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 12/09/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -36,10 +36,10 @@ This guide summarizes known limitations related to using private endpoints for M
     |Portal     |Microsoft Purview Account         |mypurview-private-portal  |
     |Ingestion     |Managed Storage Account (Blob)         |mypurview-ingestion-blob  |
     |Ingestion     |Managed Storage Account (Queue)         |mypurview-ingestion-queue  |
-    |Ingestion     |Managed Event Hubs Namespace*         |mypurview-ingestion-namespace  |
+    |Ingestion     |Event Hubs Namespace*         |mypurview-ingestion-namespace  |
 
   >[!NOTE]
-  > *Managed Event Hubs Namespace is only needed if it has been enabled on your Microsoft Purview account. You can check in **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
+  > *Event Hubs Namespace is only needed if it has been configured on your Microsoft Purview account. You can check in **Kafka configuration** under settings on your Microsoft Purview account page in the Azure Portal.
 
 2. If portal private endpoint is deployed, make sure you also deploy account private endpoint.
 
@@ -87,7 +87,7 @@ This guide summarizes known limitations related to using private endpoints for M
    
 6. From self-hosted integration runtime VM, test network connectivity and name resolution to Microsoft Purview endpoint.
 
-7. From self-hosted integration runtime, test network connectivity and name resolution to Microsoft Purview managed resources such as blob queue and Event Hubs through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Microsoft Purview account).
+7. From self-hosted integration runtime, test network connectivity and name resolution to Microsoft Purview managed resources such as blob queue, and secondary resources like Event Hubs through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding resource names).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
@@ -131,9 +131,9 @@ This guide summarizes known limitations related to using private endpoints for M
     TcpTestSucceeded : True
     ```
 
-8. From the network where data source is located, test network connectivity and name resolution to Microsoft Purview endpoint and managed resources endpoints.
+8. From the network where data source is located, test network connectivity and name resolution to Microsoft Purview endpoint and managed or configured resources endpoints.
 
-9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Microsoft Purview endpoints and managed resources. It's expected to obtain a valid private IP address from DNS query for each endpoint.
+9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Microsoft Purview endpoints and managed or configured resources. It's expected to obtain a valid private IP address from DNS query for each endpoint.
     
     For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
@@ -149,10 +149,10 @@ You may receive the following error message when running a scan:
 `Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### Cause 
-This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Microsoft Purview's managed resources storage account or Event Hubs.
+This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Microsoft Purview's managed storage account or configured Event Hubs.
 
 ### Resolution 
-Validate if name resolution is successful between the VM running the Self-Hosted Integration Runtime and the Microsoft Purview manage resources such as the blob queue and Event Hubs through port 443 and private IP addresses (step 8 above.)
+Validate if name resolution is successful between the VM running the Self-Hosted Integration Runtime and the Microsoft Purview managed blob queue or configured Event Hubs through port 443 and private IP addresses (step 8 above.)
 
 
 ### Issue 

@@ -1,6 +1,6 @@
 ---
-title: Change approval settings for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change approval and requestor information settings for an access package in Azure Active Directory entitlement management.
+title: Change approval settings for an access package in entitlement management - Microsoft Entra
+description: Learn how to change approval and requestor information settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 05/16/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change approval and requestor information settings for an access package in Azure AD entitlement management
+# Change approval and requestor information settings for an access package in entitlement management
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
 
@@ -155,7 +155,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time out after at least four days. If the request time-out is less or equal than three, there isn't enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Requests can only be forwarded to alternate approvers a day after the request has been initiated. To use alternate approval, the request time-out needs to be at least 4 days.
 
 ## Enable requests
 

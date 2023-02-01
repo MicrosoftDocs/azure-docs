@@ -30,6 +30,7 @@ kubectl get nodes
 
 > [!Note]
 > AKS initiates repair operations with the user account **aks-remediator**.
+> Minimum required Nodes in an AKS Cluster for auto repair is 2. 
 
 If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS takes the following actions:
 

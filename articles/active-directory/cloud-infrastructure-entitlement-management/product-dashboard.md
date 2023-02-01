@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 01/25/2023
 ms.author: jfields
 ---
 
@@ -24,6 +24,9 @@ The Permissions Management **Dashboard** provides an overview of the authorizati
 1. Select the accounts and folders you want, and then select **Apply**.
 
    The **Permission Creep Index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
+
+   >[!NOTE]
+   >Default and GCP-managed service accounts are not included in the PCI calculation.
 
 1. In the Permission Creep Index (PCI) graph, select a bubble.
 

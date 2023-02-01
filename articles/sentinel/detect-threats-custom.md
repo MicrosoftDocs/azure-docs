@@ -2,22 +2,19 @@
 title: Create custom analytics rules to detect threats with Microsoft Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
-ms.topic: how-to
-ms.date: 01/30/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.topic: how-to
+ms.date: 01/08/2023
 ---
 
 # Create custom analytics rules to detect threats
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After [connecting your data sources](quickstart-onboard.md) to Microsoft Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 
 Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
 
 > [!TIP]
-> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
+> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any needed changes.
 
 > [!div class="checklist"]
 > - Create analytics rules
@@ -33,7 +30,7 @@ Analytics rules search for specific events or sets of events across your environ
 
     :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Create scheduled query" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
 
-### Analytics rule wizard - General tab
+### Analytics rule wizard&mdash;General tab
 
 - Provide a unique **Name** and a **Description**.
 
@@ -94,7 +91,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
 
-- Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+- Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
 
     See complete instructions on [customizing your alert details](customize-alert-details.md).
 
@@ -112,11 +109,24 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
-  - Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once every 14 days.
+  - Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
 
-  - Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  - Set **Lookup data from the last** to determine the time period of the data covered by the query&mdash;for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  
+  - For the new **Start running** setting (in Preview):
+
+      - Leave it set to **Automatically** to continue the original behavior: the rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting.
+
+      - Toggle the switch to **At specific time** if you want to determine when the rule first runs, instead of having it run immediately. Then choose the date using the calendar picker and enter the time in the format of the example shown.
+
+        :::image type="content" source="media/tutorial-detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
+    
+        Future runnings of the rule will occur at the specified interval after the first running.
+
+    The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
     > [!NOTE]
+    >
     > **Query intervals and lookback period**
     >
     >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
@@ -223,7 +233,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
-1. Select **Review and create** to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
+1. Select **Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
 
     :::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Review all settings and create the rule":::
 
@@ -231,7 +241,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
   
 - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete each rule.
 
-- To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](investigate-cases.md), and remediate the threats.
+- To view the results of the analytics rules you create, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
 
 - You can update the rule query to exclude false positives. For more information, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
@@ -294,8 +304,6 @@ SOC managers should be sure to check the rule list regularly for the presence of
 When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
 
 You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
-
-For more information, see:
 
 For more information, see:
 

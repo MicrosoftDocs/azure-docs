@@ -3,13 +3,13 @@ title: Introduction to Azure Network Watcher Connection Troubleshoot | Microsoft
 description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 11/02/2022
-ms.author: shijaiswal
+ms.date: 11/10/2022
+ms.author: halkazwini
 ---
 
 # Introduction to connection troubleshoot in Azure Network Watcher
@@ -18,6 +18,14 @@ The connection troubleshoot feature of Network Watcher provides the capability t
 
 > [!IMPORTANT]
 > Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
+
+## Supported source types
+
+The following sources are supported by Network Watcher:
+
+- Virtual Machines
+- Bastion
+- Application Gateways (except v1)
 
 ## Response
 

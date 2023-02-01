@@ -3,7 +3,7 @@ title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 11/14/2022
+ms.date: 12/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,7 @@ manager: femila
 This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Virtual Desktop Insights by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Virtual Desktop Insights Agent. Until then, continue to use the Log Analytics Agent.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent. Until then, continue to use the Log Analytics Agent.
 
 ## Issues with configuration and setup
 
@@ -66,7 +66,7 @@ Can't find a data point to help diagnose an issue? Send us feedback!
 
 The following are issues and limitations we're aware of and working to fix:
 
-- You can only monitor one host pool at a time. 
+- You can only monitor one host pool at a time unless you select **Insights (Preview)** where you can you select multiple subscriptions, resource groups, and host pools at a time.
 - To save favorite settings, you have to save a custom template of the workbook. Custom templates won't automatically adopt updates from the product group.
 - The configuration workbook will sometimes show "query failed" errors when loading your selections. Refresh the query, reenter your selection if needed, and the error should resolve itself. 
 - Some error messages aren't phrased in a user-friendly way, and not all error messages are described in documentation.

@@ -1,6 +1,6 @@
 ---
 title: Plan a Lifecycle Workflow deployment
-description: Planning guide for a successful Lifecycle Workflow deployment in Azure AD.
+description: Planning guide for a successful Lifecycle Workflow deployment.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/16/2021
+ms.date: 01/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -40,10 +40,10 @@ Planning your Lifecycle Workflow deployment is essential to make sure you achiev
 
 For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
 
-## Licenses
+## License requirements
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
 
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.
@@ -104,14 +104,16 @@ This section introduces Lifecycle Workflow concepts you should know before you p
 
 
 ## Prerequisites to deploying Lifecycle Workflows
-The following is important information about your organization and the technologies that need to be in place prior to deploying Lifecycle Workflows.  Ensure that you can answer yes to each of the items before attempting to deploy Lifecycle Workflows.
+
+The following information is important information about your organization and the technologies that need to be in place prior to deploying Lifecycle Workflows.  Ensure that you can answer yes to each of the items before attempting to deploy Lifecycle Workflows.
 
 |Item|Description|Documentation|
 |-----|-----|-----|
 |Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
-|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have additional attributes, that will be used to determine the scope, such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
+|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have additional attributes that will be used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
+
 Before you begin planning a Lifecycle Workflow deployment, you should become familiar with the parts of workflow and the terminology around Lifecycle Workflows.
 
 The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](lifecycle-workflows-developer-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
@@ -119,6 +121,7 @@ The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) do
 You can use this document to become familiar with the parts of workflow prior to deploying them.
 
 ## Limitations and constraints
+
 The following table provides information that you need to be aware of as you create and deploy Lifecycle workflows.
 
 |Item|Description|
@@ -133,7 +136,7 @@ The following table provides information that you need to be aware of as you cre
 
 The following is additional information you should be aware of.
 
- -    You cannot enable the schedule for the Real-Time Leaver scenario.  This is by design.
+ -    You can't enable the schedule for the Real-Time Leaver scenario.  This is by design.
 
 
 

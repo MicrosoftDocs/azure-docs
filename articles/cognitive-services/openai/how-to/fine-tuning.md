@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 12/14/2022
 author: ChrisHMSFT
 ms.author: chrhoder
 zone_pivot_groups: openai-fine-tuning
@@ -23,6 +23,9 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 - Lower-latency requests
  
 A customized model improves on the few-shot learning approach by training the model's weights on your specific prompts and structure. The customized model lets you achieve better results on a wider number of tasks without needing to provide examples in your prompt. The result is less text sent and fewer tokens processed on every API call, saving cost and improving request latency.
+
+> [!NOTE]
+> There is a breaking change in the `create` fine tunes command in the latest 12-01-2022 GA API. For the latest command syntax consult the [reference documentation](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create)
 
 ::: zone pivot="programming-language-studio"
 

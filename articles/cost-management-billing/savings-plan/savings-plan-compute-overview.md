@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 11/04/2022
+ms.date: 11/30/2022
 ms.author: banders
 ---
 
@@ -24,23 +24,13 @@ Currently, you can only acquire savings plans in the Azure portal. You can pay f
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, buying a savings plan gives you the option to reduce your costs. For example, when you continuously run instances of a service without a savings plan, you're charged at pay-as-you-go rates. When you buy a savings plan, your compute usage is immediately eligible for the savings plan discount. Your discounted rates add-up to the commitment amount. Usage covered by a savings plan receives discounted rates, not the pay-as-you-go rates.
+If you have consistent compute spend, buying a savings plan gives you the option to reduce your costs. For example, when you continuously run instances of a service without a savings plan, you're charged at pay-as-you-go rates. When you buy a savings plan, your compute usage is immediately eligible for the savings plan discount. Your discounted rates add-up to the commitment amount. Usage covered by a savings plan receives discounted rates, not the pay-as-you-go rates. If you need help to decide on which type of commitment to make, see [Decide between a savings plan and a reservation](decide-between-savings-plan-reservation.md).
 
-## Decide between a savings plan and a reservation
+## How savings plan benefits are applied
 
-Azure provides you with two ways to save on your usage by committing for one or three years. You have the freedom to choose the savings options that best align with your workload patterns.
+Almost immediately after purchase the savings plan benefit begins to apply without other action required by you. Every hour, we apply savings plan benefit to plan-eligible meters that are within the savings plan's scope. The benefits are applied to the meter with the greatest discount percentage first. Savings plan scope selects where the savings plan benefit applies.
 
-With reservations, you commit to a specific virtual machine type in a particular Azure region. For example, a D2v4 VM in Japan East for one year. With Azure savings plan, you commit to spend a fixed hourly amount collectively on compute services. For example, $5.00/hour on compute services for one year. Reservations only apply to the identified compute service and region combination. Savings plan benefits are applicable to all usage from participating compute services across the globe, up to the hourly commitment.
-
-For highly stable workloads that run continuously and where you have no expected changes to the machine series or region, consider a reservation. Reservations provide the greatest savings.
-
-For dynamic workloads where you need to run different sized virtual machines or that frequently change datacenter regions, consider a compute savings plan. Savings plans provide flexible benefit application and automatic optimization.
-
-## How savings plan discounts is applied
-
-Almost immediately after purchase the savings plan benefit begins to apply without other action required by you. Every hour, we apply benefit to savings plan-eligible meters that are within the savings plan's scope. The benefits are applied to the meter with the greatest discount percentage first. Savings plan scope selects where the savings plan benefit applies.
-
-For more information about how discount is applied, see [Savings plan discount application](discount-application.md).
+For more information about benefits are applied, see [Savings plan discount application](discount-application.md).
 
 For more information about how savings plan scope works, see [Scope savings plans](buy-savings-plan.md#scope-savings-plans).
 
@@ -91,11 +81,11 @@ Savings plan purchases can't be canceled or refunded.
 
 ## Charges covered by savings plan
 
-- **Virtual Machines** - A savings plan only covers the virtual machine and cloud services compute costs. It doesn't cover other software, Windows, networking, or storage charges.
+- **Virtual Machines** - A savings plan only covers the virtual machine and cloud services compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure, A, G, and GS series. Spot VMs are also not covered by savings plans. 
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
 - **Container Instances** 
 - **Azure Premium Functions**
-- **Azure App Services** - Not all App Services are eligible.
+- **Azure App Services** - The Azure savings plan for compute can only be applied to the App Service upgraded Premium v3 plan and the upgraded Isolated v2 plan.
 
 Some exclusions apply to the above services.
 

@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 10/11/2022
+ms.date: 11/18/2022
 ms.topic: conceptual 
 ---
 
@@ -19,6 +19,9 @@ Azure Arc-enabled servers support the installation of the Connected Machine agen
 
 Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or on virtual machines running on Azure Stack Hub or Azure Stack Edge, as they are already modeled as Azure VMs and able to be managed directly in Azure.
 
+> [!NOTE]
+> For additional information on using Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
+
 ## Supported operating systems
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent. Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
@@ -33,9 +36,9 @@ The following versions of the Windows and Linux operating system are officially 
 * CentOS Linux 7 and 8
 * Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
-* Red Hat Enterprise Linux (RHEL) 7 and 8
+* Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
-* Oracle Linux 7 and 8
+* Oracle Linux 7
 
 > [!NOTE]
 > On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
@@ -54,12 +57,14 @@ The following versions of the Windows and Linux operating system are officially 
 Windows operating systems:
 
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
-* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2012 and Windows Server 2008 R2, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2008 R2 SP1, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 Linux operating systems:
 
 * systemd
 * wget (to download the installation script)
+* openssl
+* gnupg
 
 ## Required permissions
 
@@ -82,6 +87,7 @@ To use Azure Arc-enabled servers, the following [Azure resource providers](../..
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
+* **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
 
 If these resource providers are not already registered, you can register them using the following commands:
 
