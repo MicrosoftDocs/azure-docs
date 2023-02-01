@@ -129,7 +129,7 @@ Learn more:
 
 ### Mail-enabled security group
 
-To create a mail-enabled security group, go to the [Microsoft 365 Admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure AD portal. 
+To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure AD portal. 
 
 ### Hybrid organizations and Azure AD security groups
 
@@ -170,7 +170,7 @@ Learn more:
 
 Select email alias, privacy, and whether to enable the group for teams. 
 
-   ![Screenshot of options and entries under Edit settings](media/secure-external-access/4-edit-group-settings.png)
+   ![Screenshot of options and entries under Edit settings.](media/secure-external-access/4-edit-group-settings.png)
 
 After setup, add members, and configure settings for email usage, etc.
 
