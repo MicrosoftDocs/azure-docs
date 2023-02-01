@@ -141,7 +141,7 @@ This template takes the following parameters:
 
 Once the deployment is complete, you should receive JSON-formatted output in the CLI that contains the SSH information to connect to the virtual machine. Copy the value of the **public SSH** entry of the **outputs** section:
 
-:::image type="content" source="./media/quickstart-linux/outputs-public-ssh.png" alt-text="How to retrieve public ssh value from output." lightbox="./media/quickstart-linux/outputs-public-ssh.png":::
+:::image type="content" source="./media/quickstart-linux/outputs-public-ssh.png" alt-text="Screenshot showing how to retrieve public ssh value from output." lightbox="./media/quickstart-linux/outputs-public-ssh.png":::
 
 ### View the IoT Edge runtime status
 
