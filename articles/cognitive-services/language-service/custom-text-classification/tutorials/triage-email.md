@@ -14,14 +14,14 @@ ms.author: aahi
 
 # Tutorial: Triage incoming emails with power automate
 
-In this tutorial you will categorize and triage incoming email using custom text classification. Using this [Power Automate](https://learn.microsoft.com/power-automate/getting-started) flow, when a new email is received, its contents will have a classification applied, and depending on the result, a message will be sent to a designated channel on [Microsoft Teams](https://www.microsoft.com/microsoft-teams).
+In this tutorial you will categorize and triage incoming email using custom text classification. Using this [Power Automate](/power-automate/getting-started) flow, when a new email is received, its contents will have a classification applied, and depending on the result, a message will be sent to a designated channel on [Microsoft Teams](https://www.microsoft.com/microsoft-teams).
 
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>
-    * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/overview.md), or [conversational language understanding](../conversational-language-understanding/overview.md).
+    * A trained [custom text classification](../custom-text-classification/overview.md) model.
     * You will need the key and endpoint from your Language resource to authenticate your Power Automate flow.
 * A successfully created and deployed [single text classification custom model](../quickstart.md)
 
