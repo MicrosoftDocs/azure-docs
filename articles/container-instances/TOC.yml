@@ -185,7 +185,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-container-instances
   - name: Region availability
-    href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=container-instances
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-instances/
   - name: Roadmap
