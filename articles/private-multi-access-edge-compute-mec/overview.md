@@ -36,7 +36,7 @@ Azure private MEC includes several capabilities from Microsoft. These include a 
 
 ### Azure Network Functions offered via Marketplace
 
-**Azure Private 5G Core Preview** is an Azure cloud service for deploying and managing private mobile networks for enterprises. Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises.
+**Azure Private 5G Core** is an Azure cloud service for deploying and managing private mobile networks for enterprises. Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises.
 
 Azure Private 5G Core enables a single private mobile network distributed across one or more sites around the world. Each site contains a packet core instance deployed on an Azure Stack Edge device.
 
