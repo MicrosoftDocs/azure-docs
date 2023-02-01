@@ -13,7 +13,7 @@ adobe-target: true
 
 # What is Microsoft Dev Box Preview?
 
-Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with the tools, source code, and pre-built binaries specific to your project, so you can immediately start work. Whether you’re a developer, tester, or QA professional, you can use dev boxes in your day-to-day workflows. 
+Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with the tools, source code, and pre-built binaries specific to your project, so you can immediately start work. If you’re a developer, you can use dev boxes in your day-to-day workflows. 
 
 The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, project admins, and dev box users. 
 
@@ -35,7 +35,6 @@ An organization with  globally distributed development teams can configure Dev B
 
 Dev Box supports developers working on multiple projects. With Dev Box, developers can create and use separate dev boxes for separate workloads, projects, or tasks. They can create multiple dev boxes from a predefined pool whenever they need them and delete them when they’re done. You can even define dev boxes for various roles on a team. Standard dev boxes might be configured with admin rights, giving full-time developers greater control, while more restricted permissions are applied for contractors.
 
-Dev Box also provides Test and QA teams with pre-configured dev boxes. They can safely evaluate changes in code or make significant edits without affecting a primary workspace.
 
 ### Dev infra scenarios
 Dev Box helps dev infra teams provide the appropriate dev boxes for each user’s workload. Dev infra admins can:
