@@ -95,8 +95,6 @@ landingContent:
         links:
           - text: What is SAP on Azure deployment automation framework?
             url: ./automation/deployment-framework.md
-          - text: FAQ about deployment automation framework
-            url: ./automation/faq.yml
       - linkListType: concept
         links:
           - text: Supported platform and features
