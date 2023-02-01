@@ -150,6 +150,7 @@ You can add a Mariner node pool into your existing cluster using the `az aks nod
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
+    --name marinerpool \
     --os-sku CBLMariner
 ```
 
