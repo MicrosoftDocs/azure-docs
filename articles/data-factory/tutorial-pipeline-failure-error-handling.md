@@ -154,7 +154,7 @@ When all your activities are best effort, you may want to proceed to next step i
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-or-2.png" alt-text="Screenshot showcasing pipeline proceeds to next step if any of the activities pass.":::
 
-### Complex Scenarios
+### Complex scenarios
 #### All activities need to succeed to proceed
 The pattern is a combination of two: conditional and + error handling. The pipeline proceeds to next steps if all proceeding activities succeed, or else it runs a shared error logging step. You can build the pipeline like this:
 * run multiple activities in parallel
