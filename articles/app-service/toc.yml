@@ -40,17 +40,8 @@
       href: quickstart-arc.md
 - name: Tutorials
   items:
-<<<<<<< HEAD
-    - name: Map custom domain
-      href: app-service-web-tutorial-custom-domain.md
-    - name: Secure domain with TLS/SSL
-      href: configure-ssl-bindings.md
-    - name: Create multi-region app
-      href: tutorial-multi-region-app.md
-=======
     - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
->>>>>>> afcfa6f22432ef7792c578adc53bc311a2757747
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
