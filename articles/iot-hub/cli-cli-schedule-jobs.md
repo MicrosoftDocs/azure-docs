@@ -123,7 +123,7 @@ In this section, you schedule a job in the second CLI session to invoke a direct
 
 1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
 
-1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and returns a payload.
+1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command schedules a job that calls an example method name on the simulated device, providing a null value for the method's payload. The method provides a status code and payload in its response.
 
     *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
 
@@ -135,9 +135,13 @@ In this section, you schedule a job in the second CLI session to invoke a direct
 
     ```azurecli
     az iot hub job create --job-id {JobName} --jt scheduleDeviceMethod -n {HubName} \
-                          --method-name {MethodName} --method-payload 1 \
+                          --method-name {MethodName} --method-payload 'null' \
                           --query-condition "deviceId = '{DeviceName}'"
     ```
+
+    > [!TIP]
+    > When scheduling a job [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command that invokes a direct method, you must specify values for both the `--method-name` and `--method-payload` optional parameters. For direct methods that don't accept a payload, specify `null` for the `--method-payload` parameter.
+
 1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleDevice` and`SampleMethod` for the `{DeviceName}` and `{MethodName}` placeholders, respectively, in the `az iot hub job create` CLI command from the previous step. 
 
     :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-direct-method.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
