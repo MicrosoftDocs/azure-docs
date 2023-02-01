@@ -27,7 +27,7 @@ To use a custom domain and your tenant ID in the authentication URL, do the foll
 
 1. Follow the guidance in [Enable custom domains](custom-domain.md).
 1. Update the `kAuthorityHostName` class member with your custom domain.
-1. Update the `kTenantName` class member with your [tenant ID](tenant-management.md#get-your-tenant-id).
+1. Update the `kTenantName` class member with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id).
 
 The following Swift code shows the app settings before the change:
 
