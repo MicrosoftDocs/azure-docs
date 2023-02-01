@@ -79,7 +79,7 @@ It may be the case that an individual has five or six eligible assignments to Az
  
 In this case, you should use [Privileged Identity Management (PIM) for Groups (preview)](../privileged-identity-management/concept-pim-for-groups.md). Create a PIM for Groups and grant it permanent access to multiple roles (Azure AD and/or Azure). Make that user an eligible member or owner of this group. With just one activation, they will have access to all the linked resources.
 
-![PIM for Groups diagram showing activating multiple roles at once](./media/best-practices/privileged-access-group.png)
+![PIM for Groups diagram showing activating multiple roles at once](./media/best-practices/pim-for-groups.png)
 
 ## 8. Use cloud native accounts for Azure AD roles
 
