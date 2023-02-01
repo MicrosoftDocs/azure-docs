@@ -20,16 +20,15 @@ See these [important announcements](#announcements) about recent changes to feat
 ## February 2023
 
 - [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
-- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
+- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
 - [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
 
-### Audit and monitor the health of your analytics rules (Preview)
+### Microsoft 365 Defender data connector is now generally available
 
-Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
 
-Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
-- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
-- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 ### Advanced scheduling for analytics rules (Preview)
 
