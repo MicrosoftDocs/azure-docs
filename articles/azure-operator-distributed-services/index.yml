@@ -1,0 +1,128 @@
+### YamlMime:Landing
+
+title: Azure Operator Distributed Services (AODS).
+summary: AODS runs network-intensive workloads under stringent security, performance and manageability. Learn AODS with these quickstarts and how-to guides. # < 160 chars
+
+metadata:
+  title: Azure Operator Distributed Services (AODS) 
+  description: Azure Operator Distributed Services (AODS), the next-generation hybrid cloud platform for operators, 
+   proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
+   resiliency, observability, manageability, and performance required by telecommunication' operators. 
+   Learn how to deploy, manage and use AODS with these concepts, quickstarts, and how-to guides.
+  ms.service: hybrid-service 
+  ms.topic: landing-page
+  author: Shobhit Jain
+  ms.author: jashobhit
+  ms.date: 01/23/2023
+# linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: AODS Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Distributed Services?
+            url: introduction.md
+      - linkListType: concept
+        links:
+          - text: Resource Types
+            url: concepts-resource-types.md
+          - text: Observability
+            url: concepts-observability.md
+      - linkListType: how-to
+        links:
+          - text: Deploy agents and monitoring
+            url: howto-monitoring-vnf-aks-h-vms.md
+          - text: Deploy workbooks and alerts
+            url: howto-workbooks-alerts.md
+#  
+  # Card
+  - title: QuickStart Guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Before you start platform deployment
+            url: quickstarts-platform-prerequisites.md
+          - text: Platform deployment
+            url: quickstarts-platform-deployment.md
+      - linkListType: quickstart
+        links:
+          - text: Before you start tenant workload deployment
+            url: quickstarts-tenant-workload-prerequisites.md
+          - text: Tenant workload deployment
+            url: quickstarts-tenant-workload-deployment.md
+#
+  # Card
+  - title: How-To Guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: BareMetal Functions
+            url: bare-metal-functions.md
+          - text: Workbooks and Alerts
+            url: workbooks-alerts.md
+          - text: Cluster Manager
+            url: howto-cluster-manager.md
+          - text: AKS-Hybrid Manager
+            url: howto-aks-h-manager.md
+#
+  # Card
+  - title: Deploy Platform
+    linkLists: quickstart
+        links:
+          - text: Before you start platform deployment
+            url: quickstarts-platform-prerequisites.md
+          - text: Platform deployment
+            url: quickstarts-platform-deployment.md
+      - linkListType: how-to-guide
+        links:
+          - text: Network Fabric controller
+            url: howto-configure-networkfabriccontroller.md
+         links:
+          - text: Cluster Manager
+            url: howto-cluster-manager.md
+         links:
+          - text: Configure: Network Fabric
+            url: howto-configure-networkfabric.md
+  # Card
+  - title: Deploy workloads
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Sample VNF Deployment
+            url: sample-vnf-deployment.md
+          - text: Sample CNF Deployment
+            url: sample-cnf-deployment.md
+      - linkListType: quickstart
+          - text: Before you start tenant workload deployment
+            url: quickstarts-tenant-workload-prerequisites.md
+          - text: Tenant workload deployment
+            url: quickstarts-tenant-workload-deployment.md           
+      - linkListType: how-to-guide
+        links:
+          - text: Bare metal operations
+            url: howto-baremetal-functions.md
+        links:
+          - text: AKS-Hybrid clusters
+            url: howto-hybridaks.md
+        links:
+          - text: Tenant networking
+            url: howto-configure-isolutiondomain.md
+        links:
+          - text: Install CLI extensions
+            url: howto-install-networkcloud-cli-extensions.md            
+#
+ # Card
+  - title: References and resources
+    linkLists:
+      - linkListType: reference
+        links:
+          #- text: Resource and other links
+          #  url: #### <TBD>
+          - text: APIs
+            url: https://learn.microsoft.com/en-us/rest/api/azure/
+          - text: Monitor metrics
+            url: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics
