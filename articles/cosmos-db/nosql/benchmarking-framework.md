@@ -217,11 +217,25 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
     > [!TIP]
     > At some point after deployment, you can check the status of the benchmarking framework's jobs by running querying the `ycsbbenchmarkingMetadata` table in targeted storage account.
 
-1. TODO steps to query blob content.
-
 ### [Azure portal](#tab/azure-portal)
 
 1. TODO
+
+---
+
+## View results of the benchmark
+
+TODO: <!-- A short sentence or two. -->
+
+### [Azure CLI / Azure portal](#tab/azure-cli+azure-portal)
+
+1. Step
+
+1. Step
+
+1. <!-- View results in Azure Storage blob -->
+
+1. Step
 
 ---
 
