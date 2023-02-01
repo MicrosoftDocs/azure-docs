@@ -201,7 +201,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     Deploying the solution enables the SAP data connector to display in Microsoft Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
-    For more information, see [Deploy SAP security content](deploy-sap-security-content.md).
+    For more information, see [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md).
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 

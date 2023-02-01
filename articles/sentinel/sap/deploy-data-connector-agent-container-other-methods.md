@@ -23,9 +23,9 @@ Deployment of the Microsoft Sentinel Solution for SAP is divided into the follow
 
 1. [Prepare SAP environment](preparing-sap.md)
 
-1. **Deploy data connector agent (*You are here*)**
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. **Deploy data connector agent (*You are here*)**
 
 1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
 
@@ -289,4 +289,4 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
 
 Once the connector is deployed, proceed to deploy Microsoft Sentinel Solution for SAP content:
 > [!div class="nextstepaction"]
-> [Deploy SAP security content](deploy-sap-security-content.md)
+> [Deploy the solution content from the content hub](deploy-sap-security-content.md)
