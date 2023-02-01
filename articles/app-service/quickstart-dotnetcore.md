@@ -1010,6 +1010,9 @@ Advance to the next article to learn how to create a .NET Framework app and conn
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
 
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+
 ---
 
 [app-service-pricing-tier]: https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
