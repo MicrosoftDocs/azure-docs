@@ -71,7 +71,8 @@ landingContent:
 #
   # Card
   - title: Deploy Platform
-    linkLists: quickstart
+    linkLists:
+      - linkListType: quickstart
         links:
 #          - text: Before you start platform deployment
 #            url: quickstarts-platform-prerequisites.md
@@ -94,11 +95,14 @@ landingContent:
         links:
 #          - text: Sample VNF Deployment
 #            url: sample-vnf-deployment.md
+#       links:
 #          - text: Sample CNF Deployment
 #            url: sample-cnf-deployment.md
       - linkListType: quickstart
+        links:
 #          - text: Before you start tenant workload deployment
 #            url: quickstarts-tenant-workload-prerequisites.md
+#       links:
 #          - text: Tenant workload deployment
 #            url: quickstarts-tenant-workload-deployment.md           
       - linkListType: how-to-guide
@@ -122,7 +126,9 @@ landingContent:
         links:
           #- text: Resource and other links
           #  url: #### <TBD>
+#       links:
 #          - text: APIs
 #            url: https://learn.microsoft.com/rest/api/azure/
+#       links:
 #          - text: Monitor metrics
 #            url: https://../azure-monitor/essentials/data-platform-metrics
