@@ -46,6 +46,8 @@ The Azure Identity client library simplifies the process of getting an OAuth 2.0
 
 To get a token that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. You can then use the token to create a service client object that is authorized to perform data operations in Azure Storage. For more information about using the **DefaultAzureCredential** class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
+For this code sample to work properly, first assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to the security principal. This built-in role provides read and write access to blob data in your storage account.
+
 The following code example shows how to get an access token and use it to create a service client object, then uses the service client to upload a new blob:
 
 ```csharp

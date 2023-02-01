@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.date: 09/28/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: upgrade
 ---
 

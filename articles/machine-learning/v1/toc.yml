@@ -166,7 +166,7 @@
     href: how-to-use-environments.md
   - name: Set input & output directories
     displayName: large data, write, experiment files, size limit
-    href: ../how-to-save-write-experiment-files.md
+    href: how-to-save-write-experiment-files.md
   - name: Use private Python packages
     displayName: pip, Conda, anaconda
     href: how-to-use-private-python-packages.md

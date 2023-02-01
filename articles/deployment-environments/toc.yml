@@ -24,6 +24,8 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
+    - name: Components common to ADE and Dev Box
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
@@ -41,6 +43,8 @@ items:
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
+    - name: Create environments with the CLI
+      href: how-to-create-access-environments.md  
 - name: Reference
   items:
     - name: REST API

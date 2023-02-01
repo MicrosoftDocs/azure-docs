@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2023
 ms.author: abell
-ms.custom: references_regions
+ms.custom: ignite-2022, references_regions
 ---
 
 # What is Azure DDoS Protection?
@@ -22,19 +22,7 @@ Azure DDoS Protection, combined with application design best practices, provides
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 ## Region Availability
 
-DDoS IP Protection is currently available in the following regions.
-
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific        |
-|------------------|----------------------|---------------|--------------------|---------------------|
-| West Central US  | France Central       | UAE Central   | South Africa North | Australia Central   |
-| North Central US | Germany West Central | Qatar Central |                    | Korea Central       |
-| West US          | Switzerland North    |               |                    | Japan East          |
-| West US 3        | France South         |               |                    | West India          |
-|                  | Norway East          |               |                    | Jio India Central    |
-|                  | Sweden Central       |               |                    | Australia Central 2 |
-|                  | Germany North        |               |                    |                     |
-
-
+DDoS IP Protection is currently not available in East US 2 and West Europe regions.
 
 ## Key benefits
 
