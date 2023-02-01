@@ -3,7 +3,7 @@
 {
     "redirections": [
         {
-            "source_path": "azure/external-attack-surface-management/data-connections-overview.md",
+            "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
             "redirect_url": "azure/external-attack-surface-management/index.md",
             "redirect_document_id": true
         },
