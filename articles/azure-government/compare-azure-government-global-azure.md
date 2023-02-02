@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/20/2023
+ms.date: 01/26/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -356,7 +356,11 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 ## Security
 
-This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=payment-hsm,azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/)
+
+For feature variations and limitations, see [Microsoft Defender for Endpoint for US Government customers](/microsoft-365/security/defender-endpoint/gov).
 
 ### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 

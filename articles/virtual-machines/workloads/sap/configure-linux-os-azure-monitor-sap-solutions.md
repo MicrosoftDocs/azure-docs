@@ -35,6 +35,10 @@ To install the node exporter on Linux:
 
 1. The node exporter now starts collecting data. You can export the data at `http://IP:9100/metrics`.
 
+## Prerequisites to enable secure communication
+
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://prometheus.io/docs/guides/tls-encryption/)
+
 ## Create Linux OS provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -44,6 +48,7 @@ To install the node exporter on Linux:
 1. Configure the following settings for the new provider:
     1. For **Type**, select **OS (Linux)**.
     1. For **Name**, enter a name that will be the identifier for the BareMetal instance.
+    1. *Optional* Select **Enable secure communication**, choose a certificate type
     1. For **Node Exporter Endpoint**, enter `http://IP:9100/metrics`.
     1. For the IP address, use the private IP address of the Linux host. Make sure the host and Azure Monitor for SAP solutions resource are in the same virtual network.
 1. Open firewall port 9100 on the Linux host.

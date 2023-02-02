@@ -1,4 +1,3 @@
-
 ---
 title: Quickstart - Add RAW media access to your app (Web)
 titleSuffix: An Azure Communication Services quickstart
@@ -14,6 +13,8 @@ ms.custom: mode-other
 ---
 
 As a developer you can access the raw media for incoming and outgoing audio and video media content during a call. Access to ACS client side Raw audio and video enables developers an almost unlimited array of ability to view and edit audio and video content that happens within the ACS calling SDK. In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services calling SDK for WebJS.
+
+The video media access API provides support for developers to get real-time access to audio and video streams to capture, analyze, and process video content during active calls. Developers can access the incoming call video stream directly on the call object and send custom outgoing video stream during the call. For example the audio and video streams can be inspected to run custom AI models for analysis such as your homegrown NLP for conversation analysis or provide real-time insights and suggestions to boost agent productivity. Audio and video media streams can be used to analyze sentiment when providing virtual care for patients or provide remote assistance during video calls leveraging Mixed Reality capabilities. This also opens a path for developers to apply newer innovations with endless possibilities to enhance interaction experiences. 
 
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -118,7 +119,7 @@ Processed Raw outgoing video frames can be sent as an outgoing video of the send
 Developers can access the raw outgoing call video stream. Developers have access to MediaStream of the outgoing raw video stream on which they can process frames using Machine Learning and apply filters. 
 The processed outgoing video can then be sent as sender video stream.
 
-In this example a user is sent canvas data as outgoing video.
+In this example, a user is sent canvas data as outgoing video.
 
 ```js
 const createVideoMediaStreamToSend = () => {

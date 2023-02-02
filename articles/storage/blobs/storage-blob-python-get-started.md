@@ -109,3 +109,21 @@ Each type of resource is represented by one or more associated Python classes. T
 | [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
 | [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
 | [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
+
+The following guides show you how to use each of these classes to build your application.
+
+| Guide | Description |
+|--|---|
+| [Create a container](storage-blob-container-create-python.md) | Create containers. |
+| [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list-python.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-python.md) | Get and set properties and metadata for containers. |
+| [Create and manage container leases](storage-blob-container-lease-python.md) | Establish and manage a lock on a container. |
+| [Create and manage blob leases](storage-blob-lease-python.md) | Establish and manage a lock on a blob. |
+| [Upload blobs](storage-blob-upload-python.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+| [Download blobs](storage-blob-download-python.md) | Download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
+| [List blobs](storage-blobs-list-python.md) | List blobs in different ways. |
+| [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
