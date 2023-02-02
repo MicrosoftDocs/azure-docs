@@ -23,7 +23,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 > [!NOTE]
 >
-> * In most instances, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >

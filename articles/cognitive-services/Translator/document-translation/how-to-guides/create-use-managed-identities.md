@@ -35,6 +35,7 @@ Managed identities for Azure resources are service principals that create an Azu
 > * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
 ## Prerequisites
+
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
