@@ -46,7 +46,7 @@ Navigate to function’s Configuration, do the following steps:
 
 1. Remove the default value "AzureWebJobsStorage". 
 
-   ![Default Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-01.png)
+   ![Default Sample](./media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-01.png)
 
 2. Link Azure storage account by adding either one of the following value settings: 
 
