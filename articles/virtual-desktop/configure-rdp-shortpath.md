@@ -115,7 +115,7 @@ If you need to configure session hosts and clients to enable RDP Shortpath for p
 
 ### Windows clients
 
-The steps to ensure your clients are configured correctly are the same regardless of whether you want to use RDP Shortpath for managed networks or public networks. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to Azure Active Directory (Azure AD) and enrolled in Intune, or local Group Policy for clients that are not managed.
+The steps to ensure your clients are configured correctly are the same regardless of whether you want to use RDP Shortpath for managed networks or public networks. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to Azure Active Directory (Azure AD) and enrolled in Intune, or local Group Policy for clients that aren't managed.
 
 > [!NOTE]
 > By default in Windows, RDP traffic will attempt to use both TCP and UDP protocols. You will only need to follow these steps if the client has previously been configured to use TCP only.
