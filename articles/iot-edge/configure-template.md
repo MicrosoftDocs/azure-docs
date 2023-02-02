@@ -1,23 +1,23 @@
 ---
-title: Configure the template
-description: This how-to article shows you how to configure the template.toml file inside of a Debian package.
+title: Configure IoT Edge using the config.toml file
+description: This article shows you how to configure the config.toml file for IoT Edge.
 author: PatAltimore
-
 ms.author: patricka
-ms.date: 12/20/2022
+ms.date: 02/02/2023
 ms.topic: how-to
 ms.service: iot-edge
+services: iot-edge
 ---
 
-# Configure the template
+# Configure IoT Edge using the config.toml file
 
-This article shows best practices and options for configuring the `template-toml` file found in a Debian package. Each of the sections of the `template.toml` file has several options and those will be explained. Not all options are mandatory, as they apply to specific scenarios.
+This article shows settings and options for configuring the IoT Edge *config.toml* file found in the `/etc/aziot` directory on an IoT Edge device. IoT Edge uses the *config.toml* to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-The complete template can be found in GitHub: [template.toml](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
+A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device.
 
 ## Device names
 
-For the **hostname**, replace **my-device** with your device name.
+For the **hostname**, replace **my-device** with your device name to override the default hostname of the device. The value can be an IP address or a fully qualified domain name (FQDN). Use this setting as the gateway hostname on a IoT Edge gateway device.
 
 ```toml
 hostname = "my-device"
