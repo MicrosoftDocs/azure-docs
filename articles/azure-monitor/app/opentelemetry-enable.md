@@ -380,30 +380,51 @@ with tracer.start_as_current_span("hello"):
 ---
 
 > [!TIP]
-> Add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries.
+> For .NET, Node.js (JavaScript), Node.js (TypeScript), and Python, you'll need to manually add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
 #### Set the Application Insights connection string
 
-Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+You can find your connection string in the Overview Pane of your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of the Application Insights connection string.":::
 
-> [!NOTE] 
-> For Java, use one of the following two ways to point the jar file to your Application Insights resource:
->
->- Set an environment variable:
->        
->   ```console
->   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
->   ```
->    
->- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
->    
->   ```json
->   {
->     "connectionString": "<Your Connection String>"
->   }
->   ```
+Here's how you set the connection string.
+
+#### [.NET](#tab/net)
+
+Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+
+#### [Java](#tab/java)
+
+Use one of the following two ways to point the jar file to your Application Insights resource:
+
+- Set an environment variable:
+        
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+    
+- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+    
+   ```json
+   {
+     "connectionString": "<Your Connection String>"
+   }
+   ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+
+#### [Python](#tab/python)
+
+Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+
+---
 
 #### Confirm data is flowing
 
@@ -874,618 +895,6 @@ Coming soon.
 - (1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
 - (2) By default, logging is only collected when that logging is performed at the INFO level or higher.
 To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
-
-## Modify telemetry
-
-This section explains how to modify telemetry.
-
-### Add span attributes
-
-To add span attributes, use either of the following two ways:
-
-* Use options provided by [instrumentation libraries](#instrumentation-libraries).
-* Add a custom span processor.
-
-These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights schema, like Client IP.
-
-> [!TIP]
-> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
-
-#### Add a custom property to a Trace
-
-Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
-
-##### [.NET](#tab/net)
-
-1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
-
-1. Use a custom processor:
-
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```csharp
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter(o =>
-        {
-                o.ConnectionString = "<Your Connection String>"
-        })
-        .Build();
-```
-
-Add `ActivityEnrichingProcessor.cs` to your project with the following code:
-
-```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
-public class ActivityEnrichingProcessor : BaseProcessor<Activity>
-{
-    public override void OnEnd(Activity activity)
-    {
-        // The updated activity will be available to all processors which are called after this processor.
-        activity.DisplayName = "Updated-" + activity.DisplayName;
-        activity.SetTag("CustomDimension1", "Value1");
-        activity.SetTag("CustomDimension2", "Value2");
-    }
-}
-```
-
-##### [Java](#tab/java)
-
-You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
-
-Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
-1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
-
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.0.0</version>
-   </dependency>
-   ```
-
-1. Add custom dimensions in your code:
-
-   ```java
-    import io.opentelemetry.api.trace.Span;
-    import io.opentelemetry.api.common.AttributeKey;
-
-    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
-    Span.current().setAttribute(attributeKey, "myvalue1");
-   ```
-
-##### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Use a custom processor:
-
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```javascript
-const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-const { SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
-
-class SpanEnrichingProcessor {
-    forceFlush() {
-        return Promise.resolve();
-    }
-    shutdown() {
-        return Promise.resolve();
-    }
-    onStart(_span){}
-    onEnd(span){
-        span.attributes["CustomDimension1"] = "value1";
-        span.attributes["CustomDimension2"] = "value2";
-    }
-}
-
-const provider = new NodeTracerProvider();
-const azureExporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-provider.addSpanProcessor(new SpanEnrichingProcessor());
-provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
-```
-
-##### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Use a custom processor:
-
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```typescript
-import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/sdk-trace-base";
-
-class SpanEnrichingProcessor implements SpanProcessor {
-    forceFlush(): Promise<void>{
-        return Promise.resolve();
-    }
-    shutdown(): Promise<void>{
-        return Promise.resolve();
-    }
-    onStart(_span: Span): void{}
-    onEnd(span: ReadableSpan){
-        span.attributes["CustomDimension1"] = "value1";
-        span.attributes["CustomDimension2"] = "value2";
-    }
-}
-
-const provider = new NodeTracerProvider();
-const azureExporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-provider.addSpanProcessor(new SpanEnrichingProcessor());
-provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
-```
-
-##### [Python](#tab/python)
-
-Use a custom processor:
-
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```python
-...
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
-trace.set_tracer_provider(TracerProvider())
-span_processor = BatchSpanProcessor(exporter)
-span_enrich_processor = SpanEnrichingProcessor()
-trace.get_tracer_provider().add_span_processor(span_enrich_processor)
-trace.get_tracer_provider().add_span_processor(span_processor)
-...
-```
-
-Add `SpanEnrichingProcessor.py` to your project with the following code:
-
-```python
-from opentelemetry.sdk.trace import SpanProcessor
-
-class SpanEnrichingProcessor(SpanProcessor):
-
-    def on_end(self, span):
-        span._name = "Updated-" + span.name
-        span._attributes["CustomDimension1"] = "Value1"
-        span._attributes["CustomDimension2"] = "Value2"
-```
----
-
-#### Set the user IP
-
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
-
-##### [.NET](#tab/net)
-
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
-
-```C#
-// only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
-```
-
-##### [Java](#tab/java)
-
-See [Telemetry processors](java-standalone-telemetry-processors.md).
-
-##### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-```javascript
-...
-const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
-
-class SpanEnrichingProcessor {
-    ...
-
-    onEnd(span){
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
-    }
-}
-```
-
-##### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-```typescript
-...
-import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
-
-class SpanEnrichingProcessor implements SpanProcessor{
-    ...
-
-    onEnd(span: ReadableSpan){
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
-    }
-}
-```
-
-##### [Python](#tab/python)
-
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `SpanEnrichingProcessor.py`:
-
-```python
-span._attributes["http.client_ip"] = "<IP Address>"
-```
-
----
-
-#### Set the user ID or authenticated user ID
-
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on the span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
-
-> [!IMPORTANT]
-> Consult applicable privacy laws before you set the Authenticated User ID.
-
-##### [.NET](#tab/net)
-
-Coming soon.
-
-##### [Java](#tab/java)
-
-Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
-
-Consult applicable privacy laws before you set the Authenticated User ID.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
-1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
-
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.0.0</version>
-   </dependency>
-   ```
-
-1. Set `user_Id` in your code:
-
-   ```java
-   import io.opentelemetry.api.trace.Span;
-
-   Span.current().setAttribute("enduser.id", "myuser");
-   ```
-
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Coming soon.
-
-##### [Python](#tab/python)
-
-Coming soon.
-
----
-
-### Add Log Attributes
-  
-#### [.NET](#tab/net)
-  
-Coming soon.
-
-#### [Java](#tab/java)
-
-Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
-
-* [Logback MDC](http://logback.qos.ch/manual/mdc.html)
-* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
-* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
-* [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
-
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-  
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-  
-Coming soon.
-
-#### [Python](#tab/python)
-  
-Coming soon.
-
----
-
-### Filter telemetry
-
-You might use the following ways to filter out telemetry before it leaves your application.
-
-#### [.NET](#tab/net)
-
-1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
-
-1. Use a custom processor:
-    
-    ```csharp
-    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                    o.ConnectionString = "<Your Connection String>"
-            })
-            .Build();
-    ```
-    
-    Add `ActivityFilteringProcessor.cs` to your project with the following code:
-    
-    ```csharp
-    using System.Diagnostics;
-    using OpenTelemetry;
-    using OpenTelemetry.Trace;
-    
-    public class ActivityFilteringProcessor : BaseProcessor<Activity>
-    {
-        public override void OnStart(Activity activity)
-        {
-            // prevents all exporters from exporting internal activities
-            if (activity.Kind == ActivityKind.Internal)
-            {
-                activity.IsAllDataRequested = false;
-            }
-        }
-    }
-    ```
-
-1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
-
-#### [Java](#tab/java)
-
-See [Telemetry processors](java-standalone-telemetry-processors.md).
-
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-1. Exclude the URL option provided by many HTTP instrumentation libraries.
-
-    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
-    
-    ```javascript
-    const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
-    const { HttpInstrumentation } = require( "@opentelemetry/instrumentation-http");
-    const { NodeTracerProvider } = require( "@opentelemetry/sdk-trace-node");
-
-    const httpInstrumentationConfig = {
-        ignoreIncomingRequestHook: (request) => {
-            // Ignore OPTIONS incoming requests
-            if (request.method === 'OPTIONS') {
-                return true;
-            }
-            return false;
-        },
-        ignoreOutgoingRequestHook: (options) => {
-            // Ignore outgoing requests with /test path
-            if (options.path === '/test') {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
-    const provider = new NodeTracerProvider();
-    provider.register();
-
-    registerInstrumentations({
-        instrumentations: [
-            httpInstrumentation,
-        ]
-    });
-    ```
-
-2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-    ```javascript
-    const { SpanKind, TraceFlags } = require("@opentelemetry/api");
-
-    class SpanEnrichingProcessor {
-        ...
-
-        onEnd(span) {
-            if(span.kind == SpanKind.INTERNAL){
-                span.spanContext().traceFlags = TraceFlags.NONE;
-            }
-        }
-    }
-    ```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-1. Exclude the URL option provided by many HTTP instrumentation libraries.
-
-    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
-    
-    ```typescript
-    import { IncomingMessage } from "http";
-    import { RequestOptions } from "https";
-    import { registerInstrumentations } from "@opentelemetry/instrumentation";
-    import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
-    import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-
-    const httpInstrumentationConfig: HttpInstrumentationConfig = {
-        ignoreIncomingRequestHook: (request: IncomingMessage) => {
-            // Ignore OPTIONS incoming requests
-            if (request.method === 'OPTIONS') {
-                return true;
-            }
-            return false;
-        },
-        ignoreOutgoingRequestHook: (options: RequestOptions) => {
-            // Ignore outgoing requests with /test path
-            if (options.path === '/test') {
-                return true;
-            }
-            return false;
-        }
-    };
-    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
-    const provider = new NodeTracerProvider();
-    provider.register();
-    registerInstrumentations({
-        instrumentations: [
-            httpInstrumentation,
-        ]
-    });
-    
-    ```
-
-2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-    ```typescript
-    ...
-    import { SpanKind, TraceFlags } from "@opentelemetry/api";
-    
-    class SpanEnrichingProcessor implements SpanProcessor{
-        ...
-    
-        onEnd(span: ReadableSpan) {
-            if(span.kind == SpanKind.INTERNAL){
-                span.spanContext().traceFlags = TraceFlags.NONE;
-            }
-        }
-    }
- 
-#### [Python](#tab/python)
-
-1. Exclude the URL option provided by many HTTP instrumentation libraries.
-
-    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation:
-    
-    ```python
-    ...
-    import flask
-    
-    from opentelemetry.instrumentation.flask import FlaskInstrumentor
-    
-    # You might also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
-    # List will consist of comma delimited regexes representing which URLs to exclude
-    excluded_urls = "client/.*/info,healthcheck"
-    
-    FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
-    app = flask.Flask(__name__)
-    ...
-    ```
-
-1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-    
-    ```python
-    ...
-    from opentelemetry.sdk.trace import TracerProvider
-    from opentelemetry.sdk.trace.export import BatchSpanProcessor
-    
-    trace.set_tracer_provider(TracerProvider())
-    span_processor = BatchSpanProcessor(exporter)
-    span_filter_processor = SpanFilteringProcessor()
-    trace.get_tracer_provider().add_span_processor(span_filter_processor)
-    trace.get_tracer_provider().add_span_processor(span_processor)
-    ...
-    ```
-    
-    Add `SpanFilteringProcessor.py` to your project with the following code:
-    
-    ```python
-    from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
-    from opentelemetry.sdk.trace import SpanProcessor
-    
-    class SpanFilteringProcessor(SpanProcessor):
-    
-        # prevents exporting spans from internal activities
-        def on_start(self, span):
-            if span._kind is SpanKind.INTERNAL:
-                span._context = SpanContext(
-                    span.context.trace_id,
-                    span.context.span_id,
-                    span.context.is_remote,
-                    TraceFlags.DEFAULT,
-                    span.context.trace_state,
-                )
-    
-    ```
-
----
-    
-<!-- For more information, see [GitHub Repo](link). -->
-
-### Get the trace ID or span ID
-    
-You might want to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
-
-> [!NOTE]
-> If you manually create spans for log-based metrics and alerting, you need to update them to use the metrics API (after it's released) to ensure accuracy.
-#### [.NET](#tab/net)
-
-Coming soon.
-
-#### [Java](#tab/java)
-
-You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
-1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
-
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.0.0</version>
-   </dependency>
-   ```
-
-1. Get the request trace ID and the span ID in your code:
-
-   ```java
-   import io.opentelemetry.api.trace.Span;
-
-   Span span = Span.current();
-   String traceId = span.getSpanContext().getTraceId();
-   String spanId = span.getSpanContext().getSpanId();
-   ```
-
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Coming soon.
-
-#### [Python](#tab/python)
-
-Coming soon.
-
----
 
 ## Collect custom telemetry
 
@@ -2305,6 +1714,616 @@ Coming soon.
 #### [Python](#tab/python)
   
 This is not available in Python.
+
+---
+
+## Modify telemetry
+
+This section explains how to modify telemetry.
+
+### Add span attributes
+
+To add span attributes, use either of the following two ways:
+
+* Use options provided by [instrumentation libraries](#instrumentation-libraries).
+* Add a custom span processor.
+
+These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights schema, like Client IP.
+
+> [!TIP]
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
+
+#### Add a custom property to a Trace
+
+Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
+
+##### [.NET](#tab/net)
+
+1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+
+1. Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddSource("OTel.AzureMonitor.Demo")
+        .AddProcessor(new ActivityEnrichingProcessor())
+        .AddAzureMonitorTraceExporter(o =>
+        {
+                o.ConnectionString = "<Your Connection String>"
+        })
+        .Build();
+```
+
+Add `ActivityEnrichingProcessor.cs` to your project with the following code:
+
+```csharp
+using System.Diagnostics;
+using OpenTelemetry;
+using OpenTelemetry.Trace;
+
+public class ActivityEnrichingProcessor : BaseProcessor<Activity>
+{
+    public override void OnEnd(Activity activity)
+    {
+        // The updated activity will be available to all processors which are called after this processor.
+        activity.DisplayName = "Updated-" + activity.DisplayName;
+        activity.SetTag("CustomDimension1", "Value1");
+        activity.SetTag("CustomDimension2", "Value2");
+    }
+}
+```
+
+##### [Java](#tab/java)
+
+You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+
+Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Add custom dimensions in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.common.AttributeKey;
+
+    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
+    Span.current().setAttribute(attributeKey, "myvalue1");
+   ```
+
+##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```javascript
+const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+const { SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+
+class SpanEnrichingProcessor {
+    forceFlush() {
+        return Promise.resolve();
+    }
+    shutdown() {
+        return Promise.resolve();
+    }
+    onStart(_span){}
+    onEnd(span){
+        span.attributes["CustomDimension1"] = "value1";
+        span.attributes["CustomDimension2"] = "value2";
+    }
+}
+
+const provider = new NodeTracerProvider();
+const azureExporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>"
+});
+
+provider.addSpanProcessor(new SpanEnrichingProcessor());
+provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
+```
+
+##### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```typescript
+import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/sdk-trace-base";
+
+class SpanEnrichingProcessor implements SpanProcessor {
+    forceFlush(): Promise<void>{
+        return Promise.resolve();
+    }
+    shutdown(): Promise<void>{
+        return Promise.resolve();
+    }
+    onStart(_span: Span): void{}
+    onEnd(span: ReadableSpan){
+        span.attributes["CustomDimension1"] = "value1";
+        span.attributes["CustomDimension2"] = "value2";
+    }
+}
+
+const provider = new NodeTracerProvider();
+const azureExporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>"
+});
+
+provider.addSpanProcessor(new SpanEnrichingProcessor());
+provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
+```
+
+##### [Python](#tab/python)
+
+Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```python
+...
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+trace.set_tracer_provider(TracerProvider())
+span_processor = BatchSpanProcessor(exporter)
+span_enrich_processor = SpanEnrichingProcessor()
+trace.get_tracer_provider().add_span_processor(span_enrich_processor)
+trace.get_tracer_provider().add_span_processor(span_processor)
+...
+```
+
+Add `SpanEnrichingProcessor.py` to your project with the following code:
+
+```python
+from opentelemetry.sdk.trace import SpanProcessor
+
+class SpanEnrichingProcessor(SpanProcessor):
+
+    def on_end(self, span):
+        span._name = "Updated-" + span.name
+        span._attributes["CustomDimension1"] = "Value1"
+        span._attributes["CustomDimension2"] = "Value2"
+```
+---
+
+#### Set the user IP
+
+You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+
+##### [.NET](#tab/net)
+
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
+
+```C#
+// only applicable in case of activity.Kind == Server
+activity.SetTag("http.client_ip", "<IP Address>");
+```
+
+##### [Java](#tab/java)
+
+See [Telemetry processors](java-standalone-telemetry-processors.md).
+
+##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+```javascript
+...
+const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
+
+class SpanEnrichingProcessor {
+    ...
+
+    onEnd(span){
+        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+    }
+}
+```
+
+##### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+```typescript
+...
+import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+
+class SpanEnrichingProcessor implements SpanProcessor{
+    ...
+
+    onEnd(span: ReadableSpan){
+        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+    }
+}
+```
+
+##### [Python](#tab/python)
+
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `SpanEnrichingProcessor.py`:
+
+```python
+span._attributes["http.client_ip"] = "<IP Address>"
+```
+
+---
+
+#### Set the user ID or authenticated user ID
+
+You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on the span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before you set the Authenticated User ID.
+
+##### [.NET](#tab/net)
+
+Coming soon.
+
+##### [Java](#tab/java)
+
+Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
+
+Consult applicable privacy laws before you set the Authenticated User ID.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Set `user_Id` in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span.current().setAttribute("enduser.id", "myuser");
+   ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Coming soon.
+
+##### [Python](#tab/python)
+
+Coming soon.
+
+---
+
+### Add Log Attributes
+  
+#### [.NET](#tab/net)
+  
+Coming soon.
+
+#### [Java](#tab/java)
+
+Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
+
+* [Logback MDC](http://logback.qos.ch/manual/mdc.html)
+* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
+* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
+* [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+  
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+  
+Coming soon.
+
+#### [Python](#tab/python)
+  
+Coming soon.
+
+---
+
+### Filter telemetry
+
+You might use the following ways to filter out telemetry before it leaves your application.
+
+#### [.NET](#tab/net)
+
+1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+
+1. Use a custom processor:
+    
+    ```csharp
+    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+            .AddSource("OTel.AzureMonitor.Demo")
+            .AddProcessor(new ActivityFilteringProcessor())
+            .AddAzureMonitorTraceExporter(o =>
+            {
+                    o.ConnectionString = "<Your Connection String>"
+            })
+            .Build();
+    ```
+    
+    Add `ActivityFilteringProcessor.cs` to your project with the following code:
+    
+    ```csharp
+    using System.Diagnostics;
+    using OpenTelemetry;
+    using OpenTelemetry.Trace;
+    
+    public class ActivityFilteringProcessor : BaseProcessor<Activity>
+    {
+        public override void OnStart(Activity activity)
+        {
+            // prevents all exporters from exporting internal activities
+            if (activity.Kind == ActivityKind.Internal)
+            {
+                activity.IsAllDataRequested = false;
+            }
+        }
+    }
+    ```
+
+1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+
+#### [Java](#tab/java)
+
+See [Telemetry processors](java-standalone-telemetry-processors.md).
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+1. Exclude the URL option provided by many HTTP instrumentation libraries.
+
+    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
+    
+    ```javascript
+    const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
+    const { HttpInstrumentation } = require( "@opentelemetry/instrumentation-http");
+    const { NodeTracerProvider } = require( "@opentelemetry/sdk-trace-node");
+
+    const httpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request) => {
+            // Ignore OPTIONS incoming requests
+            if (request.method === 'OPTIONS') {
+                return true;
+            }
+            return false;
+        },
+        ignoreOutgoingRequestHook: (options) => {
+            // Ignore outgoing requests with /test path
+            if (options.path === '/test') {
+                return true;
+            }
+            return false;
+        }
+    };
+
+    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+    const provider = new NodeTracerProvider();
+    provider.register();
+
+    registerInstrumentations({
+        instrumentations: [
+            httpInstrumentation,
+        ]
+    });
+    ```
+
+2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+    ```javascript
+    const { SpanKind, TraceFlags } = require("@opentelemetry/api");
+
+    class SpanEnrichingProcessor {
+        ...
+
+        onEnd(span) {
+            if(span.kind == SpanKind.INTERNAL){
+                span.spanContext().traceFlags = TraceFlags.NONE;
+            }
+        }
+    }
+    ```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+1. Exclude the URL option provided by many HTTP instrumentation libraries.
+
+    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
+    
+    ```typescript
+    import { IncomingMessage } from "http";
+    import { RequestOptions } from "https";
+    import { registerInstrumentations } from "@opentelemetry/instrumentation";
+    import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
+    import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+
+    const httpInstrumentationConfig: HttpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request: IncomingMessage) => {
+            // Ignore OPTIONS incoming requests
+            if (request.method === 'OPTIONS') {
+                return true;
+            }
+            return false;
+        },
+        ignoreOutgoingRequestHook: (options: RequestOptions) => {
+            // Ignore outgoing requests with /test path
+            if (options.path === '/test') {
+                return true;
+            }
+            return false;
+        }
+    };
+    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+    const provider = new NodeTracerProvider();
+    provider.register();
+    registerInstrumentations({
+        instrumentations: [
+            httpInstrumentation,
+        ]
+    });
+    
+    ```
+
+2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+    ```typescript
+    ...
+    import { SpanKind, TraceFlags } from "@opentelemetry/api";
+    
+    class SpanEnrichingProcessor implements SpanProcessor{
+        ...
+    
+        onEnd(span: ReadableSpan) {
+            if(span.kind == SpanKind.INTERNAL){
+                span.spanContext().traceFlags = TraceFlags.NONE;
+            }
+        }
+    }
+ 
+#### [Python](#tab/python)
+
+1. Exclude the URL option provided by many HTTP instrumentation libraries.
+
+    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation:
+    
+    ```python
+    ...
+    import flask
+    
+    from opentelemetry.instrumentation.flask import FlaskInstrumentor
+    
+    # You might also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
+    # List will consist of comma delimited regexes representing which URLs to exclude
+    excluded_urls = "client/.*/info,healthcheck"
+    
+    FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
+    app = flask.Flask(__name__)
+    ...
+    ```
+
+1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+    
+    ```python
+    ...
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import BatchSpanProcessor
+    
+    trace.set_tracer_provider(TracerProvider())
+    span_processor = BatchSpanProcessor(exporter)
+    span_filter_processor = SpanFilteringProcessor()
+    trace.get_tracer_provider().add_span_processor(span_filter_processor)
+    trace.get_tracer_provider().add_span_processor(span_processor)
+    ...
+    ```
+    
+    Add `SpanFilteringProcessor.py` to your project with the following code:
+    
+    ```python
+    from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
+    from opentelemetry.sdk.trace import SpanProcessor
+    
+    class SpanFilteringProcessor(SpanProcessor):
+    
+        # prevents exporting spans from internal activities
+        def on_start(self, span):
+            if span._kind is SpanKind.INTERNAL:
+                span._context = SpanContext(
+                    span.context.trace_id,
+                    span.context.span_id,
+                    span.context.is_remote,
+                    TraceFlags.DEFAULT,
+                    span.context.trace_state,
+                )
+    
+    ```
+
+---
+    
+<!-- For more information, see [GitHub Repo](link). -->
+
+### Get the trace ID or span ID
+    
+You might want to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+
+#### [.NET](#tab/net)
+
+Coming soon.
+
+#### [Java](#tab/java)
+
+You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Get the request trace ID and the span ID in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span span = Span.current();
+   String traceId = span.getSpanContext().getTraceId();
+   String spanId = span.getSpanContext().getSpanId();
+   ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Coming soon.
+
+#### [Python](#tab/python)
+
+Coming soon.
 
 ---
 
