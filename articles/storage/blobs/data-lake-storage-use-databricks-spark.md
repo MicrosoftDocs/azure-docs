@@ -21,7 +21,6 @@ This tutorial shows you how to connect your Azure Databricks cluster to data sto
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> - Create a Databricks cluster
 > - Ingest unstructured data into a storage account
 > - Run analytics on your data in Blob storage
 
@@ -45,37 +44,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure Databricks cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
 
-### Download the flight data
+## Download the flight data
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
 1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
 2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
-
-## Create an Azure Databricks service
-
-In this section, you create an Azure Databricks service by using the Azure portal.
-
-1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
-
-    ![Databricks on Azure portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
-
-    |Property  |Description  |
-    |---------|---------|
-    |**Workspace name**     | Provide a name for your Databricks workspace.  |
-    |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).       |
-    |**Pricing Tier**     |  Select **Standard**.     |
-
-    ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
-
-3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
-
-4. Select **Pin to dashboard** and then select **Create**.
 
 ## Ingest data
 
@@ -113,8 +88,8 @@ In this section, you'll create a container and a folder in your storage account.
 
 3. In the Workspace folder, select **Create > Notebook**.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of create notebook option](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of create notebook option](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
 
 4. In the **Create Notebook** dialog, enter a name and then select **Python** in the **Default Language** drop-down list. This selection determines the default language of the notebook.
 
