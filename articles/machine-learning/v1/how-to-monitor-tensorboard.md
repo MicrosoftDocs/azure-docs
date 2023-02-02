@@ -26,7 +26,7 @@ In this article, you learn how to view your experiment jobs and metrics in Tenso
 How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#launch-tensorboard) from experiment's job history. 
 
-+ For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorBoard) to export the job histories as TensorBoard logs and launch TensorBoard from there. 
++ For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorboard) to export the job histories as TensorBoard logs and launch TensorBoard from there. 
 
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
@@ -47,7 +47,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
 ## Option 1: Directly view job history in TensorBoard
 
-This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorBoard) instead.
+This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorboard) instead.
 
 The following example code uses the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute. Next, we will configure and start a job for training the TensorFlow model, and then
 start TensorBoard against this TensorFlow experiment.
