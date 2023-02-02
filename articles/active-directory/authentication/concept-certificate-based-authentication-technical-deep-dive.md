@@ -72,7 +72,7 @@ Now we'll walk through each step:
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
-## Single-factor certificate-based authentication
+## MFA with Single-factor certificate-based authentication
 
 Azure AD CBA supports second factors to meet MFA requirements with single-factor certificates. Users can use either passwordless sign-in or FIDO2 security keys as second factors when the first factor is single-factor CBA. Users need to register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
 
