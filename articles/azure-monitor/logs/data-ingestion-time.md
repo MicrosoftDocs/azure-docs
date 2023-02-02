@@ -79,7 +79,7 @@ The indexing process currently takes about 5 minutes when there's a low volume o
 ## Investigate latency
 Use [log queries](../logs/get-started-queries.md) to investigate [which factors might be causing latency](#factors-that-affect-latency) in your environment. 
 
-This table specifies which log property indicates when the various steps in the data ingestion process occurred:
+This table specifies which log property you can use to check when the various steps in the data ingestion process occurred:
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
