@@ -230,19 +230,22 @@ You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by ad
 
 * Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
 
-    ```azurecli
+    ```azurecli-interactive
     # Create a SQL API database
-    az cosmosdb sql database create 
-        --account-name msdocs-cosmos-nosql
-        --resource-group msdocs
+    az cosmosdb sql database create \
+        --account-name msdocs-cosmos-nosql \
+        --resource-group msdocs \
         --name AzureSampleFamilyDB
+    ```
     
+    ```azurecli-interactive
     # Create a SQL API container
-    az cosmosdb sql container create
-        --account-name msdocs-cosmos-nosql 
-        --resource-group msdocs
-        --database-name cosmicworks
-        --name FamilyContainer
+    az cosmosdb sql container create \
+        --account-name msdocs-cosmos-nosql \
+        --resource-group msdocs \
+        --database-name AzureSampleFamilyDB \
+        --name FamilyContainer \
+        --partition-key-path '/lastName'
     ```
 
 * Item creation by using the `createItem` method.
@@ -310,19 +313,22 @@ You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by ad
 
 * Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
 
-    ```azurecli
+    ```azurecli-interactive
     # Create a SQL API database
-    az cosmosdb sql database create 
-        --account-name msdocs-cosmos-nosql
-        --resource-group msdocs
+    az cosmosdb sql database create \
+        --account-name msdocs-cosmos-nosql \
+        --resource-group msdocs \
         --name AzureSampleFamilyDB
+    ```
     
+    ```azurecli-interactive
     # Create a SQL API container
-    az cosmosdb sql container create
-        --account-name msdocs-cosmos-nosql 
-        --resource-group msdocs
-        --database-name cosmicworks
-        --name FamilyContainer
+    az cosmosdb sql container create \
+        --account-name msdocs-cosmos-nosql \
+        --resource-group msdocs \
+        --database-name AzureSampleFamilyDB \
+        --name FamilyContainer \
+        --partition-key-path '/lastName'
     ```
 
 * As with the sync API, item creation is accomplished using the `createItem` method. This example shows how to efficiently issue numerous async `createItem` requests by subscribing to a Reactive Stream which issues the requests and prints notifications. Since this simple example runs to completion and terminates, `CountDownLatch` instances are used to ensure the program does not terminate during item creation. **The proper asynchronous programming practice is not to block on async calls - in realistic use-cases requests are generated from a main() loop that executes indefinitely, eliminating the need to latch on async calls.**
