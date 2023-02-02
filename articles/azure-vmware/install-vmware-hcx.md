@@ -55,8 +55,6 @@ HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user
 
 - HCX is now installed as Enterprise for all new HCX installations in Azure VMware solution. Existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. 
 
-- Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, [Enterprise services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) like RAV and HCX MON, etc. aren't in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
-
 For existing HCX Advanced customer, use the following steps to upgrade to HCX Enterprise using Azure portal.
 
 1. Under **Manage** in the left navigation, select **Add-ons**, then the **Migration using HCX** tab. 
@@ -73,18 +71,20 @@ For existing HCX Advanced customer, use the following steps to upgrade to HCX En
 
 Change Compute profile after HCX upgrade to HCX Enterprise.
 
-1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**
+1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**.
 2. Select services to be activated like, Replication Assisted vMotion (RAV), OS assisted Migration which is available with HCX Enterprise only.
-
- IMAGE placeholder   <!-- add new image, :::image type="content" source="media/tutorial-vmware-hcx/edit-compute-profile-for-hcx-enterprise.png -->
 
 3. Select **Continue**, review the settings, then select **Finish** to create the Compute Profile.
 
 If compute profile is being used in service mesh(es), resync service mesh.
 
 1. Go to **Interconnect > Service Mesh.
-1. Select **Resync** and verify that the changes appear in the Service Mesh configuration.
+1. Select **Resync**, then verify that the changes appear in the Service Mesh configuration.
 
+Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. 
+
+- First, ensure you've reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. 
+- If you plan to downgrade, ensure that no scheduled migrations, [Enterprise services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) like RAV and HCX MON, etc. aren't in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
 ## Download and deploy the VMware HCX Connector in on-premises 
 
