@@ -16,7 +16,7 @@ Azure Monitor collects and aggregates the data from every layer and component of
 
 Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (SCOM) installation to the cloud in Azure. 
 
-## Monitoring and Observability
+## Monitoring and observability
 
 Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
 

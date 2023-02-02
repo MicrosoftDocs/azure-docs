@@ -9,13 +9,13 @@ items:
     items:
     - name: Get started with Azure Monitor
       href: getting-started.md
-    - name: Planning
+    - name: Plan your implementation
       href: best-practices-plan.md
     - name: Configure data collection
       href: best-practices-data-collection.md
     - name: Analysis and visualizations
       href: best-practices-analysis.md
-    - name: Alerts and automated actions
+    - name: Configure alerts and automated actions
       href: best-practices-alerts.md
     - name: Optimize costs
       href: best-practices-cost.md
