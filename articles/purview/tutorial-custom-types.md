@@ -1,11 +1,11 @@
 ---
 title: "What are type definitions and how to create custom types in Microsoft Purview"
 description: This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of those custom types in Microsoft Purview.
-author: adinastoll.
+author: adinastoll
 ms.author: adnegrau
 ms.service: purview
 ms.topic: tutorial
-ms.date: 01/26/2023
+ms.date: 02/02/2023
 ---
 
 
@@ -26,9 +26,9 @@ In this tutorial, you'll learn:
 For this tutorial you'll need:
 
 * An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An active Microsoft Purview (formerly Azure Purview) account. If you don't have one, see the [quickstart for creating a Microsoft Purview account](https://learn.microsoft.com/en-us/azure/purview/create-microsoft-purview-portal).
-* A bearer token to your Purview account. To establish a bearer token and to call any data plane APIs, see the documentation about how to [call REST APIs for Microsoft Purview data planes](https://learn.microsoft.com/en-us/azure/purview/tutorial-using-rest-apis).
-* Atlas endpoint of your Purview account. To get your Atlas endpoint, follow the *Atlas endpoint* section from [here](https://learn.microsoft.com/en-us/azure/purview/tutorial-atlas-2-2-apis#atlas-endpoint).
+* An active Microsoft Purview (formerly Azure Purview) account. If you don't have one, see the [quickstart for creating a Microsoft Purview account](create-microsoft-purview-portal.md).
+* A bearer token to your Purview account. To establish a bearer token and to call any data plane APIs, see the documentation about how to [call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md).
+* Atlas endpoint of your Purview account. To get your Atlas endpoint, follow the *Atlas endpoint* section from [here](tutorial-atlas-2-2-apis.md#atlas-endpoint).
 
 > [!NOTE]
 Before moving to the hands-on part of the tutorial, the first four sections will explain what System Type is and how it is used in Purview.
@@ -44,7 +44,7 @@ Essentially, a *Type* can be seen as a *Class* from Object Oriented Programming 
 * each type is uniquely identified by its *name*
 * a *type* can inherit from a *supertType*. This is an equivalent concept as inheritance from OOP. A type that extends a superType will inherit the attributes of the superType.
 
-You can see all type definitions in your Purview account by sending a `GET` request to [All Type Definitions](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-all-type-definitions) endpoint:
+You can see all type definitions in your Purview account by sending a `GET` request to [All Type Definitions](/rest/api/purview/catalogdataplane/types/get-all-type-definitions) endpoint:
 
 ```
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedefs
@@ -52,7 +52,7 @@ GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedefs
 
 Alternatively, you can use the [Microsoft Purview Custom Types Tool](https://github.com/microsoft/Purview-Custom-Types-Tool-Solution-Accelerator) to visualize all the type definitions.
 
-Atlas has few pre-defined system types that are commonly used as supertypes. 
+Atlas has few pre-defined system types that are commonly used as supertypes.
 
 For example:
 
@@ -68,7 +68,7 @@ For example:
 
 To better understand the Type system, let us look at an example and see how an **Azure SQL Table** is defined.
 
-You can get the complete type definition by sending a `GET` request to the Type Definition [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP):
+You can get the complete type definition by sending a `GET` request to the Type Definition [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name):
 
 ```
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
@@ -158,9 +158,9 @@ In our JSON above, we can see that **schemaElementsAttributes**  points to the r
   ]
 ```
 
-This relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case it is *azure_sql_table_columns*. 
+This relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case it is *azure_sql_table_columns*.
 
-* The **cardinality** of this relationship attribute is set to *SET* which suggests that it holds a list of related assets. 
+* The **cardinality** of this relationship attribute is set to *SET* which suggests that it holds a list of related assets.
 * The related asset is of type *azure_sql_column*, as visible in the *typeName* attribute.
 
 In other words, the *columns* relationship relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
@@ -171,7 +171,7 @@ Each relationship consists of two ends, called *endDef1* and *endDef2*.
 
 In the example above, *azure_sql_table_columns* is the name of the relationship that characterizes a table (endDef1) and its columns (endDef2).
 
-For the full definition, you can do make a `GET` request to the following [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP) using *azure_sql_table_columns* as the name:
+For the full definition, you can do make a `GET` request to the following [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name) using *azure_sql_table_columns* as the name:
 
 ```
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/azure_sql_table_columns
@@ -228,7 +228,7 @@ Clicking on one column item, we would see the following:
 The question is, how did Purview select the *data_tye* property from the column and showed it in the Schema tab of the table?
 ![Schema Tab Data Type](./media/tutorial-custom-types/schema-tab-data-type.png)
 
-You can get the type definition of an Azure SQL Column by making a `GET` request to the [endpoint](https://learn.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-type-definition-by-name?tabs=HTTP):
+You can get the type definition of an Azure SQL Column by making a `GET` request to the [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name):
 
 ```
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
@@ -269,13 +269,14 @@ A simplified JSON result can be seen below:
 
 > [!NOTE] serviceType is Azure SQL Database, the same as for the table
 
-* *schemaAttributes* is set to **data_type**, which is one of the attributes of this type. 
+* *schemaAttributes* is set to **data_type**, which is one of the attributes of this type.
 
 Azure SQL Table used *schemaElementAttribute* to point to a relationship consisting of a list of Azure SQL Columns. The type definition of a column has *schemaAttributes* defined.
 
 In this way the Schema tab in the table will display the attribute(s) listed in the *schemaAttributes* of the related assets.
 
 ## 5 - Create custom type definitions
+
 ### Why? 
 First, why would someone like to create a custom type definition?
  
