@@ -41,9 +41,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
   See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
 
-- An Azure Databricks workspace. See [Create an Azure Databricks workspace](/databricks/getting-started/#--create-an-azure-databricks-workspace).
+- An Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
-- An Azure Databricks cluster. See [Create a cluster](/databricks/getting-started/quick-start#step-1-create-a-cluster).
+- An Azure Databricks cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
 
 ### Download the flight data
 
