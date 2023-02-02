@@ -3,7 +3,7 @@ title: Azure Virtual Desktop terminology - Azure
 description: Learn about the basic elements of Azure Virtual Desktop, like host pools, app groups, and workspaces.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 02/03/2023
 ms.author: helohr
 manager: femila
 ---
@@ -43,7 +43,7 @@ An app group can be one of two types:
 - RemoteApp, where users access the RemoteApps you individually select and publish to the app group. Available with pooled host pools only.
 - Desktop, where users access the full desktop. Available with pooled or personal host pools.
  
-Pooled host pools have a preferred app group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop app group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred app group type to **Desktop**. You can remove the Desktop app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **Application group type** value to **RemoteApp**. You can't create another Desktop app group in a host pool while a Desktop app group exists.
+Pooled host pools have a preferred app group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop app group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred app group type to **Desktop**. You can remove the Desktop app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **preferred application group type** value to **RemoteApp**. If you want your users to only see session desktops in their feed, you should set the **preferred application group type** value to **Desktop**. You can't create another Desktop app group in a host pool while a Desktop app group exists.
 
 To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
@@ -58,7 +58,7 @@ To publish resources to users, you must assign them to app groups. When assignin
 - Personal host pools only allow and support Desktop app groups.
 
 >[!NOTE]
->If your host pool’s *application group type* is set to **Undefined**, that means that you haven’t set the value yet. You must finish configuring your host pool by setting its *application group type* before you start using it to prevent app incompatibility and session host overload issues.
+>If your host pool’s *preferred application group type* is set to **Undefined**, that means you haven’t set the value yet. You must finish configuring your host pool by setting its *preferred application group type* before you start using it to prevent app incompatibility and session host overload issues.
 
 ## Workspaces
 
