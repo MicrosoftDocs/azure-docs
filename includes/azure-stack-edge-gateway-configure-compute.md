@@ -29,7 +29,7 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
 4. When you finish the settings, select **Review + Create**. Review the settings for your IoT Hub resource, and select **Create**.
 
-   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the IoT Edge service is now running.
+   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the Kubernetes service is now running.
 
    ![Get started with compute 3](./media/azure-stack-edge-gateway-configure-compute/configure-compute-4.png)
 
