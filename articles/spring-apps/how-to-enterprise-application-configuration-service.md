@@ -53,7 +53,7 @@ The following table describes properties for each entry.
 | **Search path**    | No       | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                              |
 | **Authentication** | Yes      | Select from supported authentications.                                                                                                                                                                                                                                                                                                       |
 
-### Patterns
+### Pattern
 
 A configuration is pulled from Git backends by using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
