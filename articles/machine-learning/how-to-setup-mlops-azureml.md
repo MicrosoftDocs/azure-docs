@@ -158,7 +158,7 @@ The Azure DevOps setup is successfully finished.
    
 1. Open the Repos section and select **Import Repository**
 
-    ![Screenshot of ADO import repo first time.](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
+    ![Screenshot of Azure DevOps import repo first time.](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
 
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Select import at the bottom of the page
 
