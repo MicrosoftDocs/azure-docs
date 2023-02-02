@@ -242,7 +242,7 @@ The following features have known limitations in Azure Government:
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
 
-### [Azure Active Directory B2C](../active-directory-b2c/)
+### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
 Azure Active Directory B2C is **not available** in Azure Government.
 
