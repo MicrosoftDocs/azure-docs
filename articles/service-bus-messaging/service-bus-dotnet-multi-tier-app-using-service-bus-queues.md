@@ -95,6 +95,8 @@ The first step is to create a *namespace*, and obtain a [Shared Access Signature
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
+[!INCLUDE [get-namespace-connection-string](./includes/get-namespace-connection-string.md)]
+
 ## Create a web role
 
 In this section, you build the front end of your application. First, you

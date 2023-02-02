@@ -38,6 +38,9 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
+
+[!INCLUDE [get-namespace-connection-string](./includes/get-namespace-connection-string.md)]
+
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
