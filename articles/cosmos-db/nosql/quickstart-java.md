@@ -55,7 +55,7 @@ As items are inserted into an Azure Cosmos DB container, the database grows hori
 
 ## Create a database account
 
-Before you can create a document database, you need to create a API for NoSQL account with Azure Cosmos DB.
+Before you can create a document database, you need to create an API for NoSQL account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,7 +74,7 @@ Before you can create a document database, you need to create a API for NoSQL ac
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
