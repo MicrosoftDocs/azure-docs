@@ -2,13 +2,13 @@
 title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
 author: haroldwongms
-manager: mdotson
+manager: jpgarcia
 ms.service: virtual-machines
 ms.subservice: openshift
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/7/2019
+ms.date: 02/02/2023
 ms.author: haroldw
 ---
 
@@ -40,11 +40,3 @@ Because customers "own" the entire platform, they can install it in their on-pre
 
 OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that's community supported. OKD can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
-## Next steps
-
-- [Configure common prerequisites for OpenShift in Azure](./openshift-container-platform-3x-prerequisites.md)
-- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform-3x.md)
-- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-container-platform-3x-marketplace-self-managed.md)
-- [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md)
-- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)
