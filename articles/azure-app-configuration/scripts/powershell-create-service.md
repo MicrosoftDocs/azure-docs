@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/18/2023
+ms.date: 02/12/2023
 ms.author: malev 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,8 +19,7 @@ This sample script creates a new instance of Azure App Configuration in a new re
 
 To execute the sample scripts, you need a functional setup of [Azure PowerShell](/powershell/azure/).
 
-1. Open a PowerShell window with admin rights and run `Install-Module -Name Az` to install Azure PowerShell
-1. Run: `Install-Module -Name Az.AppConfiguration` to install the App Configuration module.
+Open a PowerShell window with admin rights and run `Install-Module -Name Az` to install Azure PowerShell
 
 ## Sample script
 

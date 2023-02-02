@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/24/2023
+ms.date: 02/02/2023
 ms.author: malev 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,8 +19,7 @@ This sample script deletes an instance of Azure App Configuration using Powershe
 
 To execute this sample script, you need a functional setup of [Azure PowerShell](/powershell/azure/).
 
-1. Open a PowerShell window with admin rights and run `Install-Module -Name Az` to install Azure PowerShell
-1. Run: `Install-Module -Name Az.AppConfiguration` to install the App Configuration module.
+Open a PowerShell window with admin rights and run `Install-Module -Name Az` to install Azure PowerShell
 
 ## Sample script
 
