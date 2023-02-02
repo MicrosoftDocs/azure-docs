@@ -45,6 +45,8 @@ For more information, see [Device inventory column reference](#device-inventory-
 
 As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
 
+If you're working with a cloud-connected sensor, any edits you make in the sensor console are updated in the Azure portal.
+
 **To edit device details**:
 
 1. Select one or more devices in the grid, and then select **View full details** in the pane on the right.
@@ -128,7 +130,7 @@ You can delete a single device when they’ve been inactive for more than 10 min
 
 This procedure is supported for the *cyberx* and admin users only.
 
-1. Select the **Last Seen** filter icon in the Inventory.
+1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.
 1. Select **Apply**.
 1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.

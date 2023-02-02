@@ -8,6 +8,7 @@ ms.date: 12/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files

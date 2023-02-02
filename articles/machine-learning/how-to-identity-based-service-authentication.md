@@ -121,12 +121,12 @@ __System-assigned managed identity__
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-from azure.ai.ml.entities import UserAssignedIdentity, IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.entities import ManagedIdentityConfiguration, IdentityConfiguration, AmlCompute
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration from the user-assigned managed identity
-managed_identity = UserAssignedIdentity(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
-identity_config = IdentityConfiguration(type = IdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
+managed_identity = ManagedIdentityConfiguration(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
@@ -364,10 +364,10 @@ az ml compute create --name cpu-cluster --type <cluster name>  --identity-type s
 
 ```python
 from azure.ai.ml.entities import IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration for a system-assigned managed identity
-identity_config = IdentityConfiguration(type = IdentityType.SYSTEM_ASSIGNED)
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.SYSTEM_ASSIGNED)
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"

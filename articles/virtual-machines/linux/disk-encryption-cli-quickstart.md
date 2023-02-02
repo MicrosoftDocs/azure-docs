@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 01/04/2023
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -62,7 +62,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. Replace \<your-unique-keyvault-name\> with the name you choose.
 
 ```azurecli-interactive
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "eastus" --enabled-for-disk-encryption
@@ -76,13 +76,13 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption), providing you
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
+After a moment the process will return, "The encryption request was accepted. Use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"
 ```
 
-When encryption is enabled, you will see the following in the returned output:
+When encryption is enabled, you will see "EnableEncryption" in the returned output:
 
 ```
 "EncryptionOperation": "EnableEncryption"
@@ -98,7 +98,7 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about more Azure Disk Encryption for Linux VMs.
+In this quickstart, you created a virtual machine, created a Key Vault that was enabled for encryption keys, and encrypted the VM.  Advance to the next article to learn more about more Azure Disk Encryption for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)

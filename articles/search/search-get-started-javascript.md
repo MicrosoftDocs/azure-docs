@@ -2,12 +2,14 @@
 title: 'Quickstart: Create a search index in JavaScript'
 titleSuffix: Azure Cognitive Search
 description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
-author: dereklegenzoff
-ms.author: delegenz
+
+author: HeidiSteen
+ms.author: heidist
+
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/09/2022
+ms.date: 01/05/2023
 ms.custom: devx-track-js, mode-api
 ---
 
@@ -24,17 +26,17 @@ Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/o
 
 This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
 Before you begin, have the following tools and services:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
++ [Visual Studio Code](https://code.visualstudio.com) or another IDE
 
 + [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com)
 
-+ [Visual Studio Code](https://code.visualstudio.com) or another IDE
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 ## Set up your project
 

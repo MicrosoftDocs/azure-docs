@@ -22,7 +22,7 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 - Single template for creation of alert rules (previously needed three separate templates).
 - Single API for all Azure resources log alerting.
 - Support for stateful (preview) and 1-minute log alerts.
-- [PowerShell cmdlets](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell) and [Azure CLI](./alerts-log.md#manage-log-alerts-using-cli) support for switched rules.
+- [PowerShell cmdlets](./alerts-manage-alerts-previous-version.md#manage-log-alerts-by-using-powershell) and [Azure CLI](./alerts-log.md#manage-log-alerts-using-cli) support for switched rules.
 - Alignment of severities with all other alert types and newer rules.
 - Ability to create [cross workspace log alert](../logs/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
 - Users can specify dimensions to split the alerts for switched rules.
@@ -30,7 +30,7 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 
 ## Impact
 
-- All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log-create-templates.md) and [sample use via PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell).
+- All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log-create-templates.md) and [sample use via PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-by-using-powershell).
 - As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
 
 ## Process
@@ -115,5 +115,5 @@ If the Log Analytics workspace wasn't switched, the response is:
 
 - Learn about the [Azure Monitor - Log Alerts](./alerts-unified-log.md).
 - Learn how to [manage your log alerts using the API](alerts-log-create-templates.md).
-- Learn how to [manage log alerts using PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell).
+- Learn how to [manage log alerts using PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-by-using-powershell).
 - Learn more about the [Azure Alerts experience](./alerts-overview.md).

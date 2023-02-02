@@ -34,22 +34,21 @@ The following regions and maximum resources are available to container groups wi
 | Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Australia Southeast | 4 | 14 | 16 | 50 | 50 | N/A | N |
-| Brazil South | 4 | 16 | 2 | 16 | 50 | N/A | Y |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
+| Australia Southeast | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Brazil South | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
+| Central India | 4 | 16 | 4 | 16 | 50 | V100 | N |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| Germany West Central | 4 | 16 | 16 | 50 | 50 | N/A | Y |
+| Germany West Central | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Japan West | 4 | 16 | 16 | 50 | 50 | N/A | N |
-| Jio India West | 4 | 16 | 16 | 50 | 50 | N/A | N |
-| Korea Central | 4 | 16 | 16 | 50 | 50 | N/A | N |
+| Japan West | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Jio India West | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Korea Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | North Central US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | N |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
 | Norway East | 4 | 16 | 4 | 16 | 50 | N/A | N |
@@ -70,7 +69,6 @@ The following regions and maximum resources are available to container groups wi
 | West India | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
