@@ -62,7 +62,7 @@ For example:
 
 * **DataSet**: This type extends Referenceable and Asset. Conceptually, it can be used to represent a type that stores data. Types that extend DataSet can be expected to have a Schema. For example, a SQL table.
 
-![Base Model](./media/tutorial-custom-types/base-model-diagram.png)
+:::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false":::
 
 ## 2 - Example of a *Type* definition, explained
 
@@ -132,7 +132,7 @@ Based on the JSON type definition above, let us look at some properties:
 
 This field is particularly useful when browsing assets *by source type* in Purview:
 
-![Browse Assets](./media/tutorial-custom-types/browse-assets.png)
+:::image type="content" source="./media/tutorial-custom-types/browse-assets.png" alt-text="Screenshot of the portal showing the path from Data Catalog to Browse to By source type and the asset highlighted.":::
 
 * **SuperTypes** describes the *"parent"* types you want to "*inherit*" from.
 
@@ -140,7 +140,7 @@ This field is particularly useful when browsing assets *by source type* in Purvi
 
 Below you can see an example of how the **Schema** tab looks like for an asset of type Azure SQL Table:
 
-![Schema tab](./media/tutorial-custom-types/schema-tab.png)
+:::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset.":::
 
 In our JSON above, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns**, which can be seen in the **relationshipAttributeDefs** array:
 
@@ -223,10 +223,12 @@ Below you can see a simplified JSON result:
 As we understood above, the information that shows up in the Schema tab of an Azure SQL Table comes from the Azure SQL Column themselves.
 
 Selecting one column item, we would see the following:
-![Azure SQL Column](./media/tutorial-custom-types/azure-sql-column.png)
+
+:::image type="content" source="./media/tutorial-custom-types/azure-sql-column.png" alt-text="Screenshot of the addressID column page with the properties tab open and the data type highlighted.":::
 
 The question is, how did Purview select the *data_tye* property from the column and showed it in the Schema tab of the table?
-![Schema Tab Data Type](./media/tutorial-custom-types/schema-tab-data-type.png)
+
+:::image type="content" source="./media/tutorial-custom-types/schema-tab-data-type.png" alt-text="Screenshot of the Azure SQL Table page with the schema page open.":::
 
 You can get the type definition of an Azure SQL Column by making a `GET` request to the [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name):
 
@@ -492,35 +494,38 @@ with the follwoing body:
 3. Select *By source type*.
 4. Select *Sample-Custom-Types*.
 
-![Custom Types Objects](./media/tutorial-custom-types/custom-types-objects.png)
+:::image type="content" source="./media/tutorial-custom-types/custom-types-objects.png" alt-text="Screenshot showing the path from the Data Catalog to Browse assets with the filter narrowed to Sample-Custom-Types.":::
 
 * Select the *First_parent_object*:
 
-![First Parent Object](./media/tutorial-custom-types/first_parent_object.png)
+:::image type="content" source="./media/tutorial-custom-types/first-parent-object.png" alt-text="Screenshot of the First_parent_object page.":::
 
 * Select the *Properties* tab:
 
-![Children](./media/tutorial-custom-types/children.png)
+:::image type="content" source="./media/tutorial-custom-types/children.png" alt-text="Screenshot of the properties tab with the related assets highlighted, showing one child asset.":::
+
 You can see the *First_child_object* being linked there.
 
 * Select the *First_child_object*:
-![Child](./media/tutorial-custom-types/first_child_object.png)
+
+:::image type="content" source="./media/tutorial-custom-types/first-child-object.png" alt-text="Screenshot of the First_child_object page, showing the overview tab.":::
 
 * Select the *Properties* tab:
-![Parent](./media/tutorial-custom-types/parent.png)
+
+:::image type="content" source="./media/tutorial-custom-types/parent.png" alt-text="Screenshot of the properties page, showing the related assets with a single parent asset.":::
 
 You can see the Parent object being linked there.
 
 Similarly, you can select the *Related* tab and will see the relationship between the two objects:
 
-![Relationship](./media/tutorial-custom-types/relationship.png)
+:::image type="content" source="./media/tutorial-custom-types/relationship.png" alt-text="Screenshot of the Related tab, showing the relationship between the child and parent.":::
 
 You can create multiple children by following the step 6.2 and 6.3 again.
 
 >[!NOTE]
 >The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
 
-![Two children](./media/tutorial-custom-types/two_children.png)
+:::image type="content" source="./media/tutorial-custom-types/two_children.png" alt-text="Screenshot of the First_parent_object, showing the two child assets highlighted.":::
 
 >[!TIP]
 > If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
