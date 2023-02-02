@@ -393,7 +393,7 @@
           items:
             - name: CLI
               displayName: device management, status updates, device maintenance windows
-              href: cli-cli-device-management-get-started.md
+              href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md

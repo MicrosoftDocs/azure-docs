@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub device management (Azure CLI) | Microsoft Docs
+title: Get started with Azure IoT Hub device management (Azure CLI)
 description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure CLI to implement a simulated device and invoke a direct method from that device.
 author: kgremban
 
@@ -98,7 +98,7 @@ To create and start a simulated device:
     *{HubName}*. The name of your IoT hub.
 
     ```azurecli
-    az iot hub device-identity create -d {DeviceName} -n {HubName} 
+    az iot hub device-identity create --device-id {DeviceName} --hub-name {HubName} 
     ```
 
 1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates a device using the device identity that you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
@@ -108,8 +108,9 @@ To create and start a simulated device:
     *{HubName}*. The name of your IoT hub.
     
     ```azurecli
-    az iot device simulate -d {DeviceName} -n {HubName} \
-                           --mrc 201 --mrp '{"result":"Direct method successful"}'
+    az iot device simulate --device-id {DeviceName} --hub-name {HubName} \
+                           --method-response-code 201 \
+                           --method-response-payload '{"result":"Direct method successful"}'
     ```
 
     > [!TIP]
@@ -130,7 +131,7 @@ In this section, you use the second CLI session to invoke a direct method on the
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
 
     ```azurecli
-    az iot hub invoke-device-method -d {DeviceName} -n {HubName} \
+    az iot hub invoke-device-method --device-id {DeviceName} --hub-name {HubName} \
                                     --method-name {MethodName}
     ```
     
@@ -157,7 +158,7 @@ In this section, you use the second CLI session to invoke a direct method and pr
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
     
     ```azurecli
-    az iot hub invoke-device-method -d {DeviceName} -n {HubName} \
+    az iot hub invoke-device-method --device-id {DeviceName} -hub-name {HubName} \
                                     --method-name {MethodName} \
                                     --method-payload '{ "SamplePayload": "PayloadValue" }'
     ```
