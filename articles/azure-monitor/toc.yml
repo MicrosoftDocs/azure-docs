@@ -505,7 +505,7 @@ items:
             href: logs/monitor-workspace.md
           - name: Analyze usage and cost
             href: logs/analyze-usage.md
-          - name: Log data ingestion time
+          - name: Monitor latency
             displayName: latency
             href: logs/data-ingestion-time.md
         - name: Move and delete
