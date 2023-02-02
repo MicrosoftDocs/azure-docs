@@ -13445,16 +13445,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
-            "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
-            "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/event-grid/cli-samples.md",
             "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
             "redirect_document_id": true
@@ -22670,6 +22660,11 @@
             "source_path": "articles/route-server/tutorial-protect-route-server.md",
             "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
+            "redirect_URL": "/azure/external-attack-surface-management/index",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
