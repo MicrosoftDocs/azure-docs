@@ -178,7 +178,7 @@ If your work is narrowly scoped to a single container, you might choose to creat
 
 To interact with a specific blob resource, you can create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource does not need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
 
-The following examples show how to create a blob client from a `BlobServiceClient` object and a `BlobContainerClient` object to interact with a specific blob resource:
+The following examples show how to create a blob client from a `BlobServiceClient` object to interact with a specific blob resource:
 
 ## [.NET](#tab/dotnet)
 
@@ -224,8 +224,18 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
 
 A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class will only have one object at a time. There is no need to keep more than one instance of a client for a given set of constructor parameters or client options. This concept can be implemented in many ways, including the following approaches:
 
-- Create a single client object and pass it as a parameter throughout the application
-- Store a client instance in a field
-- Register the client object as a singleton in a dependency injection container
+- Create a single client object and pass it as a parameter throughout the application. This is the approach shown in the code examples in this article.
+- Store a client instance in a field. To learn more about C# fields, see [Fields (C# Programming Guide)](/dotnet/csharp/programming-guide/classes-and-structs/fields).
+- Register the client object as a singleton in a dependency injection container. For more information on dependency injection in .NET, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
-For more information on dependency injection in .NET, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
+### Client immutability and thread safety
+
+Azure SDK clients are immutable after they're created, which means that you can't change the endpoint it connects to, the credential used for authorization, or other values passed in as client options. Client immutability also means that clients are safe to share and reuse throughout the application.
+
+If your app needs to use different configurations for clients of the same type, you can instantiate a client for each set of configuration options.
+
+The Azure SDK guarantees that all client instance methods are thread-safe and independent of each other. This design ensures that sharing and reusing client instances is always safe, even across threads.
+
+## Next steps
+
+To learn more about using the Azure Storage client libraries, see the landing pages for [.NET](storage-blob-dotnet-get-started.md), [Java](storage-blob-java-get-started.md), [JavaScript](storage-blob-javascript-get-started.md), or [Python](storage-blob-python-get-started.md).
