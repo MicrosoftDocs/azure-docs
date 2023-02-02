@@ -64,8 +64,8 @@ This section describes how App Service apps are billed. For detailed, region-spe
 Except for **Free** tier, an App Service plan carries a charge on the compute resources it uses.
 
 - In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged for the CPU quota.
-- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan is charged. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
-- In the **Isolated** and **IsolatedV2** tiers, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged. In addition, in the **Isolated** tier there's a flat Stamp Fee for the running the App Service Environment itself.
+- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan is charged. These VM instances are charged the same regardless of how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
+- In the **Isolated** and **IsolatedV2** tiers, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged. In addition, in the **Isolated** tier there's a flat Stamp Fee for running the App Service Environment itself.
 
 You don't get charged for using the App Service features that are available to you (configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). The exceptions are:
 

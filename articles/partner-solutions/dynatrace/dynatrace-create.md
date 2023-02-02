@@ -62,6 +62,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 ### Configure metrics and logs
 
+
 1. Your next step is to configure metrics and logs for your resources. Azure Native Dynatrace Service supports the metrics for both compute and non-compute resources. Compute resources include VMs, app services and more. If you have an _owner role_ in the subscription, you see the option to enable metrics collection.
 :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view of metrics and logs.":::
     
@@ -74,7 +75,9 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
    :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
      
 
+
    Complete the resource provisioning excluding the metrics configuration and ask an owner to assign an appropriate role manually to your resource. If you have an _owner role_ in the subscription, you can take the following steps to grant a monitoring reader identity to a contributor user:
+
 
      1. Go to the resource created by a contributor.
  

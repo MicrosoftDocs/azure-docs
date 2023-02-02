@@ -14,9 +14,9 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Delete a blob with the Java client library
+# Delete and restore a blob with Java
 
-This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). If you've enabled blob soft delete, you can restore deleted blobs.
+This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).  If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
 ## Delete a blob
 

@@ -3,7 +3,7 @@ title: Troubleshooting Azure key vault access policy issues
 description: Troubleshooting Azure key vault access policy issues
 author: sebansal
 ms.author: sebansal
-ms.date: 01/17/2023
+ms.date: 01/20/2023
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 ### I'm not able to list or get secrets/keys/certificate. I'm seeing a "something went wrong" error
 
-If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](./assign-access-policy-cli.md)
+If you're having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](./assign-access-policy-cli.md)
 
 ### How can I identify how and when key vaults are accessed?
 
@@ -23,13 +23,13 @@ After you create one or more key vaults, you'll likely want to monitor how and w
 
 ### How can I monitor vault availability, service latency periods or other performance metrics for key vault?
 
-As you start to scale your service, the number of requests sent to your key vault will rise. Such demand has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](./alert.md).
+As you start to scale your service, the number of requests sent to your key vault will rise. Such demand has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will degrade the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](./alert.md).
 
 ### I'm not able to modify access policy, how can it be enabled?
 
 The user needs to have sufficient Azure AD permissions to modify access policy. In this case, the user would need to have higher contributor role.
 
-### I am seeing 'Unknown Policy' error. What does that mean?
+### I'm seeing 'Unknown Policy' error. What does that mean?
 
 There are two reasons why you may see an access policy in the Unknown section:
 
@@ -53,11 +53,11 @@ If you're creating an on-premises application, doing local development, or other
 
 Give the AD group permissions to your key vault using the Azure CLI `az keyvault set-policy` command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
 
-The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
+The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 
-Currently Key Vault redeployment deletes any access policy in Key Vault and replaces them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need to read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
+Currently Key Vault redeployment deletes any access policy in Key Vault and replaces them with access policy in ARM template. There's no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need to read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
 Another option that can help for this scenario is using Azure RBAC and roles as an alternative to access policies. With Azure RBAC, you can redeploy the key vault without specifying the policy again. You can read more this solution [here](./rbac-guide.md).
 
