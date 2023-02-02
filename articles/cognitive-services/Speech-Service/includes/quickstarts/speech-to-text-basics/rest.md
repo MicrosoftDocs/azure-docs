@@ -26,6 +26,18 @@ At a command prompt, run the following cURL command. Replace `YourAudioFile.wav`
 
 **Choose your target environment**
 
+# [Windows](#tab/windows)
+
+```terminal
+audio_file=@'YourAudioFile.wav'
+
+curl --location --request POST \
+"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+--header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
+--header "Content-Type: audio/wav" \
+--data-binary $audio_file
+```
+
 # [Linux](#tab/linux)
 
 ```terminal
@@ -47,18 +59,6 @@ curl --location --request POST \
 "https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" ^
 --header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" ^
 --header "Content-Type: audio/wav" ^
---data-binary $audio_file
-```
-
-# [Windows](#tab/windows)
-
-```terminal
-audio_file=@'YourAudioFile.wav'
-
-curl --location --request POST \
-"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
---header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
---header "Content-Type: audio/wav" \
 --data-binary $audio_file
 ```
 
