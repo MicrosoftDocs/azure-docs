@@ -111,7 +111,7 @@ The core operation of the Translator service is translating text. In this quicks
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 <!-- checked -->
-<!--> [!div class="nextstepaction"]
+<!-- [!div class="nextstepaction"]
 > [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-studio-project) -->
 
 ### Build your C# application
