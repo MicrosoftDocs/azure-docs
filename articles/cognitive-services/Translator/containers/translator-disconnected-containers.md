@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 01/13/2023
+ms.date: 02/01/2023
 ms.author: lajanuar
 ---
 
@@ -106,14 +106,14 @@ The following example shows the formatting for the `docker run` command with pla
  | `{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
-| `{LANGUAGES_LIST}` | List of language codes separated by commas. It is mandatory to have English (en) language as part of the list.|en,fr,it,ta,uk |
+| `{LANGUAGES_LIST}` | List of language codes separated by commas. It's mandatory to have English (en) language as part of the list.| `en`, `fr`, `it`, `zu`, `uk` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
   **Example `docker run` command**
 
 ```docker
 
-docker run --rm -it -p 5000:5000
+docker run --rm -it -p 5000:5000 \
 
 -v {MODEL_MOUNT_PATH} \
 
