@@ -146,7 +146,7 @@ Notice that it tells you:
 
 ## Smart detection of slow performing patterns 
 
-Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, if a page loads slower on a specific browser types compared to others,  or if a particular server handles requests more slowly than other servers. It can also discover problems that are associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
+Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, if a page loads slower on a specific browser type compared to others,  or if a particular server handles requests more slowly than other servers. It can also discover problems that are associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
 
 Anomalies like these are hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it's too late: the affected users are already switching to your competitors!
 
@@ -157,7 +157,7 @@ You don't have to set any thresholds or configure rules. Machine learning and da
 ![From the email alert, click the link to open the diagnostic report in Azure](./media/smart-detection-performance/03.png)
 
 * **When** shows the time the issue was detected.
-* **What** describes te problem that was detected, and th characteristics of the set of events that we found, which displayed the problem behavior.
+* **What** describes the problem that was detected, and th characteristics of the set of events that we found, which displayed the problem behavior.
 * The table compares the poorly performing set with the average behavior of all other events.
 
 Click the links to open Metric Explorer to view reports, filtered by the time and properties of the slow performing set.
