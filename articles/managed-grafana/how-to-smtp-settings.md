@@ -29,24 +29,59 @@ To follow the steps in this guide, you must have:
 
 To activate SMTP settings, enable email notifications and configure an email contact point in Azure Managed Grafana, follow the steps below.
 
+### [Portal](#tab/azure-portal)
+
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Configuration**.
   1. Select the **Email Settings (Preview)** tab.
          :::image type="content" source="media/smtp-settings/find-settings.png" alt-text="Screenshot of the Azure platform. Selecting the SMTP settings tab.":::
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
   1. SMTP settings appear. Fill out the form with the following configuration:
 
-        | Parameter      | Example               | Description                                                                                                                             |
-        |----------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-        | Host           | test.sendgrid.net:587  | Enter the SMTP server hostname with port.                                                                                           |
-        | User           | admin                 | Enter the name of the user of the SMTP authentication.                                                                                                        |
-        | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                                                                                                                |
-        | From Address   | user@domain.com     | Enter the email address used when sending out emails.                                     |
-        | From Name      | Azure Managed Grafana Notification   | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter isn't given or empty.                                                                        |
-        | Skip Verify    | Disable               | SSL verification for the SMTP server. Default is **False**. Optionally select **True** to skip verification. |
-        | StartTLSPolicy | OpportunisticStartTLS | The StartTLSPolicy setting of the SMTP configuration. Select **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**                             |
+        | Parameter      | Example               | Description                                                                                                                                |
+        |----------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+        | Host           | test.sendgrid.net:587 | Enter the SMTP server hostname with port.                                                                                                  |
+        | User           | admin                 | Enter the name of the user of the SMTP authentication.                                                                                     |
+        | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                               |
+        | From Address   | user@domain.com       | Enter the email address used when sending out emails.                                                                                      |
+        | From Name      | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter isn't given or empty. |
+        | Skip Verify    | False                 | SSL verification for the SMTP server. Default is **False**. Optionally select **True** to skip verification.                               |
+        | StartTLSPolicy | OpportunisticStartTLS | The StartTLSPolicy setting of the SMTP configuration. Select **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**           |
 
   1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes.
   1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Provisioning**, and then **Succeeded** once the update is complete.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Azure Managed Grafana CLI extension 0.3.0 or above is required to enable or update SMTP settings. To update your extension, run `az extension update --name amg`.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana instance. When doing this, the replace the placeholders below with information from your own instance.
+
+    ```azurecli
+    az grafana update --resource-group <resource-group> \
+        --name <azure-managed-grafana-name> \
+        --smtp enabled \
+        --from-address <from-address> \
+        --from-name <from-name> \
+        --host "<host>" \
+        --user <user> \
+        --password "<password>" \
+        --start-tls-policy <start-TLS-policy> \
+        --skip-verify <true-or-false> \
+    ```
+
+| Parameter            | Example                            | Description                                                                                                                      |
+|----------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana instance's resource group.                                                           |
+| `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                                                                            |
+| `--smtp`             | enabled                            | Enter **enabled** to disable SMTP settings.                                                                                      |
+| `--from-address`     | user@domain.com                    | Enter the email address used when sending out emails.                                                                            |
+| `--from-name`        | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter isn't given or empty.    |
+| `--host`             | test.sendgrid.net:587              | Enter the SMTP server hostname with port.                                                                                        |
+| `--user`             | admin                              | Enter the name of the user of the SMTP authentication.                                                                           |
+| `--password`         | password                           | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                     |
+| `--start-tls-policy` | OpportunisticStartTLS              | The StartTLSPolicy setting of the SMTP configuration. Enter **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**  |
+| `--skip-verify`      | false                              | SSL verification for the SMTP server. Enter **false** to maintain the verification, or **true** to skip it.                      |
+
+---
 
 ## Configure Grafana contact points and send a test email
 
@@ -62,8 +97,38 @@ Configuring Grafana contact points is done in the Grafana portal:
 
 ## Disable SMTP settings
 
-1. To disable SMTP settings, in the Azure portal, go to **Configuration > Email Settings (Preview)** and toggle **SMTP Settings** off, so that **Disable** is displayed.
+To disable SMTP settings, follow the steps below.
+
+### [Portal](#tab/azure-portal)
+
+1. In the Azure portal, go to **Configuration > Email Settings (Preview)** and toggle **SMTP Settings** off, so that **Disable** is displayed.
 1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Azure Managed Grafana CLI extension 0.3.0 or above is required to disable SMTP settings. To update your extension, run `az extension update --name amg`.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana instance. When doing this, the replace the placeholders below with information from your own instance.
+
+    ```azurecli
+    az grafana update --resource-group <resource-group> \
+        --name <azure-managed-grafana-name> \
+        --smtp enabled \
+        --from-address <from-address> \
+        --from-name <from-name> \
+        --host "<host>" \
+        --user <user> \
+        --password "<password>" \
+        --start-tls-policy <start-TLS-policy> \
+        --skip-verify <true-or-false> \
+    ```
+
+    | Parameter            | Example                            | Description                                                            |
+    |----------------------|------------------------------------|------------------------------------------------------------------------|
+    | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana instance's resource group. |
+    | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                  |
+    | `--smtp`             | disabled                           | Enter **disabled** to disable SMTP settings.                           |
+    
+---
 
 > [!NOTE]
 > When a users disables SMTP settings, all SMTP credentials are removed from the backend. Azure Managed Grafana will not persist SMTP credentials when disabled.
