@@ -28,12 +28,12 @@ Successfully creating a Private Link cluster takes many steps, so we've outlined
 
 To start, deploy the following resources if you haven't created them already. You need to have at least one resource group, two virtual networks, and a network security group to attach to the subnet where the HDInsight cluster will be deployed as shown below.
 
-|Type|Name|Purpose|
-|----|----|-------|
-|Resource group|hdi-privlink-rg|Used to keep common resources together|
-|Virtual network|hdi-privlink-cluster-vnet|The VNET where the cluster will be deployed|
-|Virtual network|hdi-privlink-client-vnet|The VNET where clients will connect to the cluster from|
-|Network security group|hdi-privlink-cluster-vnet-nsg|Default NSG as required for cluster deployment|
+| Type                   | Name                          | Purpose                                                 |
+|------------------------|-------------------------------|---------------------------------------------------------|
+| Resource group         | hdi-privlink-rg               | Used to keep common resources together                  |
+| Virtual network        | hdi-privlink-cluster-vnet     | The VNET where the cluster will be deployed             |
+| Virtual network        | hdi-privlink-client-vnet      | The VNET where clients will connect to the cluster from |
+| Network security group | hdi-privlink-cluster-vnet-nsg | Default NSG as required for cluster deployment          |
 
 > [!NOTE]
 > The network security group (NSG) can simply be deployed, we do not need to modify any NSG rules for cluster deployment.
@@ -108,28 +108,34 @@ To create the private endpoints:
 2. In the results, click the Private link icon.
 3. Click 'Create private endpoint' and use the following configurations to set up the Ambari private endpoint:
     
-    | Config | Value |
-    | ------ | ----- |
-    | Name | hdi-privlink-cluster |
-    | Resource type | Microsoft.Network/privateLinkServices |
-    | Resource | gateway-* (This value should match the HDI deployment ID of your cluster, for example gateway-4eafe3a2a67e4cd88762c22a55fe4654) |
-    | Virtual network | hdi-privlink-client-vnet |
-    | Subnet | default |
-    
+    | Config          | Value                                                                                                                           |
+    |-----------------|---------------------------------------------------------------------------------------------------------------------------------|
+    | Name            | hdi-privlink-cluster                                                                                                            |
+    | Resource type   | Microsoft.Network/privateLinkServices                                                                                           |
+    | Resource        | gateway-* (This value should match the HDI deployment ID of your cluster, for example gateway-4eafe3a2a67e4cd88762c22a55fe4654) |
+    | Virtual network | hdi-privlink-client-vnet                                                                                                        |
+    | Subnet          | default                                                                                                                         |
+
+![](media/hdinsight-private-link/private-endpoint/basic-tab-private-endpoint.png)
+![](media/hdinsight-private-link/private-endpoint/resource-tab-private-endpoint.png)
+![](media/hdinsight-private-link/private-endpoint/virtual-network-tab-private-endpoint.png)
+![](media/hdinsight-private-link/private-endpoint/tag-tab-private-endpoint.png)
+![](media/hdinsight-private-link/private-endpoint/basic-tab-private-endpoint.png)
+![](media/hdinsight-private-link/private-endpoint/review-tab-private-endpoint.png)
+
+
 4. Repeat the process to create another private endpoint for SSH access using the following configurations:
     
-    | Config | Value |
-    | ------ | ----- |
-    | Name | hdi-privlink-cluster-ssh |
-    | Resource type | Microsoft.Network/privateLinkServices |
-    | Resource | headnode-* (This value should match the HDI deployment ID of your cluster, for example headnode-4eafe3a2a67e4cd88762c22a55fe4654) |
-    | Virtual network | hdi-privlink-client-vnet |
-    | Subnet | default |
+    | Config          | Value                                                                                                                             |
+    |-----------------|-----------------------------------------------------------------------------------------------------------------------------------|
+    | Name            | hdi-privlink-cluster-ssh                                                                                                          |
+    | Resource type   | Microsoft.Network/privateLinkServices                                                                                             |
+    | Resource        | headnode-* (This value should match the HDI deployment ID of your cluster, for example headnode-4eafe3a2a67e4cd88762c22a55fe4654) |
+    | Virtual network | hdi-privlink-client-vnet                                                                                                          |
+    | Subnet          | default                                                                                                                           |
     
 > [!IMPORTANT]
 > If you're using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
-> 
-  
   
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
@@ -155,33 +161,35 @@ To configure DNS resolution through a Private DNS zone:
     
 1. Create an Azure Private DNS zone. (We aren't including all configs here, all other configs are left at default values)
     
-    | Config | Value |
-    | ------ | ----- |
-    | Name | privatelink.azurehdinsight.net |
+    | Config | Value                          |
+    |--------|--------------------------------|
+    | Name   | privatelink.azurehdinsight.net |
+![](media/hdinsight-private-link/private-dns-zone.png)
     
 2. Add a Record set to the Private DNS zone for Ambari.
     
-    | Config | Value |
-    | ------ | ----- |
-    | Name | YourPrivateLinkClusterName |
-    | Type | A - Alias record to IPv4 address |
-    | TTL | 1 |
-    | TTL unit | Hours |
+    | Config     | Value                                            |
+    |------------|--------------------------------------------------|
+    | Name       | YourPrivateLinkClusterName                       |
+    | Type       | A - Alias record to IPv4 address                 |
+    | TTL        | 1                                                |
+    | TTL unit   | Hours                                            |
     | IP Address | Private IP of private endpoint for Ambari access |
-    
+![](media/hdinsight-private-link/private-dns-zone-add-record.png)
+
 3. Add a Record set to the Private DNS zone for SSH.
     
-    | Config | Value |
-    | ------ | ----- |
-    | Name | YourPrivateLinkClusterName-ssh |
-    | Type | A - Alias record to IPv4 address |
-    | TTL | 1 |
-    | TTL unit | Hours |
-    | IP Address | Private IP of private endpoint for SSH access |
+    | Config     | Value                                               |
+    |------------| --------------------------------------------------- |
+    | Name       | YourPrivateLinkClusterName-ssh                      |
+    | Type       | A - Alias record to IPv4 address                    |
+    | TTL        | 1                                                   |
+    | TTL unit   | Hours                                               |
+    | IP Address | Private IP of private endpoint for SSH access       |
+![](media/hdinsight-private-link/private-dns-zone-add-ssh-record.png)
    
-> [!IMPORTANT]
-> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
-> 
+    > [!IMPORTANT]
+    > If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.
     1. Open the private DNS zone in the Azure portal.
@@ -189,6 +197,8 @@ To configure DNS resolution through a Private DNS zone:
     1. Click the 'Add' button.
     1. Fill in the details: Link name, Subscription, and Virtual Network
     1. Click **Save**.
+
+![](media/hdinsight-private-link/virtual-network-link.png)
 
 ## <a name="CheckConnectivity"></a>Step 7: Check cluster connectivity
 
@@ -199,15 +209,15 @@ The last step is to test connectivity to the cluster. Since this cluster is isol
 
 For this example, we'll deploy a VM in the client VNET using the following configuration to test the connectivity.
     
-| Config | Value |
-| ------ | ----- |
-| Virtual machine name | hdi-privlink-client-vm |
-| Image | Windows 10 Pro, Version 2004 - Gen1 |
-| Public inbound ports | Allow selected ports |
-| Select inbound ports | RDP (3389) | 
-| I confirm I have an eligible Windows 10 license... | Checked |
-| Virtual network | hdi-privlink-client-vnet |
-| Subnet | default |
+| Config                                             | Value                               |
+|----------------------------------------------------|-------------------------------------|
+| Virtual machine name                               | hdi-privlink-client-vm              |
+| Image                                              | Windows 10 Pro, Version 2004 - Gen1 |
+| Public inbound ports                               | Allow selected ports                |
+| Select inbound ports                               | RDP (3389)                          | 
+| I confirm I have an eligible Windows 10 license... | Checked                             |
+| Virtual network                                    | hdi-privlink-client-vnet            |
+| Subnet                                             | default                             |
 
 Once the client VM is deployed, you can test both Ambari and SSH access.
 
@@ -238,12 +248,12 @@ You can also approve, reject, or remove existing connections. When you create a 
 
 The following table shows the various HDInsight resource actions and the resulting connection states for private endpoints. An HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
 
-| Service provider action | Service consumer private endpoint state | Description |
-| --------- | --------- | --------- |
-| None | Pending | Connection is created manually and is pending approval by the Private Link resource owner. |
-| Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
-| Reject | Rejected | Connection was rejected by the Private Link resource owner. |
-| Remove | Disconnected | Connection was removed by the Private Link resource owner. The private endpoint becomes informative and should be deleted for cleanup. |
+| Service provider action | Service consumer private endpoint state | Description                                                                                                                            |
+|-------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| None                    | Pending                                 | Connection is created manually and is pending approval by the Private Link resource owner.                                             |
+| Approve                 | Approved                                | Connection was automatically or manually approved and is ready to be used.                                                             |
+| Reject                  | Rejected                                | Connection was rejected by the Private Link resource owner.                                                                            |
+| Remove                  | Disconnected                            | Connection was removed by the Private Link resource owner. The private endpoint becomes informative and should be deleted for cleanup. |
 
 ## Next steps
 
