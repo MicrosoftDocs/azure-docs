@@ -58,7 +58,7 @@ As of January 2023, Managed (Automatic) Spark compute doesn't support the creati
 
 ### Inactivity periods and tear-down mechanism
 
-A Managed (Automatic) Spark compute (*cold start*) resource might need three to five minutes to start the Spark session when it's first launched. The automated Managed (Automatic) Spark compute provisioning, backed by Azure Synapse, causes this delay. After the Managed (Automatic) Spark compute is provisioned, and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
+A Managed (Automatic) Spark compute (*cold start*) resource might need three to five minutes to start the Spark session when it's first launched. The automated Managed (Automatic) Spark compute provisioning, backed by Azure Synapse, causes this delay. After the Managed (Automatic) Spark compute is provisioned and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
 
 The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following 10 minutes, resources provisioned for the Managed (Automatic) Spark compute will be torn down.
 
