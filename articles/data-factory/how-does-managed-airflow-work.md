@@ -26,17 +26,17 @@ The following steps setup and configure your Managed Airflow environment.
     Create or select an existing Data Factory in the region where the managed airflow preview is supported.
 
 ### Steps to create the environment
-1. Create new Managed Airflow environment.  
-Go to **Manage** hub -> **Airflow (Preview)** -> **+New** to create a new Airflow environment
+1. Create new Managed Airflow environment.
+   Go to **Manage** hub -> **Airflow (Preview)** -> **+New** to create a new Airflow environment
 
    :::image type="content" source="media/how-does-managed-airflow-work/create-new-airflow.png" alt-text="Screenshot that shows how to create a new Managed Apache Airflow environment.":::
 
-1.  Provide the details (Airflow config)
+1. Provide the details (Airflow config)
 
    :::image type="content" source="media/how-does-managed-airflow-work/airflow-environment-details.png" alt-text="Screenshot that shows some Managed Airflow environment details.":::
 
    > [!IMPORTANT]
-   > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **AAD** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user**s credential to Azure Data Factory to login/ monitor DAGs.
+   > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **Azure AD** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user's credential to Azure Data Factory to login/ monitor DAGs.
 1. **Environment variables** a simple key value store within Airflow to store and retrieve arbitrary content or settings.
 1. **Requirements** can be used to pre-install python libraries. You can update these later as well.
 
@@ -49,7 +49,7 @@ The following steps describe how to import DAGs into Managed Airflow.
 You will need to upload a sample DAG onto an accessible Storage account.
 
 > [!NOTE]
-> Blob Storage behind VNet are not supported during the preview. We will be adding the support shortly.
+> Blob Storage behind VNet are not supported during the preview.
 
 [Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 [Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).
