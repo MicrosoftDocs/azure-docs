@@ -136,7 +136,6 @@ Now go back to the Azure portal to get your connection string information and la
 
     ```bash
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-
     ```
 
     The terminal window displays a notification that the FamilyDB database was created. 
