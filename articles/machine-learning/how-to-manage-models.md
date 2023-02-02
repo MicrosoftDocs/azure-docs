@@ -35,18 +35,13 @@ Additionally, you will need to:
 
 - Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python SDK](#tab/python)
 
 - Install the Azure Machine Learning SDK for Python
     
     ```bash
     pip install azure-ai-ml
     ```
-
-# [Studio](#tab/studio)
-
-There are no additional prerequisites when working in Azure Machine Learning studio.
-
 ---
 
 ## Supported paths
@@ -107,7 +102,7 @@ az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python SDK](#tab/python)
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
@@ -129,10 +124,6 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
-
-# [Studio](#tab/studio)
-
-Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 
 ---
 
