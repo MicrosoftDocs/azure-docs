@@ -109,9 +109,9 @@ items:
         text: SMS SDK overview
 additionalContent:
   sections:
-    -title: Enhance Your App with Azure Communication Services
-     summary: Learn how to enhance your core channels with Azure Communication Services.
-     items:
+    - title: Enhance Your App with Azure Communication Services
+      summary: Learn how to enhance your core channels with Azure Communication Services.
+      items:
       - title: Teams Interoperability
         summary: Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings and chats.
         url: ./concepts/teams-interop.md
@@ -135,7 +135,7 @@ additionalContent:
           url: ./tutorials/add-chat-push-notifications
       
     - title: Additional Resources
-        items:
+      items:
           - title: Support & Help
             links: 
               - text: Provide feedback through Azure feedback
