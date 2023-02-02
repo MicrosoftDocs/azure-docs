@@ -24,7 +24,11 @@ You will also need a `.wav` audio file on your local machine. You can use your o
 
 At a command prompt, run the following cURL command. Replace `YourAudioFile.wav` with the path and name of your audio file.  
 
-```console
+**Choose your target environment**
+
+# [Windows](#tab/windows)
+
+```terminal
 audio_file=@'YourAudioFile.wav'
 
 curl --location --request POST \
@@ -33,6 +37,32 @@ curl --location --request POST \
 --header "Content-Type: audio/wav" \
 --data-binary $audio_file
 ```
+
+# [Linux](#tab/linux)
+
+```terminal
+audio_file=@'YourAudioFile.wav'
+
+curl --location --request POST \
+"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" ^
+--header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" ^
+--header "Content-Type: audio/wav" ^
+--data-binary $audio_file
+```
+
+# [macOS](#tab/macos)
+
+```terminal
+audio_file=@'YourAudioFile.wav'
+
+curl --location --request POST \
+"https://${SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" ^
+--header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" ^
+--header "Content-Type: audio/wav" ^
+--data-binary $audio_file
+```
+
+* * *
 
 > [!IMPORTANT]
 > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
