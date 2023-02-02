@@ -62,7 +62,7 @@ az network vnet subnet update \
 This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
 ```json
 { 
-    "name": "myVirtualNetwork", 
+    "name": "myVNet", 
     "type": "Microsoft.Network/virtualNetworks", 
     "apiVersion": "2019-04-01", 
     "location": "WestUS", 
