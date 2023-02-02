@@ -3,7 +3,8 @@ title: Overview of operational backup for Azure Blobs
 description: Learn about operational backup for Azure Blobs.
 ms.topic: conceptual
 ms.date: 05/05/2021
-
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of operational backup for Azure Blobs

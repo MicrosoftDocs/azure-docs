@@ -299,7 +299,7 @@
       href: how-to-log-view-metrics.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: ../how-to-monitor-tensorboard.md
+      href: how-to-monitor-tensorboard.md
     - name: Log metrics with designer
       displayName: designer, logging
       href: ../how-to-track-designer-experiments.md
