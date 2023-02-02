@@ -13,9 +13,10 @@ metadata:
   ms.author: serooney
   ms.date: 02/1/2023
 
+#######################################################################
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-items:
+  items:
     - title: What is Azure Communication Services? 
       itemType: overview
       url: ./overview.md
@@ -37,10 +38,12 @@ items:
     - title: ACS UI Library
       itemType: concept
       url: ./concepts/ui-library/ui-library-overview.md
+
+##########################################################################
 productDirectory: 
-title: Communication Channels
-summary: Learn about our core services which you can combine and integrate to create your own custom communication solutions.
-items:
+  title: Communication Channels
+  summary: Learn about our core services which you can combine and integrate to create your own custom communication solutions.
+  items:
   - title: Chat
     imageSrc: ./media/icons/chat-icon.png
     links:
@@ -67,7 +70,6 @@ items:
         text: Best practices for sender authentication support
       - url: ./concepts/email/sdk-features.md
         text: Email client library
-  
   - title: Phone calling
     imageSrc: ./media/icons/phone-icon.png
     links:
@@ -94,7 +96,6 @@ items:
         text: Call flow topologies
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Calling SDK overview
-  
   - title: SMS
     imageSrc: ./media/icons/sms-icon.png
     links:
@@ -108,6 +109,8 @@ items:
         text: How to set up a phone number
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
+        
+##########################################################################################
 additionalContent:
   sections:
     - title: Enhance Your App with Azure Communication Services
