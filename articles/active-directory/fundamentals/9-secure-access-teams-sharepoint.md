@@ -1,6 +1,6 @@
 ---
 title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
-description: Secure access to Microsoft 365 services as a part of your overall external access security.
+description: Secure access to Microsoft 365 services as a part of your external access security plan
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business 
+# Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
 
 Microsoft Teams, SharePoint, and OneDrive for Business are three of the most used ways to collaborate and share content with external users. If the “approved” methods are too restrictive, users will go outside of approved methods by emailing content or setting up insecure external processes and applications, such as a personal DropBox or OneDrive. Your goal is to balance your security needs with ease of collaboration.
 
