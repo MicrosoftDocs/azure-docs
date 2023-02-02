@@ -398,7 +398,7 @@ $virtualNetwork |  Set-AzVirtualNetwork
 
 Few common scenarios:
 1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
-1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC and subnet level is platform dependent and varies from case to case. Traffic flows will be logged against the NSG which is processed last. 
+1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC and subnet level is platform dependent and varies from case to case. Traffic flows will be logged against the NSG which is processed last. The processing order is changed by the platform state. You have to check both of the flow logs.
 1. **AKS Cluster Subnet**: AKS adds a default NSG at the cluster subnet. As explained in the above point, flow logging must be enabled on this default NSG.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
