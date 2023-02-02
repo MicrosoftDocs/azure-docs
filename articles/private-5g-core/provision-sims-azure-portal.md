@@ -209,15 +209,15 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 In this step, you'll provision SIMs using a JSON file.
 
-1. In **Add SIMs** on the right, select **Browse** and then select the JSON file you created in [Create the JSON file](#create-the-json-file).
-1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one. 
+1. In **Add SIMs** on the right, select **Browse** and then select the JSON file you created or edited in [Create or edit the JSON file](#create-or-edit-the-json-file).
+1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one.
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it's correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
 
     :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of SIM resources through a J S O N file and the Go to resource group button.":::
 
 1. Select the **SIM Group** resource to which you added your SIMs.
-1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly. 
+1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly.
 
     :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
 
