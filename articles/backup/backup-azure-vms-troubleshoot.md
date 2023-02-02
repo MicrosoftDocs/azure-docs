@@ -4,9 +4,9 @@ description: In this article, learn how to troubleshoot errors encountered with 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 12/23/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
