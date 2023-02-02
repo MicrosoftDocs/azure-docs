@@ -134,7 +134,7 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     * [updateCertificateProperties](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
     * [updateCertificatePolicy](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-updatecertificateproperties)
     * [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begindeletecertificate)
-* [PollerLike Interface](/javascript/api/@azure/core-lro/pollerlike)
+* [PollerLike interface](/javascript/api/@azure/core-lro/pollerlike)
     * [getResult](/javascript/api/@azure/core-lro/pollerlike#@azure-core-lro-pollerlike-getresult)
     * [pollUntilDone](/javascript/api/@azure/core-lro/pollerlike@azure-core-lro-pollerlike-polluntildone)
 
