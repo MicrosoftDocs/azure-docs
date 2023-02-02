@@ -16,17 +16,19 @@ Latency refers to the amount of time it takes for log data to become available i
 
 The factors that affect latency are:
 
-- **Data collection time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
+- **Data collection time**: The time it takes to discover an event, collect it, and send it to an Azure Monitor Logs ingestion point as a log record. 
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - **Indexing time**: The time spent to ingest a log record into an Azure Monitor big data store.
 
 The following sections detail the latency introduced by each of these factors.
 
 ### Data collection time
+In most cases, this process is handled by an agent. 
+#### Collection by Azure Monitor Agent
 
 **Typical latency: Varies**
 
-Azure Monitor Agent uses different strategies to collect data, depending on the type of data collected. For example:
+[Azure Monitor Agent](../agents/agents-overview.md) uses various strategies to collect different types collect data. For example:
 
 | Type of data  | Collection frequency  | Notes |
 |:--------------|:----------------------|:------|
@@ -38,7 +40,7 @@ To ensure the agent is lightweight, Azure Monitor Agent buffers logs before send
 
 Network conditions can affect how long it takes for data to reach an Azure Monitor Logs ingestion point.
 
-### Azure metrics, resource logs, activity log
+#### Collection from Azure resources
 
 **Typical latency: 30 seconds to 15 minutes**
 
