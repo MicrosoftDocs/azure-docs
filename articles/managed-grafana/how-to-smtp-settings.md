@@ -112,14 +112,7 @@ To disable SMTP settings, follow the steps below.
     ```azurecli
     az grafana update --resource-group <resource-group> \
         --name <azure-managed-grafana-name> \
-        --smtp enabled \
-        --from-address <from-address> \
-        --from-name <from-name> \
-        --host "<host>" \
-        --user <user> \
-        --password "<password>" \
-        --start-tls-policy <start-TLS-policy> \
-        --skip-verify <true-or-false> \
+        --smtp disabled
     ```
 
     | Parameter            | Example                            | Description                                                            |
@@ -127,7 +120,7 @@ To disable SMTP settings, follow the steps below.
     | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana instance's resource group. |
     | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                  |
     | `--smtp`             | disabled                           | Enter **disabled** to disable SMTP settings.                           |
-    
+
 ---
 
 > [!NOTE]
