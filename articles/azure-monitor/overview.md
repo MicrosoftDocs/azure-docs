@@ -44,16 +44,16 @@ The following diagram gives a high-level view of Azure Monitor.
 
 :::image type="content" source="media/overview/overview-02-2023.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-02-2023.png":::
 
-- **[Data sources](data-sources.md)** are depicted at the left of the diagram. Data is collected and routed to the data platform.
-- **[Data platform](data-platform.md)** stores are at the center of the diagram. 
-- The different functions and components that consume data are at the right of the diagram. This includes such actions as analysis, visualizations, insights and responses.
-- Services that integrates with Azure Monitor to provide additional functionality are at the bottom of the diagram. These are integrated throughout other parts of the diagram, but that is too complex to show visually.
+- **[Data sources](data-sources.md)** are at the left of the diagram. The data is collected and routed to the **data platform**.
+- **[Data platform](data-platform.md)** stores are at the center of the diagram. Azure Monitor stores these types of data: metrics, logs, traces, and changes.
+- The functions and components that consume data are at the right of the diagram. This includes functionality such as analysis, visualizations, insights, and responses.
+- Services that integrate with Azure Monitor to provide additional functionality are at the bottom of the diagram. These are integrated throughout the system.
 
 ## Data sources
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. 
 
 Azure Monitor collects these types of data:
-- **Application**. The performance and functionality of the code you've written, on any platform.
+- **Application**. Data about the performance and functionality of your application code on any platform.
 - **Infrastructure:**
     - **Container.** Containers, such as Azure Kubernetes and applications running inside containers.
     - **Operating system.** The guest operating system on which your application is running. 
@@ -72,14 +72,14 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor collects and routes monitoring data using several mechanisms, depending on the data being routed and the destination.
 
-You can configure data collection to retrieve data and route it to the data platform stores using these methods:
+Azure Monitor has various tools and functionality to help you configure data collection to retrieve the data and route it to the data platform stores:
 
-- Direct data routing
-- Diagnostic settings
-- Data collection rules
-- Application SDK
-- Azure Monitor REST API
-- Azure Monitor Agents
+- **Direct data routing**. Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration.
+- **[Diagnostic settings](essentials/diagnostic-settings.md)**. Use diagnostic settings to determine where to send resource and activity log data on the data platform. 
+- **[Data collection rules](essentials/data-collection-rule-overview.md)**. Use data collection rules to specify what data should be collected, how to transform that data, and where to send that data.
+- [Application SDK](app/app-insights-overview.md). Add the Application Insights SDK to your application code to receive, store, and explore your monitoring data. The SDK pre-processes telemetry and metrics before sending the data to Azure where it's ingested and processed further before being stored in Azure Monitor Logs.
+- **[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)**. The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client.
+- **[Azure Monitor Agents](agents/agents-overview.md)**. Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud. 
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
@@ -88,11 +88,11 @@ For detailed information about data collection, see [data collection](./best-pra
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
 
-|Data Store or<br>Pillar of Observability|Description  |
+|Pillar of Observability/<br>Data Store|Description  |
 |---------|---------|
-|Azure Monitor Metrics|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus based metrics](/articles/azure-monitor/essentials/prometheus-metrics-overview.md).|
-|Azure Monitor Logs     |Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
-|Traces   |Distributed traces identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
+|[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus based metrics](/articles/azure-monitor/essentials/prometheus-metrics-overview.md).|
+|[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
+|Traces|Distributed traces identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
 |Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
 
 ## The Azure portal
@@ -102,11 +102,20 @@ The Monitor section of the Azure portal provides a visual interface that gives y
 
 :::image type="content" source="media/overview/azure-portal.png" alt-text="Screenshot that shows the Monitor section of the Azure portal.":::
 
-### Metrics Explorer
+### Metrics explorer
+
+The [Azure Monitor metrics explorer](essentials/metrics-getting-started.md) user interface in the Azure portal helps you plot charts, visually correlate trends, and investigate spikes and dips in metric values. Use metrics explorer to investigate the health and utilization of your resources.
+
+Metrics explorer contains features that allow you to apply dimensions and filtering, and to customize the chart to analyze exactly the data you need and make it as visually intuitive as possible.
 
 ### Log Analytics
 
+The [Log Analytics](logs/log-analytics-overview.md) user interface in the Azure portal, helps you query the log data collected by Azure Monitor so that you can quickly retrieve, consolidate, and analyze collected data. After creating test queries, you can then directly analyze the data with Azure Monitor tools, or you can save the queries for use with visualizations or alert rules.
+Log Analytics workspaces are based on Azure Data Explorer, using a powerful analysis engine and the rich Kusto query language (KQL).
+Azure Monitor Logs uses a version of the Kusto Query Language suitable for simple log queries, as well as advanced functionality such as aggregations, joins, and smart analytics. You can [get started with KQL](logs/get-started-queries.md) quickly and easily.
+
 ## Insights and Visualizations
+
 Insights and visualizations help increase your visibility into the operation of your computing environment. Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration.
 
 ### Insights
@@ -116,9 +125,9 @@ The following table describes the three most robust insights:
 
 |Insight  |Description  |
 |---------|---------|
-|Application Insights|Application Insights takes advantage of the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. You can use it to diagnose errors without waiting for a user to report them. Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes.|
-|Container Insights|Container insights gives you performance visibility into container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service. Container Insights collects container logs and metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.|
-|VM Insights|VM insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
+|[Application Insights](app/app-insights-overview.md)|Application Insights takes advantage of the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. You can use it to diagnose errors without waiting for a user to report them. Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes.|
+|[Container Insights](containers/container-insights-overview.md)|Container Insights gives you performance visibility into container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service. Container Insights collects container logs and metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.|
+|[VM Insights](vm/vminsights-overview.md)|VM Insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
 
 ### Visualizations
 
@@ -126,42 +135,30 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 
 |Visualization  |Description  |
 |---------|---------|
-|Dashboards|Azure dashboards allow you to combine different kinds of data into a single pane in the Azure portal. You can optionally share the dashboard with other Azure users. You can add the output of any log query or metrics chart to an Azure dashboard. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log query.|
-|Workbooks|Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. You can use them to query data from multiple data sources. Workbooks can combine and correlate data from multiple data sets in one visualization giving you easy visual representation of your system. Workbooks are interactive and can be shared across teams with data updating in real time. Use workbooks provided with Insights, utilize the library of templates, or create your own.|
-|Power BI|Power BI is a business analytics service that provides interactive visualizations across various data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these visualizations.|
-|Grafana|Grafana is an open platform that excels in operational dashboards. Grafana has popular plug-ins and dashboard templates for APM tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass. All versions of Grafana include the Azure Monitor data source plug-in to visualize your Azure Monitor metrics and logs. Azure Managed Grafana also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards.|
+|[Dashboards](visualize/tutorial-logs-dashboards.md)|Azure dashboards allow you to combine different kinds of data into a single pane in the Azure portal. You can optionally share the dashboard with other Azure users. You can add the output of any log query or metrics chart to an Azure dashboard. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log query.|
+|[Workbooks](visualize/workbooks-overview.md)|Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. You can use them to query data from multiple data sources. Workbooks can combine and correlate data from multiple data sets in one visualization giving you easy visual representation of your system. Workbooks are interactive and can be shared across teams with data updating in real time. Use workbooks provided with Insights, utilize the library of templates, or create your own.|
+|[Power BI](logs/log-powerbi.md)|Power BI is a business analytics service that provides interactive visualizations across various data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these visualizations.|
+|[Grafana](visualize/grafana-plugin.md)|Grafana is an open platform that excels in operational dashboards. Grafana has popular plug-ins and dashboard templates for APM tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass. All versions of Grafana include the Azure Monitor data source plug-in to visualize your Azure Monitor metrics and logs. Azure Managed Grafana also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards.|
 
 
 ## Respond
 
+An effective monitoring solution proactively responds to critical events, without the need for an individual or team to notice the issue. The response could be a text or email to an administrator, or an automated process that attempts to correct an error condition.
+
+- **[Alerts](alerts/alerts-overview.md)** notify you of critical conditions and can take corrective action. Alert rules can be based on metric or log data. Metric alert rules provide near-real-time alerts based on collected metrics. Log alerts rules based on logs allow for complex logic across data from multiple sources. 
+Alert rules use action groups, which can perform actions like sending email or SMS notifications. Action groups can send notifications using webhooks to trigger external processes or to integrate with your IT service management tools. Action groups, actions, and sets of recipients can be shared across multiple rules.
+- **[Autoscale](autoscale/autoscale-overview.md)** allows you to dynamically control the number of resources running to handle the load on your application. You can create rules that use Azure Monitor metrics to determine when to automatically add resources when the load increases or remove resources that are sitting idle. You can specify a minimum and maximum number of instances, and the logic for when to increase or decrease resources to save money and to increase performance.
+
 ## Integrate
 
-![Screenshot that shows Application Insights.](media/overview/app-insights.png)
-
-### Container insights
-
-![Screenshot that shows container health.](media/overview/container-insights.png)
-
-### VM insights
+You may need to integrate Azure Monitor with other systems or to build custom solutions that use your monitoring data. These Azure services work with Azure Monitor to provide integration capabilities.
 
 
-![Screenshot that shows VM insights.](media/overview/vm-insights.png)
-
-
-
-![Screenshot that shows alerts in Azure Monitor with severity, total alerts, and other information.](media/overview/alerts.png)
-
-
-![Diagram shows autoscale, with several servers on a line labeled Processor Time > 80% and two servers marked as minimum, three servers as current capacity, and five as maximum.](media/overview/autoscale.png)
-
-
-![Screenshot that shows an Azure dashboard, which includes Application and Security tiles and other customizable information.](media/overview/dashboard.png)
-
-![Screenshot that shows workbook examples.](media/overview/workbooks.png)
-
-
-![Screenshot that shows Power BI.](media/overview/power-bi.png)
-
+|Azure service  |Description  |
+|---------|---------|
+|[Event Hubs](../event-hubs/event-hubs-about.md)|Azure Event Hubs is a streaming platform and event ingestion service. It can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream Azure Monitor data to partner SIEM and monitoring tools.|
+|[Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor.|
+|[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 
 ## Next steps
 - [Getting started with Azure Monitor](getting-started.md)
