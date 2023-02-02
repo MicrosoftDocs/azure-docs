@@ -1,5 +1,5 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Azure CLI) | Microsoft Docs
+title: Schedule jobs with Azure IoT Hub (Azure CLI)
 description: How to schedule an Azure IoT Hub job to invoke a direct method and update device twin properties. You use the Azure CLI to simulate a device and schedule jobs for that simulated device.
 author: kgremban
 
@@ -100,7 +100,7 @@ To create and start a simulated device:
     *{HubName}*. The name of your IoT hub.
 
     ```azurecli
-    az iot hub device-identity create -d {DeviceName} -n {HubName} 
+    az iot hub device-identity create --device-id {DeviceName} --hub-name {HubName} 
     ```
 
 1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates the device you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
@@ -110,8 +110,9 @@ To create and start a simulated device:
     *{HubName}*. The name of your IoT hub.
     
     ```azurecli
-    az iot device simulate -d {DeviceName} -n {HubName} \
-                           --mrc 201 --mrp '{"result":"Direct method successful"}'
+    az iot device simulate --device-id {DeviceName} --hub-name {HubName} \
+                           --method-response-code 201 \
+                           --method-response-payload '{"result":"Direct method successful"}'
     ```
 
     > [!TIP]
@@ -125,16 +126,17 @@ In this section, you schedule a job in the second CLI session to invoke a direct
 
 1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no pre-existing method for the device. The command schedules a job that calls an example method name on the simulated device, providing a null value for the method's payload. The method provides a status code and payload in its response.
 
-    *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
-
     *{HubName}*. The name of your IoT hub.
+
+    *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
 
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
 
     *{DeviceName}*. The name of your simulated device.
 
     ```azurecli
-    az iot hub job create --job-id {JobName} --jt scheduleDeviceMethod -n {HubName} \
+    az iot hub job create --hub-name {HubName} --job-id {JobName} \
+                          --job-type scheduleDeviceMethod \
                           --method-name {MethodName} --method-payload 'null' \
                           --query-condition "deviceId = '{DeviceName}'"
     ```
@@ -154,18 +156,19 @@ In this section, you schedule a job in the second CLI session to update a desire
 
 1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, we're scheduling a job to set the value of the desired twin property `BuildingNo` to 45 for our simulated device.
 
-    *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
-
     *{HubName}*. The name of your IoT hub.
+
+    *{JobName}*. The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.
 
     *{DeviceName}*. The name of your simulated device.
 
     ```azurecli
-    az iot hub job create --job-id {JobName} --jt scheduleUpdateTwin -n {HubName} \
+    az iot hub job create --hub-name {HubName} --job-id {JobName} \
+                          --job-type scheduleUpdateTwin \
                           --twin-patch '{"properties":{"desired": {"BuildingNo": 45}}}' \
                           --query-condition "deviceId = '{DeviceName}'"
     ```
-1. In the first CLI session, confirm the output shows the update for the desired device twin property. 
+1. In the first CLI session, confirm the output shows the successful update for the reported device twin property, indicating that the desired device twin property was also updated. 
 
     :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-update-twin.png" alt-text="Screenshot of a simulated device displaying output after a device twin property was updated.":::
 

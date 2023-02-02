@@ -407,7 +407,7 @@
           items:
             - name: CLI
               displayName: jobs
-              href: cli-cli-schedule-jobs.md
+              href: schedule-jobs-cli.md
             - name: .NET
               displayName: jobs
               href: iot-hub-csharp-csharp-schedule-jobs.md
