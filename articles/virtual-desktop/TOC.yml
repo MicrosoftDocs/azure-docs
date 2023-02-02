@@ -205,8 +205,8 @@
         href: ./users/client-features-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
     - name: Configure device redirections
       href: configure-device-redirections.md
-  - name: Set up the PowerShell module
-    href: powershell-module.md
+  - name: Use Azure CLI and Azure PowerShell
+    href: cli-powershell.md
   - name: Create a host pool and session hosts
     items:
       - name: Create a host pool using PowerShell or the Azure CLI

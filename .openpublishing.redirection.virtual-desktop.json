@@ -129,6 +129,11 @@
             "source_path_from_root": "/articles/virtual-desktop/deploy-windows-7-virtual-machine.md",
             "redirect_url": "/azure/virtual-desktop/deploy-windows-server-virtual-machine",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/powershell-module.md",
+            "redirect_url": "/azure/virtual-desktop/cli-powershell",
+            "redirect_document_id": true
         }
     ]
 }
