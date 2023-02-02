@@ -53,8 +53,8 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
 | env *(optional)* | **avdarm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
-| launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided identity to that you can use to track in [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
-| peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided identity to that you can use to track in [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
+| launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
+| peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
 
 **Example:**
 ```
