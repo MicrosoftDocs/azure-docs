@@ -76,7 +76,7 @@ Change Compute profile after HCX upgrade to HCX Enterprise
 1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**
 2. Select services to be activated like, Replication Assisted vMotion (RAV), OS assisted Migration which is available with HCX Enterprise only.
 
-    <!-- add new image, :::image type="content" source="media/tutorial-vmware-hcx/edit-compute-profile-for-hcx-enterprise.png -->
+ IMAGE placeholder   <!-- add new image, :::image type="content" source="media/tutorial-vmware-hcx/edit-compute-profile-for-hcx-enterprise.png -->
 
 3. Select **Continue**, review the settings, then select **Finish** to create the Compute Profile.
 
