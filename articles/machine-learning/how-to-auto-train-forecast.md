@@ -18,6 +18,10 @@ show_latex: true
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
+> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
+> * [v1](./v1/how-to-auto-train-forecast-v1.md)
+> * [v2 (current version)](how-to-auto-train-forecast.md)
+
 In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
 
 To do so, you: 
@@ -141,6 +145,28 @@ Other settings are optional and reviewed in the [optional settings](#optional-se
 
 Optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. A complete list of parameters is available in the [forecast_settings API doc](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings).
 
+#### Model search settings
+
+There are two optional settings that control the model space where AutoML searches for the best model, `allowed_training_algorithms` and `blocked_training_algorithms`. To restrict the search space to a given set of model classes, use allowed_training_algorithms as in the following sample:
+
+```python
+# Only search ExponentialSmoothing and ElasticNet models
+forecasting_job.set_training(
+    allowed_training_algorithms=["ExponentialSmoothing", "ElasticNet"]
+)
+```
+
+In this case, the forecasting job _only_ searches over Exponential Smoothing and Elastic Net model classes. To remove a given set of model classes from the search space, use the blocked_training_algorithms as in the following sample:
+
+```python
+# Search over all model classes except Prophet
+forecasting_job.set_training(
+    blocked_training_algorithms=["Prophet"]
+)
+```
+
+Now, the job searches over all model classes _except_ Prophet. For a list of forecasting model names that are accepted in `allowed_training_algorithms` and `blocked_training_algorithms`, see [supported forecasting models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting) and [supported regression models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).  
+
 #### Enable deep learning
 
 AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
@@ -256,8 +282,6 @@ forecasting_job.set_forecast_settings(
     cv_step_size=7
 )
 ```
-
-One or both of these settings can be set to `"auto"` if you want AutoML to make the determination. 
 
 ### Custom featurization
 
