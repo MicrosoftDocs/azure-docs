@@ -307,7 +307,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select **Existing Azure Pipeline YAML File**
    
-   ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
+   ![Screenshot of Azure DevOps Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
 1. Select `main` as a branch and choose Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml` then select **Continue**.  
    
