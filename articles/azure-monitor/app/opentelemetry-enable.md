@@ -220,7 +220,7 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
     
-If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
