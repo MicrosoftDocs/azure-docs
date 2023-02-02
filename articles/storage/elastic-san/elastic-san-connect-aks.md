@@ -11,7 +11,9 @@ ms.subservice: elastic-san
 
 # Connect Elastic SAN volumes to AKS
 
-For AKS clusters connecting to Elastic SAN, we use an open source iSCSI csi driver enabled on the cluster to connect to our SAN volumes.  
+For AKS clusters connecting to Elastic SAN, use this [open source iSCSI csi driver](https://github.com/kubernetes-csi/csi-driver-iscsi) enabled on your cluster to connect Elastic SAN volumes. Because it's open source, Microsoft can't provide support for any issues with the driver, itself.
+
+With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster. 
 
 Volumes on your Elastic SAN can be accessed via the creation of Persistent volumes on the AKS cluster by using identifying information on the volume: the Target IQN & Target Portal Hostname. 
 
