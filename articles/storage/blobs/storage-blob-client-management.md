@@ -127,7 +127,6 @@ Add the following code to create the client object:
 
 ```python
 def get_blob_service_client(self, account_name):
-    # TODO: Replace <storage-account-name> with your actual storage account name
     account_url = f"https://{account_name}.blob.core.windows.net"
     credential = DefaultAzureCredential()
 
@@ -135,7 +134,6 @@ def get_blob_service_client(self, account_name):
     blob_service_client = BlobServiceClient(account_url, credential=credential)
 
     return blob_service_client
-
 ```
 
 ---
