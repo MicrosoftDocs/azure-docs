@@ -215,9 +215,7 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file.
-
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
