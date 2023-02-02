@@ -127,7 +127,7 @@ If any of the configuration you set while your packet core instance was running 
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/roll-back-packet-core.png" alt-text="Screenshot of the Azure portal showing the Rollback version option.":::
 
-1. In the **Roll back packet core** screen on the right, in the **Confirm reinstall** field, type **yes**.
+1. In the **Roll back packet core** screen on the right, in the **Confirm rollback** field, type **yes**.
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/confirm-rollback.png" alt-text="Screenshot of the Azure portal showing the Confirm rollback field in the Rollback packet core screen.":::
 
