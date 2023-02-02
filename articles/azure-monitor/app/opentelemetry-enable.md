@@ -648,10 +648,10 @@ for i in range(100):
 
 ## Instrumentation libraries
 
-The following libraries are validated to work with the preview release.
+The following libraries are validated to work with the current release.
 
 > [!WARNING]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
+> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
 ### Distributed Tracing
 
@@ -1438,7 +1438,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
 
 ### Get the trace ID or span ID
     
-You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+You might want to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
 
 > [!NOTE]
 > If you manually create spans for log-based metrics and alerting, you need to update them to use the metrics API (after it's released) to ensure accuracy.
@@ -2227,7 +2227,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
   
 #### [.NET](#tab/net)
   
-Coming soon.
+This is not available in .NET.
 
 #### [Java](#tab/java)
 
@@ -2304,7 +2304,7 @@ Coming soon.
  
 #### [Python](#tab/python)
   
-Coming soon.
+This is not available in Python.
 
 ---
 
