@@ -3,20 +3,30 @@ title: RDP Shortpath - Azure Virtual Desktop
 description: Learn about RDP Shortpath for Azure Virtual Desktop, which establishes a UDP-based transport between a Remote Desktop client and session host.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 02/02/2023
 ms.author: daknappe
 ---
 # RDP Shortpath for Azure Virtual Desktop
 
-Connections to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP). RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. Remote Desktop Protocol (RDP) by default uses a TCP-based reverse connect transport as it provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. However, if RDP Shortpath can be used instead, this UDP-based transport offers better connection reliability and more consistent latency.
+> [!IMPORTANT]
+> RDP Shortpath for public networks using TURN for Azure Virtual Desktop is currently in PREVIEW. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Connections to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP). RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. By default, Remote Desktop Protocol (RDP) tries to establish connection using UDP and uses a TCP-based reverse connect transport as a fallback connection mechanism. TCP-based reverse connect transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. UDP-based transport offers better connection reliability and more consistent latency.
 
 RDP Shortpath can be used in two ways:
 
-- **Managed networks**, where direct connectivity is established between the client and the session host when using a private connection, such as a virtual private network (VPN).
+1. **Managed networks**, where direct connectivity is established between the client and the session host when using a private connection, such as a virtual private network (VPN).
 
-- **Public networks**, where direct connectivity is established between the client and the session host through a NAT gateway, provided as part of the Azure Desktop service, when using a public connection.
+1. **Public networks**, where direct connectivity is established between the client and the session host when using a public connection. There are two connection types when using a public connection, which are listed here in order of preference:
+
+   1. A *direct* UDP connection using the Simple Traversal Underneath NAT (STUN) protocol between a client and session host.
+   
+   1. An *indirect* UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host. This is in preview.
 
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
+
+> [!IMPORTANT]
+> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
 
 ## Key benefits
 
@@ -66,24 +76,24 @@ If your users have both RDP Shortpath for managed network and public networks av
 
 # [Public networks](#tab/public-networks)
 
-When connecting to Azure Virtual Desktop using a public network, RDP Shortpath uses a standardized set of methods for traversal of NAT gateways. As a result, user sessions directly establish a UDP flow between the client and session host. More specifically, RDP Shortpath uses Simple Traversal Underneath NAT (STUN) protocol to discover the external IP address of the NAT router. 
+To provide the best chance of a UDP connection being successful when using a public connection, there are the *direct* and *indirect* connection types:
+
+- **Direct connection**: STUN is used to establish a direct UDP connection between a client and session host. To establish this connection, the client and session host must be able to connect to each other through a public IP address and negotiated port. However, most clients don't know their own public IP address as they sit behind a [Network Address Translation](#network-address-translation-and-firewalls) (NAT) gateway device. STUN is a protocol for the self-discovery of a public IP address from behind a NAT gateway device and the client to determine its own public-facing IP address. 
+
+  For a client to use STUN, its network must allow UDP traffic. Assuming both the client and session host can route to the other's discovered IP address and port directly, communication is established with direct UDP over the WebSocket protocol. If firewalls or other network devices block direct connections, an indirect UDP connection will be tried.
+
+- **Indirect connection**: TURN is used to establish an indirect connection, relaying traffic through an intermediate server between a client and session host when a direct connection is not possible. TURN is an extension of STUN. Using TURN means the public IP address and port is known in advance, which can be allowed through firewalls and other network devices.
+
+  TURN typically authorizes access to the server via username/password and its preferred mode of operation is to use UDP sockets. If firewalls or other network devices blocks UDP traffic, the connection will fall back to a TCP-based reverse connect transport.
+
+When a connection is being established, Interactive Connectivity Establishment (ICE) coordinates the management of STUN and TURN to optimize the likelihood of a connection being established, and ensure that precedence is given to preferred network communication protocols.
 
 Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (49152–65535 by default) that accepts the RDP Shortpath traffic. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
-
-There are four primary components used to establish the RDP Shortpath data flow for public networks:
-
-- Remote Desktop client
-
-- Session host
-
-- Azure Virtual Desktop Gateway
-
-- Azure Virtual Desktop STUN Server
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
 
-The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks and session hosts joined to Azure Active Directory (Azure AD).
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Azure Active Directory (Azure AD).
 
 :::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath-public-networks.svg":::
 
@@ -109,13 +119,13 @@ All connections begin by establishing a TCP-based [reverse connect transport](ne
 
 1. The Remote Desktop Services service uses each UDP socket allocated in the previous step to try reaching the Azure Virtual Desktop STUN Server on the public internet. Communication is done by sending a small UDP packet to port **3478**.
 
-1. If the packet reaches the STUN server, the STUN server responds with the public IP (specified by you or provided by Azure) and port. This information is stored in the candidate table as a *reflexive candidate*.
+1. If the packet reaches the STUN server, the STUN server responds with the public IP and port. This information is stored in the candidate table as a *reflexive candidate*.
 
 1. After the session host gathers all the candidates, the session host uses the established reverse connect transport to pass the candidate list to the client.
 
 1. When the client receives the list of candidates from the session host, the client also performs candidate gathering on its side. Then the client sends its candidate list to the session host.
 
-1. After the session host and client exchange their candidate lists, both parties attempt to connect with each other using all the gathered candidates. This connection attempt is simultaneous on both sides. Many NAT gateways are configured to allow the incoming traffic to the socket as soon as the outbound data transfer initializes it. This behavior of NAT gateways is the reason the simultaneous connection is essential.
+1. After the session host and client exchange their candidate lists, both parties attempt to connect with each other using all the gathered candidates. This connection attempt is simultaneous on both sides. Many NAT gateways are configured to allow the incoming traffic to the socket as soon as the outbound data transfer initializes it. This behavior of NAT gateways is the reason the simultaneous connection is essential. If STUN fails because it is blocked, an indirect connection attempt is made using TURN.
 
 1. After the initial packet exchange, the client and session host may establish one or many data flows. From these data flows, RDP chooses the fastest network path. The client then establishes a secure TLS connection with the session host and initiates RDP Shortpath transport.
 
@@ -124,7 +134,7 @@ All connections begin by establishing a TCP-based [reverse connect transport](ne
 If your users have both RDP Shortpath for managed network and public networks available to them, then the first-found algorithm will be used. The user will use whichever connection gets established first for that session.
 
 > [!IMPORTANT]
-> When using a TCP-based transport, outbound traffic from session host to client is through the Azure Virtual Desktop Gateway. With RDP Shortpath, outbound traffic is established directly between session host and client over the internet. This removes a hop which improves latency and end user experience. However, due to the changes in data flow between session host and client where the Gateway is no longer used, there will be standard [Azure egress network charges](https://azure.microsoft.com/pricing/details/bandwidth/) billed in addition per subscription for the internet bandwidth consumed. To learn more about estimating the bandwidth used by RDP, see [RDP bandwidth requirements](rdp-bandwidth.md).
+> When using a TCP-based transport, outbound traffic from session host to client is through the Azure Virtual Desktop Gateway. With RDP Shortpath for public networks using STUN, outbound traffic is established directly between session host and client over the internet. This removes a hop which improves latency and end user experience. However, due to the changes in data flow between session host and client where the Gateway is no longer used, there will be standard [Azure egress network charges](https://azure.microsoft.com/pricing/details/bandwidth/) billed in addition per subscription for the internet bandwidth consumed. To learn more about estimating the bandwidth used by RDP, see [RDP bandwidth requirements](rdp-bandwidth.md).
 
 ### Network configuration
 
@@ -137,19 +147,44 @@ If your users are in a scenario where RDP Shortpath for both managed network and
 > [!NOTE]
 > RDP Shortpath doesn't support Symmetric NAT, which is the mapping of a single private source *IP:Port* to a unique public destination *IP:Port*. This is because RDP Shortpath needs to reuse the same external port (or NAT binding) used in the initial connection. Where multiple paths are used, for example a highly available firewall pair, external port reuse cannot be guaranteed. Azure Firewall and Azure NAT Gateway use Symmetric NAT and so are not supported. For more information about NAT with Azure virtual networks, see [Source Network Address Translation with virtual networks](../virtual-network/nat-gateway/nat-gateway-resource.md#source-network-address-translation).
 
+#### TURN availability (preview)
+
+TURN is available is the following Azure regions:
+
+:::row:::
+    :::column:::
+        - Australia Southeast
+        - Central India
+        - East US
+        - East US 2
+        - France Central
+        - Japan West
+        - North Europe
+    :::column-end:::
+    :::column:::
+        - South Central US
+        - Southeast Asia
+        - UK South
+        - UK West
+        - West Europe
+        - West US
+        - West US 2
+    :::column-end:::
+:::row-end:::
+
 #### Session host virtual network
 
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
-| RDP Shortpath Server Endpoint | VM subnet | Any | Any | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN Access | VM subnet | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
+| STUN/TURN UDP | VM subnet | Any | 20.202.0.0/16 | 3478-3481 | UDP | Allow |
+| STUN/TURN TCP | VM subnet | Any | 20.202.0.0/16 | 443 | TCP | Allow |
 
 #### Client network
 
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
-| RDP Shortpath Server Endpoint | Client network | Any | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint) | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN Access | Client network | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
+| STUN/TURN UDP | Client network | Any | 20.202.0.0/16 | 3478-3481 | UDP | Allow |
+| STUN/TURN TCP | Client network | Any | 20.202.0.0/16 | 443 | TCP | Allow |
 
 ### Teredo support
 
