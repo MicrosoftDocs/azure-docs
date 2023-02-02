@@ -36,7 +36,11 @@ For example:
 
 :::image type="content" source="media/respond-ot-alert/change-alert-status.png" alt-text="Screenshot of changing an alert status on the Azure portal.":::
 
-Then, check the alert details page for the following details to aid in your investigation:
+> [!IMPORTANT]
+> If you're integrating with Microsoft Sentinel, make sure to manage your alert status only from the [incident](/azure/sentinel/investigate-incidents) in Microsoft Sentinel. Alerts statuses are not synchronized from Defender for IoT to Microsoft Sentinel.
+
+
+After updating the status, check the alert details page for the following details to aid in your investigation:
 
 - **Source and destination device details**. Source and destination devices are listed in **Alert details** tab, and also in the **Entities** area below, as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). In the **Entities** area, you'll use the links in the **Name** column to open the relevant device details pages for [further investigation](#investigate-related-alerts-on-the-azure-portal).
 

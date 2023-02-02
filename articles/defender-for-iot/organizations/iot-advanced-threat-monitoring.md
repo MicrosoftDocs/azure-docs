@@ -126,7 +126,7 @@ To open an alert in Defender for IoT for further investigation, go to your incid
 
 :::image type="content" source="media/iot-solution/investigate-in-iot.png" alt-text="Screenshot of the Investigate in Microsoft Defender for IoT option.":::
 
-The Defender for IoT alert details page opens for the related alert.
+The Defender for IoT alert details page opens for the related alert. For more information, see [Investigate and respond to an OT network alert](respond-ot-alert.md).
 
 ## Visualize and monitor Defender for IoT data
 
