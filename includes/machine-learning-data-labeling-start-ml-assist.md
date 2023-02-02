@@ -6,7 +6,7 @@ ms.date: 01/27/2023
 ms.author: sdgilley
 ---
 
-ML assisted labeling starts automatically after a certain number of items have been labeled.  This automatic threshhold varies by project.  However, you can manually start an ML assisted training run, as long as your your project contains at least some labeled data.
+ML assisted labeling starts automatically after some items have been labeled.  This automatic threshold varies by project.  However, you can manually start an ML assisted training run, as long as your project contains at least some labeled data.
 
 > [!NOTE]
 > On-demand training is not available for projects created before December, 2022.  Create a new project to use this feature.
