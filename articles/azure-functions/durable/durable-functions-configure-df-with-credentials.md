@@ -106,11 +106,11 @@ Give these three roles to your client application created with the following ste
 
 1. Navigate to function’s storage account Access Control(IAM), select add new role assignment. 
 
-   ![Access Control Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-02.png)
+   ![Access Control Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-02.png)
 
 2. Choose the required role, next, then search for your application, review and add. 
 
-   ![Role Assignment Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-03.png)
+   ![Role Assignment Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-03.png)
 
 ### Change Configuration 
 
@@ -124,7 +124,7 @@ For Azure Portal run and test, specify the following in your function’s **Conf
    * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint; AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
    The values for these Uri variables can be found in the storage account blade under the **Endpoints** tab. 
    
-   ![Endpoint Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-02.png)
+   ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Add client secret credentials by specifying the following values: 
    * AzureWebJobsStorage__clientId: MyClientId; 
@@ -134,7 +134,8 @@ For Azure Portal run and test, specify the following in your function’s **Conf
    * AzureWebJobsStorage__tenantId: MyTenantId. 
 
    Client Secret is saved when you create it, and the other two id can be found on your client application’s overview page. 
-   ![client secret Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-04.png)
+   
+   ![client secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
 
 
 ## (Optional) custom non-AzureWebJobsStorage connection  
@@ -156,4 +157,5 @@ Durable Function supports using a separate storage account for Durable Task rela
     ```
 
 2. In function’s configuration or local.settings.json , add value  **mySeparateStorageAccount: storage account connection string**. Connection string can be found in the storage account’s Access keys: 
-   ![connection string Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-option-scenario-01.png)
+
+   ![connection string Sample](media/durable-functions-configure-df-with-credentials/durable-functions-option-scenario-01.png)
