@@ -87,7 +87,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### Agari Phishing Defense and Brand Protection
 
-- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) in Microsoft Sentinel.
+- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md) in Microsoft Sentinel.
 
 ### Anomali ThreatStream
 
