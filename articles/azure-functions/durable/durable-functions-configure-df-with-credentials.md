@@ -29,11 +29,11 @@ In particular, this QuickStart assumes that you have already:
 
 ### Enable Managed Identity
 
-Only one identity is needed for your function, either a system-assignedidentity or a user-assigned identity. To enable Managed Identity for your function and know the difference between the two identities, follow the detailed instruction here [Managed identities](../../app-service/overview-managed-identity.md).   
+Only one identity is needed for your function, either a **system-assignedidentity** or a **user-assigned identity**. To enable Managed Identity for your function and know the difference between the two identities, follow the detailed instruction here [Managed identities](../../app-service/overview-managed-identity.md).   
 
 ### Give managed identity the RBAC resources 
 
-In the function’s associated storage account page, give these three roles to the managed identity in last step according to this [page](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
+In the function’s associated storage account page, give these three roles to the managed identity created in last step according to this [instruction](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
 * Storage Queue Data Contributor 
 
 * Storage Blob Data Contributor 
@@ -92,6 +92,7 @@ In particular, this quickstart assumes that you have already:
    1. Select Certificates & Secrets and select New Client Secret.  
    2. Add description and select secret valid time in Expires field.  
    3. After creating the new secret, copy and save the secret value carefully because it will not show up again.  
+   
    ![Client Secret Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-01.png)
 
 ### Give Client Application the RBAC resources 
@@ -104,9 +105,11 @@ Give these three roles to your client application created with the following ste
 * Storage Table Data Contributor 
 
 1. Navigate to function’s storage account Access Control(IAM), select add new role assignment. 
+
    ![Access Control Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-02.png)
 
 2. Choose the required role, next, then search for your application, review and add. 
+
    ![Role Assignment Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-03.png)
 
 ### Change Configuration 
@@ -120,6 +123,7 @@ For Azure Portal run and test, specify the following in your function’s **Conf
 
    * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint; AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
    The values for these Uri variables can be found in the storage account blade under the **Endpoints** tab. 
+   
    ![Endpoint Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-02.png)
 
 3. Add client secret credentials by specifying the following values: 
