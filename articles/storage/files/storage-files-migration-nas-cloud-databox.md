@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 12/15/2022
 ms.author: kendownie
 ms.subservice: files
+recommendations: false
 ---
 
 # Use DataBox to migrate from Network Attached Storage (NAS) to Azure file shares

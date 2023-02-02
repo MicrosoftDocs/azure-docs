@@ -100,6 +100,8 @@ For **all** containers, your partition key should:
 
 * Spread request unit (RU) consumption and data storage evenly across all logical partitions. This ensures even RU consumption and storage distribution across your physical partitions.
 
+* Have values that are no larger than 2048 bytes typically, or 101 bytes if large partition keys are not enabled. For more information, see [large partition keys](large-partition-keys.md)
+
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
 
 > [!NOTE]

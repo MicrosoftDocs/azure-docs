@@ -13,12 +13,11 @@ ms.author: kgremban
 
 This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=cli).
 
 ## Prerequisites
 
 The procedures that are described in the article use the following resources:
-
 * The Azure CLI
 * An IoT hub
 * An endpoint service in Azure
@@ -27,7 +26,7 @@ The procedures that are described in the article use the following resources:
 
 This article uses the Azure CLI to work with IoT Hub and other Azure services. You can choose how you access the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### IoT hub
 
@@ -42,6 +41,7 @@ Be sure to have the following hub resource to use when you create your IoT hub r
 To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages and event logs. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queues or topics, or Azure Storage. The service that you use to create your endpoint must first exist in your Azure account.
 
 Decide which route type you want to create: an event hub, a Service queue or topic, or a storage account. For the service you choose to use, complete the steps to create an endpoint service.
+
 
 # [Event Hubs](#tab/eventhubs)
 
@@ -66,13 +66,13 @@ You can choose an Event Hubs resource (namespace and entity).
    > [!TIP]
    > The `name` parameter's value `RootManageSharedAccessKey` is the default name that allows **Manage, Send, Listen** claims (access). If you want to restrict the claims, give the `name` parameter your own unique name and include the `--rights` flag followed by one of the claims. For example, `--name my-name --rights Send`.
 
-   For more information about access, see [Authorize access to Azure Event Hubs](/azure/event-hubs/authorize-access-event-hubs).
+   For more information about access, see [Authorize access to Azure Event Hubs](../event-hubs/authorize-access-event-hubs.md).
 
    ```azurecli
    az eventhubs eventhub authorization-rule create --resource-group my-resource-group --namespace-name my-routing-namespace --eventhub-name my-event-hubs --name RootManageSharedAccessKey
    ```
 
-For more information, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
+For more information, see [Quickstart: Create an event hub by using the Azure CLI](../event-hubs/event-hubs-quickstart-cli.md).
 
 # [Service Bus queue](#tab/servicebusqueue)
 
@@ -110,7 +110,7 @@ To create Service Bus queue resources:
 
    For more authorization rule options, see [az servicebus queue authorization-rule create](/cli/azure/servicebus/queue/authorization-rule#az-servicebus-queue-authorization-rule-create).
 
-For more information, see [Use the Azure CLI to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-cli).
+For more information, see [Use the Azure CLI to create a Service Bus namespace and a queue](../service-bus-messaging/service-bus-quickstart-cli.md).
 
 # [Service Bus topic](#tab/servicebustopic)
 
@@ -152,7 +152,7 @@ To create Service Bus topic resources:
    az servicebus topic subscription rule create --resource-group my-resource-group --namespace-name my-namespace --topic-name my-topic --subscription-name my-subscription --name my-filter --filter-sql-expression "my-sql-expression"  
    ```
 
-For more information, see [Use Azure CLI to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli).
+For more information, see [Use Azure CLI to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli.md).
 
 # [Azure Storage](#tab/azurestorage)
 
@@ -183,7 +183,25 @@ You can choose an Azure Storage resource (account and container).
    }
    ```
 
-For more information, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli).
+For more information, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli).
+
+# [Cosmos DB](#tab/cosmosdb)
+
+You can choose a Cosmos DB endpoint.
+
+### Create an Azure Storage resource with container
+
+1. Create a new Cosmos DB account for SQL API
+   ```azurecli
+   az group create --name my-resource-group --location "eastus" 
+   az cosmosdb create --name my-cosmosdb-account --resource-group my-resource-group 
+   ```
+2. Create a Cosmos DB container
+   ```azurecli
+   az cosmosdb sql database create --account-name my-cosmosdb-account --resource-group my-resource-group --name my-cosmosdb-database
+   az cosmosdb sql container create --account-name my-cosmosdb-account --resource-group my-resource-group --database-name my-cosmosdb-database --name my-cosmosdb-database-container --partition-key-path "/my/path"
+   ```
+For more information, see [Create an Azure Cosmos DB for NoSQL](/cosmos-db/scripts/cli/nosql/create).
 
 ---
 
@@ -283,6 +301,32 @@ The commands in the following procedures use these references:
 
    For more parameter options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
 
+# [Cosmos DB](#tab/cosmosdb)
+
+References used in the following commands:
+* [az cosmosdb](/cli/azure/cosmosdb)
+* [az iot hub](/cli/azure/iot/hub)
+
+### Create a Cosmos DB endpoint
+
+1. Find the Cosmos DB connection string and copy for later use.
+
+   ```azurecli
+   az cosmosdb keys list --name my-cosmosdb-account --resource-group my-resource-group --type connection-strings
+   ```
+
+1. Create your custom endpoint. Use the connection string in this command that you copied in the last step. The `endpoint-type` must be `eventhub`, otherwise all other values should be your own.
+
+   ```azurecli
+   az iot hub message-endpoint cosmosdb-collection create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-cosmosdb-endpoint --endpoint-account my-cosmosdb-account --database-name my-cosmosdb-database --container my-cosmosdb-database-container --connection-string "copied-connection-string"
+   ```
+> [!NOTE]
+> If you are using managed identities instead of connection string, you have to use the following command to authenticate your identity to the CosmosDB account.
+   To see all routing endpoint options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
+   
+   ```azurecli
+   az cosmosdb sql role assignment create -a my-cosmosdb-account -g my-resource-group --scope '/' -n 'Cosmos DB Built-in Data Contributor' -p "IoT Hub System Assigned or User Assigned Identity"
+   ```
 ---
 
 ## Create an IoT Hub route
@@ -410,7 +454,37 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
         "source": "DeviceConnectionStateEvents"
       }
    ```
+# [Cosmos DB](#tab/cosmosdb)
 
+1. With your existing Cosmos DB endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+
+   ```azurecli
+   az iot hub route create --endpoint my-cosmosdb-endpoint --hub-name my-iot-hub --route-name my-cosmosdb-route --source deviceconnectionstateevents
+   ```
+
+1. A new route should show in your IoT hub. Run this command to confirm the route is there.
+
+   ```azurecli
+   az iot hub route list -g my-resource-group --hub-name my-iot-hub
+   ```
+   
+   You should see a similar response in your console.
+
+   ```json
+   [
+      {
+        "condition": "true",
+        "endpointNames": [
+          "my-cosmosdb-endpoint"
+        ],
+        "isEnabled": true,
+        "name": "my-cosmosdb-route",
+        "source": "DeviceConnectionStateEvents"
+      }
+   ]
+   ```
 ---
 
 ### Update an IoT Hub route
@@ -452,4 +526,5 @@ az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub
 
 In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
-To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+

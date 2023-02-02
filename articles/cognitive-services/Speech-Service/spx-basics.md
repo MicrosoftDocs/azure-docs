@@ -140,7 +140,7 @@ You can also save the synthesized output to a file. In this example, let's creat
 spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
-These examples presume that you're testing in English. However, Speech service supports speech synthesis in many languages. You can pull down a full list of voices either by running the following command or by visiting the [language support page](./language-support.md?tabs=stt-tts).
+These examples presume that you're testing in English. However, Speech service supports speech synthesis in many languages. You can pull down a full list of voices either by running the following command or by visiting the [language support page](./language-support.md?tabs=tts).
 
 ```console
 spx synthesize --voices
@@ -149,7 +149,7 @@ spx synthesize --voices
 Here's a command for using one of the voices you've discovered.
 
 ```console
-spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
+spx synthesize --text "Bienvenue chez moi." --voice fr-FR-AlainNeural --speakers
 ```
 
 > [!TIP]
@@ -176,7 +176,7 @@ spx translate --file /some/file/path/input.wav --source en-US --target ru-RU --o
 ```
 
 > [!NOTE]
-> For a list of all supported languages and their corresponding locale codes, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+> For a list of all supported languages and their corresponding locale codes, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help translate```.

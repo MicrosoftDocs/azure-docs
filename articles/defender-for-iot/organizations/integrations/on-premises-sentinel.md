@@ -12,7 +12,7 @@ You can [stream Microsoft Defender for IoT data into Microsoft Sentinel](../iot-
 
 However, if you're working either in a hybrid environment, or completely on-premises, you might want to stream data in from your locally-managed sensors to Microsoft Sentinel. To do this, create forwarding rules on either your OT network sensor, or for multiple sensors from an on-premises management console.
 
-Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network. For more information, see [Microsoft Sentinel documentation](/azure/sentinel/).
+Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network. For more information, see [Microsoft Sentinel documentation](../../../sentinel/index.yml).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 - Access to the OT network sensor or on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
-- A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](/azure/sentinel/connect-common-event-format).
+- A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](../../../sentinel/connect-common-event-format.md).
 
 - If you want to encrypt the data you send to Microsoft Sentinel using TLS, make sure to generate a valid TLS certificate from the proxy server to use in your forwarding alert rule.
 
@@ -47,4 +47,4 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 > [Stream data from cloud-connected sensors](../iot-solution.md)
 
 > [!div class="nextstepaction"]
-> [Investigate in Microsoft Sentinel](/azure/sentinel/investigate-cases)
+> [Investigate in Microsoft Sentinel](../../../sentinel/investigate-cases.md)

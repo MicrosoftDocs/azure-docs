@@ -40,7 +40,7 @@ Once a service connection is created, developers can validate and check the heal
 **Compute Services:**
 
 * Azure App Service
-* Azure Spring Cloud
+* Azure Spring Apps
 * Azure Container Apps
 
 **Target Services:**

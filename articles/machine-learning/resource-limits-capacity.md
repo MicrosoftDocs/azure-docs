@@ -5,7 +5,7 @@ description: Service limits used for capacity planning and maximum limits on req
 services: machine-learning
 author: blackmist
 ms.author: larryfr
-ms.reviewer: mldocs
+ms.reviewer: larryfr
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core

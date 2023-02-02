@@ -53,7 +53,7 @@ When a snapshot has not completed for a given table, there are two possible case
 
 ### Step 2: Snapshot retry
 
-If errors have forced the snapshot to retry, find more information in the [changefeed.change_feed_errors](/sql/relational-databases/system-tables/changefeed-change-feed-errors-transact-sql) dynamic management view. Run the following T-SQL command in the source database:
+If errors have forced the snapshot to retry, find more information in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors) dynamic management view. Run the following T-SQL command in the source database:
 
 ```sql
 SELECT * FROM sys.dm_change_feed_errors;

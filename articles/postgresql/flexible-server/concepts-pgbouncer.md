@@ -1,8 +1,8 @@
 ---
 title: PgBouncer - Azure Database for PostgreSQL - Flexible Server
 description: This article provides an overview with the built-in PgBouncer extension.
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

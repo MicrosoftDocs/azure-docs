@@ -18,7 +18,7 @@ ms.reviewer: dbakevlar
 
 This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.1 and higher. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database. We recommend using Oracle 12.x or higher. 
 
