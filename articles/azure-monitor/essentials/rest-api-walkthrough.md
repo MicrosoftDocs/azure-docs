@@ -10,66 +10,21 @@ ms.reviewer: edbaynash
 
 # Azure monitoring REST API walkthrough
 
-This article shows you how to perform authentication so your code can use the [Azure Monitor REST API reference](/rest/api/monitor/).
+This article shows you how to use the [Azure Monitor REST API reference](/rest/api/monitor/).
 
-The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, dimension values, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there, more analysis can be performed as needed.
-
-The Azure Monitor API also makes it possible to list alert rules, view activity logs. For a full list of available operations, see the [Azure Monitor REST API reference](/rest/api/monitor/).
+Retrieve metric definitions, dimension values, and metric values using the Azure Monitor API and use the data in your applications, or store in a database for analysis. You can also list alert rules and view activity logs using the Azure Monitor API.
 
 ## Authenticate Azure Monitor requests
 
-Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure Active Directory). One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve the authentication (JWT) token.
+Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Azure Active Directory. One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve the authentication token. See 
 
 ## Create an Azure Active Directory service principal
 
-### [Azure portal](#tab/portal)
+You can create an Azure Active Directory service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
 
-To create an Azure Active Directory service principal using the Azure portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
-
-### [Azure CLI](#tab/cli)
-
-
-Run the following script to create a service principal and app. 
-
-```azurecli
-az ad sp create-for-rbac -n <Service principal display name> 
-
-```
-The response looks as follows:
-```JSON
-{
-  "appId": "0a123b56-c987-1234-abcd-1a2b3c4d5e6f",
-  "displayName": "AzMonAPIApp",
-  "password": "123456.ABCDE.~XYZ876123ABcEdB7169",
-  "tenant": "a1234bcd-5849-4a5d-a2eb-5267eae1bbc7"
-}
-
-```
->[!Important]
-> The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control.
-
-Add a role and scope for the resource that you want to access using the API
-
-```azurecli
-az role assignment create --assignee <`appId`> --role <Role> --scope <resource URI>
-```
-
-The example below assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
-```azurecli
- az role assignment create --assignee 0a123b56-c987-1234-abcd-1a2b3c4d5e6f --role Reader --scope '\/subscriptions/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/rg-001'
-```
-For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
-
-
-### [PowerShell](#tab/powershell) 
-
-To create an Azure Active Directory service principal using thePowershell, see [using Azure PowerShell to create a service principal for accessing resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
-
----
 
 ## Retrieve a token
-
-To retrieve an access token using a REST call submit the following request using the `appId` and `password` for your service principal and app:
+Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
 
 ```HTTP
 
@@ -108,7 +63,7 @@ A successful request receives an access token in the response:
 
 
 
-After authenticating and retrieving a token, use the access token in your Azure Monitor API requests. 
+After authenticating and retrieving a token, use the access token in your Azure Monitor API requests by including the header  `'Authorization: Bearer <access token>'`
 
 > [!NOTE]
 > For more information on working with the Azure REST API, see the [Azure REST API reference](/rest/api/azure/).
@@ -117,6 +72,7 @@ After authenticating and retrieving a token, use the access token in your Azure 
 ## Retrieve metric definitions
 
 Use the [Azure Monitor Metric Definitions REST API](/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
+Use the following request format to retrieve metric definitions.
 
 ```HTTP
 GET /subscriptions/<subscription id>/resourcegroups/<resourceGroupName>/providers/<resourceProviderNamespace>/<resourceType>/<resourceName>/providers/microsoft.insights/metricDefinitions?api-version=<apiVersion>
@@ -126,7 +82,7 @@ Authorization: Bearer <access token>
 
 ```
 
-For example, The request below retrieves the metric definitions for an Azure Storage account
+For example, The following request retrieves the metric definitions for an Azure Storage account
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01'
@@ -162,10 +118,7 @@ In this example, only the second metric has dimensions.
                     "timeGrain": "PT1H",
                     "retention": "P93D"
                 },
-                {
-                    "timeGrain": "PT6H",
-                    "retention": "P93D"
-                },
+                 ...
                 {
                     "timeGrain": "PT12H",
                     "retention": "P93D"
@@ -200,10 +153,7 @@ In this example, only the second metric has dimensions.
                     "timeGrain": "PT5M",
                     "retention": "P93D"
                 },
-                {
-                    "timeGrain": "PT15M",
-                    "retention": "P93D"
-                },
+                ...
                 {
                     "timeGrain": "PT30M",
                     "retention": "P93D"
@@ -212,14 +162,7 @@ In this example, only the second metric has dimensions.
                     "timeGrain": "PT1H",
                     "retention": "P93D"
                 },
-                {
-                    "timeGrain": "PT6H",
-                    "retention": "P93D"
-                },
-                {
-                    "timeGrain": "PT12H",
-                    "retention": "P93D"
-                },
+                ...
                 {
                     "timeGrain": "P1D",
                     "retention": "P93D"
@@ -249,14 +192,15 @@ In this example, only the second metric has dimensions.
 
 ## Retrieve dimension values
 
-After the retrieving the available metric definitions for metrics with dimensions, retrieve the range of values for the dimensions. Use the  dimension values to filter or segment the metrics based in your queries. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all the possible values for a given metric dimension.
+After the retrieving the available metric definitions,  retrieve the range of values for the metric's dimensions. Use dimension values to filter or segment the metrics in your queries. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all of the values for a given metric dimension.
 
-Use the metric's name `value` (not `localizedValue`) for any filtering requests. If no filters are specified, the default metric is returned. The use of this API only allows one dimension to have a wildcard filter. The key difference between a dimension values request and a metric data request is specifying the `"resultType=metadata"` query parameter.
+Use the metric's `name.value` element for filtering requests. If no filters are specified, the default metric is returned. The API only allows one dimension to have a wildcard filter. 
+Specify the request for dimension values using the `"resultType=metadata"` query parameter. The `resultType` is omitted for a metric values request.
 
 > [!NOTE]
 > To retrieve dimension values by using the Azure Monitor REST API, use the API version "2019-07-01" or later.
 >
-
+Use the following request format to retrieve dimension values.
 ```HTTP
 GET /subscriptions/<subscription-id>/resourceGroups/  
 <resource-group-name>/providers/<resource-provider-namespace>/  
@@ -330,9 +274,9 @@ The following JSON shows an example response body.
 
 ## Retrieve metric values
 
-After the available metric definitions and possible dimension values are known, it's then possible to retrieve the related metric values. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to retrieve the metric values.
+After the available metric definitions and dimension values are known, you can then retrieve the metric values. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to retrieve the metric values.
 
-Use the metric's `value` element (not `localizedValue`) for any filtering requests. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
+Use the metric's `name.value` element (not `localizedValue`) for any filtering requests. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
 
 To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`.   
 
@@ -341,6 +285,8 @@ To return a time series for every value of a given dimension, use an `*` filter 
 > [!NOTE]
 > To retrieve multi-dimensional metric values using the Azure Monitor REST API, use the API version "2019-07-01" or later.
 >
+
+Use the following request format to retrieve metric values.
 
 ```HTTP
 GET /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<resource-provider-namespace>/<resource-type>/<resource-name>/providers/microsoft.insights/metrics?metricnames=<metric>&timespan=<starttime/endtime>&$filter=<filter>&interval=<timeGrain>&aggregation=<aggreation>&api-version=<apiVersion>
@@ -546,36 +492,42 @@ host: management.azure.com
 
 **$filter** reduces the set of data collected.
 This argument is required and it also requires at least the start date/time.
-The $filter argument is very restricted and allows only the following patterns.
+The $filter argument accepts the following patterns:
 - List events for a resource group: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceGroupName eq 'resourceGroupName'.
 - List events for resource: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceUri eq 'resourceURI'.
 - List events for a subscription in a time range: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z'.
 - List events for a resource provider: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceProvider eq 'resourceProviderName'.
-- List events for a correlation Id: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and correlationId eq 'correlationID'.
-
-NOTE: No other syntax is allowed.
+- List events for a correlation ID: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and correlationId eq 'correlationID'.
 
 
-**$select** is used to fetch events with only the given properties.
-The $select argument is a comma separated list of property names to be returned. Possible values are: authorization, claims, correlationId, description, eventDataId, eventName, eventTimestamp, httpRequest, level, operationId, operationName, properties, resourceGroupName, resourceProviderName, resourceId, status, submissionTimestamp, subStatus, subscriptionId
+**$select** is used to fetch a specified list of properties for the returned events.
+The $select argument is a comma separated list of property names to be returned. 
+Valid values are: 
+`authorization`, `claims`, `correlationId`, `description`, `eventDataId`, `eventName`, `eventTimestamp`, `httpRequest`, `level`, `operationId`, `operationName`, `properties`, `resourceGroupName`, `resourceProviderName`, `resourceId`, `status`, `submissionTimestamp`, `subStatus`, and `subscriptionId`.
 
 The following sample requests use the Azure Monitor REST API to query an activity log.
-
 ### Get activity logs with filter:
+
+The following example gets the activity logs for resource group "MSSupportGroup" between the dates 2023-03-21T20:00:00Z and 2023-03-24T20:00:00Z
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
 ### Get activity logs with filter and select:
 
+The following example gets the activity logs for resource group "MSSupportGroup", between the dates 2023-03-21T20:00:00Z and 2023-03-24T20:00:00Z, returning the elements eventName,operationName,status,eventTimestamp,correlationId,submissionTimestamp, and level
 ```HTTP
-GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-01-21T20:00:00Z' and eventTimestamp le '2023-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z'and resourceGroupName eq 'MSSupportGroup'&$select=eventName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
 
 ## Troubleshooting
 
-If you receive a 429, 503, or 504 error, retry the API in one minute.
+You may receive one of the following HTTP error statuses:
+* 429 Too Many Requests
+* 503 Service Unavailable
+* 504 Gateway Timeout
+If one of these statuses is returned, resend the request.
 
 ## Next steps
 

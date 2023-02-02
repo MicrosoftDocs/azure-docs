@@ -69,7 +69,7 @@ Add a role and scope for the resources that you want to access using the API
 az role assignment create --assignee <`appId`> --role <Role> --scope <resource URI>
 ```
 
-The CLI example below assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
+The CLI following example assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
 
 ```azurecli
  az role assignment create --assignee 0a123b56-c987-1234-abcd-1a2b3c4d5e6f --role Reader --scope '\/subscriptions/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/rg-001'
@@ -77,8 +77,7 @@ The CLI example below assigns the `Reader` role to the service principal for all
 For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 ### [PowerShell](#tab/powershell)
-The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
-
+The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see [using Azure PowerShell to create a service principal to access resources](../../../active-directory/develop/howto-authenticate-service-principal-powershell.md)  
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
