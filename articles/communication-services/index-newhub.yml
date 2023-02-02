@@ -11,8 +11,7 @@ metadata:
   ms.topic: hub-page
   author: sroons
   ms.author: serooney
-  ms.date: 03/15/2023
-
+  ms.date: 02/15/2023
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 highlightedContent: 
   items:
@@ -36,9 +35,7 @@ highlightedContent:
       url: /rest/api/communication/
     - title: ACS UI Library
       itemType: concept
-      url:./concepts/ui-library/ui-library-overview.md
-
-
+      url: ./concepts/ui-library/ui-library-overview.md
 productDirectory: 
 title: Communication Channels
 summary: Learn about our core services which you can combine and integrate to create your own custom communication solutions.
@@ -56,7 +53,6 @@ items:
         text: Chat SDK overview
       - url: ./samples/chat-hero-sample.md
         text: Get started with the chat hero sample
-
   - title: Email
     imageSrc: ./media/icons/email-icon.png
     links:
@@ -71,7 +67,7 @@ items:
       - url: ./concepts/email/sdk-features.md
         text: Email client library
   
-  - title: Telephony and phone numbers
+  - title: Phone calling
     imageSrc: ./media/icons/phone-icon.png
     links:
       - url: ./concepts/telephony/telephony-concept.md
@@ -83,9 +79,7 @@ items:
       - url: ./quickstarts/access-tokens.md
         text: Get a user access token
       - url: ./how-tos/calling-sdk/manage-calls.md
-        text: Calling libraries
-      
-
+        text: Calling libraries   
   - title: Voice and Video Calling
     imageSrc: ./media/icons/video-icon.png
     links:
@@ -113,23 +107,20 @@ items:
         text: How to set up a phone number
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
-  
-  - title: Teams Interoperability
-    imageSrc: ./media/icons/teams-icon-small.svg
-    links:
-      - url: ./concepts/teams-interop.md
-        text: Overview of teams interoperability
-      - url: ./concepts/custom-teams-endpoint-use-cases.md
-        text: Teams interop use cases
-      - url: ./concepts/interop/guest/overview.md
-        text: Communications as an external user
-      - url: ./concepts/teams-endpoint.md
-        text: Communications as a Teams user
-      - url: ./concepts/interop/teams-user/meeting-capabilities.md
-        text: Meeting capabilities for an external user
-
 additionalContent:
   sections:
+    -title: Enhance Your App with Azure Communication Services
+     summary: Learn how to enhance your core channels with Azure Communication Services.
+     items:
+      - title: Teams Interoperability
+        summary: Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings and chats.
+        url: ./concepts/teams-interop.md
+      - title: Call Automation
+        summary: Call Automation provides a new set of APIs to help developers build server-based, intelligent calling workflows.
+        url: ./concepts/call-automation/call-automation.md
+      - title: UI Library
+        summary: UI Library gives you a library of production-ready UI components to easily build modern communications user experiences using Azure Communication Services.
+        url: ./concepts/ui-library/ui-library-overview.md    
     - title: Core Scenarios
       summary: Whether you're just starting or have lots of experience, our pre-built communications solutions help you arrive at your business goals quickly and effectively.
       items:
