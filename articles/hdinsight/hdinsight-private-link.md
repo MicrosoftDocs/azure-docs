@@ -119,7 +119,8 @@ To create the private endpoints:
     :::image type="content" source="media/hdinsight-private-link/basic-tab-private-endpoint.png" alt-text="Diagram of the Private Link basic tab.":::
     :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab":::
     :::image type="content" source="media/hdinsight-private-link/virtual-network-tab-private-endpoint.png" alt-text="Diagram of the Private Link virtual network tab.":::
-    :::image type="content" source="media/hdinsight-private-link/tag-tab-private-endpoin.png" alt-text="Diagram of the Private Link tag tab.":::
+    :::image type="content" source="media/hdinsight-private-link/dns-tab-private-endpoint.png" alt-text="Diagram of the Private Link dns end point tab.":::
+    :::image type="content" source="media/hdinsight-private-link/tag-tab-private-endpoint.png" alt-text="Diagram of the Private Link tag tab.":::
     :::image type="content" source="media/hdinsight-private-link/review-tab-private-endpoint.png" alt-text="Diagram of the Private Link review-tab.":::
        
 4. Repeat the process to create another private endpoint for SSH access using the following configurations:
