@@ -57,7 +57,7 @@ az network vnet subnet update \
     --disable-private-link-service-network-policies true 
 ```
 
-# [JSON](#tab/private-link-network-policy-json)
+# [**JSON**](#tab/private-link-network-policy-json)
 
 This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
 ```json
