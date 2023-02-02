@@ -27,9 +27,7 @@ The pillars of observability are the different kinds of data that a monitoring t
 When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
 Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
-## Common use cases for Azure Monitor
-
-A few examples of what you can do with Azure Monitor include:
+Examples of what you can do with Azure Monitor include:
 
 - Detect and diagnose issues in your applications using [Application Insights](app/app-insights-overview.md).
 - Troubleshoot by drilling into your monitoring data using [Log Analytics](logs/log-query-overview.md).
@@ -95,25 +93,6 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 |Traces|Distributed traces identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
 |Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
 
-## The Azure portal
-
-The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments in the portal. 
-The Monitor section of the Azure portal provides a visual interface that gives you access to the data collected for Azure resources and an easy way to access the tools, insights, and visualizations in Azure Monitor.
-
-:::image type="content" source="media/overview/azure-portal.png" alt-text="Screenshot that shows the Monitor section of the Azure portal.":::
-
-### Metrics explorer
-
-The [Azure Monitor metrics explorer](essentials/metrics-getting-started.md) user interface in the Azure portal helps you plot charts, visually correlate trends, and investigate spikes and dips in metric values. Use metrics explorer to investigate the health and utilization of your resources.
-
-Metrics explorer contains features that allow you to apply dimensions and filtering, and to customize the chart to analyze exactly the data you need and make it as visually intuitive as possible.
-
-### Log Analytics
-
-The [Log Analytics](logs/log-analytics-overview.md) user interface in the Azure portal, helps you query the log data collected by Azure Monitor so that you can quickly retrieve, consolidate, and analyze collected data. After creating test queries, you can then directly analyze the data with Azure Monitor tools, or you can save the queries for use with visualizations or alert rules.
-Log Analytics workspaces are based on Azure Data Explorer, using a powerful analysis engine and the rich Kusto query language (KQL).
-Azure Monitor Logs uses a version of the Kusto Query Language suitable for simple log queries, as well as advanced functionality such as aggregations, joins, and smart analytics. You can [get started with KQL](logs/get-started-queries.md) quickly and easily.
-
 ## Insights and Visualizations
 
 Insights and visualizations help increase your visibility into the operation of your computing environment. Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration.
@@ -139,6 +118,25 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 |[Workbooks](visualize/workbooks-overview.md)|Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. You can use them to query data from multiple data sources. Workbooks can combine and correlate data from multiple data sets in one visualization giving you easy visual representation of your system. Workbooks are interactive and can be shared across teams with data updating in real time. Use workbooks provided with Insights, utilize the library of templates, or create your own.|
 |[Power BI](logs/log-powerbi.md)|Power BI is a business analytics service that provides interactive visualizations across various data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these visualizations.|
 |[Grafana](visualize/grafana-plugin.md)|Grafana is an open platform that excels in operational dashboards. Grafana has popular plug-ins and dashboard templates for APM tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass. All versions of Grafana include the Azure Monitor data source plug-in to visualize your Azure Monitor metrics and logs. Azure Managed Grafana also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards.|
+
+## Analyze data in the Azure portal
+
+The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments in the portal. 
+The Monitor section of the Azure portal provides a visual interface that gives you access to the data collected for Azure resources and an easy way to access the tools, insights, and visualizations in Azure Monitor.
+
+:::image type="content" source="media/overview/azure-portal.png" alt-text="Screenshot that shows the Monitor section of the Azure portal.":::
+
+### Metrics explorer
+
+The [Azure Monitor metrics explorer](essentials/metrics-getting-started.md) user interface in the Azure portal helps you plot charts, visually correlate trends, and investigate spikes and dips in metric values. Use metrics explorer to investigate the health and utilization of your resources.
+
+Metrics explorer contains features that allow you to apply dimensions and filtering, and to customize the chart to analyze exactly the data you need and make it as visually intuitive as possible.
+
+### Log Analytics
+
+The [Log Analytics](logs/log-analytics-overview.md) user interface in the Azure portal, helps you query the log data collected by Azure Monitor so that you can quickly retrieve, consolidate, and analyze collected data. After creating test queries, you can then directly analyze the data with Azure Monitor tools, or you can save the queries for use with visualizations or alert rules.
+Log Analytics workspaces are based on Azure Data Explorer, using a powerful analysis engine and the rich Kusto query language (KQL).
+Azure Monitor Logs uses a version of the Kusto Query Language suitable for simple log queries, as well as advanced functionality such as aggregations, joins, and smart analytics. You can [get started with KQL](logs/get-started-queries.md) quickly and easily.
 
 
 ## Respond
