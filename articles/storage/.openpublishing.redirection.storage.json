@@ -181,6 +181,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-dotnet",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-blob-snapshots.md",
             "redirect_url": "/azure/storage/blobs/snapshots-overview",
             "redirect_document_id": false

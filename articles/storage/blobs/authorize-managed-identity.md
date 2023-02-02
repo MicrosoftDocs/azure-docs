@@ -91,5 +91,3 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ## Next steps
 
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
-- [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md)
-- [Tutorial: Access storage from App Service using managed identities](../../app-service/scenario-secure-app-access-storage.md)
