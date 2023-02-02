@@ -143,7 +143,7 @@ $subnet = 'mySubnet'
 ## Place the virtual network configuration into a variable. ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
 }
 $vnet = Get-AzVirtualNetwork @net
 
@@ -310,7 +310,7 @@ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 
 ```powershell
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
-10.1.0.4
+11.1.0.4
 ```
 
 ## Clean up resources
