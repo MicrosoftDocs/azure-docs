@@ -22673,7 +22673,7 @@
         },
         {
             "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
-            "redirect_URL": "azure/external-attack-surface-management/index",
+            "redirect_URL": "/azure/external-attack-surface-management/index",
             "redirect_document_id": true
         },
         {
