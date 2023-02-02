@@ -23,7 +23,7 @@ The factors that affect latency for a particular set of data are:
 
 The following sections details the latency introduced in this process.
 
-### Agent collection latency
+### Data collection latency
 
 **Typical latency: Varies**
 
@@ -36,10 +36,6 @@ Azure Monitor Agent uses different strategies to collect data, depending on the 
 | IIS logs and text logs | Collected when their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
 
 To ensure the agent is lightweight, Azure Monitor Agent buffers logs and periodically uploads them to Azure Monitor. Azure Monitor Logs uploads all log data within a minute of the time it collects the data.
-
-### Network
-
-**Typical latency: Varies**
 
 Network conditions can affect how long it takes for data to reach an Azure Monitor Logs ingestion point.
 
