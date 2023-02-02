@@ -38,7 +38,7 @@ If you plan to enable Microsoft 365 on ExpressRoute, review the following docume
 
 * [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* [High availability and failover with ExpressRoute](/azure/expressroute/designing-for-high-availability-with-expressroute)
+* [High availability and failover with ExpressRoute](./designing-for-high-availability-with-expressroute.md)
 * [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)

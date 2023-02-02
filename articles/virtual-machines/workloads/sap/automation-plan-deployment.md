@@ -16,11 +16,11 @@ There are multiple considerations for planning an SAP deployment and running the
 For generic SAP on Azure design considerations, visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation-samples/Terraform/WORKSPACES). The templates use parameter files with your system-specific information to perform the deployment.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/SAP-automation-samples/tree/main/Terraform/WORKSPACES). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Control Plane planning
 
-You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](./automation-configure-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
