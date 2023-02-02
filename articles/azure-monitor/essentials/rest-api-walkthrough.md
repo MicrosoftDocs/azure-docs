@@ -16,12 +16,7 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 
 ## Authenticate Azure Monitor requests
 
-Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Azure Active Directory. One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve the authentication token. See 
-
-## Create an Azure Active Directory service principal
-
-You can create an Azure Active Directory service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
-
+Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Azure Active Directory. One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve an authentication token. You can create an Azure Active Directory service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
 
 ## Retrieve a token
 Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
@@ -194,7 +189,7 @@ In this example, only the second metric has dimensions.
 
 After the retrieving the available metric definitions,  retrieve the range of values for the metric's dimensions. Use dimension values to filter or segment the metrics in your queries. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all of the values for a given metric dimension.
 
-Use the metric's `name.value` element for filtering requests. If no filters are specified, the default metric is returned. The API only allows one dimension to have a wildcard filter. 
+Use the metric's `name.value` element in the filter definitions. If no filters are specified, the default metric is returned. The API only allows one dimension to have a wildcard filter. 
 Specify the request for dimension values using the `"resultType=metadata"` query parameter. The `resultType` is omitted for a metric values request.
 
 > [!NOTE]
@@ -214,7 +209,7 @@ Host: management.azure.com
 Content-Type: application/json
 Authorization: Bearer <access token>
 ```
-For example, to retrieve the list of dimension values that were emitted for the `API Name` dimension for the `Transactions` metric, where the GeoType dimension = `Primary` during the specified time range, the request would be: 
+The following example retrieves the list of dimension values that were emitted for the `API Name` dimension of the `Transactions` metric, where the `GeoType` dimension has a value of  `Primary`, for the specified time range. 
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics  \
@@ -274,9 +269,9 @@ The following JSON shows an example response body.
 
 ## Retrieve metric values
 
-After the available metric definitions and dimension values are known, you can then retrieve the metric values. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to retrieve the metric values.
+After retrieving the metric definitions and dimension values, retrieve the metric values. Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to retrieve the metric values.
 
-Use the metric's `name.value` element (not `localizedValue`) for any filtering requests. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
+Use the metric's `name.value` element in the filter definitions. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
 
 To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`.   
 
@@ -295,7 +290,7 @@ Content-Type: application/json
 Authorization: Bearer <access token>
 ```
 
-For example, to retrieve the top three APIs, in descending value, by the number of `Transactions` during a 5-minute range, where the GeoType was `Primary`, the request would be:
+The following example retrieves the top three APIs,  by the number of `Transactions` in descending value order, during a 5-minute range, where the GeoType is `Primary`.
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics \
@@ -481,6 +476,8 @@ The result should be similar to the following example:
 ## Retrieve activity log data
 
 Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activitylogs) data. 
+
+Use the following request format for activity log queries.
 
 ```curl 
 GET /subscriptions/<subscriptionId>/providers/Microsoft.Insights/eventtypes/management/values \
