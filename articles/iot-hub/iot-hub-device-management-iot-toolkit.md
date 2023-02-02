@@ -35,7 +35,7 @@ Device twins are JSON documents that store device state information (metadata, c
 * An active Azure subscription.
 * An Azure IoT hub under your subscription.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-tools`.
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-toolkit`.
 
 ## Sign in to access your IoT hub
 
