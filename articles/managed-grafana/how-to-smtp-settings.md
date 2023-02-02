@@ -17,15 +17,13 @@ In this guide, learn how to configure SMTP settings to generate email alerts in 
 > Email settings is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can enable access to Grafana Enterprise plugins by selecting a Grafana Enterprise plan when creating a new workspace, or you can add a Grafana Enterprise plan on an already-created Azure Managed Grafana instance.
-
 ## Prerequisites
 
 To follow the steps in this guide you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
-- An SMTP server.
+- An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sendgrid.tsg-saas-offer).
 
 ## Enable and configure SMTP settings
 
@@ -33,18 +31,19 @@ To activate SMTP settings, enable email notifications and configure an email con
 
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Configuration**.
   1. Select the **Email Settings (Preview)** tab.
+         :::image type="content" source="media/smtp-settings/find-settings.png" alt-text="Screenshot of the Azure platform. Selecting the SMTP settings tab.":::
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
   1. SMTP settings appear. Fill out the form with the following configuration:
 
         | Parameter      | Example               | Description                                                                                                                             |
         |----------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-        | Host           | smtp.mail.com:01  | Enter the SMTP host. Default is localhost:25.                                                                                           |
-        | User           | admin                 | Enter the name of the SMTP user.                                                                                                        |
-        | Password       | password              | Enter the email password. password.                                                                                                                |
-        | From Address   | example@mail.com     | Enter the email address used when sending out emails. Default is `admin@grafana.localhost`.                                                |
-        | From Name      | Grafana Monitoring    | Enter the name used when sending out emails. Default is Grafana.                                                                        |
-        | Skip Verify    | Disable               | SSL verification for the SMTP server. This setting is set to **Disable** by default. Optionally select **Enable** to skip verification. |
-        | StartTLSPolicy | OpportunisticStartTLS | From the drop-down menu, select **OpportunisticStartTLS**, **“MandatoryStartTLS”**, or **“NoStartTLS”**                             |
+        | Host           | test.sendgrid.net:587  | Enter the SMTP server hostname with port.                                                                                           |
+        | User           | admin                 | Enter the name of the user of the SMTP authentication.                                                                                                        |
+        | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                                                                                                                |
+        | From Address   | user@domain.com     | Enter the email address used when sending out emails.                                     |
+        | From Name      | Azure Managed Grafana Notification   | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter is not given or empty.                                                                        |
+        | Skip Verify    | Disable               | SSL verification for the SMTP server. Default is **False**. Optionally select **True** to skip verification. |
+        | StartTLSPolicy | OpportunisticStartTLS | The StartTLSPolicy setting of the SMTP configuration. Select **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**                             |
 
   1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes.
   1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Provisioning**, and then **Succeeded** once the update is complete.
@@ -67,7 +66,7 @@ To create or update notification settings, follow these steps:
 1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
 
 > [!NOTE]
-> When a users disables SMTP settings, all SMTP credentials are removed from the backend.
+> When a users disables SMTP settings, all SMTP credentials are removed from the backend. Azure Managed Grafana will not persist SMTP credentials when disabled.
 
 ## Grafana alerting error messages
 
