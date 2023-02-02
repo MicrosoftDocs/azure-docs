@@ -714,6 +714,8 @@
         href: connect-services-windows-based.md
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
+    - name: Configure for RDP login detection
+      href: configure-connnector-rdp-login-detection.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md    
     - name: Create a custom connector
