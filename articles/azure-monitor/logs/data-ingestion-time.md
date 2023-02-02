@@ -27,21 +27,15 @@ The following sections details the latency introduced in this process.
 
 **Typical latency: Varies**
 
-Agents and management solutions use different strategies to collect data from a virtual machine, which might affect the latency. Some specific examples are listed in the following table.
+Azure Monitor Agent uses different strategies to collect data, depending on the type of data collected. For example:
 
 | Type of data  | Collection frequency  | Notes |
 |:--------------|:----------------------|:------|
 | Windows events, Syslog events, and performance metrics | Collected immediately| |
 | Linux performance counters | Polled at 30-second intervals| |
-| IIS logs and text logs | Collected after their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
-| Active Directory Replication solution | Assessment every five days | The agent collects the logs only when assessment is complete.|
-| Active Directory Assessment solution | Weekly assessment of your Active Directory infrastructure | The agent collects the logs only when assessment is complete.|
+| IIS logs and text logs | Collected when their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
 
-### Agent upload frequency
-
-**Typical latency: Under one minute**
-
-To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute.
+To ensure the agent is lightweight, Azure Monitor Agent buffers logs and periodically uploads them to Azure Monitor. Azure Monitor Logs uploads all log data within a minute of the time it collects the data.
 
 ### Network
 
