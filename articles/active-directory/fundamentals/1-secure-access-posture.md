@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 02/02/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -22,70 +22,77 @@ As you consider the governance of external access, assess your organization's se
   ![Bar graph of the span from full IT team control, to end-user self service.](media/secure-external-access/1-overall-control.png)
 
    > [!NOTE]
-   > A high degree of control over collaboration can lead to higher IT budgets, reduced productivity, and delayed business outcomes. When official collaboration channels are perceived as onerous, end users tend to evade official channels to get their jobs done. An example is end users sending unsecured documents by email.
+   > A high degree of control over collaboration can lead to higher IT budgets, reduced productivity, and delayed business outcomes. When official collaboration channels are perceived as onerous, end users tend to evade official channels. An example is end users sending unsecured documents by email.
 
-## Think in terms of scenarios
+## Scenario-based planning
 
-In many cases IT can delegate partner access, at least in some scenarios, while providing guard rails for security. The IT guard rails can be help ensure that intellectual property stays secure, while empowering employees to collaborate with partners to get work done.
+IT teams can delegate partner access to empower employees to collaborate with partners. This delegation can occur while maintaining sufficient security to protect intellectual property.
 
-As you consider the scenarios within your organization, assess the need for employee versus business partner access to resources. A bank may have compliance needs that restrict access to certain resources, like user account information, to a small group of internal employees. Conversely, the same bank may enable delegated access for partners working on a marketing campaign.
+Compile and assess your organizations scenarios to help assess employee versus business partner access to resources. Financial institutions might have compliance standards that restrict employee access to resources such as account information. Conversely, the same institutions can enable delegated partner access for projects such as marketing campaigns.
 
-![continuum of governance per scenario](media/secure-external-access/1-scenarios.png)
+   ![Diagram of a balance of IT team goverened access to partner self-service.](media/secure-external-access/1-scenarios.png)
 
-In each scenario, consider 
+### Scenario considerations
 
-* the sensitivity of the information at risk
+Use the following list to help measure the level of access control.
 
-* whether you need to restrict what partners can see about other users
+* Information sensitivity, and associated risk of its exposure
+* Partner access to information about other end users
+* The cost of a breach versus the overhead of centralized control and end-user friction
 
-* the cost of a breach vs the weight of centralized control and end-user friction
+Organizations can start with highly-managed controls to meet compliance targets, and then delegate some control to end users, over time. There can be simultaneous access-management models in an organization. 
 
- You may also start with centrally managed controls to meet compliance targets and delegate control to end users over time. All access management models may simultaneously coexist within an organization. 
+> [!NOTE]
+> Partner-managed credentials are a method to signal the termination of access to resources, when an external user loses access to resources in their own company. Learn more: [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-The use of [partner managed credentials](../external-identities/what-is-b2b.md) provides your organization with an essential signal that terminates access to your resources once the external user has lost access to the resources of their own company.
+## External-access security goals
 
-## Goals of securing external access
+The goals of IT-governed and delegated access differ. The primary goals of IT-governed access are:
 
-The goals of IT-governed and delegated access differ.
+* Meet governance, regulatory, and compliance (GRC) targets
+* High level of control over partner access to information about end users, groups, and other partners
 
-**The primary goals of IT-governed access are to:**
+The primary goals of delegating access are:
 
-* Meet governance, regulatory, and compliance (GRC) targets. 
+* Enable business owners to determine collaboration partners, with security constraints
+* Enable partners to request access, based on rules defined by business owners
 
-* Tightly control partner access and what partners can see about member users, groups, and other partners.
+### Common goals 
 
-**The primary goals of delegating access are to:**
+#### Control access to applications, data, and content
 
-* Enable business owners to govern who they collaborate with, within IT constraints.
+This can be accomplished through a variety of methods, depending on your version of Azure AD and Microsoft 365.
 
-* Enable business partners to request access based on rules defined by business owners.
+* [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-Whichever you enact for your organization and scenarios you'll need to: 
+#### Reduce attack surface
 
-* **Control access to applications, data, and content**. This can be accomplished through a variety of methods, depending on your versions of [Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
+* [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md) -  manage, control, and monitor access to resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune
+* [Data loss prevention in Exchange Server](/exchange/policy-and-compliance/data-loss-prevention/data-loss-prevention?view=exchserver-2019)
 
-* **Reduce the attack surface**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [data loss prevention (DLP),](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) and [encryption capabilities](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduce the attack surface.
+#### Confirm compliance with activity and audit log reviews
 
-* **Regularly review activity and audit log to confirm compliance**. IT can delegate access decisions to business owners through entitlement management while access reviews provide a way to periodically confirm continued access. Automated data classification with sensitivity labels helps to automate encryption of sensitive content making it easy for employee end users to comply.
+IT teams can delegate access decisions to business owners through entitlement management, while access reviews help confirm continued access. You can use automated data classification with sensitivity labels to automate the encryption of sensitive content, easing compliance for end users.
 
-## Next steps 
+## Next steps
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access](1-secure-access-posture.md) (You are here.)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-2. [Discover your current state](2-secure-access-current-state.md)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a governance plan](3-secure-access-plan.md)
+3. [Create a security plan for external access](3-secure-access-plan.md)
 
-4. [Use groups for security](4-secure-access-groups.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
 
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
