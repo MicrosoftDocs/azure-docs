@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
-    `https://www.agiloft.com`
+    `https://<SUBDOMAIN>.agiloft.com:443/gui2/samlssologin.jsp?project=<KB_NAME>`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Agiloft Contract Management Suite Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -166,7 +166,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Agiloft Contract Management Suite Sign on URL where you can initiate the login flow.  
 
-* Go to Agiloft Contract Management Suite Sign-on URL directly and initiate the login flow from there.
+* Go to Agiloft Contract Management Suite Sign-on URL directly and initiate the login flow from there. The Sign-on URL will be in the format 
+`https://<SUBDOMAIN>.agiloft.com:443/gui2/samlssologin.jsp?project=<KB_NAME>`
 
 #### IDP initiated:
 
