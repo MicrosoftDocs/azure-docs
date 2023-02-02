@@ -169,7 +169,7 @@ The Azure DevOps setup is successfully finished.
 1.  Under the Repos section, select **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
 
 1. Under the User permissions section, select the **mlopsv2 Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
-   ![Screenshot of ADO permissions.](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
+   ![Screenshot of Azure DevOps permissions.](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
 
 1. Open the **Pipelines** section in the left hand navigation pane and select on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**
 
