@@ -3,21 +3,22 @@ title: Get started with Azure Blob Storage and .NET
 titleSuffix: Azure Storage
 description: Get started developing a .NET application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
-ms.author: normesta
 ms.subservice: blobs
-ms.custom: template-how-to
+ms.devlang: csharp
+ms.custom: template-how-to, devguide-csharp
 ---
 
 # Get started with Azure Blob Storage and .NET
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
-[Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+[Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Prerequisites
 
@@ -52,13 +53,37 @@ using Azure.Storage.Blobs.Specialized;
 
 - [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
 
-## Connect to Blob Storage
+## Authorize access and connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token. 
+To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can authorize access and create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
 
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+## [Azure AD](#tab/azure-ad)
 
-#### Authorize with an account key
+To authorize with Azure AD, you'll need to use a security principal. The type of security principal you need depends on where your application runs. Use this table as a guide.
+
+| Where the application runs | Security principal | Guidance |
+| --- | --- | --- |
+| Local machine (developing and testing) | Service principal | In this method, dedicated **application service principal** objects are set up using the App registration process for use during local development. The identity of the service principal is then stored as environment variables to be accessed by the app when it's run in local development.<br><br>This method allows you to assign the specific resource permissions needed by the app to the service principal objects used by developers during local development. This approach ensures the application only has access to the specific resources it needs and replicates the permissions the app will have in production.<br><br>The downside of this approach is the need to create separate service principal objects for each developer that works on an application.<br><br>[Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Local machine (developing and testing) | User identity | In this method, a developer must be signed-in to Azure from either Visual Studio, the Azure Tools extension for VS Code, the Azure CLI, or Azure PowerShell on their local workstation. The application then can access the developer's credentials from the credential store and use those credentials to access Azure resources from the app.<br><br>This method has the advantage of easier setup since a developer only needs to sign in to their Azure account from Visual Studio, VS Code or the Azure CLI. The disadvantage of this approach is that the developer's account likely has more permissions than required by the application, therefore not properly replicating the permissions the app will run with in production.<br><br>[Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Hosted in Azure | Managed identity | Apps hosted in Azure should use a **managed identity service principal**. Managed identities are designed to represent the identity of an app hosted in Azure and can only be used with Azure hosted apps.<br><br>For example, a .NET web app hosted in Azure App Service would be assigned a managed identity. The managed identity assigned to the app would then be used to authenticate the app to other Azure services.<br><br>[Authorize access from Azure-hosted apps using a managed identity](/dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+| Hosted outside of Azure (for example, on-premises apps) | Service principal | Apps hosted outside of Azure (for example on-premises apps) that need to connect to Azure services should use an **application service principal**. An application service principal represents the identity of the app in Azure and is created through the application registration process.<br><br>For example, consider a .NET web app hosted on-premises that makes use of Azure Blob Storage. You would create an application service principal for the app using the App registration process. The `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` would all be stored as environment variables to be read by the application at runtime and allow the app to authenticate to Azure using the application service principal.<br><br>[Authorize access from on-premises apps using an application service principal](/dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+
+The easiest way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
+
+```csharp
+public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
+{
+    TokenCredential credential = new DefaultAzureCredential();
+
+    string blobUri = "https://" + accountName + ".blob.core.windows.net";
+
+    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
+}
+```
+
+If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+
+## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
 
@@ -79,12 +104,12 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 You can also create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using a connection string. 
 
 ```csharp
-    BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 ```
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-#### Authorize with a SAS token
+## [SAS token](#tab/sas-token)
 
 Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
 
@@ -109,86 +134,9 @@ To generate and manage SAS tokens, see any of these articles:
 
 - [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
-#### Authorize with Azure AD
+---
 
-To authorize with Azure AD, you'll need to use a security principal. Which type of security principal you need depends on where your application runs. Use this table as a guide.
-
-| Where the application runs | Security principal | Guidance |
-|--|--|---|
-| Local machine (developing and testing) | User identity or service principal | [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md) | 
-| Azure | Managed identity | [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md) |
-| Servers or clients outside of Azure | Service principal | [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) |
-
-If you're testing on a local machine, or your application will run in Azure virtual machines (VMs), function apps, virtual machine scale sets, or in other Azure services, obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
-
-```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
-{
-    TokenCredential credential = new DefaultAzureCredential();
-
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-
-        blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
-}
-```
-
-If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme) which derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
-
-This example creates a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) instance by using the client ID, client secret, and tenant ID. You can obtain these values when you create an app registration and service principal.
-
-```csharp
-public static void GetBlobServiceClientAzureAD(ref BlobServiceClient blobServiceClient,
-    string accountName, string clientID, string clientSecret, string tenantID)
-{
-
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-
-    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);
-}
-
-```
-
-#### Connect anonymously
-
-If you explicitly enable anonymous access, then your code can create connect to Blob Storage without authorize your request. You can create a new service client object for anonymous access by providing the Blob storage endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-```csharp
-public static void CreateAnonymousBlobClient()
-{
-    // Create the client object using the Blob storage endpoint for your account.
-    BlobServiceClient blobServiceClient = new BlobServiceClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/"));
-
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = blobServiceClient.GetBlobContainerClient("sample-container");
-
-    // Read the container's properties. 
-    // Note this is only possible when the container supports full public read access.          
-    Console.WriteLine(container.GetProperties().Value.LastModified);
-    Console.WriteLine(container.GetProperties().Value.ETag);
-}
-```
-
-Alternatively, if you have the URL to a container that is anonymously available, you can use it to reference the container directly.
-
-```csharp
-public static void ListBlobsAnonymously()
-{
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = new BlobContainerClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
-
-    // List blobs in the container.
-    // Note this is only possible when the container supports full public read access.
-    foreach (BlobItem blobItem in container.GetBlobs())
-    {
-        Console.WriteLine(container.GetBlockBlobClient(blobItem.Name).Uri);
-    }
-}
-```
+To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 ## Build your application
 
@@ -204,7 +152,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-Each type of resource is represented by one or more associated .NET classes. These are the basic classes:
+Each type of resource is represented by one or more associated .NET classes. This table lists the basic classes with a brief description:
 
 | Class | Description |
 |---|---|
@@ -229,13 +177,13 @@ The following guides show you how to use each of these classes to build your app
 | [Copy blobs](storage-blob-copy.md) | Copy a blob from one account to another account. |
 | [List blobs](storage-blobs-list.md) | List blobs in different ways. |
 | [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
 
 ## See also
 
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 - [API reference](/dotnet/api/azure.storage.blobs)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)

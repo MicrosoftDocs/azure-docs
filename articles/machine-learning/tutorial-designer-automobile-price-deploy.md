@@ -140,8 +140,6 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 
 1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
 
-For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md).
-
 ## Update the real-time endpoint
 
 You can update the online endpoint with new model trained in the designer. On the online endpoint detail page, find your previous training pipeline job and inference pipeline job.
@@ -181,7 +179,13 @@ You can update the online endpoint with new model trained in the designer. On th
 
 ## Limitations
 
-Due to datastore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they'll be auto-removed when deploy to real-time endpoint.
+* Due to datastore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they'll be auto-removed when deploy to real-time endpoint.
+
+* If you have datasets in the real-time inference pipeline and want to deploy it to real-time endpoint, currently this flow only supports datasets registered from **Blob** datastore. If you want to use datasets from other type datastores, you can use Select Column to connect with your initial dataset with settings of selecting all columns, register the outputs of Select Column as File dataset and then replace the initial dataset in the real-time inference pipeline with this newly registered dataset.
+
+* If your inference graph contains "Enter Data Manually" component which is not connected to the same port as “Web service Input” component, the "Enter Data Manually" component will not be executed during HTTP call processing. A workaround is to register the outputs of that "Enter Data Manually" component as dataset, then in the inference pipeline draft, replace the "Enter Data Manually" component with the registered dataset. 
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/real-time-inferencepipeline-limitation.png" alt-text="Screenshot showing how to modify inference pipeline containing enter data manually component.":::
 
 ## Clean up resources
 

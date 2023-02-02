@@ -170,7 +170,7 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-    Write-Output "Checking if python is installed...$nl"
+    Write-Output "Checking if Python is installed...$nl"
     if ($is_python2) {
         & "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
     }

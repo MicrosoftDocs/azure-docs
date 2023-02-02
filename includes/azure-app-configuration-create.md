@@ -1,19 +1,23 @@
 ---
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 1/31/2020
+ms.date: 10/24/2022
+ms.custom: devdivchpfy22, engagement-fy23
 ---
 
-1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the home page, select **Create a resource**. In the **Search services and marketplace** box, enter *App Configuration* and select <kbd>Enter</kbd>.
-    
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-search.png" alt-text="Search for App Configuration":::
-    
+1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the upper-left corner of the home page, select **Create a resource**.
+
+1. In the **Search services and marketplace** box, enter *App Configuration* and select **Enter**.
+
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-search-page.png" alt-text="Screenshot that shows the Search for App Configuration page.":::
 
 1. Select **App Configuration** from the search results, and then select **Create**.
 
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-app-configuration-create.png" alt-text="Select Create":::
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-app-configuration-create-page.png" alt-text="Screenshot that shows the Create page.":::
 
 1. On the **Create App Configuration** pane, enter the following settings:
 
@@ -29,4 +33,4 @@ ms.date: 1/31/2020
 
 1. Select **Create**. The deployment might take a few minutes.
 
-1. After the deployment finishes, navigate to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
+1. After the deployment finishes, go to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.

@@ -71,15 +71,11 @@ The following are unsupported:
 ### Scale operations
 - Decreasing server storage provisioned is not supported.
 
-### Read replicas
-- Not supported with zone redundant HA configurations (both primary and standby).
-
 ### Server version upgrades
 - Automated migration between major database engine versions is not supported. If you would like to upgrade the major version, take a [dump and restore](../concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Restoring a server
 - With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
-- Restoring a deleted server isn't supported.
 
 ## Features available in Single Server but not yet supported in Flexible Server
 Not all features available in Azure Database for MySQL - Single Server is available in Flexible Server yet. For complete list of feature comparison between single server and flexible server, refer [choosing the right MySQL Server option in Azure documentation.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)

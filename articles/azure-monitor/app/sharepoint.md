@@ -79,7 +79,7 @@ Insert a web part and embed the code snippet in it.
 ## View data about your app
 Redeploy your app.
 
-Return to your application blade in the [Azure portal](https://portal.azure.com).
+Return to your application pane in the [Azure portal](https://portal.azure.com).
 
 The first events will appear in Search. 
 

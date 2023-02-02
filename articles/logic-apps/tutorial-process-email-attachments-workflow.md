@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 03/24/2021
+ms.date: 08/20/2022
 ---
 
 # Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage

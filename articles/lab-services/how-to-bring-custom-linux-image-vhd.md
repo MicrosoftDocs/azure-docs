@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The steps in this article show how to import a Linux custom image that starts from your physical lab environment. With this approach, you create a VHD from your physical environment and import the VHD into a compute gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide which approach is best for your scenario.
 
-Azure endorses a variety of [distributions and versions](../virtual-machines/linux/endorsed-distros.md#supported-distributions-and-versions). The steps to bring a custom Linux image from a VHD varies for each distribution. Every distribution is different because each one has unique prerequisites that must be set up to run on Azure.
+Azure endorses a variety of [distributions and versions](../virtual-machines/linux/create-upload-generic.md). The steps to bring a custom Linux image from a VHD varies for each distribution. Every distribution is different because each one has unique prerequisites that must be set up to run on Azure.
 
 In this article, we'll show the steps to bring a custom Ubuntu 16.04\18.04\20.04 image from a VHD. For information on using a VHD to create custom images for other distributions, see [Generic steps for Linux distributions](../virtual-machines/linux/create-upload-generic.md).
 
@@ -42,7 +42,7 @@ The following steps show how to create an Ubuntu 18.04\20.04 image from a Hyper-
 
 1. Connect to the Hyper-V VM and prepare it for Azure by following the steps in [Manual steps to create and upload an Ubuntu VHD](../virtual-machines/linux/create-upload-ubuntu.md#manual-steps).
 
-    The steps to prepare a Linux image for Azure vary based on the distribution. For more information and specific steps for each distribution, see [distributions and versions](../virtual-machines/linux/endorsed-distros.md#supported-distributions-and-versions).
+    The steps to prepare a Linux image for Azure vary based on the distribution. For more information and specific steps for each distribution, see [distributions and versions](../virtual-machines/linux/create-upload-generic.md).
 
     When you follow the preceding steps, there are a few important points to highlight:
     - The steps create a [generalized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) image when you run the **deprovision+user** command. But it doesn't guarantee that the image is cleared of all sensitive information or that it's suitable for redistribution.

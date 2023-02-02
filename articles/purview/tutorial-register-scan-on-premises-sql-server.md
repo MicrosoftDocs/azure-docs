@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Register and scan an on-premises SQL Server'
 description: This tutorial describes how to register an on-prem SQL Server to Microsoft Purview, and scan the server using a self-hosted IR. 
-author: viseshag
-ms.author: viseshag
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/27/2021
+ms.date: 11/03/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -113,11 +113,14 @@ This tutorial assumes the machine where you'll install your self-hosted integrat
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/successfully-registered.png" alt-text="successfully registered.":::
 
-## Set up SQL authentication
+## Set up authentication
 
-There is only one way to set up authentication for SQL server on-premises:
+There are two ways to set up authentication for SQL server on-premises:
 
 - SQL Authentication
+- Windows Authentication
+
+This tutorial includes steps to use SQL authentication. For more information about scanning on-premises SQL Server with Windows authentication, see [Set up SQL server authentication](register-scan-on-premises-sql-server.md#set-up-sql-server-authentication).
 
 ### SQL authentication
 
@@ -154,7 +157,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-generate-import.png" alt-text="Select Generate/Import from the top menu.":::
 
-1. For upload options, select **Manual** and enter the **Name** and **Value** as the *password* from your SQL server login. Ensure **Enabled** is set to **Yes**. If you set an activation and expiration date, ensure that today's date is between the two, or you won't be able to use the credential.
+1. For upload options, select **Manual** and enter a **Name** for your secret. The **Value** will be the *password* from your SQL server login. Ensure **Enabled** is set to **Yes**. If you set an activation and expiration date, ensure that today's date is between the two, or you won't be able to use the credential.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-credential-secret.png" alt-text="Add values to key vault credential.":::
 

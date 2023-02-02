@@ -1,11 +1,10 @@
 ---
 title: Workspace architecture best practices for Microsoft Sentinel
 description: Learn about best practices for designing your Microsoft Sentinel workspace.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Microsoft Sentinel workspace architecture best practices
@@ -48,7 +47,7 @@ In Microsoft Sentinel, data is mostly stored and processed in the same geography
 
 For more information, see:
 
-- [Geographical availability and data residency](quickstart-onboard.md#geographical-availability-and-data-residency)
+- [Geographical availability and data residency](geographical-availability-data-residency.md)
 - [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
 - [Storing and processing EU data in the EU - EU policy blog](https://blogs.microsoft.com/eupolicy/2021/05/06/eu-data-boundary/)
 
@@ -90,7 +89,7 @@ For more information, see [Data residency in Azure](https://azure.microsoft.com/
 
 You may have situations planned where different teams will need access to the same data. For example, your SOC team must have access to all Microsoft Sentinel data, while operations and applications teams will need access to only specific parts. Independent security teams may also need to access Microsoft Sentinel features, but with varying sets of data.
 
-Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
+Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#set-table-level-read-access) to provide your teams with a wide range of access options that should support most use cases.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md).
 

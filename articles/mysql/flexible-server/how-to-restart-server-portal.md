@@ -4,8 +4,8 @@ description: This article describes how you can restart an Azure Database for My
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 10/26/2020
 ---
 
@@ -23,6 +23,9 @@ The time required to complete a restart depends on the MySQL recovery process. T
 
 To complete this how-to guide, you need:
 - An [Azure Database for MySQL Flexible server](quickstart-create-server-portal.md)
+
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 ## Perform server restart
 

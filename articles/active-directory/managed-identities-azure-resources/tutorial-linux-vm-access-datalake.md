@@ -4,7 +4,7 @@ description: A tutorial that shows you how to use a Linux VM system-assigned man
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: 
 
 ms.service: active-directory

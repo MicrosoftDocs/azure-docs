@@ -3,7 +3,7 @@ title: How to Revoke a Verifiable Credential as an Issuer - Entra Verified ID
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials

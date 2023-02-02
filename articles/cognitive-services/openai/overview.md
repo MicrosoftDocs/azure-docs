@@ -1,5 +1,5 @@
 ---
-title: What is Azure OpenAI? (Preview)
+title: What is Azure OpenAI?
 titleSuffix: Azure Cognitive Services
 description: Apply advanced language models to variety of use cases with the Azure OpenAI service 
 manager: nitinme
@@ -8,27 +8,27 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 6/30/2021
+ms.date: 11/07/2022
 ms.custom: event-tier1-build-2022
 recommendations: false
 keywords:  
 ---
 
-# What is Azure OpenAI? (Preview)
+# What is Azure OpenAI?
 
 The Azure OpenAI service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
 ### Features overview
 
 | Feature | Azure OpenAI |
-| ---     |  --- |
-| Models available | GPT-3 base series <br> Codex Series <br> Embeddings Series <br> Learn more in our [Models](./concepts/models.md) page.|
-| Fine-tuning | Ada, <br>Babbage, <br> Curie,<br>Code-cushman-001* <br> Davinci*<br> \* available by request|
-| Billing Model| Coming Soon |
+| --- | --- |
+| Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* available by request. Please open a support request|
+| Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | South Central US, <br> West Europe |
+| Regional availability | East US <br> South Central US <br> West Europe |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI
@@ -48,6 +48,12 @@ Apply here for initial access or for a production review:
 <a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
 
 All solutions using the Azure OpenAI service are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
+
+## Comparing Azure OpenAI and OpenAI
+
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+
+With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
 ## Key concepts
 
@@ -90,23 +96,23 @@ The models used by the Azure OpenAI service use natural language instructions an
 
 There are three main approaches for in-context learning: Few-shot, one-shot and zero-shot. These approaches vary based on the amount of task-specific data that is given to the model:
 
-**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples:
+**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples (the model will generate the last answer):
 
 ```
     Convert the questions to a command:
-    Q: Ask Constance if we need some bread
+    Q: Ask Constance if we need some bread.
     A: send-msg `find constance` Do we need some bread?
     Q: Send a message to Greg to figure out if things are ready for Wednesday.
     A: send-msg `find greg` Is everything ready for Wednesday?
-    Q: Ask Ilya if we're still having our meeting this evening
+    Q: Ask Ilya if we're still having our meeting this evening.
     A: send-msg `find ilya` Are we still having a meeting this evening?
-    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday
+    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday.
     A: send-msg `find ski store` Would it be possible to get my skis fixed before I leave on Thursday?
-    Q: Thank Nicolas for lunch
+    Q: Thank Nicolas for lunch.
     A: send-msg `find nicolas` Thank you for lunch!
     Q: Tell Constance that I won't be home before 19:30 tonight — unmovable meeting.
     A: send-msg `find constance` I won't be home before 19:30 tonight. I have a meeting I can't move.
-    Q: Tell John that I need to book an appointment at 10:30
+    Q: Tell John that I need to book an appointment at 10:30.
     A: 
 ```
 
@@ -118,9 +124,9 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 ### Models
 
-The service provides users access to several different models. Each model provides a different capability and price point. The base GPT-3 models are known as Davinci, Curie, Babbage and Ada in decreasing order of intelligence and speed.
+The service provides users access to several different models. Each model provides a different capability and price point. The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
-The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
+The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 
 ## Next steps
 

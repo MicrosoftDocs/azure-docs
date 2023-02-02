@@ -1,12 +1,13 @@
 ---
 title: Autoscale for Azure API for FHIR 
 description: This article describes the autoscale feature for Azure API for FHIR.
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/02/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Autoscale for Azure API for FHIR 
@@ -15,7 +16,7 @@ Azure API for FHIR, as a managed service, allows customers to persist with Fast 
 
 ## What is autoscale?
 
-By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 10,000 and submit a request to increase the limit. 
+By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
 
 The autoscale feature is designed to scale computing resources including the database throughput `RU/s` up and down automatically according to the workloads, thus eliminating the manual steps of adjusting allocated computing resources. 
 
@@ -48,14 +49,14 @@ You can also decrease the max `RU/s` or `Tmax` value. When you lower the max `RU
 * **Example 2**: You have 20-GB data and the highest provisioned `RU/s` is 100,000. The minimum value is Max (4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10 =10,000**, is used.
 * **Example 3**: You have 80-GB data and the highest provisioned RU/s is 300,000. The minimum value is Max (4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
 
-You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid number and no greater than 10,000 `RU/s`. You can create a support ticket to request `Tmax` value larger than 10,000.
+You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid number and no greater than 100,000 `RU/s`. You can create a support ticket to request `Tmax` value larger than 100,000.
 
 >[!Note] 
 >As data storage grows, the system will automatically increase the max throughput to the next highest RU/s that can support that level of storage.
 
 ## How to estimate throughput RU/s required?
 
-The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select "Cosmos DB Collection Size" in the Metric dropdown box and "Max" in the "Aggregation" box. 
+The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select **Cosmos DB Collection Size** in the Metric dropdown box and **Max** in the "Aggregation" box. 
 
 [ ![Screenshot of metrics_new_chart](media/cosmosdb/metrics-new-chart.png) ](media/cosmosdb/metrics-new-chart.png#lightbox)
 

@@ -2,56 +2,56 @@
 title:  Azure Video Indexer accounts  
 description: This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 01/25/2023
 ms.author: juliako
 ---
 
 # Azure Video Indexer account types
 
-This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
+This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
-## Differences between classic, ARM, trial accounts
+## Trial account
 
-Classic and ARM (Azure Resource Manager) are both paid accounts with similar data plane capabilities and pricing. The main difference is that classic accounts control plane is managed by Azure Video Indexer and ARM accounts control plane is managed by Azure Resource Manager.
-Going forward, ARM account support more Azure native features and integrations such as: Azure Monitor, Private endpoints, Service tag and CMK (Customer managed key).  
+When starting out with [Azure Video Indexer](https://www.videoindexer.ai/), click **start free** to kick off a quick and easy process of creating a trial account. No Azure subscription is required and this is a great way to explore Azure Video Indexer and try it out with your content. Keep in mind that the trial Azure Video Indexer account has a limitation on the number of indexing minutes, support, and SLA.
 
-A trial account is automatically created the first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
+With a trial account, Azure Video Indexer provides:
 
-### To generate an access token
+* up to 600 minutes of free indexing to the [Azure Video Indexer](https://www.videoindexer.ai/) website users and
+* up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://api-portal.videoindexer.ai/).
 
-|   | ARM-based |Classic| Trial|
-|---|---|---|---|
-|Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic
-|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic
+The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
 
-### Indexing
+## Paid (unlimited) account
 
-* Free trial account: up to 10 hours of free indexing, and up to 40 hours of free indexing for API registered users.
-* Paid unlimited account: for larger scale indexing, create a new Video Indexer account connected to a paid Microsoft Azure subscription.
+When you have used up the free trial minutes or are ready to start using Video Indexer for production workloads, you can create a regular paid account which doesn't have minute, support, or SLA limitations. Account creation can be performed through the Azure portal (see [Create an account with the Azure portal](create-account-portal.md)) or API (see [Create accounts with API](/rest/api/videoindexer/stable/accounts)).
 
-For more details, see [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+Azure Video Indexer unlimited accounts are Azure Resource Manager (ARM) based and unlike trial accounts, are created in your Azure subscription. Moving to an unlimited ARM based account unlocks many security and management capabilities, such as [RBAC user management](../role-based-access-control/overview.md), [Azure Monitor integration](../azure-monitor/overview.md), deployment through ARM templates, and much more.
 
-### Create accounts
+Billing is per indexed minute, with the per minute cost determined by the selected preset.  For more information regarding pricing, see [Azure Video Indexer pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
-* ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md). **The recommended paid account type is the ARM-based account**.  
+## Create accounts
 
-    * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure.md#import-your-content-from-the-trial-account).  
-* Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
-* Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md).
+* To create an ARM-based (paid) account with the Azure portal, see [Create accounts with the Azure portal](create-account-portal.md). 
+* To create an account with an API, see [Create accounts](/rest/api/videoindexer/stable/accounts)
+
+    > [!TIP]
+    > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
+* [Upgrade a trial account to an ARM-based (paid) account and import your content for free](import-content-from-trial.md).  
+   
+ ## Classic accounts
+ 
+Before ARM based accounts were added to Azure Video Indexer, there was a "classic" account type (where the accounts management plane is built on API Management.) The classic account type is still used by some users.
+
+* If you are using a classic (paid) account and interested in moving to an ARM-based account, see [connect an existing classic Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
+ 
+For more information on the difference between regular unlimited accounts and classic accounts, see [Azure Video Indexer as an Azure resource](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/azure-video-indexer-is-now-available-as-an-azure-resource/ba-p/2912422).
 
 ## Limited access features
 
-This section talks about limited access features in Azure Video Indexer.
-
-|When did I create the account?|Trial Account (Free)|	Paid Account <br/>(classic or ARM-based)|
-|---|---|---|
-|Existing VI accounts <br/><br/>created before June 21, 2022|Able to access face identification, customization and celebrities recognition till June 2023. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features also after the grace period. |Able to access face identification, customization and celebrities recognition till June 2023\*.<br/><br/>**Recommended**: fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features also after the grace period. <br/><br/>We proactively sent emails to these customers + AEs.|
-|New VI accounts <br/><br/>created after June 21, 2022	|Not able the access face identification, customization and celebrities recognition as of today. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://aka.ms/facerecognition). Based on the eligibility criteria we will enable the features (after max 10 days).|Azure Video Indexer disables the access face identification, customization and celebrities recognition as of today by default, but gives the option to enable it. <br/><br/>**Recommended**: Fill in the [intake form](https://aka.ms/facerecognition) and based on the eligibility criteria we will enable the features (after max 10 days).|
-
-\*In Brazil South we also disabled the face detection.
+[!INCLUDE [limited access](./includes/limited-access-account-types.md)]
 
 For more information, see [Azure Video Indexer limited access features](limited-access-features.md).
 
 ## Next steps
 
-[Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
+Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).

@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 07/25/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -26,9 +26,8 @@ and the details about machine configuration policy effects
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
-> Custom machine configuration policy definitions using **AuditIfNotExists** are
-> Generally Available, but definitions using **DeployIfNotExists** with guest
-> configuration are **in preview**.
+> Custom machine configuration policy definitions using either **AuditIfNotExists** or **DeployIfNotExists** are now
+> Generally Available.
 
 Use the following steps to create your own policies that audit compliance or
 manage the state of Azure or Arc-enabled machines.
@@ -36,7 +35,7 @@ manage the state of Azure or Arc-enabled machines.
 ## Install PowerShell 7 and required PowerShell modules
 
 First, make sure you've followed all steps on the page
-[How to setup a machine configuration authoring environment](./machine-configuration-create-setup.md)
+[How to set up a machine configuration authoring environment](./machine-configuration-create-setup.md)
 to install the required version of PowerShell for your OS and the
 `GuestConfiguration` module.
 
@@ -87,14 +86,14 @@ create the machine configuration policy definition. The `New-GuestConfigurationP
 cmdlet takes a custom policy package and creates a policy definition.
 
 The **PolicyId** parameter of `New-GuestConfigurationPolicy` requires a unique
-string. A globally unique identifier (GUID) is recommended. For new definitions,
+string. A globally unique identifier (GUID) is required. For new definitions,
 generate a new GUID using the cmdlet `New-GUID`. When making updates to the
 definition, use the same unique string for **PolicyId** to ensure the correct
 definition is updated.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **PolicyId**: A GUID or other unique string that identifies the definition.
+- **PolicyId**: A GUID.
 - **ContentUri**: Public HTTP(s) URI of machine configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
@@ -115,31 +114,35 @@ Create a policy definition that audits using a custom
 configuration package, in a specified path:
 
 ```powershell
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'My audit policy.' `
-  -Description 'Details about my policy.' `
-  -Path './policies' `
-  -Platform 'Windows' `
-  -PolicyVersion 1.0.0 `
-  -Verbose
+$PolicyConfig      = @{
+  PolicyId      = '_My GUID_'
+  ContentUri    = $contenturi
+  DisplayName   = 'My audit policy'
+  Description   = 'My audit policy'
+  Path          = './policies/auditIfNotExists.json'
+  Platform      = 'Windows'
+  PolicyVersion = 1.0.0
+}
+
+New-GuestConfigurationPolicy @PolicyConfig
 ```
 
 Create a policy definition that deploys a configuration using a custom
 configuration package, in a specified path:
 
 ```powershell
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'My audit policy.' `
-  -Description 'Details about my policy.' `
-  -Path './policies' `
-  -Platform 'Windows' `
-  -PolicyVersion 1.0.0 `
-  -Mode 'ApplyAndAutoCorrect' `
-  -Verbose
+$PolicyConfig2      = @{
+  PolicyId      = '_My GUID_'
+  ContentUri    = $contenturi
+  DisplayName   = 'My audit policy'
+  Description   = 'My audit policy'
+  Path          = './policies/deployIfNotExists.json'
+  Platform      = 'Windows'
+  PolicyVersion = 1.0.0
+  Mode          = 'ApplyAndAutoCorrect'
+}
+
+New-GuestConfigurationPolicy @PolicyConfig2
 ```
 
 The cmdlet output returns an object containing the definition display name and
@@ -185,7 +188,7 @@ means that the values in the MOF file in the package don't have to be considered
 override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
-The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPacakgeComplianceStatus ` include a
+The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus ` include a
 parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.
@@ -194,7 +197,7 @@ The following example creates a policy definition to audit a service, where the 
 list at the time of policy assignment.
 
 ```powershell
-# This DSC Resource text:
+# This DSC resource definition...
 Service 'UserSelectedNameExample'
   {
     Name = 'ParameterValue'
@@ -202,28 +205,39 @@ Service 'UserSelectedNameExample'
     State = 'Running'
   }`
 
-# Would require the following hashtable:
-$PolicyParameterInfo = @(
+# ...can be converted to a hash table:
+$PolicyParameterInfo     = @(
   @{
-    Name = 'ServiceName'                                           # Policy parameter name (mandatory)
-    DisplayName = 'windows service name.'                          # Policy parameter display name (mandatory)
-    Description = 'Name of the windows service to be audited.'     # Policy parameter description (optional)
-    ResourceType = 'Service'                                       # DSC configuration resource type (mandatory)
-    ResourceId = 'UserSelectedNameExample'                         # DSC configuration resource id (mandatory)
-    ResourcePropertyName = 'Name'                                  # DSC configuration resource property name (mandatory)
-    DefaultValue = 'winrm'                                         # Policy parameter default value (optional)
-    AllowedValues = @('BDESVC','TermService','wuauserv','winrm')   # Policy parameter allowed values (optional)
-  }
-)
+    # Policy parameter name (mandatory)
+    Name                 = 'ServiceName'
+    # Policy parameter display name (mandatory)
+    DisplayName          = 'windows service name.'
+    # Policy parameter description (optional)
+    Description          = 'Name of the windows service to be audited.'
+    # DSC configuration resource type (mandatory)
+    ResourceType         = 'Service'
+    # DSC configuration resource id (mandatory)
+    ResourceId           = 'UserSelectedNameExample'
+    # DSC configuration resource property name (mandatory)
+    ResourcePropertyName = 'Name'
+    # Policy parameter default value (optional)
+    DefaultValue         = 'winrm'
+    # Policy parameter allowed values (optional)
+    AllowedValues        = @('BDESVC','TermService','wuauserv','winrm')
+  })
 
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'Audit Windows Service.' `
-  -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
-  -Path '.\policies' `
-  -Parameter $PolicyParameterInfo `
-  -PolicyVersion 1.0.0
+# ...and then passed into the `New-GuestConfigurationPolicy` cmdlet
+$PolicyParam = @{
+  PolicyId      = 'My GUID'
+  ContentUri    = $contenturi
+  DisplayName   = 'Audit Windows Service.'
+  Description   = "Audit if a Windows Service isn't enabled on Windows machine."
+  Path          = '.\policies\auditIfNotExists.json'
+  Parameter     = $PolicyParameterInfo
+  PolicyVersion = 1.0.0
+}
+
+New-GuestConfigurationPolicy @PolicyParam
 ```
 
 ### Publish the Azure Policy definition
@@ -235,7 +249,13 @@ requirements are documented in the [Azure Policy Overview](./overview.md) page. 
 role is **Resource Policy Contributor**.
 
 ```powershell
-New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
+New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\auditIfNotExists.json'
+```
+
+Or, if this is a deploy if not exist policy (DINE) please use
+
+```powershell
+New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\deployIfNotExists.json'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the

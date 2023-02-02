@@ -10,7 +10,7 @@ ms.date: 07/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 
@@ -61,6 +61,7 @@ The below table lists some more service dependencies, where the client apps must
 |                     | Windows Azure Active Directory              | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 |                     | Exchange                                    | Early-bound |
+| Power Automate      | Power Apps                                  | Early-bound |
 | Project             | Dynamics CRM                                | Early-bound |
 | Skype for Business  | Exchange                                    | Early-bound |
 | Visual Studio       | Microsoft Azure Management (portal and API) | Early-bound |

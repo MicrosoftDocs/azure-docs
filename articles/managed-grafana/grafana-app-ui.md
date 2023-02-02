@@ -71,9 +71,9 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 * [Dashboard version history](https://grafana.com/docs/grafana/latest/dashboards/)
 * [Dashboard export and import](https://grafana.com/docs/grafana/latest/dashboards/export-import/)
 * [Dashboard JSON model](https://grafana.com/docs/grafana/latest/dashboards/json-model/)
-* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/scripted-dashboards/)
+* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to share an Azure Managed Grafana Preview instance](./how-to-share-grafana-workspace.md)
+> [How to share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

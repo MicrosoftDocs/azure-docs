@@ -4,7 +4,7 @@ description: Step-by-step instructions for configuring managed identities for Az
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi

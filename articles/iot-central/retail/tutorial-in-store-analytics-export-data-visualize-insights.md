@@ -102,9 +102,7 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 1. Select **Create** and then **Save**.
 1. On the **Telemetry export** page, wait for the export status to change to **Healthy**.
 
-The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page:
-
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Screenshot that shows the data export configuration in an IoT Central application.":::
+The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page.
 
 ## Create the Power BI datasets
 
@@ -164,9 +162,9 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 
 1. Sign in to your **In-store analytics - checkout** IoT Central application.
 1. Select **Devices** in the left pane. Then select **RuuviTag**.
-1. Make a note of the **Device IDs**. In the following screenshot, the IDs are **p7g7h8qqax** and **2ngij10dibe**:
+1. Make a note of the **Device IDs**. In the following screenshot, the IDs are **8r6vfyiv1x** and **1rvfk4ymk6z**:
 
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Screenshot that shows the device IDs in the device list in an I O T Central application.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Screenshot that shows the device IDs in the device list in an IoT Central application." lightbox="media/tutorial-in-store-analytics-visualize-insights/device-ids.png":::
 
 The following steps show you how to create the logic app in the Azure portal:
 
@@ -414,11 +412,11 @@ Add four card tiles to show the queue length and dwell time for the two checkout
 
 Resize and rearrange the tiles on your dashboard to look like the following screenshot:
 
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Screenshot that shows the Power B I dashboard with resized and rearranged tiles.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Screenshot that shows the Power BI dashboard with resized and rearranged tiles.":::
 
 You could add some graphics resources to further customize the dashboard:
 
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Screenshot that shows the Power B I dashboard with additional graphics.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Screenshot that shows the Power BI dashboard with additional graphics.":::
 
 ## Clean up resources
 

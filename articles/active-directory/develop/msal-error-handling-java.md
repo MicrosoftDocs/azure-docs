@@ -2,7 +2,7 @@
 title: Handle errors and exceptions in MSAL4J
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL4J applications.
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/27/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda, nacanuma
 ms.custom: aaddev
 ---

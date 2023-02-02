@@ -1,6 +1,6 @@
 ---
 title: Enable Log Analytics for a packet core instance
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to enable Log Analytics to allow you to monitor and analyze activity for a packet core instance. 
 author: djrmetaswitch
 ms.author: drichards
@@ -12,6 +12,9 @@ ms.custom: template-how-to
 
 # Enable Log Analytics for a packet core instance
 
+> [!IMPORTANT] 
+> Monitoring Azure Private 5G Core using Log Analytics will soon become unsupported. If you're considering integrating Log Analytics into your deployment, we recommend contacting your support representative to discuss options to suit your cloud monitoring needs.
+
 Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network. In this how-to guide, you'll learn how to enable Log Analytics for a packet core instance.
 
 > [!IMPORTANT] 
@@ -21,7 +24,7 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 - Identify the Kubernetes - Azure Arc resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
 - Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Kubernetes - Azure Arc resource.
-- Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this.
+- Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, see [Set up kubectl access](commission-cluster.md#set-up-kubectl-access) for instructions on how to obtain this file.
 
 ## Create an Azure Monitor extension
 
@@ -195,7 +198,7 @@ In this step, you'll configure and deploy a ConfigMap which will allow Container
 
 In this step, you'll run a query in the Log Analytics workspace to confirm that you can retrieve logs for the packet core instance.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the Log Analytics workspace you used when creating the Azure Monitor extension in [Create an Azure Monitor extension](#create-an-azure-monitor-extension).
 1. Select **Logs** from the resource menu.
    :::image type="content" source="media/log-analytics-workspace.png" alt-text="Screenshot of the Azure portal showing a Log Analytics workspace resource. The Logs option is highlighted.":::

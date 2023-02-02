@@ -7,41 +7,24 @@ ms.reviwer: nikeist
 
 ---
 
-# Data collection transformations in Azure Monitor (preview)
+# Data collection transformations in Azure Monitor
 Transformations in Azure Monitor allow you to filter or modify incoming data before it's sent to a Log Analytics workspace. This article provides a basic description of transformations and how they are implemented. It provides links to other content for actually creating a transformation.
 
-## When to use transformations
-Transformations are useful for a variety of scenarios, including those described below. 
+## Why to use transformations
+The following table describes the different goals that transformations can be used to achieve.
 
-### Reduce data costs
-Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.
-
-- **Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. 
-
-- **Remove a column from each row.** For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required.
-
-- **Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original.
+| Category | Details |
+|:---|:---|
+| Remove sensitive data | You may have a data source that sends information you don't want stored for privacy or compliancy reasons.<br><br>**Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.<br><br>**Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number. |
+| Enrich data with additional or calculated information | Use a transformation to add information to data that provides business context or simplifies querying the data later.<br><br>**Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.<br><br>**Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. |
+| Reduce data costs | Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.<br><br>**Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria.<br><br>**Remove a column from each row.** For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required.<br><br>**Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original. |
 
 
-### Remove sensitive data
-You may have a data source that sends information you don't want stored for privacy or compliancy reasons.
-
-- **Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.
- 
-- **Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number.
-
-
-### Enrich data with additional or calculated information
-Use a transformation to add information to data that provides business context or simplifies querying the data later.
-
-- **Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.
-
-- **Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. 
 
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
 
-- Any Azure table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md)
+- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
 - Any custom table
 
 
@@ -73,7 +56,20 @@ There are multiple methods to create transformations depending on the data colle
 | Type | Reference |
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates](../logs/tutorial-workspace-transformations-api.md)
+
+## Cost for transformations
+There is no direct cost for transformations, but you may incur charges for the following:
+
+- If your transformation increases the size of the incoming data, adding a calculated column for example, then you're charged at the normal rate for ingestion of that additional data.
+- If your transformation reduces the incoming data by more than 50%, then you're charged for ingestion of the amount of filtered data above 50%.
+
+The formula to determine the filter ingestion charge from transformations is  `[GB filtered out by transformations] - ( [Total GB ingested] / 2 )`. For example, suppose that you ingest 100 GB on a particular day, and transformations remove 70 GB. You would be charged for 70 GB - (100 GB / 2) or 20 GB. To avoid this charge, you should use other methods to filter incoming data before the transformation is applied.
+
+See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
+
+> [!IMPORTANT]
+> If Azure Sentinel is enabled for the Log Analytics workspace, then there is no filtering ingestion charge regardless of how much data the transformation filters.
 
 
 ## Next steps

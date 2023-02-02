@@ -9,12 +9,13 @@ ms.topic: reference
 
 This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as pre-configured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100 |
-|**Performance** | 	Max bandwidth: 30 Mbp/s<br>Max devices: 400 |
+|**Performance** | 	Max bandwidth: 30 Mbps<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
 

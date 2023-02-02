@@ -192,7 +192,7 @@ void enumerateDeviceIds()
 
     promise.Completed(
         [](winrt::Windows::Foundation::IAsyncOperation<DeviceInformationCollection> const& sender,
-           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */ ) {
+           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */) {
         auto info = sender.GetResults();
         auto num_devices = info.Size();
 

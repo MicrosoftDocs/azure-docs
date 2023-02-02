@@ -4,7 +4,7 @@ description: View activity and audit history for Azure resource roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -55,7 +55,7 @@ You may have a compliance requirement where you must provide a complete list of 
 
 1. Select the resource you want to export role assignments for, such as a subscription.
 
-1. Select **Members**.
+1. Select **Assignments**.
 
 1. Select **Export** to open the Export membership pane.
 

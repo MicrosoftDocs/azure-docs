@@ -7,7 +7,6 @@ ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
 ---
 
 # Tutorial: Deploy and walkthrough the continuous patient monitoring application template
@@ -25,7 +24,7 @@ The application template enables you to:
 - Export your patient health data to the Azure API for FHIR, a compliant data store.
 - Export the aggregated insights into existing or new business applications.
 
-:::image type="content" source="media/cpm-architecture.png" alt-text="Continuous patient monitoring architecture":::
+:::image type="content" source="media/cpm-architecture.png" alt-text="Diagram of continuous patient monitoring application architecture." border="false":::
 
 ### Bluetooth Low Energy (BLE) medical devices (1)
 
@@ -54,13 +53,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create application
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab:
-    :::image type="content" source="media/app-manager-health.png" alt-text="Application template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab.
 
 1. Select **Create app** under **Continuous patient monitoring**.
 
@@ -84,11 +81,9 @@ After deploying the application template, you'll first land on the **Lamna in-pa
 
 * Change the **patient status** of your device to indicate if the device is being used for an in-patient or remote scenario.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="In-patient status":::
-
 You can also select **Go to remote patient dashboard** to see the Burkville Hospital operator dashboard. This dashboard contains a similar set of actions, telemetry, and information. You can also see multiple devices in use and choose to **update the firmware** on each.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Remote operator dashboard":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Screenshot showing the continuous patient monitoring dashboard." lightbox="media/lamna-remote.png":::
 
 ### Device templates
 
@@ -98,7 +93,7 @@ If you select **Device templates**, you see the two device types in the template
 
 - **Smart Knee Brace**: This device represents a knee brace that patients use when recovering from a knee replacement surgery. If you select this template, you see capabilities such as device data, range of motion, and acceleration.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Smart patch template":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Screenshot showing the continuous patient monitoring device template." lightbox="media/smart-vitals-device-template.png":::
 
 ### Device groups
 
@@ -116,7 +111,7 @@ If you select **Rules**, you see the three rules in the template:
 
 - **Patch battery low**: This rule is triggers when the battery level on the device goes below 10%. Use this rule to trigger a notification to the patient to charge their device.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Rules":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Screenshot showing the continuous patient monitoring rule." lightbox="media/brace-temp-rule.png":::
 
 ### Jobs
 
@@ -136,14 +131,11 @@ The **Properties** tab lets you edit cloud properties and read/write device prop
 
 The **Commands** tab lets you run commands on the device.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee brace dashboard":::
-
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Screenshot showing the continuous patient monitoring device." lightbox="media/knee-brace-dashboard.png":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application by visiting **Application > Management** and click **Delete**.
-
-:::image type="content" source="media/admin-delete.png" alt-text="Tidy resources":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
 ## Next steps
 

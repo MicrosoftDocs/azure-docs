@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 05/26/2022
+ms.date: 12/05/2022
 ms.author: radeltch
 
 ---
@@ -33,7 +33,8 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a STONITH block device (SBD device).
+In Azure, you have two options for setting up fencing in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
+
 
 ### Use an SBD device
 
@@ -74,7 +75,7 @@ You can configure the SBD device by using either of two options:
    - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
 ### Use an Azure fence agent
-You can set up STONITH by using an Azure fence agent. Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
+You can set up fencing by using an Azure fence agent. Azure fence agent require managed identities for the cluster VMs or a service principal, that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
 
@@ -464,11 +465,18 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
 ## Use an Azure fence agent
 
-This section applies only if you want to use a STONITH device with an Azure fence agent.
+This section applies only if you want to use a fencing device with an Azure fence agent.
 
-### Create an Azure fence agent STONITH device
+### Create an Azure fence agent device
 
-This section applies only if you're using a STONITH device that's based on an Azure fence agent. The STONITH device uses a service principal to authorize against Microsoft Azure. To create a service principal, do the following:
+This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
+
+#### Using managed identity
+To create a managed identity (MSI), [create a system-assigned](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
+
+#### Using service principal
+
+To create a service principal, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
 1. Select **App registrations**.
@@ -483,7 +491,7 @@ This section applies only if you're using a STONITH device that's based on an Az
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
+By default, neither managed identity norservice principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
 Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
@@ -506,11 +514,20 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the service principal
+### **[A]** Assign the custom role
+
+#### Using Managed Identity
+
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
+
+> [!IMPORTANT]
+> Be aware assignment and removal of authorization with managed identities [can be delayed](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+
+#### Using Service Principal
 
 Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 
-Be sure to assign the role for both cluster nodes.
+Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
 
 ## Install the cluster
 
@@ -524,12 +541,17 @@ Be sure to assign the role for both cluster nodes.
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Install the component, which you'll need for the cluster resources.
+   > [!NOTE]
+   > On SLES 15 SP04 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
+   > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
+   > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
+
+2. **[A]** Install the component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in socat
    </code></pre>
 
-1. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
+3. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in resource-agents
    </code></pre>
@@ -539,7 +561,7 @@ Be sure to assign the role for both cluster nodes.
    > - **SLES 12 SP4/SP5**: The version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
    > - **SLES 15/15 SP1**: The version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
 
-1. **[A]** Configure the operating system.
+4. **[A]** Configure the operating system.
 
    a. Pacemaker occasionally creates many processes, which can exhaust the allowed number. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum number of allowed processes by setting the following parameter:
 
@@ -564,8 +586,15 @@ Be sure to assign the role for both cluster nodes.
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
    </code></pre>
+   
+    c. Make sure vm.swappiness is set to 10 to reduce swap usage and favor memory.
 
-1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
+   <pre><code>sudo vi /etc/sysctl.conf
+   # Change/set the following setting
+   vm.swappiness = 10
+   </code></pre>
+
+5. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
 
    >[!NOTE]
    > Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
@@ -580,7 +609,7 @@ Be sure to assign the role for both cluster nodes.
    CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
-1. **[1]** Enable SSH access.
+6. **[1]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
@@ -592,7 +621,7 @@ Be sure to assign the role for both cluster nodes.
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[2]** Enable SSH access.
+7. **[2]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
@@ -607,13 +636,13 @@ Be sure to assign the role for both cluster nodes.
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[1]** Enable SSH access.
+8. **[1]** Enable SSH access.
 
    <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install the *fence-agents* package if you're using a STONITH device, based on the Azure fence agent.  
+9. **[A]** Install the *fence-agents* package if you're using a fencing device, based on the Azure fence agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
@@ -621,7 +650,13 @@ Be sure to assign the role for both cluster nodes.
    >[!IMPORTANT]
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+   >[!IMPORTANT]
+   > If using managed identity, the installed version of the *fence-agents* package must be 
+   > SLES 12 SP5: fence-agents 4.9.0+git.1624456340.8d746be9-3.35.2 or later  
+   > SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.  
+   > Earlier versions will not work correctly with a managed identity configuration.  
+   
+10. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
@@ -635,7 +670,7 @@ Be sure to assign the role for both cluster nodes.
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
     sudo zypper install python3-azure-identity
-    </code></pre> 
+    </code></pre>
 
     >[!IMPORTANT]
     >Depending on your version and image type, you might need to activate the public cloud extension for your OS release before you can install the Azure Python SDK.
@@ -644,7 +679,7 @@ Be sure to assign the role for both cluster nodes.
     > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-1. **[A]** Set up the hostname resolution.
+11. **[A]** Set up the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -666,11 +701,11 @@ Be sure to assign the role for both cluster nodes.
     <b>10.0.0.7 prod-cl1-1</b>
     </code></pre>
 
-1. **[1]** Install the cluster.
+12. **[1]** Install the cluster.
     
     - If you're using SBD devices for fencing (for either the iSCSI target server or Azure shared disk):
 
-      <pre><code>sudo ha-cluster-init -u
+      <pre><code>sudo crm cluster init
       # ! NTP is not configured to start at system boot.
       # Do you want to continue anyway (y/n)? <b>y</b>
       # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
@@ -682,32 +717,32 @@ Be sure to assign the role for both cluster nodes.
     
     - If you're *not* using SBD devices for fencing:
     
-      <pre><code>sudo ha-cluster-init -u
+      <pre><code>sudo crm cluster init
       # ! NTP is not configured to start at system boot.
       # Do you want to continue anyway (y/n)? <b>y</b>
       # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
       # Address for ring0 [10.0.0.6] <b>Select Enter</b>
       # Port for ring0 [5405] <b>Select Enter</b>
       # Do you wish to use SBD (y/n)? <b>n</b>
-      #WARNING: Not configuring SBD - STONITH will be disabled.
+      # WARNING: Not configuring SBD - STONITH will be disabled.
       # Do you wish to configure an administration IP (y/n)? <b>n</b>
       </code></pre>
 
-1. **[2]** Add the node to the cluster.
+13. **[2]** Add the node to the cluster.
     
-    <pre><code>sudo ha-cluster-join
+    <pre><code>sudo crm cluster join
     # ! NTP is not configured to start at system boot.
     # Do you want to continue anyway (y/n)? <b>y</b>
     # IP address or hostname of existing node (for example, 192.168.1.1) []<b>10.0.0.6</b>
     # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
     </code></pre>
 
-1. **[A]** Change the hacluster password to the same password.
+14. **[A]** Change the hacluster password to the same password.
 
     <pre><code>sudo passwd hacluster
     </code></pre>
 
-1. **[A]** Adjust the corosync settings.  
+15. **[A]** Adjust the corosync settings.  
 
     <pre><code>sudo vi /etc/corosync/corosync.conf
     </code></pre>
@@ -751,9 +786,9 @@ Be sure to assign the role for both cluster nodes.
     <pre><code>sudo service corosync restart
     </code></pre>
 
-### Create a STONITH device on the Pacemaker cluster
+### Create a fencing device on the Pacemaker cluster
 
-1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as STONITH, run the following commands. Enable the use of a STONITH device, and set the fence delay.
+1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    <pre><code>sudo crm configure property stonith-timeout=144
    sudo crm configure property stonith-enabled=true
@@ -767,16 +802,31 @@ Be sure to assign the role for both cluster nodes.
       op monitor interval="600" timeout="15"
    </code></pre>
 
-1. **[1]** If you're using an Azure fence agent as STONITH, run the following commands. After you've assigned roles to both cluster nodes, you can configure the STONITH devices in the cluster.
+1. **[1]** If you're using an Azure fence agent for fencing, run the following commands. After you've assigned roles to both cluster nodes, you can configure the fencing devices in the cluster.
+ 
+   <pre><code>sudo crm configure property stonith-enabled=true
+   crm configure property concurrent-fencing=true
+   </code></pre>
 
    > [!NOTE]
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
-
-   <pre><code>sudo crm configure property stonith-enabled=true
-   crm configure property concurrent-fencing=true
+  
+   If using **managed identity** for your fence agent, run the following command
+   <pre><code>
+   # replace the bold strings with your subscription ID and resource group of the VM
    
-   # replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params <b>msi=true</b> subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+   op monitor interval=3600 timeout=120
+   
+   sudo crm configure property stonith-timeout=900
+   </code></pre>
+
+   If using **service principal** for your fence agent, run the following command
+   <pre><code>
+   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
@@ -785,6 +835,8 @@ Be sure to assign the role for both cluster nodes.
    
    sudo crm configure property stonith-timeout=900
    </code></pre>
+
+   If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
    > [!IMPORTANT]
    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.

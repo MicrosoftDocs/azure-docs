@@ -2,19 +2,14 @@
 title: Azure Active Directory recommendation - Minimize MFA prompts from known devices in Azure AD | Microsoft Docs
 description: Learn why you should minimize MFA prompts from known devices in Azure AD.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/31/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management
@@ -30,7 +25,7 @@ This article covers the recommendation to convert minimize multi-factor authenti
 
 ## Description
 
-As an admin, you want to maintain security for my company’s resources, but you also want your employees to easily access resources as needed.
+As an admin, you want to maintain security for your company’s resources, but you also want your employees to easily access resources as needed.
 
 MFA enables you to enhance the security posture of your tenant. While enabling MFA is a good practice, you should try to keep the number of MFA prompts your users have to go through at a minimum. One option you have to accomplish this goal is to **allow users to remember multi-factor authentication on devices they trust**.
 

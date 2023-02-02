@@ -5,13 +5,13 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 07/21/2022
+ms.date: 08/18/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
+ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azurecli
 ---
 
 # Set a blob's access tier
@@ -398,5 +398,6 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 ## Next steps
 
-- [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
+- [Archive a blob](archive-blob.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)

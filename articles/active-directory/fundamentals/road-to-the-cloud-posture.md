@@ -1,6 +1,6 @@
 ---
-title: Road to the cloud - Determine cloud transformation posture when moving identity and access management from AD to Azure AD
-description: Determine cloud transformation posture when planning your migration of IAM from AD to Azure AD.
+title: Road to the cloud - Determine cloud transformation posture when moving identity and access management from Active Directory to Azure AD
+description: Determine your cloud transformation posture when planning your migration of IAM from Active Directory to Azure AD.
 documentationCenter: ''
 author: janicericketts
 manager: martinco
@@ -14,106 +14,140 @@ ms.custom: references_regions
 
 # Cloud transformation posture
 
-Active Directory (AD) and Azure Active Directory (Azure AD) and other Microsoft tools are at the core of identity and access management. For example, device management in AD is provided by Active Directory Domain Services (AD DS) and Microsoft Endpoint Configuration Manager (MECM). In Azure AD, the same capability is provided using Azure AD and Intune.
+Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Endpoint Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
 
-As part of most modernization, migration, or zero-trust initiatives, identity and access management (IAM) activities are shifted from using on-premises or Infrastructure-as-a-Service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment with Microsoft products and services, Active Directory (AD) and Azure Active Directory (Azure AD) play a role.
+As part of most modernization, migration, or Zero Trust initiatives, organizations shift IAM activities from using on-premises or infrastructure-as-a-service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment that uses Microsoft products and services, Active Directory and Azure AD play a role.
 
-Many companies migrating from Active Directory (AD) to Azure Active Directory (Azure AD) start with an environment similar to the following diagram. The diagram also overlays three pillars:
+Many companies that migrate from Active Directory to Azure AD start with an environment that's similar to the following diagram. The diagram overlays three pillars:
 
-* **Applications**: This pillar includes the applications, resources, and their underlying domain-joined servers.
+* **Applications**: Includes applications, resources, and their underlying domain-joined servers.
 
-* **Devices**: This pillar focuses on domain-joined client devices.
+* **Devices**: Focuses on domain-joined client devices.
 
-* **Users and Groups**: Represent the human and non-human identities and attributes that access resources from different devices as specified.
+* **Users**: Represents the human and non-human identities and attributes that access resources from devices.
 
-[ ![Architectural diagram depicting applications, devices, and users and groups layers, each containing common technologies found within each layer.](media/road-to-cloud-posture/road-to-the-cloud-start.png) ](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
+[![Architectural diagram that depicts the common technologies contained in the pillars of applications, devices, and users.](media/road-to-cloud-posture/road-to-the-cloud-start.png)](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
 
-Microsoft has modeled five states of transformation that commonly align with the business goals of our customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resourcing and culture. This approach closely follows [Active Directory in Transition: Gartner Survey| Results and Analysis](https://www.gartner.com/en/documents/4006741).
+Microsoft has modeled five states of transformation that commonly align with the business goals of customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resources and culture.
 
-The five states have exit criteria to help you determine where your environment resides today. Some projects, such as application migration span all five states, while others span a single state.
+The five states have exit criteria to help you determine where your environment resides today. Some projects, such as application migration, span all five states. Other projects span a single state.
 
-The content then provides more detailed guidance organized to help with intentional changes to people, process, and technology to:
+The content then provides more detailed guidance that's organized to help with intentional changes to people, process, and technology. The guidance can help you:
 
-* Establish Azure AD footprint
+* Establish an Azure AD footprint.
 
-* Implement a cloud-first approach
+* Implement a cloud-first approach.
 
-* Start to migrate out of your AD environment
+* Start to migrate out of your Active Directory environment.
 
-Guidance is provided organized by user management, device management, and application management per the pillars above.
+Guidance is organized by user management, device management, and application management according to the preceding pillars.
 
-Organizations that are formed in Azure AD rather than in AD don't have the legacy on-premises environment that more established organizations must contend with. For them, or customers that are completely recreating their IT environment in the cloud, becoming 100% cloud-centric can be accomplished as the new IT environment is established.
+Organizations that are formed in Azure AD rather than in Active Directory don't have the legacy on-premises environment that more established organizations must contend with. For them, or for customers who are completely re-creating their IT environment in the cloud, becoming 100 percent cloud-centric can happen as the new IT environment is established.
 
-For customers with established on-premises IT capability, the transformation process introduces complexity that requires careful planning. Additionally, since AD and Azure AD are separate products targeted at different IT environments, there aren't like-by-like features. For example, Azure AD does not have the notion of AD domain and forest trusts.
+For customers who have an established on-premises IT capability, the transformation process introduces complexity that requires careful planning. Also, because Active Directory and Azure AD are separate products targeted at different IT environments, they don't have like-for-like features. For example, Azure AD doesn't have the notion of Active Directory domain and forest trusts.
 
-## Five States of transformation
+## Five states of transformation
 
-In enterprise-sized organizations, IAM transformation, or even transformation from AD to Azure AD is typically a multi-year effort with multiple states. You analyze your environment to determine your current state, and then set a goal for your next state. Your goal might remove the need for AD entirely, or you might decide not to migrate some capability to Azure AD and leave it in place. The states are meant to logically group initiatives into projects towards completing a transformation. During the state transitions, interim solutions are put in place. The interim solutions enable the IT environment to support IAM operations in both AD and Azure AD. The interim solutions must also enable the two environments to interoperate. The following diagram shows the five states:
+In enterprise-sized organizations, IAM transformation, or even transformation from Active Directory to Azure AD, is typically a multi-year effort with multiple states. You analyze your environment to determine your current state, and then set a goal for your next state. Your goal might remove the need for Active Directory entirely, or you might decide not to migrate some capability to Azure AD and leave it in place. 
 
-[ ![Diagram that shows five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png) ](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
+The states logically group initiatives into projects toward completing a transformation. During the state transitions, you put interim solutions in place. The interim solutions enable the IT environment to support IAM operations in both Active Directory and Azure AD. The interim solutions must also enable the two environments to interoperate. 
+
+The following diagram shows the five states:
+
+[![Diagram that shows five network architectures: cloud attached, hybrid, cloud first, Active Directory minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png)](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
 
 >[!NOTE]
-> The states in this diagram represent a logical progression of cloud transformation. Your ability to move from one state to the next is dependent on the functionality that you have implemented and the capabilities within that functionality to move to the cloud.
+> The states in this diagram represent a logical progression of cloud transformation. Your ability to move from one state to the next depends on the functionality that you've implemented and the capabilities within that functionality to move to the cloud.
 
-**State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
+### State 1: Cloud attached
 
-* Devices are joined to AD and managed using group policy and or on-premises device management tools.
-* Users are managed in AD, provisioned via on-premises IDM systems, and synchronized to Azure AD with Azure AD Connect.
-* Apps are authenticated to AD, federation servers like AD FS, or Web Access Manager (WAM), Microsoft 365 or other tools such as SiteMinder and Oracle Access Manager (OAM).
+In the cloud-attached state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools. The tenant is fully operational. 
 
-**State 2 Hybrid** - In this state, the organizations start to enhance their on-premises environment through cloud capabilities. The solutions can be planned to reduce complexity, increase security posture, and reduce the footprint of the on-premises environment. During transition and operating in this state, organizations grow the skills and expertise using Azure AD for IAM solutions. Since user accounts and device attachments are relatively easy and a common part of day-to-day IT operations, this is the approach most organizations have used. In this state:
+Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state, operational costs might be higher because there's an on-premises environment and a cloud environment to maintain and make interactive. People must have expertise in both environments to support their users and the organization. 
+
+In this state:
+
+* Devices are joined to Active Directory and managed through Group Policy or on-premises device management tools.
+* Users are managed in Active Directory, provisioned via on-premises identity management (IDM) systems, and synchronized to Azure AD through Azure AD Connect.
+* Apps are authenticated to Active Directory and to federation servers like Active Directory Federation Services (AD FS) through a web access management (WAM) tool, Microsoft 365, or other tools such as SiteMinder and Oracle Access Manager.
+
+### State 2: Hybrid
+
+In the hybrid state, organizations start to enhance their on-premises environment through cloud capabilities. The solutions can be planned to reduce complexity, increase security posture, and reduce the footprint of the on-premises environment. 
+
+During the transition and while operating in this state, organizations grow the skills and expertise for using Azure AD for IAM solutions. Because user accounts and device attachments are relatively easy and a common part of day-to-day IT operations, this is the approach that most organizations have used. 
+
+In this state:
 
 * Windows clients are hybrid Azure AD joined.
 
-* Non-Microsoft SaaS-based start being integrated with Azure AD, for example Salesforce and ServiceNow.
+* Non-Microsoft platforms based on software as a service (SaaS) start being integrated with Azure AD. Examples are Salesforce and ServiceNow.
 
-* Legacy apps are authenticating to Azure AD via App Proxy or secure hybrid access partner solutions.
+* Legacy apps are authenticating to Azure AD via Application Proxy or partner solutions that offer secure hybrid access.
 
 * Self-service password reset (SSPR) and password protection for users are enabled.
 
-* Some legacy apps are authenticated in the cloud using Azure AD Directory Service (Azure AD DS) and App Proxy.
+* Some legacy apps are authenticated in the cloud through Azure AD DS and Application Proxy.
 
-**State 3 Cloud first**  - In this state, the teams across the organization build a track record of success and start planning to move more challenging workloads to Azure AD. Organizations typically spend the most time in this state of transformation. As complexity and number of workloads grow over time, the longer an organization has used Active Directory (AD) the greater the effort and number of initiatives needed to shift to the cloud. In this state:
+### State 3: Cloud first
 
-* New Windows clients are joined to Azure AD and are managed with Intune.
-* ECMA connectors are used for provision users and groups for on-premises apps.
-* All apps that were previously using an AD DS-integrated federated identity provider such as Active Directory Federation Services (ADFS), are updated to use Azure AD for authentication. And, if you were using password-based authentication via that identity provider for Azure AD, that is migrated to Password Hash Synchronization (PHS).
+In the cloud-first state, the teams across the organization build a track record of success and start planning to move more challenging workloads to Azure AD. Organizations typically spend the most time in this state of transformation. As complexity, the number of workloads, and the use of Active Directory grow over time, an organization needs to increase its effort and its number of initiatives to shift to the cloud. 
+
+In this state:
+
+* New Windows clients are joined to Azure AD and are managed through Intune.
+* ECMA connectors are used to provision users and groups for on-premises apps.
+* All apps that previously used an AD DS-integrated federated identity provider, such as AD FS, are updated to use Azure AD for authentication. If you were using password-based authentication through that identity provider for Azure AD, it's migrated to password hash synchronization.
 * Plans to shift file and print services to Azure AD are being developed.
-* Collaboration capability is provided by Azure AD B2B.
+* Azure AD provides a business-to-business (B2B) collaboration capability.
 * New groups are created and managed in Azure AD.
 
-**State 4 AD minimized** - Most IAM capability is provided by Azure AD while edge cases and exceptions continue to utilize on-premises AD. This state is more difficult to achieve, especially for larger organizations with significant on-premises technical debt. Azure AD continues to evolve as your organization’s transformation matures, bringing new features and tools that you can utilize. Organizations are required to deprecate capability or build new capability to provide replacement. In this state:
+### State 4: Active Directory minimized
 
-* New users provisioned using the HR provisioning capability are created directly in Azure AD.
+Azure AD provides most IAM capability, whereas edge cases and exceptions continue to use on-premises Active Directory. A state of minimizing Active Directory is more difficult to achieve, especially for larger organizations that have significant on-premises technical debt. 
 
-* A plan to move apps that depend on AD and are part of the vision for the future state Azure AD environment is being executed. A plan to replace services that won't move (file, print, fax services) is in place.
+Azure AD continues to evolve as your organization's transformation matures, bringing new features and tools that you can use. Organizations are required to deprecate capabilities or build new capabilities to provide replacement. 
 
-* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, Cloud Print. SQL is replaced by SQL MI. Azure AD Kerberos is being migrated to Azure AD.
+In this state:
 
-**State 5 100% cloud** - In this state, IAM capability is all provided by Azure AD and other Azure tools. This is the long-term aspiration for many organizations. In this state:
+* New users provisioned through the HR provisioning capability are created directly in Azure AD.
 
-* No on-premises IAM footprint required.
+* A plan to move apps that depend on Active Directory and are part of the vision for the future-state Azure AD environment is being executed. A plan to replace services that won't move (file, print, or fax services) is in place.
 
-* All devices are managed in Azure AD and cloud solution such as Intune.
+* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, or Google Cloud Print. Azure SQL Managed Instance replaces SQL Server.
 
-* User identity lifecycle is managed using Azure AD.
+### State 5: 100% cloud
+
+In the 100%-cloud state, Azure AD and other Azure tools provide all IAM capability. This is the long-term aspiration for many organizations. 
+
+In this state:
+
+* No on-premises IAM footprint is required.
+
+* All devices are managed in Azure AD and cloud solutions such as Intune.
+
+* The user identity lifecycle is managed through Azure AD.
 
 * All users and groups are cloud native.
 
-* Network services that rely on AD are relocated.
+* Network services that rely on Active Directory are relocated.
+
+## Transformation analogy
 
 The transformation between the states is similar to moving locations:
 
-* **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD footprint](road-to-the-cloud-establish.md)**. The results transition you to State 2.
+1. **Establish a new location**: You purchase your destination and establish connectivity between the current location and the new location. These activities enable you to maintain your productivity and ability to operate. For more information, see [Establish an Azure AD footprint](road-to-the-cloud-establish.md). The results transition you to state 2.
 
-* **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md)**. The activities set the foundation to migrate at scale and reach State 3.
+1. **Limit new items in the old location**: You stop investing in the old location and set a policy to stage new items in the new location. For more information, see [Implement a cloud-first approach](road-to-the-cloud-implement.md). These activities set the foundation to migrate at scale and reach state 3.
 
-* **Move existing items to new location** - You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as-is, upgrade them, replace them, or deprecate them. In this content, the activities are described in **[Transition to the cloud](road-to-the-cloud-migrate.md)**. These activities enable you to complete State 3 and reach State 4 and State 5. Based on your business objectives, you decide what end state you want to target.
+1. **Move existing items to the new location**: You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as is, upgrade them, replace them, or deprecate them. For more information, see [Transition to the cloud](road-to-the-cloud-migrate.md). 
 
-Transformation to the cloud isn't only the identity team's responsibility. Coordination across teams to define policies beyond technology that include people and process change are required. Using a coordinated approach helps to ensure consistent progress and reduces the risk of regressing to on-premises solutions. Involve teams that manage:
+   These activities enable you to complete state 3 and reach states 4 and 5. Based on your business objectives, you decide what end state you want to target.
 
-* Device/endpoint
-* Networking
+Transformation to the cloud isn't only the identity team's responsibility. The organization needs coordination across teams to define policies that include people and process change, along with technology. Using a coordinated approach helps ensure consistent progress and reduces the risk of regressing to on-premises solutions. Involve teams that manage:
+
+* Devices/endpoints
+* Networks
 * Security/risk
 * Application owners
 * Human resources
@@ -121,19 +155,23 @@ Transformation to the cloud isn't only the identity team's responsibility. Coord
 * Procurement
 * Operations
 
-As a migration of IAM to Azure AD is started, organizations must determine the prioritization of efforts based on their specific needs. Teams of operational staff and support staff must be trained to perform their jobs in the new environment. The following shows the high-level journey for AD to Azure AD migration:
+### High-level journey
 
-:::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Table depicting three major milestones that organizations move through when implementing an AD to Azure AD migration. These include Establish Azure AD capabilities, Implement cloud-first approach, and Move workloads to the cloud." border="false":::
+As organizations start a migration of IAM to Azure AD, they must determine the prioritization of efforts based on their specific needs. Operational staff and support staff must be trained to perform their jobs in the new environment. The following chart shows the high-level journey for migration from Active Directory to Azure AD:
 
-* **Establish Azure AD footprint**: Initialize your new Azure AD tenant to supports the vision for your end-state deployment. Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [protects your tenant from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md) early in your journey.
+:::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Chart that shows three major milestones in migrating from Active Directory to Azure AD: establish Azure AD capabilities, implement a cloud-first approach, and move workloads to the cloud." border="false":::
 
-* **Implement cloud-first approach**: Establish a policy that mandates all new devices, apps and services should be cloud-first. New applications and services using legacy protocols (NTLM, Kerberos, LDAP etc.) should be by exception only.
+* **Establish an Azure AD footprint**: Initialize your new Azure AD tenant to support the vision for your end-state deployment. Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [helps protect your tenant from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md) early in your journey.
 
-* **Transition to the cloud**: Shift the management and integration of users, apps and devices away from on-premises and over to cloud-first alternatives. Optimize user provisioning by taking advantage of [cloud-first provisioning capabilities](../governance/what-is-provisioning.md) that integrate with Azure AD. 
+* **Implement a cloud-first approach**: Establish a policy that all new devices, apps, and services should be cloud-first. New applications and services that use legacy protocols (for example, NTLM, Kerberos, or LDAP) should be by exception only.
 
-The transformation changes how users accomplish tasks and how support teams provide end-user support. Initiatives or projects should be designed and implemented in a manner that minimizes the impact on user productivity. As part of the transformation, self-service IAM capabilities are introduced. Some portions of the workforce more easily adapt to the self-service user environment prevalent in cloud-based businesses.
+* **Transition to the cloud**: Shift the management and integration of users, apps, and devices away from on-premises and over to cloud-first alternatives. Optimize user provisioning by taking advantage of [cloud-first provisioning capabilities](../governance/what-is-provisioning.md) that integrate with Azure AD. 
 
-Aging applications might require updating or replacing to operate well in cloud-based IT environments. Application updates or replacements can be costly and time-consuming. The planning and Stages must also take the age and capability of the applications an organization uses.
+The transformation changes how users accomplish tasks and how support teams provide user support. The organization should design and implement initiatives or projects in a way that minimizes the impact on user productivity. 
+
+As part of the transformation, the organization introduces self-service IAM capabilities. Some parts of the workforce more easily adapt to the self-service user environment that's prevalent in cloud-based businesses.
+
+Aging applications might need to be updated or replaced to operate well in cloud-based IT environments. Application updates or replacements can be costly and time-consuming. The planning and other stages must also take the age and capability of the organization's applications into account.
 
 ## Next steps
 

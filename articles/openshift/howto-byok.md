@@ -1,8 +1,8 @@
 ---
 title: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
 description: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to
@@ -53,8 +53,7 @@ You must use an Azure Key Vault instance to store your keys. Create a new Key Va
     az keyvault create -n $KEYVAULT_NAME \
                    -g $RESOURCEGROUP \
                    -l $LOCATION \
-                   --enable-purge-protection true \
-                   --enable-soft-delete true
+                   --enable-purge-protection true
 
     az keyvault key create --vault-name $KEYVAULT_NAME \
                            -n $KEYVAULT_KEY_NAME \

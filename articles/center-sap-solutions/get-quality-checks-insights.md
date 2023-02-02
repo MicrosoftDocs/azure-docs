@@ -1,9 +1,9 @@
 ---
 title: Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
-description: Learn how to get quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to get quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
@@ -13,13 +13,13 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
 
 In this how-to guide, you'll learn how to use quality checks and insights to get more information about virtual machine (VM) configurations within your SAP system.
 
 ## Prerequisites
 
-- An SAP system that you've [created with ACSS](deploy-s4hana.md) or [registered with ACSS](register-existing-system.md). 
+- An SAP system that you've [created with Azure Center for SAP solutions](deploy-s4hana.md) or [registered with Azure Center for SAP solutions](register-existing-system.md). 
 
 ## Open Quality Insights workbook
 
@@ -37,13 +37,13 @@ To open the workbook:
     :::image type="content" source="media/get-quality-checks-insights/quality-insights.png" lightbox="media/get-quality-checks-insights/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual Instance for SAP solutions.":::
 
 There are multiple sections in the workbook:
-- Select the default **Advisor Recommendations** tab to [see the list of recommendations made by ACSS for the different instances in your VIS](#get-advisor-recommendations)
+- Select the default **Advisor Recommendations** tab to [see the list of recommendations made by Azure Center for SAP solutions for the different instances in your VIS](#get-advisor-recommendations)
 - Select the **Virtual Machine** tab to [find information about the VMs in your VIS](#get-vm-information)
 - Select the **Configuration Checks** tab to [see configuration checks for your VIS](#run-configuration-checks)
 
 ## Get Advisor Recommendations
 
-The **Quality checks** feature in ACSS runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+The **Quality checks** feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
@@ -65,7 +65,7 @@ The following checks are run for each VIS:
 > [!NOTE]
 > These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh at the same 12-hour frequency.
 
-If you take action on one or more recommendations from ACSS, wait for the next refresh to see any new recommendations from Azure Advisor.
+If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
 
 ## Get VM information
 

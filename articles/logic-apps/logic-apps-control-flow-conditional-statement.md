@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/09/2018
+ms.date: 09/01/2022
 ---
 
 # Add conditions to control workflow actions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To run specific actions in your logic app only after passing a specified condition, 
 add a *condition action*. This control structure compares the data in your 

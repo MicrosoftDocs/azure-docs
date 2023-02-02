@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart - Deploy a model and generate text using Azure OpenAI'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions and search calls.
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: ChrisHMSFT
 ms.author: chrhoder
-ms.date: 06/30/2022
+ms.date: 12/14/2022
 zone_pivot_groups: openai-quickstart
 recommendations: false
 ---

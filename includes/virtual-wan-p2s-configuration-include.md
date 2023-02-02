@@ -43,13 +43,13 @@ ms.topic: include
 
    * **Example - RADIUS authentication**
 
-      To configure this setting, the tunnel type on the Basics page must include OpenVPN.
+      To configure this setting, the tunnel type on the Basics page can be Ikev2, OpenVPN, or OpenVPN and IKEv2.
 
       :::image type="content" source="media/virtual-wan-p2s-configuration/radius-authentication.png" alt-text="Screenshot of RADIUS authentication page.":::
 
    * **Example - Azure Active Directory authentication**
 
-      To configure this setting, the tunnel type on the Basics page must be OpenVPN (without IKEv2).
+      To configure this setting, the tunnel type on the Basics page must be OpenVPN. Azure Active Directory-based authentication is only supported with OpenVPN.
 
       :::image type="content" source="media/virtual-wan-p2s-configuration/azure-active-directory.png" alt-text="Azure Active Directory authentication page.":::
 

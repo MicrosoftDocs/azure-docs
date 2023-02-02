@@ -24,7 +24,7 @@ You can deploy the Video Analyzer edge module to an IoT Edge device on the same 
 
 * When cameras/devices need to be shielded from exposure to the internet
 * When cameras/devices do not have the functionality to connect to IoT Hub independently
-* When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
+* When power, space, or other considerations permit only a lightweight edge device to be deployed on-premises
 
 The Video Analyzer edge module does not act as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video.
 

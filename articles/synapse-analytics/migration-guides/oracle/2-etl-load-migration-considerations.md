@@ -355,7 +355,7 @@ You can use the Oracle connector in Data Factory to unload large Oracle tables i
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/azure-data-factory-source-tab.png" border="true" alt-text="Screenshot of Azure Data Factory Oracle partition options in the source tab.":::
 
-For information on how to configure the Oracle connector for parallel copy, see [Parallel copy from Oracle](/azure/data-factory/connector-oracle?tabs=data-factory#parallel-copy-from-oracle).
+For information on how to configure the Oracle connector for parallel copy, see [Parallel copy from Oracle](../../../data-factory/connector-oracle.md?tabs=data-factory#parallel-copy-from-oracle).
 
 For more information on Data Factory copy activity performance and scalability, see [Copy activity performance and scalability guide](../../../data-factory/copy-activity-performance.md).
 

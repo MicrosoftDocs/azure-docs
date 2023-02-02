@@ -5,11 +5,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 08/10/2022
+ms.date: 08/30/2022
 tags: active-directory
-ms.author: mimart
-author: msmimart
-ms.custom: it-pro, seo-update-azuread-jan
+ms.author: cmulligan
+author: csmulligan
+ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ---
 
@@ -21,7 +21,7 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
    >
    > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. Learn more about [configuring email one-time passcode](one-time-passcode.md) and [plans for other fallback authentication methods](one-time-passcode.md#disable-email-one-time-passcode), such as unmanaged ("viral") accounts and Microsoft accounts.
+   > - The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## Guest sign-in fails with error code AADSTS50020
 
@@ -80,7 +80,7 @@ By default, SharePoint Online and OneDrive have their own set of external user o
 
 If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
 
-![Screenshot showing the External Users settings.](media/troubleshoot/external-user-settings.png)
+:::image type="content" source="media/troubleshoot/external-user-settings.png" alt-text="Screenshot showing the External User settings.":::
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -110,7 +110,7 @@ This happens when another object in the directory has the same invited email add
 
 ## The guest user object doesn't have a proxyAddress
 
-Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
+Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users). Also, if the contact object you're synchronizing from on-premises AD conflicts with an existing guest user, the conflicting proxyAddress is removed from the existing guest user.
 
 ## How does ‘\#’, which isn't normally a valid character, sync with Azure AD?
 
@@ -201,4 +201,5 @@ Let's say you inadvertently invite a guest user with an email address that match
 
 ## Next steps
 
-[Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Use audit logs and access reviews](auditing-and-reporting.md)

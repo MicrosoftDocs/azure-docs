@@ -4,7 +4,7 @@ description: Describes email notifications in Azure AD Privileged Identity Manag
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -59,9 +59,9 @@ Who receives these emails for Azure AD roles depends on your role, the event, an
 
 | User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
 | --- | --- | --- | --- |
-| Privileged Role Administrator</br>(Activated/Eligible) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes |
-| Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
-| Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
+| Privileged Role Administrator</br>(Activated) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes |
+| Security Administrator</br>(Activated) | No | Yes* | Yes |
+| Global Administrator</br>(Activated) | No | Yes* | Yes |
 
 \* If the [**Notifications** setting](pim-how-to-change-default-settings.md) is set to **Enable**.
 

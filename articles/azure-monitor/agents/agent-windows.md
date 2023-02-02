@@ -3,6 +3,8 @@ title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.topic: conceptual
 ms.date: 03/31/2022
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: JeffWo
 
 ---
@@ -40,7 +42,7 @@ The change doesn't require any customer action unless you're running the agent o
     - Windows Server 2008 R2 SP1
 
 1. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 code signing support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
-1. Update to the latest version of the Windows agent (version 10.20.18029).
+1. Update to the latest version of the Windows agent (version 10.20.18067).
 1. We recommend that you configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12).
 
 ### Network requirements
@@ -72,7 +74,7 @@ Regardless of the installation method used, you'll require the workspace ID and 
 [![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 > [!NOTE]
-> You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#adding-or-removing-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
+> You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
 
 ## Install the agent 
 
