@@ -78,8 +78,8 @@ Azure Monitor lets you run powerful queries on billions of records and get resul
 
 The indexing process currently takes about 5 minutes when there's a low volume of data, but it can take less time at higher data rates. This behavior seems counterintuitive, but the process allows optimization of latency for high-volume production workloads.
 
-## Check ingestion time
-Ingestion time might vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment. The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
+## Investigate latency
+Use log queries to investigate [which factors might be causing latency](#factors-that-affect-latency) in your environment. This table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor:
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
