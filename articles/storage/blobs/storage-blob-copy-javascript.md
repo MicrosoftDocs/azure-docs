@@ -13,9 +13,9 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Copy a blob with Azure Storage using the JavaScript client library
+# Copy a blob with JavaScript
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
+This article shows how to copy a blob in a storage account using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). It also shows how to abort an asynchronous copy operation.
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 

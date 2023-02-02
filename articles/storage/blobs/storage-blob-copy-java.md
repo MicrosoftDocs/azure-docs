@@ -14,9 +14,9 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Copy a blob using the Java client library
+# Copy a blob with Java
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort a copy operation. The example code uses the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
+This article shows how to copy a blob in a storage account using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). It also shows how to abort a pending copy operation.
 
 ## About copying blobs
 
