@@ -26,7 +26,7 @@ You need the following to use Azure AD Connect cloud sync:
 - On-premises firewall configurations.
 
 ## Group Managed Service Accounts
-A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
 1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
@@ -48,9 +48,9 @@ If you are creating a custom gMSA account, you need to ensure that the account h
 |Allow |gMSA Account |Read all properties |Descendant Contact objects| 
 |Allow |gMSA Account |Create/delete User objects|This object and all descendant objects| 
 
-For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
+For steps on how to upgrade an existing agent to use a gMSA account see [group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
 
-For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+For more information on how to prepare your Active Directory for group Managed Service Account, see [group Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 ### In the Azure Active Directory admin center
 
@@ -67,7 +67,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
-3. If there's a firewall between your servers and Azure AD, configure see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  
+3. If there's a firewall between your servers and Azure AD, see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  
 
 >[!NOTE]
 > Installing the cloud provisioning agent on Windows Server Core is not supported.
