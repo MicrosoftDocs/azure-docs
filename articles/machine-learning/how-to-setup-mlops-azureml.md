@@ -34,8 +34,6 @@ In this article, you learn about using Azure Machine Learning to set up an end-t
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - An Azure Machine Learning workspace.
-- The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
-- The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
 - Git running on your local machine.
 - An [organization](/azure/devops/organizations/accounts/create-organization) in Azure DevOps.
 - [Azure DevOps project](how-to-devops-machine-learning.md) that will host the source repositories and pipelines.
