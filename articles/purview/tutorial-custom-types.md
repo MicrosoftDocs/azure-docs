@@ -14,8 +14,8 @@ ms.date: 02/02/2023
 This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of custom types in Microsoft Purview.
 
 In this tutorial, you'll learn:
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 >* How Microsoft Purview uses the *type system* from [*Apache Atlas*](https://atlas.apache.org/#/)
 >* How to create a new custom type
 >* How to create relationships between custom types
@@ -31,10 +31,10 @@ For this tutorial you'll need:
 * Atlas endpoint of your Purview account. To get your Atlas endpoint, follow the *Atlas endpoint* section from [here](tutorial-atlas-2-2-apis.md#atlas-endpoint).
 
 > [!NOTE]
-Before moving to the hands-on part of the tutorial, the first four sections will explain what System Type is and how it is used in Purview.
+> Before moving to the hands-on part of the tutorial, the first four sections will explain what System Type is and how it is used in Purview.
 > All the REST API calls described further will use the **bearer token** and the **endpoint** which are described in the prerequisites.
 
-## 1 - What is a *Type* in Microsoft Purview
+## What is a *Type* in Microsoft Purview
 
 Purview relies on the [Type System](https://atlas.apache.org/2.0.0/TypeSystem.html) from Apache Atlas. All metadata objects (assets) managed by Purview (out of the box or through custom types) are modeled using type definitions. Understanding the Type System is fundamental in order to create new custom types in Purview.
 
@@ -64,7 +64,7 @@ For example:
 
 :::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false":::
 
-## 2 - Example of a *Type* definition, explained
+## Example of a *Type* definition
 
 To better understand the Type system, let us look at an example and see how an **Azure SQL Table** is defined.
 
@@ -165,7 +165,7 @@ This relationship has its own definition. The name of the definition is found in
 
 In other words, the *columns* relationship relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
 
-## 3 - Example of a *relationship Type definition*, explained
+## Example of a *relationship Type definition*
 
 Each relationship consists of two ends, called *endDef1* and *endDef2*.
 
@@ -218,7 +218,7 @@ Below you can see a simplified JSON result:
 
 * **endDef2** is the second end of the definition and describes, similarly to endDef1, the properties of the second part of the relationship.
 
-## 4 - Schema tab
+## Schema tab
 
 As we understood above, the information that shows up in the Schema tab of an Azure SQL Table comes from the Azure SQL Column themselves.
 
@@ -279,9 +279,10 @@ Azure SQL Table used *schemaElementAttribute* to point to a relationship consist
 
 In this way the Schema tab in the table will display the attribute(s) listed in the *schemaAttributes* of the related assets.
 
-## 5 - Create custom type definitions
+## Create custom type definitions
 
-### Why? 
+### Why?
+
 First, why would someone like to create a custom type definition?
  
 There can be cases where there is no built-in type that corresponds to the structure of the metadata you want to import in Microsoft Purview.
@@ -304,231 +305,224 @@ They should be linked together through a 1:n relationship.
 >[!TIP]
 > [Here](https://github.com/wjohnson/purview-ingestor-scenarios) you can find few tips when creating a new custom type.
 
-### 5.1 Create the *custom_type_parent* type defininion by making a `POST` request to:
+### Create definitions
 
-``` 
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
-```
+1. Create the *custom_type_parent* type definition by making a `Post` request to:
 
-with the body:
+   ``` 
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
+   ```
+   
+   with the body:
+   
+   ```json
+    {
+       "entityDefs": 
+       [
+           {
+               "category": "ENTITY",
+               "version": 1,
+               "name": "custom_type_parent",
+               "description": "Sample custom type of a parent object",
+               "typeVersion": "1.0",
+               "serviceType": "Sample-Custom-Types",
+               "superTypes": [
+                   "DataSet"
+               ],
+               "subTypes": [],
+               "options":{
+                   "schemaElementsAttribute": "columns"
+               }
+           }
+       ]
+    }
+   ```
 
-```json
- {
-    "entityDefs": 
-    [
-        {
-            "category": "ENTITY",
-            "version": 1,
-            "name": "custom_type_parent",
-            "description": "Sample custom type of a parent object",
-            "typeVersion": "1.0",
-            "serviceType": "Sample-Custom-Types",
-            "superTypes": [
-                "DataSet"
-            ],
-            "subTypes": [],
-            "options":{
-                "schemaElementsAttribute": "columns"
+1. Create the *custom_type_child* type definition by making a `POST` request to:
+   
+   ```
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
+   ```
+   
+   with the body:
+   
+   ```json
+    {
+       "entityDefs": 
+       [
+           {
+               "category": "ENTITY",
+               "version": 1,
+               "name": "custom_type_child",
+               "description": "Sample custom type of a CHILD object",
+               "typeVersion": "1.0",
+               "serviceType": "Sample-Custom-Types",
+               "superTypes": [
+                   "DataSet"
+               ],
+               "subTypes": [],
+               "options":{
+                  "schemaAttributes": "data_type"
+               }
+           }
+       ]
+    }
+   ```
+
+1. Create a custom type relationship definition by making a `POST` request to:
+
+   ```
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
+   ```
+
+   with the body:
+
+   ```json
+   {
+       "relationshipDefs": [
+           {
+               "category": "RELATIONSHIP",
+               "endDef1" : {
+                   "cardinality" : "SET",
+                   "isContainer" : true,
+                   "name" : "Children",
+                   "type" : "custom_type_parent"
+               },
+               "endDef2" : {
+                   "cardinality" : "SINGLE",
+                   "isContainer" : false,
+                   "name" : "Parent",
+                   "type" : "custom_type_child"
+               },
+               "relationshipCategory" : "COMPOSITION",
+               "serviceType": "Sample-Custom-Types",
+               "name": "custom_parent_child_relationship"
+           }
+       ]
+   }
+   ```
+
+## Initialize assets of custom type
+
+1. Initialize a new asset of type *custom_type_parent* by making a `POST` request to:
+
+   ```
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/entity
+   ```
+
+   with the body:
+
+   ```json
+   
+   {
+       "entity": {
+           "typeName":"custom_type_parent",
+           "status": "ACTIVE",
+           "version": 1,
+            "attributes":{
+               "name": "First_parent_object",
+               "description": "This is the first asset of type custom_type_parent",
+               "qualifiedName": "custom//custom_type_parent:First_parent_object"
             }
-        }
-    ]
- }
-```
+   
+       }
+   }
+   ```
 
-### 5.2 Create the *custom_type_child* type defininion by making a `POST` request to:
+   Save the *guid* as you will need it later.
 
-```
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
-```
+1. Initialize a new asset of type *custom_type_child* by making a `POST` request to:
 
-with the body:
+   ```
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/entity
+   ```
 
-```json
- {
-    "entityDefs": 
-    [
-        {
-            "category": "ENTITY",
-            "version": 1,
-            "name": "custom_type_child",
-            "description": "Sample custom type of a CHILD object",
-            "typeVersion": "1.0",
-            "serviceType": "Sample-Custom-Types",
-            "superTypes": [
-                "DataSet"
-            ],
-            "subTypes": [],
-            "options":{
-               "schemaAttributes": "data_type"
-            }
-        }
-    ]
- }
-```
+   With the body:
 
-### 5.3 - Create a custom type relationship definition
+   ```json
+   {
+      "entity": {
+          "typeName":"custom_type_child",
+          "status": "ACTIVE",
+          "version": 1,
+          "attributes":{
+              "name": "First_child_object",
+              "description": "This is the first asset of type custom_type_child",
+              "qualifiedName": "custom//custom_type_child:First_child_object"
+           }
+      }
+   }
+   ```
 
-Create a custom type relationship definition by making a `POST` request to:
+   Save the *guid* as you will need it later.
 
-```
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
-```
+1. Initialize a new relationship of type *custom_parent_child_relationship* by making a `POST` request to:
 
-with the body:
+   ```
+   POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/relationship/
+   ```
 
-```json
-{
-    "relationshipDefs": [
-        {
-            "category": "RELATIONSHIP",
-            "endDef1" : {
-                "cardinality" : "SET",
-                "isContainer" : true,
-                "name" : "Children",
-                "type" : "custom_type_parent"
-            },
-            "endDef2" : {
-                "cardinality" : "SINGLE",
-                "isContainer" : false,
-                "name" : "Parent",
-                "type" : "custom_type_child"
-            },
-            "relationshipCategory" : "COMPOSITION",
-            "serviceType": "Sample-Custom-Types",
-            "name": "custom_parent_child_relationship"
-        }
-    ]
-}
-```
+   With the following body:
 
-## 6 - Initialize assets of custom type
+   >[!NOTE] 
+   > The *guid* in end1 must be replaced with the the guid of the object created at step 6.1 The *guid* in end2 must be replaced with the guid of the object created at step 6.2
 
-### 6.1 Initialize a new asset of type *custom_type_parent*
+   ```json
+   {
+      "typeName": "custom_parent_child_relationship",
+      "end1": {
+            "guid": "...",
+          "typeName": "custom_type_parent"
+      },
+      "end2": {
+          "guid": "...",
+          "typeName": "custom_type_child"
+      }
+   }
+   ```
 
-Initialize a new asset of type *custom_type_parent* by making `POST` request to:
-
-```
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/entity
-```
-
-with the body:
-
-```json
-
-{
-    "entity": {
-        "typeName":"custom_type_parent",
-        "status": "ACTIVE",
-        "version": 1,
-         "attributes":{
-            "name": "First_parent_object",
-            "description": "This is the first asset of type custom_type_parent",
-            "qualifiedName": "custom//custom_type_parent:First_parent_object"
-         }
-
-    }
-}
-```
-
-Save the *guid* as you will need it later.
-
-### 6.2 Initialize a new asset of type *custom_type_child*
-
-Initialize a new asset of type *custom_type_child* by making `POST` request to:
-
-```
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/entity
-```
-
-with the body:
-
-```json
-{
-    "entity": {
-        "typeName":"custom_type_child",
-        "status": "ACTIVE",
-        "version": 1,
-         "attributes":{
-            "name": "First_child_object",
-            "description": "This is the first asset of type custom_type_child",
-            "qualifiedName": "custom//custom_type_child:First_child_object"
-         }
-
-    }
-}
-```
-
-Save the *guid* as you will need it later.
-
-### 6.3 Initialize a new relationship between the assets created above
-
-Initialize a new relationship of type *custom_parent_child_relationship* by making a `POST` request to:
-
-```
-POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/relationship/
-```
-
-with the follwoing body:
-
->[!NOTE] 
-> The *guid* in end1 must be replaced with the the guid of the object created at step 6.1 The *guid* in end2 must be replaced with the guid of the object created at step 6.2
-
-```json
-{
-    "typeName": "custom_parent_child_relationship",
-    "end1": {
-        "guid": "...",
-        "typeName": "custom_type_parent"
-    },
-    "end2": {
-        "guid": "...",
-        "typeName": "custom_type_child"
-    }
-}
-```
-
-## 7 - View the assets in Microsoft Purview
+## View the assets in Microsoft Purview
 
 1. Go to *Data Catalog* in Microsoft Purview.
-2. Select *Browse*.
-3. Select *By source type*.
-4. Select *Sample-Custom-Types*.
+1. Select *Browse*.
+1. Select *By source type*.
+1. Select *Sample-Custom-Types*.
 
-:::image type="content" source="./media/tutorial-custom-types/custom-types-objects.png" alt-text="Screenshot showing the path from the Data Catalog to Browse assets with the filter narrowed to Sample-Custom-Types.":::
+  :::image type="content" source="./media/tutorial-custom-types/custom-types-objects.png" alt-text="Screenshot showing the path from the Data Catalog to Browse assets with the filter narrowed to Sample-Custom-Types.":::
 
-* Select the *First_parent_object*:
+1. Select the *First_parent_object*:
 
-:::image type="content" source="./media/tutorial-custom-types/first-parent-object.png" alt-text="Screenshot of the First_parent_object page.":::
+  :::image type="content" source="./media/tutorial-custom-types/first-parent-object.png" alt-text="Screenshot of the First_parent_object page.":::
 
-* Select the *Properties* tab:
+1. Select the *Properties* tab:
 
-:::image type="content" source="./media/tutorial-custom-types/children.png" alt-text="Screenshot of the properties tab with the related assets highlighted, showing one child asset.":::
+  :::image type="content" source="./media/tutorial-custom-types/children.png" alt-text="Screenshot of the properties tab with the related assets highlighted, showing one child asset.":::
 
-You can see the *First_child_object* being linked there.
+1. You can see the *First_child_object* being linked there.
 
-* Select the *First_child_object*:
+1. Select the *First_child_object*:
 
-:::image type="content" source="./media/tutorial-custom-types/first-child-object.png" alt-text="Screenshot of the First_child_object page, showing the overview tab.":::
+  :::image type="content" source="./media/tutorial-custom-types/first-child-object.png" alt-text="Screenshot of the First_child_object page, showing the overview tab.":::
 
-* Select the *Properties* tab:
+1. Select the *Properties* tab:
 
-:::image type="content" source="./media/tutorial-custom-types/parent.png" alt-text="Screenshot of the properties page, showing the related assets with a single parent asset.":::
+  :::image type="content" source="./media/tutorial-custom-types/parent.png" alt-text="Screenshot of the properties page, showing the related assets with a single parent asset.":::
 
-You can see the Parent object being linked there.
+1. You can see the Parent object being linked there.
 
-Similarly, you can select the *Related* tab and will see the relationship between the two objects:
+1. Similarly, you can select the *Related* tab and will see the relationship between the two objects:
 
-:::image type="content" source="./media/tutorial-custom-types/relationship.png" alt-text="Screenshot of the Related tab, showing the relationship between the child and parent.":::
+  :::image type="content" source="./media/tutorial-custom-types/relationship.png" alt-text="Screenshot of the Related tab, showing the relationship between the child and parent.":::
 
-You can create multiple children by following the step 6.2 and 6.3 again.
+1. You can create multiple children by inititizing a new child asset and inititialzing a relationship
 
->[!NOTE]
->The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
+  >[!NOTE]
+  >The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
 
-:::image type="content" source="./media/tutorial-custom-types/two_children.png" alt-text="Screenshot of the First_parent_object, showing the two child assets highlighted.":::
+  :::image type="content" source="./media/tutorial-custom-types/two_children.png" alt-text="Screenshot of the First_parent_object, showing the two child assets highlighted.":::
 
->[!TIP]
-> If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
+  >[!TIP]
+  > If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
 
 ## Next steps
 
