@@ -101,7 +101,7 @@ az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToCertificates get,list,create,delete
+Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToCertificates delete,get,list,create
 ```
 
 ---
