@@ -79,12 +79,14 @@ Azure Monitor lets you run powerful queries on billions of records and get resul
 The indexing process currently takes about 5 minutes when there's a low volume of data, but it can take less time at higher data rates. This behavior seems counterintuitive, but the process allows optimization of latency for high-volume production workloads.
 
 ## Investigate latency
-Use log queries to investigate [which factors might be causing latency](#factors-that-affect-latency) in your environment. This table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor:
+Use [log queries](../logs/get-started-queries.md) to investigate [which factors might be causing latency](#factors-that-affect-latency) in your environment. 
+
+This table specifies which log property indicates when the various steps in the data ingestion process occurred:
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than 3 days, the row will be dropped. |
-| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the `TimeGenerated` value is older than three days, the row will be dropped. |
+| Record received at Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
 
 ### Ingestion latency delays
