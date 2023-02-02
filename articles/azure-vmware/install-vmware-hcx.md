@@ -71,7 +71,7 @@ For existing HCX Advanced customer, use the following steps to upgrade to HCX En
 >[!IMPORTANT]
 >If you upgraded HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
 
-Change Compute profile after HCX upgrade to HCX Enterprise
+Change Compute profile after HCX upgrade to HCX Enterprise.
 
 1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**
 2. Select services to be activated like, Replication Assisted vMotion (RAV), OS assisted Migration which is available with HCX Enterprise only.
