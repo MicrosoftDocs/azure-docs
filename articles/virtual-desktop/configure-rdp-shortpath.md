@@ -6,11 +6,10 @@ ms.topic: how-to
 ms.date: 02/02/2023
 ms.author: daknappe
 ---
+# Configure RDP Shortpath for Azure Virtual Desktop
 
 > [!IMPORTANT]
 > RDP Shortpath for public networks using TURN for Azure Virtual Desktop is currently in PREVIEW. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-# Configure RDP Shortpath for Azure Virtual Desktop
 
 RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. This article shows you how to configure RDP Shortpath for managed networks and public networks. For more information, see [RDP Shortpath](rdp-shortpath.md).
 
@@ -32,7 +31,7 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 
 - A client device running the [Remote Desktop client for Windows](users/connect-windows.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
 - Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet or connections to STUN and TURN servers. To reduce the number of ports required, you can [limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md). For more information you can use to configure firewalls and Network Security Groups, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration).
-- Check your client can connect to the STUN and TURN endpoints and verify that basic UDP functionality works by running the executable `avdnettest.exe`. For steps of how to do this, see [Verifying STUN server connectivity and NAT type](troubleshoot-rdp-shortpath.md#verifying-stun-server-connectivity-and-nat-type).
+- Check your client can connect to the STUN and TURN endpoints and verify that basic UDP functionality works by running the executable `avdnettest.exe`. For steps of how to do this, see [Verifying STUN/TURN server connectivity and NAT type](troubleshoot-rdp-shortpath.md#verifying-stunturn-server-connectivity-and-nat-type).
 - To use TURN, the connection from the client must be within a supported location. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md#turn-availability-preview).
 
 > [!IMPORTANT]
