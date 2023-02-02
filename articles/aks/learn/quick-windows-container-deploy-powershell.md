@@ -128,14 +128,16 @@ previous command also uses the default subnet in the default vnet created when r
 
 ## Add a Windows Server 2019 or Windows Server 2022 node pool
 
-AKS supports Windows Server 2019 and Windows Server 2022 node pools. For Kubernetes versions "1.25.0" and higher, Windows Server 2022 is the default operating system. For earlier versions, Windows Server 2019 will be the default operating system. To use the non-default OS, you must specify the `OsSKU` to `Windows2019` or `Windows2022` except specifying `OsType` to `Windows`.
+AKS supports Windows Server 2019 and 2022 node pools. For Kubernetes version 1.25.0 and higher, Windows Server 2022 is the default operating system. For earlier Kubernetes versions, Windows Server 2019 is the default OS. To use Windows Server 2019, you need to specify the following parameters:
+- **osType** set the value to `Windows`
+- **osSKU** set the value to `Windows2019`
 
 > [!NOTE]
 > OsSKU requires PowerShell Az module version "9.2.0" or higher.
 > Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2022 Windows -Name npwin
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
 ```
 
 ## Connect to the cluster
