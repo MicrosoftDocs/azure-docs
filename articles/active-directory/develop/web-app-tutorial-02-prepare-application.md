@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Prepare an application for authentication"
+title: "Tutorial: Prepare a web application for authentication"
 description: Prepare an ASP.NET Core application for authentication using Visual Studio.
 author: cilwerner
 ms.author: cwerner
@@ -13,7 +13,7 @@ ms.date: 10/18/2022
 
 # Tutorial: Prepare an application for authentication
 
-This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment. You will create and upload a self-signed certificate and configure the application for authentication.
+This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment (IDE). You'll create and upload a self-signed certificate and configure the application for authentication.
 
 In this tutorial:
 
@@ -32,6 +32,7 @@ In this tutorial:
     - Visual Studio Code
     - Visual Studio 2022 for Mac
 * Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
+* A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 ## Create an ASP.NET Core project
 
@@ -54,10 +55,10 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
+1. In Visual Studio Code, select **File**, then **Open Folder...**. Navigate to and select the location in which to create your project.
+1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
 1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *NewWebAppLocal*.
-1. Using the terminal, run the following commands to change into the folder directory and create the project:
+1. Run the following commands in the terminal to change into the folder directory and create the project:
 
 ```powershell
 cd NewWebAppLocal
@@ -126,27 +127,38 @@ To make the certificate available to the application, it must be uploaded into t
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
-## Configure the application for authentication
+## Configure the application for authentication and API
 
-Now that the certificate is uploaded, the application needs to be configured for authentication.
+Now that the certificate is uploaded, the application needs to be configured for authentication. As the web application will call an API, it needs a reference to this API.
 
-1. Open the *appsettings.json* file and add the following configuration settings:
+1. Open *appsettings.json* replace the file contents with the following:
   
     ``` json
     {
-    "AzureAd": {
-      "Instance": "https://login.microsoftonline.com/",
-      "TenantId": "Enter the tenant ID here",
-      "ClientId": "Enter the client ID here",
-      "ClientCertificates": [
-        {
-          "SourceType": "StoreWithThumbprint",
-          "CertificateStorePath": "CurrentUser/My",
-          "CertificateThumbprint": "Enter the certificate thumbprint here"
-        }    
-      ],
-      "CallbackPath": "/signin-oidc"
-    },
+      "AzureAd": {
+        "Instance": "https://login.microsoftonline.com/",
+        "TenantId": "Enter the tenant ID here",
+        "ClientId": "Enter the client ID here",
+        "ClientCertificates": [
+          {
+            "SourceType": "StoreWithThumbprint",
+            "CertificateStorePath": "CurrentUser/My",
+            "CertificateThumbprint": "Enter the certificate thumbprint here"
+          }    
+        ],
+        "CallbackPath": "/signin-oidc"
+      },
+      "DownstreamApi": {
+        "BaseUrl": "https://graph.microsoft.com/v1.0/me",
+        "Scopes": "user.read"
+          },
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "AllowedHosts": "*"
     }
     ```
 
@@ -155,13 +167,14 @@ Now that the certificate is uploaded, the application needs to be configured for
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
+    * `DownstreamApi` - Is an identifier that allows the API to be called. The `BaseUrl` and `Scopes` can remain unchanged.
 1. Save changes to the file.
 1. Record the value of the `CallbackPath`. This will be used later to define the **Redirect URI** on the Azure portal.
 1. Under **Properties**, open the *launchSettings.json* file.
 1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100`. This will also be used when defining the **Redirect URI**.
 
 
-## Define the platform
+## Define the platform and URLs
 
 1. In the Azure portal, under **Manage**, select **App registrations**, and then select the application that was previously created.
 1. In the left menu, under **Manage**, select **Authentication**.
@@ -169,11 +182,8 @@ Now that the certificate is uploaded, the application needs to be configured for
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/select-platform-inline.png" alt-text="Screenshot on how to select the platform for the application." lightbox="./media/web-app-tutorial-02-prepare-application/select-platform-expanded.png":::
 
-## Define URLs
-
 1. Under **Redirect URIs**, enter the **applicationURL** and the **CallbackPath** that was recorded when configuring the application. For example, `https://localhost:7100/signin-oidc`.
 1. Under **Front-channel logout URL**, enter the application URL and a callback path for signing out. For example, `https://localhost:7100/signout-oidc`.
-1. Under **Implicit grant and hybrid flows**, select **ID tokens**.
 
 ## Next steps
 

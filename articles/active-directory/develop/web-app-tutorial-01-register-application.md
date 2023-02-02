@@ -44,11 +44,11 @@ To complete registration, provide the application a name and specify the support
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 
-1. On the **Overview** page, locate the **Directory (tenant) ID** and the **Application (client) ID** to be used in later steps.
+1. When registration finishes, the Azure portal displays the app registration's Overview pane. Record the Directory (tenant) ID and the Application (client) ID to be used in your application code.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md)
+> [Tutorial: Prepare a web application for authentication](web-app-tutorial-02-prepare-application.md)

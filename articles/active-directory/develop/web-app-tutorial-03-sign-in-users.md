@@ -20,7 +20,7 @@ In this tutorial:
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
 > * Implement authentication in the code
-> * Display the sign-in and sign-out experience
+> * Display the sign-in and sign-out experience    
 
 ## Prerequisites
 
@@ -29,6 +29,8 @@ In this tutorial:
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac
+* A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+
 
 ## Install identity packages
 
@@ -46,9 +48,9 @@ Identity related **NuGet packages** must be installed in the project for authent
 1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
 
 ```powershell
-dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
-dotnet add package Microsoft.Identity.Web.UI --version 2.0.5-preview
-dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
+dotnet add package Microsoft.Identity.Web 
+dotnet add package Microsoft.Identity.Web.UI 
+dotnet add package Microsoft.Identity.Web.Diagnostics 
 ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
@@ -61,28 +63,28 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ---
 
-## Implement authentication
+## Implement authentication and acquire tokens
 
-1. Open the *Program.cs* file and add the following statements to the top of the file:
+1. Open *Program.cs* and replace the entire file contents with the following snippet: add the following statements to the top of the file:
 
     ```csharp
+    // Imports packages
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc.Authorization;
     using Microsoft.Identity.Web;
     using Microsoft.Identity.Web.UI;
-    ```
 
-1. Add the `AzureAd` service that was defined in the *appsettings.json* file to the existing `builder` object:
-
-    ```csharp
     var builder = WebApplication.CreateBuilder(args);
-    builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd");
-    ```
+    // Retrieve the defined scopes from the configuration in appsettings.json
+    IEnumerable<string>? initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ');
 
-1. Modify the `AddRazorPages()` function to add authentication:
+    // Adds the AzureAd service configuration in appsettings.json, and configures the service to acquire a token
+    builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd")
+        .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+        .AddDownstreamWebApi("DownstreamApi", builder.Configuration.GetSection("DownstreamApi"))
+        .AddInMemoryTokenCaches();
 
-    ```csharp
-    // Add services to the container.
+    // Adds authentication services to the container.
     builder.Services.AddRazorPages().AddMvcOptions(options =>
     {
       var policy = new AuthorizationPolicyBuilder()
@@ -90,15 +92,27 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
         .Build();
       options.Filters.Add(new AuthorizeFilter(policy));
     }).AddMicrosoftIdentityUI();
-    ```
 
-1. Update the `app` object to include the MVC options and authentication:
+    var app = builder.Build();
 
-    ```csharp
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+    // Includes the MVC options and authentication
     app.UseAuthentication();
     app.MapControllers();
 
     app.UseRouting();
+    app.UseAuthorization();
+    app.MapRazorPages();
+    app.Run();
     ```
 
 ## Display the sign-in and sign-out experience
@@ -155,7 +169,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
     ```csharp
       </ul>
-      <partial name="_LoginPartial" />
+        <partial name="_LoginPartial" />
     </div>
     ```
 
