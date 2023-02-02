@@ -64,7 +64,7 @@ Another consideration is the address pool size for translation. If the target ad
 
 **Ingress SNAT rules** are applied on packets that are entering Azure through the Virtual WAN site-to-site VPN gateway. In this scenario, you want to connect two site-to-site VPN branches to Azure. VPN Site 1 connects via Link A, and VPN Site 2 connects via Link B. Each site has the same address space 10.30.0.0/24.
 
-In this example, we'll NAT site1 to 127.30.0.0.0/24. The Virtual WAN spoke virtual networks and branches other will automatically learn this post-NAT address space.
+In this example, we'll NAT site1 to 172.30.0.0.0/24. The Virtual WAN spoke virtual networks and branches other will automatically learn this post-NAT address space.
 
 The following diagram shows the projected end result:
 
@@ -89,7 +89,7 @@ The following diagram shows the projected end result:
 
 1. Ensure the site-to-site VPN gateway is able to peer with the on-premises BGP peer.
 
-   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 127.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (127.30.0.132).
+   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 172.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (172.30.0.132).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to change the BGP peering IP."lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
@@ -99,7 +99,7 @@ The following diagram shows the projected end result:
 * If **BGP Translation** is enabled, the site-to-site VPN gateway will automatically advertise the **External Mapping** of **Egress NAT rules** to on-premises as well as **External Mapping** of **Ingress NAT rules** to Azure (virtual WAN hub, connected spoke virtual networks, connected VPN/ExpressRoute). If **BGP Translation** is disabled, translated routes aren't automatically advertised to the on-premises. As such, the on-premises BGP speaker must be configured to advertise the post-NAT (**External Mapping**) range of **Ingress NAT** rules associated to that VPN site link connection. Similarly, a route for the post-NAT (**External Mapping**) range of **Egress NAT Rules** must be applied on the on-premises device.
 * The site-to-site VPN gateway automatically translates the on-premises BGP peer IP address **if** the on-premises BGP peer IP address is contained within the **Internal Mapping** of an **Ingress NAT Rule**. As a result, the VPN site's **Link Connection BGP address** must reflect the NAT-translated address (part of the External Mapping).
 
-   For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 127.30.0.0/24, the VPN site's **Link Connection BGP Address** must be configured to be the translated address (127.30.0.133).
+   For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 172.30.0.0/24, the VPN site's **Link Connection BGP Address** must be configured to be the translated address (172.30.0.133).
 * In Dynamic NAT, on-premises BGP peer IP can't be part of the pre-NAT address range (**Internal Mapping**) as IP and port translations aren't fixed. If there is a need to translate the on-premises BGP peering IP, please create a separate **Static NAT Rule** that translates BGP Peering IP address only.
 
    For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premises BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/32, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.02/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping).
