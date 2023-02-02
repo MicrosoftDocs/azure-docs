@@ -51,10 +51,10 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 | workspaceid | Object ID (GUID). | Specify the object ID of a valid workspace.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
 | resourceid | Object ID (GUID). | Specify the object ID of a published resource contained in the workspace. The value can be for a desktop or Remote App.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
-| env *(optional)* | **avdrm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
+| env *(optional)* | **avdarm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
-| launchpartnerid *(optional)*| GUID. | Specifies the partner or customer-provided identity (recommend GUID) to enable identification with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). |
-| peeractivityid *(optional)*| GUID. | Specifies the partner or customer-provided activity ID (recommend GUID) to enable troubleshooting with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). |
+| launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided identity to that you can use to track in [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
+| peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided identity to that you can use to track in [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
 
 **Example:**
 ```
