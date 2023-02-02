@@ -60,7 +60,7 @@ For the Standard pricing tier, this limit can be increased. Increasing the **con
 
 The **concurrent request limit parameter** isn't visible via Azure portal, Command-Line tools, or API requests. To verify the current value, create an Azure Support Request.
 
-If you would like to increase your limit, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource [enable auto scaling](https://learn.microsoft.com/azure/cognitive-services/autoscale?view=form-recog-3.0.0&tabs=portal). You can also submit an increase Transactions Per Second (TPS) support request.
+If you would like to increase your limit, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource [enable auto scaling](../autoscale.md). You can also submit an increase Transactions Per Second (TPS) support request.
 
 ### Have the required information ready
 
