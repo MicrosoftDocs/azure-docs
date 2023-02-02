@@ -311,7 +311,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select `main` as a branch and choose Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml` then select **Continue**.  
    
-1. Online endpoint names need to be unique, so change **[your endpoint-name]** to another unique name and then select **Run**. No need to change the default if it doesn't fail.
+1. Online endpoint names need to be unique, so change `taxi-online-$(namespace)$(postfix)$(environment)` to another unique name and then select **Run**. No need to change the default if it doesn't fail.
 
    ![Screenshot of Azure DevOps batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
