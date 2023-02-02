@@ -37,6 +37,10 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 
 ## Share using RBAC
 
+When you share a gallery using RBAC, you need to provide the `imageID` to anyone creating a VM or scale set from the image. There is no way for the person deploying the VM or scale set to list the images that were shared to them using RBAC.
+
+If you share gallery resources to someone outside of your Azure tenant, they will need your `tenantID` to log in and have Azure verify they have access to the resource before they can use it within their own tenant. You will need to provide them with your `tenantID`, there is no way for someone outside your organization to query for your `tenantID`.
+
 ### [Portal](#tab/portal)
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 

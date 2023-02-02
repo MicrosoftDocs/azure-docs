@@ -106,7 +106,7 @@ Here is an example of configuring pglogical at the provider database server and 
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
-   \C myDB
+   \c myDB
    CREATE EXTENSION pglogical;
    ```
 2. If the replication user is other than the server administration user (who created the server), make sure that you grant membership in a role `azure_pg_admin` to the user and assign REPLICATION and LOGIN attributes to the user. See [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.

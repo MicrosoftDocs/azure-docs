@@ -17,6 +17,10 @@ ms.author: sujaj
 
 In this how-to guide, you'll learn to configure an SAP HANA provider for Azure Monitor for SAP solutions through the Azure portal. There are instructions to set up the [current version](#configure-azure-monitor-for-sap-solutions) and the [classic version](#configure-azure-monitor-for-sap-solutions-classic) of Azure Monitor for SAP solutions.
 
+## Prerequisite to enable secure communication
+
+To [enable TLS 1.2 higher](enable-tls-azure-monitor-sap-solutions.md) for SAP HANA provider, follow steps mentioned in this [SAP document](https://www.sap.com/documents/2018/11/b865eb91-287d-0010-87a3-c30de2ffd8ff.html)
+
 ## Prerequisites
 
 - An Azure subscription. 
@@ -33,6 +37,7 @@ In this how-to guide, you'll learn to configure an SAP HANA provider for Azure M
     1. Select **Add provider**.
     1. On the creation pane, for **Type**, select **SAP HANA**.
        ![Diagram of the Azure Monitor for SAP solutions resource creation page in the Azure portal, showing all required form fields.](./media/azure-monitor-sap/azure-monitor-providers-hana-setup.png)
+    1. *Optional* Select **Enable secure communication**, choose certificate type from drop down
     1. For **IP address**, enter the IP address or hostname of the server that runs the SAP HANA instance that you want to monitor. If you're using a hostname, make sure there is connectivity within the virtual network.
     1. For **Database tenant**, enter the HANA database that you want to connect to. It's recommended to use **SYSTEMDB**, because tenant databases don't have all monitoring views. For legacy single-container HANA 1.0 instances, leave this field blank.
     1. For **Instance number**, enter the instance number of the database (0-99). The SQL port is automatically determined based on the instance number.

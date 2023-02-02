@@ -280,11 +280,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
-    This functionality is not available in the MLflow SDK. Go to [Azure ML studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there. Once you have it, set the value here:
-
-    ```python
-    endpoint_secret_key = "<ACCESS_KEY>"
-    ```
+    This functionality is not available in the MLflow SDK. Go to [Azure ML studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there.
 
 ### Create a blue deployment
 
@@ -510,7 +506,10 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     # [Python (MLflow SDK)](#tab/mlflow)
 
     ```python
-    deployment_client.predict(endpoint=endpoint_name, df=samples)
+    deployment_client.predict(
+        endpoint=endpoint_name, 
+        df=samples
+    )
     ```
 
 ### Create a green deployment under the endpoint
@@ -667,7 +666,11 @@ Let's imagine that there is a new version of the model created by the developmen
     # [Python (MLflow SDK)](#tab/mlflow)
 
     ```python
-    deployment_client.predict(endpoint=endpoint_name, deployment_name=green_deployment_name, df=samples)
+    deployment_client.predict(
+        endpoint=endpoint_name, 
+        deployment_name=green_deployment_name, 
+        df=samples
+    )
     ```
 
     ---

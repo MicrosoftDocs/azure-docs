@@ -7,7 +7,7 @@ ms.date: 12/20/2022
 ms.topic: article
 ms.service: azure-redhat-openshift
 keywords: java, jakartaee, microprofile, EAP, JBoss EAP, ARO, OpenShift, JBoss Enterprise Application Platform
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro
 ---
 
 # Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster

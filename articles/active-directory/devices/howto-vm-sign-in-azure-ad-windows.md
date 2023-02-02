@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 01/05/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -416,7 +416,7 @@ Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequir
 If you haven't deployed Windows Hello for Business and if that isn't an option for now, you can configure a Conditional Access policy that excludes the Azure Windows VM Sign-In app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> Windows Hello for Business PIN authentication with RDP has been supported for several versions of Windows 10. Support for biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is available only for deployments that use a certificate trust model. It's currently not available for a key trust model.
+> Windows Hello for Business PIN authentication with RDP has been supported for several versions of Windows 10. Support for biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is available for deployments that use a certificate trust model or key trust model.
  
 Share your feedback about this feature or report problems with using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
@@ -432,7 +432,7 @@ Another way to verify it is via Graph PowerShell:
 
 1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
 1. Run `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All"`, followed by `"Application.ReadWrite.All"`.
-1. Sign in with a Global Admin account.
+1. Sign in with a Global Administrator account.
 1. Consent to the permission prompt.
 1. Run `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Windows VM Sign-In"'`.
    - If this command results in no output and returns you to the PowerShell prompt, you can create the service principal with the following Graph PowerShell command:

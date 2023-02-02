@@ -177,9 +177,9 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 ## Single Sign-On for SAP 
 
 Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The integration steps with AAD based SSO are available for typical ECS/RISE managed workloads:
-- [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial)
-- [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial)
-- [Tutorial: Azure Active Directory integration with SAP HANA](/azure/active-directory/saas-apps/saphana-tutorial)
+- [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](../../../active-directory/saas-apps/sap-netweaver-tutorial.md)
+- [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](../../../active-directory/saas-apps/sap-fiori-tutorial.md)
+- [Tutorial: Azure Active Directory integration with SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md)
 
 | SSO method | Identity Provider | Typical use case                 | Implementation           |
 | :--------- | :---------------: | :------------------------------- | :----------------------- |

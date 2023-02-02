@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Setup
 

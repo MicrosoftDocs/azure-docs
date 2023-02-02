@@ -22,15 +22,13 @@ Through this process, Microsoft enables organizations to proactively monitor the
 
 To create a comprehensive mapping of your organization’s attack surface, the system first intakes known assets (i.e. “seeds”) that are recursively scanned to discover additional entities through their connections to a seed. An initial seed may be any of the following kinds of web infrastructure indexed by Microsoft:
 
-- Pages
-- Host Name
-- Domain
-- Contact Email Address
-- IP Block
-- IP Address
-- ASN
-
-![Screenshot of Seed list view on discovery screen](media/Discovery-2.png)
+- Organization Names
+- Domains
+- IP Blocks
+- Hosts
+- Email Contacts
+- ASNs
+- Whois organizations
 
 Starting with a seed, the system then discovers associations to other online infrastructure to discover other assets owned by your organization; this process ultimately creates your attack surface inventory. The discovery process uses the seeds as the central nodes and spiders outward towards the periphery of your attack surface by identifying all the infrastructure directly connected to the seed, and then identifying all the things related to each of the things in the first set of connections, etc. This process continues until we reach the edge of what your organization is responsible for managing.
 

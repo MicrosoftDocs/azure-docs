@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault key client library for JavaScript (version 
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/13/2021
+ms.date: 01/04/2023
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -33,7 +33,7 @@ For more information about Key Vault and keys, see:
     - [Azure portal](../general/quick-create-portal.md) 
     - [Azure PowerShell](../general/quick-create-powershell.md)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli).
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sign in to Azure
 
@@ -110,7 +110,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## Code example
 
-The code sample below will show you how to create a client, set a key, retrieve a key, and delete a key. 
+This code sample demonstrates how to create a client, set a key, retrieve a key, and delete a key.
 
 ### Set up the app framework
 
@@ -232,7 +232,7 @@ The Azure SDK provides a helper method, [parseKeyVaultKeyIdentifier](/javascript
 
 ## Next steps
 
-In this quickstart, you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Keys](about-keys.md)
