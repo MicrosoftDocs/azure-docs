@@ -41,44 +41,88 @@ For an app to access blob resources and interact with them, a client object must
 
 ### Create a BlobServiceClient object
 
-An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. The client exposes methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. From the service client level, you can perform operations on a specific container or blob resource by calling a method to get a reference to the particular resource, whether it exists or not.
+An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. The client exposes methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. To interact with a specific container or blob, you can use the `BlobServiceClient` object to [create a container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object).
 
-The following example shows how to instantiate a `BlobServiceClient` object:
+The following examples show how to create a `BlobServiceClient` object:
 
 ## [.NET](#tab/dotnet)
+
+Add the following using statements:
 
 ```csharp
 using Azure.Identity;
 using Azure.Storage.Blobs;
+```
 
-// Provide client configuration options for connecting to Azure Blob storage
-BlobClientOptions blobClientOptions = new ()
+```csharp
+BlobServiceClient GetBlobServiceClient(string accountName)
 {
-    
-};
+    BlobServiceClient client = new (
+        new Uri("https://{accountName}.blob.core.windows.net"),
+        new DefaultAzureCredential());
 
-// TODO: Replace <storage-account-name> with your actual storage account name
-var blobServiceClient = new BlobServiceClient(
-        new Uri("https://<storage-account-name>.blob.core.windows.net"),
-        new DefaultAzureCredential()),
-        blobClientOptions;
+    return client;
+}
 ```
 
 ## [Java](#tab/java)
 
-```java
+Add the following import directives:
 
+```java
+import com.azure.identity.*;
+import com.azure.storage.blob.*;
+```
+
+```java
+public static BlobServiceClient GetBlobServiceClient() {
+    // TODO: Replace <storage-account-name> with your actual storage account name
+    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+            .endpoint("https://<storage-account-name>.blob.core.windows.net/")
+            .credential(new DefaultAzureCredentialBuilder().build())
+            .buildClient();
+
+    return blobServiceClient;
+}
 ```
 
 ## [JavaScript](#tab/javascript)
 
-```javascript
+Add the following require statements:
 
+```javascript
+const { BlobServiceClient } = require('@azure/storage-blob');
+const { DefaultAzureCredential } = require('@azure/identity');
+```
+
+```javascript
+const accountName = "<storage-account-name>";
+
+const blobServiceClient = new BlobServiceClient(
+    `https://${accountName}.blob.core.windows.net`,
+    new DefaultAzureCredential()
+);
 ```
 
 ## [Python](#tab/python)
 
+Add the following import statements:
+
 ```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+```
+
+```python
+def get_blob_service_client(self, account_name):
+    # TODO: Replace <storage-account-name> with your actual storage account name
+    account_url = f"https://{account_name}.blob.core.windows.net"
+    credential = DefaultAzureCredential()
+
+    # Create the BlobServiceClient object
+    blob_service_client = BlobServiceClient(account_url, credential=credential)
+
+    return blob_service_client
 
 ```
 
@@ -86,15 +130,95 @@ var blobServiceClient = new BlobServiceClient(
 
 ### Create a BlobContainerClient object
 
- You can use a `BlobServiceClient` object to create a new `BlobContainerClient` object (`ContainerClient` for JavaScript and Python). A `BlobContainerClient` object allows you to interact with a specific container resource. This resource does not need to exist for you to create the client object, as you can create the container resource using the `BlobContainerClient` object. This client provides operations to create, delete, or configure a container, and includes operations to list, upload, and delete the blobs within it. To perform operations on a specific blob within the container, you can create a Blo using the get_blob_client method.
+ You can use a `BlobServiceClient` object to create a new `BlobContainerClient` object (`ContainerClient` for JavaScript and Python). A `BlobContainerClient` object allows you to interact with a specific container resource. This resource does not need to exist in the storage account for you to create the client object. `BlobContainerClient` provides methods to create, delete, or configure a container, and includes methods to list, upload, and delete the blobs within it. To perform operations on a specific blob within the container, you can [create a blob client](#create-a-blobclient-object).
 
-The following example
+The following examples show how to create a container client from a `BlobServiceClient` object to interact with a specific container resource:
+
+## [.NET](#tab/dotnet)
+
+```csharp
+BlobContainerClient GetBlobContainerClient(BlobServiceClient blobServiceClient, string containerName)
+{
+    // Create the container client using the service client object
+    BlobContainerClient client = blobServiceClient.GetBlobContainerClient(containerName);
+    return client;
+}
+```
+
+## [Java](#tab/java)
+
+```java
+public BlobContainerClient getBlobContainerClient(BlobServiceClient blobServiceClient, String containerName) {
+    // Create the container client using the service client object
+    BlobContainerClient blobContainerClient = blobServiceClient.getBlobContainerClient(containerName);
+    return blobContainerClient;
+}
+```
+
+## [JavaScript](#tab/javascript)
+
+```javascript
+const containerName = "sample-container";
+let containerClient = blobServiceClient.getContainerClient(containerName);
+```
+
+## [Python](#tab/python)
+
+```python
+def get_blob_container_client(self, blob_service_client: BlobServiceClient, container_name):
+    container_client = blob_service_client.get_container_client(container=container_name)
+    return container_client
+```
+
+---
 
 If your work is narrowly scoped to a single container, you might choose to create a `BlobContainerClient` object directly without using a `BlobServiceClient`. You can still set client options on a container client just like you would on a service client.
 
-The following example shows how to create a container client to interact with a container resource called *sample-container*:
+### Create a BlobClient object
 
-### Instantiate a BlobClient
+To interact with a specific blob resource, you can create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource does not need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
+
+The following examples show how to create a blob client from a `BlobServiceClient` object and a `BlobContainerClient` object to interact with a specific blob resource:
+
+## [.NET](#tab/dotnet)
+
+```csharp
+BlobClient GetBlobClient(BlobServiceClient blobServiceClient, string containerName, string blobName)
+{
+    // Create a blob client using the service client object
+    BlobClient client = blobServiceClient.GetBlobContainerClient(containerName).GetBlobClient(blobName);
+    return client;
+}
+```
+
+## [Java](#tab/java)
+
+```java
+public BlobClient getBlobClient(BlobServiceClient blobServiceClient, String containerName, String blobName) {
+    // Create a blob client using the service client object
+    BlobClient blobClient = blobServiceClient.getBlobContainerClient(containerName).getBlobClient(blobName);
+    return blobClient;
+}
+```
+
+## [JavaScript](#tab/javascript)
+
+```javascript
+const containerName = "sample-container";
+const blobName = "sample-blob";
+let blobClient = blobServiceClient.getContainerClient(containerName).getBlobClient(blobName);
+```
+
+## [Python](#tab/python)
+
+```python
+def get_blob_client(self, blob_service_client: BlobServiceClient, container_name, blob_name):
+    # Create a blob client using the service client object
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+    return blob_client
+```
+
+---
 
 ## Manage clients
 
