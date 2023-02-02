@@ -35,7 +35,7 @@ Azure Monitor Agent uses different strategies to collect data, depending on the 
 | Linux performance counters | Polled at 30-second intervals| |
 | IIS logs and text logs | Collected when their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
 
-To ensure the agent is lightweight, Azure Monitor Agent buffers logs and periodically uploads them to Azure Monitor. Azure Monitor Logs uploads all log data within a minute of the time it collects the data.
+To ensure the agent is lightweight, Azure Monitor Agent buffers logs before sending them to an Azure Monitor Logs ingestion point. Azure Monitor Logs sends all log data to an ingestion point within a minute of the time it collects the data.
 
 Network conditions can affect how long it takes for data to reach an Azure Monitor Logs ingestion point.
 
