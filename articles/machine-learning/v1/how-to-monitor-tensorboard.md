@@ -17,7 +17,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Visualize experiment jobs and metrics with TensorBoard and Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
 
@@ -26,28 +26,28 @@ In this article, you learn how to view your experiment jobs and metrics in Tenso
 How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#launch-tensorboard) from experiment's job history. 
 
-+ For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#export) to export the job histories as TensorBoard logs and launch TensorBoard from there. 
++ For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorboard) to export the job histories as TensorBoard logs and launch TensorBoard from there. 
 
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 ## Prerequisites
 
 * To launch TensorBoard and view your experiment job histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 * The code in this document can be run in either of the following environments: 
     * Azure Machine Learning compute instance - no downloads or installation necessary
-        * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**
     * Your own Juptyer notebook server
        * [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) with the `tensorboard` extra
-        * [Create an Azure Machine Learning workspace](quickstart-create-resources.md).  
-        * [Create a workspace configuration file](./v1/how-to-configure-environment-v1.md).
+        * [Create an Azure Machine Learning workspace](../quickstart-create-resources.md).  
+        * [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ## Option 1: Directly view job history in TensorBoard
 
-This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.
+This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#option-2-export-history-as-log-to-view-in-tensorboard) instead.
 
 The following example code uses the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute. Next, we will configure and start a job for training the TensorFlow model, and then
 start TensorBoard against this TensorFlow experiment.
@@ -141,7 +141,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
 ### Configure and submit training job
 
@@ -183,8 +183,6 @@ tb.stop()
 > [!Note]
 > While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
 
-
-<a name="export"></a>
 
 ## Option 2: Export history as log to view in TensorBoard
 
@@ -295,5 +293,5 @@ tb.stop()
 
 In this how-to you, created two experiments and learned how to launch TensorBoard against their job histories to identify areas for potential tuning and retraining. 
 
-* If you are satisfied with your model, head over to our [How to deploy a model](./v1/how-to-deploy-and-where.md) article. 
-* Learn more about [hyperparameter tuning](how-to-tune-hyperparameters.md).
+* If you are satisfied with your model, head over to our [How to deploy a model](how-to-deploy-and-where.md) article. 
+* Learn more about [hyperparameter tuning](../how-to-tune-hyperparameters.md).
