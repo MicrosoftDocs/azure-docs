@@ -12,8 +12,6 @@ metadata:
   author: sroons
   ms.author: serooney
   ms.date: 02/1/2023
-
-#######################################################################
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -22,13 +20,13 @@ highlightedContent:
       url: ./overview.md
     - title: What's new for developers in Azure Communication Services?
       itemType: whats-new
-      url: #TODO
+      url: ./overview.md #TODO
     - title: Explore our scenario-based solutions
       itemType: get-started
-      url: #TODO
+      url: ./overview.md #TODO
     - title: Learn how others use Azure Communication Services to engage customers
       itemType: learn
-      url: #TODO
+      url: ./overview.md #TODO
     - title: SDK reference
       itemType: reference
       url: ./concepts/reference.md
@@ -39,7 +37,7 @@ highlightedContent:
       itemType: concept
       url: ./concepts/ui-library/ui-library-overview.md
 
-##########################################################################
+#------------------------------------------------------------------
 productDirectory: 
   title: Communication Channels
   summary: Learn about our core services which you can combine and integrate to create your own custom communication solutions.
@@ -110,7 +108,7 @@ productDirectory:
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
         
-##########################################################################################
+#------------------------------------------------------------------
 additionalContent:
   sections:
     - title: Enhance Your App with Azure Communication Services
