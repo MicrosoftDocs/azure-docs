@@ -307,7 +307,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
 
 1. Copy the **Immutable ID** for the DCR. You'll use it in a later step when you send sample data using the API.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 
     > [!NOTE]
     > All the properties of the DCR, such as the transformation, might not be displayed in the Azure portal even though the DCR was successfully created with those properties.
