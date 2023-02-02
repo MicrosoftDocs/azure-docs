@@ -52,13 +52,14 @@ Navigate to function’s Configuration, do the following steps:
 
    * AzureWebJobsStorage__accountName: MyStorageAccount 
    * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint;AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
+   
    The values for these variables can be found in the storage account blade under the Endpoints tab. 
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Managed Identity setting: 
 
    * If **system-assigned identity** should be used: 
-   Specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)take care of everything. 
+   Specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) take care of everything. 
 
    * If **user-assigned identity** should be used: 
    Add the following value settings in configuration: 
@@ -93,7 +94,7 @@ In particular, this quickstart assumes that you have already:
    2. Add description and select secret valid time in Expires field.  
    3. After creating the new secret, copy and save the secret value carefully because it will not show up again.  
    
-   ![Client Secret Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-CS-scenario-01.png)
+   ![Client Secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-01.png)
 
 ### Give Client Application the RBAC resources 
 
