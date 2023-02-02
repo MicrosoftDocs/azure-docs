@@ -47,7 +47,7 @@ ms.author: radeltch
 
 This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md).  
 
-In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP5 and SUSE Linux Enterprise Server 12 SP5. 
+In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**.
 
 Before you begin, refer to the following SAP notes and papers:
 
@@ -844,7 +844,7 @@ Steps to implement both hooks:
 sapcontrol -nr 03 -function StopSystem
 ```
 
-2. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, remove the entire block `[ha_dr_provider_suschksrv]`.  
+2. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, entire block `[ha_dr_provider_suschksrv]` shouldn't be configured.  
 You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are `[ ignore | stop | kill | fence ]`.
 
     ```bash
@@ -1002,68 +1002,6 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
   
    > [!NOTE]
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.
-
-
-## (Optional) Enabling HANA multi-target system replication for DR purposes
-
-<details>
-  <summary>Expand section</summary>
-
-With new SAP HANA HA provider SAPHanaSrMultiTarget, a third system replication site as disaster recovery (DR) can be used with a HANA scale-out system. The cluster environment is aware of a multi-target DR setup. Maximum of one system replicatiion to an HANA database outside the linux cluster is supported.
-
-Failure of the third site won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attributed for third site can change between SOK and SFAIL. Any takeover tests to third/DR site or executing your DR process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
-
-Example of a multi-target system replication system. For further information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
-![Example of a multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-multi-target.png)
-
-1. Deploy Azure resources for the third site. Depending on your requirements, a different Azure region is often used for disaster recovery purposes. 
-   Steps required for the HANA scale-out on third site are same as described in this document for SITE1 and SITE2, with the following exceptions:
-   - No load balancer for third site and no integration with cluster load balancer for VMs of third site
-   - OS packages SAPHanaSR-ScaleOut, SAPHanaSR-ScaleOut-doc and OS package pattern ha_sles aren't installed on third site VMs
-   - No majority maker VM for third site, as there's no cluster integration
-   - NFS volume /hana/shared for third site exclusive use must be created
-   - No integration into the cluster for VMs or HANA resources of the third site
-   - No HANA HA hook setup for third site
- 
-2. With SAP HANA scale-out on third site operational, register the third site with the primary site.  
-   The example uses SITE-DR as the name for third site.
-    ```bash
-    # Execute on the third site 
-    su - hn1adm
-    # Make sure HANA is not running on the third site. If it is started, stop HANA
-    sapcontrol -nr 03 -function StopSystem
-    sapcontrol -nr 03 -function WaitforStopped 600 10
-    # Register the HANA third site to the primary
-    hdbnsutil -sr_register --name=SITE-DR --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=async
-    ```
-
-3. Verify HANA system replication shows both secondary and third site.
-    ```bash
-    # Verify HANA HSR is in sync, execute on primary
-    sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
-    ```
-
-4. Check the SAPHanaSR attribute for third site. SITE-DR should show up with status SOK in the sites section.
-    ```bash
-    # Check SAPHanaSR attribute on any cluster node (first/second site)
-    sudo SAPHanaSR-showAttr
-    # Expected result
-    # Global cib-time                 maintenance prim  sec sync_state upd
-    # ---------------------------------------------------------------------
-    # HN1    Fri Jan 27 10:38:46 2023 false       HANA_S1 -   SOK        ok
-    # 
-    # Sites     lpt        lss mns         srHook srr
-    # ------------------------------------------------
-    # SITE-DR                              SOK
-    # HANA_S1   1674815869 4   hana-s1-db1 PRIM   P
-    # HANA_S2   30         4   hana-s2-db1 SWAIT  S
-    ```
-   
-   Cluster detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. No cluster action if the replication to DR site is impacted.
-
-If cluster parameter AUTOMATED_REGISTER="true" is set in the cluster after conclusion of testing, HANA parameter `register_secondaries_on_takeover = true` can be configured in `[system_replication]` block of global.ini on the two SAP HANA sites in the Linux cluster. Such configuration would re-register the third site after a takeover between the first two sites to keep a multi-target setup.
-
-</details>
 
 ## Test SAP HANA failover 
 
