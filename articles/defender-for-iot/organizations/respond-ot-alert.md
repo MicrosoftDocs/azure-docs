@@ -40,7 +40,7 @@ Then, check the alert details page for the following details to aid in your inve
 
 - **Source and destination device details**. Source and destination devices are listed in **Alert details** tab, and also in the **Entities** area below, as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). In the **Entities** area, you'll use the links in the **Name** column to open the relevant device details pages for [further investigation](#investigate-related-alerts-on-the-azure-portal).
 
-- **Site and zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack. <!--need new screenshot showing these details-->
+- **Site and zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack.
 
 - **MITRE ATT&CK** tactics and techniques. Scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
 
@@ -79,13 +79,12 @@ On the sensor's alert details page:
 
 - Select the **Map view** tab to view the alert inside the sensor's device map. For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md).
 
-- Select the **Event timeline** tab to view the alert's full event timeline, including other related activity also detected by the sensor. For more information, see [Track sensor activity](how-to-track-sensor-activity.md). <!--lets give the users more here- we don't have enough on the event timeline-->
+- Select the **Event timeline** tab to view the alert's full event timeline, including other related activity also detected by the sensor. For more information, see [Track sensor activity](how-to-track-sensor-activity.md).
 
-- Select **Export PDF** to download a PDF summary of the alert details. <!--there isn't much included here. worth including?-->
+- Select **Export PDF** to download a PDF summary of the alert details.
 
 ## Take remediation action
 
-<!--ask meir where the best place to do this in?-->
 The timing for when you take remediation actions may depend on the severity of the alert. For example, for high severity alerts, you might want to take action even before investigating, such as if you need to immediately quarantine an area of your network.
 
 For lower severity alerts, or for operational alerts, you might want to investigate before taking action.
