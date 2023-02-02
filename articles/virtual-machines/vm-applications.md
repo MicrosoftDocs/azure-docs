@@ -23,7 +23,7 @@ While you can create an image of a VM with apps pre-installed, you would need to
 
 Application packages provide benefits over other deployment and packaging methods:
 
-- VM applications support [DeployIfNotExists](/azure/governance/policy/concepts/effects#deployifnotexists) policies
+- VM Applications have support for [Azure Policies](/azure/governance/policy/overview)
 
 - Grouping and versioning of your packages
 

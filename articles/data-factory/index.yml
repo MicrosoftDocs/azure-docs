@@ -15,14 +15,22 @@ metadata:
   ms.custom: contperf-fy21q4
 
 landingContent:
+  - title: What's New in Azure Data Factory
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What's New in Azure Data Factory
+            url: ./whats-new.md
+          - text: Change data capture
+            url: ./concepts-change-data-capture.md
+          - text: Managed Airflow
+            url: ./concept-managed-airflow.md
   - title: About Azure Data Factory
     linkLists:
       - linkListType: overview
         links:
           - text: Introduction to Azure Data Factory
             url: ./introduction.md
-          - text: What's New in Azure Data Factory
-            url: ./whats-new.md
       - linkListType: reference
         links:
           - text: Whitepapers
@@ -111,6 +119,22 @@ landingContent:
             url: ./data-transformation-functions.md 
           - text: Change Data Capture (CDC)
             url: ./concepts-change-data-capture.md
+  - title: Managed Airflow
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Managed Airflow
+            url: concept-managed-airflow.md
+      - linkListType: how-to-guide
+        links:
+          - text: How does Managed Airflow work?
+            url: how-does-managed-airflow-work.md
+      - linkListType: tutorial
+        links:
+          - text: Run an existing pipeline with Managed Airflow
+            url: tutorial-run-existing-pipeline-with-airflow.md
+          - text: Refresh a Power BI dataset with Managed Airflow
+            url: tutorial-refresh-power-bi-dataset-with-airflow.md
   - title: SAP knowledge center
     linkLists:
       - linkListType: concept
