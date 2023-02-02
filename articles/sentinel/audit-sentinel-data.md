@@ -31,7 +31,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 

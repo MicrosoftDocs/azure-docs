@@ -26,7 +26,7 @@ See the [data connector reference](data-connectors-reference.md) to find availab
 The following articles present information that is common to each group of connectors for Microsoft services.
 
 - [API-based data connections](connect-services-api-based.md)
-- [Diagnostic settings-based data connections](connect-services-diagnostic-settings-based.md)
+- [Diagnostic settings-based data connections](connect-services-diagnostic-setting-based.md)
 - [Windows agent-based connections](connect-services-windows-based.md)
 
 The following integrations are both more unique and popular, and are treated individually, with their own articles:

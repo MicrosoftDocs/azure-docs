@@ -26,8 +26,8 @@ The following tables show gap analyses for the log types that currently rely on 
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
+|**Security Events**     |  [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md)       |
+|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md)  (Public preview)    |     -     |
 |**Filtering by event ID**     | Collection only        |   -       |
 |**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md) (Public Preview)       |     -     |
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
@@ -63,7 +63,7 @@ Each organization will have different metrics of success and internal migration 
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
-    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors-reference.md#windows-security-events-via-ama), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections).
+    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections).
 
     1. Go to the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > Step 2, **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
 
@@ -123,6 +123,6 @@ For more information, see:
 - [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
 - [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
-- [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)
-- [Security events via Legacy Agent (Windows)](data-connectors-reference.md#security-events-via-legacy-agent-windows)
+- [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
+- [Security events via Legacy Agent (Windows)](data-connectors/security-events-via-legacy-agent.md)
 - [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections)
