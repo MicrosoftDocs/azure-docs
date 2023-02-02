@@ -30,7 +30,7 @@ Run the code on either of these environments:
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](../how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
-  * Create an [Azure container registry](container-registry/index.yml) or other Docker registry that's available on the internet.
+  * Create an [Azure container registry](../../container-registry/index.yml) or other Docker registry that's available on the internet.
 
 ## Set up a training experiment
 
@@ -113,7 +113,7 @@ You need to create a [compute target](concept-azure-machine-learning-architectur
 
 Creation of `AmlCompute` takes a few minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 
-As with other Azure services, there are limits on certain resources (for example, `AmlCompute`) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md).
+As with other Azure services, there are limits on certain resources (for example, `AmlCompute`) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](../how-to-manage-quotas.md).
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
