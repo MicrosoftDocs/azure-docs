@@ -1,11 +1,11 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government Cloud Solution Providers, resellers, and distributors.
-services: azure-government
-cloud: gov
+description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
-ms.date: 07/05/2022
+author: todorgb
+ms.author: todorb
+ms.date: 01/18/2023
 ---
 
 # Azure Government authorized reseller list
@@ -26,7 +26,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[3Di inc](https://www.3disystems.com)|
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
-|[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
+|[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
 |[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
@@ -414,7 +414,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SyCom Technologies](https://www.sycomtech.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](https://www.seisystems.com)|
+|[Systems Engineering Inc](https://www.systemsengineering.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
 |[Syvantis Technologies, Inc.](https://www.syvantis.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|

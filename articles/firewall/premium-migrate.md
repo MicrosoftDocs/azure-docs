@@ -111,12 +111,12 @@ function ValidatePolicy {
         exit(1)
     }
     if ($Policy.GetType().Name -ne "PSAzureFirewallPolicy") {
-        Write-Host "Resource must be of type Microsoft.Network/firewallPolicies" -ForegroundColor Red
+        Write-Error "Resource must be of type Microsoft.Network/firewallPolicies"
         exit(1)
     }
 
     if ($Policy.Sku.Tier -eq "Premium") {
-        Write-Host "Policy is already premium"
+        Write-Host "Policy is already premium" -ForegroundColor Green
         exit(1)
     }
 }
@@ -147,9 +147,14 @@ function TransformPolicyToPremium {
                         Name = (GetPolicyNewName -Policy $Policy) 
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
-                        ThreatIntelMode = $Policy.ThreatIntelMode 
                         BasePolicy = $Policy.BasePolicy.Id 
-                        DnsSetting = $Policy.DnsSettings 
+                        ThreatIntelMode = $Policy.ThreatIntelMode
+						ThreatIntelWhitelist = $Policy.ThreatIntelWhitelist
+						PrivateRange = $Policy.PrivateRange
+                        			DnsSetting = $Policy.DnsSettings
+						SqlSetting = $Policy.SqlSetting
+						ExplicitProxy  = $Policy.ExplicitProxy 
+						DefaultProfile  = $Policy.DefaultProfile 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
     }

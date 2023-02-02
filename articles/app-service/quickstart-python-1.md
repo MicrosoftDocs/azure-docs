@@ -302,3 +302,6 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

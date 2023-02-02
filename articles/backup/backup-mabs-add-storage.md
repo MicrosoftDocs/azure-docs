@@ -3,6 +3,8 @@ title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: conceptual
 ms.date: 11/13/2018
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Add storage to Azure Backup Server

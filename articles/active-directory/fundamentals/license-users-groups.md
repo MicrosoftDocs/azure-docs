@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 01/23/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -22,7 +22,7 @@ Many Azure Active Directory (Azure AD) services require you to license each of y
 
 ## Available license plans
 
-There are several license plans available for the Azure AD service, including:
+There are several Azure AD license plans:
 
 - Azure AD Free
 
@@ -59,7 +59,7 @@ You can view your available service plans, including the individual licenses, ch
 
 ## Assign licenses to users or groups
 
-Make sure that anyone needing to use a licensed Azure AD service has the appropriate license. You can add the licensing rights to users or to an entire group.
+Anyone who has a business need to use a licensed Azure AD service must have the required licenses. You can add licensing rights to users or to an entire group.
 
 ### To assign a license to a user
 
