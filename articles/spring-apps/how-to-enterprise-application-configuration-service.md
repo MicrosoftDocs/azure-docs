@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/02/2023
 ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+This article shows how to use Application Configuration Service for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
 [Application Configuration Service for VMware Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
@@ -28,29 +28,34 @@ With Application Configuration Service for Tanzu, you have a central place to ma
 - An already provisioned Azure Spring Apps Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
-  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You can't enable it after you provision the instance.
+  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You can't enable the service after you provision the instance.
 
 ## Manage Application Configuration Service for Tanzu settings
 
 Application Configuration Service for Tanzu supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
-To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
+To manage service settings in your Azure Spring Apps instance, perform the following steps:
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+1. Select **Application Configuration Service** under **VMWare Tanzu components** in the navigation pane.
+
+1. Select **Settings** and add a new entry is **Repositories**.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 The following table describes properties for each entry.
 
-| Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
-|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                                  |
-| `Patterns`    | Yes       | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section of this article. |
-| `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                        |
-| `Label`       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                             |
-| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                              |
+| Property           | Required | Description                                                                                                                                                                                                                                                                                                                                  |
+|---------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Name**           | Yes      | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                                  |
+| **Patterns**       | Yes      | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section of this article. |
+| **URI**            | Yes      | A Git URI. For example: `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`                                                                                                                                                                                                         |
+| **Label**          | Yes      | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                             |
+| **Search path**    | No       | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                              |
+| **Authentication** | Yes      | Select from supported authentications.                                                                                                                                                                                                                                                                                                       |
 
-### Pattern
+### Patterns
 
-Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
+A configuration is pulled from Git backends by using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
 - *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
 - *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
@@ -78,15 +83,15 @@ The following image shows the three types of repository authentication supported
 
    The following table shows the configurable properties you can use to set up a private Git repository with SSH.
 
-   | Property                   | Required? | Description                                                                                                                                                                                                                         |
+   | Property                   | Required | Description                                                                                                                                                                                                                         |
    |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
    | `Host key`                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | `Host key algorithm`       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | `Host key algorithm`       | No        | The algorithm for `Host Key`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. Required if supplying `Host key`.                                                              |
    | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 > [!NOTE]
-> Application Configuration Service for Tanzu uses RSA keys with SHA-1 signatures for now. If you're using GitHub, for RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported, and we suggest using basic authentication instead.
+> Application Configuration Service for Tanzu currently uses RSA keys with SHA-1 signatures. If you're using GitHub, for the RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For the RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported and we suggest using basic authentication.
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
@@ -100,7 +105,7 @@ Use the following steps to refresh your application configuration after you upda
 
 1. Load the configuration to your application.
 
-A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
+A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following scenarios show different ways to load the new configurations:
 
 - Restart the application. Restarting the application always loads the new configuration.
 
@@ -139,9 +144,11 @@ A Spring application holds the properties as the beans of the Spring Application
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Configure Application Configuration Service for Tanzu settings using the portal
+## Configure Application Configuration Service for Tanzu settings
 
 Use the following steps to configure Application Configuration Service for Tanzu using the portal.
+
+### [Azure portal](#tab/Portal)
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
@@ -154,10 +161,9 @@ Use the following steps to configure Application Configuration Service for Tanzu
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing the Settings tab." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
-## Configure Application Configuration Service for Tanzu settings using the CLI
+### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to configure Application Configuration Service for Tanzu using the CLI.
-
+Use the following steps to configure Application Configuration Service for Tanzu.
 ```azurecli
 az spring application-configuration-service git repo add \
     --name <entry-name> \
@@ -166,9 +172,11 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name>
 ```
 
-## Use Application Configuration Service for Tanzu with applications using the portal
+## Use Application Configuration Service for Tanzu with applications
 
 When you use Application Configuration Service for Tanzu with a Git back end and use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, use the following steps to configure the pattern to be used by the app.
+
+### [Azure portal](#tab/Portal)
 
 1. Open the **App binding** tab.
 
@@ -193,7 +201,7 @@ When you use Application Configuration Service for Tanzu with a Git back end and
 
    1. Select **Save**
 
-## Use Application Configuration Service for Tanzu with applications using the CLI
+### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to use Application Configuration Service for Tanzu with applications.
 
@@ -207,7 +215,7 @@ az spring app deploy \
 
 ## Enable/Disable Application Configuration Service after service creation
 
-You can enable/disable Application Configuration Service after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unbind all of your apps to Application Configuration Service.
+You can enable and disable Application Configuration Service after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unbind all of your apps to Application Configuration Service.
 
 ### [Azure portal](#tab/Portal)
 
