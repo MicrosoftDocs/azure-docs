@@ -228,7 +228,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
    
-1. Select your working branch (or the `main` branch) and choose `mlops/devops-pipelines/cli-ado-deploy-infra.yml`, then select **Continue**. 
+1. Select the `main` branch and choose `mlops/devops-pipelines/cli-ado-deploy-infra.yml`, then select **Continue**. 
 
 1. Run the pipeline; it will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
