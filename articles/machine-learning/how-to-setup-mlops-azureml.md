@@ -313,7 +313,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Online endpoint names need to be unique, so change **[your endpoint-name]** to another unique name and then select **Run**. No need to change the default if it doesn't fail.
 
-   ![Screenshot of ADO batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
+   ![Screenshot of Azure DevOps batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
 > [!IMPORTANT]
 > If the run fails due to an existing online endpoint name, recreate the pipeline as described previously and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
