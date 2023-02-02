@@ -19,7 +19,7 @@ In this guide, learn how to configure SMTP settings to generate email alerts in 
 
 ## Prerequisites
 
-To follow the steps in this guide you must have:
+To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
@@ -41,7 +41,7 @@ To activate SMTP settings, enable email notifications and configure an email con
         | User           | admin                 | Enter the name of the user of the SMTP authentication.                                                                                                        |
         | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                                                                                                                |
         | From Address   | user@domain.com     | Enter the email address used when sending out emails.                                     |
-        | From Name      | Azure Managed Grafana Notification   | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter is not given or empty.                                                                        |
+        | From Name      | Azure Managed Grafana Notification   | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter isn't given or empty.                                                                        |
         | Skip Verify    | Disable               | SSL verification for the SMTP server. Default is **False**. Optionally select **True** to skip verification. |
         | StartTLSPolicy | OpportunisticStartTLS | The StartTLSPolicy setting of the SMTP configuration. Select **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**                             |
 
@@ -50,10 +50,10 @@ To activate SMTP settings, enable email notifications and configure an email con
 
 ## Configure Grafana contact points and send a test email
 
-To create or update notification settings, follow these steps:
+Configuring Grafana contact points is done in the Grafana portal:
 
-  1. In the Azure portal, open your Grafana instance.
-  1. Select **Alerting > Contact points**, where you'll find your new contact points.
+  1. In your Azure Managed Grafana workspace, in **Overview**, select the **Endpoint** URL.
+  1. Go to **Alerting > Contact points**, where you'll find your new contact points.
   1. Select **Add new contact point** or Edit contact point to update an existing contact point.
   1. Add or update the **Name**, and **Contact point type**.
   1. Enter a destination email under **Addresses**, and select **Test**.
