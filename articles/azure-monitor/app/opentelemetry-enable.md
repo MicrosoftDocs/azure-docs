@@ -440,9 +440,11 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might set the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This step updates Cloud Role Name and Cloud Role Instance from their default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value.
+You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value.
 
 ### [.NET](#tab/net)
+
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
 
 ```csharp
 // Setting role name and role instance
@@ -471,6 +473,8 @@ To set the cloud role name, see [cloud role name](java-standalone-config.md#clou
 To set the cloud role instance, see [cloud role instance](java-standalone-config.md#cloud-role-instance).
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
 
 ```javascript
 ...
@@ -501,6 +505,8 @@ const meterProvider = new MeterProvider({
 ```
 
 ### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
 
 ```typescript
 import { Resource } from "@opentelemetry/resources";
@@ -534,6 +540,8 @@ const meterProvider = new MeterProvider(meterProviderConfig);
 
 ### [Python](#tab/python)
 
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
+
 ```python
 ...
 from opentelemetry.sdk.resources import SERVICE_NAME, SERVICE_NAMESPACE, SERVICE_INSTANCE_ID, Resource
@@ -563,12 +571,14 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE] 
 > Metrics are unaffected by sampling.
 
 #### [.NET](#tab/net)
+
+The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent.
 
 In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
 
@@ -663,7 +673,7 @@ for i in range(100):
 ---
 
 > [!TIP]
-> If you're not sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
 
 ## Instrumentation libraries
 
@@ -858,7 +868,7 @@ Autocollected metrics
 ---
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) in Metrics Explorer. Whatever you set as the meter name becomes the metrics namespace.
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js (JavaScript), Node.js (TypeScript), and Python, whatever you set as the meter name becomes the metrics namespace.
 
 ### Logs
 
@@ -1721,21 +1731,21 @@ This section explains how to modify telemetry.
 
 ### Add span attributes
 
-To add span attributes, use either of the following two ways:
-
-* Use options provided by [instrumentation libraries](#instrumentation-libraries).
-* Add a custom span processor.
-
 These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights schema, like Client IP.
-
-> [!TIP]
-> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
 #### Add a custom property to a Trace
 
 Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
+
+To add span attributes, use either of the following two ways:
+
+* Use options provided by [instrumentation libraries](#instrumentation-libraries).
+* Add a custom span processor.
+
+> [!TIP]
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
