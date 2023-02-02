@@ -207,7 +207,7 @@ The following table describes error codes that can be returned in the `error` pa
 
 Receiving an ID token in your app might not always be sufficient to fully authenticate the user. You might also need to validate the ID token's signature and verify its claims per your app's requirements. Like all OpenID providers, the Microsoft identity platform's ID tokens are [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) signed by using public key cryptography.
 
-Web apps and web APIs that use ID tokens for authorization must validate them because such applications gate access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation.
+Web apps and web APIs that use ID tokens for authorization must validate them because such applications get access to data. Other types of application might not benefit from ID token validation, however. Native and single-page apps (SPAs), for example, rarely benefit from ID token validation because any entity with physical access to the device or browser can potentially bypass the validation.
 
 Two examples of token validation bypass are:
 
