@@ -10,7 +10,7 @@ ms.date: 01/31/2023
 ---
 
 # Monitor data ingestion latency in Azure Monitor Logs
-Latency refers to the amount of time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. The typical latency for ingesting log data is between 20 seconds and three minutes. This article explains the factors that affect latency in Azure Monitor Logs and how to monitor latency in a Log Analytics workspace.
+Latency refers to the amount of time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. The typical latency for log data is between 20 seconds and three minutes. This article explains the factors that affect latency in Azure Monitor Logs and how to monitor latency in a Log Analytics workspace.
 
 ## Factors that affect latency
 
@@ -58,15 +58,13 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 
 It takes 30 to 60 seconds before data that arrives at an ingestion point is available for querying.
 
-After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
+When log records arrive at an Azure Monitor ingestion point (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically takes 5 to 15 seconds.
 
 In some cases, a few minutes of latency are introduced when Azure Monitor Agent collects logs from files.
 
-### New custom data types provisioning
+When you introduce a new type of custom data using the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This one-time overhead occurs only on the first appearance of this data type.
 
-When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This one-time overhead occurs only on the first appearance of this data type.
-
-### Surge protection
+#### Surge protection
 
 **Typical latency: Less than a minute, but can be more**
 
