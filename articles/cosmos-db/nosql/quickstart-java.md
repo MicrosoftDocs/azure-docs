@@ -273,7 +273,7 @@ Now go back to the Azure portal to get your connection string information and la
     mvn package
     ```
 
-3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync-passwordless` or `async-passwordless` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+3. In the git terminal window, use the following command to start the Java application. Replace `SYNCASYNCMODE` with `sync-passwordless` or `async-passwordless`, depending upon which sample code you'd like to run. Replace `YOUR_COSMOS_DB_HOSTNAME` with the quoted URI value from the portal, and replace `YOUR_COSMOS_DB_MASTER_KEY` with the quoted primary key from portal.
 
     ```bash
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
