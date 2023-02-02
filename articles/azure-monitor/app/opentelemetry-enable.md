@@ -1591,9 +1591,16 @@ Coming soon.
 
 ---
 
+<!--
+
 ### Add Custom Events
 
 #### Span Events
+
+The OpenTelemetry Logs/Events API is still under development. In the meantime, you can use the OpenTelemetry Span API to create "Span Events", which populate the traces table in Application Insights. The string passed in to addEvent() is saved to the message field within the trace.
+
+> [!CAUTION]
+> Span Events are only recommended for when you need additional diagnostic metadata associated with your span. For other scenarios, such as describing business events, we recommend you wait for the release of the OpenTelemetry Events API.
 
 #### [.NET](#tab/net)
   
@@ -1637,6 +1644,8 @@ Coming soon.
 Coming soon.
 
 ---
+
+-->
   
 ### Send custom telemetry using the Application Insights API
   
@@ -1935,7 +1944,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 ##### [Java](#tab/java)
 
-See [Telemetry processors](java-standalone-telemetry-processors.md).
+Java automatically sets the user IP.
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -2110,7 +2119,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 #### [Java](#tab/java)
 
-See [Telemetry processors](java-standalone-telemetry-processors.md).
+See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [Telemetry processors](java-standalone-telemetry-processors.md).
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -2340,7 +2349,7 @@ Coming soon.
 You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
 > [!NOTE]
-> The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector) for OpenTelemetry issues outside the Azure support boundary.
+> The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it.
 
 #### [.NET](#tab/net)
 
@@ -2449,7 +2458,7 @@ Coming soon.
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
@@ -2638,9 +2647,35 @@ logger.addHandler(stream)
 
 Known issues for the Azure Monitor OpenTelemetry Exporters include:
 
+#### [.NET](#tab/net)
+
 - Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
 - Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
 - Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
+
+#### [Java](#tab/java)
+
+No known issues.
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
+- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
+- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
+- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
+- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
+
+#### [Python](#tab/python)
+
+- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
+- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
+- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
+
+---
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
@@ -2652,25 +2687,30 @@ To get support:
 
 ### [.NET](#tab/net)
 
-For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Java](#tab/java)
 
 - For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
+- For a list of open issues related to Azure Monitor Java Auto-Instrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
-For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
+- For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
-For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
+- For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Python](#tab/python)
 
-For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
+- For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ---
 
