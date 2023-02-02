@@ -215,14 +215,12 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file.
-
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
     
-If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -892,7 +890,7 @@ Coming soon.
 ---
 
 **Footnotes**
-- (1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
+- (1) Supports automatic reporting of unhandled exceptions
 - (2) By default, logging is only collected when that logging is performed at the INFO level or higher.
 To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
