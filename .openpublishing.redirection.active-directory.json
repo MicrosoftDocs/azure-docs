@@ -4362,6 +4362,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/faqs.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-baseline-protection.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
       "redirect_document_id": false
@@ -10902,6 +10907,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tenant-management.md",
+      "redirect_url": "/azure/active-directory-b2c/tenant-management-add-administrator",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
       "redirect_document_id": false
@@ -11058,12 +11068,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/privileged-identity-management/concept-privileged-access-versus-role-assignable.md",
-      "redirect_url": "azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/privileged-identity-management/groups-features.md",
-      "redirect_url": "azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
       "redirect_document_id": false
     },
     {

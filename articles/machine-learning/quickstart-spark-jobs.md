@@ -30,25 +30,13 @@ In this quickstart guide, you'll learn how to submit a Spark job using Azure Mac
 - [Create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
 - [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
 
-> [!TIP]
-> You can submit a Spark job from:
->  - [terminal of an Azure Machine Learning compute instance](./how-to-access-terminal.md#access-a-terminal). 
->  - terminal of [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
->  - your local computer that has [the Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
-
 # [Python SDK](#tab/sdk)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
-- [Install Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2).
-
-> [!TIP]
-> You can submit a Spark job from:
->  - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
->  - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
->  - your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+- [Install Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme).
 
 # [Studio UI](#tab/studio-ui)
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
@@ -126,7 +114,8 @@ df.to_csv(args.wrangled_data, index_col="PassengerId")
 ```
 
 > [!NOTE]
-> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+>  - This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+>  - Please ensure that `titanic.py` file is uploaded to a folder named `src`. The `src` folder should be located in the same directory where you have created the Python script/notebook or the YAML specification file defining the standalone Spark job. 
 
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively. The script uses `titanic.csv` file, which can be [found here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/spark/data/titanic.csv). This file should be uploaded to the Azure Data Lake Storage (ADLS) Gen 2 storage account.
 
@@ -134,6 +123,13 @@ The above script takes two arguments `--titanic_data` and `--wrangled_data`, whi
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!TIP]
+> You can submit a Spark job from:
+>  - [terminal of an Azure Machine Learning compute instance](./how-to-access-terminal.md#access-a-terminal). 
+>  - terminal of [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+>  - your local computer that has [the Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
+
 This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and input/output data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`:
 
 ```yaml
@@ -192,6 +188,13 @@ az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBS
 
 # [Python SDK](#tab/sdk)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!TIP]
+> You can submit a Spark job from:
+>  - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
+>  - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+>  - your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
+
 This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and input/output data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`: 
 
 ```python

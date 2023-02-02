@@ -4,6 +4,8 @@ description: Learn how to back up an Exchange server to Azure Backup using Syste
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
 
