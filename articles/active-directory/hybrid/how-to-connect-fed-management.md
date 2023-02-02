@@ -43,6 +43,8 @@ You'll also learn about other common AD FS tasks that you might need to perform 
 
 You can perform various AD FS-related tasks in Azure AD Connect with minimal user intervention by using the Azure AD Connect wizard. After you've finished installing Azure AD Connect by running the wizard, you can run it again to perform other tasks.
 
+<a name="repairthetrust"></a>
+
 ## Repair the trust 
 
 You can use Azure AD Connect to check the current health of the AD FS and Azure AD trust and then take appropriate actions to repair the trust. To repair your Azure AD and AD FS trust, do the following:
@@ -277,7 +279,7 @@ With this rule, you're simply checking the temporary flag `idflag`. You decide w
 
 ### SSO with a subdomain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](how-to-connect-fed-management.md#add-a-federated-domain). Azure AD Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Azure AD Connect version 1.1.553.0 or later, we recommend that you use the [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Azure AD relying party trust.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](#addadfsserver). Azure AD Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Azure AD Connect version 1.1.553.0 or later, we recommend that you use the [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Azure AD relying party trust.
 
 ## Next steps
 
