@@ -2,12 +2,11 @@
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
 description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 ms.author: danlep
 
 ---
@@ -28,17 +27,17 @@ Azure Event Hubs is a highly scalable data ingress service that can ingest milli
 
 To log events to the event hub, you need to configure credentials for access from API Management. API Management supports either of the two following access mechanisms:
 
-* An event hub connection string
+* An Event Hubs connection string
 * A managed identity for your API Management instance.
 
-### Configure event hub connection string
+### Option 1: Configure Event Hubs connection string
 
 To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). 
 
 * You can use a connection string for the Event Hubs namespace or for the specific event hub you use for logging from API Management.
 * The shared access policy for the connection string must enable at least **Send** permissions.
 
-### Configure API Management managed identity
+### Option 2: Configure API Management managed identity
 
 > [!NOTE]
 > Using an API Management managed identity for logging events to an event hub is supported in API Management REST API version `2022-04-01-preview` or later.
@@ -103,7 +102,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with system-assigned managed identity",
     "resourceId": "<EventHubsResourceID>"
     "credentials": {
-      "connectionString": "Endpoint=sb://ContosoEventHubs.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>",
+      "connectionString": "Endpoint=sb://<EventHubsNamespace>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>",
       "name": "ApimEventHub"
     },
   }
