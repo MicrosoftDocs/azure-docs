@@ -14,7 +14,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C++ to analyze an image for content tags. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
+Use the Image Analysis client library for C++ to analyze an image and generate captions. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
 
 [Reference documentation](tbd) | [Library source code](tbd) | [Package (NuGet)](tbd) | [Samples](tbd)
 
@@ -22,7 +22,7 @@ Use the Image Analysis client library for C++ to analyze an image for content ta
 > You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **tbd**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
 
 > [!TIP]
-> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
+> The Analyze API can do many different operations other than generate captions. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
