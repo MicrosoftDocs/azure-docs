@@ -359,7 +359,7 @@ Now go back to the Azure portal to get your connection string information and la
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
     ```
 
-    The terminal window displays a notification that the FamilyDB database was created. 
+    The terminal window displays a notification that the `AzureSampleFamilyDB` database was created. 
 
 4. The app will reference the database and container you created via Azure CLI earlier. 
     
