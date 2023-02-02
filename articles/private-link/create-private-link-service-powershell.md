@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 02/02/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
@@ -128,6 +128,26 @@ $loadbalancer = @{
 }
 New-AzLoadBalancer @loadbalancer
 
+```
+
+## Disable network policy
+
+Before a private link service can be created in the virtual network, the setting `privateLinkServiceNetworkPolicies` must be disabled.
+
+* Disable the network policy with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork).
+
+```azurepowershell
+$subnet = 'mySubnet'
+
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $subnet}).privateLinkServiceNetworkPolicies = "Disabled"
+
+$vnet | Set-AzVirtualNetwork
 ```
 
 ## Create a private link service
