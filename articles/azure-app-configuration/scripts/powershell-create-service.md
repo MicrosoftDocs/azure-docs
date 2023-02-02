@@ -11,9 +11,9 @@ ms.author: malev
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create an Azure App Configuration store with Powershell
+# Create an Azure App Configuration store with PowerShell
 
-This sample script creates a new instance of Azure App Configuration in a new resource group using Powershell.
+This sample script creates a new instance of Azure App Configuration in a new resource group using PowerShell.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
