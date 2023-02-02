@@ -10,13 +10,12 @@ ms.date: 01/31/2023
 ---
 
 # Monitor data ingestion latency in Azure Monitor Logs
-Azure Monitor is a high-scale data service that serves thousands of customers that send terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
+Latency refers to the amount of time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. This article explains the factors that affect latency in Azure Monitor Logs and how to monitor latency in a Log Analytics workspace.
 
 ## Typical latency
-Latency refers to the time that data is created on the monitored system and the time that it becomes available for analysis in Azure Monitor. The typical latency to ingest log data is *between 20 seconds and 3 minutes*. 
+The typical latency for ingesting log data is between 20 seconds and three minutes. 
 
-## Which factors affect latency?
-The total ingestion time for a particular set of data can be broken down into the following high-level areas:
+The factors that affect latency for a particular set of data are:
 
 - **Data collection time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
