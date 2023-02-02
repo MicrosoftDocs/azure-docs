@@ -60,7 +60,7 @@ It takes 30 to 60 seconds before data that arrives at an ingestion point is avai
 
 When log records arrive at an Azure Monitor ingestion point (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically takes 5 to 15 seconds.
 
-When you introduce a new type of custom data using the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This one-time overhead occurs only on the first appearance of this data type.
+In some cases, a few minutes of latency are introduced when Azure Monitor Agent collects logs from files. When you introduce a new type of custom data using the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This one-time overhead occurs only on the first appearance of this data type.
 
 #### Surge protection
 
