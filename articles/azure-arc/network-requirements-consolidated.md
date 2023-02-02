@@ -13,7 +13,7 @@ This article lists the endpoints, ports, and protocols required for Azure Arc-en
 
 ## Azure Arc-enabled Kubernetes endpoints
 
-Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernetes based Arc offerings, including:
+Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernetes-based Arc offerings, including:
 
 - Azure Arc-enabled Kubernetes
 - Azure Arc-enabled App services
@@ -26,7 +26,7 @@ For an example, see [Quickstart: Connect an existing Kubernetes cluster to Azure
 
 ## Azure Arc-enabled data services
 
-This section describes additional requirements specific to Azure Arc-enabled data services, in addition to the Arc-enabled Kubernetes endpoints listed above.
+This section describes requirements specific to Azure Arc-enabled data services, in addition to the Arc-enabled Kubernetes endpoints listed above.
 
 [!INCLUDE [network-requirements](data/includes/network-requirements.md)]
 
@@ -49,13 +49,13 @@ For examples, see [Connected Machine agent network requirements](servers/network
 
 ## Azure Arc resource bridge (preview)
 
-This section describes additional networking requirements specific to deploying Azure Arc resource bridge (preview) in your enterprise. These additional requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
+This section describes additional networking requirements specific to deploying Azure Arc resource bridge (preview) in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
 ## Azure Arc-enabled System Center Virtual Machine Manager (preview)
 
-Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
+Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ For more information, see [Overview of Arc-enabled System Center Virtual Machine
 
 ## Azure Arc-enabled VMware vSphere (preview)
 
-Azure Arc-enabled VMware vSphere requires the connectivity described below:
+Azure Arc-enabled VMware vSphere also requires:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
@@ -73,9 +73,9 @@ Azure Arc-enabled VMware vSphere requires the connectivity described below:
 
 For more information, see [Support matrix for Azure Arc-enabled VMware vSphere (preview)](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
 
-## Additional connectivity requirements
+## Additional endpoints
 
-Depending on your scenario, you may need connectivity to additional URLs. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
+Depending on your scenario, you may need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
 
 - [Azure portal URLs](../azure-portal/azure-portal-safelist-urls.md)
-- [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints?view=azure-cli-latest)
+- [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints)
