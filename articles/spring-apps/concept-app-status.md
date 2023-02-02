@@ -24,13 +24,13 @@ The Azure Spring Apps UI delivers information about the status of running applic
 
 ## Apps status
 
-To view general status of an application type, select **Apps** in the left navigation pane of a resource group to display following status information of the deployed app:
+To view general status of an application type, select **Apps** in the left navigation pane of a resource group to display the following status information of the deployed app:
 
 * **Provisioning state**: Shows the deployment’s provisioning state.
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
 * **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to enterprise tier. For more information if you're using the enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Shows the status of an application type in an Azure Spring Apps." lightbox="media/concept-app-status/apps-ui-status.png":::
+:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal showing the Apps status page." lightbox="media/concept-app-status/apps-ui-status.png":::
 
 ## Deployment status
 
@@ -57,7 +57,7 @@ The provisioning state is accessible only from the CLI.  It's reported as one of
 
 ## App instances status
 
-The app instance status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App Instance Name** of the app in the **Apps instance** pane to display the following results:
+The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select **App Instance Name** of the app in the **Apps instance** pane to display the following results:
 
 * **Status**: Whether the instance is running or its current state
 * **Discovery Status**: The registered status of the app instance in the Eureka server
