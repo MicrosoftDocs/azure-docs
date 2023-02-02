@@ -64,7 +64,7 @@ The drawings can be created using any unit of measurement. However, all drawings
 
 The following image shows the Drawing Units window within Autodesk's AutoCAD® software that you can use to verify the unit of measurement.  
 
-:::image type="content" source="./media/drawing-package-guide/units.png" alt-text="Drawing Units window within Autodesk's AutoCAD® software":::
+:::image type="content" source="./media/drawing-package-guide/units.png" alt-text="Screenshot of the drawing units window in Autodesk's AutoCAD® software.":::
 
 ### Alignment
 
@@ -84,7 +84,7 @@ A single level feature is created from each exterior layer or layers. This level
 
 The following image is taken from the sample package, and shows the exterior layer of the facility in red. The unit layer is turned off to help with visualization.
 
-:::image type="content" source="./media/drawing-package-guide/exterior.png" alt-text="Exterior layer of a facility.":::
+:::image type="content" source="./media/drawing-package-guide/exterior.png" alt-text="Screenshot showing the exterior layer of a facility.":::
 
 ### Unit layer
 
@@ -92,7 +92,7 @@ Units are navigable spaces in the building, such as offices, hallways, stairs, a
 
 The following image is taken from the [sample drawing package] and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. Also, one unit is selected to help show that each unit is a closed Polyline.  
 
-:::image type="content" source="./media/drawing-package-guide/unit.png" alt-text="Unit layer of a facility.":::
+:::image type="content" source="./media/drawing-package-guide/unit.png" alt-text="Screenshot showing the unit layer of a facility.":::
 
 ### Unit label layer
 
@@ -104,7 +104,7 @@ Doors are optional. However, doors may be used if you'd like to specify the entr
 
 The following image is taken from the [sample drawing package] and shows a unit with a door (in red) drawn on the unit boundary.
 
-:::image type="content" source="./media/drawing-package-guide/door.png" alt-text="Door layer of a facility.":::
+:::image type="content" source="./media/drawing-package-guide/door.png" alt-text="Screenshot showing the door layer of a facility.":::
 
 ### Wall layer
 
@@ -182,7 +182,7 @@ The following example of the `dwgLayers` object in the manifest.
 
 The following image shows the layers from the corresponding DWG drawing viewed in Autodesk's AutoCAD® software.
 
-:::image type="content" source="./media/drawing-package-guide/layer.png" alt-text="DwgLayers in Autodesk's AutoCAD® software":::
+:::image type="content" source="./media/drawing-package-guide/layer.png" alt-text="Screenshot showing the DwgLayers in Autodesk's AutoCAD® software.":::
 
 ### unitProperties
 
@@ -190,7 +190,7 @@ The `unitProperties` object allows you to define other properties for a unit tha
 
 The following image is taken from the [sample drawing package]. It displays the unit label that's associated to the unit property in the manifest.
 
-:::image type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Unit label that will be associated to the unity property in the manifest":::
+:::image type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Screenshot showing the unit label that will be associated to the unity property in the manifest.":::
 
 The following snippet shows the unit property object that is associated with the unit.  
 
