@@ -290,7 +290,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## [Passwordless Aync API](#tab/passwordlessasync)
 
-[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
+[!INCLUDE [java-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
