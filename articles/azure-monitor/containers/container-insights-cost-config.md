@@ -31,7 +31,7 @@ The following table describes the supported data collection settings
 The below table outlines the list of the container insights Log Analytics tables for which data collection settings applied and what data collection settings applicable.
 
 >[!NOTE]
->This feature only configures the settings for the following counters, to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
+>This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
 
 | ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
     - For AKS clusters, aks-preview version 0.5.125 or higher
     - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
@@ -122,9 +122,14 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterR
 ### Onboard to a cluster with an existing monitoring addon
 
 ```azcli    
+# obtain the configured log analytics workspace resource id
+az aks show -g <clusterResourceGroup> -n <clusterName> | grep -i "logAnalyticsWorkspaceResourceID"
+
+# disable monitoring 
 az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>
 
-az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
+# enable monitoring with data collection settings
+az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --workspace-resource-id <logAnalyticsWorkspaceResourceId> --data-collection-settings dataCollectionSettings.json
 ```
 
 ## [Azure portal](#tab/create-portal)
@@ -289,8 +294,8 @@ To update your data collection Settings, modify the values in parameter files, a
 
 ## Troubleshooting
 
-- Only clusters using[managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), are able to use this feature.
-- Missing data or gaps in your Container Insights charts are expected behaviors as a result of enabling this feature.
+- Only clusters using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), are able to use this feature.
+- Missing data in your container insights charts is an expected behavior for namespace exclusion, if excluding all namespaces
 
 ## Known Issues/Limitations
 
