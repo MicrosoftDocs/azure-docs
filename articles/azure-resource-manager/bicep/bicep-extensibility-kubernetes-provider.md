@@ -38,14 +38,126 @@ import 'kubernetes@1.0.0' with {
 
 The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the code snippet automatically.
 
-## How provider-specific resource types are exposed/accessed
+## Define Kubernetes deployments and services
 
-```bicep
-resource appsDeployment_azureVoteBack 'apps/Deployment@v1' = {}
+*** Do I need to cover how a Kubernetes YML is transformed into Bicep?
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: azure-vote-back
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
 ```
 
-- .apiVersion: Specifies the API group and API resource you want to use when creating the resource.
-- .kind: Specifies the type of resource you want to create.
+```bicep
+resource appsDeployment_azureVoteBack 'apps/Deployment@v1' = {
+  metadata: {
+    name: 'azure-vote-back'
+  }
+  spec: {
+    replicas: 1
+    selector: {
+      matchLabels: {
+        app: 'azure-vote-back'
+      }
+    }
+    template: {
+      metadata: {
+        labels: {
+          app: 'azure-vote-back'
+        }
+      }
+      spec: {
+        nodeSelector: {
+          'kubernetes.io/os': 'linux'
+        }
+        containers: [
+          {
+            name: 'azure-vote-back'
+            image: 'mcr.microsoft.com/oss/bitnami/redis:6.0.8'
+            env: [
+              {
+                name: 'ALLOW_EMPTY_PASSWORD'
+                value: 'yes'
+              }
+            ]
+            resources: {
+              requests: {
+                cpu: '100m'
+                memory: '128Mi'
+              }
+              limits: {
+                cpu: '250m'
+                memory: '256Mi'
+              }
+            }
+            ports: [
+              {
+                containerPort: 6379
+                name: 'redis'
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+resource coreService_azureVoteBack 'core/Service@v1' = {
+  metadata: {
+    name: 'azure-vote-back'
+  }
+  spec: {
+    ports: [
+      {
+        port: 6379
+      }
+    ]
+    selector: {
+      app: 'azure-vote-back'
+    }
+  }
+}
+```
 
 ## Visual Studio Code import
 
