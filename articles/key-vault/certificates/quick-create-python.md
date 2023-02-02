@@ -174,7 +174,7 @@ client = CertificateClient(vault_url=KVUri, credential=credential)
 
 ### Save a certificate
 
-Once you've obtained the client object for the key vault, you can create a certificate using the [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) method: 
+Once you've obtained the client object for the key vault, you can create a certificate using the [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient#azure-keyvault-certificates-certificateclient-begin-create-certificate) method: 
 
 ```python
 policy = CertificatePolicy.get_default()
@@ -182,7 +182,7 @@ poller = client.begin_create_certificate(certificate_name=certificateName, polic
 certificate = poller.result()
 ```
 
-Here, the certificate requires a policy obtained with the [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--) method.
+Here, the certificate requires a policy obtained with the [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy#azure-keyvault-certificates-certificatepolicy-get-default) method.
 
 Calling a `begin_create_certificate` method generates an asynchronous call to the Azure REST API for the key vault. The asynchronous call returns a poller object. To wait for the result of the operation, call the poller's `result` method.
 
@@ -191,13 +191,13 @@ When Azure handles the request, it authenticates the caller's identity (the serv
 
 ### Retrieve a certificate
 
-To read a certificate from Key Vault, use the [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#get-certificate-certificate-name----kwargs-) method:
+To read a certificate from Key Vault, use the [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient#azure-keyvault-certificates-certificateclient-get-certificate) method:
 
 ```python
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) or the Azure PowerShell command [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate)
 
 ### Delete a certificate
 
