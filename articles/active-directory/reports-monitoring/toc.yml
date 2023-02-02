@@ -141,7 +141,7 @@ items:
 
 - name: Recommendations
   items:
-    - name: Convert to Conditional Access MFA
+    - name: Switch to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
