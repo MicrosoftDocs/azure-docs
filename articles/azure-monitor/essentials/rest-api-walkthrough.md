@@ -290,7 +290,7 @@ Content-Type: application/json
 Authorization: Bearer <access token>
 ```
 
-The following example retrieves the top three APIs,  by the number of `Transactions` in descending value order, during a 5-minute range, where the GeoType is `Primary`.
+The following example retrieves the top three APIs,  by the number of `Transactions` in descending value order, during a 5-minute range, where  the `GeoType` dimension has a value of `Primary`.
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics \
