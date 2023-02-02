@@ -1,5 +1,5 @@
 ---
-title: "Configure Durable Function with Azure Active Directory "
+title: "Configure Durable Function with Azure Active Directory"
 descrionfigure Durable FUnctiption: Configure Durable Function with Mangaed Identity Credentials and Client Secret Credentials.
 author: naiyuantian
 ms.topic: quickstart
@@ -7,7 +7,7 @@ ms.date: 02/01/2023
 ms.author: azfuncdfnaiy
 ---
 
-# Create your first durable function in C#
+# Configure Durable Function with Azure Active Directory
 
 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service.Using the default storage provider, Durable Functions needs to access to credentials to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we walk though how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
 
