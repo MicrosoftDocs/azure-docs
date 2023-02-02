@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/01/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -21,7 +21,7 @@ ms.custom: it-pro
 > Cross-tenant synchronization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes the keys steps to configure cross-tenant synchronization using Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 :::image type="content" source="./media/common/configure-diagram.png" alt-text="Diagram that shows cross-tenant synchronization between source tenant and target tenant." lightbox="./media/common/configure-diagram.png":::
 
@@ -158,7 +158,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14"
     }
     ```
     
