@@ -90,9 +90,14 @@ Use the **Tables - Update** API to create the table with the following PowerShel
                         "description": "Additional message properties"
                     },
                     {
-                        "name": "ExtendedColumn",
+                        "name": "CounterName",
                         "type": "string",
-                        "description": "An additional column extended at ingestion time"
+                        "description": "Name of the counter"
+                    },
+                    {
+                        "name": "CounterName",
+                        "type": "string",
+                        "description": "Value collected for the counter"
                     }
                 ]
             }
@@ -214,12 +219,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
             },
             "location": {
                 "type": "string",
-                "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Rule."
                 }
@@ -279,7 +278,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                             "destinations": [
                                 "clv2ws1"
                             ],
-                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)",
+                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=jsonContext.CounterValue",
                             "outputStream": "Custom-MyTable_CL"
                         }
                     ]
@@ -405,7 +404,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     ##################
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
-    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$streamName?api-version=2021-11-01-preview"
+    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2021-11-01-preview"
 
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
