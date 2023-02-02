@@ -222,7 +222,7 @@ Below you can see a simplified JSON result:
 
 As we understood above, the information that shows up in the Schema tab of an Azure SQL Table comes from the Azure SQL Column themselves.
 
-Clicking on one column item, we would see the following:
+Selecting one column item, we would see the following:
 ![Azure SQL Column](./media/tutorial-custom-types/azure-sql-column.png)
 
 The question is, how did Purview select the *data_tye* property from the column and showed it in the Schema tab of the table?
@@ -503,15 +503,15 @@ with the follwoing body:
 ![Children](./media/tutorial-custom-types/children.png)
 You can see the *First_child_object* being linked there.
 
-* Click on the *First_child_object*:
+* Select the *First_child_object*:
 ![Child](./media/tutorial-custom-types/first_child_object.png)
 
-* Click on the *Properties* tab:
+* Select the *Properties* tab:
 ![Parent](./media/tutorial-custom-types/parent.png)
 
 You can see the Parent object being linked there.
 
-Similarly, you can click on the *Related* tab and will see the relationship between the two objects:
+Similarly, you can select the *Related* tab and will see the relationship between the two objects:
 
 ![Relationship](./media/tutorial-custom-types/relationship.png)
 
