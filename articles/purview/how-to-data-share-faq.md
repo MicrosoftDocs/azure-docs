@@ -38,7 +38,7 @@ Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overvi
 
 ##	How can I share data from containers?
 
-To share data from a container, select all files and folders within a container. 
+When adding assets, you can select the container(s) that you would like to share. 
 
 ##	Can I share data in-place with storage account in a different Azure region?
 
