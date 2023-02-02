@@ -25,8 +25,8 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> # Quickstart: Acquire a token and call Microsoft Graph API from a Python console app using app's identity
 > 
-> [!div renderon="portal" class="sxs-lookup"]
 > In this quickstart, you download and run a code sample that demonstrates how a Python application can get an access token using the app's identity to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample demonstrates how an unattended job or Windows service can run with an application identity, instead of a user's identity. 
 > 
 > ## Prerequisites

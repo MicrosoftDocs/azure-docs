@@ -22662,6 +22662,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
+            "redirect_URL": "/azure/external-attack-surface-management/index",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
             "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos",
             "redirect_document_id": false
