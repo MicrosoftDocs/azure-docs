@@ -50,7 +50,7 @@ To go back to the overview experience, select the **Overview** button.
 
 Currently, there's a limit of 30 days of data displayed in a dashboard. If you select a time filter beyond 30 days, or if you select **Configure tile settings** and set a custom time range in excess of 30 days, your dashboard won't display beyond 30 days of data. This is the case even with the default data retention of 90 days. There's currently no workaround for this behavior.
 
-The default **Application Dashboard** is created during Application Insights resource creation. If you move or rename your Application Insights instance, queries on the dashboard will fail with "Resource not found" errors because the dashboard queries rely on the original resource URI. Delete the default dashboard. On the Application Insights **Overview** resource menu, select **Application Dashboard** again. The default dashboard will be re-created with the new resource name. Make other custom edits to the dashboard as needed.
+The default **Application Dashboard** is created on demand the first time you select the Application Dashboard button. If you move or rename your Application Insights instance, queries on the dashboard will fail with "Resource not found" errors because the dashboard queries rely on the original resource URI. Delete the default dashboard. On the Application Insights **Overview** resource menu, select **Application Dashboard** again. The default dashboard will be re-created with the new resource name. Make other custom edits to the dashboard as needed.
 
 ## Next steps
 
