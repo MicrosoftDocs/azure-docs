@@ -44,7 +44,7 @@ The following steps setup and configure your Managed Airflow environment.
 
 The following steps describe how to import DAGs into Managed Airflow.
 
-### Prerequisite
+### Prerequisites
 
 You will need to upload a sample DAG onto an accessible Storage account.
 
@@ -54,6 +54,8 @@ You will need to upload a sample DAG onto an accessible Storage account.
 [Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 [Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).
 
+
+### Steps to import
 1. Copy-paste the content (either v2.x or v1.10 based on the Airflow environment that you have setup) into a new file called as **tutorial.py**.
 
    Upload the **tutorial.py** to a blob storage. ([How to upload a file into blob](/storage/blobs/storage-quickstart-blobs-portal.md))
