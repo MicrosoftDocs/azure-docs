@@ -46,14 +46,14 @@ Navigate to function’s Configuration, do the following steps:
 
 1. Remove the default value "AzureWebJobsStorage". 
 
-   ![Default Sample](./media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-01.png)
+   ![Default Sample](./media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-01.png)
 
 2. Link Azure storage account by adding either one of the following value settings: 
 
    * AzureWebJobsStorage__accountName: MyStorageAccount 
    * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint;AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
    The values for these variables can be found in the storage account blade under the Endpoints tab. 
-   ![Endpoint Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-02.png)
+   ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Managed Identity setting: 
 
@@ -64,7 +64,7 @@ Navigate to function’s Configuration, do the following steps:
    Add the following value settings in configuration: 
      * AzureWebJobsStorage__credential: managedidentity 
      * AzureWebJobsStorage__clientId: MyUserIdentityClientId
-    ![user identity client id Sample](media/durable-functions-configure-durable-function-with-AAD/durable-functions-MI-scenario-03.png)
+    ![user identity client id Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
 
 
 
