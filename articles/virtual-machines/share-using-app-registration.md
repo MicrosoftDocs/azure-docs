@@ -15,7 +15,7 @@ ms.author: saraic
 
 With Azure Compute Galleries, you can share an image to another organization by using an app registration. For more information about other sharig options, see the [Share the gallery](./share-gallery.md).
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
 > You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or PowerShell.
@@ -111,4 +111,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-If you run into any issues, you can [troubleshoot galleries](../troubleshooting-shared-images.md).
+If you run into any issues, you can [troubleshoot galleries](troubleshooting-shared-images.md).
