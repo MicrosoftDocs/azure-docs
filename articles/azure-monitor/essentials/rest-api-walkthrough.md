@@ -539,10 +539,26 @@ Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activit
 ```curl 
 GET /subscriptions/<subscriptionId>/providers/Microsoft.Insights/eventtypes/management/values \
 ?api-version=2015-04-01 \
-&$filter=<$filter> \
-&$select={$select}
+&$filter=<filter> \
+&$select=<select>
 host: management.azure.com
 ```
+
+**$filter** reduces the set of data collected.
+This argument is required and it also requires at least the start date/time.
+The $filter argument is very restricted and allows only the following patterns.
+- List events for a resource group: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceGroupName eq 'resourceGroupName'.
+- List events for resource: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceUri eq 'resourceURI'.
+- List events for a subscription in a time range: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z'.
+- List events for a resource provider: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceProvider eq 'resourceProviderName'.
+- List events for a correlation Id: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and correlationId eq 'correlationID'.
+
+NOTE: No other syntax is allowed.
+
+
+**$select** is used to fetch events with only the given properties.
+The $select argument is a comma separated list of property names to be returned. Possible values are: authorization, claims, correlationId, description, eventDataId, eventName, eventTimestamp, httpRequest, level, operationId, operationName, properties, resourceGroupName, resourceProviderName, resourceId, status, submissionTimestamp, subStatus, subscriptionId
+
 The following sample requests use the Azure Monitor REST API to query an activity log.
 
 ### Get activity logs with filter:
@@ -550,17 +566,10 @@ The following sample requests use the Azure Monitor REST API to query an activit
 ``` HTTP
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
-
 ### Get activity logs with filter and select:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-01-21T20:00:00Z' and eventTimestamp le '2023-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
-```
-
-### Get activity logs with select:
-
-```HTTP
-GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
 
