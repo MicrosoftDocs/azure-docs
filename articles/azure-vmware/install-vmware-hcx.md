@@ -73,10 +73,18 @@ For existing HCX Advanced customer, use the following steps to upgrade to HCX En
 
 Change Compute profile after HCX upgrade to HCX Enterprise
 
-- On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**
-- Select services to be activated like, Replication Assisted vMotion (RAV), OS assisted Migration which is available with HCX Enterprise only.
+1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**
+2. Select services to be activated like, Replication Assisted vMotion (RAV), OS assisted Migration which is available with HCX Enterprise only.
 
-<!-- add new image, :::image type="content" source="media/tutorial-vmware-hcx/edit-compute-profile-for-hcx-enterprise.png -->
+    <!-- add new image, :::image type="content" source="media/tutorial-vmware-hcx/edit-compute-profile-for-hcx-enterprise.png -->
+
+3. Select **Continue**, review the settings, then select **Finish** to create the Compute Profile.
+
+If compute profile is being used in service mesh(es), resync service mesh.
+
+1. Go to **Interconnect > Service Mesh.
+1. Select **Resync** and verify that the changes appear in the Service Mesh configuration.
+
 
 ## Download and deploy the VMware HCX Connector in on-premises 
 
