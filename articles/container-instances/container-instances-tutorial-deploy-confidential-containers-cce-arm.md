@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare a deployment for a confidential container on Azure Container Instances
-description: Azure Container Instances tutorial deploy a confidential container (Part 1)
+description: Azure Container Instances tutorial deploy a confidential container - ARM
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
