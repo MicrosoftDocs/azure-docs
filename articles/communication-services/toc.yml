@@ -383,6 +383,10 @@ items:
     href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
 - name: How-to guides
   items:
   - name: Using the Calling SDK
