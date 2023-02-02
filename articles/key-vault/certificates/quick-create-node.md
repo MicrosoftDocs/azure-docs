@@ -126,7 +126,7 @@ In this code, the name of your key vault is used to create the key vault URI, in
 
 This code uses the following [Key Vault Certificate classes and methods](/javascript/api/overview/azure/keyvault-certificates-readme):
     
-* [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
+* [DefaultAzureCredential class](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
 * [CertificateClient class](/javascript/api/@azure/keyvault-certificates/certificateclient)
     * [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begincreatecertificate)
     * [getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-getcertificate)
