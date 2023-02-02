@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-monitor-tensorboard.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-monitor-tensorboard",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-custom-model.md",
         "redirect_url": "/azure/machine-learning/v1/tutorial-power-bi-custom-model",
         "redirect_document_id": true
@@ -1412,8 +1417,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-monitor-tensorboard.md",
-        "redirect_url": "/azure/machine-learning/how-to-monitor-tensorboard",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/v1/how-to-monitor-tensorboard",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-monitor-datasets.md",
