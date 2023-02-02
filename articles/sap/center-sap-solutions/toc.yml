@@ -15,20 +15,20 @@ items:
         href: install-software.md
       - name: Register existing SAP system
         href: register-existing-system.md
-      - name: Management
-        items:
-        - name: Manage Virtual Instance for SAP solutions
-          href: manage-virtual-instance.md
-        - name: Start and stop SAP systems
-          href: start-stop-sap-systems.md
-        - name: Get quality checks and insights
-          href: get-quality-checks-insights.md
-        - name: View cost analysis for SAP system
-          href: view-cost-analysis.md
-      - name: Monitoring
-        items:
-        - name: Monitor SAP system in Azure portal
-          href: monitor-portal.md
+    - name: Management
+      items:
+      - name: Manage Virtual Instance for SAP solutions
+        href: manage-virtual-instance.md
+      - name: Start and stop SAP systems
+        href: start-stop-sap-systems.md
+      - name: Get quality checks and insights
+        href: get-quality-checks-insights.md
+      - name: View cost analysis for SAP system
+        href: view-cost-analysis.md
+    - name: Monitoring
+      items:
+      - name: Monitor SAP system in Azure portal
+        href: monitor-portal.md
   - name: Reference
     items:
     - name: Azure CLI guide
