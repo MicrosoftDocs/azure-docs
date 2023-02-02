@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Delete an Azure App Configuration store with PowerShell
 
-This sample script deletes an instance of Azure App Configuration using Powershell.
+This sample script deletes an instance of Azure App Configuration using PowerShell.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
