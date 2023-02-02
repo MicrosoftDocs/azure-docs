@@ -30,11 +30,11 @@ In most cases, this process is handled by an agent.
 
 [Azure Monitor Agent](../agents/agents-overview.md) uses various strategies to collect different types collect data. For example:
 
-| Type of data  | Collection frequency  | Notes |
-|:--------------|:----------------------|:------|
-| Windows events, Syslog events, and performance metrics | Collected immediately| |
-| Linux performance counters | Polled at 30-second intervals| |
-| IIS logs and text logs | Collected when their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
+| Type of data  | Collection frequency  |
+|:--------------|:----------------------|
+| Windows events, Syslog events, and performance metrics | Collected immediately|
+| Linux performance counters | Polled at 30-second intervals|
+| IIS logs and text logs | Collected when their timestamp changes | 
 
 To ensure the agent is lightweight, Azure Monitor Agent buffers logs before sending them to an Azure Monitor Logs ingestion point. Azure Monitor Logs sends all log data to an ingestion point within a minute of the time it collects the data.
 
@@ -46,9 +46,11 @@ Network conditions can affect how long it takes for data to reach an Azure Monit
 
 Azure data adds more time to become available at an Azure Monitor Logs ingestion point for processing:
 
-- **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the Azure Monitor Logs ingestion point.
-- **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs.
+| Type of data  | Collection frequency  |
+|:--------------|:----------------------|
+| Azure platform metrics | Available in under a minute in the metrics database, but they take another three minutes to be exported to the Azure Monitor Logs ingestion point.|
+| Resource logs | 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further.<br/> To examine this latency in your environment, see the [query that follows](#check-ingestion-time).|
+|Activity log| 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs.
 
 ### Pipeline-process time
 
