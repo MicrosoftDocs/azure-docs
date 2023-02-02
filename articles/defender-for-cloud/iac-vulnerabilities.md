@@ -192,7 +192,7 @@ IaC files are analyzed in Microsoft Security DevOps through multiple tools. Info
 
 ## Learn more
 
-- Learn more about [TemplateAnalyzer](https://github.com/Azure/template-analyzer).
+- Learn more about [Template Analyzer](https://github.com/Azure/template-analyzer).
 - Learn more about [Terrascan](https://runterrascan.io/).
 
 In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
