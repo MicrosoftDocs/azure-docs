@@ -4,9 +4,9 @@ description: Discover the best practices and guidance for backing up cloud and o
 ms.topic: conceptual
 ms.date: 12/22/2022
 ms.reviewer: dapatil
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Backup cloud and on-premises workloads to cloud

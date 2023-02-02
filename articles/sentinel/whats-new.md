@@ -19,7 +19,15 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## February 2023
 
+- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
 - [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+
+### Microsoft 365 Defender data connector is now generally available
+
+Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
+
+- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 ### Advanced scheduling for analytics rules (Preview)
 
