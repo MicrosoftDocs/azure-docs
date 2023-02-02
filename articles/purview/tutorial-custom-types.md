@@ -234,7 +234,8 @@ You can get the type definition of an Azure SQL Column by making a `GET` request
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
 ```
 
-> [!NOTE] {name} in this case is: azure_sql_column
+>[!NOTE]
+> {name} in this case is: azure_sql_column
 
 A simplified JSON result can be seen below:
 
@@ -267,7 +268,8 @@ A simplified JSON result can be seen below:
 }
 ```
 
-> [!NOTE] serviceType is Azure SQL Database, the same as for the table
+>[!NOTE]
+>serviceType is Azure SQL Database, the same as for the table
 
 * *schemaAttributes* is set to **data_type**, which is one of the attributes of this type.
 
@@ -284,8 +286,9 @@ There can be cases where there is no built-in type that corresponds to the struc
  
 In such a case, a new type definition has to be defined.
 
-> [!NOTE] The usage of built-in types should be favored over the creation of custom types, whenever possible.
- 
+>[!NOTE]
+>The usage of built-in types should be favored over the creation of custom types, whenever possible.
+
 Now that we gained an understanding of type definitions in general, let us create custom type definitions.
 
 ### Scenario
@@ -465,7 +468,8 @@ POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/relationship/
 
 with the follwoing body:
 
-> [!NOTE] The *guid* in end1 must be replaced with the the guid of the object created at step 6.1 The *guid* in end2 must be replaced with the guid of the object created at step 6.2
+>[!NOTE] 
+> The *guid* in end1 must be replaced with the the guid of the object created at step 6.1 The *guid* in end2 must be replaced with the guid of the object created at step 6.2
 
 ```json
 {
@@ -513,11 +517,13 @@ Similarly, you can click on the *Related* tab and will see the relationship betw
 
 You can create multiple children by following the step 6.2 and 6.3 again.
 
-> [!NOTE] The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
+>[!NOTE]
+>The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
 
 ![Two children](./media/tutorial-custom-types/two_children.png)
 
-> [!TIP] If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
+>[!TIP]
+> If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
 
 ## Next steps
 
