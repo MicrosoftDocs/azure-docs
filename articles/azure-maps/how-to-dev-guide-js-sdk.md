@@ -62,7 +62,7 @@ mapsDemo
 
 | Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][search readme] | [@azure/maps-search][search package] | [search samples][search sample] |
+| [Search][search readme] | [@azure-rest/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 | [Render][js render readme] | [@azure-rest/maps-render][js render package]|[render sample][js render sample] |
 | [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
@@ -381,9 +381,9 @@ main().catch((err) => {
 [Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
-[search package]: https://www.npmjs.com/package/@azure/maps-search
-[search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta
+[search package]: https://www.npmjs.com/package/@azure-rest/maps-search
+[search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
+[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route

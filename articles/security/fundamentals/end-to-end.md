@@ -7,12 +7,12 @@ author: TerryLanfear
 manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/06/2022
+ms.date: 01/29/2023
 ms.author: terrylan
 
 ---
@@ -28,8 +28,6 @@ The security services map organizes services by the resources they protect (colu
 - Secure and protect - Services that let you implement a layered, defense in-depth strategy across identity, hosts, networks, and data. This collection of security services and capabilities provides a way to understand and improve your security posture across your Azure environment.
 - Detect threats – Services that identify suspicious activities and facilitate mitigating the threat.
 - Investigate and respond – Services that pull logging data so you can assess a suspicious activity and respond.
-
-The diagram includes the Microsoft cloud security benchmark, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
 :::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
@@ -96,8 +94,7 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS products which includes virtual machines, virtual networks, application gateways, and load balancers. |
 | [Azure Policy](../../governance/policy/overview.md) | Helps to enforce organizational standards and to assess compliance at-scale. Azure Policy uses activity logs, which are automatically enabled to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. |
 | **Data & Application** |  |
-| [Microsoft Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) | Includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images' vulnerabilities. |
-| [Microsoft Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | Provides cluster-level threat protection by monitoring your AKS-managed services through the logs retrieved by Azure Kubernetes Service (AKS). |
+| [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond

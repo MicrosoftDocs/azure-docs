@@ -1386,10 +1386,15 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-save-write-experiment-files.md",
-        "redirect_url": "/azure/machine-learning/how-to-save-write-experiment-files",
+        "source_path_from_root": "/articles/machine-learning/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
         "redirect_document_id": true
     },
+    {
+        "source_path_from_root": "/articles/machine-learning/service/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
+        "redirect_document_id": false  
+    },    
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-run-batch-predictions.md",
         "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions",
@@ -1602,7 +1607,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-fpga-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": true
     },
     {
@@ -1908,6 +1913,11 @@
     {
         "source_path_from_root": "/articles/machine-learning/r-developers-guide.md",
         "redirect_url": "/azure/architecture/data-guide/technology-choices/r-developers-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/service/overview-what-is-azure-ml.md",
+        "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
         "redirect_document_id": false
     },
     {
@@ -2487,6 +2497,11 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-and-where.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-and-where.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },

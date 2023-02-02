@@ -17,7 +17,7 @@ Azure VPN Gateway is a service that uses a specific type of virtual network gate
 
 ## <a name="vpn"></a>About VPN gateways
 
-A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-manged VMs that are automatically configured and deployed to a specific subnet you create called the *gateway subnet*. The gateway VMs contain routing tables and run specific gateway services.
+A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet you create called the *GatewaySubnet*. The gateway VMs contain routing tables and run specific gateway services.
 
 One of the settings that you specify when creating a virtual network gateway is the "gateway type". The gateway type determines how the virtual network gateway will be used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The gateway type 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway, which uses a different gateway type. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 

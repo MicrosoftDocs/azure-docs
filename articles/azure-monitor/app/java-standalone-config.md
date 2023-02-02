@@ -31,14 +31,14 @@ You'll find more information and configuration options in the following sections
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.8.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.9.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.8.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.9.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -61,7 +61,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.8.jar` is located.
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.9.jar` is located.
 
 ```json
 {
@@ -340,7 +340,7 @@ and add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.8</version>
+  <version>3.4.9</version>
 </dependency>
 ```
 
@@ -682,19 +682,17 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
 
 ## Metric interval
 
-This feature is in preview.
-
 By default, metrics are captured every 60 seconds.
 
 Starting from version 3.0.3, you can change this interval:
 
 ```json
 {
-  "preview": {
-    "metricIntervalSeconds": 300
-  }
+  "metricIntervalSeconds": 300
 }
 ```
+
+Starting from 3.4.9 GA, you can also set the `metricIntervalSeconds` by using the environment variable `APPLICATIONINSIGHTS_METRIC_INTERVAL_SECONDS`. It then takes precedence over the `metricIntervalSeconds` specified in the JSON configuration.
 
 The setting applies to the following metrics:
 
@@ -782,7 +780,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.8.jar` is located.
+`applicationinsights-agent-3.4.9.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

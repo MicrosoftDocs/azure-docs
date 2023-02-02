@@ -4,8 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 12/08/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/31/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -18,15 +17,29 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## February 2023
+
+- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
+- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+
+### Microsoft 365 Defender data connector is now generally available
+
+Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
+
+- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
+
+### Advanced scheduling for analytics rules (Preview)
+
+To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
+
+[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
+
 ## January 2023
 
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
-
-### Monitor SAP system health and role (Preview)
-
-To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### New incident investigation experience (Preview)
 
@@ -39,6 +52,10 @@ While triaging, investigating, and responding to a security incident, analysts r
 Learn more about the new investigation experience:
 - [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
 - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Monitor SAP system health and role (Preview)
+
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### Microsoft Purview Information Protection connector (Preview)
 
