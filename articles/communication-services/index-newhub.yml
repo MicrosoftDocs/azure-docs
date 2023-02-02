@@ -12,9 +12,10 @@ metadata:
   author: sroons
   ms.author: serooney
   ms.date: 02/1/2023
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-highlightedContent: 
-  items:
+
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+items:
     - title: What is Azure Communication Services? 
       itemType: overview
       url: ./overview.md
