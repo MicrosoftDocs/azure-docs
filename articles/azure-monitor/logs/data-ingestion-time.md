@@ -15,15 +15,15 @@ Latency refers to the amount of time it takes for log data to become available i
 ## Typical latency
 The typical latency for ingesting log data is between 20 seconds and three minutes. 
 
-The factors that affect latency for a particular set of data are:
+The factors that affect latency are:
 
 - **Data collection time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - **Indexing time**: The time spent to ingest a log record into an Azure Monitor big data store.
 
-The following sections details the latency introduced in this process.
+The following sections detail the latency introduced by each of these factors.
 
-### Data collection latency
+### Data collection time
 
 **Typical latency: Varies**
 
