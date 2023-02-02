@@ -24,7 +24,7 @@ highlightedContent:
     - title: Explore our scenario-based solutions
       itemType: get-started
       url: ./overview.md #TODO
-    - title: Learn how others use Azure Communication Services to engage customers
+    - title: Learn how others use Azure Communication Services
       itemType: learn
       url: ./overview.md #TODO
     - title: SDK reference
@@ -33,14 +33,14 @@ highlightedContent:
     - title: Rest API references
       itemType: reference
       url: /rest/api/communication/
-    - title: ACS UI Library
-      itemType: concept
-      url: ./concepts/ui-library/ui-library-overview.md
+   # - title: ACS UI Library
+   #   itemType: concept
+   #   url: ./concepts/ui-library/ui-library-overview.md
 
 #------------------------------------------------------------------
 productDirectory: 
   title: Communication Channels
-  summary: Learn about our core services which you can combine and integrate to create your own custom communication solutions.
+  summary: Learn about our core services, which you can combine and integrate to create your own custom communication solutions.
   items:
   - title: Chat
     imageSrc: ./media/icons/chat-icon.png
@@ -126,8 +126,8 @@ additionalContent:
     - title: Core Scenarios
       summary: Whether you're just starting or have lots of experience, our pre-built communications solutions help you arrive at your business goals quickly and effectively.
       items:
-        - title: Build a virtual appointment proof-of-concept with our sample builder
-          summary: Leverage our sample builder to create an end-to-end virtual appointment experience in less than a day.
+        - title: Build a virtual appointment proof-of-concept with Sample Builder
+          summary: Use our sample builder to create an end-to-end virtual appointment experience in less than a day.
           url: ./tutorials/virtual-visits.md
         - title: Build an intelligent customer support experience
           summary: Enable your customer support staff by building an intelligent IVR workflow using bots, SMS, AI and our low code dev environment
