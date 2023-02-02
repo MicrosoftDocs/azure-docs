@@ -3,7 +3,7 @@ title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 
 ms.topic: quickstart
-ms.date: 02/04/2023
+ms.date: 02/02/2023
 
 ---
 
@@ -88,7 +88,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
        :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-2.png" alt-text="Screenshot showing the process for selecting Monitoring reader role.":::     
 
      1. In **Assign access to**, select **Managed identity**.  Then, **Select members**.
-       :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing the process to assign a role to a managed identity":::
+       :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing the process to assign a role to a managed identity.":::
 
      1. Select the **Subscription**. In **Managed identity**, select **Dynatrace** and the Dynatrace resource created by the contributor. After you select the resource, use **Select** to continue.
        :::image type="content" source="media/dynatrace-create/dynatrace-contributor-select.png" alt-text="Screenshot showing the Dynatrace resource with a new contributor selected.":::
@@ -102,7 +102,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
     
-   - **Azure Active Directory logs** – The global administrator or security administrator for your Azure Active Directory (AAD) tenant can enable AAD logs so that you can route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Azure AD activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md).
+   - **Azure Active Directory logs** – The global administrator or security administrator for your Azure Active Directory (Azure AD) tenant can enable Azure AD logs so that you can route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Azure AD activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md).
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
