@@ -105,7 +105,7 @@ app = func.FunctionApp()
 @app.cosmos_db_input(
     arg_name="documents", database_name="<DB_NAME>",
     collection_name="<COLLECTION_NAME>",
-    connection_string_setting="AzureWebJobsStorage")
+    connection_string_setting="CONNECTION_SETTING")
 def cosmosdb_input(req: func.HttpRequest, documents: func.DocumentList) -> str:
     return func.HttpResponse(documents[0].to_json())
 ```
@@ -120,7 +120,7 @@ import azure.functions as func
     arg_name="documents", database_name="<DB_NAME>",
     collection_name="<COLLECTION_NAME>",
     create_if_not_exists=True,
-    connection_string_setting="AzureWebJobsStorage")
+    connection_string_setting="CONNECTION_SETTING")
 def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
     request_body = req.get_body()
     documents.set(func.Document.from_json(request_body))
@@ -137,7 +137,7 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="EventHubTrigger1")
 @app.event_hub_message_trigger(arg_name="myhub", event_hub_name="samples-workitems",
-                               connection=""AzureWebJobsStorage"") 
+                               connection=""CONNECTION_SETTING"") 
 def test_function(myhub: func.EventHubEvent):
     logging.info('Python EventHub trigger processed an event: %s',
                 myhub.get_body().decode('utf-8'))
@@ -153,7 +153,7 @@ app = func.FunctionApp()
 @app.route(route="eventhub_output")
 @app.event_hub_output(arg_name="event",
                       event_hub_name="samples-workitems",
-                      connection="AzureWebJobsStorage")
+                      connection="CONNECTION_SETTING")
 def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
     body = req.get_body()
     if body is not None:
@@ -230,7 +230,7 @@ import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="ServiceBusQueueTrigger1")
-@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="AzureWebJobsStorage")
+@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="CONNECTION_SETTING")
 def test_function(msg: func.ServiceBusMessage):
     logging.info('Python ServiceBus queue trigger processed message: %s',
                  msg.get_body().decode('utf-8'))
@@ -243,7 +243,7 @@ import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="ServiceBusTopicTrigger1")
-@app.service_bus_topic_trigger(arg_name="message", topic_name="mytopic", connection="AzureWebJobsStorage", subscription_name="testsub")
+@app.service_bus_topic_trigger(arg_name="message", topic_name="mytopic", connection="CONNECTION_SETTING", subscription_name="testsub")
 def test_function(message: func.ServiceBusMessage):
     message_body = message.get_body().decode("utf-8")
     logging.info("Python ServiceBus topic trigger processed message.")
@@ -259,7 +259,7 @@ app = func.FunctionApp()
 @app.route(route="put_message")
 @app.service_bus_topic_output(
     arg_name="message",
-    connection="AzureWebJobsStorage",
+    connection="CONNECTION_SETTING",
     topic_name="mytopic")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
