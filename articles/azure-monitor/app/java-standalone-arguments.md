@@ -8,6 +8,9 @@ ms.custom: devx-track-java
 ms.reviewer: mmcc
 ---
 
+Note: Please be advised that you may notice some delay in application start time when you enable Application Insights to monitor your Tom Cat application.
+The delay is caused because Tomcat is trying to scan the application insights jar files during the application startup. All the Application Insights jar files can be excluded from the scan list to speed up the application start time as there is no need to scan these files.
+
 # Update your JVM args: Application Insights for Java
 
 ## Azure App Service
