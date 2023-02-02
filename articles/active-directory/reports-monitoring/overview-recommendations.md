@@ -156,13 +156,13 @@ To get started, follow these instructions to work with recommendations using Mic
 1. To view the details of a specific `recommendationType`, use the following API. The example retrieves the "thing".
 
     ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'
+    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'
     ```
 
 1. To view the impacted resources for a specific recommendation, expand the `impactedResources` relationship.
 
     ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'&$expand=impactedResources
+    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'&$expand=impactedResources
     ```
 
 For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendation).
