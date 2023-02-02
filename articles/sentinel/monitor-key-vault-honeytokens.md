@@ -29,7 +29,7 @@ In order to start using the **Microsoft Sentinel Deception (Honey Tokens)** solu
 
   Verify that data routing succeeded and that the **KeyVault** and **AzureActivity** data is flowing into Microsoft Sentinel. For more information, see:
 
-  - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
+  - [Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections](connect-services-diagnostic-setting-based.md)
   - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 
 ## Install the solution

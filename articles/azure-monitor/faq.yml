@@ -452,7 +452,7 @@ sections:
       - question: |
           How can I validate my XPATH queries on the AMA?
         answer: |
-          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-azure-windows-microsoft-services.md#instructions-3) instructions.
+          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-services-windows-based.md) instructions.
           The [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions, which Azure Monitor DCRs support up to 20. Also `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your DCR.        
 
 

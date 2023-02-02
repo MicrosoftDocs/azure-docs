@@ -38,7 +38,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/windows-server-dns-solution-for-sentinel.md) (Public preview)        |
+|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/dns.md) (Public preview)        |
 
 > [!IMPORTANT]
 > The AMA **for Windows** currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
@@ -63,7 +63,7 @@ Each organization will have different metrics of success and internal migration 
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
-    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections).
+    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-services-windows-based.md).
 
     1. Go to the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > Step 2, **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
 
@@ -125,4 +125,4 @@ For more information, see:
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 - [Security events via Legacy Agent (Windows)](data-connectors/security-events-via-legacy-agent.md)
-- [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections)
+- [Windows agent-based connections](connect-services-windows-based.md)
