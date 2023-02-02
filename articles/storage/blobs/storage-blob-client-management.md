@@ -26,7 +26,7 @@ The Azure Storage Blob client libraries allow you to interact with three types o
 - Blob container
 - Blob
 
-Depending on the needs of your application, you can instantiate a client at any of these three levels. The following table lists and links to these different client classes for each language:
+Depending on the needs of your application, you can create client objects at any of these three levels. The following table lists these different client classes for each language:
 
 | Language | Package | Service client class | Container client class | Blob client class |
 | --- | --- | --- | --- | --- |
@@ -37,11 +37,15 @@ Depending on the needs of your application, you can instantiate a client at any 
 
 ### Authorize a client object
 
-For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential]() to authenticate to Azure and obtain an access token. The access token is then passed as a credential when the client is instantiated. The permissions are granted to an Azure AD security principal using Azure role-based access control (Azure RBAC). There are several authorization mechanisms that can be used to grant the appropriate level of access to a client, including Azure AD security principals, SAS tokens, and shared key authorization. To learn more about authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential]() to authenticate to Azure and obtain an access token. The access token is then passed as a credential when the client is instantiated. The permissions are granted to an Azure Active Directory (Azure AD) security principal using Azure role-based access control (Azure RBAC).
+
+There are several authorization mechanisms that can be used to grant the appropriate level of access to a client, such as Azure AD security principals, SAS tokens, and shared key authorization. To learn more about authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 ### Create a BlobServiceClient object
 
-An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. The client exposes methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. To interact with a specific container or blob, you can use the `BlobServiceClient` object to [create a container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object).
+An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. The client exposes methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. 
+
+To interact with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration by default.
 
 The following examples show how to create a `BlobServiceClient` object:
 
@@ -53,6 +57,8 @@ Add the following using statements:
 using Azure.Identity;
 using Azure.Storage.Blobs;
 ```
+
+Add the following code to create the client object:
 
 ```csharp
 BlobServiceClient GetBlobServiceClient(string accountName)
@@ -74,15 +80,17 @@ import com.azure.identity.*;
 import com.azure.storage.blob.*;
 ```
 
+Add the following code to create the client object:
+
 ```java
-public static BlobServiceClient GetBlobServiceClient() {
-    // TODO: Replace <storage-account-name> with your actual storage account name
-    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-            .endpoint("https://<storage-account-name>.blob.core.windows.net/")
+public static BlobServiceClient GetBlobServiceClient(String accountName) {
+    String endpointString = String.format("https://%s.blob.core.windows.net/", accountName);
+    BlobServiceClient client = new BlobServiceClientBuilder()
+            .endpoint(endpointString)
             .credential(new DefaultAzureCredentialBuilder().build())
             .buildClient();
 
-    return blobServiceClient;
+    return client;
 }
 ```
 
@@ -94,6 +102,8 @@ Add the following require statements:
 const { BlobServiceClient } = require('@azure/storage-blob');
 const { DefaultAzureCredential } = require('@azure/identity');
 ```
+
+Add the following code to create the client object:
 
 ```javascript
 const accountName = "<storage-account-name>";
@@ -112,6 +122,8 @@ Add the following import statements:
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 ```
+
+Add the following code to create the client object:
 
 ```python
 def get_blob_service_client(self, account_name):
@@ -150,8 +162,8 @@ BlobContainerClient GetBlobContainerClient(BlobServiceClient blobServiceClient, 
 ```java
 public BlobContainerClient getBlobContainerClient(BlobServiceClient blobServiceClient, String containerName) {
     // Create the container client using the service client object
-    BlobContainerClient blobContainerClient = blobServiceClient.getBlobContainerClient(containerName);
-    return blobContainerClient;
+    BlobContainerClient client = blobServiceClient.getBlobContainerClient(containerName);
+    return client;
 }
 ```
 
@@ -172,7 +184,68 @@ def get_blob_container_client(self, blob_service_client: BlobServiceClient, cont
 
 ---
 
-If your work is narrowly scoped to a single container, you might choose to create a `BlobContainerClient` object directly without using a `BlobServiceClient`. You can still set client options on a container client just like you would on a service client.
+If your work is narrowly scoped to a single container, you might choose to create a `BlobContainerClient` object directly without using `BlobServiceClient`. You can still set client options on a container client just like you would on a service client.
+
+The following examples show how to create a container client directly without using `BlobServiceClient`:
+
+## [.NET](#tab/dotnet)
+
+```csharp
+BlobContainerClient GetBlobContainerClient(string containerName, BlobClientOptions clientOptions)
+{
+    // Append the container name to the URI
+    BlobContainerClient client = new(
+        new Uri("https://{accountName}.blob.core.windows.net/{containerName}"),
+        new DefaultAzureCredential(),
+        clientOptions);
+
+    return client;
+}
+```
+
+## [Java](#tab/java)
+
+```java
+public BlobContainerClient getBlobContainerClient(String accountName, String containerName) {
+    // Append the container name to the URI
+    String endpointString = String.format("https://%s.blob.core.windows.net/%s", accountName, containerName);
+
+    BlobContainerClient client = new BlobContainerClientBuilder()
+            .endpoint(endpointString)
+            .credential(new DefaultAzureCredentialBuilder().build())
+            .buildClient();
+        
+    return client;
+}
+```
+
+## [JavaScript](#tab/javascript)
+
+```javascript
+const accountName = "<storage-account-name>";
+const containerName = "sample-container";
+
+// Append the container name to the URI
+const containerClient = new ContainerClient(
+    `https://${accountName}.blob.core.windows.net/${containerName}`,
+    new DefaultAzureCredential()
+```
+
+## [Python](#tab/python)
+
+```python
+def get_blob_container_client(self, account_name, container_name):
+    # Append the container name to the URI
+    account_url = f"https://{account_name}.blob.core.windows.net/{container_name}"
+    credential = DefaultAzureCredential()
+
+    # Create the client object
+    container_client = ContainerClient(account_url, credential=credential)
+
+    return container_client
+```
+
+---
 
 ### Create a BlobClient object
 
@@ -196,8 +269,8 @@ BlobClient GetBlobClient(BlobServiceClient blobServiceClient, string containerNa
 ```java
 public BlobClient getBlobClient(BlobServiceClient blobServiceClient, String containerName, String blobName) {
     // Create a blob client using the service client object
-    BlobClient blobClient = blobServiceClient.getBlobContainerClient(containerName).getBlobClient(blobName);
-    return blobClient;
+    BlobClient client = blobServiceClient.getBlobContainerClient(containerName).getBlobClient(blobName);
+    return client;
 }
 ```
 
@@ -222,11 +295,13 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
 
 ## Manage clients
 
-A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class will only have one object at a time. There's no need to keep more than one instance of a client for a given set of constructor parameters or client options. This concept can be implemented in many ways, including the following approaches:
+A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class will only have one object at a time. There's no need to keep more than one instance of a client for a given set of constructor parameters or client options. This concept can be implemented in many ways, including:
 
-- Create a single client object and pass it as a parameter throughout the application. This approach is shown in the code examples in this article.
-- Store a client instance in a field. To learn more about C# fields, see [Fields (C# Programming Guide)](/dotnet/csharp/programming-guide/classes-and-structs/fields).
-- Register the client object as a singleton in a dependency injection container. For more information on dependency injection in .NET, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
+- Creating a single client object and passing it as a parameter throughout the application. This approach is shown in the code examples in this article.
+- Storing a client instance in a field. To learn more about C# fields, see [Fields (C# Programming Guide)](/dotnet/csharp/programming-guide/classes-and-structs/fields).
+- Registering the client object as a singleton in a dependency injection container of your choice. For more information on dependency injection in ASP.NET Core apps, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
+
+This approach is far more efficient at scale than calling a constructor for each client that you need through
 
 ### Client immutability and thread safety
 
