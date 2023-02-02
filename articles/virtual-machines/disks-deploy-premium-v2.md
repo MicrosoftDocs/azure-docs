@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 12/14/2022
+ms.date: 02/02/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -24,7 +24,6 @@ Azure Premium SSD v2 is designed for IO-intense enterprise workloads that requir
 
 ## Prerequisites
 
-- [Sign up](https://aka.ms/PremiumSSDv2AccessRequest) for access to Premium SSD v2.
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 ## Determine region availability programmatically
