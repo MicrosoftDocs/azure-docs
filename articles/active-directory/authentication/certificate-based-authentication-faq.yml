@@ -123,7 +123,7 @@ sections:
           How can I use single-factor certificates to complete MFA?
         answer: |
           We have support for single factor CBA to get MFA. CBA SF + PSI (passwordless phone sign in) and CBA SF + FIDO2 are the two supported combinations to get MFA using single factor certificates.
-          [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#single-factor-certificate-based-authentication) 
+          [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?

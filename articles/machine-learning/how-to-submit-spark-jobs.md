@@ -21,6 +21,8 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 - Azure Machine Learning CLI
 - Azure Machine Learning SDK
 
+See [this resource](./apache-spark-azure-ml-concepts.md) for more information about **Apache Spark in Azure Machine Learning** concepts.
+
 ## Prerequisites
 
 # [CLI](#tab/cli)
