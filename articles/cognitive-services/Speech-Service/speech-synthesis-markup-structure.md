@@ -180,34 +180,6 @@ A good place to start is by trying out the slew of educational apps that are hel
 </speak>
 ```
 
-## Control audio duration
-
-Use the `mstts:audioduration` element to set the length of the output audio. The audio duration setting is applied to all input text within its enclosing `voice` element. To reset or change the duration setting again, you must use a new `voice` element with either the same voice or a different voice. 
-
-The expected audio length should be within 0.5 to 2 times the original audio. If the expected length exceeds the limit, the `mstts:audioduration` element will not control the length of the output audio as you expect. So before using this element, we recommend that you first estimate the length of the original audio based on your script text. To do this, you can refer to the [voice list](rest-text-to-speech.md#get-a-list-of-voices) and check the "WordsPerMinute" attribute of the voice being used. If the estimated length of the original audio exceeds the limit, it's best to adjust your script text to meet the limit before using this element. For example, if the estimated length of your original audio is around 10s and your expected length is 30s, you should first adjust your script to ensure that your original audio is no less than 15s and no more than 60s.
-
-Usage of the `mstts:audioduration` element's attributes are described in the following table.
-
-| Attribute | Description | Required or optional |
-| ---------- | ---------- | ---------- |
-| `value` | The duration of the output audio in seconds (such as `2s`) or milliseconds (such as `500ms`). Audio duration can be applied at the voice level. The value should be within 0.5 to 2 times the original audio.| Required |
-
-###  mstts audio duration examples
-
-The supported values for attributes of the `mstts:audioduration` element were [described previously](#control-audio-duration).
-
-In this example, the original audio is around 15s. The `mstts:audioduration` element is used to set the audio duration to 20s.
-
-```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
-<mstts:audioduration value="20s"/>
-If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
-A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
-</voice>
-</speak>
-```
-
 ## Specify paragraphs and sentences
 
 The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the Speech service automatically determines the structure of the SSML document.
