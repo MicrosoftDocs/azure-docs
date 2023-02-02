@@ -57,9 +57,16 @@ HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user
 
 - Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, [Enterprise services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) like RAV and HCX MON, etc. aren't in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
- :::image type="content" source="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png" alt-text="Screenshot showing upgrade to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png":::
+For existing HCX Advanced customer, use the following steps to upgrade to HCX Enterprise using Azure portal.
 
- :::image type="content" source="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png" alt-text="Screenshot showing confirmation to update to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png":::
+1. Under **Manage** in the left navigation, select **Add-ons**, then the **Migration using HCX** tab. 
+1. Select the **Upgrade to HCX Enterprise** button to enable HCX Enterprise edition.
+
+   :::image type="content" source="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png" alt-text="Screenshot showing upgrade to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png":::
+
+3. Confirm the update to HCX Enterprise edition by selecting **Yes**.
+
+   :::image type="content" source="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png" alt-text="Screenshot showing confirmation to update to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png":::
 
 >[!IMPORTANT]
 >If you upgraded HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
