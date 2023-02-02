@@ -32,7 +32,7 @@ items:
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
+      href: /security/benchmark/azure/baselines/azure-monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -1326,9 +1326,9 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: Use dynamic thresholds
+      - name: Dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alerts for many time series
+      - name: Single alert for multiple time series
         href: alerts/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: alerts/alerts-metric-logs.md
@@ -1354,15 +1354,13 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Alert processing rules
+      href: alerts/alerts-processing-rules.md
+      displayName: Azure CLI, az monitor action rule
     - name: Notifications and actions
       items:
-      - name: Alert processing rules
-        href: alerts/alerts-processing-rules.md
-        displayName: Azure CLI, az monitor action rule
       - name: Create an action group
         href: alerts/action-groups.md
-      - name: Create action groups with Resource Manager
-        href: alerts/action-groups-create-resource-manager-template.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
