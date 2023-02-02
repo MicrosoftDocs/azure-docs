@@ -1,13 +1,13 @@
 ---
 title: Use managed identities in Azure API Management | Microsoft Docs
-description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template. Learn about supported scenarios with managed identities
+description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template. Learn about supported scenarios with managed identities.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -480,7 +480,7 @@ You can use the user-assigned identity to authenticate to a backend service thro
 
 ### Log events to an event hub
 
-You can configure and use a system-assigned managed identity to access an event hub for logging events from an API Management instance. For more information, see [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md).
+You can configure and use a user-assigned managed identity to access an event hub for logging events from an API Management instance. For more information, see [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md).
 
 ## <a name="remove"></a>Remove an identity
 
