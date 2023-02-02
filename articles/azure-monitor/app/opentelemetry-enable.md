@@ -890,7 +890,7 @@ Coming soon.
 ---
 
 **Footnotes**
-- (1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
+- (1) Supports automatic reporting of unhandled exceptions
 - (2) By default, logging is only collected when that logging is performed at the INFO level or higher.
 To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
