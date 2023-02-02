@@ -188,7 +188,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 ## View details and remediation information on IaC rules included with Microsoft Security DevOps
 
-IaC files are analyzed in Microsoft Security DevOps through multiple tools. Information about the rules included as part of TemplateAnalyzer can be found [here](https://github.com/Azure/template-analyzer/blob/development/docs/built-in-bpa-rules.md#built-in-rules), while details about the rules covered by Terrascan can be found [here](https://runterrascan.io/docs/_print/#pg-07a53d0ea8f57b62a06a9235598d5c55).
+IaC files are analyzed in Microsoft Security DevOps through multiple tools. Information about the rules for ARM and Bicep templates included as part of TemplateAnalyzer, along with remediation details, can be found [here](https://github.com/Azure/template-analyzer/blob/development/docs/built-in-bpa-rules.md#built-in-rules). While details about the multi-cloud rules covered by Terrascan can be found [here](https://runterrascan.io/docs/_print/#pg-07a53d0ea8f57b62a06a9235598d5c55).
 
 ## Learn more
 
