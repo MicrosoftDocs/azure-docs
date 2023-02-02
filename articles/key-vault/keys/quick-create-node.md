@@ -68,13 +68,13 @@ Create a Node.js application that uses your key vault.
 
 ## Install Key Vault packages
 
-1. Using the terminal, install the Azure Key Vault secrets library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
+1. Using the terminal, install the Azure Key Vault secrets client library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
 
     ```terminal
     npm install @azure/keyvault-keys
     ```
 
-1. Install the Azure Identity library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
+1. Install the Azure Identity client library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
 
     ```terminal
     npm install @azure/identity
@@ -87,14 +87,6 @@ Create an access policy for your key vault that grants key permissions to your u
 
 ```azurecli
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create update purge
-```
-
-## Set environment variables
-
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 ## Set environment variables
