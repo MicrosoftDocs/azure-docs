@@ -14,11 +14,13 @@ ms.custom:
 ---
 
 # Anomaly Detector service quotas and limits
+
 This article contains both a quick reference and detailed description of Azure Anomaly Detector service quotas and limits for all pricing tiers. It also contains some best practices to help avoid request throttling.
 
 The quotas and limits apply to all the versions within Azure Anomaly Detector service.
 
 ## Univariate Anomaly Detection
+
 |Quota<sup>1</sup>|Free (F0)|Standard (S0)|
 |--|--|--|
 | **All APIs per second** | 10 | 500 |
@@ -28,6 +30,7 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 ## Multivariate Anomaly Detection
 
 ### API call per minute
+
 |Quota<sup>1</sup>|Free (F0)<sup>2</sup>|Standard (S0)|
 |--|--|--|
 | **Training API per minute** | 1 | 20 |
@@ -42,7 +45,6 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 
 <sup>2</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)
 
-
 ### Concurrent models and inference tasks
 |Quota<sup>1</sup>|Free (F0)|Standard (S0)|
 |--|--|--|
@@ -52,37 +54,37 @@ The quotas and limits apply to all the versions within Azure Anomaly Detector se
 
 <sup>1</sup> All quotas and limits are defined for one Anomaly Detector resource. If you want to increase the limit, please contact AnomalyDetector@microsoft.com for further communication.
 
-
 ## How to increase the limit for your resource?
-For the Standard pricing tier, this limit can be increased. Increasing the **concurrent request limit** does not directly affect your costs. Anomaly Detector service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
-The **concurrent request limit parameter** is not visible via Azure portal, Command-Line tools, or API requests. To verify the current value, create an Azure Support Request.
+For the Standard pricing tier, this limit can be increased. Increasing the **concurrent request limit** doesn't directly affect your costs. Anomaly Detector service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+
+The **concurrent request limit parameter** isn't visible via Azure portal, Command-Line tools, or API requests. To verify the current value, create an Azure Support Request.
 
 If you would like to increase your limit, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource [enable auto scaling](https://learn.microsoft.com/azure/cognitive-services/autoscale?view=form-recog-3.0.0&tabs=portal). You can also submit an increase Transactions Per Second (TPS) support request.
 
 ### Have the required information ready
 
-* Anomaly Detector Resource ID
+* Anomaly Detector resource ID
 
 * Region
 
-#### How to get those information above:
+#### Retrieve resource ID and region
 
 * Go to [Azure portal](https://portal.azure.com/)
 * Select the Anomaly Detector Resource for which you would like to increase the transaction limit
 * Select Properties (Resource Management group)
 * Copy and save the values of the following fields:
-    * Resource ID
-    * Location (your endpoint Region)
-
+  * Resource ID
+  * Location (your endpoint Region)
 
 ### Create and submit support request
-Initiate the increase of limit for your resource by submitting the Support Request:
 
-* Go to [Azure portal](https://portal.azure.com/)
-* Select the Anomaly Detector Resource for which you would like to increase the limit
-* Select New support request (Support + troubleshooting group)
-* A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
+To request a limit increase for your resource submit a **Support Request**:
+
+1. Go to [Azure portal](https://portal.azure.com/)
+2. Select the Anomaly Detector Resource for which you would like to increase the limit
+3. Select New support request (Support + troubleshooting group)
+4. A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
 5. Enter Summary (like "Increase Anomaly Detector TPS limit")
 6. In Problem type, select *"Quota or usage validation"*
 7. Select Next: Solutions
@@ -92,4 +94,4 @@ Initiate the increase of limit for your resource by submitting the Support Reque
     * Provide a TPS expectation you would like to scale to meet.
     * Azure resource information you collected.
     * Complete entering the required information and select Create button in *Review + create* tab
-    * Note the support request number in Azure portal notifications. You'll be contacted shortly for further processing
+    * Note the support request number in Azure portal notifications. You'll be contacted shortly for further processing.
