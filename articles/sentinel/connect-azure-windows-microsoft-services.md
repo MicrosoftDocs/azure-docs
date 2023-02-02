@@ -21,21 +21,25 @@ Data connectors for Microsoft Sentinel are grouped into the following types of c
 - **Diagnostic settings** connections, some of which are managed by Azure Policy
 - **Windows agent**-based connections
 
-See the [data connector reference](data-connectors-reference.md) page for information that is unique to each connector like Log Analytics tables for data storage and a link to the installation instructions.
+See the [data connector reference](data-connectors-reference.md) to find available data connectors and their related information page. You'll find information that's unique to each connector like Log Analytics tables for data storage and a link to the installation instructions.
 
-The following articles presents information that is common to each groups of connectors.
+The following articles present information that is common to each group of connectors for Microsoft services.
 
- - [Connect Microsoft Sentinel to Microsoft services with an API-based data connector](connect-services-api-based.md)
- - [Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections](connect-services-diagnostic-settings-based.md)
- - [Connect Microsoft Sentinel to Microsoft services with a Windows agent-based data connector](connect-services-windows-based.md)
+- [API-based data connections](connect-services-api-based.md)
+- [Diagnostic settings-based data connections](connect-services-diagnostic-settings-based.md)
+- [Windows agent-based connections](connect-services-windows-based.md)
 
-The following integrations are both more unique and more popular, and are treated individually, with their own articles:
+The following integrations are both more unique and popular, and are treated individually, with their own articles:
 
+- [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
+- [Azure Active Directory](connect-azure-active-directory.md)
+- [Azure Virtual Desktop](connect-azure-virtual-desktop.md)
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
-- [Azure Active Directory](connect-azure-active-directory.md)
+- [Microsoft Purview Information Protection](connect-microsoft-purview.md)
+- [Windows DNS](connect-dns-ama.md)
 - [Windows Security Events](connect-windows-security-events.md)
-- [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
+
 
 ## Next steps
 
