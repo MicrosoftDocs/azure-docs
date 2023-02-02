@@ -477,5 +477,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 - [Test the deployment with mirrored traffic (preview)](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
 - [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
+- [Customizing MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)
+- [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md)
 - [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
