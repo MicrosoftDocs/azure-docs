@@ -4362,6 +4362,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/faqs.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-baseline-protection.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
       "redirect_document_id": false
@@ -10899,6 +10904,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/tutorial-call-api-with-access-token.md",
       "redirect_url": "/azure/active-directory-b2c/enable-authentication-in-node-web-app-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tenant-management.md",
+      "redirect_url": "/azure/active-directory-b2c/tenant-management-add-administrator",
       "redirect_document_id": false
     },
     {
