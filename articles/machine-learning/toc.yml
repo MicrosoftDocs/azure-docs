@@ -68,6 +68,8 @@
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
+    - name: Apache Spark in Azure Machine Learning (preview)
+      href: apache-spark-azure-ml-concepts.md
 - name: Tutorials
   expanded: true
   items:
@@ -117,6 +119,17 @@
   items:
     - name: What is v2?
       href: concept-v2.md
+    - name: Work with Data
+      items:
+        - name: Data concepts in Azure ML
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+          - name: Export and delete data
+            displayName: GDPR
+            href: how-to-export-delete-data.md
     - name: Train models
       items:
         - name: Model training
@@ -232,17 +245,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-    - name: Work with Data
-      items:
-        - name: Access data
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-          - name: Export and delete data
-            displayName: GDPR
-            href: how-to-export-delete-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -314,6 +316,8 @@
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
+        - name: Use Azure PowerShell
+          href: how-to-manage-workspace-powershell.md
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -443,6 +447,9 @@
         - name: Create datastores
           displayName: Create datastores
           href: how-to-datastore.md
+        - name: Create data assets
+          displayName: Create data assets
+          href: how-to-create-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -478,11 +485,6 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-        - name: Share and Version Data
-          items:
-            - name: Create data assets
-              displayName: Create data assets
-              href: how-to-create-data-assets.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -633,9 +635,9 @@
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
-                - name: Invoke batch endpoints from Azure Data Factory
+                - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
-                - name: Invoke batch endpoints from Event Grid events in storage
+                - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md

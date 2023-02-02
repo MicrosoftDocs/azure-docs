@@ -156,6 +156,11 @@ sections:
         answer: |
           To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
+      - question: |
+          Why can't I create AzureDiagnostics table via template, or modify schema via API?
+        answer: |
+          AzureDiagnostics is a unique table that gets created by Log Analytics service with data ingestion, and its schema can't be configured. Retention policy can be applied after the tables is generated.
+  
   - name: Metrics
     questions:
       - question: |
