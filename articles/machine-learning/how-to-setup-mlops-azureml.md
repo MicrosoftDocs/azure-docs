@@ -191,6 +191,9 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
 ### Run Azure infrastructure pipeline
 1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`, and select the **config-infra-prod.yml** file.
+
+    > [!IMPORTANT]
+    > Make sure you've selected the **main** branch of the repo.
    
    ![Screenshot of Repo in ADO.](./media/how-to-setup-mlops-azureml/ADO-repo.png)
    
