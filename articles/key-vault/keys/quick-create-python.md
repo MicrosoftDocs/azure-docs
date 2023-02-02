@@ -152,17 +152,18 @@ Make sure the code in the previous section is in a file named *kv_keys.py*. Then
 python kv_keys.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
 - Rerunning the code with the same key name may produce the error, "(Conflict) Key \<name\> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class provided by the [Azure Identity client library](/python/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In the example code, the name of your key vault is expanded to the key vault URI, in the format `https://\<your-key-vault-name\>.vault.azure.net`. This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
+In the example code, the name of your key vault is expanded using the value of the `KVUri` variable, in the format: "https://\<your-key-vault-name>.vault.azure.net".
 
 ```python
 credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
@@ -171,13 +172,13 @@ client = KeyClient(vault_url=KVUri, credential=credential)
 
 ## Save a key
 
-Once you've obtained the client object for the key vault, you can store a key using the [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-rsa-key-name----kwargs-) method: 
+Once you've obtained the client object for the key vault, you can store a key using the [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient#azure-keyvault-keys-keyclient-create-rsa-key) method: 
 
 ```python
 rsa_key = client.create_rsa_key(keyName, size=2048)
 ```
 
-You can also use [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-key-name--key-type----kwargs-) or [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-ec-key-name----kwargs-).
+You can also use [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient#azure-keyvault-keys-keyclient-create-key) or [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient#azure-keyvault-keys-keyclient-create-ec-key).
 
 Calling a `create` method generates a call to the Azure REST API for the key vault.
 
@@ -185,7 +186,7 @@ When Azure handles the request, it authenticates the caller's identity (the serv
 
 ## Retrieve a key
 
-To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#get-key-name--version-none----kwargs-) method:
+To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient#azure-keyvault-keys-keyclient-get-key) method:
 
 ```python
 retrieved_key = client.get_key(keyName)
@@ -204,7 +205,7 @@ deleted_key = poller.result()
 
 The `begin_delete_key` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) or the Azure PowerShell command [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey).
 
 Once deleted, a key remains in a deleted but recoverable state for a time. If you run the code again, use a different key name.
 
