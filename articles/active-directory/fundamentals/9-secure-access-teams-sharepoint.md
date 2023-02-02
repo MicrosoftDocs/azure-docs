@@ -65,7 +65,7 @@ Guest invite settings determine who invites guests and how guests are invited. T
 
 ### Collaboration restrictions
 
-For Collaboration restrictions, business requirements dictate the choice of invitation in relation to domains.
+For the Collaboration restrictions option, the organization's business requirements dictate the choice of invitation.
 
 * **Allow invitations to be sent to any domain** - any user can be invited
 * **Deny invitations to the specified domains** - any user outside those domains can be invited
@@ -75,7 +75,7 @@ For Collaboration restrictions, business requirements dictate the choice of invi
 
 Teams differentiates between external users (outside your organization) and guest users (guest accounts). You can manage collaboration setting in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. Authorized account credentials are required to sign in to the Teams Admin portal.
 
-* **External Access** - Teams allows external access by default: the organization can communicate with all external domains 
+* **External Access** - Teams allows external access by default. The organization can communicate with all external domains 
   * Use External Access setting to restrict or allow domains
 * **Guest Access** - manage guest acess in Teams
 
@@ -96,7 +96,7 @@ Learn more:
 SharePoint administrators can find organization-wide settings in the SharePoint admin center. It's recommended that your organization-wide settings are the minimum security levels. Increase security on some sites, as needed. For example, for a high-risk project, restrict users to certain domains, and disable members from inviting guests.
 
 Learn more: 
-* [SharePoint admin center](https://microsoft-admin.sharepoint.com) - Access permissions are required
+* [SharePoint admin center](https://microsoft-admin.sharepoint.com) - access permissions are required
 * [Get started with the SharePoint admin center](/sharepoint/get-started-new-admin-center)
 * [External sharing overview](/sharepoint/external-sharing-overview)
 
@@ -116,7 +116,9 @@ Learn more:
 
 External Sharing can be set for both SharePoint and OneDrive. OneDrive restrictions can't be more permissive than the SharePoint settings.
 
- ![Screenshot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
+https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview
+
+   ![Screenshot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
 
 SharePoint integration with Azure AD B2B changes how controls interact with accounts.
 
