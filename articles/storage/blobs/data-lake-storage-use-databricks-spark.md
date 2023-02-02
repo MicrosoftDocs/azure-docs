@@ -89,7 +89,7 @@ In this section, you'll create a container and a folder in your storage account.
 3. In the Workspace folder, select **Create > Notebook**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create notebook option](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
+   > ![Screenshot of create notebook option.](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
 
 4. In the **Create Notebook** dialog, enter a name and then select **Python** in the **Default Language** drop-down list. This selection determines the default language of the notebook.
 
