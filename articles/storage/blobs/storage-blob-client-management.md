@@ -1,7 +1,7 @@
 ---
 title: Create and manage clients interacting with blob data resources
 titleSuffix: Azure Storage 
-description: Learn how to create and manage clients which interact with data resources in Blob Storage.
+description: Learn how to create and manage clients, which interact with data resources in Blob Storage.
 services: storage
 author: pauljewellmsft
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 # Create and manage clients interacting with blob data resources
 
-The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Interacting with Azure resources using the SDK begins with a client instance. This article shows how to create a client object to interact with blob data resources, and offers guidance and best practices on how to manage clients in your application.
+The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Interacting with Azure resources using the SDK begins with a client instance. This article shows how to create a client object to interact with blob data resources, and offers best practices on how to manage clients in your application.
 
 ## Create a client
 
@@ -130,7 +130,7 @@ def get_blob_service_client(self, account_name):
 
 ### Create a BlobContainerClient object
 
- You can use a `BlobServiceClient` object to create a new `BlobContainerClient` object (`ContainerClient` for JavaScript and Python). A `BlobContainerClient` object allows you to interact with a specific container resource. This resource does not need to exist in the storage account for you to create the client object. `BlobContainerClient` provides methods to create, delete, or configure a container, and includes methods to list, upload, and delete the blobs within it. To perform operations on a specific blob within the container, you can [create a blob client](#create-a-blobclient-object).
+ You can use a `BlobServiceClient` object to create a new `BlobContainerClient` object (`ContainerClient` for JavaScript and Python). A `BlobContainerClient` object allows you to interact with a specific container resource. This resource doesn't need to exist in the storage account for you to create the client object. `BlobContainerClient` provides methods to create, delete, or configure a container, and includes methods to list, upload, and delete the blobs within it. To perform operations on a specific blob within the container, you can [create a blob client](#create-a-blobclient-object).
 
 The following examples show how to create a container client from a `BlobServiceClient` object to interact with a specific container resource:
 
@@ -176,7 +176,7 @@ If your work is narrowly scoped to a single container, you might choose to creat
 
 ### Create a BlobClient object
 
-To interact with a specific blob resource, you can create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource does not need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
+To interact with a specific blob resource, you can create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource doesn't need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
 
 The following examples show how to create a blob client from a `BlobServiceClient` object to interact with a specific blob resource:
 
@@ -222,9 +222,9 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
 
 ## Manage clients
 
-A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class will only have one object at a time. There is no need to keep more than one instance of a client for a given set of constructor parameters or client options. This concept can be implemented in many ways, including the following approaches:
+A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class will only have one object at a time. There's no need to keep more than one instance of a client for a given set of constructor parameters or client options. This concept can be implemented in many ways, including the following approaches:
 
-- Create a single client object and pass it as a parameter throughout the application. This is the approach shown in the code examples in this article.
+- Create a single client object and pass it as a parameter throughout the application. This approach is shown in the code examples in this article.
 - Store a client instance in a field. To learn more about C# fields, see [Fields (C# Programming Guide)](/dotnet/csharp/programming-guide/classes-and-structs/fields).
 - Register the client object as a singleton in a dependency injection container. For more information on dependency injection in .NET, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
