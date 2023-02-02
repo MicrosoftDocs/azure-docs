@@ -95,7 +95,7 @@ You will need to upload a sample DAG onto an accessible Storage account.
 Mitigation: Reduce the size of the imported DAGs with a single import. One way to achieve this is by creating multiple DAG folders with lesser DAGs across multiple containers.  
 
 * Problem: Imported DAGs do not show up when you login into the Airflow UI.  
-Mitigation: Login into the Airflow UI and see if there are any DAG parsing errors. This could happen if the DAG files contains any incompatible code. You will find the exact line numbers and the files which have the issue through the Airflow UI.
+Mitigation: Login into the Airflow UI and see if there are any DAG parsing errors. This could happen if the DAG files contain any incompatible code. You will find the exact line numbers and the files which have the issue through the Airflow UI.
 
     :::image type="content" source="media/how-does-managed-airflow-work/import-dag-issues.png" alt-text="Screenshot shows import dag issues.":::
 
