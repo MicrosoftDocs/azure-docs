@@ -62,7 +62,7 @@ When you get results from PII detection, you can stream the results to an applic
 
 1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
-2. From the menu on the left side, select **Keys and Endpoint**. You will need one of the keys and the endpoint to authenticate your API requests.
+2. From the menu on the left side, select **Keys and Endpoint**. You'll need one of the keys and the endpoint to authenticate your API requests.
 
 3. Download and install the client library package for your language of choice:
     
