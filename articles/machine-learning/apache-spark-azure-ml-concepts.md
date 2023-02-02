@@ -60,7 +60,7 @@ As of January 2023, Managed (Automatic) Spark compute doesn't support the creati
 
 A Managed (Automatic) Spark compute (*cold start*) resource might need three to five minutes to start the Spark session when it's first launched. The automated Managed (Automatic) Spark compute provisioning, backed by Azure Synapse, causes this delay. After the Managed (Automatic) Spark compute is provisioned, and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
 
-The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will terminate after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following 10 minutes, resources provisioned for the Managed (Automatic) Spark compute will be torn down.
+The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following 10 minutes, resources provisioned for the Managed (Automatic) Spark compute will be torn down.
 
 After the Managed (Automatic) Spark compute resource tear-down happens, submission of the next job will require a *cold start*. The next visualization shows some session inactivity period and cluster teardown scenarios.
 
@@ -70,7 +70,7 @@ After the Managed (Automatic) Spark compute resource tear-down happens, submissi
 
 A Spark pool created in an Azure Synapse workspace becomes available in the Azure Machine Learning workspace with the attached Azure Synapse Spark pool. This option might be suitable for users who want to reuse an existing Azure Synapse Spark pool.
 
-Attachment of an Azure Synapse Spark pool to an Azure Machine Learning workspace requires [other steps](./how-to-manage-synapse-spark-pool.md) before you can use the Azure Synapse Spark pool in Azure Machine Learning for:
+Attachment of an Azure Synapse Spark pool to an Azure Machine Learning workspace requires [other steps](./how-to-manage-synapse-spark-pool.md) before you can use the pool in Azure Machine Learning for:
 
 - [Interactive Spark code development](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Spark batch job submission](./how-to-submit-spark-jobs.md)
@@ -78,7 +78,7 @@ Attachment of an Azure Synapse Spark pool to an Azure Machine Learning workspace
 
 An attached Azure Synapse Spark pool provides access to native Azure Synapse features. The user is responsible for provisioning, attaching, configuring, and managing the Azure Synapse Spark pool.
 
-The Spark session configuration for an attached Azure Synapse Spark pool also offers an option to define a session timeout in minutes. The session timeout behavior resembles the description in [the previous section](#inactivity-periods-and-tear-down-mechanism), except that the associated resources are never torn down after the session timeout.
+The Spark session configuration for an attached Azure Synapse Spark pool also offers an option to define a session timeout (in minutes). The session timeout behavior resembles the description in [the previous section](#inactivity-periods-and-tear-down-mechanism), except that the associated resources are never torn down after the session timeout.
 
 ## Defining Spark cluster size
 
@@ -88,18 +88,18 @@ You can define three parameter values in Azure Machine Learning Spark jobs:
 - Executor cores
 - Executor memory
 
-You should consider an Azure Machine Learning Apache Spark executor as an equivalent of Azure Spark worker nodes. An example can explain these parameters. Let's say that you have defined number of executors as 6 (equivalent to six worker nodes), executor cores as 4, and executor memory as 28 GB. Your Spark job will then have access to a cluster with 24 cores and 168 GB of memory.
+You should consider an Azure Machine Learning Apache Spark executor as an equivalent of Azure Spark worker nodes. An example can explain these parameters. Let's say that you defined the number of executors as 6 (equivalent to six worker nodes), executor cores as 4, and executor memory as 28 GB. Your Spark job will then have access to a cluster with 24 cores and 168 GB of memory.
 
 ## Ensuring resource access for Spark jobs
 
-To access data and other resources, a Spark job can use either user identity passthrough or a managed identity. This table summarizes the mechanisms that Spark jobs use to access resources.
+To access data and other resources, a Spark job can use either a user identity passthrough or a managed identity. This table summarizes the mechanisms that Spark jobs use to access resources.
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
 |Managed (Automatic) Spark compute|User identity and managed identity|User identity|
 |Attached Azure Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Azure Synapse Spark pool|
 
-[This article](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs) describes Spark job resource access. In a notebook session, both the Managed (Automatic) Spark compute and the attached Azure Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
+[This article](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the Managed (Automatic) Spark compute and the attached Azure Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 > [!NOTE]
 > For successful execution of a Spark job, assign **Contributor** and **Storage Blob Data Contributor** roles on the Azure storage account for data input and output. Assign the roles to the identity for the Spark job.
@@ -111,7 +111,7 @@ To access data and other resources, a Spark job can use either user identity pas
 ## Next steps
 
 - [Attach and manage an Azure Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
-- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using the Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using the Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)
