@@ -15,22 +15,22 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Train a model by using a custom Docker image
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
-Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](./how-to-deploy-custom-container.md). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
+Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](../how-to-deploy-custom-container.md). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
 
 ## Prerequisites
 
 Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
-  * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
+  * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
 * Your own Jupyter Notebook server:
-  * Create a [workspace configuration file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
+  * Create a [workspace configuration file](../how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
-  * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
+  * Create an [Azure container registry](../../container-registry/index.yml) or other Docker registry that's available on the internet.
 
 ## Set up a training experiment
 
@@ -38,7 +38,7 @@ In this section, you set up your training experiment by initializing a workspace
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a `Workspace` object from the config.json file that you created as a [prerequisite](#prerequisites).
 
@@ -105,15 +105,15 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > * Python 3.7+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
-For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
+For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](../how-to-use-environments.md). 
 
 ### Create or attach a compute target
 
-You need to create a [compute target](v1/concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
+You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
 
 Creation of `AmlCompute` takes a few minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 
-As with other Azure services, there are limits on certain resources (for example, `AmlCompute`) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md).
+As with other Azure services, there are limits on certain resources (for example, `AmlCompute`) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](../how-to-manage-quotas.md).
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -148,7 +148,7 @@ print(compute_target.get_status().serialize())
 
 For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
-Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](v1/how-to-set-up-training-targets.md).
+Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -171,9 +171,9 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](../concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data).
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
-* [Track run metrics](how-to-log-view-metrics.md) during training.
-* [Deploy a model](./how-to-deploy-custom-container.md) by using a custom Docker image.
+* [Track run metrics](../how-to-log-view-metrics.md) during training.
+* [Deploy a model](../how-to-deploy-custom-container.md) by using a custom Docker image.
