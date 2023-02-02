@@ -138,7 +138,7 @@ The recommendations listed in the following table are available to Azure AD tena
 
 Continue to monitor the recommendations in your tenant for changes.
 
-### Use the Microsoft Graph with Azure Active Directory recommendations
+### Use Microsoft Graph with Azure Active Directory recommendations
 
 Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
 
@@ -147,13 +147,13 @@ To get started, follow these instructions to work with recommendations using Mic
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to retrieve recommendations, then select **Run query**.
+1. Add the following query to retrieve recommendations, then select the **Run query** button.
 
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations
     ```
 
-1. To view the details of a specific `recommendationType`, use the following API. The example retrieves the "thing".
+1. To view the details of a specific `recommendationType`, use the following API. This example retrieves the detail of the "Migrate apps from AD FS to Azure AD" recommendation.
 
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'
@@ -170,5 +170,5 @@ For more information, see the [Microsoft Graph documentation for recommendations
 ## Next steps
 
 * [Learn more about Microsoft Graph](/graph/overview)
-* [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Send logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+* [Get started with Azure AD reports](overview-reports.md)
+* [Learn about Azure AD monitoring](overview-monitoring.md)
