@@ -87,7 +87,7 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
-- All explicitly included paths will have a value stored for each item in the container. If an item doesn't have a given included path, the value `null` will be stored.
+- All explicitly included paths will have values added to the index for each item in the container, even if the path is undefined for a given item.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
@@ -129,7 +129,7 @@ Azure Cosmos DB, by default, won't create any spatial indexes. If you would like
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-index) as needed.
 
-Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. Values for each path in every composite index defined on a container will be stored for all items. If an item doesn't have a given path defined in the composite index, the value `null` will be stored.
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. Values for each path in every composite index defined on a container will be stored for all items, even if the path is undefined for a given item.
 
 When defining a composite index, you specify:
 
