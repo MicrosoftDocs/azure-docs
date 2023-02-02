@@ -137,16 +137,20 @@ Before a private link service can be created in the virtual network, the setting
 * Disable the network policy with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork).
 
 ```azurepowershell
+## Place the subnet name into a variable. ##
 $subnet = 'mySubnet'
 
+## Place the virtual network configuration into a variable. ##
 $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'myResourceGroup'
 }
 $vnet = Get-AzVirtualNetwork @net
 
+## Set the policy as disabled on the virtual network. ##
 ($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $subnet}).privateLinkServiceNetworkPolicies = "Disabled"
 
+## Save the configuration changes to the virtual network. ##
 $vnet | Set-AzVirtualNetwork
 ```
 
