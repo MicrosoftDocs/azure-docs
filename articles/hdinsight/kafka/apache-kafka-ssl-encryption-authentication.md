@@ -76,7 +76,7 @@ Use the following detailed instructions to complete the broker setup:
     wn0-espkaf.securehadooprc.onmicrosoft.com
     wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net
     ```
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output." border="true":::
  
 1. On the CA machine, run the following command to create ca-cert and ca-key files:
 
