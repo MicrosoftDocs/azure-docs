@@ -47,17 +47,16 @@ This article provides troubleshooting guidance used by administrators to resolve
 
  ## Troubleshooting Model
 The following flowchart outlines a logical flow for approaching troubleshooting the SSO Extension.  The rest of this article will go into detail on the steps depicted in this flowchart. The troubleshooting can be broken down into two separate focus areas: [Deployment](#deployment-troubleshooting) and [Application Auth Flow](#application-auth-flow-troubleshooting).
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for macOS extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for Apple SSO extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
 
 ## Deployment Troubleshooting
-Most issues that customers encounter stem from either improper Mobile Device Management (MDM) configuration(s) of the SSO extension profile, or an inability for the macOS device to receive the configuration profile from the MDM. This section will cover the steps you can take to ensure that the MDM profile has been deployed to a Mac and that it has the correct configuration.
+Most issues that customers encounter stem from either improper Mobile Device Management (MDM) configuration(s) of the SSO extension profile, or an inability for the Apple device to receive the configuration profile from the MDM. This section will cover the steps you can take to ensure that the MDM profile has been deployed to a Mac and that it has the correct configuration.
 
 ### Deployment Requirements:
 - macOS operating system: **version 10.15 (Catalina)** or greater
-- Device is managed by any MDM vendor that supports [Apple macOS](https://support.apple.com/guide/deployment/dep1d7afa557/web)  (MDM Enrollment)
-- Authentication Broker Software installed: [**Microsoft Intune Company Portal**](https://learn.microsoft.com/mem/intune/apps/apps-company-portal-macos)
-
-These requirements are only applicable to macOS. For the full list of requirements other Apple platforms (including iOS and iPadOS), see the [Apple SSO plugin Requirements](../develop/apple-sso-plugin.md#requirements).
+- iOS operating system: **version 13** or greater
+- Device is managed by any MDM vendor that supports [Apple macOS and/or iOS](https://support.apple.com/guide/deployment/dep1d7afa557/web) (MDM Enrollment)
+- Authentication Broker Software installed: [**Microsoft Intune Company Portal**](https://learn.microsoft.com/mem/intune/apps/apps-company-portal-macos) or [**Microsoft Authenticator for iOS**](https://support.microsoft.com/en-us/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
 #### Check macOS Operating System Version
 Use the following steps to check the operating system (OS) version on the macOS device. Apple SSO Extension profiles will only be deployed to devices running  **macOS 10.15 (Catalina)** or greater. You can check the macOS version from either the [User Interface](#user-interface) or from the [Terminal](#terminal).
@@ -70,9 +69,7 @@ Use the following steps to check the operating system (OS) version on the macOS 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-this-mac-info.png" alt-text="Screenshot showing the about this mac basic system information":::
 
 ##### Terminal
-1. From the macOS device, click on the **spotlight icon**
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/spotlight-icon.png" alt-text="screenshot showing the macOS spotlight icon":::
-1. When the **Spotlight Search** appears type **Terminal** and hit **return**
+1. From the macOS device, open Terminal from the **Applications** -> **Utilities** folder
 1. When the Terminal opens type **sw_vers** at the prompt
     ```bash
     % sw_vers
@@ -81,19 +78,17 @@ Use the following steps to check the operating system (OS) version on the macOS 
     BuildVersion: 22A400
     ```
 
-
 #### MDM Deployment of SSO Extension Configuration Profile
-Work with your MDM administrator (or Device Management team) to ensure that the extension configuration profile is deployed to the macOS devices. The extension profile can be deployed from any MDM that supports macOS devices. 
+Work with your MDM administrator (or Device Management team) to ensure that the extension configuration profile is deployed to the Apple devices. The extension profile can be deployed from any MDM that supports macOS or iOS devices.
+
 >[!Important]
 > Apple mandates that devices must be enrolled into an MDM for the SSO Extension to be deployed.  
 
-The following table provides specific MDM installation guidance depending on which MDM vendor:
+The following table provides specific MDM installation guidance depending on which OS you are deploying the extension to:
 
-|MDM   |Installation Documentation   | Broker Software |
-|---------|---------|---------|
-|Microsoft Intune     |[Use the Microsoft Enterprise SSO plug-in on iOS/iPadOS and macOS devices in Microsoft Intune](https://learn.microsoft.com/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos)         |Inune Company Portal already required for devices managed by Intune       
-|JAMF Pro     |[Use the Microsoft Enterprise SSO plug-in on iOS/iPadOS and macOS devices in JAMF Pro](https://learn.microsoft.com/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro)|Intune Company Portal needs to be installed. See JAMF documentation: [Deploy Company Portal](https://docs.jamf.com/technical-papers/jamf-pro/microsoft-intune/10.34.0/Deploy_the_Company_Portal_App_from_Microsoft_to_End_Users.html) Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac) |          
-| Other third Party MDM     |Consult any vendor specific documentation for how to deploy SSO extension profiles and reference our documentation on [Manual Configuration for other MDM Services](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)|Intune Company Portal needs to be installed. See MDM vendor documentation. Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac)
+- [**iOS/iPadOS**: Deploy the Microsoft Enterprise SSO plug-in](mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune)
+- [**macOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune)
+
 >[!Important]
 >Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](https://learn.microsoft.com/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.        
 
@@ -107,18 +102,15 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 1. This should bring up the **Profiles** panel within the **System Settings**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="Screenshot showing configuration profiles":::
 
-
     |**Screenshot Callout**  |**Description**  |
     |:---------:|---------|
     |**1**     |  Indicates that the device is under **MDM** Management     |
     |**2**     | There will likely be multiple profiles to choose from. In this example, the Microsoft Enterprise SSO Extension Profile is called **Extensible Single Sign On Profile-32f37be3-302e-4549-a3e3-854d300e117a**. *Note: The way the Extension appears here, and how it's named varies on the MDM configuration.*         |
-
     
     >[!NOTE] 
     >Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  Select each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screenshot showing sso extension configuration profile":::
-
 
     |**Screenshot Callout#**  |**Configuration Profile Setting**  |**Description**  |
     |:---------:|:---------|---------|
