@@ -61,9 +61,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    1. Open the configuration file to edit it and locate **mysqld** section in the file.
    1. In the mysqld section, add following line:
 
-       ```bash
-       log-bin=mysql-bin.log
-       ```
+      ```bash
+      log-bin=mysql-bin.log
+      ```
 
    1. Restart the MySQL service on source server (or Restart) for the changes to take effect.
    1. After the server is restarted, verify that binary logging is enabled by running the same query as before:
@@ -140,10 +140,6 @@ Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-mast
 The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
 :::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::
-
-#### [Azure Data Studio](#tab/azure-data-studio)
-
-<-----------Content here----------->
 
 ---
 

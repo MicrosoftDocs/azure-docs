@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ With each of these examples, you're provided with:
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties).
 
 > [!TIP]
-> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 **Heart rate**
 
@@ -265,13 +265,13 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors.
 
 ## Next steps
 
-In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. 
+In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mappings. 
 
-To learn how to configure the MedTech service FHIR destination mapping, see
+To learn how to configure the MedTech service FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
 > [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)

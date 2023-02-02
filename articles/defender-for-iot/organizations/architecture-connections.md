@@ -12,7 +12,7 @@ OT network sensors connect to Azure to provide data about detected devices, aler
 
 The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
 
-- **Improved security**, without additional security configurations. Connect to Azure using specific and secure firewall rules](how-to-set-up-your-network#sensor-access-to-azure-portal.md), without the need for any wildcards.
+- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](how-to-set-up-your-network.md#sensor-access-to-azure-portal), without the need for any wildcards.
 
 - **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 

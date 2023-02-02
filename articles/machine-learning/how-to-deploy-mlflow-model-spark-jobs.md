@@ -22,11 +22,9 @@ In this article, learn how to deploy and run your [MLflow](https://www.mlflow.or
 
 This example shows how you can deploy an MLflow model registered in Azure Machine Learning to Spark jobs running in [managed Spark clusters (preview)](how-to-submit-spark-jobs.md), Azure Databricks, or Azure Synapse Analytics, to perform inference over large amounts of data. 
 
-It uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
+The model is based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence). It has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The model has been trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
-
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `sdk/python/using-mlflow/deploy`.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo, and then change directories to `sdk/using-mlflow/deploy`.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -37,15 +35,9 @@ cd sdk/python/using-mlflow/deploy
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+
 - You must have a MLflow model registered in your workspace. Particularly, this example will register a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
-- Install the Mlflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
-
-    ```bash
-    pip install mlflow azureml-mlflow
-    ```
-
-- If you aren't  running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
 
 
 ### Connect to your workspace
@@ -60,34 +52,13 @@ Tracking is already configured for you. Your default credentials will also be us
 
 **Configure tracking URI**
 
-You need to configure MLflow to point to the Azure Machine Learning MLflow tracking URI. The tracking URI has the protocol `azureml://`. You can use MLflow to configure it.
-
-```python
-azureml_tracking_uri = "<AZUREML_TRACKING_URI>"
-mlflow.set_tracking_uri(azureml_tracking_uri)
-```
-
-There are multiple ways to get the Azure Machine Learning MLflow tracking URI. Refer to [Set up tracking environment](how-to-use-mlflow-cli-runs.md) to see all the alternatives.
-
-> [!TIP]
-> When working on shared environments, like for instance an Azure Databricks cluster, Azure Synapse Analytics cluster, or similar, it is useful to configure the environment variable `MLFLOW_TRACKING_URI` to automatically configure the MLflow tracking URI to the desired target for all the sessions running in the cluster rather than to do it on a per-session basis.
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 **Configure authentication**
 
-Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. For interactive jobs where  there's a user connected to the session, you can rely on Interactive Authentication.
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-For those scenarios where unattended execution is required, you'll have to configure a service principal to communicate with Azure Machine Learning.
-
-```python
-import os
-
-os.environ["AZURE_TENANT_ID"] = "<AZURE_TENANT_ID>"
-os.environ["AZURE_CLIENT_ID"] = "<AZURE_CLIENT_ID>"
-os.environ["AZURE_CLIENT_SECRET"] = "<AZURE_CLIENT_SECRET>"
-```
-
-> [!TIP]
-> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](https://learn.microsoft.com/azure/databricks/security/secrets/secrets#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 ---
 
@@ -96,8 +67,8 @@ os.environ["AZURE_CLIENT_SECRET"] = "<AZURE_CLIENT_SECRET>"
 We need a model registered in the Azure Machine Learning registry to perform inference. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
 ```python
-model_name = 'sklearn-diabetes'
-model_local_path = "sklearn-diabetes/model"
+model_name = 'heart-classifier'
+model_local_path = "model"
 
 registered_model = mlflow_client.create_model_version(
     name=model_name, source=f"file://{model_local_path}"
@@ -111,7 +82,7 @@ Alternatively, if your model was logged inside of a run, you can register it dir
 > To register the model, you'll need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommend to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an example, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
 
 ```python
-model_name = 'sklearn-diabetes'
+model_name = 'heart-classifier'
 
 registered_model = mlflow_client.create_model_version(
     name=model_name, source=f"runs://{RUN_ID}/{MODEL_PATH}"
@@ -153,6 +124,19 @@ input_data_path = "dbfs:/data"
 
 The following section explains how to run MLflow models registered in Azure Machine Learning in Spark jobs.
 
+1. Ensure the following libraries are installed in the cluster:
+
+    :::code language="yaml" source="~/azureml-examples-main/sdk/python/using-mlflow/deploy/model/conda.yaml" range="7-10":::
+
+1. We'll use a notebook to demonstrate how to create a scoring routine with an MLflow model registered in Azure Machine Learning. Create a notebook and use PySpark as the default language.
+
+1. Import the required namespaces:
+
+    ```python
+    import mlflow
+    import pyspark.sql.functions as f
+    ```  
+
 1. Configure the model URI. The following URI brings a model named `heart-classifier` in its latest version.
 
     ```python
@@ -162,7 +146,7 @@ The following section explains how to run MLflow models registered in Azure Mach
 1. Load the model as an UDF function. A user-defined function (UDF) is a function defined by a user, allowing custom logic to be reused in the user environment.
 
     ```python
-    predict_function = mlflow.pyfunc.spark_udf(spark, model_uri, env_manager="local") 
+    predict_function = mlflow.pyfunc.spark_udf(spark, model_uri, result_type='double') 
     ```
 
     > [!TIP]
@@ -185,6 +169,12 @@ The following section explains how to run MLflow models registered in Azure Mach
     > [!TIP]
     > The `predict_function` receives as arguments the columns required. In our case, all the columns of the data frame are expected by the model and hence `df.columns` is used. If your model requires a subset of the columns, you can introduce them manually. If you model has a signature, types need to be compatible between inputs and expected types.
 
+1. You can write your predictions back to storage:
+
+    ```python
+    scored_data_path = "dbfs:/scored-data"
+    scored_data.to_csv(scored_data_path)
+    ```
 
 ## Run the model in a standalone Spark job in Azure Machine Learning
 
@@ -210,7 +200,7 @@ The following section explains how to run MLflow models registered in Azure Mach
     print(args.input_data)
     
     # Load the model as an UDF function
-    predict_function = mlflow.pyfunc.spark_udf(spark, args.model, env_manager="local")
+    predict_function = mlflow.pyfunc.spark_udf(spark, args.model, env_manager="conda")
     
     # Read the data you want to score
     df = spark.read.option("header", "true").option("inferSchema", "true").csv(input_data).drop("target")
@@ -223,6 +213,9 @@ The following section explains how to run MLflow models registered in Azure Mach
     ```
     
     The above script takes three arguments `--model`, `--input_data` and `--scored_data`. The first two are inputs and represent the model we want to run and the input data, the last one is an output and it is the output folder where predictions will be placed.
+
+    > [!TIP]
+    > **Installation of Python packages:** The previous scoring script loads the MLflow model into an UDF function, but it indicates the parameter `env_manager="conda"`. When this parameter is set, MLflow will restore the required packages as specified in the model definition in an isolated environment where only the UDF function runs. For more details see [`mlflow.pyfunc.spark_udf`](https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html?highlight=env_manager#mlflow.pyfunc.spark_udf) documentation.
 
 1. Create a job definition:
 

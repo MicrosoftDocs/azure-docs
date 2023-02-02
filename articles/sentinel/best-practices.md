@@ -4,8 +4,7 @@ description: Learn about best practices to employ when managing your Microsoft S
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Best practices for Microsoft Sentinel
@@ -85,7 +84,7 @@ Schedule the following Microsoft Sentinel activities regularly to ensure continu
 
 ## Integrate with Microsoft security services
 
-Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture of events and incidents.
+Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
 For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multi-cloud and partner platforms to provide coverage for your environment:
 
@@ -138,7 +137,7 @@ Entity behavior in Microsoft Sentinel allows users to review and investigate act
 
 - [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
-- [Microsoft Sentinel UEBA reference](ueba-reference.md)
+- [Microsoft Sentinel UEBA enrichments reference](ueba-reference.md)
 
 ### Handle incidents with watchlists and threat intelligence
 

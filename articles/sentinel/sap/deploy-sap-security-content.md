@@ -30,7 +30,7 @@ Track your SAP solution deployment journey through this series of articles:
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
    - [Configure data connector to use SNC](configure-snc.md)
-
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Deploy SAP security content
 

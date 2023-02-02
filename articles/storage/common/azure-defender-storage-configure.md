@@ -8,7 +8,7 @@ author: bmansheim
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 01/18/2023
 ms.author: benmansheim
 ms.reviewer: ozgun
 ms.custom: devx-track-azurepowershell
@@ -66,21 +66,22 @@ To enable Microsoft Defender for Storage at the subscription level with per-stor
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-1. Select the subscription that you want to enable Defender for Storage for.
+1. Select the subscription for which you want to enable Defender for Storage.
 
     :::image type="content" source="media/azure-defender-storage-configure/defender-for-cloud-select-subscription.png" alt-text="Screenshot showing how to select a subscription in Defender for Cloud." lightbox="media/azure-defender-storage-configure/defender-for-cloud-select-subscription.png":::
 
-1. In the Defender plans page, to enable Defender for Storage per-storage account pricing either:
+1. On the **Defender plans** page, enable Defender for Storage per-storage account pricing with one of the following options:
 
-    - Select **Enable all Microsoft Defender plans** to enable Microsoft Defender for Cloud in the subscription.
-    - For Microsoft Defender for Storage, select **On** to turn on Defender for Storage, and select **Save**.
-    - If you currently have Defender for Storage enabled with per-transaction pricing, select the **New pricing plan available** link and confirm the pricing change.
+    - Choose the **Enable all** button to enable Microsoft Defender for Cloud in the subscription.
+    - To enable Microsoft Defender for Storage, locate **Storage** in the list and toggle the **On** button. Then choose **Save**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Defender for Storage in Defender for Cloud." lightbox="media/azure-defender-storage-configure/enable-azure-defender-security-center.png":::
+      If you currently have Defender for Storage enabled with per-transaction pricing, select the **New pricing plan available** link and confirm the pricing change.
+
+        :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Defender for Storage in Defender for Cloud." lightbox="media/azure-defender-storage-configure/enable-azure-defender-security-center.png":::
 
 Microsoft Defender for Storage is now enabled for this storage account.
 
-To disable the plan, select **Off** for Defender for Storage in the Defender plans page.
+To disable the plan, toggle the **Off** button for Defender for Storage on the **Defender plans** page.
 
 ### Enable per-storage account pricing programmatically
 
@@ -334,7 +335,7 @@ To enable Microsoft Defender for Storage for a specific account with per-transac
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account.
-1. In the Security + networking section of the Storage account menu, select **Microsoft Defender for Cloud**.
+1. In the **Security + networking** section of the Storage account menu, select **Microsoft Defender for Cloud**.
 1. Select **Enable Defender on this storage account only**.
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/azure-defender-storage-configure/storage-enable-defender-for-account.png":::

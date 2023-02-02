@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -74,7 +74,7 @@ Follow these six steps to fill in the Basics tab configuration:
 
 The Basics tab should now look like this after you've filled it out:
 
-  :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
+  :::image type="content" source="media\deploy-new-config\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-new-config\select-device-mapping-button.png":::
 
 You're now ready to select the Device mapping tab and begin setting up the device mappings for your MedTech service.
 
@@ -183,7 +183,7 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
+   :::image type="content" source="media\deploy-new-config\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-new-config\validate-and-review-medtech-service.png":::
 
 If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 

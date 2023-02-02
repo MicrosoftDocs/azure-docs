@@ -71,7 +71,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `language`: Code of the detected language.
 
-  * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
+  * `score`: A float value indicating the confidence in the result. The score is between zero (0) and one (1.0). A low score (<= 0.4) indicates a low confidence.
 
 The `detectedLanguage` property is only present in the result object when language auto-detection is requested.
 

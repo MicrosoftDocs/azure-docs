@@ -83,7 +83,7 @@ For handler properties, you may need to escape certain characters in your JSON. 
 
 The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5).
 
-Once you've created your import manifest and saved it as a JSON file, if you're ready to [import your update](import-update.md).
+Once you've created your import manifest and saved it as a JSON file, you're ready to [import your update](import-update.md).
 
 ## Create an advanced Device Update import manifest for a proxy update
 

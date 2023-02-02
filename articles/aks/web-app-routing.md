@@ -1,11 +1,12 @@
 ---
 title: Web Application Routing add-on on Azure Kubernetes Service (AKS) (Preview)
 description: Use the Web Application Routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
-services: container-service
-author: jahabibi
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+author: asudbring
+ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: jahabibi
+ms.author: allensu
 ---
 
 # Web Application Routing (Preview)

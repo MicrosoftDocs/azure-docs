@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/28/2022
+ms.date: 01/30/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -31,6 +31,12 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 |**Document analysis models**| &#9679; [**Read OCR model**](concept-read.md)</br> &#9679; [**General document model**](concept-general-document.md)</br> &#9679; [**Layout analysis model**](concept-layout.md) </br>  |
 | **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) </br>&#9679; [**Invoice model**](concept-invoice.md)</br>&#9679; [**Receipt model**](concept-receipt.md) </br>&#9679; [**Identity (ID) document model**](concept-id-document.md) </br>&#9679; [**Business card model**](concept-business-card.md) </br>
 | **Custom models** | &#9679; [**Custom model**](concept-custom.md) </br>&#9679; [**Composed model**](concept-model-overview.md)|
+
+## Video: Form Recognizer models
+
+The following video introduces Form Recognizer models and their associated output to help you choose the best model to address your document scenario needs.</br></br>
+
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
 ## Which Form Recognizer model should I use?
 
@@ -117,7 +123,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 | Model| Description | Development options |
 |----------|--------------|-------------------------|
-|[**Layout analysis**](concept-layout.md?view=form-recog-2.1.0&preserve-view=true) | Extraction and analysis of text, selection marks, tables, and bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-layout)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-layout-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Layout analysis**](concept-layout.md?view=form-recog-2.1.0&preserve-view=true) | Extraction and analysis of text, selection marks, tables, and bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-layout)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-layout-model)</li><li>[**Client-library SDK**](quickstarts/get-started-sdks-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Custom model**](concept-custom.md?view=form-recog-2.1.0&preserve-view=true) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.| <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model)</li><li>[**REST API**](quickstarts/get-started-sdks-rest-api.md)</li><li>[**Sample Labeling Tool**](concept-custom.md?view=form-recog-2.1.0&preserve-view=true#build-a-custom-model)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Invoice model**](concept-invoice.md?view=form-recog-2.1.0&preserve-view=true) | Automated data processing and extraction of key information from sales invoices. | <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-using-a-prebuilt-model)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-prebuilt-model)</li><li>[**Client-library SDK**](quickstarts/get-started-sdks-rest-api.md#try-it-prebuilt-model)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Receipt model**](concept-receipt.md?view=form-recog-2.1.0&preserve-view=true) | Automated data processing and extraction of key information from sales receipts.| <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-using-a-prebuilt-model)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-prebuilt-model)</li><li>[**Client-library SDK**](quickstarts/get-started-sdks-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
