@@ -1,11 +1,11 @@
 ---
-title: 'Locations and connectivity providers for Azure ExpressRoute'
-description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure regions.
+title: Locations and connectivity providers for Azure ExpressRoute
+description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 02/01/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -44,7 +44,7 @@ The following table shows connectivity locations and the service providers for e
 * **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
 
 ### Global commercial Azure
-| **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- | --- |
 | **Abu Dhabi** | Etisalat KDC | 3 | UAE Central | Supported | |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | West Europe | Supported | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
@@ -68,7 +68,7 @@ The following table shows connectivity locations and the service providers for e
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | Supported | CoreSite, Megaport, PacketFabric, Zayo |
 | **Doha** | [MEEZA MV2](https://www.meeza.net/services/data-centre-services/) | 3 | Qatar Central | Supported | |
 | **Doha2** | [Ooredoo](https://www.ooredoo.qa/portal/OoredooQatar/b2b-data-centre) | 3 | Qatar Central | Supported | |
-| **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | UAE North | Supported | Etisalat UAE |
+| **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | Supported | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | DE-CIX, du datamena, Equinix, GBI, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | Supported | CenturyLink Cloud Connect, Colt, eir, Equinix, GEANT, euNetworks, Interxion, Megaport, Zayo|
 | **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | Interxion |
@@ -128,7 +128,7 @@ The following table shows connectivity locations and the service providers for e
 | **Tel Aviv** | Bezeq International | 2 | n/a | Supported | |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | Supported | Aryaka Networks, AT&T NetBond, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Telehouse - KDDI, Verizon </br></br> |
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | Supported | AT TOKYO, China Unicom Global, Colt, Equinix, Fibrenoire, IX Reach, Megaport, PCCW Global Limited, Tokai Communications |
-| **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | Supported | |
+| **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | Supported | NEC, SCSK |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | Supported | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | Supported | |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/a | Supported | Bell Canada, Cologix, Megaport, Telus, Zayo |
@@ -142,7 +142,7 @@ The following table shows connectivity locations and the service providers for e
 Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
 
 ### US Government cloud
-| **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |
+| Location | Address | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | n/a | Supported | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/a | Supported | AT&T NetBond, British Telecom, Equinix, Level 3 Communications, Verizon |
@@ -155,16 +155,17 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | Supported | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### China
-| **Location** | **Address** | **Local Azure regions** | **ER Direct** | **Service providers** |
+| Location | Address | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- |
 | **Beijing** | China Telecom | n/a | Supported | China Telecom |
 | **Beijing2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
 | **Shanghai** | China Telecom | n/a | Supported | China Telecom |
 | **Shanghai2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
 
-To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
+To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
 ## <a name="c1partners"></a>Connectivity through Exchange providers
+
 If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
@@ -190,8 +191,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
-## <a name="c1partners"></a>Connectivity through additional service providers
-| **Location** | **Exchange** | **Connectivity providers** |
+| Location | Exchange | Connectivity providers |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Interxion, Level 3 Communications | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, RETN, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
@@ -224,7 +224,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
-| **Continent** | **System integrators** |
+| Continent | System integrators |
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |
@@ -238,3 +238,5 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
+
+

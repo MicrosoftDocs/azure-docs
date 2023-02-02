@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 01/30/2023
 ms.author: banders
 ---
 
@@ -134,7 +134,56 @@ You can't make the following types of changes after purchase:
 
 ## Cancel, exchange, or refund savings plans
 
-You can't cancel, exchange, or refund savings plans.
+Savings plan discounts apply to the following eligible subscriptions and offer types.
+
+- Enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)
+- Microsoft Customer Agreement subscriptions.
+- Microsoft Partner Agreement subscriptions.
+
+### Buy savings plans with monthly payments
+
+You can pay for savings plans with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the savings plan evenly over each month of the term. The total cost of up-front and monthly savings plans is the same and you don't pay any extra fees when you choose to pay monthly.
+
+If savings plan is purchased using an MCA, your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+
+## View payments made
+
+You can view payments that were made using APIs, usage data, and cost analysis. For savings plans paid for monthly, the frequency value is shown as  **recurring** in the usage data and the Savings Plan Charges API. For savings plans paid up front, the value is shown as **onetime**.
+
+Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only savings plans, apply a filter for **Savings Plan**.
+
+:::image type="content" source="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" alt-text="Screenshot showing saving plan costs in cost analysis." lightbox="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" :::
+
+## Reservation trade ins and refunds
+
+Unlike reservations, you can't return or exchange savings plans.
+
+You can trade in one or more reservations for a savings plan. When you trade in reservations, the hourly commitment of the new savings plan must be greater than the leftover payments that are canceled for the returned reservations. There are no other limits or fees for trade ins. You can trade in a reservation that's paid for up front to purchase a new savings plan that's billed monthly. However, the lifetime value of the new savings plan must be greater than the prorated value of the reservations traded in.
+
+## Savings plan notifications
+
+Depending on how you pay for your Azure subscription, email savings plan notifications are sent to the following users in your organization. Notifications are sent for various events including:
+
+- Purchase
+- Upcoming savings plan expiration - 30 days before
+- Expiry - 30 days before
+- Renewal
+- Cancellation
+- Scope change
+
+For customers with EA subscriptions:
+
+- Notifications are sent to EA administrators and EA notification contacts.
+- Azure RBAC owner of the savings plan receives all notifications.
+
+For customers with MCA subscriptions:
+
+- The purchaser receives a purchase notification.
+- Azure RBAC owner of the savings plan receives all notifications.
+
+For Microsoft Partner Agreement partners:
+
+- Notifications are sent to the partner.
 
 ## Need help? Contact us.
 

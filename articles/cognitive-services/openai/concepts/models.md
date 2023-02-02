@@ -49,7 +49,7 @@ For example, our most powerful GPT-3 model is called `text-davinci-003`, while o
 
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenai/models/list).
+You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list).
 
 ## Finding the right model
 
@@ -187,7 +187,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 |  --- | --- | --- | --- | --- |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
-| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |

@@ -44,10 +44,15 @@ The image below shows a scale rule that is scaling a Virtual Machine Scale Set b
 
 ## Scale differently on weekends
 
-You can scale your resources differently on different days of the week..  
-For example, you have a web app and want to:
-- Set a minimum of 3 instances on weekdays.
-- Scale down to 1 instance on weekends when there's less traffic.
+You can scale your resources differently on different days of the week.
+For example, you have a Virtual Machine Scale Set and want to:
+- Set a minimum of 3 instances on weekdays, scaling based on inbound flows.
+- Scale-in to a fixed 1 instance on weekends when there's less traffic.
+
+In this example:
++ The weekend profile starts at 00:01, Saturday morning and ends at 04:00 on Monday morning.
++ The end times are left blank. The weekday profile will end when the weekend profile starts and vice-versa.
++ There's no need for a default profile as there's no time that isn't covered by the other profiles.
 
 :::image type="content" source="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png" alt-text="A screenshot showing two autoscale profiles, one default and one for weekends." lightbox="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png":::
 
@@ -68,7 +73,7 @@ For example, you have a web front end and an API tier that communicates with the
 
 Next steps
 
-Learn more about autoscale by referring to the following articles :
+Learn more about autoscale by referring to the following articles:
 
 * [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
 * [Azure Monitor autoscale custom metrics](./autoscale-custom-metric.md)

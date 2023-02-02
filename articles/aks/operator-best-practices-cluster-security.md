@@ -152,14 +152,14 @@ AppArmor profiles are added using the `apparmor_parser` command.
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-1. With the pod deployed, verify the *hello-apparmor* pod shows a *blocked* status by running the following command:
+2. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
 
     ```
     kubectl get pods
 
     NAME             READY   STATUS    RESTARTS   AGE
     aks-ssh          1/1     Running   0          4m2s
-    hello-apparmor   0/1     Blocked   0          50s
+    hello-apparmor   0/1     Running   0          50s
     ```
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
