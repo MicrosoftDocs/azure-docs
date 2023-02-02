@@ -3,7 +3,7 @@ title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/30/2023
+ms.date: 02/02/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
