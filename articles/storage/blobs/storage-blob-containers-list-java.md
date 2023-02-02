@@ -1,5 +1,6 @@
 ---
-title: List blob containers with Java - Azure Storage 
+title: List blob containers with Java
+titleSuffix: Azure Storage
 description: Learn how to list blob containers in your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -13,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# List blob containers using the Java client library
+# List blob containers with Java
 
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

@@ -23,7 +23,7 @@ After you've configured data export rules in a Log Analytics workspace, new data
 
 [![Diagram that shows a data export flow.](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
 
-Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
+Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time. Alternatively, you can filter or modify exported data by configuring [transformations](./../essentials/data-collection-transformations.md) in your workspace, which apply to incoming data, before it's sent to your Log Analytics workspaces and to export destinations.
 
 ## Other export options
 Log Analytics workspace data export continuously exports data that's sent to your Log Analytics workspace. There are other options to export data for particular scenarios:
@@ -34,16 +34,16 @@ Log Analytics workspace data export continuously exports data that's sent to you
 
 ## Limitations
 
-- All tables will be supported in export, but tables are currently limited to those specified in the [supported tables](#supported-tables) section.
-- Legacy custom logs by using the [HTTP Data Collector API](./data-collector-api.md) won't be supported in export. Data for [data collection rule-based custom logs](./logs-ingestion-api-overview.md) can be exported.
-- You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled.
+- Custom logs created via [HTTP Data Collector API](./data-collector-api.md), or 'dataSources' API won't be supported in export. This includes text logs consumed by MMA. Custom log created using [data collection rule](./logs-ingestion-api-overview.md) can be exported, including text based logs.
+- We are support more tables in data export gradually, but currently limited to those specified in the [supported tables](#supported-tables) section.
+- You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - The storage account must be unique across rules in the workspace.
 - Table names can be 60 characters long when you're exporting to a storage account. They can be 47 characters when you're exporting to event hubs. Tables with longer names won't be exported.
 - Currently, data export isn't supported in China.
 
 ## Data completeness
-Data export is optimized for moving large data volumes to your destinations. In certain retry conditions, it can include a fraction of duplicated records. The export operation might fail when ingress limits are reached. For more information, see [Create or update a data export rule](#create-or-update-a-data-export-rule). In such a case, a retry continues for up to 30 minutes. If the destination is still unavailable, data will be discarded until the destination becomes available.
+Data export is optimized for moving large data volumes to your destinations. The export operation might fail for destinations capacity or availability, and a retry process continues for up to 12-hours. For more information, see [Create or update a data export rule](#create-or-update-a-data-export-rule) for destination limits and recommended alerts. If the destinations are still unavailable after the retry period, data is discarded. In certain retry conditions, retry can cause a fraction of duplicated records.
 
 ## Pricing model
 Data export charges are based on the volume of data exported measured in bytes. The size of data exported by Log Analytics Data Export is the number of bytes in the exported JSON-formatted data. Data volume is measured in GB (10^9 bytes).

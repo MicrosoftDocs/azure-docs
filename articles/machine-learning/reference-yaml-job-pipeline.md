@@ -51,6 +51,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `default_datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. | |
 | `default_compute` | string | Name of the compute target to use as the default compute for all steps in the pipeline. If compute is defined at the step level, it will override this default compute for that specific step. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | |
 | `continue_on_step_failure` | boolean | Whether the execution of steps in the pipeline should continue if one step fails. The default value is `False`, which means that if one step fails, the pipeline execution will be stopped, canceling any running steps. | `False` |
+| `force_rerun` | boolean | Whether to force rerun the whole pipeline. The default value is `False`, which means by default the pipeline will try to reuse the previous job's output if it meets reuse criteria. If set as `True`, all steps in the pipeline will rerun.| `False` |
 
 ### Job inputs
 

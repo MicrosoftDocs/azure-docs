@@ -67,7 +67,7 @@ If you can't get Snapshot Debugger working, contact snapshothelp\@microsoft.com.
 
 ![Screenshot that shows Profiler integration.](media/transaction-diagnostics/profilerTraces.png)
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 

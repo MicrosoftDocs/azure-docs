@@ -11,6 +11,8 @@ items:
       href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
+    - name: Support policy
+      href: support-policy.md
 - name: Quickstarts
   items:
     - name: Directly connected | Azure portal example
@@ -30,6 +32,8 @@ items:
       href: sizing-guidance.md
     - name: Operate with least privilege
       href: least-privilege.md
+    - name: Automated validation testing
+      href: automated-integration-testing.md
 - name: How-to guides
   items:
     - name: Install tools
@@ -292,7 +296,3 @@ items:
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md
-    - name: Support policy
-      href: support-policy.md
-    - name: Automated validation testing
-      href: automated-integration-testing.md

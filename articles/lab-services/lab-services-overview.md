@@ -1,5 +1,5 @@
 ---
-title: About Azure Lab Services | Microsoft Docs
+title: Introduction to Azure Lab Services | Microsoft Docs
 description: Learn how Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students. 
 ms.topic: overview
 ms.date: 07/04/2022

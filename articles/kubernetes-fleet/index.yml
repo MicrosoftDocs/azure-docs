@@ -30,7 +30,7 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/fleet
           - text: .NET
-            url: /dotnet/api/overview/azure/containerservice
+            url: /dotnet/api/overview/azure/container-service
           - text: Python
             url: /python/api/overview/azure/container-service
           - text: Java
@@ -54,5 +54,3 @@ landingContent:
         links:
           - text: Set up multi-cluster Layer 4 load balancing
             url: l4-load-balancing.md
-
-  

@@ -1,11 +1,10 @@
 ---
-title: Commonly used Microsoft Sentinel workbooks | Microsoft Docs
+title: Commonly used Microsoft Sentinel workbooks
 description: Learn about the most commonly used workbooks to use popular, out-of-the-box Microsoft Sentinel resources.
-author: batamig
+author: yelevin
 ms.topic: reference
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: yelevin
 ---
 
 # Commonly used Microsoft Sentinel workbooks

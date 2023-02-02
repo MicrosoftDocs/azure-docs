@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 01/13/2023
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -79,9 +79,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Availability Zone review.](../media/azure-netapp-files/availability-zone-display-down.png) ](../media/azure-netapp-files/availability-zone-display-down.png#lightbox)
  
-4.	After you create the volume, the **Volume Overview** page includes availability zone information for the volume.
+4. Navigate to **Properties** to confirm your availability zone configuration.
 
-    [ ![Screenshot that shows the Availability Zone volume overview.](../media/azure-netapp-files/availability-zone-volume-overview.png) ](../media/azure-netapp-files/availability-zone-volume-overview.png#lightbox) 
+    :::image type="content" source="../media/azure-netapp-files/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="../media/azure-netapp-files/availability-zone-volume-overview.png":::
 
 ## Next steps  
 

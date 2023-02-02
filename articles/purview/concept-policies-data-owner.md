@@ -64,10 +64,10 @@ The end-user identity from Azure Active Directory for whom this policy statement
 
 ### Example
 
-Deny Read on Data Asset:
+Allow Read on Data Asset:
 */subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
-In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
+In the above policy statement, the effect is *Allow*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be allowed.
 
 ### Hierarchical enforcement of policies
 

@@ -156,6 +156,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.6.2            | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -215,6 +216,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -274,6 +276,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/12/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -333,6 +336,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -396,7 +400,7 @@ SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null
 ```
 
 > [!NOTE]
-> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
+> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. 
 
 Starting with pg_cron version 1.4, you can use the cron.schedule_in_database and cron.alter_job functions to schedule your job in a specific database and update an existing schedule respectively.
 
@@ -406,6 +410,9 @@ To delete old data on Saturday at 3:30am (GMT) on database DBName
 ```
 SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$,'DBName');
 ```
+>[!NOTE]
+> cron_schedule_in_database function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL - Flexible Server. Above examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role priviledges. 
+
 
 To update or change the database name for the existing schedule 
 ```
@@ -490,8 +497,25 @@ For more details on restore method wiith Timescale enabled database see [Timesca
 > [!NOTE]
 > When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
 
+## pg_hint_plan
 
-
+`pg_hint_plan` makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments, like
+```sql
+/*+ SeqScan(a) */
+```
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
+Example:
+```sql
+  /*+
+      HashJoin(a b)
+      SeqScan(a)
+    */
+    SELECT *
+      FROM pgbench_branches b
+      JOIN pgbench_accounts a ON b.bid = a.bid
+     ORDER BY a.aid;
+```
+The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
 ## Next steps
 
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

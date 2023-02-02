@@ -80,20 +80,17 @@ To assign session hosts VMs permissions for the storage account and file share:
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
-7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Reader role.
+7. Assign the synced AD DS group the Storage File Data SMB Share Reader role on the storage account .
 
 8. Mount the file share to any session host by following the instructions in [Part two: assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
-9. Grant NTFS permissions on the file share to the AD DS group.
-
-10. Set up NTFS permissions for the user accounts. You'll need an organizational unit (OU) sourced from the AD DS that the accounts in the VM belong to.
-
-Ensure your session hosts VMs have **Modify** NTFS permissions. You must have an OU container that's sourced from Active Directory Domain Services (AD DS), and your users must be members of that OU to use these permissions.
+9. Grant **Modify** NTFS permissions on the file share to the AD DS group.
 
 ## Next steps
 
 Once you're finished, here are some other resources you might find helpful:
 
+- [Add and publish MSIX app attach packages with the Azure portal](app-attach-azure-portal.md)
 - Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [MSIX app attach glossary](app-attach-glossary.md)

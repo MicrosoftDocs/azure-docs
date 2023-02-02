@@ -286,7 +286,7 @@ To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, s
 
 ```
 InsightsMetrics 
-| where Namespace == "prometheus"
+| where Namespace contains "prometheus"
 | extend tags=parse_json(Tags)
 | summarize count() by Name
 ```
@@ -295,7 +295,7 @@ Prometheus data can also be directly queried by name.
 
 ```
 InsightsMetrics 
-| where Namespace == "prometheus"
+| where Namespace contains "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
 
