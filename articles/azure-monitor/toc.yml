@@ -794,7 +794,7 @@ items:
       - name: Failure anomalies
         href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: alerts/proactive-performance-diagnostics.md
+        href: alerts/smart-detection-performance.md
       - name: Trace degradation
         href: alerts/proactive-trace-severity.md
       - name: Exception volume
