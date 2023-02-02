@@ -11,7 +11,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Azure Key Vault secret client library for JavaScript (version 4)
+# Quickstart: Azure Key Vault secret client library for JavaScript
 
 Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 
@@ -112,7 +112,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ---
 
 
-### Authenticate and create a client
+## Authenticate and create a client
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
@@ -140,10 +140,6 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```javascript
     const { SecretClient } = require("@azure/keyvault-secrets");
     const { DefaultAzureCredential } = require("@azure/identity");
-    
-    // Load the .env file if it exists
-    const dotenv = require("dotenv");
-    dotenv.config();
     
     async function main() {
       // If you're using MSI, DefaultAzureCredential should "just work".
