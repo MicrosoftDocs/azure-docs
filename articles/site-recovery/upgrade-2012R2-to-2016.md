@@ -56,7 +56,7 @@ The following steps apply to the user configuration from [Hyper-V hosts to Azure
 > As mentioned in the prerequisites, these steps apply only to a clustered environment scenario and not in a standalone Hyper-V host configuration.
 
 1. Follow the [steps to perform the rolling cluster upgrade](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process).
-2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps]. This should be the host that you chose to drain and evict from the cluster.
+2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps](azure/site-recovery/site-recovery-manage-registration-and-protection). This should be the host that you chose to drain and evict from the cluster.
 3. Run the `Update-VMVersion` command for all virtual machines to complete the upgrades.
 4. [Use these steps](./hyper-v-azure-tutorial.md#source-settings) to register the new Windows Server 2016 host to Azure Site Recovery. Note that the Hyper-V site is already active and you just need to register the new host in the cluster.
 5. Go to the Azure portal and verify the replicated health status inside the Recovery Services vault.
@@ -81,7 +81,7 @@ Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade VMM 20
 4. [Install VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#install-vmm-2016).
 5. Open VMM and check the status of each host under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see a status of **Needs Attention**.
 6. [Install the latest Azure Site Recovery provider (direct download)](https://aka.ms/downloaddra) on VMM.
-7. Install the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure that VMM can successfully query the hosts.
+7. Install the latest [Microsoft Azure Recovery Services (MARS) agent (direct download)](https://aka.ms/azurebackup_agent) on each host of the cluster. Refresh to ensure that VMM can successfully query the hosts.
 
 ## Upgrade Windows Server 2012 R2 hosts to Windows Server 2016
 
@@ -100,7 +100,7 @@ Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade VMM 20
 2. Follow [these steps](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#upgrade-a-standalone-vmm-server) based on the mode of upgrade that you want to execute.
 3. Open the VMM console and check the status of each host under the **Fabrics** tab. Select **Refresh** to get the most recent status. You should see a status of **Needs Attention**.
 4. [Install the latest Azure Site Recovery provider (direct download)](https://aka.ms/downloaddra) on VMM.
-5. Update the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure that VMM can successfully query the hosts.
+5. Update the latest [MARS agent (direct download)](https://aka.ms/azurebackup_agent) on each host of the cluster. Refresh to ensure that VMM can successfully query the hosts.
 
 ### Upgrade Windows Server 2012 R2 hosts to Windows Server 2016
 
