@@ -38,7 +38,7 @@ If you don't have an API Management service instance, complete the following qui
     -   **Approaching subscription quota limit** - The specified email recipients and users will receive email notifications when subscription usage gets close to usage quota.
 
         > [!NOTE]
-        > Notifications are triggered by the [quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) policy only. The [quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) policy doesn't generate notifications.
+        > Notifications are triggered by the [quota by subscription](quota-policy.md) policy only. The [quota by key](quota-by-key-policy.md) policy doesn't generate notifications.
 
 1. Select a notification, and specify one or more email addresses to be notified:
     * To add the administrator email address, select **+ Add admin**.

@@ -74,6 +74,8 @@ After you create your ITSM connection, use the ITSM action in action groups to c
 
 Certain work item types can use templates that you define in ServiceNow. When you use templates, you can define fields that will be automatically populated by using constant values defined in ServiceNow (not values from the payload). The templates are synced with Azure. You can define which template you want to use as a part of the definition of an action group. For information about how to create templates, see the [ServiceNow documentation](https://docs.servicenow.com/en-US/bundle/tokyo-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
 
+### Create ITSM work items
+
 To create an action group:
 
 1. In the Azure portal, select **Monitor** > **Alerts**.
@@ -131,6 +133,8 @@ When you create or edit an Azure alert rule, use an action group, which has an I
 > * The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
 >
 > * In case you have policies for inbound traffic for your ServiceNow instances, add ActionGroup service tag to allowList.
+> 
+> * Notice that when you are defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping will enable to map the configuration items to the ITSM payload
 
 ## Next steps
 

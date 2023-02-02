@@ -4,10 +4,10 @@ description: Learn how to access information about your customers, including gro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
+author: saurabhsharmaa
+ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 05/05/2022
+ms.date: 12/23/2022
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -99,7 +99,7 @@ These filters are applied at the Customers page level. Select multiple filters t
 The page has dashboard-level filters for the following:
 
 - Sales Channel
-- Marketplace Subscription Id
+- Marketplace Subscription ID
 - Customer Id
 - Customer Name
 - Customer Company Name
@@ -142,14 +142,14 @@ This chart has tabs for Orders, Normalized usage, and Raw usage. Select **Orders
 ![Screenshot showing the Orders tab on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customers-by-orders-usage.png)
 
 - The Leader board presents details of the customers ranked by order count. After selecting a customer, the customer details are presented in the adjoining “Details”, “Orders by SKUs” and “SKUs by Seats” sections.
-- The Customer profile details are displayed in this space when publishers are signed in with an owner role. If publishers are signed in with a contributor role, the details in this section will not be available.
+- The Customer profile details are displayed in this space when publishers are signed in with an owner role. If publishers are signed in with a contributor role, the details in this section won't be available.
 - The **Orders by SKUs** donut chart displays the breakdown of orders purchased for plans. The top five plans with the highest order count are displayed, while the rest of the orders are grouped under **Rest all**.
 - The **SKUs by Seats** donut chart displays the breakdown of seats ordered for plans. The top five plans with the highest seats are displayed, while the rest of the orders are grouped under **Rest All**.
 
 Select **Normalized usage** or **Raw usage** for those views.
 
 - The Leader board presents details of the customers ranked by usage hours count. After selecting a customer, the details of the customer are presented in the adjoining “Details”, “Normalized Usage by offers” and “Normalized Usage by virtual machine (VM) Size(s)” section.
-- The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.
+- The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section won't be available.
 - The **Normalized usage by Offers** donut chart displays the breakdown of usage consumed by the offers. The top five plans with the highest usage count are displayed, while the rest of the offers are grouped under **Rest All**.
 - The **Normalized usage by VM Size(s)** donut chart displays the breakdown of usage consumed by different VM Size(s). The top five VM Sizes with the highest normalized usage are displayed, while the rest of the usage is grouped under **Rest All**.
 
@@ -195,11 +195,11 @@ The **Customer details** table displays a numbered list of the top 1,000 custome
 
 ![Screenshot showing the Customer Details table on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customer-details-table.png)
 
-- Customer personal information will only be available if the customer has provided consent. You can only view this information if you have signed in with an owner role level of permissions.
+- Customer personal information will only be available if the customer has provided consent. You can only view this information if you've signed in with an owner role level of permissions.
 - Each column in the grid is sortable.
 - The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000.
 - If records number is more than 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Apply filters to the table to display only the data you are interested in. Filter data by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
+- Apply filters to the table to display only the data you're interested in. Filter data by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
 - When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
 - Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or Microsoft AppSource transaction level.
 
@@ -209,7 +209,7 @@ _**Table 1: Dictionary of data terms**_
 
 | Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
 | ------------ | ------------- | ------------- | ------------- |
-| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | MarketplaceSubscriptionId |
+| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases don't require an Azure subscription. | MarketplaceSubscriptionId |
 | DateAcquired | Date Acquired | The first date the customer purchased any offer you published. | DateAcquired |
 | DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. | DateLost |
 | Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderName |
@@ -223,7 +223,7 @@ _**Table 1: Dictionary of data terms**_
 | CustomerCommunicationCulture | Customer Communication Language | The language preferred by the customer for communication. | CustomerCommunicationCulture |
 | CustomerCountryRegion | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountryRegion |
 | AzureLicenseType | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the _channel_. The possible values are:<br>- Cloud Solution Provider<br>- Enterprise<br>- Enterprise through Reseller<br>- Pay as You Go | AzureLicenseType |
-| PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we are not presenting the option to customers, so we have indicated "No" across the board. After this feature is deployed, we will start updating accordingly. | PromotionalCustomers |
+| PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we aren't presenting the option to customers, so we've indicated "No" across the board. After this feature is deployed, we'll start updating accordingly. | PromotionalCustomers |
 | CustomerState | Customer State | The state of residence provided by the customer. State could be different than the state provided in a customer's Azure subscription. | CustomerState |
 | CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. | CommerceRootCustomer |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
@@ -233,6 +233,14 @@ _**Table 1: Dictionary of data terms**_
 | PlanID | PlanID | The display name of the plan entered when the offer was created in Partner Center | PlanID |
 | SKU | SKU | The plan associated with the offer | SKU |
 | N/A | lastModifiedAt | The latest timestamp for customer purchases. Use this field, via programmatic API access, to pull the latest snapshot of all customer purchase transactions since a specific date | lastModifiedAt |
+|	N/A	|	AddressLine1	|	The Address Line 1 section of customer’s street address	|	AddressLine1	|
+|	N/A	|	Billing Id  	|	The Billing Id of the enterprise customer	|	Billing Id  	|
+|	N/A	|	Private Offer Id  	|	The Id to identify a private marketplace offer	|	Private Offer Id  	|
+|	N/A	|	Private Offer Name  	|	The name provided during private offer creation	|	Private Offer Name  	|
+|	N/A	|	Purchaser Email  	|	Email of the entity purchasing or provisioning an offer. This could be same or different than the email of “bill-to” entity	|	Purchaser Email  	|
+|	N/A	|	ReferenceId	|	A unique identifier to indicate provisioned instances or purchased offers by the customer. This key can be used to link with Orders and Usage report  	|	ReferenceId	|
+|	Offer Id  	|	Offer Id  	|	The Id to identify a marketplace offer	|	OfferId  	|
+|	Is Private Plan  	|	Is Private Plan  	|	Indicates whether a marketplace offer is private plan. <li> 0 value indicates false </li> <li> 1 value indicates true </li>	|	IsPrivatePlan  	|
 
 ## Next steps
 

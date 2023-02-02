@@ -5,12 +5,12 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 10/28/2022
+ms.date: 01/26/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Change feed support in Azure Blob Storage
@@ -64,6 +64,17 @@ Enable change feed on your storage account by using Azure portal:
 1. Choose the **Save** button to confirm your data protection settings.
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
+
+### [Azure CLI](#tab/azure-cli)
+
+Enable change feed on a storage account by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command with the `--enable-change-feed` parameter:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --enable-change-feed
+```
 
 ### [PowerShell](#tab/azure-powershell)
 

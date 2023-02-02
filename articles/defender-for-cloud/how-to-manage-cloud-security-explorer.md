@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 11/08/2022
+ms.date: 01/24/2023
 ---
 
 # Cloud security explorer

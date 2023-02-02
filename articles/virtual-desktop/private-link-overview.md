@@ -3,7 +3,7 @@ title: Use Azure Private Link with Azure Virtual Desktop preview - Azure
 description: Learn how Azure Private Link (preview) can help you keep network traffic private.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 12/06/2022
 ms.author: helohr
 manager: femila
 ---
@@ -43,6 +43,10 @@ When adding Private Link, you can connect to Azure Virtual Desktop in the follow
 ## Public preview limitations
 
 The public preview of using Private Link with Azure Virtual Desktop has the following limitations:
+
+- You'll need to [re-register your resource provider](private-link-setup.md#re-register-your-resource-provider) in order to use Private Link.
+
+- You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
 
 - All Azure Virtual Desktop clients are compatible with Private Link, but we currently only offer troubleshooting support for the web client version of Private Link.
 

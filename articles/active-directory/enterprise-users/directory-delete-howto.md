@@ -132,12 +132,14 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
     >
     > Before you proceed, verify that you're connected to the tenant that you want to delete with the MSOnline module. We recommend that you run the `Get-MsolDomain` command to confirm that you're connected to the correct tenant ID and `onmicrosoft.com` domain.
 
-5. Run the following command to set the tenant context: 
+5. Run the following commands to set the tenant context.  DO NOT skip these steps or you run the risk of deleting enterprise apps from the wrong teant.
 
+   `Clear-AzContext -Scope CurrentUser`
    `Connect-AzAccount -Tenant \<object id of the tenant you are attempting to delete\>`
+   `Get-AzContext`
 
     >[!WARNING]
-    > Before you proceed, verify that you're connected to the tenant that you want to delete with the Az PowerShell module. We recommend that you run the `Get-AzContext` command to check the connected tenant ID and `onmicrosoft.com` domain.
+    > Before you proceed, verify that you're connected to the tenant that you want to delete with the Az PowerShell module. We recommend that you run the `Get-AzContext` command to check the connected tenant ID and `onmicrosoft.com` domain.  Do NOT skip the above steps or you run the risk of deleting enterprise apps from the wrong tenant.
 
 6. Run the following command to remove any enterprise apps that you can't delete:
 

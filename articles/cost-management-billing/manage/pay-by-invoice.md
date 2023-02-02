@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 01/09/2023
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -97,7 +97,11 @@ If you're not automatically approved, you can submit a request to Azure support 
     - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
 1. Verify your contact information and preferred contact method, and then select **Create**.
 
-¹ If you don't know your Commerce Account ID, it's the GUID ID shown on the Properties page for your billing account. To view your Commerce Account ID in the Azure portal, navigate to **Cost Management** > select a billing scope > in the left menu, select **Properties**. On the billing scope Properties page, notice the GUID ID value. It's your Commerce Account ID.
+¹ If you don't know your Commerce Account ID, it's the GUID ID shown on the Properties page for your billing account. To view it in the Azure portal:
+
+  1. Go to the Azure home page. Search for **Cost Management** and select it (not Cost Management + Billing). It's a green hexagon-shaped symbol. 
+  1. You should see the overview page. If you don't see Properties in the left menu, at the top of the page under Scope, select **Go to billing account**. 
+  1. In the left menu, select **Properties**. On the properties page you should see your billing account ID shown as a GUID ID value. It's your Commerce Account ID.
 
 If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application. We might ask you to provide your company’s audited financial statements. If no financial information is provided or if the information isn't strong enough to support the amount of credit limit required, we might ask for a security deposit or a standby letter of credit to approve your credit check request.
 

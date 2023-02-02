@@ -301,7 +301,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-## Category: IP
+## Category: IP Address
 
 This category contains the following entity:
 
@@ -309,7 +309,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
@@ -317,7 +317,7 @@ This category contains the following entity:
 
         Network IP addresses. Returned as both PII and PHI.
 
-        To get this entity category, add `IP` to the `piiCategories` parameter. `IP` will be returned in the API response if detected.
+        To get this entity category, add `IPAddress` to the `piiCategories` parameter. `IPAddress` will be returned in the API response if detected.
       
     :::column-end:::
 

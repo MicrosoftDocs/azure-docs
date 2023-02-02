@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/01/2022
+ms.date: 12/21/2022
 ms.author: cynthn
 ms.custom: mvc, mode-ui
 ---
@@ -87,11 +87,27 @@ ssh -i ~/Downloads/myKey.pem azureuser@10.111.12.123
 
 To see your VM in action, install the NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
 
+# [Ubuntu](#tab/ubuntu)
+
 ```bash
 sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
+# [Suse Linux](#tab/SLES)
+
+```bash
+sudo zypper --non-interactive update
+sudo zypper --non-interactive install nginx
+```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+```bash
+sudo dnf update
+sudo dnf install nginx
+```
+---
 When done, type `exit` to leave the SSH session.
 
 

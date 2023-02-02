@@ -35,7 +35,7 @@ These connectivity modes essentially condition the route that data plane request
 
 ## Service port ranges
 
-When you use direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. When using direct mode on [private endpoints](../how-to-configure-private-endpoints.md), the full range of TCP ports - from 0 to 65535 should be open. If these ports aren't open and you try to use the TCP protocol, you might receive a 503 Service Unavailable error.
+When you use direct mode, you need to ensure that your client can access ports ranging between 10000 and 20000 because Azure Cosmos DB uses dynamic TCP ports. This is in addition to the gateway ports. When using direct mode on [private endpoints](../how-to-configure-private-endpoints.md), the full range of TCP ports - from 0 to 65535 may be used by Azure Cosmos DB. If these ports aren't open on your client and you try to use the TCP protocol, you might receive a 503 Service Unavailable error.
 
 The following table shows a summary of the connectivity modes available for various APIs and the service ports used for each API:
 

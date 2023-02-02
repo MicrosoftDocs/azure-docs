@@ -31,7 +31,7 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 |---|---|---|---|---|---|
 | .NET - IoT Hub service | [NuGet 1.38.1](https://www.nuget.org/packages/Microsoft.Azure.Devices ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/solutions/PnpServiceSamples) | N/A | [Reference](/dotnet/api/microsoft.azure.devices) |
 | Java - IoT Hub service | [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples/pnp-service-sample) | N/A | [Reference](/java/api/com.microsoft.azure.sdk.iot.service) |
-| Node - IoT Hub service | [npm 1.13.0](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/service/samples) | N/A | [Reference](/javascript/api/azure-iothub/) |
+| Node - IoT Hub service | [npm 1.13.0](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) | N/A | [Reference](/javascript/api/azure-iothub/) |
 | Python - IoT Hub service | [pip 2.2.3](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-hub-python) | [Samples](https://github.com/Azure/azure-iot-hub-python/tree/main/samples) | N/A | [Reference](/python/api/azure-iot-hub/) |
 
 ## Next steps

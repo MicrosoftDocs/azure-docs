@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

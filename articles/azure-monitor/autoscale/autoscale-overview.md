@@ -42,7 +42,7 @@ In contrast, scaling up and down, or vertical scaling, keeps the number of resou
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.
 
-### Predictive autoscale (preview)
+### Predictive autoscale
 
 [Predictive autoscale](./autoscale-predictive.md) uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load on your Virtual Machine Scale Set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
 
