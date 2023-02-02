@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision Image Analysis 4.0 SDK public preview
 
-Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes an updated image captioning model.
+Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning model that achieved human parity performance.
 
 ## October 2022
 
