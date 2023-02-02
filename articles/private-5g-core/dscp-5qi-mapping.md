@@ -12,6 +12,8 @@ ms.date: 01/27/2023
 
 Azure Private 5G Core will attempt to configure DSCP markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. This article details the mapping of 5QI to DSCP values that Azure Private 5G Core uses for transport level marking.
 
+Azure Private 5G Core performs 5QI to DSCP mapping on downlink (user plane access interface) packets. Uplink (user plane data interface) packets are left unchanged.
+
 For standard DSCP values, see RFC 2474.
 
 ## GBR 5QIs
