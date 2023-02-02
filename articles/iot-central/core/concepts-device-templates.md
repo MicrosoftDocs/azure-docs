@@ -45,7 +45,7 @@ IoT Central can automatically assign a device to a device template when the devi
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
-:::image type="content" source="media/concepts-device-templates/model-id.png" alt-text="Screenshot showing model I D in thermostat device template.":::
+:::image type="content" source="media/concepts-device-templates/model-id.png" alt-text="Screenshot showing model ID in thermostat device template." lightbox="media/concepts-device-templates/model-id.png":::
 
 You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) in the public model repository. The model ID definition looks like:
 

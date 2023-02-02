@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 04/29/2022
+ms.date: 11/04/2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 

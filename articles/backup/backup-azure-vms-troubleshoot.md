@@ -3,10 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/20/2022
-author: v-amallick
+ms.date: 12/23/2022
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -462,7 +462,7 @@ To resolve this issue:
 
 **Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.  
 
-**Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore.
+**Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should register the Subscription to Recovery Services Resource Provider.
  
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
 
@@ -479,6 +479,14 @@ To resolve this issue:
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 
 **Resolution**: Use the same subscription for Restore of Trusted Launch Azure VMs. 
+
+### UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error code**: UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.
+
+**Recommended action**: Ensure that the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should typically register the Subscription to Recovery Services vault Provider.
 
 ## Backup or restore takes time
 
@@ -533,6 +541,9 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
+
+  >[!Note]
+  >From December 12, 2022, Azure VM backup automatically sets the registry key in the existing protected Azure VMs that are registered as SQL VMs. Now, you don't need  to explicitly set this registry key. This ensures that snapshots aren't delayed and any log chains managed by other backup products are also not broken. Azure VM backup now also set the registry key in any new SQL VMs automatically during the configuration of backup.
 
 * **VM status is reported incorrectly because the VM is shut down in RDP**. If you used the remote desktop to shut down the virtual machine, verify that the VM status in the portal is correct. If the status isn't correct, use the **Shutdown** option in the portal VM dashboard to shut down the VM.
 * **If more than four VMs share the same cloud service, spread the VMs across multiple backup policies**. Stagger the backup times, so no more than four VM backups start at the same time. Try to separate the start times in the policies by at least an hour.

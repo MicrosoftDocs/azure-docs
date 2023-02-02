@@ -3,7 +3,8 @@ title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 09/29/2021
+ms.date: 10/27/2022
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud
@@ -15,7 +16,7 @@ You use vCenter Server and NSX-T Manager to manage most other aspects of cluster
 >[!TIP]
 >You can always extend the cluster and add more clusters later if you need to go beyond the initial deployment number.
 
-Because Azure VMware Solution doesn't allow you to manage your private cloud with your cloud vCenter Server at launch, you'll need to do additional steps for the configuration. This tutorial covers these steps and related prerequisites.
+Because Azure VMware Solution doesn't allow you to manage your private cloud with your cloud vCenter Server at launch, you'll need to do more steps for the configuration. This tutorial covers these steps and related prerequisites.
 
 In this tutorial, you'll learn how to:
 
@@ -44,7 +45,6 @@ In this tutorial, you've learned how to:
 > * Delete an Azure VMware Solution private cloud
 
 Continue to the next tutorial to learn how to create a jump box. You use the jump box to connect to your environment to manage your private cloud locally.
-
 
 > [!div class="nextstepaction"]
 > [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md)

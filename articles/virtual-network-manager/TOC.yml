@@ -77,6 +77,8 @@
     items:
     - name: Configure cross-tenant connection - Portal
       href: how-to-configure-cross-tenant-portal.md
+    - name: Configure cross-tenant connection - CLI
+      href: how-to-configure-cross-tenant-cli.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy

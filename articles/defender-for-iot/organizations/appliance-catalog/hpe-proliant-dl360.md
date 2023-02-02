@@ -12,9 +12,9 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | C5600  |
-|**Performance** | Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
+|**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, Available preconfigured|
+|**Status** | Supported, available pre-configured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
@@ -72,9 +72,9 @@ Optional modules for port expansion include:
 | **PCI Slot 1 (Low profile)**| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
 | **PCI Slot 1 (Low profile)**  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
 |**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
-|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|647594-B21 - HPE 1 GbE 4p BASE-T BCM5719 Adapter (FW 5719-v1.45 NCSI v1.3.12.0 )|
+|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|647594-B21 - HPE 1 GbE 4p BASE-T BCM5719 Adapter (FW 5719-v1.45 NCSI v1.3.12.0)|
 | **PCI Slot 2 (High profile)**|DP F/O NIC| 727055-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
-| **PCI Slot 2 (High profile)**|DP F/O NIC| P08421-B21 - HPE Ethernet 10Gb 2-port SFP+ BCM57414 Adapter (FW 214.4.9.6/pkg 214.0.286012)|
+| **PCI Slot 2 (High profile)**|DP F/O NIC| P08421-B21 - HPE Ethernet 10 Gb 2-port SFP+ BCM57414 Adapter (FW 214.4.9.6/pkg 214.0.286012)|
 | **PCI Slot 2 (High profile)**|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI (FW 10.57.3)|
 | **SFPs for Fiber Optic NICs**|MultiMode, Short Range| 455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 |**SFPs for Fiber Optic NICs**|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
@@ -90,7 +90,7 @@ This section describes how to install OT sensor software on the HPE ProLiant DL3
 During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access and update the password
@@ -147,25 +147,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 > For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
-### Install iLO remotely from a virtual drive
-
-This procedure describes how to install iLO software remotely from a virtual drive.
-
-**To install sensor software with iLO**:
-
-1. Sign in to the iLO console, and then right-click the servers' screen.
-
-1. Select **HTML5 Console**.
-
-1. In the console, select the CD icon, and choose the CD/DVD option.
-
-1. Select **Local ISO file**.
-
-1. In the dialog box, choose the D4IoT sensor installation ISO file.
-
-1. Go to the left icon, select **Power**, and the select **Reset**.
-
-1. The appliance will restart, and run the sensor installation process.
+[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
 ### Install OT sensor software on the HPE DL360
 

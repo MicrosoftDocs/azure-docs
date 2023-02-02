@@ -1,5 +1,5 @@
 ---
-title: Network Connections in Azure Storage Explorer | Microsoft Docs
+title: Network Connections in Azure Storage Explorer
 description: Documentation on connecting to your network in Azure Storage Explorer
 services: storage
 author: MRayermannMSFT

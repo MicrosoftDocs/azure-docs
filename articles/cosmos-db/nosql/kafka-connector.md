@@ -133,6 +133,7 @@ The source and sink connectors share the following common configuration properti
 | connect.cosmos.master.key | string | The Azure Cosmos DB primary key that the sink connects with. | Required |
 | connect.cosmos.databasename | string | The name of the Azure Cosmos DB database the sink writes to. | Required |
 | connect.cosmos.containers.topicmap | string | Mapping between Kafka topics and Azure Cosmos DB containers. It is formatted using CSV as `topic#container,topic2#container2` | Required |
+| connect.cosmos.connection.gateway.enabled | boolean | Flag to indicate whether to use gateway mode. By default it is false. | Optional  |
 
 For sink connector-specific configuration, see the [Sink Connector Documentation](kafka-connector-sink.md)
 

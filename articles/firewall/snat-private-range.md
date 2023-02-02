@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 10/27/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -140,7 +140,7 @@ Azure Firewalls associated with a firewall policy have supported SNAT private ra
                     "tier": "Standard" 
                 }, 
                 "snat": { 
-                    "privateRanges": [255.255.255.255/32] 
+                    "privateRanges": "[255.255.255.255/32]" 
                 } 
             } 
 ```
@@ -155,7 +155,7 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
    The **Edit Private IP Prefixes** page opens:
 
-   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Edit private IP prefixes":::
+   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Screenshot of edit private IP prefixes.":::
 
 1. By default, **IANAPrivateRanges** is configured.
 2. Edit the private IP address ranges for your environment and then select **Save**.
@@ -164,10 +164,8 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 1.	Select your resource group, and then select your firewall policy.
 2.	Select **Private IP ranges (SNAT)** in the **Settings** column.
-
-    By default, **Use the default Azure Firewall Policy SNAT behavior** is selected. 
-3. To customize the SNAT configuration, clear the check box, and under **Perform SNAT** select the conditions to perform SNAT for your environment.
-      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Private IP ranges (SNAT)":::
+3. Select the conditions to perform SNAT for your environment under **Perform SNAT** to customize the SNAT configuration.
+      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Screenshot of Private IP ranges (SNAT)." lightbox="media/snat-private-range/private-ip-ranges-snat.png":::
 
 
 4.	 Select **Apply**.

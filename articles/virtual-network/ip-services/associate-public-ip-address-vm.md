@@ -8,9 +8,9 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/26/2022
+ms.date: 10/28/2022
 ms.author: allensu
-
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Associate a public IP address to a virtual machine

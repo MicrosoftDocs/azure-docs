@@ -36,13 +36,14 @@ You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azur
 ```yaml
 apiVersion: v1
 data:
+  username: <your base64 encoded username>
   password: <your base64 encoded password>
 kind: Secret
 metadata:
   name: pg1-login-secret
 type: Opaque
 ---
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta3
 kind: postgresql
 metadata:
   name: pg1

@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
+ms.reviewer: lagayhar
 ms.date:  05/10/2022
 ms.topic: how-to
 ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
@@ -114,6 +115,6 @@ In the example below take using CLI for example. If you want to learn more about
 
 ## Next steps
 
-- Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/pipeline/builder_function_samples/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
+- Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
 - Learn [how to use CLI v2 to create pipeline using components](how-to-create-component-pipelines-cli.md).
 - Learn [how to use SDK v2 to create pipeline using components](how-to-create-component-pipeline-python.md)

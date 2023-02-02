@@ -78,7 +78,7 @@ Make sure you have Azure Functions Core Tools installed.
 
         ```javascript
         var fs = require('fs').promises
-    
+
         module.exports = async function (context, req) {
             const path = context.executionContext.functionDirectory + '/../content/index.html'
             try {
@@ -90,7 +90,7 @@ Make sure you have Azure Functions Core Tools installed.
                     body: data
                 }
                 context.done()
-            } catch (error) {
+            } catch (err) {
                 context.log.error(err);
                 context.done(err);
             }
@@ -134,15 +134,15 @@ Make sure you have Azure Functions Core Tools installed.
           ]
         }
         ```
-  
+
     3. Create a `broadcast` function to broadcast messages to all clients. In the sample, we use a time trigger to broadcast messages periodically.
-  
+
         ```bash
         func new -n broadcast -t TimerTrigger
         ```
-  
+
         Open *broadcast/function.json* and copy the following code:
-  
+
         ```json
         {
           "bindings": [
@@ -162,15 +162,15 @@ Make sure you have Azure Functions Core Tools installed.
           ]
         }
         ```
-  
+
         Open *broadcast/index.js* and copy the following code:
-  
+
         ```javascript
         var https = require('https');
-        
+
         var etag = '';
         var star = 0;
-        
+
         module.exports = function (context) {
             var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
                 method: 'GET',
@@ -179,9 +179,9 @@ Make sure you have Azure Functions Core Tools installed.
                 if (res.headers['etag']) {
                     etag = res.headers['etag']
                 }
-        
+
                 var body = "";
-        
+
                 res.on('data', data => {
                     body += data;
                 });
@@ -190,7 +190,7 @@ Make sure you have Azure Functions Core Tools installed.
                         var jbody = JSON.parse(body);
                         star = jbody['stargazers_count'];
                     }
-                    
+
                     context.bindings.signalRMessages = [{
                         "target": "newMessage",
                         "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${star}` ]
@@ -213,7 +213,7 @@ Make sure you have Azure Functions Core Tools installed.
 
     ```html
     <html>
-    
+
     <body>
       <h1>Azure SignalR Serverless Sample</h1>
       <div id="messages"></div>
@@ -228,13 +228,18 @@ Make sure you have Azure Functions Core Tools installed.
           connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
           });
-    
+
           connection.start()
             .catch(console.error);
       </script>
     </body>
-    
+
     </html>
+    ```
+
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+    ```bash
+    func settings add AzureWebJobsStorage "<storage-connection-string>"
     ```
 
 4. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
@@ -244,15 +249,15 @@ Make sure you have Azure Functions Core Tools installed.
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
     1. Select **Keys** to view the connection strings for the SignalR Service instance.
-  
+
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
     1. Copy the primary connection string. And execute the command below.
-  
+
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
-  
+
 5. Run the Azure function in local host:
 
     ```bash
@@ -261,9 +266,6 @@ Make sure you have Azure Functions Core Tools installed.
 
     After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or "unstar" in GitHub, you'll see the star count refreshing every few seconds.
 
-    > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use local storage emulator when the function is running locally.
-    > If you got an error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 
