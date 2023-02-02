@@ -136,7 +136,7 @@ Before a private link service can be created in the virtual network, the setting
 
 * Disable the network policy with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork).
 
-```azurepowershell
+```azurepowershell-interactive
 ## Place the subnet name into a variable. ##
 $subnet = 'mySubnet'
 
@@ -162,7 +162,7 @@ In this section, create a private link service that uses the Standard Azure Load
 
 * Create the private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice).
 
-```azurepowershell
+```azurepowershell-interactive
 ## Place the virtual network into a variable. ##
 $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreatePrivLinkService-rg'
 
@@ -230,8 +230,6 @@ $vnetpe = New-AzVirtualNetwork @net
 * Use [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) to create the connection configuration.
 
 * Use [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) to create the endpoint.
-
-
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
@@ -312,7 +310,7 @@ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 
 ```powershell
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
-11.1.0.4
+10.1.0.4
 ```
 
 ## Clean up resources
