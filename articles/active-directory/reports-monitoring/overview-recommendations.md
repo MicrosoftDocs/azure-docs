@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/31/2023
+ms.date: 02/02/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory recommendations?
 
-Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure AD recommendations feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
+Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure Active Directory (Azure AD) recommendations feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
 
 The Azure AD recommendations feature provides you personalized insights with actionable guidance to:
 
@@ -32,7 +32,7 @@ This article gives you an overview of how you can use Azure AD recommendations. 
 
 ## What it is 
 
-Azure AD recommendations is the Azure AD specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage telemetry to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
+Azure AD recommendations is the Azure AD specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage data to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
 
 *Azure AD recommendations* uses similar data to support you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. Azure AD recommendations provide a holistic view into your tenant's security, health, and usage. 
  
@@ -40,7 +40,7 @@ Azure AD recommendations is the Azure AD specific implementation of [Azure Advis
 
 On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. Recommendations are listed in order of priority so you can quickly determine where to focus first. 
 
-Recommendations contain a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources that are associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
+Recommendations contain a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-preview-option-tenant-overview.png)
 
@@ -138,36 +138,37 @@ The recommendations listed in the following table are available to Azure AD tena
 
 Continue to monitor the recommendations in your tenant for changes.
 
-### Use the Microsoft Graph API with Azure Active Directory recommendations
+### Use the Microsoft Graph with Azure Active Directory recommendations
 
-Azure Active Directory recommendations can be viewed and managed using `/beta` Microsoft Graph APIs. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
+Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
 
-To get started, follow these instructions to list all your recommendations using the Microsoft Graph API in Graph Explorer:
+To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the Migrate apps from Active Directory Federated Services (ADFS) to Azure AD recommendation.
 
-1. Sign in to the [Graph Explorer](https://aka.ms/ge).
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to use the [List recommendations](/graph/api/directory-list-recommendation).
-1. 
+1. Add the following query to retrieve recommendations, then select **Run query**.
+
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations
     ```
 
-1. Select **Run query** to list any recommendations in your tenant.
-1. To view the details of a recommendation in the list, use the following API. The example is using the [Convert from per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) recommendation as an example.
-1. 
+1. To view the details of a specific `recommendationType`, use the following API. The example retrieves the "thing".
+
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'
     ```
 
-1. To view the impacted resources for the recommendation, find the response object `id` and enter it into the following API:
-1. 
+1. To view the impacted resources for a specific recommendation, expand the `impactedResources` relationship.
+
     ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=id eq '0cb31920-84b9-471f-a6fb-468c1a847088_Microsoft.Identity.IAM.Insights.switchFromPerUserMFA'&$expand=impactedResources
+    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'&$expand=impactedResources
     ```
+
+For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendation).
+
 ## Next steps
 
 * [Learn more about Microsoft Graph](/graph/overview)
-* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
 * [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Send logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
