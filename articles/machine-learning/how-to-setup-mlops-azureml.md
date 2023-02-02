@@ -17,7 +17,7 @@ ms.custom: cli-v2, sdk-v2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning allows you to integration with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
+Azure Machine Learning allows you to integrate with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
 * Deployment of AzureML infrastructure
 * Data preparation (extract, transform, load operations)
@@ -94,7 +94,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
     }
     ```
 
-1. Repeat **Step 3.** if you're creating service principals for Dev and Prod environments.
+1. Repeat **Step 3.** if you're creating service principals for Dev and Prod environments. For this demo, we will be creating only one environment which is Prod.
 
 1. Close the Cloud Shell once the service principals are created. 
       
@@ -146,9 +146,9 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
      - **Tenant ID** - Use the `tenant` from **Step 1.** output as the Tenant ID
 
 
-6. Name the service connection **Azure-ARM-Dev**.  
+6. Name the service connection **Azure-ARM-Prod**.  
  
-7. Select **Grant access permission to all pipelines**, then select **Verify and Save**. Repeat this step to create another service connection **Azure-ARM-Prod** using the details of the Prod service principal created in **Step 1.**
+7. Select **Grant access permission to all pipelines**, then select **Verify and Save**. 
 
 The Azure DevOps setup is successfully finished.
 
@@ -163,18 +163,6 @@ The Azure DevOps setup is successfully finished.
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Click import at the bottom of the page
 
     ![Screenshot of ADO import MLOps demo repo.](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
-
-
-1. Open the Repos section. Click on the default repo name at the top of the screen and select Import Repository
-
-    ![Screenshot of ADO import repo.](./media/how-to-setup-mlops-azureml/ado-import-repo.png)
-
-1. Enter https://github.com/Azure/mlops-templates into the Clone URL field. Click import at the bottom of the page
-
-    ![Screenshot of ADO import MLOps template repo.](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
-
-    > [!TIP]
-    > Learn more about the MLOps v2 accelerator structure and the MLOps [template](https://github.com/Azure/mlops-v2/)
 
 1. Open the **Project settings** at the bottom of the left hand navigation pane
 
@@ -202,7 +190,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 > Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
 ### Run Azure infrastructure pipeline
-1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`. Make sure you have the `main` branch selected and then select the **config-infra-dev.yml** file.
+1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`, and please select the **config-infra-prod.yml** file.
    
    ![Screenshot of Repo in ADO.](./media/how-to-setup-mlops-azureml/ADO-repo.png)
    
@@ -217,8 +205,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    > If you are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
 
 1. Click Commit and push code to get these values into the pipeline. 
-
-1. Repeat this step for **config-infra-prod.yml** file.
 
 1. Go to Pipelines section 
    
@@ -239,12 +225,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
    
-1. Select `main` as a branch and choose based on your deployment method your preferred yml path. 
-    - For a terraform scenario, choose `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
-    - For a bicep scenario, choose `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
-
-> [!CAUTION]
-> For this example, make sure the [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) is installed.
+1. Select your working branch (or the `main` branch) and choose `mlops/devops-pipelines/cli-ado-deploy-infra.yml`, then select **Continue**. 
 
 1. Run the pipeline; it will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
@@ -325,15 +306,9 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
-1. Select `main` as a branch and choose:
-        
-      - For Managed Batch Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
-      
-      - For Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml`
-      
-   Then select **Continue**.  
+1. Select `main` as a branch and choose Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml` then select **Continue**.  
    
-1. Batch/Online endpoint names need to be unique, so change **[your endpoint-name]** to another unique name and then select **Run**.
+1. Online endpoint names need to be unique, so change **[your endpoint-name]** to another unique name and then select **Run**. No need to change the default if it does not fail.
 
    ![Screenshot of ADO batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
