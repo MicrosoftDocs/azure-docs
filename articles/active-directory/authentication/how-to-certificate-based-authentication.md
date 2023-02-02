@@ -129,6 +129,9 @@ For more information, see [Understanding the certificate revocation process](./c
 
 ## Step 2: Enable CBA on the tenant
 
+>[!IMPORTANT]
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
