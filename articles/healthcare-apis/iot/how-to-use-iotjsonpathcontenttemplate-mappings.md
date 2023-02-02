@@ -11,7 +11,7 @@ ms.author: jasteppe
 
 # How to use IotJsonPathContentTemplate mappings
 
-This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-configure-device-mappings.md).
+This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mappings](how-to-configure-device-mappings.md).
 
 ## IotJsonPathContentTemplate
 
@@ -33,7 +33,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 With each of these examples, you're provided with:
  * A valid device message.
- * An example of what the IoT device message will look like after being received and processed by the IoT hub.
+ * An example of what the device message will look like after being received and processed by the IoT hub.
  * Conforming and valid MedTech service device mappings for normalizing the device message after IoT hub processing.
  * An example of what the MedTech service device message will look like after normalization.
 
