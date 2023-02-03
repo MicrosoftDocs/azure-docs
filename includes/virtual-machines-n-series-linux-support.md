@@ -36,7 +36,7 @@ The GRID drivers redistributed by Azure do not work on most non-NV series VMs li
 
 > [!Note]
 >The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. 
->Ubuntu 20.04 is not yet supported on Azure NVads A10 v5 VMs
+>Ubuntu 20.04 and vGPU 15.1 support on NVads A10 v5 VMs is expected by March 2023.
 
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.
