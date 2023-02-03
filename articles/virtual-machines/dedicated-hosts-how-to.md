@@ -178,6 +178,7 @@ If you set a fault domain count for your host group, you'll need to specify the 
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGroup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.
+1. Leave the **Automatically replace host on failure** setting *Enabled* to automatically service heal the host in case of any host level failure.
 1. When you're done, select **Review + create** and wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host.
 
@@ -191,6 +192,7 @@ az vm host create \
    --name myHost \
    --sku DSv3-Type1 \
    --platform-fault-domain 1 \
+   --auto-replace true \
    -g myDHResourceGroup
 ```
 
@@ -205,7 +207,7 @@ $dHost = New-AzHost `
    -Location $location -Name myHost `
    -ResourceGroupName $rgName `
    -Sku DSv3-Type1 `
-   -AutoReplaceOnFailure 1 `
+   -AutoReplaceOnFailure True `
    -PlatformFaultDomain 1
 ```
 

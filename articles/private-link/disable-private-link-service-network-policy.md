@@ -50,11 +50,11 @@ $vnet | Set-AzVirtualNetwork
 This section describes how to disable subnet private endpoint policies using Azure CLI.
 
 ```azurecli
-az network vnet subnet update \ 
-    --name default \ 
-    --resource-group myResourceGroup \ 
-    --vnet-name myVNet \ 
-    --disable-private-link-service-network-policies true 
+az network vnet subnet update \
+    --name default \
+    --vnet-name MyVnet \
+    --resource-group myResourceGroup \
+    --disable-private-link-service-network-policies yes
 ```
 
 # [**JSON**](#tab/private-link-network-policy-json)
