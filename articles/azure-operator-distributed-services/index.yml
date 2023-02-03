@@ -22,10 +22,10 @@ landingContent:
   # Card
   - title: AODS Overview
     linkLists:
-#     - linkListType: overview
-#       links:
-#          - text: What is Azure Operator Distributed Services?
-#            url: introduction.md
+     - linkListType: overview
+       links:
+          - text: What is Azure Operator Distributed Services?
+            url: introduction.md
       - linkListType: concept
 #       links:
 #          - text: Resource Types
