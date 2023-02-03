@@ -11,7 +11,7 @@ ms.custom: subject-reliability
 
 # Reliability guidance overview 
 
-Azure reliability guidance is a collection of service-specific reliability guides. Each guide can cover both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/reliability/overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json).
+Azure reliability guidance is a collection of service-specific reliability guides. Each guide can cover both intra-regional resiliency with [availability zones](availability-zones-overview.md#availability-zone-support) and information on [cross-region resiliency with disaster recovery](cross-region-replication-azure.md). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json).
 
 ## Azure services reliability guides
 
@@ -82,13 +82,13 @@ Azure reliability guidance is a collection of service-specific reliability guide
 
 
 > [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)|
+> [Azure services and regions with availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Availability of service by category](availability-service-by-category.md)|
+> [Availability of service by category](availability-service-by-category.md)
 
 > [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)|
+> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 
 > [!div class="nextstepaction"]
-> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)|
+> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
