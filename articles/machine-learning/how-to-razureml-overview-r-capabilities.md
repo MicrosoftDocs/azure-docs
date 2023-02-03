@@ -42,7 +42,7 @@ A typical workflow for using R with Azure Machine Learning:
     - Build an environment
     - Log job artifacts, parameters, tags and models
 
-- [Register your model](how-to-razureml-deploy-r-model.md#register-model) using Azure Machine Learning studio
+- [Register your model](how-to-razureml-train-model.md#register-model) using Azure Machine Learning studio
 - [Deploy registered R models](how-to-razureml-deploy-r-model.md) to managed online endpoints
     - Use the deployed endpoints for real-time inferencing/scoring
 
