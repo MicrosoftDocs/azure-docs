@@ -64,21 +64,16 @@ To enable run:
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-Restart waagengt service for 14.04
+Restart waagent service for 22.04
 
 ```bash
-initctl restart walinuxagent
+sudo service walinuxagent restart
 ```
 
-Restart waagent service for 16.04 / 17.04
-
-```bash
-systemctl restart walinuxagent.service
-```
 
 ## Red Hat / CentOS
 
-### RHEL/CentOS 6
+### RHEL/CentOS 7.9
 
 Check your current package version
 
@@ -167,12 +162,12 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 Restart the waagent service
 
 ```bash
-sudo systemctl restart waagent.service
+sudo systemctl restart waagent
 ```
 
 ## SUSE SLES
 
-### SUSE SLES 11 SP4
+### SUSE SLES 15 SP4
 
 Check your current package version
 
@@ -215,7 +210,7 @@ Restart the waagent service
 sudo /etc/init.d/waagent restart
 ```
 
-### SUSE SLES 12 SP2
+### SUSE SLES 12 SP5
 
 Check your current package version
 
@@ -262,7 +257,7 @@ sudo systemctl restart waagent.service
 
 ## Debian
 
-### Debian 7 “Jesse”/ Debian 7 "Stretch"
+### Debian 11 "bullseye"
 
 Check your current package version
 
@@ -285,7 +280,7 @@ sudo apt-get install waagent
 Enable agent auto update
 This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available for it. The output from the above command will show you if the package is up-to-date.
 
-### Debian 8 “Jessie” / Debian 9 “Stretch”
+### Debian 9 “Stretch” / Debian 10 “buster”
 
 Check your current package version
 
