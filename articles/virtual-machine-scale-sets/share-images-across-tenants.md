@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 ---
 # Share images across tenants with Azure Compute Gallery
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](../includes/virtual-machines-share-images-across-tenants.md)]
 
 ## Create a scale set using Azure CLI
 

@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 02/02/2023
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli devx-track-azurepowershell
 author: sandeepraichura
@@ -13,9 +13,9 @@ ms.author: saraic
 ---
 # Share gallery VM images across Azure tenants using an app registration and the Azure CLI
 
-With Azure Compute Galleries, you can share an image to another organization by using an app registration. For more information about other sharig options, see the [Share the gallery](./share-gallery.md).
+With Azure Compute Galleries, you can share an image to another organization by using an app registration. For more information about other sharing options, see the [Share the gallery](./share-gallery.md).
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](./includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
 > You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or PowerShell.
@@ -28,25 +28,32 @@ Select a tool below for creating the VM.
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 
 ```azurecli-interactive
+
+tenant1='<ID for tenant 1>'
+tenant2='<ID for tenant 2>'
+appid='<client ID of the app registration>'
+secret=
+
 az account clear
-az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>'
+az login --service-principal -u $appid -p $secret --tenant $tenant1
 az account get-access-token 
 ```
  
 Sign in the service principal for tenant 2 using the appID, the app key, and the ID of tenant 2:
 
 ```azurecli-interactive
-az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
+az login --service-principal -u $appid -p secret --tenant $tenant2
 az account get-access-token
 ```
 
 Create the VM. Replace the information in the example with your own.
 
 ```azurecli-interactive
+imageid="<ID of the image that you want to use>"
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>" \
+  --image $imageid \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Share images using a community gallery (preview)
 
-To share a gallery with all Azure users, you can create a community gallery (preview). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a [community gallery (preview)](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
 Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md#community). In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
@@ -127,6 +127,35 @@ When you're ready to make the gallery public:
 To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
 
 To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
+
+## Community-shared images FAQ
+
+**Q: What are the charges for using a gallery that is shared to the community?**
+
+**A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
+- Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
+- Network egress charges for replication across regions.
+
+**Q: Is it safe to use images shared to the community?**
+
+**A**: Users should exercise caution while using images from non-verified sources, since these images are not subject to Azure certification.  
+
+**Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
+
+**A**: Azure is not responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
+
+
+**Q: I have concerns about an image, who do I contact?**
+
+**A**: For issues with images shared to the community:
+- To report malicious images, contact [Abuse Report](https://msrc.microsoft.com/report/abuse). 
+- To report images that potentially violate intellectual property rights, contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+ 
+
+**Q: How do I request that an image shared to the community be replicated to a specific region?**
+
+**A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
+
 
 ## Next steps
 
