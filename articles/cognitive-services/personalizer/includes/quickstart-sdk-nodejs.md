@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
-ms.date: 08/27/2020
+ms.date: 02/02/2023
 ---
 
 You'll need to install the Personalizer client library forN ode.js to:
@@ -80,23 +80,10 @@ Install the remaining npm packages for this quickstart:
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-## Object model
 
-The Personalizer client is a [PersonalizerClient](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+Personalizer is meant to run on applications that receive and interpret real-time data. For the purpose of this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **getActionsList**, **getContextFeaturesList** and **getReward**.
 
-To ask for the single best item of the content, create a [RankRequest](/javascript/api/@azure/cognitiveservices-personalizer/rankrequest), then pass it to [client.Rank](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient#rank-rankrequest--msrest-requestoptionsbase-) method. The Rank method returns a RankResponse.
 
-To send a reward to Personalizer, create a [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest), then pass it to the [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events#reward-string--rewardrequest--servicecallback-void--) method on the Events class.
-
-The reward scoring in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. Reward scores should be one of the primary design decisions in your Personalizer architecture.
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Personalizer client library for Node.js:
-
-* [Create a Personalizer client](#authenticate-the-client)
-* [Rank API](#request-the-best-action)
-* [Reward API](#send-a-reward)
 
 ## Authenticate the client
 
