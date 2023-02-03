@@ -43,7 +43,7 @@ productDirectory:
   summary: Learn about our core services, which you can combine and integrate to create your own custom communication solutions.
   items:
   - title: Chat
-    imageSrc: ./media/icons/chat-icon.png
+    imageSrc: ./media/icons/chat-icon.svg
     links:
       - url: ./concepts/chat/concepts.md
         text: Chat concepts
@@ -56,7 +56,7 @@ productDirectory:
       - url: ./samples/chat-hero-sample.md
         text: Get started with the chat hero sample
   - title: Email
-    imageSrc: ./media/icons/email-icon.png
+    imageSrc: ./media/icons/email-icon.svg
     links:
       - url: ./concepts/email/prepare-email-communication-resource.md
         text: What is email communication service?
@@ -69,7 +69,7 @@ productDirectory:
       - url: ./concepts/email/sdk-features.md
         text: Email client library
   - title: Phone calling
-    imageSrc: ./media/icons/phone-icon.png
+    imageSrc: ./media/icons/phone-icon.svg
     links:
       - url: ./concepts/telephony/telephony-concept.md
         text: Telephony concepts
@@ -82,7 +82,7 @@ productDirectory:
       - url: ./how-tos/calling-sdk/manage-calls.md
         text: Calling libraries   
   - title: Voice and Video Calling
-    imageSrc: ./media/icons/video-icon.png
+    imageSrc: ./media/icons/video-icon.svg
     links:
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Voice and video calling overview
@@ -95,7 +95,7 @@ productDirectory:
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Calling SDK overview
   - title: SMS
-    imageSrc: ./media/icons/sms-icon.png
+    imageSrc: ./media/icons/sms-icon.svg
     links:
       - url: ./concepts/sms/concepts.md
         text: SMS concepts
