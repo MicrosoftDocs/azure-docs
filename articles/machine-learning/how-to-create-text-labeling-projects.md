@@ -186,6 +186,8 @@ Finally, in the middle section, there is a table showing a queue of tasks yet to
 
 Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
+### Data
+
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
 If your project uses consensus labeling, you'll also want to review those images without a consensus.  To do so:
