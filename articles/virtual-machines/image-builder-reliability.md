@@ -28,15 +28,6 @@ Azure availability zones-enabled services are designed to provide the right leve
 
 
 
-### Safe deployment techniques
-
-For safe deployment techniques using Azure Image Builder (AIB), you can use Virtual Machine Scale Sets (VMSS) for your image versions when targeting one-zone-at-a-time for your deployments and application upgrades. Behind the scenes, the AIB service uses Azure Kubernetes Service (AKS) clusters, which include multi-node deployments, auto-scaling, and self-healing.
-
-Before proceeding with upgrading your image builder templates, ensure you follow the troubleshooting [prerequisites](/azure/virtual-machines/linux/image-builder-troubleshoot#prerequisites) when creating a new build.
-
-
-
-
 ## Disaster recovery: cross-region failover
 
 In the event of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture.md).
