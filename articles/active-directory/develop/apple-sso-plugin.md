@@ -35,6 +35,7 @@ The Microsoft Enterprise SSO plug-in for Apple devices offers the following bene
 - It can be enabled by any mobile device management (MDM) solution and is supported in both device and user enrollment. 
 - It extends SSO to applications that don't yet use the Microsoft Authentication Library (MSAL).
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
+- It is natively integrated with the MSAL library, which provides smooth native experience to the end user, when the Microsoft Enterprise SSO plug-in is enabled. 
 
 ## Requirements
 
@@ -148,7 +149,10 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 
 >[!NOTE]
 > Safari and Safari View Service are allowed to participate in SSO by default. Can be configured *not* to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList. 
-> iOS Bundle IDs : [com.apple.mobilesafari, com.apple.SafariViewService] , macOS BundleID : com.apple.Safari
+> 
+> iOS Bundle IDs : [com.apple.mobilesafari, com.apple.SafariViewService]
+> 
+> macOS BundleID : [com.apple.Safari]
 
 #### Enable SSO for all apps with a specific bundle ID prefix
 - **Key**: `AppPrefixAllowList`
