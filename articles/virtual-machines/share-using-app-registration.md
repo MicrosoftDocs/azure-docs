@@ -22,10 +22,15 @@ With Azure Compute Galleries, you can share an image to another organization by 
 
 ## Create the VM
 
-Select a tool below for creating the VM.
+You will need the following before creating a VM from an image shared to you using an app registration:
+- The tenant IDs from both the source subscription and the subscription where you want to create the VM. 
+- The client ID of the app registration and the secret.
+- The image ID of the image that you want to use.
 ### [CLI](#tab/cli)
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
+
+In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
 ```azurecli-interactive
 
@@ -76,6 +81,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 
 Create the VM in the resource group that has permission on the app registration. Replace the information in this example with your own.
 
+In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
 
 ```azurepowershell-interactive
