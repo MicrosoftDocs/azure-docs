@@ -118,7 +118,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Select **Save**. 
 
-## Step 5: Create a configuration application in the source tenant
+## Step 5: Create a configuration in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -454,9 +454,9 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
 
-#### Symptom - Unable to delete a configuration application
+#### Symptom - Unable to delete a configuration
 
-On the **Configurations** page, there isn't a way to delete a configuration application.
+On the **Configurations** page, there isn't a way to delete a configuration.
 
 **Cause**
 
