@@ -30,7 +30,7 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
 
     ### [ASP.NET Core 6 and later](#tab/netcorenew)
 
-    <!--DEV: The code in the "ASP.NET Core 6 and later" tab is copied from the "Example Program.cs" section in the published article. If I understand correctly from our meeting, it needs to be updated to not talk about startup anymore - correct? If so, can you please make this update? -->
+    <!--DEV: The code below is copied from the "Example Program.cs" section in the published ilogger.md article (https://learn.microsoft.com/en-us/azure/azure-monitor/app/ilogger#example-programcs). If I understand correctly from our meeting, it needs to be updated to not talk about startup anymore - correct? If so, can you please make this update or send me the updated code? -->
 
     ```csharp
     using Microsoft.AspNetCore.Hosting;
@@ -90,8 +90,6 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
     ```
 
 ---
-
-<!--DEV: To confirm, should we keep the rest of this section below (i.e., the text below, up to "## Console application")? I kept it because the code sample appears to resemble a code sample included in the first version of ilogger.md: https://github.com/MicrosoftDocs/azure-docs/commit/281667034c026531ab1cd4ae8ec3fc877da8a35f#diff-b8c9ab08fca62150132618d2c4043098a6c82c9309c68903069e12761078f7a2 -->
 
 With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` will provide them. Logged messages or exceptions will be sent to Application Insights. 
 
