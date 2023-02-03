@@ -87,11 +87,11 @@ The output from the completions API will look as follows.
 {
     "id": "ID of your call",
     "object": "text_completion",
-    "created": 1675351304,
+    "created": 1675444965,
     "model": "text-davinci-002",
     "choices": [
         {
-            "text": " ...\n\nthere was a beautiful young princess named Aurora. She had long,",
+            "text": " there lived in a little village a woman who was known as the meanest",
             "index": 0,
             "finish_reason": "length",
             "logprobs": null
@@ -99,8 +99,8 @@ The output from the completions API will look as follows.
     ],
     "usage": {
         "completion_tokens": 16,
-        "prompt_tokens": 4,
-        "total_tokens": 20
+        "prompt_tokens": 3,
+        "total_tokens": 19
     }
 }
 ```
