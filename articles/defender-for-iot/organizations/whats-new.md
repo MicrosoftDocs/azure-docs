@@ -15,6 +15,24 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## February 2023
+
+|Service area  |Updates  |
+|---------|---------|
+|**Cloud features**  | [Alerts GA in the Azure portal](#alerts-ga-in-the-azure-portal)    |
+
+### Alerts GA in the Azure portal
+
+The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/), detect changes or suspicious activity in network traffic that need your attention.
+
+Specific alerts triggered by the Enterprise IoT sensor currently remain in public preview.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Investigate and respond to an OT network alert](respond-ot-alert.md)
+- [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
 ## January 2023
 
 |Service area  |Updates  |
