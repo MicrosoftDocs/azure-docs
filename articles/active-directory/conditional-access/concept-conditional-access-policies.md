@@ -83,10 +83,6 @@ The software the user is employing to access the cloud app. For example, 'Browse
 
 The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they'll remain unchanged. However, if you select on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
 
-#### Device state
-
-This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
-
 #### Filter for devices
 
 This control allows targeting specific devices based on their attributes in a policy.
