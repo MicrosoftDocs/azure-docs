@@ -53,6 +53,8 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Azure NetApp Files datastore performance benchmarks for AVS 
+      href: performance-benchmarks-azure-vmware-solution.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
