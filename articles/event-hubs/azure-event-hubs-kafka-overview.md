@@ -1,18 +1,16 @@
 ---
-title: Azure Event Hubs for Apache Kafka ecosystems
-description: Learn how Apache Kafka application developers can use Azure Event Hubs instead of building and using their own Kafka clusters. 
+title: Use Azure Event Hubs to stream data from Apache Kafka apps 
+description: Learn how to use Azure Event Hubs to stream data from Apache Kafka applications without setting up a Kafka cluster on your own. 
 ms.topic: overview
-ms.date: 02/01/2023
-keywords: "Kafka, Azure, topics, message-broker"
+ms.date: 02/03/2023
 ---
 
-# Azure Event Hubs for Apache Kafka ecosystems 
-Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics. 
+# Use Azure Event Hubs from Apache Kafka applications
+
+Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics. This article provides detailed information on using Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
 
 > [!NOTE]
 > Event Hubs for Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
-
-This article provides detailed information on using Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
 
 ## Apache Kafka and Azure Event Hubs conceptual mapping
 
