@@ -391,7 +391,7 @@ The following actions should take place for a successful interactive sign-on:
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click_callmsftgraph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click-callmsftgraph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
 
 ```SSOExtensionLogs
 //////////////////////////
