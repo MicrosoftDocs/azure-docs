@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, devx-track-azurecli, mode-api
+ms.custom: devx-track-python, devx-track-azurecli, mode-api, passwordless-python
 ---
 
 # Quickstart: Azure Key Vault certificate client library for Python
