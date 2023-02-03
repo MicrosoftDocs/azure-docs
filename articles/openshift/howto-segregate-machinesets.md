@@ -35,18 +35,18 @@ See [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) fo
 
 
 
-## Step 1: Create the subnets and their associated subnets
+## Create the subnets and their associated subnets
 
 Once you've deployed your ARO cluster, you'll need to create extra subnets as part of the same overall virtual network and create new machine sets for those subnets. Follow the sections below to complete this requirement.
 
-### Step 2: Create the subnets
+### Step 1: Create the subnets
 
 Create the subnets as part of the current virtual network in which ARO is deployed. Make sure that all the subnets are updated to the Microsoft.ContainerRegistry for service-endpoints. Follow the sections below to complete this step.
 
 
 :::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted.":::
 
-### Log into the jumphost
+### Step 2: Log into the jumphost
 
 > [!NOTE]
 > This steps is optional of you have an alternative method for logging into the ARO cluster.
@@ -77,13 +77,13 @@ openshift-machine-api   simon-aro-st5rm-worker-useast3   1         1         1  
 ```
 
 
-### Retrieve the machine sets in the `openshift-machine-api project/namespace`
+### Step 3: Retrieve the machine sets in the `openshift-machine-api project/namespace`
 
 Retrieving the machines sets allows you to get all the relevant parameters into the machineSet template in the following section.
 
 `oc describe machineSet simon-aro-st5rm-worker-useast1 > aro-worker-az1.yaml`
 
-### Create a new machineSet YAML file and apply it to the cluster
+### Step 4: Create a new machineSet YAML file and apply it to the cluster
 
 Use the template below for you machineSet YAML file. Change the parameters shown in bold according to the values retrieved in the previous section.
 
@@ -154,7 +154,7 @@ spec:
           zone: "1"
 ```
 
-### Apply the machine set
+### Step 5: Apply the machine set
 
 Apply the machine set created in the previous section using the `oc apply -f /<filename.yaml/>` command, as in the following example:
 
@@ -162,6 +162,9 @@ Apply the machine set created in the previous section using the `oc apply -f /<f
 [root@jumphost-new ARO-cluster-Private]# oc apply -f aro-new-worker-az1.yaml
 machineset.machine.openshift.io/simon-aro-qpsl5-worker-useast4 created
 ```
+
+### Step 6: Verify the machine set and nodes
+
 Once you've applied the YAML file, you can verify the creation of the machine set and nodes using the `oc get machineSets` and `oc get nodes` commands, as shown in the following examples:
 
 
@@ -199,3 +202,6 @@ simon-aro-st5rm-worker-useast2-48zsm   Ready    worker   139m   v1.19.0+e405995
 simon-aro-st5rm-worker-useast3-rvzpn   Ready    worker   139m   v1.19.0+e405995
 simon-aro-st5rm-worker-useast4-qrsgx   Ready    worker   104s   v1.19.0+e405995
 ```
+
+
+
