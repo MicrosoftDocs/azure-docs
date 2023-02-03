@@ -153,67 +153,130 @@ spec:
 
 ==============MachineSet Template====================
 apiVersion: machine.openshift.io/v1beta1
+
+
 kind: MachineSet
+
 metadata:
+
   labels:
+
     machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+
     machine.openshift.io/cluster-api-machine-role: worker
+
     machine.openshift.io/cluster-api-machine-type: worker
+
   name: **simon-aro-st5rm-worker-useast4**
+
   namespace: openshift-machine-api
+
 spec:
+
   replicas: 1
+
   selector:
+
     matchLabels:
+
       machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+
       machine.openshift.io/cluster-api-machineset: **simon-aro-st5rm-worker-useast4**
+
   template:
+
     metadata:
+
       creationTimestamp: null
+
       labels:
+
         machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+
         machine.openshift.io/cluster-api-machine-role: worker
+
         machine.openshift.io/cluster-api-machine-type: worker
+
         machine.openshift.io/cluster-api-machineset: simon-aro-st5rm-worker-useast4
+
     spec:
+
       metadata:
+
         creationTimestamp: null
+
         labels:
+
           node-role.kubernetes.io/<role>: ""
+
       providerSpec:
+
         value:
+
           apiVersion: azureproviderconfig.openshift.io/v1beta1
+
           credentialsSecret:
+
             name: azure-cloud-credentials
+
             namespace: openshift-machine-api
+
           image:
+
             offer: aro4
+
             publisher: azureopenshift
+
             resourceID: ""
+
             sku: **aro_46**
+
             version: **46.82.20201126**
-          internalLoadBalancer: ""
+ 
+         internalLoadBalancer: ""
+
           kind: AzureMachineProviderSpec
+
           location: useast
+
           metadata:
+
             creationTimestamp: null
+
           natRule: null
+
           networkResourceGroup: **v4-useast**
+
           osDisk:
+
             diskSizeGB: 128
+
             managedDisk:
+
               storageAccountType: Premium_LRS
+
             osType: Linux
+
           publicIP: false
+
           publicLoadBalancer: **simon-aro-st5rm**
+
           resourceGroup: **aro-fq5v3vye**
+
           sshPrivateKey: ""
+
           sshPublicKey: ""
+
           subnet: **worker-new**
+
           userDataSecret:
+
             name: worker-user-data
+
           vmSize: Standard_D4s_v3
+
           vnet: **aro-vnet**
+
           zone: **"1"**
 
 ### Step 5: Apply the machine set
