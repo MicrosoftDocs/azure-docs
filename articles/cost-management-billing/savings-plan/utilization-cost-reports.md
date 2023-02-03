@@ -89,8 +89,8 @@ If you're an Owner, Contributor or Reader on your Billing Account, you can downl
 1. Select the billing account.
 2. Select **Invoices.**
 3. Download the Actual Cost CSV file based on your scenario.
-    1. To download the usage for the current month, select **Download pending usage.**
-    2. To download the usage for a prior invoice, select the ellipsis symbol ( **...** ) and select **Prepare Azure usage file.**
+    - To download the usage for the current month, select **Download pending usage.**
+    - To download the usage for a prior invoice, select the ellipsis symbol ( **...** ) and select **Prepare Azure usage file.**
 1. If you want to download the Amortized Cost CSV file, you'll need to use [Exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API](../automate/get-small-usage-datasets-on-demand.md).
 
 ## Common cost and usage tasks

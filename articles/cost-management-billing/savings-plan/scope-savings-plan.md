@@ -1,5 +1,5 @@
 ---
-title: Saving plan scopes
+title: Savings plan scopes
 titleSuffix: Microsoft Cost Management
 description: Learn about savings plan scopes and how they're processed.
 author: bandersmsft
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/03/2023
 ---
 
-# Saving plan scopes
+# Savings plan scopes
 
 Setting the scope for a savings plan selects where the benefits apply.
 
