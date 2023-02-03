@@ -157,11 +157,11 @@ Before a private link service can be created in the virtual network, the setting
 * Disable the network policy with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
-az network vnet subnet update \ 
-    --name mySubnet \ 
-    --resource-group CreatePrivLinkService-rg \ 
-    --vnet-name myVNet \ 
-    --disable-private-link-service-network-policies true 
+az network vnet subnet update \
+    --name mySubnet \
+    --vnet-name MyVnet \
+    --resource-group CreatePrivLinkService-rg \
+    --disable-private-link-service-network-policies yes
 ```
 
 ## Create a private link service
