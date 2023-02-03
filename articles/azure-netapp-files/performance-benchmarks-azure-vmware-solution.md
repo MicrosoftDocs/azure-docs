@@ -63,7 +63,7 @@ The following graph shows the aggregated throughput and IOPs of 16 virtual machi
 
 Nearly identical results were achieved with a single virtual machine on each host with four VMDKs per virtual machine and each of those VMDKs on a separate datastore. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-scale-out.png" alt-text="Graphs showing aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts." lightbox="../media/performance-vmware-scale-out.png":::
+:::image type="content" source="../media/azure-netapp-files/performance-vmware-scale-out.png" alt-text="Graphs showing aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts." lightbox="../media/azure-netapp-files/performance-vmware-scale-out.png":::
 
 ## Next steps
 
