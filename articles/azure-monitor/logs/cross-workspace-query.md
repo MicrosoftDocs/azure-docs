@@ -16,8 +16,8 @@ If you manage subscriptions in other Azure Active Directory (Azure AD) tenants t
 
 There are two methods to query data that's stored in multiple workspaces and apps:
 
-1. Explicitly by specifying the workspace and app information. This technique is used in this article.
-1. Implicitly byusing [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
+* Explicitly by specifying the workspace and app information. This technique is used in this article.
+* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
 
 > [!IMPORTANT]
 > If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross-workspace query.
@@ -25,21 +25,21 @@ There are two methods to query data that's stored in multiple workspaces and app
 ## Cross-resource query limits
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource query isn't supported in View Designer. You can author a query in Log Analytics and pin it to ab Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include it in [Workbooks](../visualize/workbooks-overview.md).
+* Cross-resource query isn't supported in View Designer. You can author a query in Log Analytics and pin it to an Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include it in [workbooks](../visualize/workbooks-overview.md).
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you must [switch to the current API](../alerts/alerts-log-api-switch.md).
 
 ## Query across Log Analytics workspaces and from Application Insights
-To reference another workspace in your query, use the [*workspace*](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [*app*](./app-expression.md) identifier.  
+To reference another workspace in your query, use the [workspace](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [app](./app-expression.md) identifier.
 
 ### Identify workspace resources
-The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of logs from the Update table on a workspace named *contosoretail-it*.
+The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of logs from the Update table on a workspace named `contosoretail-it`.
 
 You can identify a workspace in one of several ways:
 
-* **Resource name**: This human-readable name of the workspace is sometimes referred to as *component name*.
+* **Resource name**: This human-readable name of the workspace is sometimes referred to as the *component name*.
 
     >[!IMPORTANT]
-    >Because app and workspace names aren't unique, this identifier might be ambiguous. It's recommended that reference is by Qualified name, Workspace ID, or Azure Resource ID.
+    >Because app and workspace names aren't unique, this identifier might be ambiguous. We recommend that the reference uses a qualified name, workspace ID, or Azure Resource ID.
 
     `workspace("contosoretail-it").Update | count`
 
@@ -54,7 +54,7 @@ You can identify a workspace in one of several ways:
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.
 
     For example:
 
@@ -67,14 +67,14 @@ The following examples return a summarized count of requests made against an app
 
 You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following names or IDs:
 
-* **Resource name**: This human readable name of the app is sometimes referred to as the *component name*.  
+* **Resource name**: This human readable name of the app is sometimes referred to as the *component name*.
 
     `app("fabrikamapp")`
 
     >[!NOTE]
     >Identifying an application by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
-* **Qualified name**: This "full name" of the app is composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*.
+* **Qualified name**: This "full name" of the app is composed of the subscription name, resource group, and component name in the format *subscriptionName/resourceGroup/componentName*.
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
@@ -86,7 +86,7 @@ You can identify an application in Application Insights with the `app(Identifier
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. You use the Resource ID when the resource name is ambiguous. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. You use the resource ID when the resource name is ambiguous. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
 
     For example:
 
@@ -97,7 +97,7 @@ You can identify an application in Application Insights with the `app(Identifier
 ### Perform a query across multiple resources
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
 
-Example for query across two workspaces:
+Example for a query across two workspaces:
 
 ```
 union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
