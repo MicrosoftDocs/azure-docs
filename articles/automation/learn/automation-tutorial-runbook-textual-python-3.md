@@ -127,9 +127,9 @@ When you add these packages, select a runtime version that matches your runbook.
 
 ### Managed identity
 
-To use managed identity, ensure that:
+To use managed identity, ensure that it is enabled:
 
-* Managed identity is enabled for the Automation Account. You can verify the identity in the **Identity** resources.
+* To verify if the Managed identity is enabled for the Automation account go to your **Automation account** > **Account Settings** > **Identity** and set the **Status** to **On**.
 * The managed identity has a role assigned to manage the resource. In this example of managing a virtual machine resource, add the "Virtual Machine Contributor" role on the resource group of that contains the Virtual Machine.
 
 With the manage identity role configured, you can start adding code.
@@ -138,7 +138,7 @@ With the manage identity role configured, you can start adding code.
 
 2. Add the following code to authenticate to Azure:
 
-**Example 1**
+**Example 1 - Set up identity**
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.compute import ComputeManagementClient
@@ -149,7 +149,7 @@ azure_credential = DefaultAzureCredential()
 ```
 
     
-**Example 2**
+**Example 2 - Request for identity endpoint**
 ```python
 #!/usr/bin/env python3
 import os
