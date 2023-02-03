@@ -3,7 +3,7 @@ title: Install SAP software (preview)
 description: Learn how to install software on your SAP system created using Azure Center for SAP solutions.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
@@ -12,6 +12,8 @@ ms.author: ladolan
 # Install SAP software (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
@@ -48,7 +50,7 @@ The following components are necessary for the SAP installation.
 - SAP software installation media (part of the `sapbits` container described later in this article)
     - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
     - SAP software (for example, *S/4HANA 2021 ISS 00*)
-- Supporting software packages for the installation process which will be downloaded automatially and used by ACSS during the installation). 
+- Supporting software packages for the installation process which will be downloaded automatically and used by ACSS during the installation). 
     - `pip3` version `pip-21.3.1.tar.gz`
     - `wheel` version 0.37.1
     - `jq` version 1.6
