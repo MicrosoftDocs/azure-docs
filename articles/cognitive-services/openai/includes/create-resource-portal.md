@@ -56,7 +56,7 @@ To deploy a model, follow these steps:
     :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
 
 1. Select **Create new deployment** from the **Management** > **Deployments** page.
-1. Select a model from the drop-down. For getting started in the East US region, we recommend the `text-davinci-002` model. In other regions you should start with the `text-davinci-003` model. Some models are not available in all regions. For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).
+1. Select a model from the drop-down. For getting started in the East US region, we recommend the `text-davinci-003` model. In other regions you should start with the `text-davinci-002` model. Some models are not available in all regions. For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).
 1. Enter a model name to help you identify the model. Choose a name carefully. The model name will be used as the deployment name via OpenAI client libraries and API. 
 1. Select **Create** to deploy the model. 
 
