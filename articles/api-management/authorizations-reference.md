@@ -4,7 +4,7 @@ description: Reference for identity providers supported in authorizations in Azu
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/02/2022
+ms.date: 02/03/2023
 ms.author: danlep
 ---
 
@@ -62,7 +62,7 @@ For steps to configure an OAuth app in the identity provider, see the linked doc
 
 **Supported grant types**: authorization code
 
-**Documentation for OAuth app**: [Google Cloud](https://console.developers.google.com/apis/dashboard)
+**Documentation for OAuth app**: [Google Cloud](https://developer.google.com)
 
 **Provider configuration**
 
@@ -82,7 +82,7 @@ For steps to configure an OAuth app in the identity provider, see the linked doc
 
 **Supported grant types**: authorization code
 
-**Documentation for OAuth app**: [LinkedIn Developers](https://developer.linkedin.com/)
+**Documentation for OAuth app**: [LinkedIn Developers](https://developer.salesforce.com/)
 
 **Provider configuration**
 
@@ -93,7 +93,7 @@ For steps to configure an OAuth app in the identity provider, see the linked doc
 
 **Supported grant types**: authorization code
 
-**Documentation for OAuth app**: [ServiceNow Developers](https://developer.linkedin.com/)
+**Documentation for OAuth app**: [ServiceNow Developers](https://developer.servicenow.com/)
 
 **Provider configuration**
 
@@ -135,7 +135,7 @@ For steps to configure an OAuth app in the identity provider, see the linked doc
 
 **Supported grant types**: authorization code
 
-**Documentation for OAuth app**: [Zendesk Developers](https://developer.twitter.com/)
+**Documentation for OAuth app**: [Zendesk Developers](https://developer.zendesk.com/)
 
 **Provider configuration**
 
