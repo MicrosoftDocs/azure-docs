@@ -219,9 +219,9 @@ Requirements:
    If you run in to any problems reach out to support for assistance.
 
 ## Enable FastZonalUpdate on Service Fabric managed clusters (preview)
-Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone from five to three.  
+Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone.   
 
-The update should be done via ARM template by setting the zonalUpdateMode property to “fast” snd then modify a node type attribute such as adding a node and then removing the node.  The Service Fabric managed cluster resource apiVersion should be 2023-01-01-preview or later.
+The update should be done via ARM template by setting the zonalUpdateMode property to “fast” snd then modify a node type attribute such as adding a node and then removing the node.  The Service Fabric managed cluster resource apiVersion should be 2022-10-01-preview or later.
 
 1. Modify the ARM template with the new property mentioned above.
 ```json
