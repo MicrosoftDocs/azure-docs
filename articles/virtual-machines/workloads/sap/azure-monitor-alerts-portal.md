@@ -5,7 +5,6 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: sap-on-azure
-ms.subservice: baremetal-sap
 ms.date: 10/19/2022
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---

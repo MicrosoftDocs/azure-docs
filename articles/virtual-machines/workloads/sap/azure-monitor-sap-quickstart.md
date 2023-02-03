@@ -5,7 +5,6 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: sap-on-azure
-ms.subservice: baremetal-sap
 ms.date: 10/19/2022
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions in the Azure portal so that I can configure providers.
 ---

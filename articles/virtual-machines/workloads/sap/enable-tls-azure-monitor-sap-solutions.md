@@ -3,7 +3,6 @@ title: Enable TLS 1.2 or higher
 description: Learn what is secure communication with TLS 1.2 or higher in Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.service: sap-on-azure
-ms.subservice: baremetal-sap
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: sakhare

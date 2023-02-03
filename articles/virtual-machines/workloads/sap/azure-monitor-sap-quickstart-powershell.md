@@ -5,7 +5,6 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: sap-on-azure
-ms.subservice: baremetal-sap
 ms.date: 10/19/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
