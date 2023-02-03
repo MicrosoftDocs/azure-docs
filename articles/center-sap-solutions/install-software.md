@@ -50,7 +50,7 @@ The following components are necessary for the SAP installation.
 - SAP software installation media (part of the `sapbits` container described later in this article)
     - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
     - SAP software (for example, *S/4HANA 2021 ISS 00*)
-- Supporting software packages for the installation process which will be downloaded automatially and used by ACSS during the installation). 
+- Supporting software packages for the installation process which will be downloaded automatically and used by ACSS during the installation). 
     - `pip3` version `pip-21.3.1.tar.gz`
     - `wheel` version 0.37.1
     - `jq` version 1.6
