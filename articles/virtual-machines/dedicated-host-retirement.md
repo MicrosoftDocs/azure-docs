@@ -66,9 +66,9 @@ A:
 
 A: You'll need to [exchange your reservation](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
 
-### Q: What would happen if I do not migrate by March 31, 2023?
+### Q: What would happen to my host if I do not migrate by March 31, 2023?
 
-A: After March 31, 2023 any dedicated hosts running the SKUs that are marked for retirement will be pushed to 'Host Pending Deallocate' before eventually deallocating the host. For additional assistance please reach out to Azure support.
+A: After March 31, 2023 any dedicated host running on the SKUs that are marked for retirement will be set to 'Host Pending Deallocate' state before eventually deallocating the host. For additional assistance please reach out to Azure support.
 
 ### Q:  What will happen to my VMs if a Host is automatically deallocated?
 
