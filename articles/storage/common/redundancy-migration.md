@@ -342,7 +342,8 @@ If you add geo-redundancy, you will incur an egress bandwidth charge at the time
 
 If you remove geo-redundancy (change from GRS to LRS), there is no cost for making the change, but your replicated data is deleted from the secondary location.
 
-If you remove read access to the secondary region (RA) (change from RA-GRS to GRS or LRS), that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
+> [!IMPORTANT]
+> If you remove read access to the secondary region (RA) (change from RA-GRS to GRS or LRS), that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
 ## See also
 
