@@ -202,7 +202,7 @@ Here's the retry policy in the *function.json* file:
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-JavaScript,programming-language-python,programming-language-PowerShell" 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
 
 Here's the retry policy in the *function.json* file:
 
