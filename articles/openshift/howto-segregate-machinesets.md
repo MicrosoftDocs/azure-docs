@@ -81,33 +81,33 @@ Retrieving the machines sets allows you to get all of the relevant parameters in
 
 ### Step 4: Create a new machineSet YAML file and apply it to the cluster
 
-Use the template below for your machineSet YAML file. Change the parameters shown in bold according to the values retrieved in the previous section.
+Use the template below for your machineSet YAML file. Change the parameters shown with **Xs** according to the values retrieved in the previous section. For example, `machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX` might be `machine.openshift.io/cluster-api-cluster: machine-aro-st3mr`
 
-```
+```yml
 ==============MachineSet Template====================
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
   labels:
-    machine.openshift.io/cluster-api-cluster: simon-aro-st5rm
+    machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
     machine.openshift.io/cluster-api-machine-role: worker
     machine.openshift.io/cluster-api-machine-type: worker
-  name: simon-aro-st5rm-worker-useast4
+  name: XXX-XXX-XXX-XXX-XXX
   namespace: openshift-machine-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: simon-aro-st5rm
-      machine.openshift.io/cluster-api-machineset: simon-aro-st5rm-worker-useast4
+      machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
+      machine.openshift.io/cluster-api-machineset: XXX-XXX-XXX-XXX-XXX
   template:
     metadata:
       creationTimestamp: null
       labels:
-        machine.openshift.io/cluster-api-cluster: simon-aro-st5rm
+        machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
-        machine.openshift.io/cluster-api-machineset: simon-aro-st5rm-worker-useast4
+        machine.openshift.io/cluster-api-machineset: XXX-XXX-XXX-XXX-XXX
     spec:
       metadata:
         creationTimestamp: null
@@ -123,161 +123,32 @@ spec:
             offer: aro4
             publisher: azureopenshift
             resourceID: ""
-            sku: aro_46
-            version: 46.82.20201126
+            sku: XXX_XX
+            version: XX.XX.XXX
           internalLoadBalancer: ""
           kind: AzureMachineProviderSpec
           location: useast
           metadata:
             creationTimestamp: null
           natRule: null
-          networkResourceGroup: v4-useast
+          networkResourceGroup: XX-XXXXXX
           osDisk:
             diskSizeGB: 128
             managedDisk:
               storageAccountType: Premium_LRS
             osType: Linux
           publicIP: false
-          publicLoadBalancer: simon-aro-st5rm
+          publicLoadBalancer: XXX-XXX-XXX
           resourceGroup: aro-fq5v3vye
           sshPrivateKey: ""
           sshPublicKey: ""
-          subnet: worker-new
+          subnet: XXX-XXX
           userDataSecret:
             name: worker-user-data
           vmSize: Standard_D4s_v3
-          vnet: aro-vnet
-          zone: "1"
+          vnet: XXX-XXX
+          zone: "X"
 ```
-
-
-==============MachineSet Template====================
-apiVersion: machine.openshift.io/v1beta1
-
-
-kind: MachineSet
-
-metadata:
-
-  labels:
-
-    machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
-
-    machine.openshift.io/cluster-api-machine-role: worker
-
-    machine.openshift.io/cluster-api-machine-type: worker
-
-  name: **simon-aro-st5rm-worker-useast4**
-
-  namespace: openshift-machine-api
-
-spec:
-
-  replicas: 1
-
-  selector:
-
-    matchLabels:
-
-      machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
-
-      machine.openshift.io/cluster-api-machineset: **simon-aro-st5rm-worker-useast4**
-
-  template:
-
-    metadata:
-
-      creationTimestamp: null
-
-      labels:
-
-        machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
-
-        machine.openshift.io/cluster-api-machine-role: worker
-
-        machine.openshift.io/cluster-api-machine-type: worker
-
-        machine.openshift.io/cluster-api-machineset: simon-aro-st5rm-worker-useast4
-
-    spec:
-
-      metadata:
-
-        creationTimestamp: null
-
-        labels:
-
-          node-role.kubernetes.io/<role>: ""
-
-      providerSpec:
-
-        value:
-
-          apiVersion: azureproviderconfig.openshift.io/v1beta1
-
-          credentialsSecret:
-
-            name: azure-cloud-credentials
-
-            namespace: openshift-machine-api
-
-          image:
-
-            offer: aro4
-
-            publisher: azureopenshift
-
-            resourceID: ""
-
-            sku: **aro_46**
-
-            version: **46.82.20201126**
- 
-         internalLoadBalancer: ""
-
-          kind: AzureMachineProviderSpec
-
-          location: useast
-
-          metadata:
-
-            creationTimestamp: null
-
-          natRule: null
-
-          networkResourceGroup: **v4-useast**
-
-          osDisk:
-
-            diskSizeGB: 128
-
-            managedDisk:
-
-              storageAccountType: Premium_LRS
-
-            osType: Linux
-
-          publicIP: false
-
-          publicLoadBalancer: **simon-aro-st5rm**
-
-          resourceGroup: **aro-fq5v3vye**
-
-          sshPrivateKey: ""
-
-          sshPublicKey: ""
-
-          subnet: **worker-new**
-
-          userDataSecret:
-
-            name: worker-user-data
-
-          vmSize: Standard_D4s_v3
-
-          vnet: **aro-vnet**
-
-          zone: **"1"**
 
 ### Step 5: Apply the machine set
 
