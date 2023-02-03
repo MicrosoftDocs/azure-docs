@@ -28,7 +28,8 @@ ms.date: 02/02/2023
 
 [!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
-### Create a new C# application
+
+## Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE.
 
@@ -65,6 +66,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 1.0.
 > [!TIP]
 > If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
+
 ## Code block 1: Generate sample data
 
 Personalizer is meant to run on applications that receive and interpret real-time data. For the purpose of this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **GetActions**, **GetContext** and **GetRewardScore**.
@@ -85,18 +87,18 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 
     [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
-1. Open _Program.cs_ in a text editor or IDE and paste in the following code.
-
-     [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Personalizer/quickstart-sdk/personalizer-quickstart.cs?name=snippet_1)]
+1. Open _Program.cs_ in a text editor or IDE and paste in the code below.
 
 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Personalizer/quickstart-sdk/personalizer-quickstart.cs?name=snippet_1)]
+
 ## Code block 2: Iterate the learning loop
 
-The next block of code defines the **main** method and closes out the script. It runs a learning loop iteration, in which it generates a context (including a customer), requests a ranking for actions in that context using the Rank API, calculates the reward score, and passes that score back to the Personalizer service using the Reward API. It prints relevant information to the console at each step.
+The next block of code defines the **main** method and closes out the script. It runs a learning loop iteration, in which it generates a context (including a customer), requests a ranking of actions in that context using the Rank API, calculates the reward score, and passes that score back to the Personalizer service using the Reward API. It prints relevant information to the console at each step.
 
 In this example, each Rank call is made to determine which product should be displayed in the "Featured Product" section. Then the Reward call indicates whether or not the featured product was purchased by the user. Rewards are associated with their decisions through a common `EventId` value. 
 
