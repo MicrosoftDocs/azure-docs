@@ -1,14 +1,44 @@
 ---
-title: Labs concepts - Azure Lab Services | Microsoft Docs
-description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
+title: Key concepts for Azure Lab services
+titleSuffix: Azure Lab Services
+description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs.
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 02/02/2023
 ms.custom: devdivchpfy22
 ---
 
 # Labs concepts
 
 This article describes key Azure Lab Services concepts and definitions.
+
+:::image type="content" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services.":::
+
+## Lab plans
+
+Lab plans are an Azure resource and contain settings used when creating new labs.  Lab plans control the networking setup, which VM images are available and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab.  To create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
+
+In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
+
+
+## Lab
+
+A lab contains the configuration and settings for creating and running lab virtual machines. In the lab, you specify the base VM image for the lab VMs. Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine). All lab VMs for a lab share the same configuration and are identical.
+
+To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure AD role or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+
+To grant access to the lab VMs, you [configure the list of lab users](./how-to-configure-student-usage.md). Lab users can then register for the lab and connect to their VM through remote desktop (RDP) or secure shell (SSH).
+
+You can further configure the lab behavior by creating [lab schedules](#schedules) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
+
+## Azure Compute Gallery
+
+## Template virtual machine
+
+A template VM in a lab is a base image from which all students' VMs are created. Educators configure the template VM with the software needed to complete the lab. When educators [publish a template VM](tutorial-setup-lab.md#publish-a-lab), Azure Lab Services creates or updates student lab VMs to match the template VM.
+
+Labs can be created without needing a template VM, if using the [August 2022 Update](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
+
+## Lab virtual machine
 
 ## Schedules
 
@@ -40,16 +70,6 @@ Anytime a machine is **Running**, costs are being incurred, even if no one is co
 - Shut down virtual machines when students don't connect a recently started virtual machine.
 
 For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
-
-## Template virtual machine
-
-A template VM in a lab is a base image from which all students' VMs are created. Educators configure the template VM with the software needed to complete the lab. When educators [publish a template VM](tutorial-setup-lab.md#publish-a-lab), Azure Lab Services creates or updates student lab VMs to match the template VM.
-
-Labs can be created without needing a template VM, if using the [August 2022 Update](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
-
-## Lab plans
-
-Lab plans are an Azure resource and contain settings used when creating new labs.  Lab plans control the networking setup, which VM images are available and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab.  To create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
 
 ## User profiles
 
