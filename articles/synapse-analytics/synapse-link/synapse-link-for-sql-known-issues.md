@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 11/16/2022
+ms.date: 12/22/2022
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -21,6 +21,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 
 ### Azure SQL DB and SQL Server 2022
 * Source tables must have primary keys.
+* Only a writeable, primary replica is supported as the data source for Synapse Link for SQL.
 * The following data types aren't supported for primary keys in the source tables:
   * real
   * float
@@ -28,6 +29,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
   * sql_variant
   * timestamp
 * Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
+* When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: varchar(max), nvarchar(max), varbinary(max). This will throw an error and data will not be exported to Azure Synapse Analytics.
 * Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
 * While a database can have multiple links enabled, a given table can't belong to multiple links.
 * When a database owner doesn't have a mapped login, Azure Synapse Link for SQL will run into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.

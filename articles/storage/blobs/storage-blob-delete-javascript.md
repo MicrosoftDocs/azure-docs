@@ -1,10 +1,11 @@
 ---
-title: Delete and restore a blob with JavaScript - Azure Storage
+title: Delete and restore a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the JavaScript client library
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 11/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -12,9 +13,9 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Delete and restore a blob in your Azure Storage account using the JavaScript client library
+# Delete and restore a blob with JavaScript
 
-This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled blob soft delete, you can restore deleted blobs.
+This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
@@ -23,7 +24,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 ## Delete a blob
 
-To delete a blob, call either of these methods:
+To delete a blob, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then call either of these methods:
 
 - [BlobClient.delete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-delete)
 - [BlobClient.deleteIfExists](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-deleteifexists)
@@ -78,9 +79,9 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 #### Restore soft-deleted objects when versioning is disabled
 
-To restore deleted blobs, call the following method:
+To restore deleted blobs, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then call the following method:
 
-- [ContainerClient.undelete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-undelete)
+- [BlobClient.undelete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-undelete)
 
 This method restores soft-deleted blobs and any deleted snapshots associated with it. Calling this method for a blob that has not been deleted has no effect. 
 

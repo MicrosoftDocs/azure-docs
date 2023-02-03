@@ -27,6 +27,10 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ## Release notes
 
+### `2.14.11` (January 27, 2023)
+
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.
+
 ### `2.14.9` (July 7, 2022)
 
 - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.

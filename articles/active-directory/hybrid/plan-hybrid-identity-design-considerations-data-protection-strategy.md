@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/29/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -61,7 +61,7 @@ If your organization doesn’t have data classification in place but needs to pr
 
 A vital part of content management is to understand who is accessing which resource, therefore a rich logging capability is important for the identity management solution. Azure AD provides log over 30 days including:
 
-* Changes in role membership (ex: user added to Global Admin role)
+* Changes in role membership (ex: user added to Global Administrator role)
 * Credential updates (ex: password changes)
 * Domain management (ex: verifying a custom domain, removing a domain)
 * Adding or removing applications
@@ -153,7 +153,7 @@ Other important built-in reports in Azure AD that can be used during an incident
 
 In addition to the core reporting capability of Azure AD Premium that you can use during an Incident Response investigation process, IT can also take advantage of the Audit Report to obtain information such as:
 
-* Changes in role membership (for example, user added to Global Admin role)
+* Changes in role membership (for example, user added to Global Administrator role)
 * Credential updates (for example, password changes)
 * Domain management (for example, verifying a custom domain, removing a domain)
 * Adding or removing applications

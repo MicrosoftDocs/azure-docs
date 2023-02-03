@@ -17,6 +17,8 @@ ms.author: askaur
 - A deployed [Communication Service resource](../../create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
 - [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- The latest version of Visual Studio 2022 (17.4.0 or higher).
+- An Azure Event Grid subscription to receive the `IncomingCall` event.
 
 ## Create a new C# application
 
@@ -36,13 +38,13 @@ dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerel
 dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
 ```
 
-## Set up a public URI for the local application
-In this quick-start, you'll use Ngrok tool to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid IncomingCall event and Call Automation events using webhooks.
+## Use Visual Studio Dev Tunnels for your Event Grid subscription
 
-First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json. 
-![Screenshot of demo application's launchsetting.json file.](../media/dotnet-application-port.jpg)
+In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-Then, install Ngrok and run Ngrok with the following command: ngrok http <replace_with_port>. This command will create a public URI like https://ff2f-75-155-253-232.ngrok.io/, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+
+Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
 
 ## Configure Program.cs to redirect the call
 
@@ -60,6 +62,8 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 var client = new CallAutomationClient("<resource_connection_string_obtained_in_pre-requisites>");
+
+Console.WriteLine($"Tunnel URL:{builder.Configuration["VS_TUNNEL_URL"]}"); // echo Tunnel URL to screen to configure Event Grid webhook
 
 var app = builder.Build();
 

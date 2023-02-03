@@ -86,7 +86,7 @@ You can also create your own custom environment. Define your conda dependencies 
 
 ```yaml
 dependencies:
-  - python=3.6.2
+  - python=3.7
   - scikit-learn
   - numpy
   - pip:
@@ -141,7 +141,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](../how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
 
 ### What happens during run execution
 As the run is executed, it goes through the following stages:

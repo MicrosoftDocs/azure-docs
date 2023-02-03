@@ -73,6 +73,13 @@ Example 2:
 - At 00:45, the user returns from their break and unlocks the device.
 - At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
 
+Example 3: If the client app (under activity details) is a Browser, we defer sign in frequency enforcement of events/policies on background services until the next user interaction.
+
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts to upload a document to SharePoint Online.
+- At 00:10, the user gets up and takes a break locking their device. The background upload continues to SharePoint Online. 
+- At 02:45, the user returns from their break and unlocks the device. The background upload shows completion. 
+- At 02:45, the user is prompted to sign in when they interact again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:00. 
+
 ### Require reauthentication every time
 
 There are scenarios where customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency has a new option for **Every time** in addition to hours or days.

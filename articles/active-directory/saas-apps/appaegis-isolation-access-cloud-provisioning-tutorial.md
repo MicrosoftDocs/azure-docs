@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An [Appaegis Cloud](https://www.appaegis.com) account with Professional level of subscription. 
-* An Appaegis Cloud user account with **Global Admin** permissions.
+* An Appaegis Cloud user account with **Global Administrator** permissions.
 
 
 ## Step 1. Plan your provisioning deployment

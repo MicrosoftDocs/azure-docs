@@ -112,7 +112,7 @@ In this step, you configure P2S Azure AD authentication for the virtual network 
 
    * **Tenant**: `https://login.microsoftonline.com/{TenantID}`
    * **Audience ID**: Use the value that you created in the previous section that corresponds to **Application (client) ID**. Don't use the application ID for "Azure VPN" Azure AD Enterprise App - use application ID that you created and registered. If you use the application ID for the ""Azure VPN" Azure AD Enterprise App instead, this will grant all users access to the VPN gateway (which would be the default way to set up access), instead of granting only the users that you assigned to the application that you created and registered.
-   * **Issuer**: `https://sts.window.net/{TenantID}`  For the Issuer value, make sure to include a trailing **/** at the end.
+   * **Issuer**: `https://sts.windows.net/{TenantID}`  For the Issuer value, make sure to include a trailing **/** at the end.
 
 1. Once you finish configuring settings, click **Save** at the top of the page.
 

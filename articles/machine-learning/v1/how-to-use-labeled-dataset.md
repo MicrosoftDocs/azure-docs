@@ -63,10 +63,7 @@ pip install azureml-dataprep
 ```
 
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
-The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). If you plan to use [download()](/python/api/azureml-core/azureml.data.tabulardataset#azureml-data-tabulardataset-download) or [mount()](/python/api/azureml-core/azureml.data.tabulardataset#azureml-data-tabulardataset-mount) methods, be sure to set the parameter `stream column ='image_url'`. 
-
-> [!NOTE]
-> The public preview methods download() and mount() are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time.
+The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). 
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -81,7 +78,7 @@ animal_pd = animal_labels.to_pandas_dataframe()
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-#read images from downloaded path
+#read images from dataset
 img = mpimg.imread(animal_pd['image_url'].iloc(0).open())
 imgplot = plt.imshow(img)
 ```

@@ -41,7 +41,10 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. If you changed any settings in the **Security Audit Log Configuration - Parameter** section, select **Save** to save the changes. Auditing will be activated only after the server is rebooted.
 
-    ![Screenshot showing R S A U CONFIG parameters.](./media/configure-audit/rsau-config-parameter.png)
+   > [!IMPORTANT]
+   > SAP applications running on Windows OS should consider recommendations in SAP Note 2360334 in case the audit log isn't read correctly after setup.
+
+   ![Screenshot showing R S A U CONFIG parameters.](./media/configure-audit/rsau-config-parameter.png)
 
 1. Right-click **Static Configuration** and select **Create Profile**.
 
@@ -86,6 +89,7 @@ The following table lists Message IDs used by the Microsoft Sentinel Solution fo
 | AUD | User master record &A changed. | User Master Record Change | Severe | Used |
 | AUE | Audit configuration changed | System | Critical | Used |
 | AUF | Audit: Slot &A: Class &B, Severity &C, User &D, Client &E, &F | System | Critical | Used |
+| AUG | Application server started | System | Critical | Used |
 | AUI | Audit: Slot &A Inactive | System | Critical | Used |
 | AUJ | Audit: Active status set to &1 | System | Critical with Monitor Alert | Used |
 | AUK | Successful RFC call &C (function group = &A) | RFC Start | Non-Critical | Used |

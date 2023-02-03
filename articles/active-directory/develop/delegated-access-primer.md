@@ -3,8 +3,7 @@ title: Microsoft identity platform delegated access scenario
 description: Learn about delegated access in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
-manager: mwongerapk
-
+manager: celesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -63,8 +62,9 @@ For client app authorization, OneDrive will check whether the client making the 
 
 The example given is simplified to illustrate delegated authorization. The production OneDrive service supports many other access scenarios, such as shared files.
 
-## Next steps
+## See also
 
 - [Open connect scopes](scopes-oidc.md)
 - [RBAC roles](custom-rbac-for-developers.md)
+- [Overview of permissions in Microsoft Graph](/graph/permissions-overview)
 - [Microsoft Graph permissions reference](/graph/permissions-reference)

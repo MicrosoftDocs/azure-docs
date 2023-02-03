@@ -5,7 +5,7 @@ services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/25/2022
@@ -13,6 +13,7 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app using managed identities.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Clean up resources

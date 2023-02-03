@@ -1,10 +1,10 @@
 ---
-title: Planning for an Azure File Sync deployment | Microsoft Docs
+title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 02/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
@@ -72,7 +72,9 @@ Azure File Sync is supported with the following versions of Windows Server:
 | Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |
+| Windows Server 2012 R2* | Datacenter, Standard, and Storage Server | Full and Core |
+
+*Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 Future versions of Windows Server will be added as they are released.
 
@@ -194,11 +196,11 @@ With Azure File Sync, you will need to account for the following taking up space
 We'll use an example to illustrate how to estimate the amount of free space would need on your local disk. Let's say you installed your Azure File Sync agent on your Azure Windows VM, and plan to create a server endpoint on disk F. You have 1 million files and would like to tier all of them, 100,000 directories, and a disk cluster size of 4 KiB. The disk size is 1000 GiB. You want to enable cloud tiering and set your volume free space policy to 20%. 
 
 1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
-> [!Note]  
-> The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
-3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
-4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
-5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
+   > [!Note]  
+   > The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
+1. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
+1. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
+1. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
 
 In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
@@ -242,7 +244,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported with DFS-N implementation. You can install the Azure File Sync agent on one or more file servers to sync data between the server endpoints and the cloud endpoint, and then use DFS-N to provide namespace service. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) and [DFS Namespaces with Azure Files](../files/files-manage-namespaces.md).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 

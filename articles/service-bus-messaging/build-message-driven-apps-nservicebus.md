@@ -17,7 +17,7 @@ NServiceBus is a commercial messaging framework provided by Particular Software.
 
 ## Prerequisites
 
-The sample assumes you've [created an Azure Service Bus namespace](service-bus-create-namespace-portal.md).
+The sample assumes you've [created an Azure Service Bus namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal).
 
 > [!IMPORTANT]
 > NServiceBus requires at least the Standard tier. The Basic tier won't work.

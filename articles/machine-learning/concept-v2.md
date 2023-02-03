@@ -69,7 +69,7 @@ The SDK v2 is useful in the following scenarios:
 
 * Use Python functions to build a single step or a complex workflow
 
-    SDK v2 allows you to build a single command or a chain of commands like python functions - the command has a name, parameters, expects input, and returns output.
+    SDK v2 allows you to build a single command or a chain of commands like Python functions - the command has a name, parameters, expects input, and returns output.
 
 * Move from simple to complex concepts incrementally
 
@@ -112,12 +112,12 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 
 ## Next steps
 
-* [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
+* [How to upgrade from v1 to v2](how-to-migrate-from-v1.md)
 * Get started with CLI v2
 
     * [Install and set up CLI (v2)](how-to-configure-cli.md)
     * [Train models with the CLI (v2)](how-to-train-model.md)
-    * [Deploy and score models with managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+    * [Deploy and score models with online endpoints](how-to-deploy-online-endpoints.md)
     
 * Get started with SDK v2
 

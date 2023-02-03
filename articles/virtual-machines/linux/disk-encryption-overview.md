@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 08/06/2019
+ms.date: 01/04/2023
 ms.custom: seodec18
 
 ---
@@ -70,10 +70,14 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
-| Oracle | Oracle Linux 8.5 (Public Preview) | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
-| Oracle | Oracle Linux 8.5 Gen 2 (Public Preview) | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
+| Oracle | Oracle Linux 8.6 | 8.6 | Oracle:Oracle-Linux:ol86-lvm:latest | OS and data disk (see note below) |
+| Oracle | Oracle Linux 8.6 Gen 2 | 8.6 | Oracle:Oracle-Linux:ol86-lvm-gen2:latest | OS and data disk (see note below) |
+| Oracle | Oracle Linux 8.5 | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
+| Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.7 | 8.7 | RedHat:RHEL:8_7:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.7 Gen 2 | 8.7 | RedHat:RHEL:87-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.6 | 8.6 | RedHat:RHEL:8_6:latest | OS and data disk (see note below) |
-| RedHat | RHEL 8.6 Gen 2 | 8.5 | RedHat:RHEL:86-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.6 Gen 2 | 8.6 | RedHat:RHEL:86-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.5 | 8.5 | RedHat:RHEL:8_5:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.5 Gen 2 | 8.5 | RedHat:RHEL:85-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.4 | 8.4 | RedHat:RHEL:8.4:latest | OS and data disk (see note below) |
@@ -114,13 +118,14 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Data disk only |
 
 > [!NOTE]
-> The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.
->
-> ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> RHEL:
+> - The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.
+> - ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 > 
-> ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
-> 
-> The legacy ADE solution (using AAD credentials) is not recommended for new VM's and is not compatible with RHEL versions later than RHEL 7.8.
+> All distros:
+> - ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
+> - The legacy ADE solution (using AAD credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
+
 
 ## Additional VM requirements
 

@@ -1,5 +1,6 @@
 ---
-title: Introduction to Azure Queue Storage - Azure Storage
+title: Introduction to Azure Queue Storage
+titleSuffix: Azure Storage
 description: See an introduction to Azure Queue Storage, a service for storing large numbers of messages. A Queue Storage service contains a URL format, storage account, queue, and message.
 author: normesta
 ms.author: normesta

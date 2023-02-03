@@ -32,6 +32,8 @@
         href: migrate-search-service.md
       - name: Azure Container instances
         href: migrate-container-instances.md
+      - name: Azure Database for MySQL - Flexible Server
+        href: migrate-database-mysql-flex.md
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
@@ -137,6 +139,8 @@
     href: ../backup/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Reliability Guidance
   items:
+    - name: Overview
+      href: reliability-guidance-overview.md
     - name: Reliability in Microsoft Azure Well-Architected Framework
       href: /azure/architecture/framework/resiliency?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Reliability by service
@@ -255,5 +259,8 @@
   items:
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
+  - name: Reliability in Microsoft Azure Well-Architected Framework
+    href: /azure/architecture/framework/resiliency/
   - name: Reliability terminology
     href: glossary.md
+  
