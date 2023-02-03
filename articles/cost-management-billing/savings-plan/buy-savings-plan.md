@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 02/03/2023
 ms.author: banders
 ---
 
@@ -38,19 +38,17 @@ To disallow savings plan purchases on a billing profile, billing profile contrib
 
 - Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
 
+## Change agreement type to one supported by savings plan
+
+If your current agreement type isn't supported by a savings plan, you might be able to transfer or migrate it to one that's supported. For more information, see the following articles.
+
+- [Transfer Azure products between different billing agreements](../manage/subscription-transfer.md)
+- [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
+- [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
+
 ## Purchase savings plan
 
-You can purchase a savings plan using the [Azure portal](https://portal.azure.com/) and with APIs. You don't need to assign a savings plan to your compute resources, the savings plan benefit is applied automatically to compute usage that matches the savings plan scope. A savings plan purchase covers only the compute part of your usage. For example, for Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure savings plans](software-costs-not-included.md).
-
-### Use savings plan recommendations
-
-You can use savings plan recommendations to help determine the hourly commitment you should purchase.
-
-- Hourly commitment recommendations are shown when you purchase a savings plan in the Azure portal.
-- Azure Advisor provides purchase recommendations for individual subscriptions.
-- You can use the APIs to get purchase recommendations for both shared scope and single subscription scope.
-
-For more information, see [Savings plan purchase recommendations](purchase-recommendations.md).
+You can purchase a savings plan using the [Azure portal](https://portal.azure.com/) or with the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API.
 
 ### Buy a savings plan in the Azure portal
 
@@ -72,12 +70,12 @@ For more information, see [Savings plan purchase recommendations](purchase-recom
 
 Buy savings plans by using Azure RBAC permissions or with permissions on your billing scope. When using the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API, the format of the `billingScopeId` in the request body is used to control the permissions that are checked.
 
-To purchase using Azure RBAC permissions:
+#### To purchase using Azure RBAC permissions
 
 - You must be an Owner of the subscription that you plan to use, specified as `billingScopeId`.
 - The `billingScopeId` property in the request body must use the `/subscriptions/10000000-0000-0000-0000-000000000000` format.
 
-To purchase using billing permissions:
+#### To purchase using billing permissions
 
 Permission needed to purchase varies by the type of account that you have.
 
@@ -87,36 +85,9 @@ Permission needed to purchase varies by the type of account that you have.
 
 The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/10000000-0000-0000-0000-000000000000` format.
 
-## Usage data and savings plan utilization
-
-Your usage data has an effective price of zero for the usage that gets a savings plan benefit. You can see which compute resource received the benefit for each savings plan.
-
-For more information about how savings plan benefits appear in usage data, see [Understand savings plan costs and usage](utilization-cost-reports.md).
-
-## Change a savings plan after purchase
-
-You can make the following types of changes to a savings plan after purchase:
-
-- Savings plan name
-- Update savings plan scope
-- Permission to access and manage a savings plan
-- Auto-renewal
-
-Except for auto-renewal, none of the changes cause a new commercial transaction or change the end date of the savings plan.
-
-You can't make the following types of changes after purchase:
-
-- Hourly commitment
-- Term length
-- Billing frequency
-
 ## Cancel, exchange, or refund savings plans
 
-Savings plan discounts apply to the following eligible subscriptions and offer types.
-
-- Enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)
-- Microsoft Customer Agreement subscriptions.
-- Microsoft Partner Agreement subscriptions.
+You can't cancel, exchange, or refund savings plans.
 
 ### Buy savings plans with monthly payments
 
