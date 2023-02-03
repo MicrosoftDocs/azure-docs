@@ -1,21 +1,15 @@
 ---
-title: "include file"
-description: "include file"
-services: backup
-author: snehasudhirg
-ms.service: automation
-ms.topic: "include"
+title: Default Python packages in Azure Automation
+description: List of default Python packages in Automation service .
 ms.date: 02/03/2023
-ms.author: sudhirsneha
-ms.custom: "include file"
+ms.topic: reference
+ms.custom: subject-python-package-reference
 ---
+# Default Python Packages
 
-
-To support Python 3.8 runbooks in the Automation service, the below packages are  installed by default in the Automation account.
-
-- Package Name adal Version  1.2.2 
-- Package Name azure_applicationinsights Version  0.1.0 
-- Package Name azure_batch Version  4.1.3 
+Package Name adal Version  1.2.2 
+Package Name azure_applicationinsights Version  0.1.0 
+Package Name azure_batch Version  4.1.3 
 Package Name azure_common Version  1.1.23 
 Package Name azure_cosmosdb_nspkg Version  2.0.2 
 Package Name azure_cosmosdb_table Version  1.0.6 
@@ -117,3 +111,7 @@ Package Name six Version  1.13.0
 Package Name sqlite_bro Version  0.9.1 
 Package Name urllib3 Version  1.25.7 
 Package Name wheel Version  0.34.2 
+
+## Next steps
+
+- See [Manage Python 3 packages in Azure Automation](python-3-packages.md)

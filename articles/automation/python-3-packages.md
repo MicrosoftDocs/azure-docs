@@ -1,28 +1,27 @@
 ---
 title: Manage Python 3 packages in Azure Automation
-description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
+description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2022
+ms.date: 02/03/2023
 ms.topic: conceptual
 ms.custom: has-adal-ref, references_regions
 ---
 
-# Manage Python 3 packages (preview) in Azure Automation
+# Manage Python 3 packages in Azure Automation
 
-This article describes how to import, manage, and use Python 3 (preview) packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers. Python packages should be downloaded on Hybrid Runbook workers for successful job execution. To help simplify runbooks, you can use Python packages to import the modules you need.
+This article describes how to import, manage, and use Python 3 packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers. Python packages should be downloaded on Hybrid Runbook workers for successful job execution. To help simplify runbooks, you can use Python packages to import the modules you need.
 
 For information on managing Python 2 packages, see [Manage Python 2 packages](./python-packages.md).
 
 ## Default Python packages
 
-To support Python 3.8 (preview) runbooks in the Automation service, Azure package 4.0.0 is installed by default in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
+To support Python 3.8 runbooks in the Automation service, the below [packages are installed by default](default-python-packages.md) in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
 
 Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
 
-See [default python packages][!INCLUDE [automation-python-packages.md](../includes/automation-python-packages.md)]
-
-There are no default packages installed for Python 3.10 (preview). 
+> [!NOTE]
+> There are no default packages installed for Python 3.10 (preview). 
 
 ## Packages as source files
 
@@ -35,11 +34,11 @@ The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software
 
 Select a Python version:
 
-#### [Python 3.8 (preview)](#tab/py3)
+#### [Python 3.8](#tab/py3)
 
 | Filename part | Description |
 |---|---|
-|cp38|Automation supports **Python 3.8 (preview)** for Cloud jobs.|
+|cp38|Automation supports **Python 3.8** for Cloud jobs.|
 |amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
 
 For example:
@@ -59,10 +58,8 @@ Perform the following steps using a 64-bit Windows machine with Python 3.8.x and
 |cp310|Automation supports **Python 3.10 (preview)** for Cloud jobs.|
 |manylinux_x86_64|Azure sandbox processes are Linux based 64-bit architecture for Python 3.10 (preview) runbooks.
 
-
 For example: 
 - To import pandas - select a wheel file with a name similar as `pandas-1.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`
-
 
 Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using pip. 
 
@@ -73,15 +70,14 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 
 ---
 
-
 ## Import a package
 
 1. In your Automation account, select **Python packages** under **Shared Resources**. Then select **+ Add a Python package**.
 
    :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 (preview) and **.whl** file for Python 3.10 (preview). 
-1. Enter a name and select the **Runtime Version** as Python 3.8 (preview) or Python 3.10 (preview).
+1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
+1. Enter a name and select the **Runtime Version** as Python 3.8 or Python 3.10 (preview).
    > [!NOTE]
    > Python 3.10 (preview) runtime version is currently supported in five regions for Cloud jobs only: West Central US, East US, South Africa North, North Europe, Australia Southeast.                       
 1. Select **Import**
@@ -94,7 +90,7 @@ After a package has been imported, it's listed on the Python packages page in yo
 
 ### Import a package with dependencies
 
-You can import a Python 3.8 (preview) package and its dependencies by importing the following Python script into a Python 3 runbook, and then running it.
+You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3.8 runbook, and then running it.
 
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
@@ -107,7 +103,7 @@ For information on importing the runbook, see [Import a runbook from the Azure p
 > Currently, importing a runbook from Azure Portal isn't supported for Python 3.10 (preview).
 
 
-The **Import a runbook** page defaults the runbook name to match the name of the script. If you have access to the field, you can change the name. **Runbook type** may default to **Python 2**. If it does, make sure to change it to **Python 3**.
+The **Import a runbook** page defaults the runbook name to match the name of the script. If you have access to the field, you can change the name. **Runbook type** may default to **Python 2.7**. If it does, make sure to change it to **Python 3.8**.
 
 :::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Screenshot shows the Python 3 runbook import page.":::
 
@@ -167,9 +163,9 @@ for package in installed_packages_list:
     print(package)
 ```
 
-### Python 3.8 (preview) PowerShell cmdlets
+### Python 3.8 PowerShell cmdlets
 
-#### Add new Python 3.8 (preview) package
+#### Add new Python 3.8 package
 
 ```python
 New-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
@@ -187,7 +183,7 @@ LastModifiedTime      : 9/26/2022 1:37:13 PM +05:30
 ProvisioningState     : Creating 
 ```
 
-#### List all Python 3.8 (preview) packages
+#### List all Python 3.8 packages
 
 ```python
 Get-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja 
@@ -244,13 +240,13 @@ LastModifiedTime      : 9/22/2022 5:03:42 PM +05:30
 ProvisioningState     : Succeeded 
 ```
 
-#### Remove Python 3.8 (preview) package
+#### Remove Python 3.8 package
 
 ```python
 Remove-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name sockets 
 ```
 
-#### Update Python 3.8 (preview) package
+#### Update Python 3.8 package
 
 ```python
 Set-AzAutomationPython3Package -AutomationAccountName tarademo  -ResourceGroupName mahja -Name requires.io -ContentLinkUri https://files.pythonhosted.org/packages/7f/e2/85dfb9f7364cbd7a9213caea0e91fc948da3c912a2b222a3e43bc9cc6432/requires.io-0.2.6-py2.py3-none-any.whl 
