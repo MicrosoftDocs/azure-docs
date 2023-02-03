@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 1/9/2023
+ms.date: 2/3/2023
 ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -292,12 +292,12 @@ The following table shows example settings:
 You can [assign eligibility to members or owners of the PIM for Groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
->You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
+>You can assign the group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
-![Assign eligibility for PIM for Groups](media/pim-deployment-plan/privileged-access-groups.png)
+![Assign eligibility for PIM for Groups](media/pim-deployment-plan/pim-for-groups.png)
 
 
-When privileged group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
+When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
 
 ### Approve or deny PIM activation request
 
