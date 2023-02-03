@@ -55,6 +55,9 @@ The following SAP system configurations aren't supported in Azure Center for SAP
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
 - Systems using IPv6 addresses
+- SAP system with multiple Application Server Instances on a single Virtual Machine
+- SAP system with [clustered Application Server architecture](../virtual-machines/workloads/sap/high-availability-guide-rhel-with-dialog-instance.md)
+- Multiple SIDs running on same set of Virtual Machines. For example, two or more SIDs sharing a single VM for ASCS instance. 
 
 ## Enable resource permissions
 
