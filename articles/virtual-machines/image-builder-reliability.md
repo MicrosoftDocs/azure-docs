@@ -24,12 +24,8 @@ Azure availability zones are at least three physically separate groups of datace
 Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 > [!NOTE]
-> Azure Image Builder doesn't currently support availability zones at this time. Customers are responsible for configuring availability zones for their Image Builder solution.
+> Azure Image Builder doesn't currently support availability zones at this time. Availability zone outage within a region is considered Regional outage for Azure Image Builder and customers are recommended to follow guidance as per the Disaster Recovery and failover to backup region.
 
-
-
->[!IMPORTANT]
->By opting out of zone-aware deployment, you forego protection from isolation of underlying faults. Use of SKUs that don't support availability zones or opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
 
 
 ### Safe deployment techniques
