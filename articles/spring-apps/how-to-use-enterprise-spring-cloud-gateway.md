@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 02/03/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -256,22 +256,22 @@ az spring gateway route-config create \
 
 ## Enable/Disable Spring Cloud Gateway after service creation
 
-You can enable/disable Spring Cloud Gateway after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unassign its endpoint and remove all route configs.
+You can enable and disable Spring Cloud Gateway after service creation using Azure portal or Azure CLI. Before disabling Spring Cloud Gateway, you're required to unassign its endpoint and remove all route configs.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable/disable Spring Cloud Gateway using the Azure portal:
+Use the following steps to enable or disable Spring Cloud Gateway using the Azure portal:
 
 1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
 1. Select **Manage**.
 
-1. Check/Uncheck the **Enable Spring Cloud Gateway** checkbox, and then select **Save**.
+1. Select or unselect the **Enable Spring Cloud Gateway**, and then select **Save**.
 
 1. You can then view the state of Spring Cloud Gateway on the **Spring Cloud Gateway**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to enable/disable Spring Cloud Gateway:
+Use the following Azure CLI commands to enable or disable Spring Cloud Gateway:
 
 ```azurecli
 az spring spring-cloud-gateway create \

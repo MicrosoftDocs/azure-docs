@@ -50,7 +50,7 @@ The following table describes properties for each entry.
 
 ### Pattern
 
-Configuration is pulled from Git backends by using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
+Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
 - *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
 - *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
@@ -82,7 +82,7 @@ The following image shows the three types of repository authentication supported
    |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
    | `Host key`                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | `Host key algorithm`       | No        | The algorithm for `HostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. Required if supplying `Host key`.                                                              |
+   | `Host key algorithm`       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 > [!NOTE]
@@ -207,22 +207,23 @@ az spring app deploy \
 
 ## Enable/Disable Application Configuration Service after service creation
 
-You can enable and disable Application Configuration Service after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unbind all of your apps to Application Configuration Service.
+You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps to it.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable/disable Application Configuration Service using the Azure portal:
+Use the following steps to enable or disable Application Configuration Service using the Azure portal:
 
 1. Navigate to your service resource, and then select **Application Configuration Service**.
+
 1. Select **Manage**.
 
-1. Check/Uncheck the **Enable Application Configuration Service** checkbox, and then select **Save**.
+1. Select or unselect the **Enable Application Configuration Service**, and then select **Save**.
 
 1. You can then view the state of Application Configuration Service on the **Application Configuration Service**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to enable/disable Application Configuration Service:
+Use the following Azure CLI commands to enable or disable Application Configuration Service:
 
 ```azurecli
 az spring application-configuration-service create \

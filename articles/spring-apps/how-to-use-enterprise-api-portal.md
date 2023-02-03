@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/03/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -161,22 +161,22 @@ Use the following steps to try out APIs:
 
 ## Enable/Disable API portal after service creation
 
-You can enable/disable API portal after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unassign its endpoint.
+You can enable and disable API portal after service creation using the Azure portal or Azure CLI. Before disabling API portal, you're required to unassign its endpoint.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable/disable API portal using the Azure portal:
+Use the following steps to enable or disable API portal using the Azure portal:
 
 1. Navigate to your service resource, and then select **API portal**.
 1. Select **Manage**.
 
-1. Check/Uncheck the **Enable API portal** checkbox, and then select **Save**.
+1. Select or unselect the **Enable API portal**, and then select **Save**.
 
 1. You can then view the state of API portal on the **API portal**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to enable/disable API portal:
+Use the following Azure CLI commands to enable or disable API portal:
 
 ```azurecli
 az spring api-portal create \
