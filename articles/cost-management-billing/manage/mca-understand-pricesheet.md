@@ -40,7 +40,7 @@ The following section describes the important terms shown in your Microsoft Cust
 | meterSubCategory  | Name of the meter subclassification category.  |
 | meterType  |  Name of the meter type. |
 | meterRegion  | Name of the region where the meter for the service is available. Identifies the location of the datacenter for certain services that are priced based on datacenter location.    |
-| priceType | : Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as *Consumption*. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as *SavingsPlan*. |
+| priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as *Consumption*. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as *SavingsPlan*. |
 | Product  | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB.  |
 | productId  | Unique identifier for the product whose meter is consumed. |
 | productOrderName  | Name of the purchased product plan. |
