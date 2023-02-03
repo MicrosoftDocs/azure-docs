@@ -153,6 +153,8 @@ spec:
         claimName: iscsiplugin-pvc
 ```
 
+### Deployment
+
 Then, create the persistent volume with the following command:
 
 ```bash
