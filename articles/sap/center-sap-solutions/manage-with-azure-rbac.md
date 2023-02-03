@@ -15,11 +15,11 @@ ms.custom: template-concept
 
 [!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage Virtual Instance for SAP solutions resources within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage Virtual Instance for SAP solutions resources within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
 
 *Users* or *user-assigned managed identities* require minimum roles or permissions to use the different capabilities in Azure Center for SAP solutions.
 
-There are [Azure built-in roles](../role-based-access-control/built-in-roles.md) for Azure Center for SAP solutions, or you can [create Azure custom roles](../role-based-access-control/custom-roles.md) for more control. Azure Center for SAP solutions provides the following built-in roles to deploy and manage SAP systems on Azure: 
+There are [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for Azure Center for SAP solutions, or you can [create Azure custom roles](../../role-based-access-control/custom-roles.md) for more control. Azure Center for SAP solutions provides the following built-in roles to deploy and manage SAP systems on Azure: 
 
 - The **Azure Center for SAP solutions administrator** role has the required permissions for a user to deploy infrastructure, install SAP, and manage SAP systems from Azure Center for SAP solutions. The role allows users to:
     - Deploy infrastructure for a new SAP system

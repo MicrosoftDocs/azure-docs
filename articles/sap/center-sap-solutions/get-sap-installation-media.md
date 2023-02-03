@@ -72,7 +72,7 @@ To prepare for SAP installation, you can upload the SAP components to your Azure
 
 Before downloading the SAP software, set up an Azure Storage account to store the components.
 
-1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
+1. [Create an Azure Storage account through the Azure portal](../../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
 
 1. Create a container within the Azure Storage account named `sapbits`.
 
@@ -91,7 +91,7 @@ Before downloading the SAP software, set up an Azure Storage account to store th
 
 Next, set up a virtual machine (VM) where you will download the SAP components later.
 
-1. Create a **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+1. Create a **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
 
 1. Sign in to the VM.
 
