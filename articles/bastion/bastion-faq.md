@@ -167,6 +167,10 @@ To establish the correct key mappings for your target language, you must set the
 
 To set your target language as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add your target language. You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
+### <a name="shortcut"></a>Is there a keyboard solution to toggle focus between a VM and browser?
+
+Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser. 
+
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
 Currently, 1920x1080 (1080p) is the maximum supported resolution.
