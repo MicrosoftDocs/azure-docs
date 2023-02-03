@@ -6,6 +6,7 @@ metadata:
   title: Azure Center for SAP solutions
   description: Learn about Azure Center for SAP solutions. This offering makes SAP a top-level workload in Azure.
   ms.service: sap-on-azure
+  ms.subservice: center-sap-solutions
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan

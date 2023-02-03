@@ -2,6 +2,7 @@
 title: Get SAP installation media (preview)
 description: Learn how to download the necessary SAP media for installing the SAP software and upload it for use with Azure Center for SAP solutions.
 ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
 author: lauradolan

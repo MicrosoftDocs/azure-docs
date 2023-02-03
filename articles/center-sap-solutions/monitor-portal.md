@@ -2,6 +2,7 @@
 title: Monitor SAP system from the Azure portal (preview)
 description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions within the Azure portal.
 ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
 author: lauradolan

@@ -4,6 +4,7 @@ description: Use Azure role-based access control (Azure RBAC) to manage access t
 author: kalyaninamuduri 
 ms.author: kanamudu 
 ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: conceptual
 ms.date: 02/03/2023
 ms.custom: template-concept 

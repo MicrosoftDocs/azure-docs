@@ -2,6 +2,7 @@
 title: View post-deployment cost analysis in Azure Center for SAP solutions (preview)
 description: Learn how to view the cost of running an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
 ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: kanamudu

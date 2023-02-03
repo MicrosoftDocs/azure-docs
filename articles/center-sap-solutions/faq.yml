@@ -4,6 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure Center for SAP solutions and Virtual Instance for SAP solutions (VIS) resources."
   ms.topic: faq 
   ms.service: sap-on-azure
+  ms.subservice: center-sap-solutions
   ms.date: 10/19/2022
   ms.author: ladolan
   author: lauradolan
