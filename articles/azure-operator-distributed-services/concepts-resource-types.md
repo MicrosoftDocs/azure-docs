@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Distributed Services resource types
 description: Azure Operator Distributed Services platform and tenant resource types
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
+author: jashobhit #Required; your GitHub user alias, with correct capitalization.
+ms.author: shobhitjain #Required; microsoft alias of author; optional team alias.
 ms.service: Azure Operator Distributed Services
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
