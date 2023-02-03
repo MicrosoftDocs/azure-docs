@@ -65,7 +65,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. | `auth_url` |
     | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field. | `token_url` |
     | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
-    | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>*/**. | `redirect_uri_root` |
+    | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
 
 ## Create Kubernetes Secret Objects
