@@ -1,6 +1,6 @@
 ---
 title: X.509 certificates | Microsoft Docs
-description: Reference documentation containing information about X.509 certificates, including supported file formats and certificate fields.
+description: Reference documentation containing information about X.509 certificates, including certificate fields, certificate extensions, and certificate formats.
 author: kgremban
 
 ms.service: iot-hub
@@ -27,8 +27,8 @@ X.509 certificates are digital documents that represent a user, computer, servic
 There are three incremental versions of the X.509 certificate standard, and each subsequent version added certificate fields to the standard: 
 
 * Version 1 (v1), published in 1988, follows the initial X.509 standard for certificates.
-* Version 2 (v2), published in 1993, adds two new fields to the fields included in Version 1.
-* Version 3 (v3), published in 2008, represents the current version of the X.509 standard. This version adds more fields and allows for extension fields to be added as needed.
+* Version 2 (v2), published in 1993, adds two fields to the fields included in Version 1.
+* Version 3 (v3), published in 2008, represents the current version of the X.509 standard. This version adds more fields and allows for certificate extensions.
 
 This section is meant as a general reference for the certificate fields and certificate extensions available in X.509 certificates. For more information about certificate fields and certificate extensions, including data types, constraints, and other details, see the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
 
@@ -38,88 +38,83 @@ The following table describes Version 1 certificate fields for X.509 certificate
 
 | Name | Description |
 | --- | --- |
-| `version` | An integer that identifies the version number of the certificate.<br/>A value of zero represents Version 1, a value of one represents Version 2, and a value of two represents Version 3. |
-| `serialNumber` | An integer that represents the unique number for each certificate issued by a certificate authority (CA). |
-| `signature` | The identifier for the cryptographic algorithm used by the CA to sign the certificate. The value includes both the identifier of the algorithm and any optional parameters used by that algorithm, if applicable. |
-| `issuer` | The distinguished name (DN) of the certificate's issuing CA. |
-| `validity` | The inclusive time period for which the certificate is considered valid. |
-| `subject` | The distinguished name (DN) of the certificate subject. |
-| `subjectPublicKeyInfo` | The public key owned by the certificate subject. |
+| [Version](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.1) | An integer that identifies the version number of the certificate.|
+| [Serial Number](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.2) | An integer that represents the unique number for each certificate issued by a certificate authority (CA). |
+| [Signature](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.3) | The identifier for the cryptographic algorithm used by the CA to sign the certificate. The value includes both the identifier of the algorithm and any optional parameters used by that algorithm, if applicable. |
+| [Issuer](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.4) | The distinguished name (DN) of the certificate's issuing CA. |
+| [Validity](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.5) | The inclusive time period for which the certificate is considered valid. |
+| [Subject](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.6) | The distinguished name (DN) of the certificate subject. |
+| [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7) | The public key owned by the certificate subject. |
 
 #### Version 2 fields
 
 The following table describes the fields added for Version 2, containing information about the certificate issuer. These fields are, however, rarely used. All of the fields included in this table are available in subsequent X.509 certificate versions.
 
 | Name | Description |
-| --- | --- | --- |
-| `issuerUniqueID` | A unique identifier that represents the issuing CA, as defined by the issuing CA. |
-| `subjectUniqueID` | A unique identifier that represents the certificate subject, as defined by the issuing CA. |
+| --- | --- |
+| [Issuer Unique ID](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.8) | A unique identifier that represents the issuing CA, as defined by the issuing CA. |
+| [Subject Unique ID](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.8) | A unique identifier that represents the certificate subject, as defined by the issuing CA. |
 
 #### Version 3 fields
 
 The following table describes the field added for Version 3, representing a collection of X.509 certificate extensions. 
 
 | Name | Description |
-| --- | --- | --- |
-| `extensions` | A collection of standard and Internet-specific certificate extensions. For more information about the certificate extensions available to X.509 v3 certificates, see [Certificate extensions](#certificate-extensions). |
+| --- | --- |
+| [Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.9) | A collection of standard and Internet-specific certificate extensions. For more information about the certificate extensions available to X.509 v3 certificates, see [Certificate extensions](#certificate-extensions). |
 
-## Certificate extensions
+### Certificate extensions
 
-Introduced with Version 3, certificate extensions provide methods for associating more attributes with users or public keys, and for managing relationships between certificate authorities.
+Introduced with Version 3, certificate extensions provide methods for associating more attributes with users or public keys, and for managing relationships between certificate authorities. For more information about certificate extensions, see the [Certificate Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.2) section of the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
 
 #### Standard extensions
 
 The extensions included in this section are defined as part of the X.509 standard, for use in the Internet public key infrastructure (PKI). 
 
-| Extension | Description |
+| Name | Description |
 | --- | --- |
-| Authority Key Identifier | This extension can be set to either the subject of the CA and serial number of the CA certificate that issued this certificate, or a hash of the public key of the CA that issued this certificate. |
-| Subject Key Identifier | A hash of the current certificate's public key |
-| Key Usage | Defines the service for which a certificate can be used. This extension can be set to one or more of the following values:<br/>Digital Signature<br/>Non-Repudiation<br/>Key Encipherment<br/>Data Encipherment<br/>Key Agreement<br/>Key Cert Sign<br/>CRL Sign<br/>Encipher Only<br/>Decipher Only |
-
-* **Private Key Usage Period**
-    Validity period for the private key portion of a key pair
-
-* **Certificate Policies**
-    Policies used to validate the certificate subject
-
-* **Policy Mappings**
-    Maps a policy in one organization to policy in another
-* **Subject Alternative Name**
-    List of alternate names for the subject
-* **Issuer Alternative Name**: List of alternate names for the issuing CA
-* **Subject Dir Attribute**: Attributes from an X.500 or LDAP directory
-* **Basic Constraints**: Allows the certificate to designate whether it's issued to a CA, or to a user, computer, device, or service. This extension also includes a path length constraint that limits the number of subordinate CAs that can exist.
-* **Name Constraints**: Designates which namespaces are allowed in a CA-issued certificate
-* **Policy Constraints**: Can be used to prohibit policy mappings between CAs
-* **Extended Key Usage**: Indicates how a certificate's public key can be used beyond the purposes identified in the **Key Usage** extension
-* **CRL Distribution Points**: Contains one or more URLs where the base certificate revocation list (CRL) is published
-* **Inhibit anyPolicy**: Inhibits the use of the **All Issuance Policies** OID (2.5.29.32.0) in subordinate CA certificates
-* **Freshest CRL**: Contains one or more URLs where the issuing CA's delta CRL is published
+| [Authority Key Identifier](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.1) | An identifier that represents either the subject of the CA and serial number of the CA certificate that issued this certificate, or a hash of the public key of the CA that issued this certificate. |
+| [Subject Key Identifier](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.2) | A hash of the current certificate's public key. |
+| [Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.3) | A bitmapped value that defines the services for which a certificate can be used. |
+| [Private Key Usage Period](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.3) | The validity period for the private key portion of a key pair. |
+| [Certificate Policies](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4) | A collection of policy information, used to validate the certificate subject. |
+| [Policy Mappings](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.5) | A collection of policy mappings, each of which maps a policy in one organization to policy in another organization. |
+| [Subject Alternative Name](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.6) | A collection of alternate names for the subject. |
+| [Issuer Alternative Name](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.7) | A collection of alternate names for the issuing CA. |
+| [Subject Directory Attributes](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.8) | A collection of attributes from an X.500 or LDAP directory. |
+| [Basic Constraints](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.9) | A collection of constraints that allow the certificate to designate whether it's issued to a CA, or to a user, computer, device, or service. This extension also includes a path length constraint that limits the number of subordinate CAs that can exist. |
+| [Name Constraints](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.10) | A collection of constraints that designate which namespaces are allowed in a CA-issued certificate. |
+| [Policy Constraints](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.11) | A collection of constraints that can be used to prohibit policy mappings between CAs. |
+| [Extended Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) | A collection of key purpose values that indicate how a certificate's public key can be used, beyond the purposes identified in the **Key Usage** extension. |
+| [CRL Distribution Points](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.13) | A collection of URLs where the base certificate revocation list (CRL) is published. |
+| [Inhibit anyPolicy](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.14) | Inhibits the use of the **All Issuance Policies** OID (2.5.29.32.0) in subordinate CA certificates
+| [Freshest CRL](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.15) | Also known as the **Delta CRL Distribution Point**, this extension contains one or more URLs where the issuing CA's delta CRL is published. |
 
 #### Private Internet extensions
 
-The extensions included in this section are similar to defined as part of the X.509 standard, for use in the Internet public key infrastructure (PKI). 
+The extensions included in this section are similar to standard extensions, and may be used to direct applications to online information about the issuing CA or certificate subject. 
 
-* **Authority Information Access**: Contains one or more URLs where the issuing CA certificate is published
-* **Subject Information Access**: Contains information about how to retrieve more details for a certificate subject
+| Name | Description |
+| --- | --- |
+| [Authority Information Access](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.2.1) | A collection of entries that describe the format and location of additional information provided by the issuing CA. |
+| [Subject Information Access](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.2.1) | A collection of entries that describe the format and location of additional information provided by the certificate subject. |
 
 ## Certificate formats
 
-Certificates can be saved in various formats. Azure IoT Hub authentication typically uses the Privacy-Enhanced Mail (PEM) and Personal Information Exchange (PFX) formats.
+Certificates can be saved in various formats. Azure IoT Hub authentication typically uses the Privacy-Enhanced Mail (PEM) and Personal Information Exchange (PFX) formats. The following table describes commonly-used files and formats used to represent certificates.
 
 | Format | Description |
 | --- | --- |
 | Binary certificate | A raw form binary certificate using Distinguished Encoding Rules (DER) ASN.1 encoding. |
-| ASCII PEM format | A PEM certificate (.pem) file contains a Base64-encoded certificate beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`. One of the most common formats for X.509 certificates, PEM format is required by IoT Hub when uploading certain certificates. |
+| ASCII PEM format | A PEM certificate (.pem) file contains a Base64-encoded certificate beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`. One of the most common formats for X.509 certificates, PEM format is required by IoT Hub when uploading certain certificates, such as device certificates. |
 | ASCII PEM key | Contains a Base64-encoded DER key, optionally with more metadata about the algorithm used for password protection. |
-| PKCS #7 certificate | A format designed for the transport of signed or encrypted data. It's defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). It can include the entire certificate chain. |
-| PKCS #8 key | The format for a private key store defined by [RFC 5208](https://tools.ietf.org/html/rfc5208). |
-| PKCS #12 key and certificate | A complex format that can store and protect a key and the entire certificate chain. It's commonly used with a .pfx extension. PKCS #12 is synonymous with the PFX format. |
+| PKCS #7 certificate | A format designed for the transport of signed or encrypted data. It can include the entire certificate chain. It's defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). |
+| PKCS #8 key | The format for a private key store. It's defined by [RFC 5208](https://tools.ietf.org/html/rfc5208). |
+| PKCS #12 key and certificate | A complex format that can store and protect a key and the entire certificate chain. It's commonly used with a .p12 or .pfx extension. PKCS #12 is synonymous with the PFX format. It's defined by [RFC 7292](https://tools.ietf.org/html/rfc7292). |
 
 ## For more information
 
-For more information about X.509 certificates, see the following articles:
+For more information about X.509 certificates and how they're used in IoT Hub, see the following articles:
 
 * [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
 * [Understand how X.509 CA certificates are used in IoT](./iot-hub-x509ca-concept.md)
