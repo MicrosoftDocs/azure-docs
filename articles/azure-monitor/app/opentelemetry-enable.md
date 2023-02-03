@@ -331,7 +331,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
-As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You may disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
@@ -741,7 +741,7 @@ The following table represents the currently supported custom telemetry types:
 |                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
@@ -779,10 +779,10 @@ The following table shows the recommended [aggregation types](../essentials/metr
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Average, Sum, Count (Max, Min for Python and Node.js only) |
+| Histogram                                            | Min, Max, Average, Sum and Count                           |
 | Asynchronous Gauge                                   | Average                                                    |
-| UpDownCounter (Python and Node.js only)              | Sum                                                        |
-| Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
+| UpDownCounter                                        | Sum                                                        |
+| Asynchronous UpDownCounter                           | Sum                                                        |
 
 > [!CAUTION]
 > Aggregation types beyond what's shown in the table typically aren't meaningful.
@@ -1643,7 +1643,7 @@ span._attributes["http.client_ip"] = "<IP Address>"
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on the span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -1681,11 +1681,28 @@ Consult applicable privacy laws before you set the Authenticated User ID.
 
 #### [Node.js](#tab/nodejs)
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+```typescript
+...
+import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+
+class SpanEnrichingProcessor implements SpanProcessor{
+    ...
+
+    onEnd(span: ReadableSpan){
+        span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
+    }
+}
+```
 
 ##### [Python](#tab/python)
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+```python
+span._attributes["enduser.id"] = "<User ID>"
+```
 
 ---
 
