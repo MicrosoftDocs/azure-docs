@@ -165,7 +165,14 @@ def test_function(mytimer: func.TimerRequest) -> None:
 
 ## Durable Functions
 
-Durable Functions also provides preview support of the V2 programming model. To try it out, install the Durable Functions SDK (PyPI package `azure-functions-durable`) from version `1.2.0` or greater.
+Durable Functions lso provides preview support of the V2 programming model. To try it out, install the Durable Functions SDK (PyPI package `azure-functions-durable`) from version `1.2.2` or greater.
+
+> ![NOTE]
+> Using [Extension Bundles](/azure-functions/functions-bindings-register#extension-bundles) is yet supported when trying out the new V2 programming model with Durable Functions. You will need
+> to manage your Extensions manually. To do this, remove the `extensionBundles` section of your `host.json` as described [here](/azure-functions/functions-bindings-register#extension-bundles) and
+> run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow
+> you to try out the new experience.
+
 
 The Durable Functions Triggers and Bindings may be accessed from an instance `DFApp`, a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
 
