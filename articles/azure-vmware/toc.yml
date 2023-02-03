@@ -56,8 +56,12 @@
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
-  - name: Security recommendations
-    href: concepts-security-recommendations.md
+  - name: Security
+    items:
+    - name: Security recommendations
+      href: concepts-security-recommendations.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
