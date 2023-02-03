@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Determine your security posture for external access with Azure Active Directory 
 
-As you consider the governance of external access, assess your organization's security and collaboration needs, by scenario. You can start with the level of control the IT team has over the day-to-day collaboration of end users. Organizations in highly regulated industries might require more IT team control. For example, defense contractors can have a requirement to positively identify and document external users, their access, and access removal: all access, scenario-based, or workloads. By using certain security features, consulting agencies can allow end users to determine the external users they collaborate with. 
+As you consider the governance of external access, assess your organization's security and collaboration needs, by scenario. You can start with the level of control the IT team has over the day-to-day collaboration of end users. Organizations in highly regulated industries might require more IT team control. For example, defense contractors can have a requirement to positively identify and document external users, their access, and access removal: all access, scenario-based, or workloads. Consulting agencies can use certain features to allow end users to determine the external users they collaborate with. 
 
   ![Bar graph of the span from full IT team control, to end-user self service.](media/secure-external-access/1-overall-control.png)
 
@@ -40,7 +40,7 @@ Use the following list to help measure the level of access control.
 * Partner access to information about other end users
 * The cost of a breach versus the overhead of centralized control and end-user friction
 
-Organizations can start with highly-managed controls to meet compliance targets, and then delegate some control to end users, over time. There can be simultaneous access-management models in an organization. 
+Organizations can start with highly managed controls to meet compliance targets, and then delegate some control to end users, over time. There can be simultaneous access-management models in an organization. 
 
 > [!NOTE]
 > Partner-managed credentials are a method to signal the termination of access to resources, when an external user loses access to resources in their own company. Learn more: [B2B collaboration overview](../external-identities/what-is-b2b.md)
@@ -61,7 +61,7 @@ The primary goals of delegating access are:
 
 #### Control access to applications, data, and content
 
-This can be accomplished through a variety of methods, depending on your version of Azure AD and Microsoft 365.
+Levels of control can be accomplished through various methods, depending on your version of Azure AD and Microsoft 365.
 
 * [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
