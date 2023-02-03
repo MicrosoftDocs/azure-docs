@@ -193,7 +193,7 @@ retrieved_secret = client.get_secret(secretName)
 
 The secret value is contained in `retrieved_secret.value`.
 
-You can also retrieve a secret with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
+You can also retrieve a secret with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 ### Delete a secret
 
@@ -206,7 +206,7 @@ deleted_secret = poller.result()
 
 The `begin_delete_secret` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
+You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 Once deleted, a secret remains in a deleted but recoverable state for a time. If you run the code again, use a different secret name.
 

@@ -197,7 +197,7 @@ To read a certificate from Key Vault, use the [get_certificate](/python/api/azur
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) or the Azure PowerShell command [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate)
+You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate)
 
 ### Delete a certificate
 
