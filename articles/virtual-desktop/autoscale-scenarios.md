@@ -3,7 +3,7 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 02/03/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -20,7 +20,7 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
 > - Autoscale doesn't support scaling of ephemeral disks.
-> - Autoscale doesn't support scaling of generalized VMs.
+> - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government.
 
