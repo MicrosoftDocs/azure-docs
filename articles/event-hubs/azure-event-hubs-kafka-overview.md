@@ -1,13 +1,12 @@
 ---
-title: Apache Kafka apps using Azure Event Hubs 
+title: Azure Event Hubs for Apache Kafka ecosystems
 description: Learn how Apache Kafka application developers can use Azure Event Hubs instead of building and using their own Kafka clusters. 
 ms.topic: overview
 ms.date: 02/01/2023
 keywords: "Kafka, Azure, topics, message-broker"
 ---
 
-# Apache Kafka applications using Azure Event Hubs
-
+# Azure Event Hubs for Apache Kafka ecosystems 
 Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics. 
 
 > [!NOTE]
