@@ -175,7 +175,7 @@ You can view these logs by running `kubectl logs <pod name> -n kubesystem`. Howe
 1. Get the Log Analytics resource ID:
 
    ```azurecli
-   az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>```
+   az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
    ```
 
    After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:
