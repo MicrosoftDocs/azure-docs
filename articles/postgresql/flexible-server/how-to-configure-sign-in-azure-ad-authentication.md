@@ -62,7 +62,7 @@ ObjectId                             AppId                                Displa
 ```
 
 > [!IMPORTANT]  
-> If you are not a **Global Administrator**, **Tenant Creator**,**Application Owner** you can't proceed past this step.
+> If you are not a **Global Administrator**, **Tenant Creator**, or **Application Owner**, you can't proceed past this step.
 
 ### Create Azure Database for PostgreSQL Flexible Server service principal and grant read access
 
