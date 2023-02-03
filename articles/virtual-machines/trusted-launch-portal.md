@@ -154,9 +154,23 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ---
 
-## Deploy a trusted launch VM from an Azure Compute Gallery image
+## Deploy a Trusted launch VM from an Azure Compute Gallery image
 
-### [Portal](#tab/portal2)
+[Azure trusted launch virtual machines](trusted-launch.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
+
+- [Trusted Launch VM (`Trustedlaunch`) images](#trusted-launch-vm-images) are images where the source already has [VM Guest state information](trustedlaunch#what-is-vm-guest-state-vmgs).
+- [Trusted launch VM supported (`Trustedlaunchsupported`) images](#trusted-launch-vm-supported-images) are images where the source doesn't have VM Guest state information.
+
+### Trusted Launch VM Images
+
+For the following image sources, the security type on the image definition should be set to `Trustedlaunch` as the image source already has [VM Guest state information](trustedlaunch#what-is-vm-guest-state-vmgs):
+- Trusted launch VM capture
+- Managed OS disk 
+- Managed OS disk snapshot
+
+The resulting image version can be used only to create Azure Trusted launch VMs.
+
+#### [Portal](#tab/portal2)
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
@@ -335,6 +349,201 @@ New-AzVM `
    -VM $vm
 ```
 ---
+
+### Trusted Launch VM Supported Images
+
+For the following image sources, the security type on the image definition should be set to `Trustedlaunchsupported` as the image source does not have VM Guest state information:
+- Gen2 OS Disk VHD
+- Gen2 Managed Image
+- Gen2 Gallery Image Version
+
+The resulting image version can be used to create either Azure Gen2 VMs or Trusted launch VMs.
+
+These images can be shared to everyone through [Azure Compute Gallery - Community Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#community-gallery) and to specific subscriptions or tenants through [Azure Compute Gallery - Direct Shared Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#shared-directly-to-a-tenant-or-subscription)
+
+> [!NOTE]
+> The OS disk VHD, Managed Image or Gallery Image Version should be created from an image that is compatible with Trusted launch VMs.
+
+#### [Portal](#tab/portal2)
+
+1. Sign in to the Azure [portal](https://portal.azure.com).
+2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
+3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version. Creation of Managed Images is not supported for Trusted Launch VMs.
+4. Create a new target Azure Compute Gallery or select an existing gallery.
+5. Select the **Operating system state** as either **Generalized** or **Specialized**. If you want to create a generalized image, ensure that you [generalize the VM to remove machine specific information](generalize.md) before selecting this option. If Bitlocker based encryption is enabled on your Trusted launch Windows VM, you may not be able to generalize the same.
+6. Create a new image definition by providing a name, publisher, offer and SKU details. The **Security Type** of the image definition should already be set to **Trusted launch**.
+7. Provide a version number for the image version.
+8. Modify replication options if required.
+9. At the bottom of the **Create an Image** page, select **Review + Create** and when validation shows as passed, select **Create**.
+10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the image definition.
+11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
+12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+14. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
+15. Fill in the **Administrator account** information and then **Inbound port rules**.
+16. At the bottom of the page, select **Review + Create**
+17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
+
+In case you want to use either a managed disk or a managed disk snapshot as a source of the image version (instead of a trusted launch VM), then use the following steps
+
+1.	Sign in to the [portal](https://portal.azure.com)
+2.	Search for **VM Image Versions** and select **Create**
+3.	Provide the subscription, resource group, region and image version number
+4.	Select the source as **Disks and/or Snapshots**
+5.	Select the OS disk as a managed disk or a managed disk snapshot from the dropdown list
+6.	Select a **Target Azure Compute Gallery** to create and share the image. If no gallery exists, create a new gallery.
+7.	Select the **Operating system state** as either **Generalized** or **Specialized**. If you want to create a generalized image, ensure that you generalize the disk or snapshot to remove machine specific information.
+8.	For the **Target VM Image Definition** select Create new. In the window that opens, select an image definition name and ensure that the **Security type** is set to **Trusted launch**. Provide the publisher, offer and SKU information and select **OK**.
+9.	The **Replication** tab can be used to set the replica count and target regions for image replication, if required.
+10.	The **Encryption** tab can also be used to provide SSE encryption related information, if required.
+11.	Select **Create** in the **Review + create** tab to create the image
+12.	Once the image version is successfully created, select the **+ Create VM** to land on the Create a virtual machine page.
+13.	Please follow steps 12 to 17 as mentioned earlier to create a trusted launch VM using this image version
+
+
+### [CLI](#tab/cli2)
+
+Make sure you are running the latest version of Azure CLI 
+
+Sign in to Azure using `az login`.  
+
+```azurecli-interactive
+az login 
+```
+
+Create an image definition with `TrustedLaunch` security type 
+
+```azurecli-interactive
+az sig image-definition create --resource-group MyResourceGroup --location eastus \ 
+--gallery-name MyGallery --gallery-image-definition MyImageDef \ 
+--publisher TrustedLaunchPublisher --offer TrustedLaunchOffer --sku TrustedLaunchSku \ 
+--os-type Linux --os-state Generalized \ 
+--hyper-v-generation V2 \ 
+--features SecurityType=TrustedLaunch
+```
+
+To create an image version, we can capture an existing Linux based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
+
+```azurecli-interactive
+az sig image-version create --resource-group MyResourceGroup \
+--gallery-name MyGallery --gallery-image-definition MyImageDef \
+--gallery-image-version 1.0.0 \
+--managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+```
+
+In case a managed disk or a managed disk snapshot needs to be used as the image source for the image version, replace the --managed-image in the above command with --os-snapshot and provide the disk or the snapshot resource name
+
+Create a Trusted Launch VM from the above image version
+
+```azurecli-interactive
+adminUsername=linuxvm
+az vm create --resource-group MyResourceGroup \
+    --name myTrustedLaunchVM \
+    --image "/subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImageDef" \
+    --security-type TrustedLaunch \
+    --enable-secure-boot true \ 
+    --enable-vtpm true \
+    --admin-username $adminUsername \
+    --generate-ssh-keys
+```
+
+### [PowerShell](#tab/powershell2)
+
+Create an image definition with `TrustedLaunch` security type
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$publisherName = "TrustedlaunchPublisher"
+$offerName = "TrustedlaunchOffer"
+$skuName = "TrustedlaunchSku"
+$description = "My gallery"
+$SecurityType = @{Name='SecurityType';Value='TrustedLaunch'}
+$features = @($SecurityType)
+New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -HyperVGeneration "V2" -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
+```
+
+To create an image version, we can capture an existing Windows based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$galleryImageVersionName = "1.0.0"
+$sourceImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myVMRG/providers/Microsoft.Compute/virtualMachines/myVM"
+New-AzGalleryImageVersion -ResourceGroupName $rgName -GalleryName $galleryName -GalleryImageDefinitionName $galleryImageDefinitionName -Name $galleryImageVersionName -Location $location -SourceImageId $sourceImageId
+```
+Create a Trusted Launch VM from the above image version
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$vmName = "myVMfromImage"
+$vmSize = "Standard_D2s_v3"
+$imageDefinition = Get-AzGalleryImageDefinition `
+   -GalleryName $galleryName `
+   -ResourceGroupName $rgName `
+   -Name $galleryImageDefinitionName
+$cred = Get-Credential `
+   -Message "Enter a username and password for the virtual machine"
+# Network pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $rgName `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $rgName `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+  -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 `
+   -Access Deny
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $rgName `
+   -Location $location `
+  -Name myNetworkSecurityGroup `
+  -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name myNic `
+   -ResourceGroupName $rgName `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+$vm = New-AzVMConfig -vmName $vmName -vmSize $vmSize | `
+      Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+      Set-AzVMSourceImage -Id $imageDefinition.Id | `
+      Add-AzVMNetworkInterface -Id $nic.Id
+$vm = Set-AzVMSecurityProfile -SecurityType "TrustedLaunch" -VM $vm
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
+New-AzVM `
+   -ResourceGroupName $rgName `
+   -Location $location `
+   -VM $vm
+```
+---
+
 ## Verify or update your settings
 
 For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
