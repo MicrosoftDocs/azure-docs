@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+    "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
+    "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
+    "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-monitor-tensorboard.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-monitor-tensorboard",
         "redirect_document_id": true
@@ -3689,6 +3694,11 @@
         "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-low-priority-batch.md",
         "redirect_url": "/azure/machine-learning/how-to-use-low-priority-batch",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-trigger-published-pipelines.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-trigger-published-pipeline",
+        "redirect_document_id": false
     }
     
 ]

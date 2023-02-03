@@ -7,10 +7,9 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/02/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-5rack-azurepowershell
 ---
 
 # Point-in-time restore for block blobs
@@ -89,7 +88,6 @@ Point-in-time restore for block blobs has the following limitations and known is
 - Performing a customer-managed failover on a storage account resets the earliest possible restore point for that storage account. For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you cannot restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.  
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore is not supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
-- Point-in-time restore is not supported when a private endpoint is enabled on the storage account.
 - Point-in-time restore is not supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
 
 > [!IMPORTANT]
