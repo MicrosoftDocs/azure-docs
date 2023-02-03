@@ -101,7 +101,7 @@ The following table provides specific MDM installation guidance depending on whi
 - [**macOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune)
 
 > [!IMPORTANT]
-> Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant.md) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.   
+> Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.   
 
 #### Validate SSO configuration profile on macOS device
 
@@ -456,11 +456,11 @@ Resolved authority, validated: YES, error: 0
 
 The logging sample can be broken down into three segments:
 
-|  |  |  |
-|---------|:---------:|---------|
-|**1**| **`get_accounts_operation`** |Checks to see if there are any existing accounts in the cache<br> -  **ClientID**: The application ID registered in Azure AD for this MSAL app<br>**ADB 3.1.40** indicates that version of the Microsoft Enterprise SSO Extension Broker plugin   |
-|**2**|**`login`** |Broker handles the request for Azure AD:<br> - **Handling interactive SSO request...**: Denotes an interactive request<br> - **correlation_id**: Useful for cross referencing with the Azure AD server-side sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**   |
-|**3**|**PRT Request**|Bootstrapping process to acquire a PRT interactively has been initiated and renders the Webview SSO Session<br><br>**Microsoft Authentication Broker Service**<br> - **clientId: 29d9ed98-a469-4536-ade2-f981bc1d605e**<br> - All PRT requests are made to Microsoft Authentication Broker Service|
+|Segment  |Description  |
+|---------|---------|
+| **`get_accounts_operation`** |Checks to see if there are any existing accounts in the cache<br> -  **ClientID**: The application ID registered in Azure AD for this MSAL app<br>**ADB 3.1.40** indicates that version of the Microsoft Enterprise SSO Extension Broker plugin   |
+|**`login`** |Broker handles the request for Azure AD:<br> - **Handling interactive SSO request...**: Denotes an interactive request<br> - **correlation_id**: Useful for cross referencing with the Azure AD server-side sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**   |
+|**PRT Request**|Bootstrapping process to acquire a PRT interactively has been initiated and renders the Webview SSO Session<br><br>**Microsoft Authentication Broker Service**<br> - **clientId: 29d9ed98-a469-4536-ade2-f981bc1d605e**<br> - All PRT requests are made to Microsoft Authentication Broker Service|
 
 The SSO Webview Controller appears and user is prompted to enter their Azure AD login (UPN/email)
 
