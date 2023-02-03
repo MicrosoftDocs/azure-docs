@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs in Teams meetings. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 
-| Group of features | Capability                                                                                                          | JavaScript |
+| Group of features | Capability                                                                                                          | Supported |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | 
 | Core Capabilities | Join Teams meeting                                                                                                  | ✔️        |
 |                   | Leave meeting                                                                                                       | ✔️ |
@@ -38,7 +38,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | File sharing                                                                                                        | ❌ |
 |                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
-| | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                         | ✔️* |
+|                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
+|                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |

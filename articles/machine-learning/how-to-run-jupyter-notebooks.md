@@ -172,12 +172,6 @@ Once you're connected to a compute instance, use the toolbar to run all cells in
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
-### View logs and output
-
-Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
-
-:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
-
 ## Explore variables in the notebook
 
 On the notebook toolbar, use the **Variable explorer** tool to show the name, type, length, and sample values for all variables that have been created in your notebook.

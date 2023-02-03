@@ -31,6 +31,9 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./windows/quick-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -877,9 +880,9 @@
       href: ./linux/run-command.md
     - name: Action Run Commands for Windows
       href: ./windows/run-command.md
-    - name: Managed Run Commands for Linux (preview)
+    - name: Managed Run Commands for Linux
       href: ./linux/run-command-managed.md
-    - name: Managed Run Commands for Windows (preview)
+    - name: Managed Run Commands for Windows
       href: ./windows/run-command-managed.md
   - name: Extensions
     items:
