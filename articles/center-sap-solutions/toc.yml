@@ -10,6 +10,11 @@ items:
   - name: Frequently asked questions (FAQ)
     href: faq.yml
 
+- name: Concepts
+  items:
+
+  - name: Manage with Azure RBAC
+    href: manage-with-azure-rbac.md
 
 - name: How-to guides
   items:

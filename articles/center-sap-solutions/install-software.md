@@ -13,6 +13,8 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
 In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
