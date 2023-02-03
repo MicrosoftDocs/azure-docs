@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
 This article describes key Azure Lab Services concepts and definitions.
 
-:::image type="content" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services.":::
+:::image type="content" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services." lightbox="./media/classroom-labs-concepts/lab-services-key-concepts.png":::
 
 ## Lab plans
 
