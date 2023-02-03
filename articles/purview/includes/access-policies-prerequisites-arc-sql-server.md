@@ -59,6 +59,6 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 
 1. Ensure that an app registration has been entered to create a trust relationship between SQL Server and Azure AD. If not, refer to the access policy prerequisites section in this guide.
 
-1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully.
+1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully. This may take a few minutes. While that happens, the message *"SQL Server's Azure Arc agent is currently processing a request. Values below may be incorrect. Please wait until the agent is done before continuing."* will be displayed at the top of the page. You may need to scroll up to see it.
 
    ![Screenshot that shows pre-requisites to configure a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)
