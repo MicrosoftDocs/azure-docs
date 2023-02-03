@@ -26,13 +26,13 @@ landingContent:
        links:
           - text: What is Azure Operator Distributed Services?
             url: introduction.md
-      - linkListType: concept
+     - linkListType: concept
 #       links:
 #          - text: Resource Types
 #            url: concepts-resource-types.md
-        links:
-           - text: Observability
-             url: concepts-observability.md
+       links:
+          - text: Observability
+            url: concepts-observability.md
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Deploy agents and monitoring
