@@ -210,7 +210,7 @@ deleted_certificate = poller.result()
 
 The `begin_delete_certificate` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show) or the Azure PowerShell command [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate).
+You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate).
 
 Once deleted, a certificate remains in a deleted but recoverable state for a time. If you run the code again, use a different certificate name.
 
