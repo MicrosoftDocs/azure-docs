@@ -65,7 +65,7 @@ The following table describes the field added for Version 3, representing a coll
 
 ### Certificate extensions
 
-Introduced with Version 3, certificate extensions provide methods for associating more attributes with users or public keys, and for managing relationships between certificate authorities. For more information about certificate extensions, see the [Certificate Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.2) section of the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
+Certificate extensions, introduced with Version 3, provide methods for associating more attributes with users or public keys and for managing relationships between certificate authorities. For more information about certificate extensions, see the [Certificate Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.2) section of the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
 
 #### Standard extensions
 
@@ -73,7 +73,7 @@ The extensions included in this section are defined as part of the X.509 standar
 
 | Name | Description |
 | --- | --- |
-| [Authority Key Identifier](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.1) | An identifier that represents either the subject of the CA and serial number of the CA certificate that issued this certificate, or a hash of the public key of the CA that issued this certificate. |
+| [Authority Key Identifier](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.1) | An identifier that represents either the certificate subject and the serial number of the CA certificate that issued this certificate, or a hash of the public key of the issuing CA. |
 | [Subject Key Identifier](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.2) | A hash of the current certificate's public key. |
 | [Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.3) | A bitmapped value that defines the services for which a certificate can be used. |
 | [Private Key Usage Period](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.3) | The validity period for the private key portion of a key pair. |
@@ -88,7 +88,7 @@ The extensions included in this section are defined as part of the X.509 standar
 | [Extended Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) | A collection of key purpose values that indicate how a certificate's public key can be used, beyond the purposes identified in the **Key Usage** extension. |
 | [CRL Distribution Points](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.13) | A collection of URLs where the base certificate revocation list (CRL) is published. |
 | [Inhibit anyPolicy](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.14) | Inhibits the use of the **All Issuance Policies** OID (2.5.29.32.0) in subordinate CA certificates
-| [Freshest CRL](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.15) | Also known as the **Delta CRL Distribution Point**, this extension contains one or more URLs where the issuing CA's delta CRL is published. |
+| [Freshest CRL](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.15) | This extension, also known as the **Delta CRL Distribution Point**, contains one or more URLs where the issuing CA's delta CRL is published. |
 
 #### Private Internet extensions
 
@@ -101,7 +101,7 @@ The extensions included in this section are similar to standard extensions, and 
 
 ## Certificate formats
 
-Certificates can be saved in various formats. Azure IoT Hub authentication typically uses the Privacy-Enhanced Mail (PEM) and Personal Information Exchange (PFX) formats. The following table describes commonly-used files and formats used to represent certificates.
+Certificates can be saved in various formats. Azure IoT Hub authentication typically uses the Privacy-Enhanced Mail (PEM) and Personal Information Exchange (PFX) formats. The following table describes commonly used files and formats used to represent certificates.
 
 | Format | Description |
 | --- | --- |
