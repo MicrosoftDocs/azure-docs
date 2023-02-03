@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 # Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
 
-Use this article to determine and configure your organization's external collaboration using Microsoft Teams, OneDrive for Business, and SharePoint. A common challenge is balancing security and ease of collaboration for end users and external users. If an approved collaboration method is perceieved as restrictive and onerous, end user evade the approved method. End users might email unsecured content, or set up external processes and applications, such as a personal DropBox or OneDrive. 
+Use this article to determine and configure your organization's external collaboration using Microsoft Teams, OneDrive for Business, and SharePoint. A common challenge is balancing security and ease of collaboration for end users and external users. If an approved collaboration method is perceived as restrictive and onerous, end users evade the approved method. End users might email unsecured content, or set up external processes and applications, such as a personal DropBox or OneDrive. 
 
 ## External Identities settings and Azure Active Directory
 
-Sharing in Microsoft 365 is partially governed by the **Exernal Identities, External collaboration** settings in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
+Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration** settings in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
 
    ![Screenshot of options and entries under External Identities, External collaboration settings.](media/secure-external-access/9-external-collaboration-settings.png)
 
@@ -54,7 +54,7 @@ Guest invite settings determine who invites guests and how guests are invited. T
   * Revokes access as needed
 
 * The IT team:
-  * After training is complete, grants the Guest Inviter role
+  * After training is complete, the IT team grants the Guest Inviter role
   * To enable access reviews, assigns Azure AD P2 license to the Microsoft 365 group owner
   * Creates a Microsoft 365 group access review
   * Confirms access reviews occur
@@ -69,7 +69,7 @@ For the Collaboration restrictions option, the organization's business requireme
 
 * **Allow invitations to be sent to any domain** - any user can be invited
 * **Deny invitations to the specified domains** - any user outside those domains can be invited
-* **Allow invitations only to the specified domains** - any user outside those domains cannot be invited 
+* **Allow invitations only to the specified domains** - any user outside those domains can't be invited 
 
 ## External users and guest users in Teams
 
@@ -77,7 +77,7 @@ Teams differentiates between external users (outside your organization) and gues
 
 * **External Access** - Teams allows external access by default. The organization can communicate with all external domains 
   * Use External Access setting to restrict or allow domains
-* **Guest Access** - manage guest acess in Teams
+* **Guest Access** - manage guest access in Teams
 
 Learn more: [Use guest access and external access to collaborate with people outside your organization](/microsoftteams/communicate-with-users-from-other-organizations). 
 
@@ -132,7 +132,7 @@ Use the guidance in this section when configuring external sharing.
   * Azure AD B2B integration not enabled: new guests don't have an Azure AD B2B account, and can't be managed from Azure AD
   * Guests have an Azure AD B2B account, depending on how the guest was created
 * **Existing guests** - Recommended, if you don't have integration enabled
-  * With this enabled, users can share with other users in your directory
+  * With this option enabled, users can share with other users in your directory
 * **Only people in your organization** - Not recommended with external user collaboration
   * Regardless of integration status, users can share with other users in your organization
 * **Limit external sharing by domain** - By default, SharePoint allows external access. Sharing is allowed with external domains. 
@@ -146,14 +146,14 @@ Use the guidance in this section when configuring external sharing.
 Access controls setting affect all users in your organization. Because you might not be able to control whether external users have compliant devices, the controls won't be addressed in this article. 
 
 * **Idle session sign-out** - Recommended
-  * Use this option to warn and sign-out users on unmanaged devices, after a period of inactivity
+  * Use this option to warn and sign out users on unmanaged devices, after a period of inactivity
   * You can configure the period of inactivity and the warning
 * **Network location** - Set this control to allow access from IP addresses your organization owns. 
   * For external collaboration, set this control if your external partners access resources when in your network, or with your virtual private network (VPN).
 
 ### File and folder links
 
-In the SharePoint admin center, you can set how file and folder links are shared. You can configure these setting for each site. 
+In the SharePoint admin center, you can set how file and folder links are shared. You can configure the setting for each site. 
 
    ![Screenshot of File and folder links options.](media/secure-external-access/9-file-folder-links.png)
 
@@ -166,7 +166,7 @@ You can customize this setting for a per-site default.
 
 ### Anyone links
 
-Enabling Anyone links is not recommended. If you enable it, set an expiration, and restrict users to view permissions. If you select View only permissions for files or folders, users can't change Anyone links to include edit privileges.
+Enabling Anyone links isn't recommended. If you enable it, set an expiration, and restrict users to view permissions. If you select View only permissions for files or folders, users can't change Anyone links to include edit privileges.
 
 Learn more:
 
