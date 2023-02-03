@@ -35,7 +35,7 @@ The Microsoft Enterprise SSO plug-in for Apple devices offers the following bene
 - It can be enabled by any mobile device management (MDM) solution and is supported in both device and user enrollment. 
 - It extends SSO to applications that don't yet use the Microsoft Authentication Library (MSAL).
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
-- It is natively integrated with the MSAL library, which provides smooth native experience to the end user, when the Microsoft Enterprise SSO plug-in is enabled. 
+- It is natively integrated with the MSAL library, which provides smooth native experience to the end user when the Microsoft Enterprise SSO plug-in is enabled. 
 
 ## Requirements
 
