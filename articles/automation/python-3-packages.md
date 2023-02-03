@@ -16,7 +16,7 @@ For information on managing Python 2 packages, see [Manage Python 2 packages](./
 
 ## Default Python packages
 
-To support Python 3.8 runbooks in the Automation service, the below [packages are installed by default](default-python-packages.md) in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
+To support Python 3.8 runbooks in the Automation service, [packages are installed by default](default-python-packages.md) in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
 
 Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
 
