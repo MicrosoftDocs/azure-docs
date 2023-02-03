@@ -4,7 +4,6 @@ description: Learn about Exchange Online integration for email outbound from SAP
 author: MartinPankraz
 
 ms.service: azure-center-sap-solutions
-ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/11/2022
