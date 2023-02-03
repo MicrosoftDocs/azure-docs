@@ -128,7 +128,7 @@ Azure Machine Learning offers Managed (Automatic) Spark compute, and [attached S
 
 A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, select **AzureML Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu.
 
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Compute selection menu.":::
+:::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Compute selection menu.":::
 
 The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
 
