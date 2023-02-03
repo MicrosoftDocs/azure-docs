@@ -467,7 +467,7 @@ The SSO Webview Controller appears and user is prompted to enter their Azure AD 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-webview-controller-prompt-withlogin.png" alt-text="Screenshot showing the Apple SSO prompt with a User information being entered and more information callout":::
 
 > [!NOTE]
-> Clicking on the ***i*** in the bottom right corner of the webview controller displays more information about the SSO extension and the specifics about the app that has invoked it.
+> Clicking on the ***i*** in the bottom left corner of the webview controller displays more information about the SSO extension and the specifics about the app that has invoked it.
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-single-sign-on-i-flyout.png" alt-text="Screenshot showing the more information details about the SSO extension from the prompt SSO screen":::
 After the user successfully enters their Azure AD credentials, the following log entries are written to the SSO extension logs 
