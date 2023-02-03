@@ -72,8 +72,6 @@ Use the following steps to check the operating system (OS) version on the macOS 
 
 1. The Operating system version will be listed beside **macOS**.
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-this-mac-info.png" alt-text="Screenshot showing the about this mac basic system information.":::
-
 ##### Terminal
 
 1. From the macOS device, open Terminal from the **Applications** -> **Utilities** folder.
