@@ -163,7 +163,7 @@ It's also possible to cancel a running import job. Once the job has been cancele
 
 Keep the following considerations in mind while working with the Jobs API:
 * Currently, the Jobs API only supports "create" operations.
-* Jobs import is not an atomic operation. There is no rollback in the case of failure, partial job completion, or usage of the [cancel API]().
+* Jobs import is not an atomic operation. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel API]().
 * Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs API in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Monitor API metrics
