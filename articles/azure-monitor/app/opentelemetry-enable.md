@@ -90,6 +90,8 @@ Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/
 
 #### [Node.js](#tab/nodejs)
 
+<! --- NOTE TO CONTRIBUTORS: Please do not separate out JavaScript and TypeScript. -->
+
 Install these packages:
 
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
