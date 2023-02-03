@@ -687,18 +687,18 @@ The following libraries are validated to work with the current release.
 #### [.NET](#tab/net)
 
 Requests
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) (1) version:
+- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) (1) version:
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
 
 Dependencies
 - [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) (1) version:
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
 - [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) (1) version:
+  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
 
 #### [Java](#tab/java)
@@ -812,15 +812,15 @@ Dependencies
 #### [Python](#tab/python)
 
 Requests
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) (1) version:
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) (1) version:
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.34b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) (1) version:
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 ---
@@ -880,10 +880,10 @@ Coming soon.
 
 Autocollected logs
 
-* Logback (1) (2) (including MDC properties)
-* Log4j (1) (2) (including MDC/Thread Context properties)
-* JBoss Logging (1) (2) (including MDC properties)
-* java.util.logging (1) (2)
+* Logback <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC properties)
+* Log4j <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC/Thread Context properties)
+* JBoss Logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC properties)
+* java.util.logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -900,9 +900,8 @@ Coming soon.
 ---
 
 **Footnotes**
-- (1) Supports automatic reporting of unhandled exceptions
-- (2) By default, logging is only collected when that logging is performed at the INFO level or higher.
-To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
+- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
 ## Collect custom telemetry
 
