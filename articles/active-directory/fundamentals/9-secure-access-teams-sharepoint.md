@@ -118,7 +118,7 @@ In the Azure AD admin center, you can use the External Sharing settings for Shar
 
 Learn more: [External sharing overview](/sharepoint/external-sharing-overview)
 
-   ![Screenshot of external sharing settings for SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
+   ![Screenshot of external sharing settings for SharePoint and OneDrive.](media/secure-external-access/9-sharepoint-settings.png)
 
 #### External sharing settings recommendations
 
