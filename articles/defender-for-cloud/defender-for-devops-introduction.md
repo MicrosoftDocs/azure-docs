@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 10/24/2022
+ms.date: 01/24/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -22,9 +22,9 @@ Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps sec
 
 ## Availability
   > [!Note] 
-  > During the preview, the maximum number of repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
+  > During the preview, the maximum number of GitHub repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
   > 
-  > If your organization is interested in onboarding more than 2,000 repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
+  > If your organization is interested in onboarding more than 2,000 GitHub repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
 
 | Aspect | Details |
 |--|--|

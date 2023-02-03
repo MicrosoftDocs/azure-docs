@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/25/2023
 ms.author: cherylmc
 ---
 
@@ -84,11 +84,11 @@ You can use the same VPN client configuration package on each Windows client com
 
 ## <a name="azurevpn"></a>OpenVPN: Azure VPN Client steps
 
-This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. To connect to your VNet, each client must have the following items:
+This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Each client computer requires the following items:
 
-* The Azure VPN Client software is installed.
-* Azure VPN Client profile is configured using the downloaded **azurevpnconfig.xml** configuration file.
-* The client certificate is installed locally.
+* The Azure VPN Client software must be installed on each client computer that you want to connect.
+* The Azure VPN Client profile must be configured using the downloaded **azurevpnconfig.xml** configuration file.
+* The client computer must have a client certificate that's installed locally.
 
 ### <a name="view-azurevpn"></a>View configuration files
 
@@ -109,7 +109,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
 
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**.
+1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. You can also (optionally) select a [Secondary Profile](#secondary-profile).
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
 
@@ -127,7 +127,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 The following sections discuss additional optional configuration settings that are available for the Azure VPN Client.
 
-#### Secondary VPN client profile
+#### Secondary Profile
 
 [!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
 

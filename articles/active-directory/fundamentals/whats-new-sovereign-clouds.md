@@ -6,7 +6,7 @@ ms.author: owinfrey
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/31/2023
 ms.custom: template-concept 
 ---
 
@@ -22,9 +22,41 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.
 
 
+## December 2022
+
+### General Availability - Risk-based Conditional Access for workload identities
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
+
+---
+
+### General Availability - API to recover accidentally deleted Service Principals
+
+**Type:** New feature  
+**Service category:** Enterprise Apps        
+**Product capability:** Identity Lifecycle Management     
+
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item will remain available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+
+---
+
+### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** Identity Security & Protection   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+
+---
+
 ## November 2022
 
-### General availability - Windows Hello for Business, cloud Kerberos trust deployment
+### General Availability - Windows Hello for Business, cloud Kerberos trust deployment
 
 
 
@@ -36,7 +68,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ---
 
-### General availability - Expression builder with Application Provisioning
+### General Availability - Expression builder with Application Provisioning
 
 **Type:** Changed feature  
 **Service category:** Provisioning  
@@ -48,7 +80,7 @@ Accidental deletion of users in your apps or in your on-premises directory could
 
 ---
 
-### General availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
+### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
 
 
 
@@ -60,7 +92,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General availability - Prevent accidental deletions
+### General Availability - Prevent accidental deletions
 
 
 
@@ -76,7 +108,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 ---
 
-### General availability - Create group in administrative unit
+### General Availability - Create group in administrative unit
 
 **Type:** New feature  
 **Service category:** RBAC       
@@ -87,7 +119,7 @@ Groups Administrators and other roles scoped to an administrative unit can now c
  
 ---
 
-### General availability - Number matching for Microsoft Authenticator notifications
+### General Availability - Number matching for Microsoft Authenticator notifications
 
 
 
@@ -104,7 +136,7 @@ For more information, see: [How to use number matching in multifactor authentica
 
 ---
 
-### General availability - Additional context in Microsoft Authenticator notifications
+### General Availability - Additional context in Microsoft Authenticator notifications
 
 
 

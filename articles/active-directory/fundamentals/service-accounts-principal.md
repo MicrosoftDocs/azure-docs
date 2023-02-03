@@ -126,5 +126,4 @@ Learn more about securing service accounts:
 
 Conditional Access:
 
-Use Conditional Access to block service principals from untrusted locations. See, [Create a location-based Conditional Access policy](/azure/active-directory/conditional-access/workload-identity#create-a-location-based-conditional-access-policy).
-
+Use Conditional Access to block service principals from untrusted locations. See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy).

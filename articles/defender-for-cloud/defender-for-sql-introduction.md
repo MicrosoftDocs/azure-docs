@@ -4,6 +4,8 @@ description: Learn how Microsoft Defender for Azure SQL protects your Azure SQL 
 ms.date: 07/28/2022
 ms.topic: overview
 ms.custom: references_regions
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Overview of Microsoft Defender for Azure SQL
@@ -30,7 +32,7 @@ When you enable **Microsoft Defender for Azure SQL**, all supported resources th
 
 A vulnerability assessment service discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings. Defender for Azure SQL helps you identify and mitigate potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
-Learn more about [vulnerability assessment for Azure SQL Database](/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview).
+Learn more about [vulnerability assessment for Azure SQL Database](./sql-azure-vulnerability-assessment-overview.md).
 
 ### Advanced threat protection
 

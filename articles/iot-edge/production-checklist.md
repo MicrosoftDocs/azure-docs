@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -35,14 +35,6 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-> [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-:::moniker-end
-
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
@@ -57,7 +49,7 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-[Device Update for IoT Hub](../iot-hub-device-update/index.yml) (Preview) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+[Device Update for IoT Hub](../iot-hub-device-update/index.yml) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
 
 Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
@@ -149,7 +141,7 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 - Store any configuration in the custom module twin, which has its own limit.
 - Store some configuration that points to a non-space-limited location (that is, to a blob store).
 
-::: moniker range=">=iotedge-1.4"
+
 ### Configure how updates to modules are applied
 When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent sequentially processes each module:
 1. The updated image is downloaded
@@ -172,7 +164,6 @@ In some cases, for example when dependencies exist between modules, it may be de
                         }
                     ...
 ```
-::: moniker-end
 ### Container management
 
 * **Important**
@@ -277,11 +268,10 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
 For more information, see:
 
-* [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent)
+* [Configure the IoT Edge agent](./how-to-configure-proxy-support.md#configure-the-iot-edge-agent)
 * [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
 * [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
 
-::: moniker range=">=iotedge-1.4"
 
 ### Configure image garbage collection
 Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
@@ -306,7 +296,7 @@ The following table describes image garbage collection parameters. All parameter
 | `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as *0d* to clean up the images as soon as they're removed from the deployment. <br><br>  Images are considered unused *after* they've been removed from the deployment. | Optional | 7d |
 | `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. | Optional | 00:00 |
 
-::: moniker-end
+
 ## Networking
 
 * **Helpful**
@@ -372,20 +362,6 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!--iotedge-2020-11-->
-:::moniker range=">=iotedge-2020-11"
-
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
 
 * Consolidated `iotedge` command:
@@ -399,8 +375,6 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
   ```bash
   journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
   ```
-
-:::moniker-end
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
@@ -431,22 +405,7 @@ You can also configure your `log-opts` keys to use appropriate values in the `da
 
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-| Platform | Location |
-| -------- | -------- |
-| Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby\config\` |
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 * `/etc/docker/`
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 The container engine must be restarted for the changes to take effect.
 

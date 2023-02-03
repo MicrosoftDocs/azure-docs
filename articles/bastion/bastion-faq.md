@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 01/30/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -29,7 +29,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. For more information, see [Set up routing configuration for a virtual network connection](../virtual-wan/how-to-virtual-hub-routing.md#routing-configuration).
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub), default 0.0.0.0/0 route must not be overwritten. 
 
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -94,7 +94,7 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 ### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ## <a name="vm"></a>VM features and connection FAQs
 

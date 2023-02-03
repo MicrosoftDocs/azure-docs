@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/08/2022
 ms.author: anaharris
 ms.reviewer: jordanselig
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Migrate App Service Environment to availability zone support

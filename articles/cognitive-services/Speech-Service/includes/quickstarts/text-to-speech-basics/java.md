@@ -14,9 +14,6 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
@@ -42,13 +39,6 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             </plugin>
             </plugins>
         </build>
-        <repositories>
-            <repository>
-            <id>maven-cognitiveservices-speech</id>
-            <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://azureai.azureedge.net/maven/</url>
-            </repository>
-        </repositories>
         <dependencies>
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
@@ -66,9 +56,6 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
@@ -143,9 +130,6 @@ Enter some text that you want to speak. For example, type "I'm excited to try te
 Enter some text that you want to speak >
 I'm excited to try text to speech
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
 > [!WARNING]
 > There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
