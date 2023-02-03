@@ -198,7 +198,7 @@ Finally, in the middle section, there is a table showing a queue of tasks yet to
 * Tasks containing clustered items in the queue
 * Tasks containing prelabeled items in the queue
 
-Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Experiments sections give links for each of the machine learning runs.
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
 * Validation - determines whether this model's prediction will be used for pre-labeling the items 

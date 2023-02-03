@@ -176,15 +176,15 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
+The progress charts shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
+Below the charts is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
-The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
+You also see a distribution of labelers and how many items they've labeled.  
 
+Finally, in the middle section, there is a table showing a queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned.
 
-On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
-
-### Data tab
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
