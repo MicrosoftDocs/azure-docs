@@ -35,6 +35,9 @@ Mapping your apex or root domain to your Front Door profile basically requires C
 
 You can use the Azure portal to onboard an apex domain on your Front Door and enable HTTPS on it by associating it with a certificate for TLS termination. Apex domains are also referred as root or naked domains.
 
+> [!NOTE]
+> The following steps only work with Azure Front Door (classic) and Azure CDN from Microsoft (classic).
+
 ::: zone pivot="front-door-standard-premium"
 
 ## Onboard the custom domain to your Front Door
