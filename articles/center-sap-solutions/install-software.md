@@ -24,13 +24,6 @@ In this how-to guide, you'll learn two ways to install the SAP software for your
 
 Review the prerequisites for your preferred installation method: [through the Azure Center for SAP solutions installation wizard](#prerequisites-for-wizard-installation) or [through an outside method](#prerequisites-for-outside-installation)
 
-Only the following scenarios are supported:
-
-- Infrastructure for S4/HANA was created through Azure Center for SAP solutions. The S4/HANA application was installed outside Azure Center for SAP solutions through a different tool.
-- Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
-- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
-
-
 ### Prerequisites for wizard installation
 
 - An Azure subscription.
@@ -54,6 +47,12 @@ Only the following scenarios are supported:
 - Optionally, you can add fully installed application servers to the system before detecting the SAP software; then, the SAP system with additional application servers will also be detected. 
     - If you add additional application servers to this Virtual Instance for SAP solutions after infrastructure deployment, the previously created user-assigned managed identity also needs **Contributor** role access on the subscription or on the resource group under which this new application server exists.
     - The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in Azure Center for SAP solutions. You can still detect additional application servers.
+
+Only the following scenarios are supported for this installation method:
+
+- Infrastructure for S4/HANA was created through Azure Center for SAP solutions. The S4/HANA application was installed outside Azure Center for SAP solutions through a different tool.
+- Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
+- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
 
 ## Install SAP software
 
