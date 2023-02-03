@@ -106,6 +106,7 @@ $lbrule = @{
     IdleTimeoutInMinutes = '15'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
+    Probe = $probe
 }
 $rule = New-AzLoadBalancerRuleConfig @lbrule
 
