@@ -31,7 +31,7 @@ To use MSIX packages outside of Azure Virtual Desktop, there are four distinct p
 3. Deregister
 4. Destage
 
-Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *VHD(X)* or *cim* format.
+Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *cim* or *VHD(X)* format.
 
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
@@ -44,9 +44,20 @@ However, if you're using an image in cim format or a version of PowerShell great
 
 You'll need to run PowerShell as an Administrator to run the commands in the following sections.
 
-Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using and whether your disk image is in *VHD(X)* or *cim* format.
+Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using and whether your disk image is in *cim* or *VHD(X)* format.
 
-### [PowerShell 6 and later](#tab/powershell-later)
+### [CimFS](#tab/cimfs)
+
+If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll need run the following cmdlets to install a PowerShell module from the PowerShell image gallery in order to use the commands in this article.
+
+```powershell
+Install-Module CimDiskImage
+Import-Module CimDiskImage
+```
+
+### [VHD(X)](#tab/vhdx)
+
+#### PowerShell 6 and later
 
 To stage packages at boot using PowerShell 6 or later, you'll need to run the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
 
@@ -73,7 +84,7 @@ To stage packages at boot using PowerShell 6 or later, you'll need to run the fo
 
 1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
-### [PowerShell 5.1 and earlier](#tab/powershell-earlier)
+#### PowerShell 5.1 and earlier
 
 To stage packages at boot with PowerShell version 5.1 or earlier:
 
@@ -86,15 +97,6 @@ To stage packages at boot with PowerShell version 5.1 or earlier:
    ```
 
 1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
-
-### [CimFS](#tab/cimfs)
-
-If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll need run the following cmdlets to install a PowerShell module from the PowerShell image gallery in order to use the commands in this article.
-
-```powershell
-Install-Module CimDiskImage
-Import-Module CimDiskImage
-```
 ---
 
 >[!NOTE]
