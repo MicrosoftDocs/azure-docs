@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 02/03/2023
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -222,13 +222,15 @@ Limitations apply to some replication change scenarios depending on:
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
 > [!IMPORTANT]
-> The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public regions that support ZRS except for the following:
+> [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2
+>
+> [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
 ### Feature conflicts
 
