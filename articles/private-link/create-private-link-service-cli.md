@@ -158,8 +158,8 @@ Before a private link service can be created in the virtual network, the setting
 
 ```azurecli-interactive
 az network vnet subnet update \ 
-    --name default \ 
-    --resource-group myResourceGroup \ 
+    --name mySubnet \ 
+    --resource-group CreatePrivLinkService-rg \ 
     --vnet-name myVNet \ 
     --disable-private-link-service-network-policies true 
 ```
