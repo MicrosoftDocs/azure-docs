@@ -5,7 +5,7 @@ summary:  SAP on Azure provides multiple options for running, managing and monit
 metadata:
   title: SAP on Azure
   description: Learn about solutions for SAP on Azure, including SAP workloads on Azure VMs, Azure Center for SAP solutions, Azure Monitor for SAP solutions, SAP on Azure Large Instances, and the SAP on Azure deployment automation framework.
-  ms.service: azure-center-sap-solutions
+  ms.service: sap-on-azure
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan
