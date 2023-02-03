@@ -111,7 +111,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
+      href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
