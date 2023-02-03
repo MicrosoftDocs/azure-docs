@@ -7,7 +7,7 @@ ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 12/12/2022
+ms.date: 02/03/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -21,6 +21,8 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 > - North Central US
 > - West Central US
 > - East US
+> - UK South
+> - Australia East
 
 ## Overview of overlay networking
 
