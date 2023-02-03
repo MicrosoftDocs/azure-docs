@@ -38,28 +38,6 @@ To disallow savings plan purchases on a billing profile, billing profile contrib
 
 - Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
 
-## Scope savings plans
-
-Setting the scope for a savings plan selects where the benefits apply.
-
-You have the following options to scope a savings plan, depending on your needs:
-
-- **Single resource group scope** - Applies the savings plan benefit to the eligible resources in the selected resource group only.
-- **Single subscription scope** - Applies the savings plan benefit to the eligible resources in the selected subscription.
-- **Shared scope** - Applies the savings plan benefit to eligible resources within subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
-  - For Enterprise Agreement customers, the billing context is the enrollment.
-  - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
-- **Management group** - Applies the savings plan benefit to eligible resources in the list of subscriptions that are a part of both the management group and billing scope. To buy a savings plan for a management group, you must have at least read permission on the management group and be a savings plan owner on the billing subscription.
-
-While applying savings plan benefits to your usage, Azure processes savings plans in the following order:
-
-1. Savings plans with a single resource group scope.
-2. Savings plans with a single subscription scope.
-3. Savings plans scoped to a management group.
-4. Savings plans with a shared scope (multiple subscriptions), described previously.
-
-You can always update the scope after you buy a savings plan. To do so, go to the savings plan, select **Configuration**, and rescope the savings plan. Rescoping a savings plan isn't a commercial transaction, so your savings plan term isn't changed. For more information about updating the scope, see [Update the scope](manage-savings-plan.md#change-the-savings-plan-scope) after you purchase a savings plan.
-
 ## Purchase savings plan
 
 You can purchase a savings plan using the [Azure portal](https://portal.azure.com/) and with APIs. You don't need to assign a savings plan to your compute resources, the savings plan benefit is applied automatically to compute usage that matches the savings plan scope. A savings plan purchase covers only the compute part of your usage. For example, for Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure savings plans](software-costs-not-included.md).
@@ -70,7 +48,7 @@ You can use savings plan recommendations to help determine the hourly commitment
 
 - Hourly commitment recommendations are shown when you purchase a savings plan in the Azure portal.
 - Azure Advisor provides purchase recommendations for individual subscriptions.
-- You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. 
+- You can use the APIs to get purchase recommendations for both shared scope and single subscription scope.
 
 For more information, see [Savings plan purchase recommendations](purchase-recommendations.md).
 
@@ -82,7 +60,7 @@ For more information, see [Savings plan purchase recommendations](purchase-recom
 4. Complete all required fields:
     - **Name** – Friendly name for the new savings plan.
     - **Billing subscription** - Subscription used to pay for the savings plan. For more information about permissions and roles required to purchase a savings plan, see [Who can buy a savings plan](#who-can-buy-a-savings-plan).
-    - **Apply to any eligible resource** – scope of resources that are eligible for savings plan benefits. For more information, see [Scope savings plans](#scope-savings-plans).
+    - **Apply to any eligible resource** – scope of resources that are eligible for savings plan benefits. For more information, see [Savings plan scopes](scope-savings-plan.md).
     - **Term length** - One year or three years.
     - **Hourly commitment** – Amount available through the savings plan each hour. In the Azure portal, up to 10 recommendations may be presented. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
         - An hourly commitment.
