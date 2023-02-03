@@ -26,8 +26,10 @@ All IoT Edge devices use certificates to create secure connections between the r
     If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
-  * If your `config.toml` isn't based on the template, open the [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and use the commented guidance to add configuration sections following the structure of the template.
-  * If you have a new IoT Edge installation that hasn't been configured, copy the template to initialize the configuration. Don't use this command if you have an existing configuration. It overwrites the file.
+
+* If your `config.toml` isn't based on the template, open the [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and use the commented guidance to add configuration sections following the structure of the template.
+
+* If you have a new IoT Edge installation that hasn't been configured, copy the template to initialize the configuration. Don't use this command if you have an existing configuration. It overwrites the file.
 
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml

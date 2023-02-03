@@ -70,22 +70,6 @@ To build and deploy your module image, you need Docker to build the module image
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-::: zone pivot="iotedge-dev-cli"
-
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
-
-    ```cmd
-    pip3 install iotedgedev
-    ```
-
-    > [!NOTE]
-    >
-    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
-
-::: zone-end
-
 Install prerequisites specific to the language you're developing in:
 
 # [C\# / Azure Functions](#tab/csharp+azfunctions)
@@ -108,8 +92,17 @@ Install prerequisites specific to the language you're developing in:
 
 # [Python](#tab/python)
 
-- Install [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+- Install [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/)
 - Install [Python VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to debug, run, and test your IoT Edge solution. You can alternatively install the Azure IoT Edge Dev Tool using the CLI:
+   
+   ```cmd
+   pip3 install iotedgedev
+   ```
+
+   > [!NOTE]
+   >
+   > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*. For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
 
 ---
 
@@ -546,7 +539,7 @@ When you debug modules using this method, your modules are running on top of the
 
 ### Build and deploy your module to an IoT Edge device
 
-In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
+In Visual Studio Code, open the *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ::: zone pivot="iotedge-dev-cli"
 
@@ -662,7 +655,7 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 ```
 
 > [!TIP]
-> You can find your IoT Hub connection string in the Azure portal under Azure IoT Hub > **Security settings** > **Shared access policies**.
+> You can find your IoT Hub connection string in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
 >
 
 ::: zone-end
