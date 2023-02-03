@@ -174,7 +174,7 @@ To work with Azure VMs, create an instance of the [Azure Compute client for Pyth
 # Initialize client with the credential and subscription.
 compute_client = ComputeManagementClient(
     azure_credential,
-    SUBSCRIPTION_ID)
+    SUBSCRIPTION_ID
 )
 
 print('\nStart VM')
