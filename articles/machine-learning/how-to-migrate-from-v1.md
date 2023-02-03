@@ -1,7 +1,7 @@
 ---
-title: 'Migrate from v1 to v2'
+title: 'Upgrade from v1 to v2'
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK.
+description: Upgrade from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -77,9 +77,9 @@ This section gives an overview of specific resources and assets in Azure ML. See
 
 ### Workspace
 
-Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2. 
+Workspaces don't need to be upgraded with v2. You can use the same workspace, regardless of whether you're using v1 or v2. 
 
-If you create workspaces using automation, do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
+If you create workspaces using automation, do consider upgrading the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
 
 For a comparison of SDK v1 and v2 code, see [Workspace management in SDK v1 and SDK v2](migrate-to-v2-resource-workspace.md).
 
@@ -107,9 +107,9 @@ For a comparison of SDK v1 and v2 code, see [Compute management in SDK v1 and SD
 
 ### Endpoint and deployment (endpoint and web service in v1)
 
-With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend migrating to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
 
-|Endpoint type in v2|Migrate from|Notes|
+|Endpoint type in v2|Upgrade from|Notes|
 |-|-|-|
 |Local|ACI|Quick test of model deployment locally; not for production.|
 |Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
@@ -118,7 +118,7 @@ With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your exist
 |Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
 For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
-For upgrade steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
+For migration steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -171,7 +171,7 @@ For details about Key Vault, see [Use authentication credential secrets in Azure
 
 ## Scenarios across the machine learning lifecycle
 
-There are a few scenarios that are common across the machine learning lifecycle using Azure ML. We'll look at a few and give general recommendations for migrating to v2.
+There are a few scenarios that are common across the machine learning lifecycle using Azure ML. We'll look at a few and give general recommendations for upgrading to v2.
 
 ### Azure setup
 
@@ -203,7 +203,7 @@ The solution accelerator for MLOps with v2 is being developed at https://github.
 
 ### A note on GitOps with v2
 
-A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you migrate to v2.
+A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you upgrade to v2.
 
 You can obtain a YAML representation of any entity with the CLI via `az ml <entity> show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
 

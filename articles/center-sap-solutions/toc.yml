@@ -25,6 +25,8 @@ items:
       href: prepare-network.md
     - name: Deploy S/4HANA infrastructure
       href: deploy-s4hana.md
+    - name: Get SAP installation media
+      href: get-sap-installation-media.md
     - name: Install SAP software
       href: install-software.md
     - name: Register existing SAP system
