@@ -27,7 +27,7 @@ This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Set up your local environment
 
-This quickstart is using Azure Identity library with Azure CLI or Azure PowerShell to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme)
+This quickstart uses the Azure Identity library with Azure CLI or Azure PowerShell to authenticate the user to Azure services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls. For more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
