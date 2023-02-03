@@ -28,21 +28,6 @@ Azure availability zones-enabled services are designed to provide the right leve
 
 
 
-
-### Prerequisites
-
-Since Azure Image Builder (AIB) is a regional service with a cluster serving in a single region, you must protect your system from region failure by creating an image builder template and replicating related resources across different regions. 
-
-### SLA improvements
-
-Azure Image Builder doesn't have an official SLA at this time.
-
-
-
-### Low-latency design
-
-To ensure fast and easy recovery for your Azure Image Builder, it's recommended to run an image template in region pairs or multiple regions when designing your Image Builder solution. You'll also want to replicate resources from the start when you're setting up your image templates.
-
 >[!IMPORTANT]
 >By opting out of zone-aware deployment, you forego protection from isolation of underlying faults. Use of SKUs that don't support availability zones or opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
 
