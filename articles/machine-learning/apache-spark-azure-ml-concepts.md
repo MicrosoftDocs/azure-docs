@@ -19,11 +19,11 @@ ms.custom: cliv2, sdkv2
 Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to distributed computing through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
 
 - Managed (Automatic) Spark compute
-- Attached Azure Synapse Spark pool
+- Attached Synapse Spark pool
 
 ## Managed (Automatic) Spark compute
 
-Azure Machine Learning Managed (Automatic) Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment by using the Apache Spark framework. Azure Machine Learning users can use a fully managed, serverless, on-demand Apache Spark compute cluster. Those users can avoid the need to create an Azure Synapse workspace and an Azure Synapse Spark pool.
+Azure Machine Learning Managed (Automatic) Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment by using the Apache Spark framework. Azure Machine Learning users can use a fully managed, serverless, on-demand Apache Spark compute cluster. Those users can avoid the need to create an Azure Synapse workspace and a Synapse Spark pool.
 
 Users can define resources, including instance type and Apache Spark runtime version. They can then use those resources to access Managed (Automatic) Spark compute in Azure Machine Learning notebooks for:
 
@@ -54,7 +54,7 @@ Disadvantages:
 
 ### Network configuration
 
-As of January 2023, Managed (Automatic) Spark compute doesn't support the creation of managed virtual networks or private endpoints to Azure Synapse.
+As of January 2023, creating a Managed (Automatic) Spark compute inside a virtual network and creating a private endpoint to Azure Synapse are not supported.
 
 ### Inactivity periods and tear-down mechanism
 
@@ -66,23 +66,23 @@ After the Managed (Automatic) Spark compute resource tear-down happens, submissi
 
 :::image type="content" source="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" lightbox="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" alt-text="Expandable diagram that shows scenarios for Apache Spark session inactivity period and cluster teardown.":::
 
-## Attached Azure Synapse Spark pool
+## Attached Synapse Spark pool
 
-A Spark pool created in an Azure Synapse workspace becomes available in the Azure Machine Learning workspace with the attached Azure Synapse Spark pool. This option might be suitable for users who want to reuse an existing Azure Synapse Spark pool.
+A Spark pool created in an Azure Synapse workspace becomes available in the Azure Machine Learning workspace with the attached Synapse Spark pool. This option might be suitable for users who want to reuse an existing Synapse Spark pool.
 
-Attachment of an Azure Synapse Spark pool to an Azure Machine Learning workspace requires [other steps](./how-to-manage-synapse-spark-pool.md) before you can use the pool in Azure Machine Learning for:
+Attachment of a Synapse Spark pool to an Azure Machine Learning workspace requires [other steps](./how-to-manage-synapse-spark-pool.md) before you can use the pool in Azure Machine Learning for:
 
 - [Interactive Spark code development](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Spark batch job submission](./how-to-submit-spark-jobs.md)
 - [Running machine learning pipelines with a Spark component](./how-to-submit-spark-jobs.md#spark-component-in-a-pipeline-job)
 
-An attached Azure Synapse Spark pool provides access to native Azure Synapse features. The user is responsible for provisioning, attaching, configuring, and managing the Azure Synapse Spark pool.
+An attached Synapse Spark pool provides access to native Azure Synapse features. The user is responsible for provisioning, attaching, configuring, and managing the Synapse Spark pool.
 
-The Spark session configuration for an attached Azure Synapse Spark pool also offers an option to define a session timeout (in minutes). The session timeout behavior resembles the description in [the previous section](#inactivity-periods-and-tear-down-mechanism), except that the associated resources are never torn down after the session timeout.
+The Spark session configuration for an attached Synapse Spark pool also offers an option to define a session timeout (in minutes). The session timeout behavior resembles the description in [the previous section](#inactivity-periods-and-tear-down-mechanism), except that the associated resources are never torn down after the session timeout.
 
 ## Defining Spark cluster size
 
-You can define three parameter values in Azure Machine Learning Spark jobs:
+You can define Spark cluster size by using three parameter values in Azure Machine Learning Spark jobs:
 
 - Number of executors
 - Executor cores
@@ -97,20 +97,20 @@ To access data and other resources, a Spark job can use either a user identity p
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
 |Managed (Automatic) Spark compute|User identity and managed identity|User identity|
-|Attached Azure Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Azure Synapse Spark pool|
+|Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-[This article](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the Managed (Automatic) Spark compute and the attached Azure Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
+[This article](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the Managed (Automatic) Spark compute and the attached Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 > [!NOTE]
-> For successful execution of a Spark job, assign **Contributor** and **Storage Blob Data Contributor** roles on the Azure storage account for data input and output. Assign the roles to the identity for the Spark job.
+> To ensure successful Spark job execution, assign **Contributor** and **Storage Blob Data Contributor** roles (on the Azure storage account that's used for data input and output) to the identity that's used for submitting the Spark job.
 >
-> If an [attached Azure Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to an Azure Synapse Spark pool in an Azure Synapse workspace, and that workspace has an associated managed virtual network, [configure a managed private endpoint to a storage account](../synapse-analytics/security/connect-to-a-secure-storage-account.md). This configuration will help ensure data access.
+> If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace, and that workspace has an associated managed virtual network, [configure a managed private endpoint to a storage account](../synapse-analytics/security/connect-to-a-secure-storage-account.md). This configuration will help ensure data access.
 
 [This quickstart](./quickstart-spark-jobs.md) describes how to start using Managed (Automatic) Spark compute to submit your Spark jobs in Azure Machine Learning.
 
 ## Next steps
 
-- [Attach and manage an Azure Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
+- [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
 - [Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using the Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
