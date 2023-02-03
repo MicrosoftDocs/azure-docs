@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/10/2022
+ms.date: 02/02/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-# Get started: Form Recognizer Studio | v3.0
+# Get started: Form Recognizer Studio 
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
@@ -61,7 +61,7 @@ In the following example, we use the General Documents feature. The steps to use
 
 1. In the Code tab, browse the sample code for integration. Copy and download to get started.
 
-## Additional prerequisites for custom projects
+## Added prerequisites for custom projects
 
 In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
 
