@@ -63,7 +63,7 @@ Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "c
 ## Computer account recommendations
 
 > [!IMPORTANT]
-> Computer accounts are highly privileged accounts, therefore use them if your service requires unrestricted access to local resources, on the machine, and you can't use a managed service account (MSA).
+> Computer accounts are highly privileged, therefore use them if your service requires unrestricted access to local resources, on the machine, and you can't use a managed service account (MSA).
 
 * Confirm the service owner's service runs with an MSA
 * Use a group managed service account (gMSA), or a standalone managed service account (sMSA), if your service supports it
