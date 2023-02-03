@@ -36,7 +36,7 @@ You also need the following accounts to *install* Azure AD Connect:
 
 - **AD DS Enterprise Administrator account**: Optionally used to create the required AD DS Connector account.
 
-- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../../active-directory/roles/view-assignments.md).
+- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../../active-directory/roles/view-assignments.md).
 
 - **SQL SA account (optional)**: Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Azure AD Connect installation. This account can be the same account as the Enterprise Administrator account.
 
@@ -257,7 +257,7 @@ An account in Azure AD is created for the sync service to use. You can identify 
 
 :::image type="content" source="media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png" alt-text="Screenshot that shows the Azure AD account with the DC1 prefix.":::
 
-The name of the server the account is used on can be identified in the second part of the user name. In the preceding figure, the server name is DC1. If you have staging servers, each server has its own account.
+The name of the server the account is used on can be identified in the second part of the username. In the preceding figure, the server name is DC1. If you have staging servers, each server has its own account.
 
 A server account is created with a long, complex password that doesn't expire. The account is granted a special Directory Synchronization Accounts role that has permissions to perform only directory synchronization tasks. This special built-in role can't be granted outside of the Azure AD Connect wizard. The Azure portal shows this account with the User role.
 
