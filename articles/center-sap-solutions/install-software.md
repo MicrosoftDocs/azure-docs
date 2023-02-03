@@ -1,9 +1,9 @@
 ---
 title: Install SAP software (preview)
-description: Learn how to install software on your SAP system created using Azure Center for SAP solutions.
+description: Learn how to install SAP software on an SAP system that you created using Azure Center for SAP solutions. You can either install the SAP software with  Azure Center for SAP solutions, or install the software outside the service and detect the installed system.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
@@ -15,38 +15,61 @@ ms.author: ladolan
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
-In this how-to guide, you'll learn how to install the SAP system whose infrastructure was created through ACSS. You can either [install the SAP software through ACSS with ACSS installation wizard](#option-1-install-software-through-ACSS) or [Install the SAP software outside ACSS and detect the installed system ](#option-2-install-software-outside-ACSS). 
+In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
 
-
-## Option 1: Install software through ACSS
-
-Please go through the pre-requisites before beginning the SAP installation on ACSS.
+- Install the SAP software through Azure Center for SAP solutions directly using the installation wizard.
+- Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service.
 
 ## Prerequisites
 
+Review the prerequisites for your preferred installation method: [through the Azure Center for SAP solutions installation wizard](#prerequisites-for-wizard-installation) or [through an outside method](#prerequisites-for-outside-installation)
+
+Only the following scenarios are supported:
+
+- Infrastructure for S4/HANA was created through Azure Center for SAP solutions. The S4/HANA application was installed outside Azure Center for SAP solutions through a different tool.
+- Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
+- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
+
+
+### Prerequisites for wizard installation
+
 - An Azure subscription.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
+- A user-assigned managed identity with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
-- If you are installing a SAP System through ACSS, you should have the SAP installation media available in a storage account. You can refer [this section](acquire-sap-installation-media.md) to learn how to acquire the SAP installation media.
-- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
-    
-    To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
+- If you are installing an SAP System through Azure Center for SAP solutions, you should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
+- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
+    - For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
+    - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
 
+### Prerequisites for outside installation
 
-## Install Software
+- An Azure subscription.
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
+- A user-assigned managed identity that you created during infrastructure deployment with **Contributor** role access on the subscription, or on all resource groups (compute, network and storage) that the SAP System is a part of.
+- Infrastructure for the SAP system that you previously created through Azure Center for SAP solution. Don't make any changes to this infrastructure. 
+- An SAP System (and underlying infrastructure resources) that is up and running.
+- Optionally, you can add fully installed application servers to the system before detecting the SAP software; then, the SAP system with additional application servers will also be detected. 
+    - If you add additional application servers to this Virtual Instance for SAP solutions after infrastructure deployment, the previously created user-assigned managed identity also needs **Contributor** role access on the subscription or on the resource group under which this new application server exists.
+    - The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in Azure Center for SAP solutions. You can still detect additional application servers.
 
-To install the SAP software on Azure, use the Azure Center for SAP solutions installation wizard.
+## Install SAP software
+
+Install the SAP software using your preferred method: [through the Azure Center for SAP solutions installation wizard](#install-with-wizard) or [through an outside method](#install-through-outside-method).
+
+### Install with wizard
+
+To install the SAP software directly, use the Azure Center for SAP solutions installation wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Virtual Instance for SAP solutions**.
 
-1. Select your Virtual Instance for SAP solutions (VIS) instance.
+1. Select your Virtual Instance for SAP solutions instance.
 
-1. On the **Overview** page for the VIS resource, select **Install SAP software**.
+1. On the **Overview** page for the Virtual Instance for SAP solutions resource, select **Install SAP software**.
 
 1. In the **Prerequisites** tab of the wizard, review the prerequisites. Then, select **Next**.
 
@@ -70,66 +93,36 @@ To install the SAP software on Azure, use the Azure Center for SAP solutions ins
 
 1. Wait for the installation to complete. The process takes approximately three hours. You can see the progress, along with estimated times for each step, in the wizard.
 
-1. After the installation completes, sign in with your SAP system credentials. Refer to [this section](manage-virtual-instance.md) to find the SAP system and HANA DB credentials for the newly installed system.
+1. After the installation completes, sign in with your SAP system credentials. To find the SAP system and HANA DB credentials for the newly installed system, see [how to manage a Virtual Instance for SAP solutions](manage-virtual-instance.md).
 
+## Install through outside method
 
+If you install the SAP software elsewhere, you need to detect the software installation and update your Virtual Instance for SAP solutions metadata.
 
-## Option 2: Install Software Outside ACSS
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Contributor** role access to the subscription or resource groups where the SAP system exists.
 
-Please go through the pre-requisites before starting to detect an already installed SAP system through ACSS.
+1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
 
-## Prerequisites
+1. Select **Virtual Instances for SAP solutions**. Then select the Virtual Instance for SAP solutions resource that you want to detect.
 
-- An Azure subscription.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- A previously created User-assigned managed identity during infrastructure deployment which has "Contributor role" access on the Subscription or atleast on all resource groups(Compute, Network, Storage) which the SAP System is part of.
-- Infrastructure for the SAP System has been created through Azure Center for SAP Solutions and **has not been changed**. However, you can add fully installed application servers to the system before clicking "Detect" and the SAP system with additional application servers wil also be detected. 
-- If you have added additional application servers to this Virtual Instance for SAP Solutions since infrastructure deployment, the previously created user assigned managed identity shall have the Contributor role access on the Subscription or atleast on the resource group under which this new application server resides in.
-- The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in ACSS . However, as noted previously, you can have additional application servers installed which will also be detected.
-- SAP System (and underlying infrastructure resources) is up and running
+1. On the resource's overview page, select **Confirm already installed software**. Read all the instructions, then select **Confirm**. Extensions will now be installed on ASCS, APP and DB virtual machines and start discovering SAP metadata.
 
+1. Wait for the Virtual Instance for SAP solutions resource to be detected and populated with the metadata. The process completes after all SAP system components have been detected. 
 
-## Supported Scenarios
-
-Only the following scenarios are supported -
-
-- Infrastructure for S4/HANA was created through ACSS and S4/HANA Application was installed outside ACSS ( through a different tool)
-- Only S4/HANA installation done outside ACSS can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
-- If you want to install a fresh S4/HANA software on the infrastructure deployed by ACSS, use the "Install SAP Software with ACSS" option instead.
-
-
-## Detect Software
-
-To detect a SAP Software installed outside ACSS and update the VIS metadata:
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has Contributor role access to the subscription or resource groups where the SAP system exists.
-
-1. Search for and select Azure Center for SAP solutions in the Azure portal's search bar.
-
-1. Select Virtual Instances for SAP Solutions to select the VIS you have installed already and want to detect
-
-1. On the VIS overview page, click "confirm already installed software"
-
-    1. Read all the instructions and click Confirm
-
-1. This will install extension on ASCS, APP and DB Virtual machines and start discovering SAP metadata.
-
-1. Wait for the VIS resource to be detected and populated with the metadata. The VIS detection will be completed after all SAP system components have been detected. 
-
-You can now review the VIS resource in the Azure portal. The resource page shows the SAP system resources, and information about the system.
+1. Review the Virtual Instance for SAP solutions resource in the Azure portal. The resource page now shows the SAP system resources, and information about the system.
 
 
 ## Limitations
 
 The following are known limitations and issues.
 
-### Application Servers
+### Application servers
 
 You can install a maximum of 10 Application Servers, excluding the Primary Application Server. 
 
 ### SAP package version changes
 
-1. When SAP changes the version of packages for a component in the BOM, you might encounter problems with the automated installation shell script. It's recommended to download your SAP installation media as soon as possible to avoid issues.
+When SAP changes the version of packages for a component in the BOM, you might encounter problems with the automated installation shell script. It's recommended to download your SAP installation media as soon as possible to avoid issues.
 
 If you encounter this problem, follow these steps: 
 
@@ -146,32 +139,33 @@ If you encounter this problem, follow these steps:
     - `permissions` to `0755`
     - `url` to the new SAP download URL
 
-1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the "boms" folder 
+1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the `boms` folder 
 
 ### Special characters like $ in S-user password is not accepted while downloading the BOM. 
 
-1. Follow the step by step instructions upto cloning the 'SAP Automation repository from GitHub' in **Download SAP media** section.
+1. Clone the SAP automation repository. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
 
-1. Before running the Ansible playbook set the SPASS environment variable below. Single quotes should be present in the below command
+    ```git bash
+    git clone https://github.com/Azure/sap-automation.git
+    ```
+
+1. Before running the Ansible playbook set the SPASS environment variable below. Single quotes should be present in the command.
 
     ```bash
     export SPASS='password_with_special_chars'
     ```
-1. Then run the ansible playbook
+1. Run the Ansible playbook:
 
-```azurecli
+    ```azurecli
     ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=$SPASS" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>"
- ```
+     ```
   
-- For `<username>`, use your SAP username.
-- For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
-- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section.
+    - For `<username>`, use your SAP username.
+    - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
+    - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
+    - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 
-  The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
-
-This should resolve the problem and you can proceed with next steps as described in the section.
 ## Next steps
 
 - [Monitor SAP system from Azure portal](monitor-portal.md)
-- [Manage a VIS](manage-virtual-instance.md)
+- [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
