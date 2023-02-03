@@ -116,7 +116,7 @@ Create a new query and view the new function by hovering over it. Look at the or
 
 Select **Use in editor** to add the new function to a query. Then add values for the parameters. You don't need to specify a value for `CategoryParam` because it has a default value.
 
-:::image type="content" source="media/functions/example-use-function.png" alt-text="Screenshot that shows using a function." lightbox="media/functions/example-use-function.png":::
+:::image type="content" source="media/functions/example-use-function.png" alt-text="Screenshot that shows adding values for parameters." lightbox="media/functions/example-use-function.png":::
 
 ## Next steps
 See [String operations](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations) for more information on how to write Azure Monitor log queries.

@@ -43,7 +43,7 @@ When you parse data at query time, you include logic in your query to parse data
 
 **Disadvantages:**
 
-- Requires more complex queries. This drawback can be mitigated by using [functions to simulate a table](#use-function-to-simulate-a-table).
+- Requires more complex queries. This drawback can be mitigated by using [functions to simulate a table](#use-a-function-to-simulate-a-table).
 - Must replicate parsing logic in multiple queries. Can share some logic through functions.
 - Can create overhead when you run complex logic against very large record sets (billions of records).
 
