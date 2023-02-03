@@ -17,8 +17,8 @@ After you've created infrastructure for your new SAP system using *Azure Center 
 
 In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
 
-- Install the SAP software through Azure Center for SAP solutions directly using the installation wizard.
-- Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service.
+- [Install the SAP software through Azure Center for SAP solutions directly using the installation wizard](#install-sap-with-azure-center-for-sap-solutions).
+- [Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service](#install-sap-through-outside-method).
 
 ## Prerequisites
 
@@ -54,11 +54,7 @@ Only the following scenarios are supported for this installation method:
 - Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
 - If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
 
-## Install SAP software
-
-Install the SAP software using your preferred method: [through the Azure Center for SAP solutions installation wizard](#install-with-wizard) or [through an outside method](#install-through-outside-method).
-
-### Install with wizard
+## Install SAP with Azure Center for SAP solutions
 
 To install the SAP software directly, use the Azure Center for SAP solutions installation wizard.
 
@@ -94,7 +90,7 @@ To install the SAP software directly, use the Azure Center for SAP solutions ins
 
 1. After the installation completes, sign in with your SAP system credentials. To find the SAP system and HANA DB credentials for the newly installed system, see [how to manage a Virtual Instance for SAP solutions](manage-virtual-instance.md).
 
-## Install through outside method
+## Install SAP through outside method
 
 If you install the SAP software elsewhere, you need to detect the software installation and update your Virtual Instance for SAP solutions metadata.
 
