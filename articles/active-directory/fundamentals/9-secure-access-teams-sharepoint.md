@@ -116,7 +116,7 @@ Learn more:
 
 In the Azure AD admin center, you can use the External Sharing settings for SharePoint and OneDrive to help configure sharing policies. OneDrive restrictions can't be more permissive than SharePoint settings.
 
-Learn more: [External sharing overview](https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview)
+Learn more: [External sharing overview](/sharepoint/external-sharing-overview)
 
    ![Screenshot of external sharing settings for SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
 
@@ -127,73 +127,70 @@ Use the guidance in this section when configuring external sharing.
 * **Anyone** - Not recommended. If enabled, regardless of integration status, no Azure policies are applied for this link type. 
   * Don't enable this functionality for governed collaboration
   * Use it for restrictions on individual sites
-* **New and existing guests** - Recommended if integration is enabled.
-  * With Azure AD B2B integration enabled, new and existing guests will have an Azure AD B2B guest account that can be managed with Azure AD policies.
-
-   * **Without Azure AD B2B integration** enabled, new guests will not have an Azure AD B2B account created, and they cannot be managed from Azure AD. Whether existing guests have an Azure AD B2B account depends on how the guest was created.
-
-* **Existing guests**. Recommended if you do not have integration enabled.
-
-   * With this enabled, users can only share with other users already in your directory.
-
-* **Only people in your organization**. Not recommended when you need to collaborate with external users.
-
-   * Regardless of integration status, users will only be able to share with users in your organization. 
-
-* **Limit external sharing by domain**. By default SharePoint allows external access, which means that sharing is allowed with all external domains. If you want to restrict or allow specific domains just for SharePoint, you can do so here.
-
-* **Allow only users in specific security groups to share externally**.  This setting restricts who can share content in SharePoint and OneDrive, while the setting in Azure AD applies to all applications. Restricting who can share can be useful if you want to require your users to take a training about sharing securely, then at completion add them to an approved sharing security group. If this setting is selected, and users do not have a way to gain access to being an “approved sharer,” they may instead find unapproved ways to share. 
-
-* **Allow guests to share items they don’t own**. We recommend leaving this disabled.
-
-* **People who use a verification code must reauthenticate after this many days (default is 30)**. We recommend enabling this setting.
+* **New and existing guests** - Recommended, if integration is enabled
+  * Azure AD B2B integration enabled: new and current guests have an Azure AD B2B guest account you can manage with Azure AD policies
+  * Azure AD B2B integration not enabled: new guests don't have an Azure AD B2B account, and can't be managed from Azure AD
+  * Guests have an Azure AD B2B account, depending on how the guest was created
+* **Existing guests** - Recommended, if you don't have integration enabled
+  * With this enabled, users can share with other users in your directory
+* **Only people in your organization** - Not recommended with external user collaboration
+  * Regardless of integration status, users can share with other users in your organization
+* **Limit external sharing by domain** - By default, SharePoint allows external access. Sharing is allowed with external domains. 
+  * Use this option to restrict or allow domains for SharePoint
+* **Allow only users in specific security groups to share externally** - Use this setting to restrict who shares content in SharePoint and OneDrive. The setting in Azure AD applies to all applications. Use the restriction to direct users to training about secure sharing. Completion is the signal to add them to a sharing security group. If this setting is selected, and users can't become an approved sharer, they might find unapproved ways to share. 
+* **Allow guests to share items they don’t own** - Not recommended. The guidance is to disable this feature.
+* **People who use a verification code must reauthenticate after this many days (default is 30)** - Recommended
 
 ### Access controls
 
-Access controls setting will affect all users in your organization. Given that you may not be able to control whether external users have compliant devices, we will not address those controls here. 
+Access controls setting affect all users in your organization. Because you might not be able to control whether external users have compliant devices, the controls won't be addressed in this article. 
 
-* **Idle session sign-out**. We recommend that you enable this control, which allows you to warn and sign-out users on unmanaged devices after a period of inactivity. You can configure the period of inactivity and the warning. 
-
-* **Network location**. Setting this control means you can allow access only form IP addresses that your organization owns. In external collaboration scenarios, set this only if all of your external partners will access resources only form within your network, or via your VPN.
+* **Idle session sign-out** - Recommended
+  * Use this option to warn and sign-out users on unmanaged devices, after a period of inactivity
+  * You can configure the period of inactivity and the warning
+* **Network location** - Set this control to allow access from IP addresses your organization owns. 
+  * For external collaboration, set this control if your external partners access resources when in your network, or with your virtual private network (VPN).
 
 ### File and folder links
 
-In the SharePoint admin center, you can also set how file and folder links are shared. You can also configure these setting for each site. 
+In the SharePoint admin center, you can set how file and folder links are shared. You can configure these setting for each site. 
 
- ![Screenshot of file and folder link settings](media/secure-external-access/9-file-folder-links.png)
+   ![Screenshot of File and folder links options.](media/secure-external-access/9-file-folder-links.png)
 
-If you have enabled the integration with Azure AD B2B, sharing of files and folders with those outside of the organization will result in a B2B user being created when files and folder are shared.
+With Azure AD B2B integration enabled, sharing files and folders with users outside the organization results in the creation of a B2B user.
 
-We recommend setting the default link type to **Only people in your organization**, and default permissions to **Edit**. Doing so ensures that items are shared thoughtfully. You can then customize this setting for per-site default that meet specific collaboration needs.
+1. For **Choose the type of link that's selected by default when users share files and folders in SharePoint and OneDrive**, select **Only people in your organization**.
+2. For **Choose the permission that's selected by default for sharing links**, select **Edit**.
+
+You can customize this setting for a per-site default.
 
 ### Anyone links
 
-We do not recommend enabling anyone links. If you do, we recommend setting an expiration, and consider restricting them to view permissions. If you choose View only permissions for files or folders, users will not be able to change Anyone links to include edit privileges.
+Enabling Anyone links is not recommended. If you enable it, set an expiration, and restrict users to view permissions. If you select View only permissions for files or folders, users can't change Anyone links to include edit privileges.
 
-To learn more about governing external access to SharePoint see the following:
+Learn more:
 
-* [SharePoint external sharing overview](/sharepoint/external-sharing-overview)
+* [External sharing overview](/sharepoint/external-sharing-overview)
+* [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration)
 
-* [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
+## Next steps
 
-#### Next steps
+See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-1. [Determine your security posture for external access](1-secure-access-posture.md)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-2. [Discover your current state](2-secure-access-current-state.md)
+3. [Create a security plan for external access](3-secure-access-plan.md)
 
-3. [Create a governance plan](3-secure-access-plan.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
-4. [Use groups for security](4-secure-access-groups.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
+7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
 
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
-
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md) (You are here.)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
