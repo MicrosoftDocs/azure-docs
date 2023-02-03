@@ -92,7 +92,7 @@ When enabled, an `eraser-controller-manager` pod is deployed on each agent node,
 
 Once an `ImageList` is generated, Image Cleaner will remove all the images in the list from node VMs.
 
-:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="A diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
 ## Configuration options
 
