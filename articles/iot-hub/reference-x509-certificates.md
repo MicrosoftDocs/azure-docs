@@ -97,7 +97,7 @@ The extensions included in this section are similar to standard extensions, and 
 | Name | Description |
 | --- | --- |
 | [Authority Information Access](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.2.1) | A collection of entries that describe the format and location of additional information provided by the issuing CA. |
-| [Subject Information Access](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.2.1) | A collection of entries that describe the format and location of additional information provided by the certificate subject. |
+| [Subject Information Access](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.2.2) | A collection of entries that describe the format and location of additional information provided by the certificate subject. |
 
 ## Certificate formats
 
