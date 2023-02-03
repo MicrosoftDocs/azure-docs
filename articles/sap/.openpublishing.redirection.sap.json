@@ -1298,5 +1298,11 @@
       "redirect_document_id": true
     },
 
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/get-sap-installation-media.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/get-sap-installation-media",
+      "redirect_document_id": true
+    },
+
   ]
 }
