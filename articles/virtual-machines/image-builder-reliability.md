@@ -7,7 +7,7 @@ ms.topic: overview
 ms.custom: subject-reliability
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.date: 11/18/2022
+ms.date: 02/03/2023
 ---
 
 # Reliability in Azure Image Builder
