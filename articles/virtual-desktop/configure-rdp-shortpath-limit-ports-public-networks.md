@@ -39,4 +39,6 @@ To enable a limited port range when using RDP Shortpath for public networks, you
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Open the policy setting **Use port range for RDP Shortpath for unmanaged networks** and set it to **Enabled**. For **UDP base port**, specify the port number to begin the range. For **Port pool size**, specify the number of sequential ports that will be in the range. For example, if you specify **25000** as the UDP base port and **1000** as the Port pool size, the upper port number will be 25999.
+1. Open the policy setting **Use port range for RDP Shortpath for unmanaged networks** and set it to **Enabled**. For **UDP base port**, specify the port number to begin the range. For **Port pool size**, specify the number of sequential ports that will be in the range. For example, if you specify **38300** as the UDP base port and **1000** as the Port pool size, the upper port number will be **39299**.
+
+   :::image type="content" source="media/configure-rdp-shortpath-limit-ports-public-networks/rdp-shortpath-gpo-port-range-unmanaged.png" alt-text="Screenshot of the Group Policy setting Use port range for RDP Shortpath for unmanaged networks." lightbox="media/configure-rdp-shortpath-limit-ports-public-networks/rdp-shortpath-gpo-port-range-unmanaged.png":::
