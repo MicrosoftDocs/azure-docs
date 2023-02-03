@@ -171,7 +171,7 @@ Now, the job searches over all model classes _except_ Prophet. For a list of for
 
 AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
 
-:::image type="content" source="media/how-to-auto-train-forecast/TCN-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
+:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
 The ForecastTCN often achieves higher accuracy than standard time series models when there are thousands or more observations in the training history. However, it also takes longer to train and sweep over ForecastTCN models due to their higher capacity.
 
