@@ -5,7 +5,8 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.reviewer: erd
+ms.date: 12/28/2022
 ms.custom: devx-track-azurepowershell
 
 ---

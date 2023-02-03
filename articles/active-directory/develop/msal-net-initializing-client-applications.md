@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2019
+ms.date: 12/19/2022
 ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev, engagement-fy23"
@@ -22,19 +22,17 @@ This article describes initializing public client and confidential client applic
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application from the code, a configuration file, or even by mixing both approaches.
 
-[API reference documentation](/dotnet/api/microsoft.identity.client) | [Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Code samples](sample-v2-code.md)
-
 ## Prerequisites
 
-Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
+Before initializing an application, you first need to register it so that your app can be integrated with the Microsoft identity platform. Refer to the [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information. After registration, you may need the following information (which can be found in the Azure portal):
 
 - **Application (client) ID** - This is a string representing a GUID.
 - **Directory (tenant) ID** - Provides identity and access management (IAM) capabilities to applications and resources used by your organization. It can specify if you're writing a line of business application solely for your organization (also named single-tenant application).
 - The identity provider URL (named the **instance**) and the sign-in audience for your application. These two parameters are collectively known as the authority.
-- **Client credentials** - which can take the form of an application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
+- **Client credentials** - which can take the form of an application secret (client secret string) or certificate (of type `X509Certificate2`) if it's a confidential client app.
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the **Redirect URI** where the identity provider will contact back your application with the security tokens.
 
-## Ways to initialize applications
+## Initializing applications
 
 There are many different ways to instantiate client applications.
 
@@ -122,7 +120,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Where it becomes interesting is that programming for national clouds has simplified. If you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
+Programming for national clouds has simplified, so if you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
 
 ```csharp
 IPublicClientApplication app;
@@ -131,7 +129,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-There's also an override for ADFS (ADFS 2019 is currently not supported):
+There's also an override for ADFS (MSAL.NET will only support ADFS 2019 or later):
 
 ```csharp
 IPublicClientApplication app;
@@ -148,6 +146,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## See also
+
+[API reference documentation](/dotnet/api/microsoft.identity.client) 
+
+[Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)
+
+[Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 
+
+[Code samples](sample-v2-code.md)
 
 ## Next steps
 

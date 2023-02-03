@@ -203,7 +203,7 @@ To connect the WordPress app to this new MySQL server, you'll configure a few Wo
 To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
 When the app setting has been created, Cloud Shell shows information similar to the following example:
@@ -218,7 +218,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -424,7 +424,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -518,10 +518,10 @@ In this tutorial, you learned how to:
 > * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

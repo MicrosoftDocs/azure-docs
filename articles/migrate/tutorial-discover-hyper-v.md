@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/13/2022
-ms.custom: mvc, subject-rbac-steps
+ms.date: 12/14/2022
+ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
@@ -136,6 +136,9 @@ Set up a new project.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
+
+   > [!Note]
+   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.

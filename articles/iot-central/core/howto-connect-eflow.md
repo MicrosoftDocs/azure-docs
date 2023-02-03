@@ -1,6 +1,7 @@
 ---
-title: Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central | Microsoft Docs
-description: Learn how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central 
+title: Connect Azure IoT Edge for Linux on Windows (EFLOW)
+titleSuffix: Azure IoT Central
+description: Learn how to connect an Azure IoT Edge for Linux on Windows (EFLOW) device to an IoT Central application
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/11/2022
@@ -8,7 +9,7 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central
+# Connect an IoT Edge for Linux on Windows device to IoT Central
 
 [Azure IoT Edge for Linux on Windows (EFLOW)](/windows/iot/iot-enterprise/azure-iot-edge-for-linux-on-windows) lets you run Azure IoT Edge in a Linux container on your Windows device. In this article, you learn how to provision an EFLOW device and manage it from your IoT Central application.
 
@@ -27,14 +28,15 @@ To complete the steps in this article, you need:
 
 * An [IoT Central application created](howto-create-iot-central-application.md) from the **Custom application** template. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
-* A Windows device with the following minimum requirements:
+* A Windows device that meets the following minimum requirements:
 
   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise) or Windows Server 2019<sup>1</sup>/2022
   * Minimum free memory: 1 GB
   * Minimum free disk space: 10 GB
-  * <sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.
 
-To follow the steps in this article, download the [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/iotedge/EnvironmentalSensorManifest.json) file to your computer.
+    <sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.
+
+To follow the steps in this article, download the [EnvironmentalSensorManifest-1-4.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/iotedge/EnvironmentalSensorManifest-1-4.json) file to your computer.
 
 ## Import a deployment manifest
 
@@ -42,7 +44,7 @@ You use a deployment manifest to specify the modules to run on an IoT Edge devic
 
 1. In your IoT Central application, navigate to **Edge manifests**.
 
-1. Select **+ New**. Enter a name such as *Environmental Sensor* for your deployment manifest, and then upload the *EnvironmentalSensorManifest.json* file you downloaded previously.
+1. Select **+ New**. Enter a name such as *Environmental Sensor* for your deployment manifest, and then upload the *EnvironmentalSensorManifest-1-4.json* file you downloaded previously.
 
 1. Select **Next** and then **Create**.
 
@@ -66,7 +68,7 @@ In this section, you create an IoT Central device template for an IoT Edge devic
 
 1. Select the **management** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
-:::image type="content" source="media/howto-connect-eflow/imported-manifest.png" alt-text="Device template created from IoT Edge manifest.":::
+:::image type="content" source="media/howto-connect-eflow/imported-manifest.png" alt-text="Screenshot that shows the device template created from IoT Edge manifest.":::
 
 ### Add telemetry to the device template
 
@@ -106,7 +108,7 @@ To add the telemetry definitions to the device template:
 
 The **management** interface now includes the **machine**, **ambient**, and **timeCreated** telemetry types:
 
-:::image type="content" source="media/howto-connect-eflow/manage-interface.png" alt-text="Interface with machine and ambient telemetry types.":::
+:::image type="content" source="media/howto-connect-eflow/manage-interface.png" alt-text="Screenshot that shows the interface with machine and ambient telemetry types.":::
 
 ### Add views to template
 
@@ -140,7 +142,7 @@ Before you can connect a device to IoT Central, you must register the device in 
 
 You now have a new device with the status **Registered**:
 
-:::image type="content" source="media/howto-connect-eflow/new-device.png" alt-text="New Device.":::
+:::image type="content" source="media/howto-connect-eflow/new-device.png" alt-text="Screenshot that shows the new IoT Edge device in the registered state.":::
 
 ### Get the device credentials
 
@@ -158,49 +160,58 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 ## Install and provision an EFLOW device
 
+To install and provision your EFLOW device:
+
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
+    ```powershell
+    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+    $ProgressPreference = 'SilentlyContinue'
+    Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+    ```
+
+    > [!TIP]
+    > The previous commands download an X64 image, for ARM64 use `https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64`.
 
 1. Install IoT Edge for Linux on Windows on your device.
 
-   ```powershell
-   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
-   ```
+    ```powershell
+    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
+    ```
 
-   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
+    > [!TIP]
+    > You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
 
 1. Create the IoT Edge for Linux on Windows deployment. The deployment creates your Linux VM and installs the IoT Edge runtime for you.
 
-   ```powershell
-   Deploy-Eflow
-   ```
+    ```powershell
+    Deploy-Eflow
+    ```
 
 1. Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously.
 
- ```powershell
-   Provision-EflowVm -provisioningType DpsSymmetricKey -scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
-   ```
+    ```powershell
+    Provision-EflowVm -provisioningType DpsSymmetricKey -scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
+    ```
 
 To learn about other ways you can deploy and provision an EFLOW device, see [Install and provision Azure IoT Edge for Linux on a Windows device](../../iot-edge/how-to-install-iot-edge-on-windows.md).
 
 Go to the **Device Details** page in your IoT Central application and you can see telemetry flowing from your EFLOW device:
 
-:::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Telemetry from the device.":::
+:::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Screenshot that shows a plot of telemetry from the device.":::
+
+> [!TIP]
+> You may need to wait several minutes for the IoT Edge device to start sending telemetry.
 
 ## Clean up resources
 
-If you want to remove the Azure IoT Edge for Linux on Windows installation from your device, use the following commands.
+If you want to uninstall EFLOW from your device, use the following commands.
 
 1. Open **Settings** on Windows
 1. Select **Add or Remove Programs**
 1. Select **Azure IoT Edge LTS** app
 1. Select **Uninstall**
 
-## Next Steps
+## Next steps
 
-Now that you've learned how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central, the suggested next step is to learn how to [Connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
+Now that you've learned how to connect an (EFLOW) device to IoT Central, the suggested next step is to learn how to [Connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).

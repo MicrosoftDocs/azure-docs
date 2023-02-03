@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Automation
 description: Use Azure Private Link to securely connect networks to Azure Automation
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 12/15/2022
 ms.subservice:  
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,6 +42,7 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 - In the current implementation of Private Link, Automation account cloud jobs cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage account, etc. To workaround this, use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) instead. Hence, on-premises VMs are supported to run Hybrid Runbook Workers against an Automation Account with Private Link enabled.
 - You need to use the latest version of the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux.
 - The [Log Analytics Gateway](../../azure-monitor/agents/gateway.md) does not support Private Link.
+- Azure alert (metric, log, and activity log) can't be used to trigger an Automation webhook when the Automation account is configured with  **Public access** set to **Disable**.
 
 ## How it works
 

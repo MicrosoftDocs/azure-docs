@@ -6,6 +6,9 @@ items:
   items:
   - name: Speech service overview
     href: overview.md
+  - name: What's new
+    href: releasenotes.md
+    displayName: reference, new, change, update
   - name: Language and voice support
     displayName: language,locale,voice,gender,neural
     href: language-support.md
@@ -225,14 +228,18 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+    - name: Gaming integration
+      href: gaming-concepts.md
     - name: Language learning
       items:
         - name: Pronunciation Assessment with speech to text
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
+              displayName: pronounce, learn language, assess pron
             - name: How to use Pronunciation Assessment
               href: how-to-pronunciation-assessment.md
+              displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -362,6 +369,7 @@ items:
           href: how-to-use-logging.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
+          displayName: help, faq, tsg, error
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
@@ -371,7 +379,7 @@ items:
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
-      displayName: rest
+      displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
     - name: Speech containers
@@ -430,9 +438,6 @@ items:
       href: devices-sdk-release-notes.md
 - name: Reference
   items:
-    - name: Release notes
-      href: releasenotes.md
-      displayName: reference 
     - name: SDK reference
       items:
         - name: C++

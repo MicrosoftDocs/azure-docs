@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/28/2022
+ms.date: 12/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, references_regions
 ---
@@ -86,6 +86,9 @@ The following are the current limitations and known issues with PowerShell runbo
 - PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently does not support signed runbooks.
 - Source control integration doesn't support PowerShell 7.1 (preview) Also, PowerShell 7.1 (preview) runbooks in source control gets created in Automation account as Runtime 5.1.
+- PowerShell 7.1 module management is not supported through `Get-AzAutomationModule` cmdlets.
+- Runbook will fail with no log trace if the input value contains the character '.
+
 
 **Known issues**
 
@@ -122,6 +125,7 @@ The following are the current limitations and known issues with PowerShell runbo
 - Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell is not supported.
 - Az module 8.3.0 is installed by default and cannot be managed at the automation account level. Use custom modules to override the Az module to the desired version.
 - The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
+- PowerShell 7.2 module management is not supported through `Get-AzAutomationModule`  cmdlets. 
 
 **Known issues**
 

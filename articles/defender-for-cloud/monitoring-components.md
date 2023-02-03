@@ -145,6 +145,8 @@ By default, the required extensions are enabled when you enable Defender for Con
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 
+Learn more about the [roles used to provision Defender for Containers extensions](permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
+
 ## Troubleshooting
 
 - To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](troubleshooting-guide.md#mon-network-req).

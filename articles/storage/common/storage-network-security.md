@@ -649,7 +649,7 @@ You can use the same technique for an account that has the hierarchical namespac
 
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | Enables API Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
 | Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md)| 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
@@ -666,7 +666,6 @@ You can use the same technique for an account that has the hierarchical namespac
 | Azure Media Services           | Microsoft.Media/mediaservices          | Allows access to storage accounts through Media Services. |
 | Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Allows access to storage accounts through Azure Migrate. |
 | Microsoft Purview                  | Microsoft.Purview/accounts             | Allows Microsoft Purview to access storage accounts. |
-| Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
 | Azure SQL Database             | Microsoft.Sql                          | Allows [writing](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) audit data to storage accounts behind firewall. |
 | Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |

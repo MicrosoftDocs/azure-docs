@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/21/2022
 ms.author: anaharris
 ms.reviewer: noakuper
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Migrate Log Analytics workspaces to availability zone support

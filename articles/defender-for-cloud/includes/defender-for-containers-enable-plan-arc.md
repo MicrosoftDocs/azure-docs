@@ -45,6 +45,8 @@ If you disable the automatic installation of any component, you can easily deplo
 - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
+Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
+
 ## Prerequisites
 
 Before deploying the extension, ensure you:

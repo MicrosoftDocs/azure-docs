@@ -23,7 +23,7 @@ The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-
 - No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
 - Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
 
-You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=stt-tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
 
 To learn more, view the Audio Content Creation tutorial video [on YouTube](https://youtu.be/ygApYuOOG6w).
 
@@ -75,7 +75,7 @@ Each step in the preceding diagram is described here:
 1. Choose the Speech resource you want to work with.
 
 1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
-1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=stt-tts). You can use prebuilt neural voices or a custom neural voice.
+1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).

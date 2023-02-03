@@ -6,7 +6,6 @@ ms.author: vangellotti
 ms.topic: quickstart
 ms.date: 10/19/2022
 ms.service: azure-education
-ms.subservice: education-hub
 ms.custom: mode-other
 ---
 

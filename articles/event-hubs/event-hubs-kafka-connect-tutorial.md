@@ -13,7 +13,16 @@ ms.date: 11/03/2022
 
 > [!WARNING]
 > Use of the Apache Kafka Connect framework and its connectors is **not eligible for product support through Microsoft Azure**.
+<<<<<<< HEAD
 > Kafka Connect feature relies on Kafka Log compaction feature to fully function. Log compaction feature is current available as a preview. Hence Kafka Connect support is also offered as a preview. 
+=======
+>
+> Apache Kafka Connect assumes for its dynamic configuration to be held in compacted topics with otherwise unlimited retention. Azure Event Hubs [does not implement compaction as a broker feature](event-hubs-federation-overview.md#log-projections) and always imposes a time-based retention limit on retained events, rooting from the principle that Azure Event Hubs is a real-time event streaming engine and not a long-term data or configuration store.
+>
+> While the Apache Kafka project might be comfortable with mixing these roles, Azure believes that such information is best managed in a proper database or configuration store.
+>
+> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Azure Event Hubs' retention models may cause certain configurations to not work as expected. 
+>>>>>>> 6ecd8615915dbae0066ea2ca4017929d755af21d
 
 This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 
@@ -36,7 +45,7 @@ To complete this walkthrough, make sure you have the following prerequisites:
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Read through the [Event Hubs for Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md) introduction article
+- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-kafka-overview.md) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 

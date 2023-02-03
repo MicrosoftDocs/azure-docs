@@ -37,6 +37,11 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 * [Content Moderator encryption of data at rest](../Content-Moderator/encrypt-data-at-rest.md)
 * [Personalizer encryption of data at rest](../personalizer/encrypt-data-at-rest.md)
 
+## Azure OpenAI
+
+* [Azure OpenAI encryption of data at rest](../openai/encrypt-data-at-rest.md)
+
+
 ## Next steps
 
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?

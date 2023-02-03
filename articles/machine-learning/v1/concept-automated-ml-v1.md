@@ -43,7 +43,7 @@ The following settings allow you to configure your automated ML experiment.
 |----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
-|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
+|**Supports computer vision tasks: image classification, object detection & instance segmentation**| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -124,10 +124,7 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Forecasting GitHub's Daily Active Users](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb).
 
-### Computer vision (preview)
-
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Computer vision
 
 Support for computer vision tasks allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
 
@@ -156,9 +153,7 @@ Instance segmentation | Tasks to identify objects in an image at the pixel level
 
 <a name="nlp"></a>
 
-### Natural language processing: NLP (preview)
-
-[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+### Natural language processing: NLP
 
 Support for natural language processing (NLP) tasks in automated ML allows you to easily generate models trained on text data for text classification and named entity recognition scenarios. Authoring automated ML trained NLP models is supported via the Azure Machine Learning Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
@@ -178,7 +173,7 @@ During training, Azure Machine Learning creates a number of pipelines in paralle
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision (preview).
+1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision.
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
    Learn about the parity between the [Python SDK and studio web experience](#parity).
@@ -318,7 +313,7 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](../tutorial-first-experiment-automated-ml.md).
 
-+ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python (v1)](./tutorial-auto-train-image-models-v1.md).
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model with AutoML and Python (v1)](./tutorial-auto-train-image-models-v1.md).
    
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 

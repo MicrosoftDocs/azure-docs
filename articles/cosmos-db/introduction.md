@@ -36,6 +36,8 @@ You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
 
+:::image type="content" source="media/introduction/overview.svg" alt-text="Illustration of Azure Cosmos DB with multiple APIs distributed across various geographies." border="false":::
+
 ## Key Benefits
 
 ### Guaranteed speed at any scale
@@ -43,7 +45,7 @@ You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/
 Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) speed and throughput, fast global access, and instant elasticity.
 
 - Real-time access with fast read and write latencies globally, and throughput and consistency all backed by [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db)
-- Multi-region writes and data distribution to any Azure region with the just a button.
+- Multi-region writes and data distribution to any Azure region with just a button.
 - Independently and elastically scale storage and throughput across any Azure region – even during unpredictable traffic bursts – for unlimited scale worldwide.
 
 ### Simplified application development

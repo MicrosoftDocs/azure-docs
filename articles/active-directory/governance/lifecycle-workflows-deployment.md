@@ -1,6 +1,6 @@
 ---
 title: Plan a Lifecycle Workflow deployment
-description: Planning guide for a successful Lifecycle Workflow deployment in Azure AD.
+description: Planning guide for a successful Lifecycle Workflow deployment.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/16/2021
+ms.date: 01/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management

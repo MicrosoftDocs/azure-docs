@@ -50,12 +50,14 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure App Service|App Service is trusted only for [Deploying Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html), for individual app itself, the outbound IPs can be added in Key Vault's IP-based rules|
 | Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](../../application-gateway/key-vault-certs.md)
 | Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../../backup/backup-overview.md).|
+| Azure Batch | [Configure customer-managed keys for Batch accounts](../../batch/batch-customer-managed-key.md) and [Key Vault for User Subscription Batch accounts](../../batch/batch-account-create-portal.md) |
 | Azure CDN | [Configure HTTPS on an Azure CDN custom domain: Grant Azure CDN access to your key vault](../../cdn/cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#grant-azure-cdn-access-to-your-key-vault)|
 | Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/tutorial-enable-customer-managed-keys.md)
 | Azure Data Factory|[Fetch data store credentials in Key Vault from Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 | Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
 | Azure Database for MySQL | [Data encryption for Azure Database for MySQL](../../mysql/howto-data-encryption-cli.md) |
 | Azure Database for PostgreSQL Single server | [Data encryption for Azure Database for PostgreSQL Single server](../../postgresql/howto-data-encryption-cli.md) |
+| Azure Database for PostgreSQL Flexible server | [Data encryption for Azure Database for PostgreSQL Flexible server](../../postgresql/flexible-server/concepts-data-encryption.md) |
 | Azure Databricks|[Fast, easy, and collaborative Apache Spark–based analytics service](/azure/databricks/scenarios/what-is-azure-databricks)|
 | Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM), and Key Encryption Key, during virtual machine deployment. This enables [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 | Azure Disk Storage | When configured with a Disk Encryption Set (DES). For more information, see [Server-side encryption of Azure Disk Storage using customer-managed keys](../../virtual-machines/disk-encryption.md#customer-managed-keys).|

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ms.custom: references_regions, ignite-2022
 ---
@@ -20,5 +20,3 @@ ms.custom: references_regions, ignite-2022
 >     * REST API
 >     * Python
 >     * C#
-> * Document abstractive summarization, and conversation narrative summarization with chapter is only available using:
->     * REST API
