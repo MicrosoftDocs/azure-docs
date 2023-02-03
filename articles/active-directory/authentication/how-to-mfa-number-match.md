@@ -6,7 +6,7 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/03/2023
 ms.author: justinha
-author: mjsantani
+author: justinha
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
