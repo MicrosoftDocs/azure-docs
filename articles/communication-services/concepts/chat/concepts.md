@@ -16,7 +16,7 @@ ms.subservice: chat
 
 Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support. 
 
-The Chat APIs provide an **auto-scaling** service for persistently storied text and data communication. Other key features include:
+The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:
 
 - **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.

@@ -72,7 +72,7 @@ An Azure CLI environment:
 1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
-   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin earlier.
+   > By default, the **Start** date and time is set to Immediately. Be sure to select a different date and time if you want the deployment to begin later.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen" lightbox="media/deploy-update/create-deployment.png":::
 
