@@ -14,7 +14,7 @@ Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enable
 
 This article provides detailed information on using Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
 
-### Kafka and Event Hubs conceptual mapping
+## Apache Kafka and Azure Event Hubs conceptual mapping
 
 Conceptually, Kafka and Event Hubs are very similar. They're both partitioned logs built for streaming data, whereby the client controls which part of the retained log it wants to read. The following table maps concepts between Kafka and Event Hubs.
 
@@ -26,7 +26,7 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 | Consumer Group | Consumer Group |
 | Offset | Offset|
 
-### Key differences between Apache Kafka and Event Hubs
+## Key differences between Apache Kafka and Azure Event Hubs
 
 While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
 
@@ -34,7 +34,7 @@ For more information about Event Hubs and namespaces, see [Event Hubs features](
 
 Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature work also works with the Apache Kafka protocol support. For a premier tier namespace, you can increase the number of processing units assigned to the namespace. 
 
-### Is Apache Kafka the right solution for your workload?
+## Is Apache Kafka the right solution for your workload?
 
 Coming from building applications using Apache Kafka, it's also useful to understand that Azure Event Hubs is part of a fleet of services, which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](../event-grid/overview.md). 
 
@@ -89,7 +89,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ## Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
-## Other Event Hubs features 
+## Other Azure Event Hubs features 
 
 The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs, complementing HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Conversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
 
@@ -101,7 +101,7 @@ Azure Event Hubs for Apache Kafka supports both idempotent producers and idempot
 
 One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events will always be delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
 
-## Apache Kafka feature differences 
+## Feature differences with Apache Kafka
 
 The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hubs capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
 
