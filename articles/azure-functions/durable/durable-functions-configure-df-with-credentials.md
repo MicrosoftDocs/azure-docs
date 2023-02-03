@@ -21,13 +21,13 @@ ms.author: azfuncdf
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
 In particular, this Quickstart assumes that you have already: 
 
-* Created an Azure Functions project in the Azure Portal or deployed local Azure Function to Azure. 
+* Created an Durable Function project in the Azure Portal or deployed a local Durable Function to Azure. 
 
 ### Enable Managed Identity
 
 Only one identity is needed for your function, either a **system assigned managed identity** or a **user assigned managed identity**. To enable Managed Identity for your function and learn more about the difference between the two identities, read the detailed instructions here [Managed identities](../../app-service/overview-managed-identity.md).   
 
-### Give managed identity the RBAC resources 
+### Give the RBAC resources to Managed Identity
 
 In the function’s associated storage account page, give these three roles to the managed identity created in the last step by following these [instructions](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
 * Storage Queue Data Contributor 
@@ -50,6 +50,7 @@ Navigate to your function’s Configuration page, perform the followings:
    * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;**AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
    The values for these variables can be found in the storage account blade under the Endpoints tab. 
+
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Managed Identity setting: 
@@ -61,6 +62,7 @@ Navigate to your function’s Configuration page, perform the followings:
    Add the following value settings in configuration: 
      * **AzureWebJobsStorage__credential**: managedidentity 
      * **AzureWebJobsStorage__clientId**: MyUserIdentityClientId
+
     ![user identity client id Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
 
 
@@ -74,25 +76,23 @@ Registering a client application in Azure Active Directory (Azure AD) can also h
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
 In particular, this quickstart assumes that you have already: 
 
-* Created an Azure Functions project on your local machine. 
+* Created an Durable Functions project on your local machine in the Azure Portal. 
 
-* Added Durable Functions to your project with an orchestrator function and a client function that triggers it. 
-
-* Configured the project for local debugging. 
-
-* Learned how to deploy an Azure Functions project to Azure. 
 
 ### Register a Client Application on Azure Active Directory 
 1. Register an application under Azure Active Directory on Azure Portal according to [here](../../healthcare-apis/register-application.md)
 
 2. Create a Client Secret for your application created in the last step. In your registered application,  
+
    1. Select Certificates & Secrets and select New Client Secret.  
+
    2. Add description and select secret valid time in Expires field.  
+
    3. Copy and save the secret value carefully because it will not show up again.  
    
    ![Client Secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-01.png)
 
-### Give Client Application the RBAC resources 
+### Give the RBAC resources to Client Application 
 
 Give these three roles to your client application created with the following steps. 
 * Storage Queue Data Contributor 
@@ -119,6 +119,7 @@ For run and test in Azure, specify the following in your function’s **Configur
    * **AzureWebJobsStorage__accountName**: MyStorageAccount 
 
    * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
+   
    The values for these Uri variables can be found in the storage account blade under the **Endpoints** tab. 
    
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
@@ -130,7 +131,7 @@ For run and test in Azure, specify the following in your function’s **Configur
 
    * **AzureWebJobsStorage__tenantId**: MyTenantId. 
 
-   Client Secret is saved when you create it, and the other two ids can be found on your client application’s overview page. 
+   Client Secret is saved when you create it, and the other two values can be found on your client application’s overview page. 
    
    ![client secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
 
@@ -153,6 +154,6 @@ Durable Functions support using a separate storage account for Durable Task rela
     }
     ```
 
-2. In function’s configuration or local.settings.json, add value  **mySeparateStorageAccount: storage account connection string**. Connection string can be found in the storage account’s Access keys: 
+2. In function’s configuration or local.settings.json, add the value  **mySeparateStorageAccount: storage account connection string**. The connection string can be found in the storage account’s Access keys: 
 
    ![connection string Sample](media/durable-functions-configure-df-with-credentials/durable-functions-option-scenario-01.png)
