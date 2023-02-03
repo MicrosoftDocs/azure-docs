@@ -1,7 +1,7 @@
 ---
-Title: Introduction to Azure Operator Distributed Services (AODS)
-Description: High level information about the Azure Operator Distributed Services (AODS) product.
-Author: scottsteinbrueck
+title: Introduction to Azure Operator Distributed Services (AODS)
+description: High level information about the Azure Operator Distributed Services (AODS) product.
+author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 01/30/2023
 ms.topic: overview
@@ -40,7 +40,7 @@ These NFs are tested for deployment and lifecycle management on AODS before they
 For example, they can provision and manage AODS through Azure portal or Azure CLI.
 They can monitor logs and metrics via Azure Monitor, and analyze telemetry data using Log Analytics or Azure AI/Machine Learning framework.
 * Unified governance and compliance – As an Azure service, AODS extends Azure management and services to operators' premises.
-Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview) and [Azure Policy](../governance/policy/overview).
+Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview.md) and [Azure Policy](../governance/policy/overview.md).
 
 ## Key features
 
