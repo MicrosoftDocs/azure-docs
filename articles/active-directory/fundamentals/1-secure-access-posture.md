@@ -1,6 +1,6 @@
 ---
-title: Determine your security posture for external collaboration with Azure Active Directory 
-description: Before you can execute an external access security plan, you must determine what you are trying to achieve.
+title: Determine your security posture for external access with Azure Active Directory 
+description: Learn about governance of external access and assessing collaboration needs, by scenario
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -79,7 +79,7 @@ IT teams can delegate access decisions to business owners through entitlement ma
 
 See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md) (You're here)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
@@ -93,6 +93,6 @@ See the following articles to learn more about securing external access to resou
 
 7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure AD](9-secure-access-teams-sharepoint.md)
