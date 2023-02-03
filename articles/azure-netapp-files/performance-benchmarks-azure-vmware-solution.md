@@ -39,27 +39,27 @@ The results in this article were achieved using the following environment config
 
 ## Latency
 
-Azure VMware Solution to Azure NetApp Files datastores traffic latency varies from sub-millisecond for environments under minimal load, up to 2-3 milliseconds for environments under medium to heavy load. The latency is potentially  higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on several factors, including I/O size, read/write ratios, competing network traffic, and so on.
+Traffic latency from AVS to Azure NetApp Files datastores varies from sub-millisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially  higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on several factors, including I/O size, read/write ratios, competing network traffic, and so on.
 
 ## One-to-multiple virtual machines running on a single AVS host and a single Azure NetApp Files datastore
 
-Each AVS host to Azure NetApp Files datastore connection represents a unique TCP network flow. In this scenario, all I/O occurs over a single network flow. The graphs below compare the throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines over a single network flow. In the subsequent scenarios, the number of network flows are increased as more hosts and datastores are added.
+Each AVS host to Azure NetApp Files datastore connection represents a unique TCP network flow. In this scenario, all I/O occurs over a single network flow. The following graphs compare the throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines over a single network flow. In the subsequent scenarios, the number of network flows are increased as more hosts and datastores are added.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-single-datastore.png"" alt-text="Graphs comparing throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines over a single network flow." lightbox="../media/azure-netapp-files/performance-vmware-single-datastore.png":::
+:::image type="content" source="../media/azure-netapp-files/performance-vmware-single-datastore.png" alt-text="Graphs comparing a single virtual machine with four virtual machines over a single network flow." lightbox="../media/azure-netapp-files/performance-vmware-single-datastore.png":::
 
 ## One-to-multiple Azure NetApp Files datastores with a single AVS host
 
-The graphs below compare the throughput of a single virtual machine on a single Azure NetApp Files datastore with the aggregated throughput of four Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
+The following graphs compare the throughput of a single virtual machine on a single Azure NetApp Files datastore with the aggregated throughput of four Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-four-datastores.png" alt-text="Graphs comparing throughput of a single virtual machine on a single Azure NetApp Files datastore with the aggregated throughput of four Azure NetApp Files datastores." lightbox="../media/performance-vmware-one-host-four-datastores.png":::
+:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-four-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with four datastores." lightbox="../media/azure-netapp-files/performance-vmware-one-host-four-datastores.png":::
 
-The graphs below compare the IOPs of a single virtual machine on a single Azure NetApp Files datastore with the aggregated IOPs of eight Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
+The following graphs compare the IOPs of a single virtual machine on a single Azure NetApp Files datastore with the aggregated IOPs of eight Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-eight-datastores.png" alt-text="Graphs comparing IOPs of a single virtual machine on a single Azure NetApp Files datastore with the aggregated IOPs of eight Azure NetApp Files datastores." lightbox="../media/performance-vmware-one-host-eight-datastores.png":::
+:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-eight-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with eight datastores." lightbox="./media/azure-netapp-files/performance-vmware-one-host-eight-datastores.png":::
 
 ## Scale-out Azure NetApp Files datastores with multiple AVS hosts
 
-The graph below shows the aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts. There are four virtual machines per AVS host, each on a different Azure NetApp Files datastore.
+The following graph shows the aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts. There are four virtual machines per AVS host, each on a different Azure NetApp Files datastore.
 
 Nearly identical results were achieved with a single virtual machine on each host with four VMDKs per virtual machine and each of those VMDKs on a separate datastore. 
 
