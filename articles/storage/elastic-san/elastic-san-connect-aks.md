@@ -11,21 +11,22 @@ ms.subservice: elastic-san
 
 # Connect Elastic SAN volumes to AKS
 
-For AKS clusters connecting to Elastic SAN, use the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) enabled on your cluster to connect Elastic SAN volumes.
+For AKS clusters connecting to Elastic SAN, use the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) enabled on your cluster to connect Elastic SAN volumes. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
+
 
 ## About the driver
 
 The iSCSI CSI driver is an open source project that allows you to connect to a Kubernetes cluster over iSCSI. Since this is an open source project, Microsoft won't provide support from any issues stemming from the driver, itself.
 
+The Kubernetes iSCSI CSI driver is available on GitHub:
+
+- [Kubernetes iSCSI CSI driver repository](https://github.com/kubernetes-csi/csi-driver-iscsi)
+- [Readme](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md)
+- [Report iSCSI driver issues](https://github.com/kubernetes-csi/csi-driver-iscsi/issues)
+
 ### Licensing
 
 The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/LICENSE).
-
-With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster. 
-
-Volumes on your Elastic SAN can be accessed via the creation of Persistent volumes on the AKS cluster by using identifying information on the volume: the Target IQN & Target Portal Hostname. 
-
-Then we create this persistent volume referenced to the pod onto the AKS cluster. After that we can verify the connection by running some basic read/write workloads onto the volume. 
 
 ## Pre-requisites
 
@@ -33,7 +34,8 @@ Install the [iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscs
 
 ## Get started
 
-To connect a volume to an AKS cluster, you must get the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
+To connect an Elastic SAN volume to an AKS cluster, you must get the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
+
 
 ```azurepowershell
 Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume 
@@ -43,7 +45,7 @@ Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sa
 az elastic-san volume show --elastic-san-name --name --resource-group --volume-group-name
 ```
 
-To use the volume with AKS, create a yaml file with the information.
+To use the volume with AKS, use the following example to create a yml file, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier.
 
 ```yml
 ---
@@ -63,7 +65,7 @@ spec:
     driver: iscsi.csi.k8s.io
     volumeHandle: iscsi-data-id
     volumeAttributes:
-      targetPortal: "yourTargetPortal"
+      targetPortal: "yourTargetPortal:yourTargetPortalPort"
       portals: "[]"
       iqn: "yourIQN"
       lun: "0"
@@ -71,6 +73,8 @@ spec:
       discoveryCHAPAuth: "false"
       sessionCHAPAuth: "false"
 ```
+
+Then we create this persistent volume referenced to the pod onto the AKS cluster. After that we can verify the connection by running some basic read/write workloads onto the volume.
 
 Then, create the persistent volume with the following command:
 
