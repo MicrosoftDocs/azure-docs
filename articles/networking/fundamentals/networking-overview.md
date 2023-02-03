@@ -40,14 +40,26 @@ ExpressRoute enables you to extend your on-premises networks into the Microsoft 
 :::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
 ### <a name="vpngateway"></a>VPN Gateway
-VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as site-to-site, point-to-site, and VNet-to-VNet. The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../../vpn-gateway/design.md). For more information about VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
+VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, including:
+
+* Site-to-site
+* Point-to-site
+* VNet-to-VNet
+
+The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../../vpn-gateway/design.md). For more information about VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 :::image type="content" source="../../vpn-gateway/media/design/vpngateway-multisite-connection-diagram.png" alt-text="Multiple site-to-site Azure VPN Gateway connections.":::
 
 ### <a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity.
 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md).
+Azure Virtual WAN brings together many Azure cloud connectivity services into a single operational interface, including:
+
+* Site-to-site VPN
+* Point-to-site User VPN
+* ExpressRoute
+
+Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md)
 
 :::image type="content" source="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png":::
 
