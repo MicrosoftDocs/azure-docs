@@ -48,19 +48,19 @@ Possible errors:
 
 Resolution:
  - Ensure that the SSHD service is running on the Arc-enabled server.
- - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run ```azcmagent config list``` on the Arc-enabled server in an elevated session. By default the ssh port (22) is not set, you need to add 22 port. /!\ This setting is used by another services like "admin center", only add 22 port without delete the port already added.
+ - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run `azcmagent config list` on the Arc-enabled server in an elevated session. The ssh port (22) is not set by default, so you must add it. This setting is used by other services like admin center so just add port 22 without deleting previous added ports.
 
-```powershell
-# Set 22 port:
-azcmagent config list
-azcmagent config get incomingconnections.port
-azcmagent config set incomingconnections.port 22
-azcmagent config
-
-# Add multiple ports:
-azcmagent config set incomingconnections.port 22,3516
-```
-
+   ```powershell
+   # Set 22 port:
+   azcmagent config list
+   azcmagent config get incomingconnections.port
+   azcmagent config set incomingconnections.port 22
+   azcmagent config
+   
+   # Add multiple ports:
+   azcmagent config set incomingconnections.port 22,3516
+   ```
+   
 ## Azure permissions issues
 
 ### Incorrect role assignments
