@@ -114,25 +114,21 @@ Learn more:
 
 ### Sharing policies in SharePoint and OneDrive
 
-External Sharing can be set for both SharePoint and OneDrive. OneDrive restrictions can't be more permissive than the SharePoint settings.
+In the Azure AD admin center, you can use the External Sharing settings for SharePoint and OneDrive to help configure sharing policies. OneDrive restrictions can't be more permissive than SharePoint settings.
 
-https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview
+Learn more: [External sharing overview](https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview)
 
-   ![Screenshot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
+   ![Screenshot of external sharing settings for SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
 
-SharePoint integration with Azure AD B2B changes how controls interact with accounts.
+#### External sharing settings recommendations
 
-* **Anyone**. Not recommended
+Use the guidance in this section when configuring external sharing. 
 
-   * Regardless of integration status, enabling Anyone links means no Azure policies will be applied when this type of link is used. 
-
-   * In a scenario of governed collaboration, don't enable this functionality. 
-   > [!NOTE]
-   > You may find a scenario where you need to enable this setting for a specific site, in which case you would enable it here, and set the greater restriction on individual sites.
-
-* **New and existing guests**. Recommended if you have integration enabled.
-
-   * **With Azure AD B2B integration** enabled, new and existing guests will have an Azure AD B2B guest account that can be managed with Azure AD policies.
+* **Anyone** - Not recommended. If enabled, regardless of integration status, no Azure policies are applied for this link type. 
+  * Don't enable this functionality for governed collaboration
+  * Use it for restrictions on individual sites
+* **New and existing guests** - Recommended if integration is enabled.
+  * With Azure AD B2B integration enabled, new and existing guests will have an Azure AD B2B guest account that can be managed with Azure AD policies.
 
    * **Without Azure AD B2B integration** enabled, new guests will not have an Azure AD B2B account created, and they cannot be managed from Azure AD. Whether existing guests have an Azure AD B2B account depends on how the guest was created.
 
