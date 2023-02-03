@@ -32,7 +32,7 @@ Connecting a classic account to be ARM-based triggers a 30 days of a transition 
 
 The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
-The [invite users](invite-users.md) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
+The [invite users](restricted-viewer-role.md#share-the-account) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
 However, this can be resolved by assigning the right role-assignment to these users through Azure RBAC, see [How to assign RBAC][docs-rbac-assignment]. 
 
 Only the account owner, who performed the connect action, is automatically assigned as the owner on the connected account. When [Azure policies][docs-governance-policy] are enforced, they override the settings on the account.

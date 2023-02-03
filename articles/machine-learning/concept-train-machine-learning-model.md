@@ -41,7 +41,7 @@ Each of these training methods can use different types of compute resources for 
 
 The Azure Machine Learning SDK for Python allows you to build and run machine learning workflows with Azure Machine Learning. You can interact with the service from an interactive Python session, Jupyter Notebooks, Visual Studio Code, or other IDE.
 
-* [Install/update the SDK](/python/api/overview/azure/ml/installv2)
+* [Install/update the SDK](/python/api/overview/azure/ai-ml-readme)
 * [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Submit a command
@@ -77,7 +77,11 @@ Machine learning pipelines can use the previously mentioned training methods. Pi
 
 The Azure training lifecycle consists of:
 
-1. Zipping the files in your project folder, ignoring those specified in _.amlignore_ or _.gitignore_
+1. Zipping the files in your project folder and upload to the cloud.
+    
+    > [!TIP]
+    > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+
 1. Scaling up your compute cluster 
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 

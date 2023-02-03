@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 01/11/2023
 ---
 
 # Using column patterns in mapping data flow
@@ -34,7 +34,7 @@ Use the [expression builder](concepts-data-flow-expression-builder.md) to enter 
 
 :::image type="content" source="media/data-flow/edit-column-pattern.png" alt-text="Screenshot shows the Derived column's settings tab.":::
 
-The above column pattern matches every column of type double and creates one derived column per match. By stating `$$` as the column name field, each matched column is updated with the same name. The value of the each column is the existing value rounded to two decimal points.
+The above column pattern matches every column of type double and creates one derived column per match. By stating `$$` as the column name field, each matched column is updated with the same name. The value of each column is the existing value rounded to two decimal points.
 
 To verify your matching condition is correct, you can validate the output schema of defined columns in the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
 

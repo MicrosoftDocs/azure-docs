@@ -17,13 +17,13 @@ Azure VPN Gateway is a service that uses a specific type of virtual network gate
 
 ## <a name="vpn"></a>About VPN gateways
 
-A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-manged VMs that are automatically configured and deployed to a specific subnet you create called the *gateway subnet*. The gateway VMs contain routing tables and run specific gateway services.
+A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet you create called the *GatewaySubnet*. The gateway VMs contain routing tables and run specific gateway services.
 
 One of the settings that you specify when creating a virtual network gateway is the "gateway type". The gateway type determines how the virtual network gateway will be used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The gateway type 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway, which uses a different gateway type. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 
 When you create a VPN gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specified. This process can take 45 minutes or more to complete, depending on the gateway SKU that you selected. After you create a VPN gateway, you can configure connections. For example, you can create an IPsec/IKE VPN tunnel connection between that VPN gateway and another VPN gateway (VNet-to-VNet), or create a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection (VPN over OpenVPN, IKEv2, or SSTP), which lets you connect to your virtual network from a remote location, such as from a conference or from home.
 
-## <a name="configuring"></a>Configuring a VPN Gateway
+## <a name="configuring"></a>Configuring VPN Gateway
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although some resources must be configured in a certain order.
 

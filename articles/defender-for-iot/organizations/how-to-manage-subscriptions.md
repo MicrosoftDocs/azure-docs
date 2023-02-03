@@ -20,7 +20,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
-- A [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user role for the Azure subscription that you'll be using for the integration
+- A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
 
 ## Calculate committed devices for OT monitoring
 
@@ -47,7 +47,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 **To onboard a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. Select **Add plan**.
 
@@ -55,7 +55,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Subscription**. Select the subscription where you would like to add a plan.
 
-        You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+        You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
         > [!TIP]
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
@@ -72,7 +72,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-pricing-temp.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-pricing-temp.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png":::
 
 1. Select **Next**.
 
@@ -88,7 +88,7 @@ For example, you may have more devices that require monitoring if you're increas
 
 **To edit a plan:**
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
 
@@ -120,7 +120,7 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 **To cancel a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right and select **Cancel plan**.
 

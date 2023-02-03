@@ -1,28 +1,17 @@
 ---
 title: Back up SAP HANA System Replication databases on Azure VMs (preview)    
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
-ms.topic: conceptual
-ms.date: 10/05/2022
-author: v-amallick
+ms.topic: how-to
+ms.date: 12/23/2022
 ms.service: backup
 ms.custom: ignite-2022
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SAP HANA System Replication databases on Azure VMs (preview)
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
-
-In this article, you'll learn how to:
-
->[!div class="checklist"]
->- Create and configure a Recovery Services vault
->- Create a policy
->- Discover databases
->- Run the preregistration script
->- Configure backups
->- Run an on-demand backup
->- Run an SAP HANA Studio backup
 
 >[!Note]
 > For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
@@ -87,7 +76,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
    `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`
    
-   If the password of this custom backup key expires, it could lead to backup and restore failures.
+   If the password of this custom backup key expires, it could lead to the backup and restore operations failure.
 
 1. Create the same customer backup user (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
 
@@ -212,41 +201,11 @@ To configure the policy settings, follow these steps:
 
 ## Run an on-demand backup
 
-The backup operations run in accordance with the policy schedule. You can also run an on-demand backup by doing the following:
+Backups run in accordance with the policy schedule. Learn how to [run an on-demand backup](sap-hana-database-manage.md#run-on-demand-backups).
 
-1. On the vault menu, select **Backup items**.
+## Run SAP HANA native clients backup on a database with Azure Backup
 
-1. On the **Backup items** pane, select **VM running the SAP HANA database**, and then select **Backup now**.
-
-1. On the **Backup now** pane, choose the **Type of backup** you want to perform, and then select **OK**. 
-
-   This backup will be retained for 45 days.
-
-To monitor the portal notifications and the job progress on the vault dashboard, select  **Backup Jobs** > **In progress**.
-
->[!Note]
->The time it takes to create the initial backup depends on the size of your database.
-
-## Run an SAP HANA Studio backup on a database with Azure Backup enabled
-
-To take a local backup, by using HANA Studio, of a database that's backed up with Azure Backup, do the following:
-
-1. After the full or log backups of the database are complete, check the status in the SAP HANA cockpit.
-
-1. Disable the log backups, and then set the backup catalog to the file system for the relevant database. To do so:
-
-   a. Double-click **systemdb**, and then select **Configuration** > **Database** > **Filter (Log)**.  
-   b. Set **enable_auto_log_backup** to **No**.  
-   c. Set **log_backup_using_backint** to **False**.  
-   d. Set **catalog_backup_using_backint** to **False**.
-
-1. Run an on-demand full backup of the database.
-
-1. After the full and catalog backups are complete, change the settings to point to Azure by doing the following:
-
-   a. Set **enable_auto_log_backup** to **Yes**.  
-   b. Set **log_backup_using_backint** to **True**.  
-   c. Set **catalog_backup_using_backint** to **True**.  
+You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 ## Next steps
 

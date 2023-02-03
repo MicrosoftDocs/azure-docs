@@ -256,7 +256,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## System Center Operations Manager Health Check solution FAQ
+## Frequently asked questions
 
 *I added the Health Check solution to my Log Analytics workspace. But I don’t see the recommendations. Why not?* After adding the solution, use the following steps view the recommendations on the Log Analytics dashboard.  
 

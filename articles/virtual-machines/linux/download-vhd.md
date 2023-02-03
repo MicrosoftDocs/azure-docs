@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/03/2023
 ---
 
 # Download a Linux VHD from Azure

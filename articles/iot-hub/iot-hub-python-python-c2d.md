@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 01/02/2023
 ms.author: kgremban
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
@@ -215,7 +215,7 @@ In this section, you create a Python console app that sends cloud-to-device mess
 
 ## Run the applications
 
-You are now ready to run the applications.
+You're now ready to run the applications.
 
 1. At the command prompt in your working directory, run the following command to listen for cloud-to-device messages:
 

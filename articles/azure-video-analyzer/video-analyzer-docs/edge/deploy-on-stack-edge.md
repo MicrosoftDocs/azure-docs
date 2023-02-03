@@ -30,7 +30,7 @@ In the article, we'll deploy Video Analyzer by using Azure IoT Hub, but the Azur
 
     We recommend that you use a [general-purpose v2 storage account](../../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
 * [Visual Studio Code](https://code.visualstudio.com/), installed on your development machine
-*  The [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools), installed in Visual Studio Code
+*  The [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit), installed in Visual Studio Code
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with your Azure IoT hub.
 
 ## Configure Azure Stack Edge to use Video Analyzer
