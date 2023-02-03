@@ -85,7 +85,7 @@ productDirectory:
     imageSrc: ./media/icons/video-icon.png
     links:
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
-        text: Voice and video calling overview?
+        text: Voice and video calling overview
       - url: ./quickstarts/voice-video-calling/get-started-with-video-calling.md
         text: Add video calling to your app
       - url: ./concepts/voice-video-calling/call-recording.md
