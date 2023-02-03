@@ -216,8 +216,13 @@ Fixes the issue with the help of distinct operator to resolve inconsistency and 
 
 #### FHIR service
 
-|Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). 
-|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). 
+**Removes SQL retry on upsert**
+
+Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). 
+
+**Added handling for SqlTruncate errors**
+
+Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). 
 
 #### DICOM service
 
@@ -451,29 +456,30 @@ DateTime (DT) and Time (TM) Value Representation (VR) types
 **Implemented fix to workspace names.**
 Enabled DICOM service to work with workspaces that have names beginning with a letter. 
 
+
+
 ## September 2021
 
 #### FHIR service
 
 
-|Enhancements | Related information |
+|Enhancements |  |
 | :------------------- | :------------------------------- |
 |Added support for conditional patch | [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
 |Conditional patch | [#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Added conditional patch audit event. | [#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-|Allow JSON patch in bundles | [JSON patch in bundles](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#json-patch-in-bundles)|
+|Allow JSON patch in bundles | |
 | :------------------- | :-------------------------------|
 |Allows for search history bundles with Patch requests. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
 |Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 |Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-| Running a reindex job | [Re-index improvements](./././fhir/how-to-run-a-reindex.md)|
+| Running a reindex job | |
 | :------------------- | :-------------------------------|
 |Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
 |Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
 |Added final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
-
 
 |Bug fixes |  |
 | :------------------- | :-------------------------------- |
