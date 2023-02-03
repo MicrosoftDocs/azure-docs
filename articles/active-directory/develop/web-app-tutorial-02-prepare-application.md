@@ -8,7 +8,6 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
-#TBD
 ---
 
 # Tutorial: Prepare an application for authentication
@@ -49,9 +48,9 @@ After registering an application on the Azure portal, a .NET web application nee
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
+1. In Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
+1. Open a new terminal by selecting **Terminal > New Terminal**.
 1. Run the following commands in the terminal to change into the folder directory and create the project:
 
 ```powershell
@@ -101,7 +100,6 @@ The use of certificates is suggested for securing the application. When using ce
     ```powershell
     dotnet dev-certs https -ep ./certificate.crt --trust
     ```
-
 ---
 
 ### Upload certificate to the portal
@@ -116,7 +114,7 @@ To make the certificate available to the application, it must be uploaded into t
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
-1. Double-click the thumbprint, select the vertical ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
+1. Double-click the value under **Thumbprint**, select the vertical ellipsis, and then select **Copy**. This will be used in the configuration steps.
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
@@ -160,7 +158,7 @@ The values recorded earlier will be used to configure the application for authen
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. 
-    * `DownstreamApi` - Is an identifier that allows the API to be called. The `BaseUrl` and `Scopes` can remain unchanged.
+    * `DownstreamApi` - Is an identifier that defines an endpoint for accessing Microsoft Graph. The application URI is combined with the specified scope. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different.
 1. Save changes to the file.
 1. In the **Properties** folder, open the *launchSettings.json* file.
 1. Within the `https` bracket of the JSON, record the https URL listed for `applicationURL`, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.

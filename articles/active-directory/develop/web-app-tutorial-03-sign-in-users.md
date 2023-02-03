@@ -8,7 +8,6 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
-#TBD
 ---
 
 # Tutorial: Add sign-in to an application
@@ -20,7 +19,8 @@ In this tutorial:
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
 > * Implement authentication in the code
-> * Display the sign-in and sign-out experience    
+> * Display the sign-in and sign-out experience
+
 
 ## Prerequisites
 
@@ -60,12 +60,12 @@ dotnet add package Microsoft.Identity.Web.Diagnostics
 1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
 1. In the pop-up, ensure the correct project is selected, then select **Ok**.
 1. Select **Accept** if additional **License Acceptance** windows appear. 
-
 ---
+
 
 ## Implement authentication and acquire tokens
 
-1. Open *Program.cs* and replace the entire file contents with the following snippet: add the following statements to the top of the file:
+1. Open *Program.cs* and replace the entire file contents with the following snippet: 
 
     ```csharp
     // Imports packages
@@ -114,6 +114,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics
     app.MapRazorPages();
     app.Run();
     ```
+
 
 ## Display the sign-in and sign-out experience
 

@@ -8,7 +8,6 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to use my app to call a web API, in this case Microsoft Graph. I need to know how to modify my code so the API can be called successfully.
-#TBD
 ---
 
 # Tutorial: Call an API and display the results
@@ -32,111 +31,50 @@ In this tutorial:
     - Visual Studio 2022 for Mac
 * A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
-## Add the API configuration
-
-Open the *appsettings.json* file and add a reference to `"DownstreamAPI"` to configure the API. The *.json* file should take the following format:
-
-```json
-{
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    "TenantId": "Enter the tenant ID here",
-    "ClientId": "Enter the client ID here",
-    "ClientCertificates": [
-      {
-        "SourceType": "StoreWithThumbprint",
-        "CertificateStorePath": "CurrentUser/My",
-        "CertificateThumbprint": "Enter the certificate thumbprint here"
-      }    
-    ],
-    "CallbackPath": "/signin-oidc"
-  },
-  "DownstreamApi": {
-    "BaseUrl": "https://graph.microsoft.com/v1.0/me",
-    "Scopes": "user.read"
-      },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
-
-This previous configuration definition defines an endpoint for accessing Microsoft Graph. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different. The application URI is combined with the specified scope.
-
-## Get the configuration settings and acquire a token
-
-1. Open the *Program.cs* file and add the following code after the definition of `var builder` to retrieve the defined scopes from the configuration:
-
-    ```csharp
-    IEnumerable<string>? initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ');
-    ```
-
-1. Directly below the code added in the previous step, add the following code to configure the service to acquire a token:
-
-   ```csharp
-   builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd")
-    .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-        .AddDownstreamWebApi("DownstreamApi", builder.Configuration.GetSection("DownstreamApi"))
-        .AddInMemoryTokenCaches();
-   ```
-
 ## Call the API and display the results
 
 The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It makes sure that the user is asked for consent if needed, and incrementally.
 
-1. Under **Pages**, open the *Index.cshtml.cs* file and add the following to the top of the file:
+1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet:
 
     ```csharp
     using System.Text.Json;
     using Microsoft.Identity.Web;
-    ```
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    
+    namespace NewWebAppLocal.Pages;
 
-1. Add the `AuthorizeForScopes` attribute to the `IndexModel` class:
-
-    ```csharp
     [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
     public class IndexModel : PageModel
-    ```
-
-1. Add the following code to define the API object:
-
-    ```csharp
-    private readonly IDownstreamWebApi _downstreamWebApi;
-    ```
-
-1. Add the API object to the logger:
-
-    ```csharp
-    public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
     {
-      _logger = logger;
-      _downstreamWebApi = downstreamWebApi;
+        // Define API object and gets added to the logger
+        private readonly IDownstreamWebApi _downstreamWebApi;
+        private readonly ILogger<IndexModel> _logger;    
+        public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
+        {
+          _logger = logger;
+          _downstreamWebApi = downstreamWebApi;
+        }
+
+        // Calls the API and displays the result
+        public async Task OnGet()
+        {
+          using var response = await _downstreamWebApi.CallWebApiForUserAsync("DownstreamApi").ConfigureAwait(false);
+          if (response.StatusCode == System.Net.HttpStatusCode.OK)
+          {
+            var apiResult = await response.Content.ReadFromJsonAsync<JsonDocument>().ConfigureAwait(false);
+            ViewData["ApiResult"] = JsonSerializer.Serialize(apiResult, new JsonSerializerOptions { WriteIndented = true });
+          }
+          else
+          {
+            var error = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}: {error}");
+          }
+        }
     }
     ```
-
-1. Add the following code to call the API and display the result:
-
-    ```csharp
-    public async Task OnGet()
-    {
-      using var response = await _downstreamWebApi.CallWebApiForUserAsync("DownstreamApi").ConfigureAwait(false);
-      if (response.StatusCode == System.Net.HttpStatusCode.OK)
-      {
-        var apiResult = await response.Content.ReadFromJsonAsync<JsonDocument>().ConfigureAwait(false);
-        ViewData["ApiResult"] = JsonSerializer.Serialize(apiResult, new JsonSerializerOptions { WriteIndented = true });
-      }
-      else
-      {
-        var error = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-        throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}: {error}");
-      }
-    }
-    ```
-
+  
 1. Now open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
 
 	  ```html
