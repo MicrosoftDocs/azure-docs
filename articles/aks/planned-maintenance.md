@@ -41,11 +41,13 @@ az extension update --name aks-preview
 
 ## Understanding maintenance window configuration types
 
-There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
+There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
 - `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
 
-- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible. For more information on cluster auto-upgrade, see [Automatically an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+- `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
+- `aksManagedNodeOSUpgradeSchedule` controls when node operating system upgrades scheduled by your node OS auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default configuration. For more information on node OS auto-upgrade, see [Automatically patch and update AKS cluster node images][node-image-auto-upgrade]
 
 ### Choosing between configuration types
 
@@ -56,7 +58,7 @@ We recommend using `aksManagedAutoUpgradeSchedule` for all maintenance and upgra
 
 ## Creating a maintenance window
 
-To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default` or `aksManagedAutoUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
+To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
 
 Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
@@ -69,7 +71,7 @@ A `default` maintenance window has the following properties:
 |`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a given day in a `default` configuration|N/A|
 |`notAllowedTime`|Specifies a range of dates that maintenance cannot run, determined by `start` and `end` child properties. Only applicable when creating the maintenance window using a config file|N/A|
 
-An `aksManagedAutoUpgradeSchedule` has the following properties:
+An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window has the following properties:
 
 |Name|Description|Default value|
 |--|--|--|
@@ -77,6 +79,7 @@ An `aksManagedAutoUpgradeSchedule` has the following properties:
 |`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|
 |`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
 |`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
+|`intervalDays`|The interval in days for maintenance runs. Only applicable to `aksManagedNodeOSUpgradeSchedule`|N?A|
 |`intervalWeeks`|The interval in weeks for maintenance runs|N/A|
 |`intervalMonths`|The interval in months for maintenance runs|N/A|
 |`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|
@@ -89,6 +92,21 @@ There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`,
 
 > [!NOTE]
 > All of the fields shown for each respective schedule type are required.
+
+#### Daily schedule
+
+> [!NOTE]
+> Daily schedules are only applicable to `aksManagedNodeOSUpgradeSchedule` configuration types.
+
+A `Daily` schedule may look like *"every three days"*:
+
+```json
+"schedule": {
+    "daily": {
+        "intervalDays": 2
+    }
+}
+```
 
 #### Weekly schedule
 
@@ -306,3 +324,4 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [aks-upgrade]: upgrade-cluster.md
 [release-tracker]: release-tracker.md
 [auto-upgrade]: auto-upgrade-cluster.md
+[node-image-auto-upgrade]: auto-upgrade-node-image.md
