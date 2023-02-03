@@ -76,9 +76,9 @@ The following Azure built-in roles are required for different aspects of managin
 
 ## Azure subscription and service limits
 
-Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
+There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
 
-Before configuring your machines with Azure Arc-enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Each Azure Arc-enabled server is associated with an Azure Active Directory object and will count against your directory quota. See [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in an Azure AD directory.
 
 ## Azure resource providers
 
