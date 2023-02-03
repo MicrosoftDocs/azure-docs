@@ -149,9 +149,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 
 >[!NOTE]
 > Safari and Safari View Service are allowed to participate in SSO by default. Can be configured *not* to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList. 
-> 
 > iOS Bundle IDs : [com.apple.mobilesafari, com.apple.SafariViewService]
-> 
 > macOS BundleID : [com.apple.Safari]
 
 #### Enable SSO for all apps with a specific bundle ID prefix
@@ -237,7 +235,7 @@ Apple provides no easy way to get bundle IDs from the App Store. The easiest way
 
 Use the bundle IDs to configure SSO for the apps. Disable admin mode once done. 
 
-#### Allow users to sign in from unknown applications and the Safari browser
+#### Allow users to sign in from applications that don't use MSAL and the Safari browser
 
 By default, the Microsoft Enterprise SSO plug-in will acquire a shared credential when it's called by another app that uses MSAL during a new token acquisition. Depending on the configuration, Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by apps that don't use MSAL. 
 
