@@ -441,6 +441,8 @@
       items: 
       - name: RBAC
         href: share-gallery.md
+      - name: App registration
+        href: share-using-app-registration.md
       - name: Direct share
         href: share-gallery-direct.md
       - name: Community gallery
