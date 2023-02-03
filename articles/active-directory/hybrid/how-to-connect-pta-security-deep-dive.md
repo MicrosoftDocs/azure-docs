@@ -61,15 +61,15 @@ Authentication agents are installed and registered with Azure AD when you take o
 
 Getting an authentication agent working involves three main phases:
 
-- Authentication agent installation
-- Authentication agent registration
-- Authentication agent initialization
+- Installation
+- Registration
+- Initialization
 
-The following sections discuss these phases in detail.
+The following sections discuss the authentication agent phases in detail.
 
 ### Authentication agent installation
 
-Only Hybrid Identity Administrators can install an authentication agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
+Only Hybrid Identity Administrators can install an authentication agent (by using Azure AD Connect or a standalone instance) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
 
 - The authentication agent application itself. This application runs with [NetworkService](/windows/win32/services/networkservice-account) privileges.
 - The Updater application that's used to auto-update the authentication agent. This application runs with [LocalSystem](/windows/win32/services/localsystem-account) privileges.
@@ -92,8 +92,8 @@ The authentication agents use the following steps to register themselves with Az
     - The key pair is generated through standard RSA 2,048-bit encryption.
     - The private key stays on the on-premises server where the authentication agent resides.
 1. The authentication agent makes a registration request to Azure AD over HTTPS, with the following components included in the request:
-    - The access token acquired in step 1.
-    - The public key generated in step 2.
+    - The access token that the agent acquired.
+    - The public key that was generated.
     - A Certificate Signing Request (CSR or *Certificate Request*). This request applies for a digital identity certificate, with Azure AD as its certificate authority (CA).
 1. Azure AD validates the access token in the registration request and verifies that the request came from a Hybrid Identity Administrator.
 1. Azure AD then signs and sends a digital identity certificate back to the authentication agent.
@@ -116,7 +116,8 @@ When the authentication agent starts, either for the first time after registrati
 Here's how authentication agents are initialized:
 
 1. The authentication agent makes an outbound bootstrap request to Azure AD.
-    - This request is made over port 443 and is over a mutually authenticated HTTPS channel. The request uses the same certificate that was issued during the authentication agent registration.
+
+    This request is made over port 443 and is over a mutually authenticated HTTPS channel. The request uses the same certificate that was issued during the authentication agent registration.
 1. Azure AD responds to the request by providing an access key to a Service Bus queue that's unique to your tenant and that's identified by your tenant ID.
 1. The authentication agent makes a persistent outbound HTTPS connection (over port 443) to the queue.
 
@@ -135,18 +136,19 @@ Pass-through authentication handles a user sign-in request:
 1. A user tries to access an application, for example, [Outlook Web App](https://outlook.office365.com/owa).
 1. If the user isn't already signed in, the application redirects the browser to the Azure AD sign-in page.
 1. The Azure AD STS service responds back with the **User sign-in** page.
-1. The user enters their user name in the **User sign-in** page and then selects the **Next** button.
+1. The user enters their username in the **User sign-in** page and then selects the **Next** button.
 1. The user enters their password in the **User sign-in** page and then selects the **Sign-in** button.
-1. The user name and password are submitted to Azure AD STS in an HTTPS POST request.
+1. The username and password are submitted to Azure AD STS in an HTTPS POST request.
 1. Azure AD STS retrieves public keys for all the authentication agents registered on your tenant from Azure SQL Database and encrypts the password by using the keys.
-    - It produces "N" encrypted password values for "N" authentication agents registered on your tenant.
-1. Azure AD STS places the password validation request, which consists of the user name and the encrypted password values, in the Service Bus queue specific to your tenant.
+ 
+   It produces one encrypted password value for each authentication agent registered on your tenant.
+1. Azure AD STS places the password validation request, which consists of the username and the encrypted password values, in the Service Bus queue specific to your tenant.
 1. Because the initialized authentication agents are persistently connected to the Service Bus queue, one of the available authentication agents retrieves the password validation request.
 1. The authentication agent locates the encrypted password value that's specific to its public key, by using an identifier, and decrypts it by using its private key.
-1. The authentication agent attempts to validate the user name and the password against Windows Server AD by using the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera) with the `dwLogonType` parameter set to `LOGON32_LOGON_NETWORK`.
+1. The authentication agent attempts to validate the username and the password against Windows Server AD by using the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera) with the `dwLogonType` parameter set to `LOGON32_LOGON_NETWORK`.
     - This API is the same API that's used by Active Directory Federation Services (AD FS) to sign in users in a federated sign-in scenario.
     - This API relies on the standard resolution process in Windows Server to locate the domain controller.
-1. The authentication agent receives the result from Windows Server AD, such as success, user name or password is incorrect, or password is expired.
+1. The authentication agent receives the result from Windows Server AD, such as success, username or password is incorrect, or password is expired.
 
    > [!NOTE]
    > If the authentication agent fails during the sign-in process, the entire sign-in request is dropped. There is no hand-off of sign-in requests from one authentication agent to another authentication agent on-premises. These agents only communicate with the cloud, and not with each other.
@@ -164,7 +166,8 @@ To ensure that pass-through authentication remains operationally secure, Azure A
 To renew an authentication agent's trust with Azure AD:
 
 1. The authentication agent periodically pings Azure AD every few hours to check if it's time to renew its certificate. The certificate is renewed 30 days prior to its expiration.
-    - This check is done over a mutually authenticated HTTPS channel and uses the same certificate that was issued during registration.
+ 
+   This check is done over a mutually authenticated HTTPS channel and uses the same certificate that was issued during registration.
 1. If the service indicates that it's time to renew, the authentication agent generates a new key pair: a public key and a private key.
     - These keys are generated through standard RSA 2,048-bit encryption.
     - The private key never leaves the on-premises server.
@@ -179,7 +182,8 @@ To renew an authentication agent's trust with Azure AD:
     - Set the certificate’s subject (Distinguished Name or DN) to your tenant ID, a GUID that uniquely identifies your tenant. The DN scopes the certificate to your tenant only.
 1. Azure AD stores the new public key of the authentication agent in a database in Azure SQL Database that only it has access to. It also invalidates the old public key associated with the authentication agent.
 1. The new certificate (issued in step 5) is then stored on the server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_CURRENT_USER](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_CURRENT_USER) location).
-    - Because the trust renewal procedure happens non-interactively (without the presence of the global administrator or hybrid identity administrator), the authentication agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location.
+
+   Because the trust renewal procedure happens non-interactively (without the presence of the global administrator or hybrid identity administrator), the authentication agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location.
 
    > [!NOTE]
    > This procedure does not remove the certificate itself from the CERT_SYSTEM_STORE_LOCAL_MACHINE location.
@@ -196,7 +200,8 @@ Azure AD hosts the new version of the software as a signed Windows Installer pac
 To auto-update an authentication agent:
 
 1. The Updater application pings Azure AD every hour to check if there's a new version of the authentication agent available.
-    - This check is done over a mutually authenticated HTTPS channel by using the same certificate that was issued during registration. The authentication agent and the Updater share the certificate stored on the server.
+
+   This check is done over a mutually authenticated HTTPS channel by using the same certificate that was issued during registration. The authentication agent and the Updater share the certificate stored on the server.
 1. If a new version is available, Azure AD returns the signed MSI back to the Updater.
 1. The Updater verifies that the MSI is signed by Microsoft.
 1. The Updater runs the MSI. This action involves the following steps:
@@ -213,9 +218,9 @@ To auto-update an authentication agent:
 
 ## Next steps
 
-- [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones aren't.
-- [Quickstart](how-to-connect-pta-quick-start.md): Get up and running on Azure AD pass-through authentication.
-- [Migrate from AD FS to pass-through authentication](https://aka.ms/adfstoptadpdownload) - A detailed guide to migrate from AD FS (or other federation technologies) to pass-through authentication.
+- [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported.
+- [Quickstart](how-to-connect-pta-quick-start.md): Get set up with Azure AD pass-through authentication.
+- [Migrate from AD FS to pass-through authentication](https://aka.ms/adfstoptadpdownload): Review a detailed guide that helps you migrate from AD FS or other federation technologies to pass-through authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [How it works](how-to-connect-pta-how-it-works.md): Learn the basics of how Azure AD pass-through authentication works.
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.

@@ -1,11 +1,9 @@
 ---
-title: Install the Connect Health agents in Azure Active Directory
-description: This Azure AD Connect Health article describes agent installation for Active Directory Federation Services (AD FS) and for Sync.
+title: Install the Azure AD Connect Health agents in Azure Active Directory
+description: Learn how to install the Azure AD Connect Health agents for Active Directory Federation Services (AD FS) and for sync.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: amycolannino
-ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
@@ -16,16 +14,16 @@ ms.author: billmath
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ---
-# Azure AD Connect Health agent installation
+# Install the Azure AD Connect Health agents
 
-In this article, you'll learn how to install and configure the Azure Active Directory (Azure AD) Connect Health agents. To download the agents, see [these instructions](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
+In this article, you'll learn how to install and configure the Azure AD Connect Health agents. Learn how to [download the agents](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 > [!NOTE]
-> Azure AD Connect Health is not available in the China sovereign cloud
+> Azure AD Connect Health is not available in the China sovereign cloud.
 
 ## Requirements
 
-The following table lists requirements for using Azure AD Connect Health.
+The following table lists requirements for using Azure AD Connect Health:
 
 | Requirement | Description |
 | --- | --- |
@@ -37,8 +35,7 @@ The following table lists requirements for using Azure AD Connect Health.
 | TLS inspection for outbound traffic is filtered or disabled. | The agent registration step or data upload operations might fail if there's TLS inspection or termination for outbound traffic at the network layer. For more information, see [Set up TLS inspection](/previous-versions/tn-archive/ee796230(v=technet.10)). |
 | Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br /><li>TCP port 443</li><li>TCP port 5671</li> <br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Hybrid identity required ports and protocols](./reference-connect-ports.md).  |
 | If Internet Explorer enhanced security is enabled, allow specified websites.  |If Internet Explorer enhanced security is enabled, then allow the following websites on the server where you install the agent:<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization that's trusted by Azure AD (for example, https:\//sts.contoso.com)</li> <br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, then see the note that appears at the end of this table.|
-| PowerShell version 5.0 or newer is installed. | Windows Server 2016 includes PowerShell version 5.0. 
-
+| PowerShell version 5.0 or newer is installed. | Windows Server 2016 includes PowerShell version 5.0.
 
 > [!IMPORTANT]
 > Windows Server Core doesn't support installing the Azure AD Connect Health agent.
@@ -47,13 +44,14 @@ The following table lists requirements for using Azure AD Connect Health.
 > If you have a highly locked-down and restricted environment, you need to add more URLs than the ones the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
 
 ### New versions of the agent and Auto upgrade
+
 If a new version of the Health agent is released, any existing installed agents are automatically updated.
 
 ### Outbound connectivity to the Azure service endpoints
 
-During installation and runtime, the agent needs connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, make sure that the URLs in the following  table aren't blocked by default. 
+During installation and runtime, the agent needs connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, make sure that the URLs in the following  table aren't blocked by default.
 
-Don't disable security monitoring or inspection of these URLs. Instead, allow them as you would allow other internet traffic. 
+Don't disable security monitoring or inspection of these URLs. Instead, allow them as you would allow other internet traffic.
 
 These URLs allow communication with Azure AD Connect Health service endpoints. Later in this article, you'll learn how to [check outbound connectivity](#test-connectivity-to-azure-ad-connect-health-service) by using `Test-AzureADConnectHealthConnectivity`.
 
@@ -63,20 +61,19 @@ These URLs allow communication with Azure AD Connect Health service endpoints. L
 | Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de (This endpoint is used only for discovery purposes during registration.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com (This endpoint is used only for discovery purposes during registration.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 
-
 ## Install the agent
 
-To download and install the Azure AD Connect Health agent: 
+To download and install the Azure AD Connect Health agent:
 
 * Make sure that you satisfy the [requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS:
-    * [Download the Azure AD Connect Health agent for AD FS](https://go.microsoft.com/fwlink/?LinkID=518973).
-    * See the [installation instructions](#install-the-agent-for-ad-fs).
+  * [Download the Azure AD Connect Health agent for AD FS](https://go.microsoft.com/fwlink/?LinkID=518973).
+  * See the [installation instructions](#install-the-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for Sync:
-    * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The health agent for Sync is installed as part of the Azure AD Connect installation (version 1.0.9125.0 or later).
+  * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The health agent for Sync is installed as part of the Azure AD Connect installation (version 1.0.9125.0 or later).
 * Get started using Azure AD Connect Health for Azure AD DS:
-    * [Download the Azure AD Connect Health agent for Azure AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
-    * See the [installation instructions](#install-the-agent-for-azure-ad-ds).
+  * [Download the Azure AD Connect Health agent for Azure AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
+  * See the [installation instructions](#install-the-agent-for-azure-ad-ds).
 
 ## Install the agent for AD FS
 
@@ -113,7 +110,6 @@ To verify that the agent was installed, look for the following services on the s
 
 ![Screenshot showing Azure AD Connect Health AD FS services.](./media/how-to-connect-health-agent-install/install5.png)
 
-
 ### Enable auditing for AD FS
 
 > [!NOTE]
@@ -127,17 +123,17 @@ The Usage Analytics feature needs to gather and analyze data. So the Azure AD Co
 1. On the Start screen, open **Server Manager**, and then open **Local Security Policy**. Or on the taskbar, open **Server Manager**, and then select **Tools/Local Security Policy**.
 2. Go to the *Security Settings\Local Policies\User Rights Assignment* folder. Then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it's not listed, then select **Add User or Group**, and add it to the list. Then select **OK**.
-4. To enable auditing, open a Command Prompt window with elevated privileges. Then run the following command: 
-    
+4. To enable auditing, open a Command Prompt window with elevated privileges. Then run the following command:
+
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
 1. Close **Local Security Policy**.
     >[!Important]
-    >The following steps are required only for primary AD FS servers. 
+    >The following steps are required only for primary AD FS servers.
 1. Open the **AD FS Management** snap-in. (In **Server Manager**, select **Tools** > **AD FS Management**.)
 1. In the **Actions** pane, select **Edit Federation Service Properties**.
 1. In the **Federation Service Properties** dialog box, select the **Events** tab.
 1. Select the **Success audits and Failure audits** check boxes, and then select **OK**.
-1. To enable verbose logging through PowerShell, use the following command: 
+1. To enable verbose logging through PowerShell, use the following command:
 
     `Set-AdfsProperties -LOGLevel Verbose`
 
@@ -146,7 +142,7 @@ The Usage Analytics feature needs to gather and analyze data. So the Azure AD Co
 1. On the Start screen, open **Server Manager**, and then open **Local Security Policy**. Or on the taskbar, open **Server Manager**, and then select **Tools/Local Security Policy**.
 2. Go to the *Security Settings\Local Policies\User Rights Assignment* folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it's not listed, then select **Add User or Group**, and add the AD FS service account to the list. Then select **OK**.
-4. To enable auditing, open a Command Prompt window with elevated privileges. Then run the following command: 
+4. To enable auditing, open a Command Prompt window with elevated privileges. Then run the following command:
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
 1. Close **Local Security Policy**.
@@ -156,12 +152,11 @@ The Usage Analytics feature needs to gather and analyze data. So the Azure AD Co
 1. In the **Actions** pane, select **Edit Federation Service Properties**.
 1. In the **Federation Service Properties** dialog box, select the **Events** tab.
 1. Select the **Success audits and Failure audits** check boxes, and then select **OK**. Success audits and failure audits should be enabled by default.
-1. Open a PowerShell window and run the following command: 
+1. Open a PowerShell window and run the following command:
 
     `Set-AdfsProperties -AuditLevel Verbose`
 
 The "basic" audit level is enabled by default. For more information, see [AD FS audit enhancement in Windows Server 2016](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server).
-
 
 #### To locate the AD FS audit logs
 
@@ -177,7 +172,6 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 > [!WARNING]
 > A group policy can disable AD FS auditing. If AD FS auditing is disabled, usage analytics about login activities are unavailable. Ensure that you have no group policy that disables AD FS auditing.
 >
-
 
 ## Install the agent for Sync
 
@@ -247,9 +241,9 @@ If you completed the configuration, these services should already be running. Ot
 ### Quickly install the agent on multiple servers
 
 1. Create a user account in Azure AD. Secure it by using a password.
-2. Assign the **Owner** role for this local Azure AD account in Azure AD Connect Health by using the portal. Follow [these steps](how-to-connect-health-operations.md#manage-access-with-azure-rbac). Assign the role to all service instances. 
+2. Assign the **Owner** role for this local Azure AD account in Azure AD Connect Health by using the portal. Follow [these steps](how-to-connect-health-operations.md#manage-access-with-azure-rbac). Assign the role to all service instances.
 3. Download the *.exe* MSI file in the local domain controller for the installation.
-4. Run the following script. Replace the parameters with your new user account and its password. 
+4. Run the following script. Replace the parameters with your new user account and its password.
 
     ```powershell
     AdHealthAddsAgentSetup.exe /quiet
@@ -262,9 +256,10 @@ If you completed the configuration, these services should already be running. Ot
     Register-AzureADConnectHealthADDSAgent -Credential $myCreds
     ```
 
-When you finish, you can remove access for the local account by doing one or more of the following tasks: 
+When you finish, you can remove access for the local account by doing one or more of the following tasks:
+
 * Remove the role assignment for the local account for Azure AD Connect Health.
-* Rotate the password for the local account. 
+* Rotate the password for the local account.
 * Disable the Azure AD local account.
 * Delete the Azure AD local account.  
 
@@ -288,6 +283,7 @@ Register-AzureADConnectHealthSyncAgent
 > ```
 
 These commands accept `Credential` as a parameter to complete the registration noninteractively or to complete the registration on a machine that runs Server Core. Keep in mind that:
+
 * You can capture `Credential` in a PowerShell variable that's passed as a parameter.
 * You can provide any Azure AD identity that has permissions to register the agents and that does *not* have multifactor authentication enabled.
 * By default, global admins have permissions to register the agents. You can also allow less-privileged identities to do this step. For more information, see [Azure RBAC](how-to-connect-health-operations.md#manage-access-with-azure-rbac).
@@ -303,6 +299,7 @@ These commands accept `Credential` as a parameter to complete the registration n
 You can configure Azure AD Connect Health agents to work with an HTTP proxy.
 
 > [!NOTE]
+>
 > * `Netsh WinHttp set ProxyServerAddress` is not supported. The agent uses System.Net instead of Windows HTTP Services to make web requests.
 > * The configured HTTP proxy address is used to pass-through encrypted HTTPS messages.
 > * Authenticated proxies (using HTTPBasic) are not supported.
@@ -312,6 +309,7 @@ You can configure Azure AD Connect Health agents to work with an HTTP proxy.
 ### Change the agent proxy configuration
 
 To configure the Azure AD Connect Health agent to use an HTTP proxy, you can:
+
 * Import existing proxy settings.
 * Specify proxy addresses manually.
 * Clear the existing proxy configuration.
@@ -343,11 +341,12 @@ You can manually specify a proxy server. On each of the servers that run the hea
 Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 ```
 
-Here's an example: 
+Here's an example:
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
 In this example:
+
 * The `address` setting can be a DNS-resolvable server name or an IPv4 address.
 * You can omit `port`. If you do, then 443 is the default port.
 
@@ -371,7 +370,7 @@ Get-AzureAdConnectHealthProxySettings
 
 Occasionally, the Azure AD Connect Health agent can lose connectivity with the Azure AD Connect Health service. Causes of this connectivity loss can include network problems, permission problems, and various other problems.
 
-If the agent can't send data to the Azure AD Connect Health service for longer than two hours, the following alert appears in the portal: "Health Service data is not up to date." 
+If the agent can't send data to the Azure AD Connect Health service for longer than two hours, the following alert appears in the portal: "Health Service data is not up to date."
 
 You can find out whether the affected Azure AD Connect Health agent can upload data to the Azure AD Connect Health service by running the following PowerShell command:
 
