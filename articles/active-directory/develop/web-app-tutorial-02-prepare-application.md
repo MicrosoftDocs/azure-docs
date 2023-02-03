@@ -27,7 +27,7 @@ In this tutorial:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application with the Microsoft identity platform](web-app-tutorial-01-register-application.md).
-* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any IDE that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac
@@ -40,37 +40,31 @@ After registering an application on the Azure portal, a .NET web application nee
 
 ### [Visual Studio](#tab/visual-studio)
 
-This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. Additions are made to show what needs to be added to an application for authentication.
-
 1. Open Visual Studio, and then select **Create a new project**.
 1. Search for and choose the **ASP.NET Core Web App** template, and then select **Next**.
 1. Enter a name for the project, such as *NewWebAppLocal*.
 1. Choose a location for the project or accept the default option, and then select **Next**.
-1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**.
-
-> [!NOTE]
-> On this page of the application configuration, the **Authentication type** could be changed to `Microsoft identity platform`, which would add the authentication configuration to the application. This tutorial is meant to provide an understanding of the code and configuration for authentication, so the setting is kept at **None**.
-
-6. Select **Create**.
+1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**. The **Authentication type** could be changed to Microsoft identity platform, which would add the authentication configuration to the application.
+1. Select **Create**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **File**, then **Open Folder...**. Navigate to and select the location in which to create your project.
+1. In Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
-1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
 1. Run the following commands in the terminal to change into the folder directory and create the project:
 
 ```powershell
 cd NewWebAppLocal
-dotnet new webapp --framework net6.0
+dotnet new webapp
 ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
 1. Open Visual Studio, and then select **New**.
 1. Under **Web and Console** in the left navigation bar, select **App**.
-1. Under **ASP.NET Core**, select **APP** and ensure **C#** is selected in the drop down menu, then select **Continue**.
-1. Accept the default for the **Target Framework and Advanced**, then select **Continue**.
+1. Under **ASP.NET Core**, select **Web Application** and ensure **C#** is selected in the drop down menu, then select **Continue**.
+1. Accept the default for the **Target Framework and Advanced** > **Continue**.
 1. Enter a name for **Project name**, this will be reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
 1. Accept the default location for the project or choose a different location, and then select **Create**.
 
@@ -78,16 +72,11 @@ dotnet new webapp --framework net6.0
 
 ## Create and upload a self-signed certificate
 
-The use of certificates is suggested for securing the application. When using certificates, make sure to manage and monitor them appropriately. This tutorial uses a simple self-signed certificate for development purposes, certificates issued by a certificate authority should be used for production.
+The use of certificates is suggested for securing the application. When using certificates, make sure to manage and monitor them appropriately. This tutorial uses a self-signed certificate for development purposes, certificates issued by a certificate authority should be used for production.
 
-### [.NET CLI](#tab/dotnetcli)
+### [Visual Studio](#tab/visual-studio)
 
-1. In Visual Studio, select **Tools > Command Line > Developer Command Prompt**.
-1. Enter the following command to clear the HTTPS development certificates from the machine:
-
-    ```powershell
-    dotnet dev-certs https --clean
-    ```
+1. Select **Tools > Command Line > Developer Command Prompt**.
 
 1. Enter the following command to create a new self-signed certificate:
 
@@ -95,20 +84,24 @@ The use of certificates is suggested for securing the application. When using ce
     dotnet dev-certs https -ep ./certificate.crt --trust
     ```
 
-### [PowerShell](#tab/powershell)
+### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In the PowerShell command window, run the following commands replacing the `{certificateName}` value with the name of the certificate.
-
-    ```powershell
-    $certname = "{certificateName}"    ## Replace {certificateName}
-    $cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
-    ```
-
-2. Run the following command to export the certificate to be uploaded to the Azure portal. Replace `{projectLocation}` with the location of the application project:
+1. In the **Terminal**, enter the following command to create a new self-signed certificate:
 
     ```powershell
-    Export-Certificate -Cert $cert -FilePath "C:\{projectLocation}\$certname.cer"
+    dotnet dev-certs https -ep ./certificate.crt --trust
     ```
+
+### [Visual Studio for Mac](#tab/visual-studio-for-mac)
+
+1. Select **Tools > Command Line > Developer Command Prompt**.
+
+1. Enter the following command to create a new self-signed certificate:
+
+    ```powershell
+    dotnet dev-certs https -ep ./certificate.crt --trust
+    ```
+
 ---
 
 ### Upload certificate to the portal
@@ -127,11 +120,11 @@ To make the certificate available to the application, it must be uploaded into t
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
-## Configure the application for authentication and API
+## Configure the application for authentication and API reference
 
-Now that the certificate is uploaded, the application needs to be configured for authentication. As the web application will call an API, it needs a reference to this API.
+The values recorded earlier will be used to configure the application for authentication. As it will also be calling in to a web API, the app settings must contain a reference to this as well.
 
-1. Open *appsettings.json* replace the file contents with the following:
+1. Open *appsettings.json* and replace the file contents with the following snippet:
   
     ``` json
     {
@@ -166,12 +159,11 @@ Now that the certificate is uploaded, the application needs to be configured for
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
-    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
+    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. 
     * `DownstreamApi` - Is an identifier that allows the API to be called. The `BaseUrl` and `Scopes` can remain unchanged.
 1. Save changes to the file.
-1. Record the value of the `CallbackPath`. This will be used later to define the **Redirect URI** on the Azure portal.
-1. Under **Properties**, open the *launchSettings.json* file.
-1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100`. This will also be used when defining the **Redirect URI**.
+1. In the **Properties** folder, open the *launchSettings.json* file.
+1. Within the `https` bracket of the JSON, record the https URL listed for `applicationURL`, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
 
 
 ## Define the platform and URLs
@@ -182,8 +174,8 @@ Now that the certificate is uploaded, the application needs to be configured for
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/select-platform-inline.png" alt-text="Screenshot on how to select the platform for the application." lightbox="./media/web-app-tutorial-02-prepare-application/select-platform-expanded.png":::
 
-1. Under **Redirect URIs**, enter the **applicationURL** and the **CallbackPath** that was recorded when configuring the application. For example, `https://localhost:7100/signin-oidc`.
-1. Under **Front-channel logout URL**, enter the application URL and a callback path for signing out. For example, `https://localhost:7100/signout-oidc`.
+1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
+1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-oidc`.
 
 ## Next steps
 

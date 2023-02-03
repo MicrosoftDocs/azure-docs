@@ -39,12 +39,13 @@ To complete registration, provide the application a name and specify the support
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
-1. For **Supported account types**, select **Accounts in this organizational directory only (Contoso only - Single tenant)**.
+1. For **Supported account types**, select **Accounts in this organizational directory only**. 
+    - The **Redirect URI (optional)** will be configured at a later stage.
 1. Select **Register**.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 
-1. When registration finishes, the Azure portal displays the app registration's Overview pane. Record the Directory (tenant) ID and the Application (client) ID to be used in your application code.
+1. The application's **Overview** pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application code.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
