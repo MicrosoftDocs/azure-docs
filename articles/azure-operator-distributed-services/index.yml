@@ -11,8 +11,8 @@ metadata:
    Learn how to deploy, manage and use AODS with these concepts, quickstarts, and how-to guides.
   ms.service: hybrid-service 
   ms.topic: landing-page
-  author: Shobhit Jain
-  ms.author: jashobhit
+  author: jashobhit
+  ms.author: shobhitjain
   ms.date: 01/23/2023
 # linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
 
