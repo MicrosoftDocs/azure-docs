@@ -113,6 +113,8 @@
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Java API
+    href: /java/api/com.microsoft.durabletask.azurefunctions
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
