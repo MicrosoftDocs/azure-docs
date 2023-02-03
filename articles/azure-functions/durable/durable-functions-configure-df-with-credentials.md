@@ -9,7 +9,7 @@ ms.author: azfuncdfnaiy
 
 # Create your first durable function in C#
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service.Using the default storage provider, Durable Functions needs to access to credentials to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we walk though how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service.Using the default storage provider, Durable Functions needs to access to credentials to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we walk through how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
 
 
 ## Managed Identity
@@ -18,7 +18,7 @@ A [Managed identities](../../app-service/overview-managed-identity.md) allows yo
 
 ### Prerequisites
 
-The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it. 
+The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
 In particular, this QuickStart assumes that you have already: 
 
 * Created an Azure Functions project on Azure Portal or deploy local Azure Function to Azure. 
@@ -75,7 +75,7 @@ Registering a client application on Azure Active Directory (Azure AD) can also h
 
 ### Prerequisites 
 
-The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it. 
+The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
 In particular, this quickstart assumes that you have already: 
 
 * Created an Azure Functions project on your local machine. 
@@ -92,7 +92,7 @@ In particular, this quickstart assumes that you have already:
 2. Create Client Secret for your application. In your app,  
    1. Select Certificates & Secrets and select New Client Secret.  
    2. Add description and select secret valid time in Expires field.  
-   3. After creating the new secret, copy and save the secret value carefully because it will not show up again.  
+   3. Copy and save the secret value carefully because it will not show up again.  
    
    ![Client Secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-01.png)
 
@@ -134,7 +134,7 @@ For Azure Portal run and test, specify the following in your function’s **Conf
 
    * AzureWebJobsStorage__tenantId: MyTenantId. 
 
-   Client Secret is saved when you create it, and the other two id can be found on your client application’s overview page. 
+   Client Secret is saved when you create it, and the other two ids can be found on your client application’s overview page. 
    
    ![client secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
 
@@ -157,6 +157,6 @@ Durable Function supports using a separate storage account for Durable Task rela
     }
     ```
 
-2. In function’s configuration or local.settings.json , add value  **mySeparateStorageAccount: storage account connection string**. Connection string can be found in the storage account’s Access keys: 
+2. In function’s configuration or local.settings.json, add value  **mySeparateStorageAccount: storage account connection string**. Connection string can be found in the storage account’s Access keys: 
 
    ![connection string Sample](media/durable-functions-configure-df-with-credentials/durable-functions-option-scenario-01.png)
