@@ -40,7 +40,7 @@ Use the following table to review potential computer-account issues and mitigati
 | Inaccurate network defaults for LocalSystem. | Don't assume the computer account has the default limited access to network resources. Instead, confirm group memberships for the account. |
 | Unknown services that run as LocalSystem. | Ensure services that run under the LocalSystem account are Microsoft services, or trusted services. |
 
-## Find services that run under the computer account
+## Find services and computer accounts
 
 To find services that run under the computer account, use the following PowerShell cmdlet:
 
