@@ -3,8 +3,11 @@ title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 07/12/2022
+author: bmansheim
+ms.author: benmansheim
 ms.topic: overview
 ---
+
 # Overview of Microsoft Defender for Storage
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
@@ -107,7 +110,7 @@ You can review and manage your current security alerts from Microsoft Defender f
 
 ### How do I estimate charges at the account level? 
 
-To optimize costs, you might want to exclude specific Storage accounts associated with high traffic from Defender for Storage protections. To get an estimate of Defender for Storage costs, use the [Price Estimation Dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-storage-price-estimation-dashboard/ba-p/2429724). 
+To optimize costs, you might want to exclude specific Storage accounts associated with high traffic from Defender for Storage protections. To get an estimate of Defender for Storage costs, use the [Price Estimation Workbook](https://portal.azure.com/#blade/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Security%20Center/ConfigurationId/community-Workbooks%2FAzure%20Security%20Center%2FPrice%20Estimation/Type/workbook/WorkbookTemplateName/Price%20Estimation) in the Azure portal. 
 
 ### Can I exclude a specific Azure Storage account from a protected subscription? 
 

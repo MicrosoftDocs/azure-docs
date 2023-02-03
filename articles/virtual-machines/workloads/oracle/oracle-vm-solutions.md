@@ -124,7 +124,7 @@ In addition to having an HA and DR solution architected in Azure, you should hav
 
 ## Support for JD Edwards
 
-According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility.
+According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/knowledge/JD%20Edwards%20EnterpriseOne/2178595_1.html), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility.
 
 ## Oracle WebLogic Server virtual machine offers
 

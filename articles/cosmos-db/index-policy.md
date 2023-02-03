@@ -31,7 +31,7 @@ Azure Cosmos DB supports two indexing modes:
 > [!NOTE]
 > Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
-By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index documents as they're written.
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index items as they're written.
 
 ## <a id="index-size"></a>Index size
 
@@ -87,6 +87,10 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
+- If an explicitly indexed path doesn't exist in an item, a value will be added to the index to indicate that the path is undefined.
+
+All explicitly included paths will have values added to the index for each item in the container, even if the path is undefined for a given item.
+
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
 ## Include/exclude precedence
@@ -127,7 +131,7 @@ Azure Cosmos DB, by default, won't create any spatial indexes. If you would like
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-index) as needed.
 
-Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index.
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. If a path in a composite index doesn't exist in an item, a value will be added to the index to indicate that the path is undefined.
 
 When defining a composite index, you specify:
 

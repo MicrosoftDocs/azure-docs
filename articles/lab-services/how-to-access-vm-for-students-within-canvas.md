@@ -19,14 +19,14 @@ Azure Lab Services supports test users in Canvas and the ability for the educato
 
 If the lab hasn't been published or a synced in a while, students may see a message indicating the lab isn't available yet. Educators should [publish](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) to solve the problem.
 
-:::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
+:::image type="content" source="./media/how-to-access-vm-for-students-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet.":::
 
 ## Next steps
 
 For more information, see the following articles:
 
 - [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
-- [Get started and create a lab within Canvas](how-to-get-started-create-lab-within-canvas.md)
+- [Get started and create a lab within Canvas](how-to-configure-canvas-for-lab-plans.md)
 - [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
 - [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
 - [Create and manage lab schedules within Canvas](how-to-create-schedules-within-canvas.md)

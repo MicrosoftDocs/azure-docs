@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 10/08/2022
+ms.date: 01/23/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -46,7 +46,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     |-----------|-------------|
     | %ProgramFiles%\AzureConnectedMachineAgent | azcmagent CLI and instance metadata service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\GC | Extension service executables.|
-    | %ProgramFiles%\AzureConnectedMachineAgent\GuestConfig\GC | Guest configuration (policy) service executables.|
+    | %ProgramFiles%\AzureConnectedMachineAgent\GCArcService\GC | Guest configuration (policy) service executables.|
     | %ProgramData%\AzureConnectedMachineAgent | Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
     | %ProgramData%\GuestConfig | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
     | %SYSTEMDRIVE%\packages | Extension package executables |
@@ -158,6 +158,8 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services will not be subject to the resource governance constraints listed above.
   * The Log Analytics agent and Azure Monitor Agent are allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
   * The Azure Monitor Agent can use up to 30% of the CPU during normal operations.
+  * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
+  * The Microsoft Defender for Endpoint extension can use up to 30% of the CPU during installation, upgrades, and removal operations.
 
 ## Instance metadata
 

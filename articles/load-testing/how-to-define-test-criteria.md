@@ -10,12 +10,9 @@ ms.date: 10/19/2022
 ms.topic: how-to
 ---
 
-# Define fail criteria for load tests by using Azure Load Testing Preview
+# Define fail criteria for load tests by using Azure Load Testing
 
-In this article, you'll learn how to define test fail criteria for your load tests with Azure Load Testing Preview. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria. Criteria can apply to the entire load test, or to an individual request in the JMeter script.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you'll learn how to define test fail criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria. Criteria can apply to the entire load test, or to an individual request in the JMeter script.
 
 ## Prerequisites  
 
@@ -50,7 +47,7 @@ The following table describes the different components:
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script.  |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any Personally Identifiable Information (PII) in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard. |
 
 ### Supported client metrics for fail criteria
 
@@ -60,7 +57,7 @@ Azure Load Testing supports the following client metrics:
 |---------|---------|---------|---------|-------------|
 |`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
-|`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than) <BR> `<` (less than)      | Percentage of failed requests. |
+|`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than)      | Percentage of failed requests. |
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 

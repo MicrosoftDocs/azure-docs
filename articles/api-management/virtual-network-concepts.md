@@ -158,9 +158,7 @@ With a private endpoint and Private Link, you can:
 * Use policy to distinguish traffic that comes from the private endpoint.
 * Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
-> [!IMPORTANT]
-> * API Management support for private endpoints is currently in preview.
-> * During the preview period, a private endpoint connection supports only incoming traffic to the API Management managed gateway.
+[!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
 
 For more information, see [Connect privately to API Management using a private endpoint](private-endpoint.md).
 

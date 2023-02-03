@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to setup and use Deployment Environments Azure CLI extension to configure the Azure Deployment environments service.
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/26/2022
 ms.topic: how-to
 ---
@@ -259,7 +259,7 @@ az devcenter admin project delete -g <resource-group-name> --name <project-name>
 **Create an environment**
 
 ```azurecli
-az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> \
+az devcenter dev environment create --dev-center-name <devcenter-name> \
     --project-name <project-name> -n <name> --environment-type <environment-type-name> \
     --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> \
     --parameters <deployment-parameters-json-string>
@@ -281,5 +281,5 @@ az devcenter dev environment list --dev-center <devcenter-name> --project-name <
 **Delete an environment**
 
 ```azurecli
-az devcenter environment delete --dev-center <devcenter-name>  --project-name <project-name> -n <name> --user-id "me"
+az devcenter dev environment delete --dev-center <devcenter-name>  --project-name <project-name> -n <name> --user-id "me"
 ```

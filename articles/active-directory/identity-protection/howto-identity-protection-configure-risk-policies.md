@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 01/06/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -77,7 +77,7 @@ Before organizations enable remediation policies, they may want to [investigate]
    1. Under **Configure user risk levels needed for policy to be enforced**, select **High**. ([This guidance is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**, **Require password change**.
+   1. Select **Grant access**, **Require multifactor authentication** and **Require password change**.
    1. Select **Select**.
 1. Under **Session**.
    1. Select **Sign-in frequency**.
@@ -129,7 +129,7 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ### Migrating to Conditional Access
 
-1.	**Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies) based on Microsoft's recommendations and your organizational requirements.
+1.	**Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md) based on Microsoft's recommendations and your organizational requirements.
     1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1.	**Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
     1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 

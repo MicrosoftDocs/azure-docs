@@ -3,7 +3,7 @@ title: Compare the features of the Remote Desktop clients for Azure Virtual Desk
 description: Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 11/29/2022
 ms.author: daknappe
 ---
 
@@ -28,7 +28,7 @@ The following table compares the features of each Remote Desktop client when con
 | Smart sizing | X | X |  |  | X |  | Remote Desktop in Windowed mode is dynamically scaled to the window's size. |
 | Localization | X | X | English only | X |  | X | Client user interface is available in multiple languages. |
 | Multi-factor authentication | X | X | X | X | X | X | Supports multi-factor authentication for remote connections. |
-| Teams optimization for Azure Virtual Desktop | X |  |  |  | X |  | Media optimizations for Microsoft Teams to provide high quality calls and screen sharing experiences. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](/azure/virtual-desktop/teams-on-avd). |
+| Teams optimization for Azure Virtual Desktop | X |  |  |  | X |  | Media optimizations for Microsoft Teams to provide high quality calls and screen sharing experiences. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](./teams-on-avd.md). |
 
 ## Redirections comparison
 
@@ -39,14 +39,21 @@ The following tables compare support for device and other redirections across th
 
 ### Input redirection
 
+The following table shows which input methods are available for each Remote Desktop client:
+
 | Input | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Keyboard | X | X | X | X | X | X |
 | Mouse | X | X | X | X | X | X |
 | Touch | X | X | X | X |  | X |
-| Pen | X |  | X (as touch) | X (as touch) |  |  |
+| Multi-touch | X | X | X | X |  |  |
+| Pen | X |  | X (as touch) | X\* |  |  |
+
+\* Pen input redirection is not supported when connecting to Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.
 
 ### Port redirection
+
+The following table shows which ports can be redirected for each Remote Desktop client:
 
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
@@ -57,12 +64,14 @@ When you enable USB port redirection, all USB devices attached to USB ports are 
 
 ### Other redirection (devices, etc.)
 
+The following table shows which other devices can be redirected with each Remote Desktop client:
+
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
-| Cameras | X |  |  | X | X |  |
+| Cameras | X |  | X | X | X | X (preview) |
 | Clipboard | X | X | Text | Text, images | X | Text |
 | Local drive/storage | X |  | X | X | X | X\* |
-| Location | X |  |  |  |  |  |
+| Location | X (Windows 11 only) |  |  |  |  |  |
 | Microphones | X | X | X | X | X | X |
 | Printers | X |  |  |  | X\*\* (CUPS only) | PDF print |
 | Scanners | X |  |  |  |  |  |

@@ -36,7 +36,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 ## Prerequisites
 
 1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and [create a new Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
-1. The key, endpoint URL, and subscription ID for your Form Recognizer resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://ms.portal.azure.com/#home).
+1. The key, endpoint URL, and subscription ID for your Form Recognizer resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://portal.azure.com/#home).
 
 ::: moniker-end
 

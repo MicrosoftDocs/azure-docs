@@ -153,7 +153,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
       --name myVnetAToMyVnetB \
       --resource-group $rgName \
       --vnet-name myVnetA \
-      --remote-vnet-id  /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB \
+      --remote-vnet  /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB \
       --allow-vnet-access
     ```
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 11/14/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Identity document (ID) processing
+# Azure Form Recognizer identity document model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -24,17 +24,45 @@ ms.custom: references.regions
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## What is identity document (ID) processing
+::: moniker range="form-recog-3.0.0"
 
-Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It is an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents such as US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
-## Form Recognizer Identity document (ID) model
+::: moniker-end
 
-The Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+::: moniker range="form-recog-2.1.0"
+
+Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
+
+::: moniker-end
+
+## Identity document processing
+
+Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document is processing an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+
+::: moniker range="form-recog-3.0.0"
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
 :::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Data extraction
+
+The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response.
+
+### **Driver's license example**
+
+![Sample Driver's License](./media/id-example-drivers-license.JPG)
+
+### **Passport example**
+
+![Sample Passport](./media/id-example-passport-result.JPG)
+
+::: moniker-end
 
 ## Development options
 
@@ -52,10 +80,28 @@ The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
 
-Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio. You'll need the following resources:
+## Input requirements
+
+::: moniker range="form-recog-3.0.0"
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
+
+### Try Form Recognizer
+
+Extract data, including name, birth date, and expiration date, from ID documents. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -65,7 +111,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 ::: moniker range="form-recog-3.0.0"
 
-#### Form Recognizer Studio
+## Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
@@ -84,15 +130,15 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 ::: moniker range="form-recog-2.1.0"
 
-#### Form Recognizer sample labeling tool
+## Form Recognizer Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page, select **Use prebuilt model to get data**.
+1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
-1. Select the **Form Type**  to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown menu.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -109,13 +155,13 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Screenshot of the identity model analyze results operation.":::
 
 1. Download the JSON output file to view the detailed results.
 
@@ -123,32 +169,40 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+
+> [!NOTE]
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
 ::: moniker-end
 
-## Input requirements
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
+::: moniker range="form-recog-3.0.0"
 
 ## Supported languages and locales
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (permanent resident card)</li></ul></br>|English (United States)—en-US|
 
-::: moniker range="form-recog-3.0.0"
-
 ## Field extractions
 
 Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines, and styles that are included in the JSON output in the different sections.  
 
-* `pages.*.words`
-* `pages.*.lines`
-* `paragraphs`
-* `styles`
-* `documents`
-* `documents.*.fields`
+>[!NOTE]
+>
+> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national identity card, residence permit, or US social security card ).
 
-### Document type - `idDocument.driverLicense` fields extracted
+### Data extraction (all types)
+
+|**Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** |**Key-Value pairs** | **Fields** |
+|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|[prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
+
+### Document types
+
+#### `idDocument.driverLicense` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -171,7 +225,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-### Document type - `idDocument.passport` fields extracted
+#### `idDocument.passport` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -202,7 +256,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`MachineReadableZone.DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`MachineReadableZone.Sex`|`string`|Sex|F|
 
-### Document type - `idDocument.nationalIdentityCard` fields extracted
+#### `idDocument.nationalIdentityCard` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -222,7 +276,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 
-### Document type - `idDocument.residencePermit` fields extracted
+#### `idDocument.residencePermit` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -237,7 +291,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`PlaceOfBirth`|`string`|Place of birth|Germany|
 |`Category`|`string`|Permit category|DV2|
 
-### Document type - `idDocument.usSocialSecurityCard` fields extracted
+#### `idDocument.usSocialSecurityCard` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -246,11 +300,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-### ID document field extractions
+#### `idDocument` field extracted
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
@@ -276,11 +326,34 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
 |  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
 
-### Migration guide and REST API v3.0
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Supported document types and locales
+
+ **Prebuilt ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
+
+## Fields extracted
+
+|Name| Type | Description | Value |
+|:-----|:----|:----|:----|
+|  Country | country | Country code compliant with ISO 3166 standard | "USA" |
+|  DateOfBirth | date | DOB in YYYY-MM-DD format | "1980-01-01" |
+|  DateOfExpiration | date | Expiration date in YYYY-MM-DD format | "2019-05-05" |
+|  DocumentNumber | string | Relevant passport number, driver's license number, etc. | "340020013" |
+|  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" |
+|  LastName | string | Extracted surname | "BROOKS" |
+|  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
+|  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
+|  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
+|  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" |
+
+### Migration guide
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
-
-* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ::: moniker-end
 
@@ -288,7 +361,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -296,7 +369,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

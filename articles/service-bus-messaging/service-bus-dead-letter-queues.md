@@ -37,7 +37,7 @@ There are several activities in Service Bus that cause messages to get pushed to
 |TTLExpiredException |The message expired and was dead lettered. See the [Time to live](#time-to-live) section for details. |
 |Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
 |MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues has been exceeded. This value is set to 4. |
-| MaxDeliveryCountExceededExceptionMessage | Message couldn't be consumed after maximum delivery attempts. See the [Maximum delivery count](#maximum-delivery-count) section for details. |
+| MaxDeliveryCountExceeded | Message couldn't be consumed after maximum delivery attempts. See the [Maximum delivery count](#maximum-delivery-count) section for details. |
 
 ## Maximum delivery count
 There is a limit on number of attempts to deliver messages for Service Bus queues and subscriptions. The default value is 10. Whenever a message has been delivered under a peek-lock, but has been either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ. The dead-letter reason for the message in DLQ is set to: MaxDeliveryCountExceeded. This behavior can't be disabled, but you can set the max delivery count to a large number.
