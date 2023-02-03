@@ -136,7 +136,7 @@ To mount a VHD(X) disk image:
    Write-Output $DeviceId
    ```
 
-1. When you're done, proceed to [Finish staging your disk image](#finish-staging-your-disk-image)).
+1. When you're done, proceed to [Finish staging your disk image](#finish-staging-your-disk-image).
 ---
 
 ### Finish staging your disk image
@@ -237,9 +237,9 @@ If your image is in VHD(X) format, run this cmdlet:
 DisMount-DiskImage -DevicePath $DeviceId.TrimEnd('\')
 ```
 
-Once you finish dismounting your disks, you've safely removed your MSIX package.
-
 ---
+
+Once you finish dismounting your disks, you've safely removed your MSIX package.
 
 ## Set up simulation scripts for the MSIX app attach agent
 
