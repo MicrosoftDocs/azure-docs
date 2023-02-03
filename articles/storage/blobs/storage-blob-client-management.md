@@ -1,5 +1,5 @@
 ---
-title: Create and manage clients that interact with blob data resources
+title: Create and manage clients that interact with data resources
 titleSuffix: Azure Storage 
 description: Learn how to create and manage clients that interact with data resources in Blob Storage.
 services: storage
@@ -14,13 +14,13 @@ ms.devlang: csharp, java, javascript, python
 ms.custom: devguide
 ---
 
-# Create and manage clients that interact with blob data resources
+# Create and manage clients that interact with data resources
 
-The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Working with Azure resources using the SDK begins with creating a client instance. This article shows how to create client objects to interact with blob data resources, and offers best practices on how to manage clients in your application.
+The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Working with Azure resources using the SDK begins with creating a client instance. This article shows how to create client objects to interact with data resources in Azure Blob Storage, and offers best practices on how to manage clients in your application.
 
 ## Create a client
 
-The Azure Storage Blob client libraries allow you to interact with three types of resources in the storage service:
+The Azure Blob Storage client libraries allow you to interact with three types of resources in the storage service:
 
 - Storage accounts
 - Blob containers
