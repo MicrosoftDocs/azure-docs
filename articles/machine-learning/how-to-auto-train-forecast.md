@@ -50,7 +50,7 @@ For this article you need,
 Input data for AutoML forecasting must contain valid time series in tabular format. Each variable must have its own corresponding column in the data table. AutoML requires at least two columns: a **time column** representing the time axis and the **target column** which is the quantity to forecast. Other columns can serve as predictors. For more details, see [how AutoML uses your data](./concept-automl-forecasting-methods.md#how-automl-uses-your-data). 
 
 > [!IMPORTANT]
-> When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
+> When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. For example, a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
 AutoML forecasting jobs require that your training data is represented as an **MLTable** object. An MLTable specifies a data source and steps for loading the data. For more information and use cases, see the [MLTable how-to guide](./how-to-mltable.md). As a simple example, suppose your training data is contained in a CSV file in a local directory, `./train_data/timeseries_train.csv`. You can define a new MLTable by copying the following YAML code to a new file, `./train_data/MLTable`:
 
@@ -232,7 +232,7 @@ forecasting_job.set_forecast_settings(
 ```
 
 >[!WARNING]
->Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. <br> <br> If many of the series are short, then you may also see some impact in explainability results
+>Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. If many of the series are short, then you may also see some impact in explainability results
 
 #### Frequency & target data aggregation
 

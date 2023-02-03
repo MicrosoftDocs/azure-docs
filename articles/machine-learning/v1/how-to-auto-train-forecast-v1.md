@@ -50,7 +50,7 @@ For this article you need,
 The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your training data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
 
 > [!IMPORTANT]
-> When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
+> When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
 You can specify separate [training data and validation data](concept-automated-ml-v1.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
@@ -283,7 +283,7 @@ The following table summarizes the available settings for `short_series_handling
 |`None`| No series is padded or dropped
 
 >[!WARNING]
->Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. <br> <br> If many of the series are short, then you may also see some impact in explainability results
+>Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. If many of the series are short, then you may also see some impact in explainability results
 
 ### Non-stationary time series detection and handling
 
