@@ -38,6 +38,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - An Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - An Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
+<!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
+
 ### [.NET](#tab/net)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
@@ -89,8 +91,6 @@ Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/
 > for more details.
 
 #### [Node.js](#tab/nodejs)
-
-<! --- NOTE TO CONTRIBUTORS: Please do not separate out JavaScript and TypeScript. -->
 
 Install these packages:
 
