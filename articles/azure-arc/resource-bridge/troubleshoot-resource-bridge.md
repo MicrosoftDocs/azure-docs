@@ -36,19 +36,11 @@ For example, if you specified the wrong location, or subscription during deploym
 
 To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
-### Failure due to previous deployments
+### Connection closed before server preface received
 
-If Arc resource bridge is deployed multiple times, an old token or expired credentials left on the management machine may cause future deployments to fail.
+When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine may cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
 
-To prevent this from happening, be sure to run the `az arcappliance delete` command after any failed deployment, or to delete the current bridge before attempting another deployment. The delete command must be run with the latest `arcappliance` Azure CLI extension. To ensure that you have the latest version installed on your machine, run the following command:
-
-```azurecli
-az extension update --name arcappliance
-```
-
-If all components of Arc resource bridge are not completely deleted, the residual token or expired credentials may cause future deployments to fail. When this is the case, the error will contain the message `Unavailable desc = connection closed before server preface received` to surface when various `az arcappliance` commands are run, including `prepare` and `delete`.
-
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be deleted from the management machine. You can delete these manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and/or `.wssd\kva` folders. After they are deleted, retry the command that failed.
+To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there may not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 

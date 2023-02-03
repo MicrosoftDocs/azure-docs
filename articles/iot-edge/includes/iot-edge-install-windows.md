@@ -23,7 +23,7 @@ To install the IoT Edge runtime:
    (Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    ```
 
-2. Run the [Deploy-IoTEdge](/articles/iot-edge/reference-windows-scripts.md#deploy-iotedge) command, which performs the following tasks:
+2. Run the [Deploy-IoTEdge](/azure/iot-edge/reference-windows-scripts#deploy-iotedge) command, which performs the following tasks:
 
    * Checks that your Windows machine is on a supported version
    * Turns on the containers feature
@@ -41,4 +41,4 @@ When you install IoT Edge on a device, you can use additional parameters to modi
 * Direct traffic to go through a proxy server
 * Point the installer to a local directory for offline installation
 
-For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](/articles/iot-edge/reference-windows-scripts.md).
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](/azure/iot-edge/reference-windows-scripts).

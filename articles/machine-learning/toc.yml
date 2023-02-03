@@ -68,6 +68,8 @@
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
+    - name: Apache Spark in Azure Machine Learning (preview)
+      href: apache-spark-azure-ml-concepts.md
 - name: Tutorials
   expanded: true
   items:
@@ -314,6 +316,8 @@
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
+        - name: Use Azure PowerShell
+          href: how-to-manage-workspace-powershell.md
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -631,9 +635,9 @@
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
-                - name: Invoke batch endpoints from Azure Data Factory
+                - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
-                - name: Invoke batch endpoints from Event Grid events in storage
+                - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
