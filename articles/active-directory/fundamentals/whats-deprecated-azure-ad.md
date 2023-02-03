@@ -35,7 +35,6 @@ Use the following table to learn about changes including deprecations, retiremen
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|
 |[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|Jun 30, 2023|
 |[Azure AD PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|
-|[Legacy MFA/SSPR policies](../authentication/how-to-authentication-methods-manage.md)|Breaking change|Jan 31, 2024|Jan 31, 2024|
 |[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|Sep 30, 2024|
 
 
