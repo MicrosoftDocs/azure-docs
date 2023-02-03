@@ -10,11 +10,15 @@ ms.date: 01/27/2023
 
 # 5G QoS identifier (5QI) to differentiated services codepoint (DSCP) mapping
 
-Azure Private 5G Core will attempt to configure DSCP markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. This article details the mapping of 5QI to DSCP values that Azure Private 5G Core uses for transport level marking.
+This article details the mapping of 5G QoS identifier (5QI) to differentiated services codepoint (DSCP) values that Azure Private 5G Core uses for transport level marking.
 
-Azure Private 5G Core performs 5QI to DSCP mapping on downlink (user plane access interface) packets. Uplink (user plane data interface) packets are left unchanged.
+The 5QI value, determined when you configured your your private mobile network's [policy control](policy-control.md), corresponds to a set of quality of service (QoS) characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate.
 
-For standard DSCP values, see RFC 2474.
+Azure Private 5G Core will attempt to configure DSCP markings on outbound packets based on the configured 5QI value. The DSCP markings allow the radio access network (RAN) to determine how to prioritize a packet.
+
+Azure Private 5G Core performs 5QI to DSCP mapping on downlink packets (towards the UE). Uplink packets (away from the UE) are left unchanged.
+
+For standard DSCP values, see [RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers](https://www.rfc-editor.org/rfc/rfc2474).
 
 ## GBR 5QIs
 
