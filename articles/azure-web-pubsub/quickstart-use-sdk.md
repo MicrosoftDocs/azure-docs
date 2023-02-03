@@ -195,12 +195,12 @@ You can choose between C#, JavaScript, Python and Java. The dependencies for eac
 ### Set up the project to publish messages
 
 1. Open a new command shell for this project.
-1. Save the connection string from the client shell:
+1. Save the connection string from the client shell.  Replace the `<your_connection_string>` placeholder with the connection string displayed in a previous step.
     
     # [Bash](#tab/bash)
 
     ```azurecli
-    Connection_String="<your_connection_string>"
+    connection_string="<your_connection_string>"
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
