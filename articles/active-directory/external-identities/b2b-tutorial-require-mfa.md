@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 01/07/2022
+ms.date: 02/03/2023
 
 ms.author: cmulligan
 author: csmulligan
