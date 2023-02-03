@@ -28,11 +28,11 @@ There are three incremental versions of the X.509 certificate standard, and each
 
 * Version 1 (v1), published in 1988, follows the initial X.509 standard for certificates.
 * Version 2 (v2), published in 1993, adds two fields to the fields included in Version 1.
-* Version 3 (v3), published in 2008, represents the current version of the X.509 standard. This version adds more fields and allows for certificate extensions.
+* Version 3 (v3), published in 2008, represents the current version of the X.509 standard. This version adds support for certificate extensions.
 
 This section is meant as a general reference for the certificate fields and certificate extensions available in X.509 certificates. For more information about certificate fields and certificate extensions, including data types, constraints, and other details, see the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
 
-#### Version 1 fields
+### Version 1 fields
 
 The following table describes Version 1 certificate fields for X.509 certificates. All of the fields included in this table are available in subsequent X.509 certificate versions.
 
@@ -46,7 +46,7 @@ The following table describes Version 1 certificate fields for X.509 certificate
 | [Subject](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.6) | The distinguished name (DN) of the certificate subject. |
 | [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7) | The public key owned by the certificate subject. |
 
-#### Version 2 fields
+### Version 2 fields
 
 The following table describes the fields added for Version 2, containing information about the certificate issuer. These fields are, however, rarely used. All of the fields included in this table are available in subsequent X.509 certificate versions.
 
@@ -55,7 +55,7 @@ The following table describes the fields added for Version 2, containing informa
 | [Issuer Unique ID](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.8) | A unique identifier that represents the issuing CA, as defined by the issuing CA. |
 | [Subject Unique ID](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.8) | A unique identifier that represents the certificate subject, as defined by the issuing CA. |
 
-#### Version 3 fields
+### Version 3 fields
 
 The following table describes the field added for Version 3, representing a collection of X.509 certificate extensions. 
 
@@ -63,11 +63,11 @@ The following table describes the field added for Version 3, representing a coll
 | --- | --- |
 | [Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.9) | A collection of standard and Internet-specific certificate extensions. For more information about the certificate extensions available to X.509 v3 certificates, see [Certificate extensions](#certificate-extensions). |
 
-### Certificate extensions
+## Certificate extensions
 
 Certificate extensions, introduced with Version 3, provide methods for associating more attributes with users or public keys and for managing relationships between certificate authorities. For more information about certificate extensions, see the [Certificate Extensions](https://www.rfc-editor.org/rfc/rfc5280#section-4.2) section of the [RFC 5280](https://tools.ietf.org/html/rfc5280) specification.
 
-#### Standard extensions
+### Standard extensions
 
 The extensions included in this section are defined as part of the X.509 standard, for use in the Internet public key infrastructure (PKI). 
 
@@ -90,7 +90,7 @@ The extensions included in this section are defined as part of the X.509 standar
 | [Inhibit anyPolicy](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.14) | Inhibits the use of the **All Issuance Policies** OID (2.5.29.32.0) in subordinate CA certificates
 | [Freshest CRL](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.15) | This extension, also known as the **Delta CRL Distribution Point**, contains one or more URLs where the issuing CA's delta CRL is published. |
 
-#### Private Internet extensions
+### Private Internet extensions
 
 The extensions included in this section are similar to standard extensions, and may be used to direct applications to online information about the issuing CA or certificate subject. 
 
