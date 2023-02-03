@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 01/27/2023
 ---
 
-# 5G QoS identifier (5QI) to differentiated services codepoint (DSCP) mapping
+# 5QI to DSCP mapping
 
 This article details the mapping of 5G QoS identifier (5QI) to differentiated services codepoint (DSCP) values that Azure Private 5G Core uses for transport level marking.
 
