@@ -5,7 +5,6 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 ms.service: azure-center-sap-solutions
-ms.subservice: sap-large-instances
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 07/01/2021
