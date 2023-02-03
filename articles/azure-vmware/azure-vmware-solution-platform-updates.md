@@ -11,6 +11,10 @@ ms.date: 12/22/2022
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## February 2023
+
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no additional cost. HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), Mobility Optimized Networking (MON). HCX Enterprise is now automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/install-vmware-hcx).
+
 ## November 2022
 
 AV36P and AV52 node sizes available in Azure VMware Solution. The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allows for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.    
