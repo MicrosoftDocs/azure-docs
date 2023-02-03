@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 2/17/2022
+ms.date: 02/03/2023
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -83,7 +83,7 @@ $net = @{
     Name = 'myNic'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus'
-    PrivateIpAddress = '10.0.0.4'
+    PrivateIpAddress = '10.0.0.5'
     Subnet = $virtualNetwork.Subnets[0]
 }
 $nic = New-AzNetworkInterface @net
