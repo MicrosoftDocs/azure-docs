@@ -70,9 +70,10 @@ The retry policy tells the runtime to rerun a failed execution until either succ
 
 A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. 
 
-Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.
-
-The Event Hubs extension supports additional retry capabilities for interactions between the Functions runtime and the event hub.  Please refer to the `clientRetryOptions` in [the Event Hubs section of the host.json](functions-bindings-event-hubs.md#host-json) file for more information.
+> [!IMPORTANT]
+> Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.
+>
+> The Event Hubs v5 extension supports additional retry capabilities for interactions between the Functions host and the event hub.  Please refer to the `clientRetryOptions` in [the Event Hubs section of the host.json](functions-bindings-event-hubs.md#host-json) file for more information.
 
 #### Retry strategies
 
@@ -201,7 +202,7 @@ Here's the retry policy in the *function.json* file:
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+::: zone pivot="programming-language-JavaScript,programming-language-python,programming-language-PowerShell" 
 
 Here's the retry policy in the *function.json* file:
 
