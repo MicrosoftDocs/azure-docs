@@ -183,7 +183,7 @@ If your users have problems signing in to an application even after you've enabl
 
 **Other requirements**: To enable SSO for applications by using `AppCookieSSOAllowList`, you must also add their bundle ID prefixes `AppPrefixAllowList`.
 
-Try this configuration only for applications that have unexpected sign-in failures. Note that this key is to be used only for iOS apps and not for macOS apps.
+Try this configuration only for applications that have unexpected sign-in failures. This key is to be used only for iOS apps and not for macOS apps.
 
 #### Summary of keys
 
