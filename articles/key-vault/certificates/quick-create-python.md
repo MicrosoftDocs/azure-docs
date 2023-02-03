@@ -54,7 +54,7 @@ This quickstart is using Azure Identity library with Azure CLI or Azure PowerShe
     Connect-AzAccount
     ```
 
-    If the PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+    If PowerShell can open your default browser, it will do so and load an Azure sign-in page.
 
     Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
     authorization code displayed in your terminal.
