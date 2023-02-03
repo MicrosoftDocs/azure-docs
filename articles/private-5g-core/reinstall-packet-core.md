@@ -19,7 +19,7 @@ If you're experiencing issues with your deployment, reinstalling the packet core
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If your packet core instance is still handling requests from your UEs, we recommend performing the reinstall during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
+- If your packet core instance is still handling requests from your UEs, we recommend performing the reinstall during a maintenance window to minimize the impact on your service. You should allow up to two hours for the reinstall process to complete.
 - If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## View the packet core instance's installation status
@@ -35,7 +35,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-1. Under the **Essentials** heading, check the current packet core state under the **Packet core installation state** field. If the status under this field indicates the packet core instance is already running a reinstall process, wait for it to finish before attempting another reinstall.
+1. Under the **Essentials** heading, check the current packet core state under the **Packet core installation state** field. If the status under this field indicates the packet core instance is already running a process, wait for it to finish before attempting another reinstall.
 
 ## Back up deployment information
 
@@ -63,7 +63,7 @@ To reinstall your packet core instance:
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-confirmation.png" alt-text="Screenshot of the Azure portal showing the Reinstall packet core screen.":::
 
 1. Select **Reinstall**.
-1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. This process will take approximately 45 minutes. You can check the progress of the reinstall by selecting the notifications icon and then **More events in the activity log**.
+1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. You can check the progress of the reinstall by selecting the notifications icon and then **More events in the activity log**.
 
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-status.png" alt-text="Screenshot of the Azure portal showing the reinstall packet core status in the Notifications screen.":::
 

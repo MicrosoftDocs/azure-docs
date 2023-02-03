@@ -38,7 +38,7 @@ The following modifications will trigger a packet core reinstall, during which y
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 
-If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
+If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. You should allow up to two hours for the reinstall process to complete.
 
 If you're making a change that doesn't trigger a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
