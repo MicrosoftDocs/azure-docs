@@ -259,7 +259,7 @@ In this quickstart, you:
 - Updated the Azure Container Apps instance with the image
 - Browsed to the URL of the Azure Container App updated with the settings you configured in your App Configuration store.
 
-## Next steps
+To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
