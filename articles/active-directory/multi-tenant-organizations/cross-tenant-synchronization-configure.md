@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 02/03/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -405,6 +405,22 @@ Even though users are being provisioned in the target tenant, they still might b
 1. Under **External user leave settings**, choose whether to allow external users to leave your organization themselves.
 
 This setting also applies to B2B collaboration and B2B direct connect, so if you set **External user leave settings** to **No**, B2B collaboration users and B2B direct connect users can't leave your organization themselves. For more information, see [Leave an organization as an external user](../external-identities/leave-the-organization.md#more-information-for-administrators).
+
+## Delete a configuration application
+
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+If you no longer need to synchronize users, you can stop provisioning and delete the configuration application in the source tenant. Currently, you must delete the configuration in Enterprise applications.
+
+1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
+
+1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
+
+1. Select the configuration and then select **Properties**.
+
+1. Select **Delete** and then **Yes** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
 
 ## Troubleshooting tips
 
