@@ -77,7 +77,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Choose the **Dataset type**:
     * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
-1. Select **Next**
+1. Select **Next**.
 1. Select **From Azure storage**, then **Next**.
 1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
