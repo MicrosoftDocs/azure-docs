@@ -49,18 +49,6 @@ You can specify a QoS for this service, or inherit the parent SIM Policy's QoS. 
 | The default preemption capability for QoS flows or EPS bearers for this service. The preemption capability of a QoS flow or EPS bearer controls whether it can preempt another QoS flow or EPS bearer with a lower priority level. You can choose from the following values: </br></br>- **May not preempt** </br>- **May preempt** | **Preemption capability** |No. Defaults to **May not preempt**.|
 | The default preemption vulnerability for QoS flows or EPS bearers for this service. The preemption vulnerability of a QoS flow or EPS bearer controls whether it can be preempted by another QoS flow or EPS bearer with a higher priority level. You can choose from the following values: </br></br>- **Preemptible** </br>- **Not Preemptible** | **Preemption vulnerability** |No. Defaults to **Preemptible**.|
 
-### Collect variables for Kubernetes extension
-
-During cluster commissioning, the Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI in Azure Cloud Shell. Collect each of the values in the table below.
-
-| Value | Variable name |
-|--|--|
-|The ID of the Azure subscription in which the Azure resources are deployed. |**SUBSCRIPTION_ID**|
-|The name of the resource group in which the AKS cluster is deployed. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_GROUP_NAME**|
-|The name of the AKS cluster resource. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_NAME**|
-|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC: **EastUS** or **WestEurope**.</br></br>This value must be the region's code name, see [Region code names](region-code-names.md) for list of the supported regions and their codes. |**LOCATION**|
-|The name of the **Custom location** resource to be created for the AKS cluster. </br></br>This value must start and end with alphanumeric characters, and must contain only alphanumeric characters, `-` or `.`. |**CUSTOM_LOCATION**|
-
 ## Data flow policy rule(s)
 
 Each service must have one or more data flow policy rules. Data flow policy rules identify the service data flows (SDFs) to which the service should be applied. They can also be used to block certain SDFs.
