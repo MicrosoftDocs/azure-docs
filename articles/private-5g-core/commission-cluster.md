@@ -237,8 +237,6 @@ Collect each of the values in the table below.
 
 The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to configure using the Azure CLI in Azure Cloud Shell.
 
-You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
-
 > [!TIP]
 > The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
 
