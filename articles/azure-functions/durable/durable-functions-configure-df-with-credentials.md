@@ -1,48 +1,44 @@
 ---
-title: "Configure Durable Function with Azure Active Directory"
-descrionfigure Durable FUnctiption: Configure Durable Function with Mangaed Identity Credentials and Client Secret Credentials.
+title: "Configure Durable Functions with Azure Active Directory"
+descrption: Configure Durable Functions with Managed Identity Credentials and Client Secret Credentials.
 author: naiyuantian
 ms.topic: quickstart
 ms.date: 02/01/2023
-ms.author: azfuncdfnaiy
+ms.author: azfuncdf
 ---
 
-# Configure Durable Function with Azure Active Directory
+# Configure Durable Functions with Azure Active Directory
 
 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service.Using the default storage provider, Durable Functions needs to access to credentials to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we walk through how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
 
 
-## Managed Identity
+## Configure your app to use Managed Identity
 
-A [Managed identities](../../app-service/overview-managed-identity.md) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. This can be only used on Azure Portal. Managed Identity is supported by Durable Extension starting at version **2.7.0**, but we encourage customers to use the latest version package of [Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.9.1).  
+[Managed identities](../../app-service/overview-managed-identity.md) allow your app to easily access other Azure AD-protected resources such as Azure Key Vault. This can be only used in the Azure Portal. Managed Identity is supported by Durable Extension starting at version **2.7.0**, but we encourage customers to use the latest version of [Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.9.1).  
 
 ### Prerequisites
 
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
-In particular, this QuickStart assumes that you have already: 
+In particular, this Quickstart assumes that you have already: 
 
-* Created an Azure Functions project on Azure Portal or deploy local Azure Function to Azure. 
-
-* Added Durable Functions to your project with an orchestrator function and a client function that triggers it. 
-
-* Learned configuration change on Azure. 
+* Created an Azure Functions project in the Azure Portal or deployed local Azure Function to Azure. 
 
 ### Enable Managed Identity
 
-Only one identity is needed for your function, either a **system-assignedidentity** or a **user-assigned identity**. To enable Managed Identity for your function and know the difference between the two identities, follow the detailed instruction here [Managed identities](../../app-service/overview-managed-identity.md).   
+Only one identity is needed for your function, either a **system assigned managed identity** or a **user assigned managed identity**. To enable Managed Identity for your function and learn more about the difference between the two identities, read the detailed instructions here [Managed identities](../../app-service/overview-managed-identity.md).   
 
 ### Give managed identity the RBAC resources 
 
-In the function’s associated storage account page, give these three roles to the managed identity created in last step according to this [instruction](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
+In the function’s associated storage account page, give these three roles to the managed identity created in the last step by following these [instructions](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
 * Storage Queue Data Contributor 
 
 * Storage Blob Data Contributor 
 
 * Storage Table Data Contributor 
 
-### Change Configuration 
+### Add Managed Identity Configuration in the Azure Portal
 
-Navigate to function’s Configuration, do the following steps: 
+Navigate to your function’s Configuration page, perform the followings: 
 
 1. Remove the default value "AzureWebJobsStorage". 
 
@@ -50,8 +46,8 @@ Navigate to function’s Configuration, do the following steps:
 
 2. Link Azure storage account by adding either one of the following value settings: 
 
-   * AzureWebJobsStorage__accountName: MyStorageAccount 
-   * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint;AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
+   * **AzureWebJobsStorage__accountName**: MyStorageAccount 
+   * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;**AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
    The values for these variables can be found in the storage account blade under the Endpoints tab. 
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
@@ -63,15 +59,15 @@ Navigate to function’s Configuration, do the following steps:
 
    * If **user-assigned identity** should be used: 
    Add the following value settings in configuration: 
-     * AzureWebJobsStorage__credential: managedidentity 
-     * AzureWebJobsStorage__clientId: MyUserIdentityClientId
+     * **AzureWebJobsStorage__credential**: managedidentity 
+     * **AzureWebJobsStorage__clientId**: MyUserIdentityClientId
     ![user identity client id Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
 
 
 
 ## Client Secret Credential
 
-Registering a client application on Azure Active Directory (Azure AD) can also help us get access to Azure service. In the following steps, you will learn how to use client secret credentials for authentication.  This method can be used both locally and on Azure. However, Client Secret Credential is less recommended compared to Managed Identity since this is very sensitive information and including this in your function might cause security concerns. 
+Registering a client application in Azure Active Directory (Azure AD) can also help us get access to an Azure service. In the following steps, you will learn how to use client secret credentials for authentication.  This method can be used both locally and on Azure. However, Client Secret Credential is **less recommended** compared to Managed Identity since this is very sensitive information and including this in your function might cause security concerns. 
 
 ### Prerequisites 
 
@@ -89,7 +85,7 @@ In particular, this quickstart assumes that you have already:
 ### Register a Client Application on Azure Active Directory 
 1. Register an application under Azure Active Directory on Azure Portal according to [here](../../healthcare-apis/register-application.md)
 
-2. Create Client Secret for your application. In your app,  
+2. Create a Client Secret for your application created in the last step. In your registered application,  
    1. Select Certificates & Secrets and select New Client Secret.  
    2. Add description and select secret valid time in Expires field.  
    3. Copy and save the secret value carefully because it will not show up again.  
@@ -109,30 +105,30 @@ Give these three roles to your client application created with the following ste
 
    ![Access Control Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-02.png)
 
-2. Choose the required role, next, then search for your application, review and add. 
+2. Choose the required role, click next, then search for your application, review and add. 
 
    ![Role Assignment Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-03.png)
 
 ### Change Configuration 
 
-For Azure Portal run and test, specify the following in your function’s **Configuration**. For local run and test, specify environment variables in the function’s **local.settings.json** file. 
+For run and test in Azure, specify the following in your function’s **Configuration**. For local run and test, specify environment variables in the function’s **local.settings.json** file. 
 
 1. Remove the default value "AzureWebJobsStorage". 
 
 2. Link Azure storage account by adding either one of the following value settings:
-   * AzureWebJobsStorage__accountName: MyStorageAccount 
+   * **AzureWebJobsStorage__accountName**: MyStorageAccount 
 
-   * AzureWebJobsStorage__blobServiceUri: MyBlobEndpoint; AzureWebJobsStorage__queueServiceUri: MyQueueEndpoint; AzureWebJobsStorage__tableServiceUri: MyTableEndpoint. 
+   * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    The values for these Uri variables can be found in the storage account blade under the **Endpoints** tab. 
    
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Add client secret credentials by specifying the following values: 
-   * AzureWebJobsStorage__clientId: MyClientId; 
+   * **AzureWebJobsStorage__clientId**: MyClientId; 
 
-   * AzureWebJobsStorage__ClientSecret: MyClientSecret;  
+   * **AzureWebJobsStorage__ClientSecret**: MyClientSecret;  
 
-   * AzureWebJobsStorage__tenantId: MyTenantId. 
+   * **AzureWebJobsStorage__tenantId**: MyTenantId. 
 
    Client Secret is saved when you create it, and the other two ids can be found on your client application’s overview page. 
    
@@ -141,7 +137,7 @@ For Azure Portal run and test, specify the following in your function’s **Conf
 
 ## (Optional) custom non-AzureWebJobsStorage connection  
 
-Durable Function supports using a separate storage account for Durable Task related operations. If this setting is desired, the steps are as follows:  
+Durable Functions support using a separate storage account for Durable Task related operations. If this setting is desired, the steps are as follows:  
 
 1. Use the following configuration in host.json: 
     ```json
