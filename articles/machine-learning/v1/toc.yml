@@ -241,7 +241,7 @@
       - name: PyTorch
         href: how-to-train-pytorch.md
       - name: Train with custom Docker image
-        href: ../how-to-train-with-custom-image.md
+        href: how-to-train-with-custom-image.md
       - name: Migrate from Estimators to ScriptRunConfig
         href: how-to-migrate-from-estimators-to-scriptrunconfig.md
       - name: Use Key Vault when training
@@ -299,7 +299,7 @@
       href: how-to-log-view-metrics.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: ../how-to-monitor-tensorboard.md
+      href: how-to-monitor-tensorboard.md
     - name: Log metrics with designer
       displayName: designer, logging
       href: ../how-to-track-designer-experiments.md

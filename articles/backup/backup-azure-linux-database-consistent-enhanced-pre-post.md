@@ -4,6 +4,8 @@ description: Learn how Azure Backup allows you to take database consistent snaps
 ms.topic: conceptual
 ms.date: 09/16/2021 
 ms.custom: devx-track-azurepowershell
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Enhanced pre-post scripts for database consistent snapshot
