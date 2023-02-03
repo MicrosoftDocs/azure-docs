@@ -193,7 +193,7 @@ You can view these logs by running `kubectl logs <pod name> -n kubesystem`. Howe
 
 1. In the Azure portal, search for the workspace resource ID, then select **Logs**.
 
-1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool` (for manual mode) or `eraser-collector` (for automatic mode).
+1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool-xxx` (for manual mode) or `eraser-collector-xxx` (for automatic mode).
 
    ```kusto
       let startTimestamp = ago(1h);
@@ -217,7 +217,7 @@ You can view these logs by running `kubectl logs <pod name> -n kubesystem`. Howe
 
 1. Select **Run**. Any deleted image logs will appear in the **Results** area.
 
-   :::image type="content" source="media/image-cleaner/deleted-logs.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/deleted-logs.png":::
+   :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
 
 <!-- LINKS -->
 
