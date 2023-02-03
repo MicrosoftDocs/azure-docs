@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 01/20/2023
+ms.date: 02/03/2023
 ms.author: banders
 ---
 
@@ -28,9 +28,11 @@ If you have consistent compute spend, but your use of disparate resources makes 
 
 With Azure savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. Usage charges above the commitment are billed at your on-demand rate.
 
+You don't need to assign a savings plan to your compute resources. The savings plan benefit is applied automatically to compute usage that matches the savings plan scope. A savings plan purchase covers only the compute part of your usage. For example, for Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure savings plans](software-costs-not-included.md).
+
 For more information about how savings plan discounts are applied, see [Savings plan discount application](discount-application.md).
 
-For more information about how savings plan scope works, see [Savings plan scopes](buy-savings-plan.md#scope-savings-plans).
+For more information about how savings plan scope works, see [Saving plan scopes](scope-savings-plan.md).
 
 ## Determine your savings plan commitment
 
@@ -53,6 +55,10 @@ For more information, see [Choose an Azure saving plan commitment amount](choo
 ## Buy a savings plan
 
 You can purchase savings from the [Azure portal](https://portal.azure.com/) and APIs. For more information, see [Buy a savings plan](buy-savings-plan.md).
+
+## How to find products covered under a savings plan
+
+The complete list of savings plan eligible products is found in your price sheet, which can be downloaded from the [Azure portal](https://portal.azure.com). The EA portal price sheet doesn't include savings plan pricing. After you download the file, filter `Price Type` by `Savings Plan` to see the one-year and three-year prices.
 
 ## How is a savings plan billed?
 
