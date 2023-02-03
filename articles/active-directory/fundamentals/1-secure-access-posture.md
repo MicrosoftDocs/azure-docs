@@ -2,7 +2,7 @@
 title: Determine your security posture for external access with Azure Active Directory 
 description: Learn about governance of external access and assessing collaboration needs, by scenario
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
