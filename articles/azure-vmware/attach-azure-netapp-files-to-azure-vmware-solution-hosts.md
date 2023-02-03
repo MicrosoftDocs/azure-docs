@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/30/2023
+ms.date: 02/03/2023
 ms.custom: references_regions
 ---
 
@@ -67,6 +67,8 @@ There are some important best practices to follow for optimal performance of NFS
 
 > [!IMPORTANT]
 >Changing the Azure NetApp Files volumes tier after creating the datastore will result in unexpected behavior in portal and API due to metadata mismatch. Set your performance tier of the Azure NetApp Files volume when creating the datastore. If you need to change tier during run time, detach the datastore, change the performance tier of the volume and attach the datastore. We are working on improvements to make this seamless.
+
+For performance benchmarks that Azure NetApp Files datastores deliver for virtual machines on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -166,6 +168,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md)
 - [Understand Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md)
 - [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md)  
 
 ## FAQs
 
