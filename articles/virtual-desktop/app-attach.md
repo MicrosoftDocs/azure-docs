@@ -46,7 +46,9 @@ You'll need to run PowerShell as an Administrator to run the commands in the fol
 
 Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using and whether your disk image is in *cim* or *VHD(X)* format.
 
-### [CimFS](#tab/cimfs)
+### CimFS
+
+If your disk image is in VHD(X) format, ignore this section and skip ahead to either [PowerShell 6 and later](#powershell-6-and-later) or [PowerShell 5.1 and earlier](#powershell-51-and-earlier), depending on which version of PowerShell you're using.
 
 If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll need run the following cmdlets to install a PowerShell module from the PowerShell image gallery in order to use the commands in this article.
 
@@ -55,9 +57,7 @@ Install-Module CimDiskImage
 Import-Module CimDiskImage
 ```
 
-### [VHD(X)](#tab/vhdx)
-
-#### PowerShell 6 and later
+### PowerShell 6 and later
 
 To stage packages at boot using PowerShell 6 or later, you'll need to run the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
 
@@ -82,22 +82,15 @@ To stage packages at boot using PowerShell 6 or later, you'll need to run the fo
    Add-Type -AssemblyName $dllSdkNet.FullName
    ```
 
-1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
+### PowerShell 5.1 and earlier
 
-#### PowerShell 5.1 and earlier
-
-To stage packages at boot with PowerShell version 5.1 or earlier:
-
-1. Run this command:
+To stage packages at boot with PowerShell version 5.1 or earlier, run this command:
 
    ```powershell
    #Required for PowerShell versions less than or equal to 5.1
    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
    Add-Type -AssemblyName System.Runtime.WindowsRuntime
    ```
-
-1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
----
 
 >[!NOTE]
 >Microsoft Support doesn't currently support this module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
