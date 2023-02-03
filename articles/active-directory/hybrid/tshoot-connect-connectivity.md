@@ -166,7 +166,7 @@ The following example is a dump from an actual proxy log and the installation wi
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Initial Sync**
+**Initial sync**
 
 | Time | URL |
 | --- | --- |
@@ -181,11 +181,11 @@ This section covers errors that might be returned from the ADAL and PowerShell. 
 
 ### Invalid grant
 
-You entered an invalid user name or password. For more information, see [The password can't be verified](#the-password-cant-be-verified).
+You entered an invalid username or password. For more information, see [The password can't be verified](#the-password-cant-be-verified).
 
 ### Unknown user type
 
-Your Azure AD directory can't be found or resolved. Maybe you tried to sign in with a user name in an unverified domain?
+Your Azure AD directory can't be found or resolved. Maybe you tried to sign in with a username in an unverified domain?
 
 ### User realm discovery failed
 

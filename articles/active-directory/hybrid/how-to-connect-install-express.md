@@ -33,13 +33,13 @@ If the express settings installation doesn't match your topology, see [Related a
 
    :::image type="content" source="media/how-to-connect-install-express/express.png" alt-text="Screenshot that shows the welcome page in the Azure AD Connect installation wizard.":::
 
-1. In **Connect to Azure AD**, enter the user name and password of the Hybrid Identity Administrator account, and then select **Next**.
+1. In **Connect to Azure AD**, enter the username and password of the Hybrid Identity Administrator account, and then select **Next**.
 
    :::image type="content" source="media/how-to-connect-install-express/connectaad.png" alt-text="Screenshot that shows the Connect to Azure AD page in the installation wizard.":::
 
    If an error message appears or if you have problems with connectivity, see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
-1. In **Connect to AD DS**, enter the user name and password for an Enterprise Admin account. You can enter the domain part in either NetBIOS or FQDN format, like `FABRIKAM\administrator` or `fabrikam.com\administrator`. Select **Next**.
+1. In **Connect to AD DS**, enter the username and password for an Enterprise Admin account. You can enter the domain part in either NetBIOS or FQDN format, like `FABRIKAM\administrator` or `fabrikam.com\administrator`. Select **Next**.
 
    :::image type="content" source="media/how-to-connect-install-express/connectad.png" alt-text="Screenshot that shows the Connect to AD DS page in the installation wizard.":::
 
