@@ -36,7 +36,7 @@ Application Configuration Service for Tanzu supports Azure DevOps, GitHub, GitLa
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 The following table describes properties for each entry.
 
@@ -205,9 +205,9 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
-## Enable/Disable Application Configuration Service after service creation
+## Enable/disable Application Configuration Service after service creation
 
-You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps to it.
+You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps from it.
 
 ### [Azure portal](#tab/Portal)
 
@@ -217,9 +217,9 @@ Use the following steps to enable or disable Application Configuration Service u
 
 1. Select **Manage**.
 
-1. Select or unselect the **Enable Application Configuration Service**, and then select **Save**.
+1. Select or unselect **Enable Application Configuration Service**, and then select **Save**.
 
-1. You can then view the state of Application Configuration Service on the **Application Configuration Service**.
+1. You can now view the state of Application Configuration Service on the **Application Configuration Service** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
