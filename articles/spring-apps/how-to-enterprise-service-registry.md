@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 06/17/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -451,9 +451,9 @@ This command produces the following output.
 
 In this way, you can obtain detailed information from the program as needed.
 
-## Enable/Disable Service Registry after service creation
+## Enable/disable Service Registry after service creation
 
-You can enable and disable Service Registry after service creation using the Azure portal or Azure CLI. Before disabling Service Registry, you're required to unbind all of your apps to it.
+You can enable and disable Service Registry after service creation using the Azure portal or Azure CLI. Before disabling Service Registry, you're required to unbind all of your apps from it.
 
 ### [Azure portal](#tab/Portal)
 
@@ -462,8 +462,7 @@ Use the following steps to enable or disable Service Registry using the Azure po
 1. Navigate to your service resource, and then select **Service Registry**.
 1. Select **Manage**.
 1. Select or unselect the **Enable Service Registry**, and then select **Save**.
-
-1. You can then view the state of Service Registry on the **Service Registry**.
+1. You can then view the state of Service Registry on the **Service Registry** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

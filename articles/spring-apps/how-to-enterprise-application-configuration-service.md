@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 02/09/2022
 ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 ---
 
@@ -205,7 +205,7 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
-## Enable/Disable Application Configuration Service after service creation
+## Enable/disable Application Configuration Service after service creation
 
 You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps to it.
 
@@ -214,12 +214,9 @@ You can enable and disable Application Configuration Service after service creat
 Use the following steps to enable or disable Application Configuration Service using the Azure portal:
 
 1. Navigate to your service resource, and then select **Application Configuration Service**.
-
 1. Select **Manage**.
-
 1. Select or unselect the **Enable Application Configuration Service**, and then select **Save**.
-
-1. You can then view the state of Application Configuration Service on the **Application Configuration Service**.
+1. You can then view the state of Application Configuration Service on the **Application Configuration Service** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
