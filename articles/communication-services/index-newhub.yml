@@ -62,7 +62,7 @@ productDirectory:
         text: What is email communication service?
       - url: ./quickstarts/email/send-email.md
         text: Send an email
-      - url: ./concepts/email/email-overview
+      - url: ./concepts/email/email-overview.md
         text: Email overview
       - url: ./concepts/email/email-authentication-best-practice.md
         text: Best practices for sender authentication support
@@ -84,7 +84,7 @@ productDirectory:
   - title: Voice and Video Calling
     imageSrc: ./media/icons/video-icon.png
     links:
-      - url: ./concepts/voice-video-calling/calling-sdk-features
+      - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Voice and video calling overview?
       - url: ./quickstarts/voice-video-calling/get-started-with-video-calling.md
         text: Add video calling to your app
@@ -134,7 +134,7 @@ additionalContent:
           url: ./concepts/call-automation/call-automation.md
         - title: Build notifications into your customer journey
           summary: Send important communications to your customers using our SMS, email and push notification services.
-          url: ./tutorials/add-chat-push-notifications
+          url: ./tutorials/add-chat-push-notifications.md
       
     - title: Additional Resources
       items:
