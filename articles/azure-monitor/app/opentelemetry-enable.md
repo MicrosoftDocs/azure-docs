@@ -46,13 +46,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - A Java application using Java 8+
 
-### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-- Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
-  - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
-  - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
-
-### [Node.js (TypeScript)](#tab/nodejs-typescript)
+### [Node.js](#tab/nodejs)
 
 - Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
@@ -94,37 +88,7 @@ Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Install these packages:
-
-- [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
-- [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
-- [@azure/monitor-opentelemetry-exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
-- [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
-
-```sh
-npm install @opentelemetry/sdk-trace-base
-npm install @opentelemetry/sdk-trace-node
-npm install @azure/monitor-opentelemetry-exporter
-npm install @opentelemetry/api
-```
-
-The following packages are also used for some specific scenarios described later in this article:
-
-- [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
-- [@opentelemetry/resources](https://www.npmjs.com/package/@opentelemetry/resources)
-- [@opentelemetry/semantic-conventions](https://www.npmjs.com/package/@opentelemetry/semantic-conventions)
-- [@opentelemetry/instrumentation-http](https://www.npmjs.com/package/@opentelemetry/instrumentation-http)
-
-```sh
-npm install @opentelemetry/sdk-metrics
-npm install @opentelemetry/resources
-npm install @opentelemetry/semantic-conventions
-npm install @opentelemetry/instrumentation-http
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Install these packages:
 
@@ -222,7 +186,7 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
     
 If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
-##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+##### [Node.js](#tab/nodejs)
 
 The following code demonstrates how to enable OpenTelemetry in a simple JavaScript application:
 
@@ -286,71 +250,6 @@ function doWork(parent) {
 
 ```
 
-##### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-The following code demonstrates how to enable OpenTelemetry in a simple TypeScript application:
-
-```typescript
-import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-import { BatchSpanProcessor} from "@opentelemetry/sdk-trace-base";
-import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-import { Context, context, Span, SpanOptions, trace, Tracer } from "@opentelemetry/api";
-
-const provider = new NodeTracerProvider();
-provider.register();
-
-// Create an exporter instance.
-const exporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-// Add the exporter to the provider.
-provider.addSpanProcessor(
-  new BatchSpanProcessor(exporter)
-);
-
-// Create a tracer.
-const tracer: Tracer = trace.getTracer("example-basic-tracer-node");
-
-// Create a span. A span must be closed.
-const parentSpan: Span = tracer.startSpan("main");
-
-for (let i = 0; i < 10; i += 1) {
-   doWork(parentSpan);
-}
-
-// Be sure to end the span.
-parentSpan.end();
-
-function doWork(parent: Span) {
-  // Start another span. In this example, the main method already started a
-  // span, so that will be the parent span, and this will be a child span.
-  const ctx: Context = trace.setSpan(context.active(), parent);
-
-  // Set attributes to the span.
-  // Check the SpanOptions interface for more options that can be set into the span creation
-  const options: SpanOptions = {
-      attributes: {
-        "key": "value"
-      }
-  };
-
-  // Create a span and attach the span options and parent span context.
-  const span: Span = tracer.startSpan("doWork", options, ctx);
-
-  // Simulate some random work.
-  for (let i = 0; i <= Math.floor(Math.random() * 40000000); i += 1) {
-    // empty
-  }
-
-  // Annotate our span to capture metadata about our operation.
-  span.addEvent("invoking doWork");
-
-  // Mark the end of span execution.
-  span.end();
-}
-```
-
 ##### [Python](#tab/python)
 
 The following code demonstrates how to enable OpenTelemetry in a simple Python application:
@@ -378,7 +277,7 @@ with tracer.start_as_current_span("hello"):
 ---
 
 > [!TIP]
-> For .NET, Node.js (JavaScript), Node.js (TypeScript), and Python, you'll need to manually add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
+> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
 #### Set the Application Insights connection string
 
@@ -410,11 +309,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    }
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
@@ -472,7 +367,7 @@ To set the cloud role name, see [cloud role name](java-standalone-config.md#clou
 
 To set the cloud role instance, see [cloud role instance](java-standalone-config.md#cloud-role-instance).
 
-### [Node.js (JavaScript)](#tab/nodejs-javascript)
+### [Node.js](#tab/nodejs)
 
 Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
 
@@ -502,40 +397,6 @@ const tracerProvider = new NodeTracerProvider({
 const meterProvider = new MeterProvider({
 	resource: testResource
 });
-```
-
-### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
-
-```typescript
-import { Resource } from "@opentelemetry/resources";
-import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
-import { NodeTracerConfig, NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-import { MeterProvider, MeterProviderOptions } from "@opentelemetry/sdk-metrics";
-
-// ----------------------------------------
-// Setting role name and role instance
-// ----------------------------------------
-const testResource = new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
-    [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
-    [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
-});
-
-const tracerProviderConfig: NodeTracerConfig = {
-    resource: testResource
-};
-const meterProviderConfig: MeterProviderOptions = {
-    resource: testResource
-};
-
-// ----------------------------------------
-// Done setting role name and role instance
-// ----------------------------------------
-const tracerProvider = new NodeTracerProvider(tracerProviderConfig);
-const meterProvider = new MeterProvider(meterProviderConfig);
-...
 ```
 
 ### [Python](#tab/python)
@@ -601,7 +462,7 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 Starting from 3.4.0, rate-limited sampling is available and is now the default. See [sampling]( java-standalone-config.md#sampling) for more information.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 ```javascript
 const { BasicTracerProvider, SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
@@ -619,25 +480,6 @@ const exporter = new AzureMonitorTraceExporter({
   connectionString: "<Your Connection String>"
 });
 
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.register();
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-```typescript
-import { BasicTracerProvider, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
-import { ApplicationInsightsSampler, AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-
-// Sampler expects a sample rate of between 0 and 1 inclusive
-// A rate of 0.1 means approximately 10% of your traces are sent
-const aiSampler = new ApplicationInsightsSampler(0.75);
-const provider = new BasicTracerProvider({
-  sampler: aiSampler
-});
-const exporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 provider.register();
 ```
@@ -789,17 +631,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 [//]: # "}"
 [//]: # "console.log(str)"
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Requests/Dependencies
-- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
-  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
-  
-Dependencies
-- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
-  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Requests/Dependencies
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
@@ -846,12 +678,7 @@ Autocollected metrics
 * Micrometer, including Spring Boot Actuator metrics
 * JMX Metrics
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
-  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
   [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
@@ -868,7 +695,7 @@ Autocollected metrics
 ---
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js (JavaScript), Node.js (TypeScript), and Python, whatever you set as the meter name becomes the metrics namespace.
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
 
 ### Logs
 
@@ -885,11 +712,7 @@ Autocollected logs
 * JBoss Logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC properties)
 * java.util.logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Coming soon.
 
@@ -1014,7 +837,7 @@ public class Program
 
 Coming soon.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
  ```javascript
     const {
@@ -1042,36 +865,6 @@ Coming soon.
     histogram.record(1, { testKey: "testValue" });
     histogram.record(30, { testKey: "testValue2" });
     histogram.record(100, { testKey2: "testValue" });
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
- ```typescript
-    import {
-        MeterProvider,
-        PeriodicExportingMetricReader,
-        PeriodicExportingMetricReaderOptions
-    } from "@opentelemetry/sdk-metrics";
-    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
-
-    const provider = new MeterProvider();
-    const exporter = new AzureMonitorMetricExporter({
-        connectionString: "<Your Connection String>",
-    });
-    
-    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
-        exporter: exporter,
-    };
-    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
-
-    provider.addMetricReader(metricReader);
-
-    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
-    let histogram = meter.createHistogram("histogram");
-
-    histogram.record(1, { "testKey": "testValue" });
-    histogram.record(30, { "testKey": "testValue2" });
-    histogram.record(100, { "testKey2": "testValue" });
 ```
 
 #### [Python](#tab/python)
@@ -1141,7 +934,7 @@ public class Program
 
 Coming soon.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 ```javascript
     const {
@@ -1157,33 +950,6 @@ Coming soon.
     const metricReader = new PeriodicExportingMetricReader({
         exporter: exporter,
     });
-    provider.addMetricReader(metricReader);
-    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
-    let counter = meter.createCounter("counter");
-    counter.add(1, { "testKey": "testValue" });
-    counter.add(5, { "testKey2": "testValue" });
-    counter.add(3, { "testKey": "testValue2" });
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-```typescript
-    import {
-        MeterProvider,
-        PeriodicExportingMetricReader,
-        PeriodicExportingMetricReaderOptions
-    } from "@opentelemetry/sdk-metrics";
-    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
-
-    const provider = new MeterProvider();
-    const exporter = new AzureMonitorMetricExporter({
-    connectionString:
-        connectionString: "<Your Connection String>",
-    });
-    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
-        exporter: exporter,
-    };
-    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
     provider.addMetricReader(metricReader);
     const meter = provider.getMeter("OTel.AzureMonitor.Demo");
     let counter = meter.createCounter("counter");
@@ -1262,7 +1028,7 @@ public class Program
 
 Coming soon.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 ```javascript
     const {
@@ -1283,33 +1049,6 @@ Coming soon.
     const meter = provider.getMeter("OTel.AzureMonitor.Demo");
     let gauge = meter.createObservableGauge("gauge");
     gauge.addCallback((observableResult) => {
-        let randomNumber = Math.floor(Math.random() * 100);
-        observableResult.observe(randomNumber, {"testKey": "testValue"});
-    });
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-```typescript
-    import {
-        MeterProvider,
-        PeriodicExportingMetricReader,
-        PeriodicExportingMetricReaderOptions
-    } from "@opentelemetry/sdk-metrics";
-    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
-
-    const provider = new MeterProvider();
-    const exporter = new AzureMonitorMetricExporter({
-        connectionString: "<Your Connection String>",
-    });
-    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
-        exporter: exporter,
-    };
-    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
-    provider.addMetricReader(metricReader);
-    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
-    let gauge = meter.createObservableGauge("gauge");
-    gauge.addCallback((observableResult: ObservableResult) => {
         let randomNumber = Math.floor(Math.random() * 100);
         observableResult.observe(randomNumber, {"testKey": "testValue"});
     });
@@ -1403,7 +1142,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 ```javascript
 const { trace } = require("@opentelemetry/api");
@@ -1417,29 +1156,6 @@ const exporter = new AzureMonitorTraceExporter({
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 provider.register();
 const tracer = trace.getTracer("example-basic-tracer-node");
-let span = tracer.startSpan("hello");
-try{
-    throw new Error("Test Error");
-}
-catch(error){
-    span.recordException(error);
-}
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-```typescript
-import * as opentelemetry from "@opentelemetry/api";
-import { BasicTracerProvider, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
-import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-
-const provider = new BasicTracerProvider();
-const exporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>",
-});
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter as any));
-provider.register();
-const tracer = opentelemetry.trace.getTracer("example-basic-tracer-node");
 let span = tracer.startSpan("hello");
 try{
     throw new Error("Test Error");
@@ -1576,11 +1292,7 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Coming soon.
   
@@ -1630,11 +1342,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
     Span.current().addEvent("eventName");
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Coming soon.
   
@@ -1719,12 +1427,8 @@ This is not available in .NET.
     }
     ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
   
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
- 
 Coming soon.
  
 #### [Python](#tab/python)
@@ -1824,7 +1528,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
 
-##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+##### [Node.js](#tab/nodejs)
 
 Use a custom processor:
 
@@ -1845,41 +1549,6 @@ class SpanEnrichingProcessor {
     }
     onStart(_span){}
     onEnd(span){
-        span.attributes["CustomDimension1"] = "value1";
-        span.attributes["CustomDimension2"] = "value2";
-    }
-}
-
-const provider = new NodeTracerProvider();
-const azureExporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-provider.addSpanProcessor(new SpanEnrichingProcessor());
-provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
-```
-
-##### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Use a custom processor:
-
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```typescript
-import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/sdk-trace-base";
-
-class SpanEnrichingProcessor implements SpanProcessor {
-    forceFlush(): Promise<void>{
-        return Promise.resolve();
-    }
-    shutdown(): Promise<void>{
-        return Promise.resolve();
-    }
-    onStart(_span: Span): void{}
-    onEnd(span: ReadableSpan){
         span.attributes["CustomDimension1"] = "value1";
         span.attributes["CustomDimension2"] = "value2";
     }
@@ -1945,7 +1614,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 Java automatically sets the user IP.
 
-##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+##### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
@@ -1957,23 +1626,6 @@ class SpanEnrichingProcessor {
     ...
 
     onEnd(span){
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
-    }
-}
-```
-
-##### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-```typescript
-...
-import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
-
-class SpanEnrichingProcessor implements SpanProcessor{
-    ...
-
-    onEnd(span: ReadableSpan){
         span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
     }
 }
@@ -2027,11 +1679,7 @@ Consult applicable privacy laws before you set the Authenticated User ID.
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Coming soon.
 
@@ -2056,11 +1704,7 @@ Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching 
 * [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-  
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
   
 Coming soon.
 
@@ -2120,7 +1764,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [Telemetry processors](java-standalone-telemetry-processors.md).
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
@@ -2175,63 +1819,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
         }
     }
     ```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-1. Exclude the URL option provided by many HTTP instrumentation libraries.
-
-    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
-    
-    ```typescript
-    import { IncomingMessage } from "http";
-    import { RequestOptions } from "https";
-    import { registerInstrumentations } from "@opentelemetry/instrumentation";
-    import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
-    import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-
-    const httpInstrumentationConfig: HttpInstrumentationConfig = {
-        ignoreIncomingRequestHook: (request: IncomingMessage) => {
-            // Ignore OPTIONS incoming requests
-            if (request.method === 'OPTIONS') {
-                return true;
-            }
-            return false;
-        },
-        ignoreOutgoingRequestHook: (options: RequestOptions) => {
-            // Ignore outgoing requests with /test path
-            if (options.path === '/test') {
-                return true;
-            }
-            return false;
-        }
-    };
-    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
-    const provider = new NodeTracerProvider();
-    provider.register();
-    registerInstrumentations({
-        instrumentations: [
-            httpInstrumentation,
-        ]
-    });
-    
-    ```
-
-2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-    ```typescript
-    ...
-    import { SpanKind, TraceFlags } from "@opentelemetry/api";
-    
-    class SpanEnrichingProcessor implements SpanProcessor{
-        ...
-    
-        onEnd(span: ReadableSpan) {
-            if(span.kind == SpanKind.INTERNAL){
-                span.spanContext().traceFlags = TraceFlags.NONE;
-            }
-        }
-    }
  
 #### [Python](#tab/python)
 
@@ -2329,11 +1916,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Coming soon.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 Coming soon.
 
@@ -2372,7 +1955,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 Coming soon.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
 
@@ -2391,32 +1974,6 @@ Coming soon.
     const provider = new BasicTracerProvider();
     const azureMonitorExporter = new AzureMonitorTraceExporter({
       connectionString: "<Your Connection String>",
-    });
-    const otlpExporter = new OTLPTraceExporter();
-    provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
-    provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
-    provider.register();
-    ```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
-
-    ```sh
-        npm install @opentelemetry/exporter-otlp-http
-        npm install @azure/monitor-opentelemetry-exporter
-    ```
-
-2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
-
-    ```typescript
-    import { BasicTracerProvider, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
-    import { OTLPTraceExporter } from '@opentelemetry/exporter-otlp-http';
-    import { AzureMonitorTraceExporter } from '@azure/monitor-opentelemetry-exporter';
-
-    const provider = new BasicTracerProvider();
-    const azureMonitorExporter = new AzureMonitorTraceExporter({
-        connectionString: "<Your Connection String>",
     });
     const otlpExporter = new OTLPTraceExporter();
     provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
@@ -2503,30 +2060,7 @@ In the *applicationinsights.json* file, you can configure these settings:
 
 For more information, see [Configuration options](./java-standalone-config.md).
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-By default, the AzureMonitorExporter uses one of the following locations for offline storage.
-
-- Windows
-  - %TEMP%\Microsoft\AzureMonitor
-- Non-Windows
-  - %TMPDIR%/Microsoft/AzureMonitor
-  - /var/tmp/Microsoft/AzureMonitor
-
-To override the default directory, you should set `storageDirectory`.
-
-For example:
-```javascript
-const exporter = new AzureMonitorTraceExporter({
-    connectionString: "<Your Connection String>",
-    storageDirectory: "C:\\SomeDirectory",
-    disableOfflineStorage: false
-});
-```
-
-To disable this feature, you should set `disableOfflineStorage = true`.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage.
 
@@ -2595,26 +2129,13 @@ The Azure Monitor Exporter uses EventSource for its own internal logging. The ex
 
 * See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+#### [Node.js](#tab/nodejs)
 
 Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
 
 ```javascript
 const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
 const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-
-const provider = new NodeTracerProvider();
-diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
-provider.register();
-```
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
-
-```typescript
-import { diag, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
-import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 
 const provider = new NodeTracerProvider();
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
@@ -2656,13 +2177,7 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 
 No known issues.
 
-#### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
-- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
-- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
-
-#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+#### [Node.js](#tab/nodejs)
 
 - Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
 - Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
@@ -2696,12 +2211,7 @@ To get support:
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 - For a list of open issues related to Azure Monitor Java Auto-Instrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
-### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-- For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
-- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
-
-### [Node.js (TypeScript)](#tab/nodejs-typescript)
+### [Node.js](#tab/nodejs)
 
 - For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
@@ -2739,15 +2249,7 @@ To provide feedback:
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
 
-### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-- To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter).
-- To install the npm package, check for updates, or view release notes, see the [Azure Monitor Exporter npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
-- To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples).
-- To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
-- To enable usage experiences, [enable web or browser user monitoring](javascript.md).
-
-### [Node.js (TypeScript)](#tab/nodejs-typescript)
+### [Node.js](#tab/nodejs)
 
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter).
 - To install the npm package, check for updates, or view release notes, see the [Azure Monitor Exporter npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
