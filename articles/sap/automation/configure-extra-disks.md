@@ -6,8 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 06/09/2022
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-automation
+ms.service: sap-on-azure
 ---
 
 # Change the disk configuration for the SAP deployment automation

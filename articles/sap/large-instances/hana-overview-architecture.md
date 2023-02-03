@@ -6,8 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-large-instances
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -57,7 +56,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md)
 - [High availability set up in SUSE by using a fencing device](./ha-setup-with-fencing-device.md)
 - [OS Backup](./large-instance-os-backup.md)
-- [Save on SAP HANA Large Instances with an Azure reservation](../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
+- [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Next steps**
 - Refer [Know the terms](hana-know-terms.md)

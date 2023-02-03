@@ -5,8 +5,7 @@ services: virtual-machines-linux
 documentationcenter: 
 author: rdeltcheva
 manager: juergent
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-vm-workloads
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

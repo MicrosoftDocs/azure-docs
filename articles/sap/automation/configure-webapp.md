@@ -6,8 +6,7 @@ ms.author: akashdubey
 ms.reviewer: wsheehan
 ms.date: 10/19/2022
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-automation
+ms.service: sap-on-azure
 ---
 
 # Configure the Control Plane Web Application

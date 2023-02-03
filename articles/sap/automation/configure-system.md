@@ -6,8 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 05/03/2022
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-automation
+ms.service: sap-on-azure
 ---
 
 # Configure SAP system parameters

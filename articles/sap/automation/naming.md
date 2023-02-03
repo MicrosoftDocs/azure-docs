@@ -5,9 +5,8 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
-ms.topic: conceptual
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-automation
+ms.topic: reference
+ms.service: sap-on-azure
 ---
 
 # Naming conventions for SAP automation framework

@@ -10,8 +10,7 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
-ms.service: azure-center-sap-solutions
-ms.subservice: sap-vm-workloads
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
