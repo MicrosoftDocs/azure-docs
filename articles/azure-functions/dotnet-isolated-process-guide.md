@@ -221,7 +221,7 @@ The following service-specific bindings are currently included in the preview:
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp
 
 > [!NOTE]
-> When using SDK types, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data aren't supported.
+> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself are not supported.
 
 ### HTTP trigger
 
