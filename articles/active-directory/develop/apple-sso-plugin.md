@@ -97,7 +97,7 @@ Common settings:
 
 ### Deployment guides
 
-Use the following deployment guides to enable the SSO plug-in using your chosen MDM solution:
+Use the following deployment guides to enable the Microsoft Enterprise SSO plug-in using your chosen MDM solution:
 
 #### Intune:
 * [iOS Guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune?tabs=prereq-intune%2Ccreate-profile-intune)
