@@ -168,7 +168,7 @@ az aks update -g MyResourceGroup -n MyManagedCluster
 
 Deletion image logs are stored in `eraser-aks-nodepool-xxx` pods for manually deleted images, and in `eraser-collector-xx` pods for automatically deleted images.
 
-You can view these logs by running `kubectl logs <pod name> -n kubesystem`. However, this may only return the most recent logs, since older logs are routinely deleted. To view all logs, follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table.
+You can view these logs by running `kubectl logs <pod name> -n kubesystem`. However, this command may return only the most recent logs, since older logs are routinely deleted. To view all logs, follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table.
 
 1. Ensure that Azure monitoring is enabled on the cluster. For detailed steps, see [Enable Container Insights for AKS cluster](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
 
