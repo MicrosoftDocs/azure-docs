@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2023
+ms.date: 02/03/2023
 ms.author: alkohli
 ---
 
@@ -52,10 +52,10 @@ The 2301 release has the following new features and enhancements:
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2301 release, there is an additional nodepool rollout. |  |
+|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2301 release, there is an additional nodepool rollout. |The update may take longer.  |
 |**2.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
 |**3.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
-|**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. Run the following cndlet: <we need the name of the cmdlet here from Piyush/Chinmay>.| 
+|**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
 
 ## Known issues from previous releases
 
