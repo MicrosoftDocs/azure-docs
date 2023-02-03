@@ -301,7 +301,7 @@ sudo apt-get install waagent
 ```
 
 Ensure auto update is enabled
-First, check to see if it is enabled:
+First, check to see if it's enabled:
 
 ```bash
 cat /etc/waagent.conf
