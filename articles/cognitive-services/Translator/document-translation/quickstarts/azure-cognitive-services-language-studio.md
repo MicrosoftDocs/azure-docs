@@ -94,4 +94,20 @@ Now that you've completed the initial configurations, you should be able to star
 
 ## Get started
 
-1. Navigate to Language Studio and select the Document Translator feature.
+1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
+
+1. If this is your first visit to Language Studio, you'll need to choose your language resource or create a new language resource in the Azure portal:
+
+   :::image type="content" source="../media/language-studio/choose-language-resource.png" alt-text="Screenshot of the language studio choose your resource dialog window.":::
+
+  > [!TIP]
+  > You can update your selected directory and resource on the settings page:
+  > :::image type="content" source="../media/language-studio/studio-settings-page.png" alt-text="Screenshot of the studio settings page.":::
+
+1. Navigate to the Language Studio and select the Document translation tile:
+
+  :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
+
+1. Starting with the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages:
+
+  :::image type="content" source="../media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
