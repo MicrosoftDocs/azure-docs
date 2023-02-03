@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Microsoft Enterprise SSO extension plugin on Apple devices
+title: Troubleshooting the Microsoft Enterprise SSO Extension plugin on Apple devices
 description: This article helps to troubleshoot deploying the Microsoft Enterprise SSO plug-in on Apple devices
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.reviewer:
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting the Microsoft Enterprise SSO extension plugin on Apple devices
+# Troubleshooting the Microsoft Enterprise SSO Extension plugin on Apple devices
 
 This article provides troubleshooting guidance used by administrators to resolve issues with deploying and using the [Enterprise SSO plugin](../develop/apple-sso-plugin.md). The Apple SSO extension can be deployed to iOS/iPadOS and macOS.
 
@@ -49,24 +49,24 @@ All Microsoft broker applications use a key artifact known as a Primary Refresh 
 
 The following flowchart outlines a logical flow for approaching troubleshooting the SSO Extension.  The rest of this article will go into detail on the steps depicted in this flowchart. The troubleshooting can be broken down into two separate focus areas: [Deployment](#deployment-troubleshooting) and [Application Auth Flow](#application-auth-flow-troubleshooting).
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for Apple SSO extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
+:::image type="content" source="./media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for Apple SSO extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
 
-## Deployment Troubleshooting
+## Deployment troubleshooting
 
 Most issues that customers encounter stem from either improper Mobile Device Management (MDM) configuration(s) of the SSO extension profile, or an inability for the Apple device to receive the configuration profile from the MDM. This section will cover the steps you can take to ensure that the MDM profile has been deployed to a Mac and that it has the correct configuration.
 
-### Deployment Requirements:
+### Deployment requirements
 
 - macOS operating system: **version 10.15 (Catalina)** or greater.
 - iOS operating system: **version 13** or greater.
 - Device is managed by any MDM vendor that supports [Apple macOS and/or iOS](https://support.apple.com/guide/deployment/dep1d7afa557/web) (MDM Enrollment).
 - Authentication Broker Software installed: [**Microsoft Intune Company Portal**](/mem/intune/apps/apps-company-portal-macos) or [**Microsoft Authenticator for iOS**](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a).
 
-#### Check macOS Operating System Version
+#### Check macOS operating system version
 
 Use the following steps to check the operating system (OS) version on the macOS device. Apple SSO Extension profiles will only be deployed to devices running  **macOS 10.15 (Catalina)** or greater. You can check the macOS version from either the [User Interface](#user-interface) or from the [Terminal](#terminal).
 
-##### User Interface
+##### User interface
 
 1. From the macOS device, click on the Apple icon in the top left corner and select **About This Mac**.
 
@@ -88,26 +88,26 @@ Use the following steps to check the operating system (OS) version on the macOS 
    BuildVersion: 22A400
    ```
 
-#### MDM Deployment of SSO Extension Configuration Profile
+#### MDM deployment of SSO extension configuration profile
 
 Work with your MDM administrator (or Device Management team) to ensure that the extension configuration profile is deployed to the Apple devices. The extension profile can be deployed from any MDM that supports macOS or iOS devices.
 
 > [!IMPORTANT]
-> Apple requires devices are enrolled into an MDM for the SSO Extension to be deployed.  
+> Apple requires devices are enrolled into an MDM for the SSO extension to be deployed.  
 
 The following table provides specific MDM installation guidance depending on which OS you're deploying the extension to:
 
-- [**iOS/iPadOS**: Deploy the Microsoft Enterprise SSO plug-in](mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune)
+- [**iOS/iPadOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune)
 - [**macOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune)
 
 > [!IMPORTANT]
-> Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.   
+> Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant.md) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.   
 
-#### Validate SSO Configuration Profile on macOS Device
+#### Validate SSO configuration profile on macOS device
 
 Assuming the MDM administrator has followed the steps in the previous section [MDM Deployment of SSO Extension Profile](#mdm-deployment-of-sso-extension-configuration-profile), the next step is to verify if the profile has been deployed successfully to the device.
 
-##### Locate SSO Extension MDM Configuration Profile
+##### Locate SSO extension MDM configuration profile
 
 1. From the macOS device, click on the **spotlight icon**.
 1. When the **Spotlight Search** appears type **Profiles** and hit **return**.
@@ -132,8 +132,8 @@ Assuming the MDM administrator has followed the steps in the previous section [M
    |**1**|**Signed**| Signing authority of the MDM provider. |
    |**2**|**Installed**| Date/Timestamp showing when the extension was installed (or updated). |
    |**3**|**Settings: Single Sign On Extension**|Indicates that this configuration profile is an **Apple SSO Extension** type.|
-   |**4**|**Extension**| Identifier that maps to the **bundle Id** of the application that is running the **Microsoft Enterprise Extension Plugin**. The identifier must **always** be set to **`com.microsoft.CompanyPortalMac.ssoextension`** and the Team Identifier must appear as **(UBF8T346G9)** if the profile is installed on a macOS device.  *Note: if any values differ, then the MDM won't invoke the extension correctly.*|
-   |**5**|**Type**| The **Microsoft Enterprise SSO Extension** must **always** be set to a **Redirect** extension type. For more information, see [Redirect vs Credential Extension Types](#redirect-vs-credential-extension-types). |
+   |**4**|**Extension**| Identifier that maps to the **bundle ID** of the application that is running the **Microsoft Enterprise Extension Plugin**. The identifier must **always** be set to **`com.microsoft.CompanyPortalMac.ssoextension`** and the Team Identifier must appear as **(UBF8T346G9)** if the profile is installed on a macOS device.  *Note: if any values differ, then the MDM won't invoke the extension correctly.*|
+   |**5**|**Type**| The **Microsoft Enterprise SSO Extension** must **always** be set to a **Redirect** extension type. For more information, see [Redirect vs Credential Extension Types](#extension-types). |
    |**6**|**URLs**| The login URLs belonging to the Identity Provider **(Azure AD)**. See list of [supported URLs](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services). |
 
    All Apple SSO Redirect Extensions must have the following MDM Payload components in the configuration profile:
@@ -146,18 +146,18 @@ Assuming the MDM administrator has followed the steps in the previous section [M
    |**Optional Extension Specific Configuration**| Dictionary values that may act as configuration parameters. In the context of Microsoft Enterprise SSO Extension, these configuration parameters are called feature flags. See [feature flag definitions](../develop/apple-sso-plugin.md#more-configuration-options). |
 
    > [!NOTE] 
-   > The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
+   > The MDM definitions for Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
 
-1. To verify that the correct profile for the Microsoft Apple SSO Extension is installed, the **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**.
+1. To verify that the correct profile for the Microsoft Enterprise SSO Extension is installed, the **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**.
 1. Take note of the **Installed** field in the configuration profile as it can be a useful troubleshooting indicator, when changes are made to its configuration.
 
 If the correct configuration profile has been verified, proceed to the [Application Auth Flow Troubleshooting](#application-auth-flow-troubleshooting) section.
 
-##### MDM Configuration Profile is Missing
+##### MDM configuration profile is missing
 
 If the SSO extension configuration profile doesn't appear in the **Profiles** list after following the [previous section](#locate-sso-extension-mdm-configuration-profile), it could be that the MDM configuration has User/Device targeting enabled, which is effectively **filtering out** the user or device from receiving the configuration profile. Check with your MDM administrator and collect the **Console** logs found in the [next section](#collect-mdm-specific-console-logs).
 
-###### Collect MDM Specific Console Logs
+###### Collect MDM specific console logs
 
 1. From the macOS device, click on the **spotlight icon**.
 1. When the **Spotlight Search** appears, type **Console** and hit **return**.
@@ -178,13 +178,13 @@ If the SSO extension configuration profile doesn't appear in the **Profiles** li
 
    :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png" alt-text="Screenshot showing a sample of an installed configuration profile in console logs" lightbox="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png":::
 
-## Application Auth Flow Troubleshooting
+## Application auth flow troubleshooting
 
 The guidance in this section assumes that the macOS device has a correctly deployed configuration profile. See [Validate SSO Configuration Profile on macOS Device](#validate-sso-configuration-profile-on-macos-device) for the steps.
 
 Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** supports two types of application authentication flows for each application type. When troubleshooting, it's important to understand the type of application being used.
 
-### Application Types
+### Application types
 
 | Application type | Interactive auth | Silent auth | Description | Examples |
 | --------- | :---: | :---: | --------- | :---: |
@@ -194,7 +194,7 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 > [!IMPORTANT]
 > Not all Microsoft first-party native applications use the MSAL framework. At the time of this article's publication, most of the Microsoft Office macOS applications still rely on the older ADAL library framework, and thus rely on the Browser SSO flow.
 
-#### How to Find the Bundle ID for an Application on macOS
+#### How to find the bundle ID for an application on macOS
 
 1. From the macOS device, click on the **spotlight icon**.
 1. When the **Spotlight Search** appears type **Terminal** and hit **return**.
@@ -218,9 +218,9 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 
 ### Bootstrapping
 
-By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO Extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
+By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
 
-#### Checking Keychain Access for PRT
+#### Checking keychain access for PRT
 
 1. From the macOS device, click on the **spotlight icon**.
 1. When the **Spotlight Search** appears, type **Keychain Access** and hit **return**.
@@ -246,19 +246,19 @@ By default, only MSAL apps invoke the SSO Extension, and then in turn the Extens
    - **Native MSAL**: Check that the application developer, if the app was built with **MSAL version 1.1 or greater**, has enabled the application to be broker aware. Also, check [**Deployment Troubleshooting steps**](#deployment-troubleshooting) to rule out any deployment issues.
    - **Non MSAL (Safari)**: Check to ensure that the feature flag **`browser_sso_interaction_enabled`** is set to 1 and not 0 in the MDM configuration profile
 
-#### Authentication Flow after Bootstrapping a PRT
+#### Authentication flow after bootstrapping a PRT
 
 Now that the PRT (shared credential) has been verified, before doing any deeper troubleshooting, it's helpful to understand the high-level steps for each application type and how it interacts with the Microsoft Enterprise SSO Extension plugin (broker app). The following animations and descriptions should help macOS administrators understand the scenario before looking at any logging data.  
 
-##### Native MSAL Application
+##### Native MSAL application
 
 Scenario: An application developed to use MSAL (Example: **Microsoft To Do** client) that is running on an Apple device needs to sign the user in with their Azure AD account in order to access an Azure AD protected service (Example: **Microsoft To Do Service**).
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-prt-msal-app.gif" alt-text="A GIF animation showing the authentication flow of an MSAL app with a PRT":::
 
-1. MSAL-developed applications invoke the SSO Extension directly, and send the PRT to the Azure AD token endpoint along with the application's request for a token for an Azure AD protected resource
-1. Azure AD validates the PRT credential, and returns an application-specific token back to the SSO Extension Broker
-1. The SSO Extension Broker then passes the token to the MSAL client application, which then sends it to the Azure AD protected resource
+1. MSAL-developed applications invoke the SSO extension directly, and send the PRT to the Azure AD token endpoint along with the application's request for a token for an Azure AD protected resource
+1. Azure AD validates the PRT credential, and returns an application-specific token back to the SSO extension broker
+1. The SSO extension broker then passes the token to the MSAL client application, which then sends it to the Azure AD protected resource
 1. The user is now signed into the app and the authentication process is complete
 
 ##### Non-MSAL/Browser SSO
@@ -269,16 +269,16 @@ Scenario: A user on an Apple device opens up the Safari web browser (or any Non-
 
 1. Using a Non-MSAL application (Example: **Safari**), the user attempts to sign into an Azure AD integrated application (Example: office.com) and is redirected to obtain a token from Azure AD
 1. As long as the Non-MSAL application is allow-listed in the MDM payload configuration, the Apple network stack intercepts the authentication request and redirects the request to the SSO Extension broker
-1. Once the SSO Extension receives the intercepted request, the PRT is sent to the Azure AD token endpoint
+1. Once the SSO extension receives the intercepted request, the PRT is sent to the Azure AD token endpoint
 1. Azure AD validates the PRT, and returns an application-specific token back to the SSO Extension
 1. The application-specific token is given to the Non-MSAL client application, and the client application sends the token to access the Azure AD protected service
 1. The user now has completed the sign-in and the authentication process is complete
 
-### Obtaining the SSO Extension Logs
+### Obtaining the SSO extension logs
 
-One of the most useful tools to troubleshoot various issues with the SSO Extension are the client logs from the Apple device. 
+One of the most useful tools to troubleshoot various issues with the SSO extension are the client logs from the Apple device. 
 
-#### Save SSO Extension Logs from Company Portal App
+#### Save SSO extension logs from Company Portal app
 
 1. From the macOS device, click on the **spotlight icon**.
 1. When the **Spotlight Search** appears, type **Company Portal** and hit **return**.
@@ -292,7 +292,7 @@ One of the most useful tools to troubleshoot various issues with the SSO Extensi
 > [!TIP]
 > A handy way to view the logs is using [**Visual Studio Code**](https://code.visualstudio.com/download) and installing the [**Log Viewer**](https://marketplace.visualstudio.com/items?itemName=berublan.vscode-log-viewer) extension.
 
-#### Tailing SSO Extension Logs with Terminal
+#### Tailing SSO extension logs with terminal
 
 During troubleshooting it may be useful to reproduce a problem while tailing the SSOExtension logs in real time:
 
@@ -304,7 +304,8 @@ During troubleshooting it may be useful to reproduce a problem while tailing the
    tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
    ```
 
-   >[!NOTE]The trailing /* indicates that multiple logs will be tailed should any exist
+   > [!NOTE]
+   > The trailing /* indicates that multiple logs will be tailed should any exist
 
    ```
    % tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
@@ -323,9 +324,9 @@ During troubleshooting it may be useful to reproduce a problem while tailing the
 
 1. As you reproduce the issue, keep the **Terminal** window open to observe the output from the tailed **SSOExtension** logs.
 
-### Understanding the SSO Extension Logs
+### Understanding the SSO extension logs
 
-Analyzing the SSO Extension logs is an excellent way to troubleshoot the authentication flow from applications sending authentication requests to Azure AD. Any time the SSO Extension Broker is invoked, a series of logging activities results, and these activities are known as **Authorization Requests**. The logs contain the following useful information for troubleshooting:
+Analyzing the SSO extension logs is an excellent way to troubleshoot the authentication flow from applications sending authentication requests to Azure AD. Any time the SSO extension Broker is invoked, a series of logging activities results, and these activities are known as **Authorization Requests**. The logs contain the following useful information for troubleshooting:
 
 - Feature Flag configuration
 - Authorization Request Types
@@ -337,28 +338,28 @@ Analyzing the SSO Extension logs is an excellent way to troubleshoot the authent
    - Device Registration
 
 > [!CAUTION]  
-> The SSO Extension logs are extremely verbose, especially when looking at Keychain credential operations. For this reason, it's always best to understand the scenario before looking at the logs during troubleshooting.
+> The SSO extension logs  are extremely verbose, especially when looking at Keychain credential operations. For this reason, it's always best to understand the scenario before looking at the logs during troubleshooting.
 
-#### Log Structure
+#### Log structure
 
-The SSO Extension logs are broken down into columns. The following screenshot shows the column breakdown of the logs:
+The SSO extension logs  are broken down into columns. The following screenshot shows the column breakdown of the logs:
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-column-structure.png" alt-text="Screenshot showing the column structure of the SSO Extension logs":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-column-structure.png" alt-text="Screenshot showing the column structure of the SSO extension logs ":::
 
 | Column | Column name | Description |
 |:---------:|:---------|---------|
 |**1**|**Local Date/Time**|The **Local** Date and Time displayed|
 |**2**|**I-Information<br>W-Warning<br>E-Error**|Displays Information, Warning, or Errors|
-|**3**|**Thread ID (TID)**|Displays the thread ID of the SSO Extension Broker App's execution|
-|**4**|**MSAL Version Number**|The Microsoft Enterprise SSO Extension Broker Plugin is build as an MSAL app. This column denotes the version of MSAL that the broker app is running   |
+|**3**|**Thread ID (TID)**|Displays the thread ID of the SSO extension Broker App's execution|
+|**4**|**MSAL Version Number**|The Microsoft Enterprise SSO extension Broker Plugin is build as an MSAL app. This column denotes the version of MSAL that the broker app is running   |
 |**5**|**macOS version**  |Show the version of the macOS operating system|
 |**6**|**UTC Date/Time**  |The **UTC** Date and Time displayed|
 |**7**|**Correlation ID**  |Lines in the logs that have to do with Azure AD or Keychain operations extend the UTC Date/Time column with a Correlation ID|
 |**8**|**Message**   |Shows the detailed messaging of the logs. Most of the troubleshooting information can be found by examining this column|
 
-#### Feature Flag Configuration
+#### Feature flag configuration
 
-During the MDM configuration of the Microsoft Enterprise SSO Extension, an optional extension specific data can be sent as instructions to change how the SSO Extension behaves. These configuration specific instructions are known as **Feature Flags**. The Feature Flag configuration is especially important for Non-MSAL/Browser SSO authorization requests types, as the Bundle ID can determine if the Extension will be invoked or not. See [Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options). Every authorization request begins with a Feature Flag configuration report. The following screenshot will walk through an example feature flag configuration:
+During the MDM configuration of the Microsoft Enterprise SSO Extension, an optional extension specific data can be sent as instructions to change how the SSO extension behaves. These configuration specific instructions are known as **Feature Flags**. The Feature Flag configuration is especially important for Non-MSAL/Browser SSO authorization requests types, as the Bundle ID can determine if the Extension will be invoked or not. See [Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options). Every authorization request begins with a Feature Flag configuration report. The following screenshot will walk through an example feature flag configuration:
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/feature-flag-configuration.png" alt-text="Screenshot showing an example feature flag configuration of the Microsoft SSO Extension":::
 
@@ -367,16 +368,16 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, an optio
 |**1**|**[browser_sso_interaction_enabled](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser)**|Non-MSAL or Safari browser can bootstrap a PRT   |
 |**2**|**[browser_sso_disable_mfa](../develop/apple-sso-plugin.md#disable-asking-for-mfa-during-initial-bootstrapping)**|During bootstrapping of the PRT credential, by default MFA is required. Notice this configuration is set to **null** which means that the default configuration will be enforced|
 |**3**|**[disable_explicit_app_prompt](../develop/apple-sso-plugin.md#disable-oauth-2-application-prompts)**|Replaces **prompt=login** authentication requests from applications to reduce prompting|
-|**4**|**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**|Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO Extension broker   |
+|**4**|**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**|Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO extension broker   |
 
 > [!IMPORTANT]
 > Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details
 
-#### MSAL Native Application sign-in Flow
+#### MSAL native application sign-in flow
 
-The following section will walk through how to examine the SSO Extension logs for the Native MSAL Application auth flow.  For this example, we're using the [MSAL macOS/iOS sample application](https://github.com/AzureAD/microsoft-authentication-library-for-objc) as the client application, and the application is making a call to the Microsoft Graph API to display the sign-in user's information.
+The following section will walk through how to examine the SSO extension logs  for the Native MSAL Application auth flow.  For this example, we're using the [MSAL macOS/iOS sample application](https://github.com/AzureAD/microsoft-authentication-library-for-objc) as the client application, and the application is making a call to the Microsoft Graph API to display the sign-in user's information.
 
-##### MSAL Native: Interactive Flow Walkthrough
+##### MSAL native: Interactive flow walkthrough
 
 The following actions should take place for a successful interactive sign-on:
 
@@ -468,8 +469,8 @@ The SSO Webview Controller appears and user is prompted to enter their Azure AD 
 > [!NOTE]
 > Clicking on the ***i*** in the bottom right corner of the webview controller displays more information about the SSO extension and the specifics about the app that has invoked it.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-single-sign-on-i-flyout.png" alt-text="Screenshot showing the more information details about the SSO Extension from the prompt SSO screen":::
-After the user successfully enters their Azure AD credentials, the following log entries are written to the SSO Extension logs
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-single-sign-on-i-flyout.png" alt-text="Screenshot showing the more information details about the SSO extension from the prompt SSO screen":::
+After the user successfully enters their Azure AD credentials, the following log entries are written to the SSO extension logs 
 
 ```
 SSOExtensionLogs
@@ -547,16 +548,16 @@ Finished SSO request.
 
 At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msftgraph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO Extension Broker":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msftgraph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker":::
 
-Next, examine server-side [Azure AD sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO Extension logs. For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
+Next, examine server-side [Azure AD Sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO extension logs . For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
 
-###### View Azure AD Sign-in logs by Correlation ID Filter
+###### View Azure AD Sign-in logs by correlation ID filter
 
-1. Open the Azure AD sign-ins for the tenant where the application is registered.
+1. Open the Azure AD Sign-ins for the tenant where the application is registered.
 1. Select **User sign-ins (interactive)**.
 1. Select the **Add Filters** and select the **Correlation Id** radio button.
-1. Copy and paste the Correlation ID obtained from the SSO Extension logs and select **Apply**.
+1. Copy and paste the Correlation ID obtained from the SSO extension logs  and select **Apply**.
 
 For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for the resource **Microsoft Authentication Broker** service. This event is where the user entered their password to bootstrap the PRT. 
 
@@ -564,21 +565,21 @@ For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for
 
 There will also be non-interactive sign-in events, due to the fact the PRT is used to acquire the access token for the client application's request. Follow the [View Azure AD Sign-in logs by Correlation ID Filter](#view-azure-ad-sign-in-logs-by-correlation-id-filter) but in step 2, select **User sign-ins (non-interactive)**.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-MSFTGraph.png" alt-text="Screenshot showing how the SSO Extension uses the PRT to acquire an access token for the Microsoft Graph":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-MSFTGraph.png" alt-text="Screenshot showing how the SSO extension uses the PRT to acquire an access token for the Microsoft Graph":::
 
-|  |  |
+|Sign-in log attribute  |Description  |
 |---------|---------|
 |**Application**| Display Name of the Application registration in the Azure AD tenant where the client application authenticates. |
 |**Application Id**| Also referred to the ClientID of the application registration in the Azure AD tenant. |
 |**Resource**| The API resource that the client application is trying to obtain access to. In this example, the resource is the **Microsoft Graph API**. |
 |**Incoming Token Type**| An Incoming token type of **Primary Refresh Token (PRT)** shows the input token being used to obtain an access token for the resource. |
-|**User Agent**| The user agent string in this example is showing that the **Microsoft SSO Extension** is the application processing this request. A useful indicator that the SSO Extension is being used, and broker auth request is taking place. |
+|**User Agent**| The user agent string in this example is showing that the **Microsoft SSO Extension** is the application processing this request. A useful indicator that the SSO extension is being used, and broker auth request is taking place. |
 |**Azure AD app authentication library**| When an MSAL application is being used the details of the library and the platform are written here. |
 |**Oauth Scope Information**| The Oauth2 scope information requested for the access token. (**User.Read**,**profile**,**openid**,**email**). |
 
-##### MSAL Native: Silent Flow Walkthrough
+##### MSAL Native: Silent flow walkthrough
 
-After a period of time, the access token will no longer be valid. So, if the user reclicks on the **Call Microsoft Graph API** button. The SSO Extension will attempt to refresh the access token with the already acquired PRT.
+After a period of time, the access token will no longer be valid. So, if the user reclicks on the **Call Microsoft Graph API** button. The SSO extension will attempt to refresh the access token with the already acquired PRT.
 
 ```
 SSOExtensionLogs
@@ -632,33 +633,33 @@ Finished SSO request.
 
 The logging sample can be broken down into two segments:
 
-|  |  |  |
-|---------|:---------:|---------|
-|**1**|**`refresh`** | Broker handles the request for Azure AD:<br> - **Handling silent SSO request...**: Denotes a silent request<br> - **correlation_id**: Useful for cross referencing with the Azure AD server-side sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**<br><br>**Refresh** has notable differences to the request payload:<br> - **authority**: Contains the Azure AD tenant URL endpoint as opposed to the **common** endpoint<br> - **home_account_id**: Show the User account in the format **\<UserObjectId\>.\<TenantID\>**<br> - **username**:  hashed UPN format **auth.placeholder-XXXXXXXX__domainname.com** |
-|**2**|**PRT Refresh and Acquire Access Token** | This operation will revalidate the PRT and refresh it if necessary, before returning the access token back to the calling client application. |
+|Segment |Description  |
+|:---------:|---------|
+|**`refresh`** | Broker handles the request for Azure AD:<br> - **Handling silent SSO request...**: Denotes a silent request<br> - **correlation_id**: Useful for cross referencing with the Azure AD server-side sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**<br><br>**Refresh** has notable differences to the request payload:<br> - **authority**: Contains the Azure AD tenant URL endpoint as opposed to the **common** endpoint<br> - **home_account_id**: Show the User account in the format **\<UserObjectId\>.\<TenantID\>**<br> - **username**:  hashed UPN format **auth.placeholder-XXXXXXXX__domainname.com** |
+|**PRT Refresh and Acquire Access Token** | This operation will revalidate the PRT and refresh it if necessary, before returning the access token back to the calling client application. |
 
 We can again take the **correlation Id** obtained from the client-side **SSO Extension** logs and cross reference with the server-side Azure AD Sign-in logs.
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-aadsignin-accesstoken.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin"::: 
 
-The Azure AD sign-in shows identical information to the Microsoft Graph resource from the **login** operation in the previous [interactive login section](#view-azure-ad-sign-in-logs-by-correlation-id-filter).  
+The Azure AD Sign-in shows identical information to the Microsoft Graph resource from the **login** operation in the previous [interactive login section](#view-azure-ad-sign-in-logs-by-correlation-id-filter).  
 
-#### Non-MSAL/Browser SSO Application Login Flow
+#### Non-MSAL/Browser SSO application login flow
 
-The following section will walk through how to examine the SSO Extension logs for the Non-MSAL/Browser Application auth flow.  For this example, we're using the Apple Safari browser as the client application, and the application is making a call to the Office.com (OfficeHome) web application. 
+The following section will walk through how to examine the SSO extension logs  for the Non-MSAL/Browser Application auth flow.  For this example, we're using the Apple Safari browser as the client application, and the application is making a call to the Office.com (OfficeHome) web application. 
 
-##### Non-MSAL/Browser SSO Flow Walkthrough
+##### Non-MSAL/Browser SSO flow walkthrough
 
 The following actions should take place for a successful sign-on:
 
 1. Assume that  User who already has undergone the bootstrapping process has an existing PRT.
 1. On a device, with the **Microsoft SSO Extension Broker** deployed, the configured **feature flags** will be checked to ensure that the application can be handled by the SSO Extension.
-1. Since the Safari browser adheres to the **Apple Networking Stack**, the SSO Extension will try to intercept the Azure AD auth request.
+1. Since the Safari browser adheres to the **Apple Networking Stack**, the SSO extension will try to intercept the Azure AD auth request.
 1. The PRT will be used to acquire a token for the resource being requested.
 1. If the device is Azure AD Registered, it will pass the Device ID along with the request.
-1. The SSO Extension will populate the header of the Browser request to sign-in to the resource.
+1. The SSO extension will populate the header of the Browser request to sign-in to the resource.
 
-The following client-side **SSO Extension** logs show the request being handled transparently by the SSO Extension Broker to fulfill the request.
+The following client-side **SSO Extension** logs show the request being handled transparently by the SSO extension broker to fulfill the request.
 
 ```
 SSOExtensionLogs
@@ -691,28 +692,28 @@ Request does not need UI
 Request complete
 ```
 
-|  |  |
+|SSO extension log component |Desciption  |
 |---------|---------|
 |**Created Browser SSO request** | All Non-MSAL/Browser SSO requests begin with this line:<br> - **bundle identifier**: [Bundle ID](#how-to-find-the-bundle-id-for-an-application-on-macos): `com.apple.Safari`<br> - **initiating origin**: Web URL the browser is accessing before hitting one of the login URLs for Azure AD (https://office.com) |
 |**Starting Browser SSO request for authority**|Resolves the number of PRTs and if the Device is Registered:<br>https://login.microsoftonline.com/common, number of **PRTs 1, device registered 1** |
 |**Correlation ID** | [Browser SSO] Processing request with PRTs and correlation ID in headers (null), query **\<CorrelationID\>**. This ID is important for cross-referencing with the Azure AD server-side sign-in logs |
-|**Device Registration** | Optionally if the device is Azure AD Registered, the SSO Extension can pass the device header in Browser SSO requests: <br> - Found registration registered in<br> - **login.microsoftonline.com, isSameAsRequestEnvironment: Yes** <br><br>Passing device header in browser SSO for **device id** `43cfaf69-0f94-4d2e-a815-c103226c4c04`|
+|**Device Registration** | Optionally if the device is Azure AD Registered, the SSO extension can pass the device header in Browser SSO requests: <br> - Found registration registered in<br> - **login.microsoftonline.com, isSameAsRequestEnvironment: Yes** <br><br>Passing device header in browser SSO for **device id** `43cfaf69-0f94-4d2e-a815-c103226c4c04`|
 
-Next, use the correlation ID obtained from the Browser SSO Extension logs to cross-reference the Azure AD sign-in logs.
+Next, use the correlation ID obtained from the Browser SSO extension logs  to cross-reference the Azure AD Sign-in logs.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browsersso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD sign-in logs for the Browser SSO Extension":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browsersso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD Sign-in logs for the Browser SSO Extension":::
 
-|  |  |
+|Sign-in log attribute  |Description  |
 |---------|---------|
 |**Application**| Display Name of the Application registration in the Azure AD tenant where the client application authenticates. In this example, the display name is **OfficeHome**. |
 |**Application Id**| Also referred to the ClientID of the application registration in the Azure AD tenant. |
 |**Resource**| The API resource that the client application is trying to obtain access to. In this example, the resource is the **OfficeHome** web application. |
 |**Incoming Token Type**| An Incoming token type of **Primary Refresh Token (PRT)** shows the input token being used to obtain an access token for the resource. |
-|**Authentication method detected**| Under the **Authentication Details** tab, the value of  **Azure AD SSO plug-in** is useful indicator that the SSO Extension is being used to facilitate the Browser SSO request   |
-|**Azure AD SSO extension version**| Under the **Additional Details** tab, this value shows the version of the Microsoft Enterprise SSO Extension Broker app. |
-|**Device ID**| If the device is registered, the SSO Extension can pass the Device ID to handle device authentication requests. |
+|**Authentication method detected**| Under the **Authentication Details** tab, the value of  **Azure AD SSO plug-in** is useful indicator that the SSO extension is being used to facilitate the Browser SSO request   |
+|**Azure AD SSO extension version**| Under the **Additional Details** tab, this value shows the version of the Microsoft Enterprise SSO extension Broker app. |
+|**Device ID**| If the device is registered, the SSO extension can pass the Device ID to handle device authentication requests. |
 |**Operating System**| Shows the type of operating system. |
-|**Compliant**| SSO Extension can facilitate Compliance policies by passing the device header. The requirements are:<br> - **Azure AD Device Registration**<br> - **MDM Management**<br> - **Intune or Intune Partner  Compliance** |
+|**Compliant**| SSO extension can facilitate Compliance policies by passing the device header. The requirements are:<br> - **Azure AD Device Registration**<br> - **MDM Management**<br> - **Intune or Intune Partner  Compliance** |
 |**Managed**| Indicates that device is under management. |
 |**Join Type**| macOS and iOS, if registered, can only be of type: **Azure AD Registered**. |
 
