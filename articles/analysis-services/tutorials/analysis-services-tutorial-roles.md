@@ -2,7 +2,7 @@
 title: Tutorial - Configure Azure Analysis Services roles | Microsoft Docs
 description: In this tutorial, learn how to configure Azure Analysis Services administrator and user roles by using the Azure portal or SQL Server Management Studio.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: owend
