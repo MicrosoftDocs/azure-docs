@@ -23,7 +23,10 @@ ms.subservice: calling
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
 
 > [!NOTE]
-> This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+> This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling).
+
+> [!NOTE]
+> Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 The Azure Communication Calling SDK allows you to create video effects that other users on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. When background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
 
@@ -44,16 +47,15 @@ For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tok
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
 
-'npm install @azure/communication-calling-effects –save'
+```console
+npm install @azure/communication-calling-effects --save
+```
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
 
 ## Supported video effects:
 Currently the video effects support the following ability:
 - Background blur 
 - Replace the background with a custom image 
-
-## Browser support: 
-
-Currently creating video effects is only supported on Chrome and Edge Desktop Browser and Mac Safari Desktop.
 
 ## Class model:
 
@@ -69,12 +71,10 @@ To use video effects with the Azure Communication Calling client library, once y
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/communication-calling-effects'; 
 
-/** Assuming you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
-(reference <link to main SDK npm>) 
-*/ 
+// Ensure you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
 
 // Get the video effects feature api on the LocalVideoStream 
-const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
+const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
 // Subscribe to useful events 
 videoEffectsFeatureApi.on(‘effectsStarted’, () => { 
@@ -99,9 +99,7 @@ const backgroundBlurSupported = await backgroundBlurEffect.isSupported();
 
 if (backgroundBlurSupported) { 
     // Use the video effects feature api we created to start/stop effects 
-
     await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
-
 } 
 
  
@@ -115,9 +113,7 @@ const backgroundImage = 'https://linkToImageFile';
 
 // Create the effect instance 
 const backgroundReplacementEffect = new BackgroundReplacementEffect({ 
-
     backgroundImageUrl: backgroundImage 
-
 }); 
 
 // Recommended: Check if background replacement is supported:
@@ -128,16 +124,14 @@ if (backgroundReplacementSupported) {
     await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
 } 
 
-You can change the image used for this effect by passing it in the a new configure method: 
+//You can change the image used for this effect by passing it in the a new configure method: 
 
 const newBackgroundImage = 'https://linkToNewImageFile';
 await backgroundReplacementEffect.configure({ 
-
     backgroundImageUrl: newBackgroundImage 
-
 }); 
 
-You can switch the effects using the same method on the video effects feature api: 
+//You can switch the effects using the same method on the video effects feature api: 
 
 // Switch to background blur 
 await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 

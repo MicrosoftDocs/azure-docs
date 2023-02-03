@@ -363,6 +363,8 @@ items:
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
             href: concepts/interop/guest/government-cloud.md
+          - name: Security
+            href: concepts/interop/guest/security.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
