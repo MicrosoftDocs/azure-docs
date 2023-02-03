@@ -33,25 +33,22 @@ In order to segregate worker nodes into different subnets, two main steps need t
 
 See [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) for instructions on performing this step.
 
+## Create the subnets and associated machine sets
 
-
-## Create the subnets and their associated subnets
-
-Once you've deployed your ARO cluster, you'll need to create extra subnets as part of the same overall virtual network and create new machine sets for those subnets. Follow the sections below to complete this requirement.
+Once you've deployed your ARO cluster, you'll need to create extra subnets as part of the same overall virtual network and create new machine sets for those subnets.
 
 ### Step 1: Create the subnets
 
-Create the subnets as part of the current virtual network in which ARO is deployed. Make sure that all the subnets are updated to the Microsoft.ContainerRegistry for service-endpoints. Follow the sections below to complete this step.
+Create the subnets as part of the current virtual network in which ARO is deployed. Make sure that all the subnets are updated to the `Microsoft.ContainerRegistry` for **Service Endpoints**.
 
-
-:::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted.":::
+:::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted." lightbox="media/howto-segregate-machinesets/subnets-window.png":::
 
 ### Step 2: Log into the jumphost
 
 > [!NOTE]
-> This steps is optional of you have an alternative method for logging into the ARO cluster.
+> This steps is optional if you have an alternate method for logging into the ARO cluster.
 
-Use the following command to log in to the jumphost:
+Use the following command to log into the jumphost:
 
 `oc login https://api.fq5v3vye.useast.aroapp.io:6443/ -u kubeadmin -p`
 
@@ -76,16 +73,15 @@ openshift-machine-api   simon-aro-st5rm-worker-useast2   1         1         1  
 openshift-machine-api   simon-aro-st5rm-worker-useast3   1         1         1       1           69m
 ```
 
-
 ### Step 3: Retrieve the machine sets in the `openshift-machine-api project/namespace`
 
-Retrieving the machines sets allows you to get all the relevant parameters into the machineSet template in the following section.
+Retrieving the machines sets allows you to get all of the relevant parameters into the machineSet template used in the following step.
 
 `oc describe machineSet simon-aro-st5rm-worker-useast1 > aro-worker-az1.yaml`
 
 ### Step 4: Create a new machineSet YAML file and apply it to the cluster
 
-Use the template below for you machineSet YAML file. Change the parameters shown in bold according to the values retrieved in the previous section.
+Use the template below for your machineSet YAML file. Change the parameters shown in bold according to the values retrieved in the previous section.
 
 ```
 ==============MachineSet Template====================
@@ -153,6 +149,72 @@ spec:
           vnet: aro-vnet
           zone: "1"
 ```
+
+
+==============MachineSet Template====================
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  labels:
+    machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+    machine.openshift.io/cluster-api-machine-role: worker
+    machine.openshift.io/cluster-api-machine-type: worker
+  name: **simon-aro-st5rm-worker-useast4**
+  namespace: openshift-machine-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+      machine.openshift.io/cluster-api-machineset: **simon-aro-st5rm-worker-useast4**
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        machine.openshift.io/cluster-api-cluster: **simon-aro-st5rm**
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: simon-aro-st5rm-worker-useast4
+    spec:
+      metadata:
+        creationTimestamp: null
+        labels:
+          node-role.kubernetes.io/<role>: ""
+      providerSpec:
+        value:
+          apiVersion: azureproviderconfig.openshift.io/v1beta1
+          credentialsSecret:
+            name: azure-cloud-credentials
+            namespace: openshift-machine-api
+          image:
+            offer: aro4
+            publisher: azureopenshift
+            resourceID: ""
+            sku: **aro_46**
+            version: **46.82.20201126**
+          internalLoadBalancer: ""
+          kind: AzureMachineProviderSpec
+          location: useast
+          metadata:
+            creationTimestamp: null
+          natRule: null
+          networkResourceGroup: **v4-useast**
+          osDisk:
+            diskSizeGB: 128
+            managedDisk:
+              storageAccountType: Premium_LRS
+            osType: Linux
+          publicIP: false
+          publicLoadBalancer: **simon-aro-st5rm**
+          resourceGroup: **aro-fq5v3vye**
+          sshPrivateKey: ""
+          sshPublicKey: ""
+          subnet: **worker-new**
+          userDataSecret:
+            name: worker-user-data
+          vmSize: Standard_D4s_v3
+          vnet: **aro-vnet**
+          zone: **"1"**
 
 ### Step 5: Apply the machine set
 
