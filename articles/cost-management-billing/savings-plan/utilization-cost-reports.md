@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 02/03/2023
 ms.author: banders
 ---
 
@@ -24,6 +24,12 @@ Enhanced data for savings plan costs and usage is available for Enterprise Agree
 
 ## Savings plan charges in Azure cost data
 
+In Cost Management, cost details provide savings plan cost in two separate data sets: _Actual Cost_ and _Amortized Cost_. How these two datasets differ:
+
+**Actual Cost** - Provides data to reconcile with your monthly bill. The data has savings plan purchase costs and savings plan application details. With the data, you can know which subscription or resource group, or resource received the savings plan discount on a particular day. The EffectivePrice for the usage that receives the savings plan discount is zero.
+
+**Amortized Cost** - The dataset is like the Actual Cost dataset except that - the EffectivePrice for the usage that gets savings plan discount is the prorated cost of the savings plan (instead of being zero). It helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource, and can help you charge back for the savings plan utilization internally. The dataset also has unused hours in the savings plan that have been charged for the hourly commitment amount. The dataset doesn't have savings plan purchase records.
+
 The following fields in the Azure cost data that are relevant to savings plan scenarios.
 
 - `BenefitId` and `BenefitName` - They are their own fields in the data and correspond to the Savings Plan ID and Savings Plan name associated with your purchase.
@@ -32,11 +38,6 @@ The following fields in the Azure cost data that are relevant to savings plan sc
 - `ProductOrderName` - The product name of the purchased savings plan.
 - `Term` – The period associated with your savings plan purchase.
 
-In Cost Management, cost details provide savings plan cost in two separate data sets: _Actual Cost_ and _Amortized Cost_. How these two datasets differ:
-
-**Actual Cost** - Provides data to reconcile with your monthly bill. The data has savings plan purchase costs and savings plan application details. With the data, you can know which subscription or resource group, or resource received the savings plan discount on a particular day. The EffectivePrice for the usage that receives the savings plan discount is zero.
-
-**Amortized Cost** - The dataset is like the Actual Cost dataset except that - the EffectivePrice for the usage that gets savings plan discount is the prorated cost of the savings plan (instead of being zero). It helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource, and can help you charge back for the savings plan utilization internally. The dataset also has unused hours in the savings plan that have been charged for the hourly commitment amount. The dataset doesn't have savings plan purchase records.
 
 Comparison of two data sets:
 
@@ -66,17 +67,18 @@ Information in the following table about metrics and filters can help solve for 
 
 ## Download the cost CSV file with new data
 
-To download your saving plan cost and usage file, using the information in the following sections.
+To download your saving plan cost and usage file, use the information in the following sections.
 
 ### EA customers
 
 If you're an EA admin, you can download the CSV file that contains new cost data from the Azure portal. This data isn't available from the [EA portal](https://ea.azure.com/), you must download the cost file from Azure portal (portal.azure.com) to see the new data.
 
-In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+In the Azure portal, navigate to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Select the billing account.
-2. Select **Usage + charges**.
-3. Select **Download**.
+2. In the left menu, select **Usage + charges**.
+3. Select **Download**.  
+    :::image type="content" source="./media/utilization-cost-reports/download-usage-file.png" alt-text="Screenshot showing the download usage file option." lightbox="./media/utilization-cost-reports/download-usage-file.png" :::
 4. In **Download Usage + Charges**, under **Usage Details Version 2**, select **All Charges (usage and purchases)** and then select download. 
     - Repeat for **Amortized charges (usage and purchases)**.
 
