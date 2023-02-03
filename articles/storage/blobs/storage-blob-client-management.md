@@ -1,51 +1,51 @@
 ---
-title: Create and manage clients interacting with blob data resources
+title: Create and manage clients that interact with blob data resources
 titleSuffix: Azure Storage 
-description: Learn how to create and manage clients, which interact with data resources in Blob Storage.
+description: Learn how to create and manage clients that interact with data resources in Blob Storage.
 services: storage
 author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 02/03/2023
 ms.author: pauljewell
 ms.subservice: blobs
-ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.devlang: csharp, java, javascript, python
+ms.custom: devguide
 ---
 
-# Create and manage clients interacting with blob data resources
+# Create and manage clients that interact with blob data resources
 
-The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Interacting with Azure resources using the SDK begins with a client instance. This article shows how to create a client object to interact with blob data resources, and offers best practices on how to manage clients in your application.
+The Azure SDKs are collections of libraries built to make it easier to use Azure services from different languages. The SDKs are designed to simplify interactions between your application and Azure resources. Working with Azure resources using the SDK begins with creating a client instance. This article shows how to create client objects to interact with blob data resources, and offers best practices on how to manage clients in your application.
 
 ## Create a client
 
 The Azure Storage Blob client libraries allow you to interact with three types of resources in the storage service:
 
-- Storage account
-- Blob container
-- Blob
+- Storage accounts
+- Blob containers
+- Blobs
 
-Depending on the needs of your application, you can create client objects at any of these three levels. The following table lists these different client classes for each language:
+Depending on the needs of your application, you can create client objects at any of these three levels. At the blob level, there's a general blob client that covers common blob operations across all types, and there are specialized blob clients for each type (block blob, append blob, and page blob). The following table lists the different client classes for each language:
 
-| Language | Package | Service client class | Container client class | Blob client class |
+| Language | Package | Service client class | Container client class | Blob client classes |
 | --- | --- | --- | --- | --- |
-| .NET | [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) | [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) |
-| Java | [com.azure.storage.blob](/java/api/com.azure.storage.blob) | [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) | [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) | [BlobClient](/java/api/com.azure.storage.blob.blobclient) |
-| JavaScript | [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme) | [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | [BlobClient](/javascript/api/@azure/storage-blob/blobclient) |
-| Python | [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob) | [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) |
+| .NET | [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) | [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<br>[BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<br>[AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<br>[PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient) |
+| Java | [com.azure.storage.blob](/java/api/com.azure.storage.blob) | [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) | [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) | [BlobClient](/java/api/com.azure.storage.blob.blobclient)<br>[BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)<br>[AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient)<br>[PageBlobClient](/java/api/com.azure.storage.blob.specialized.pageblobclient) |
+| JavaScript | [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme) | [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | [BlobClient](/javascript/api/@azure/storage-blob/blobclient)<br>[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)<br>[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)<br>[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient) |
+| Python | [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob) | [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient)<br>Specialized methods are part of `BlobClient` |
 
 ### Authorize a client object
 
-For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential]() to authenticate to Azure and obtain an access token. The access token is then passed as a credential when the client is instantiated. The permissions are granted to an Azure Active Directory (Azure AD) security principal using Azure role-based access control (Azure RBAC).
+For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Azure and obtain an access token. The access token is then passed as a credential when the client is instantiated. The permissions are granted to an Azure Active Directory (Azure AD) security principal using Azure role-based access control (Azure RBAC).
 
 There are several authorization mechanisms that can be used to grant the appropriate level of access to a client, such as Azure AD security principals, SAS tokens, and shared key authorization. To learn more about authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 ### Create a BlobServiceClient object
 
-An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. The client exposes methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. 
+An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. A common scenario is to instantiate a single service client, then to create container clients and blob clients from the service client, as needed. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. 
 
-To interact with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration by default.
+To work with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration by default.
 
 The following examples show how to create a `BlobServiceClient` object:
 
@@ -84,7 +84,7 @@ Add the following code to create the client object:
 
 ```java
 public static BlobServiceClient GetBlobServiceClient(String accountName) {
-    String endpointString = String.format("https://%s.blob.core.windows.net/", accountName);
+    String endpointString = String.format("https://%s.blob.core.windows.net", accountName);
     BlobServiceClient client = new BlobServiceClientBuilder()
             .endpoint(endpointString)
             .credential(new DefaultAzureCredentialBuilder().build())
@@ -184,7 +184,7 @@ def get_blob_container_client(self, blob_service_client: BlobServiceClient, cont
 
 If your work is narrowly scoped to a single container, you might choose to create a `BlobContainerClient` object directly without using `BlobServiceClient`. You can still set client options on a container client just like you would on a service client.
 
-The following examples show how to create a container client directly without using `BlobServiceClient`:
+The following examples show how to create a container client directly *without* using `BlobServiceClient`:
 
 ## [.NET](#tab/dotnet)
 
@@ -247,9 +247,9 @@ def get_blob_container_client(self, account_name, container_name):
 
 ### Create a BlobClient object
 
-To interact with a specific blob resource, you can create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource doesn't need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
+To interact with a specific blob resource, create a `BlobClient` object from a service client or container client. A `BlobClient` object allows you to interact with a specific blob resource. This resource doesn't need to exist in the storage account for you to create the client object. `BlobClient` provides methods to upload, download, delete, and create snapshots of a blob.
 
-The following examples show how to create a blob client from a `BlobServiceClient` object to interact with a specific blob resource:
+The following examples show how to create a blob client to interact with a specific blob resource:
 
 ## [.NET](#tab/dotnet)
 
@@ -299,7 +299,7 @@ A best practice for Azure SDK client management is to treat a client as a single
 - Storing a client instance in a field. To learn more about C# fields, see [Fields (C# Programming Guide)](/dotnet/csharp/programming-guide/classes-and-structs/fields).
 - Registering the client object as a singleton in a dependency injection container of your choice. For more information on dependency injection in ASP.NET Core apps, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
-This approach is far more efficient at scale than calling a constructor for each client that you need through
+This approach is far more efficient at scale than calling a constructor for each client that you need.
 
 ### Client immutability and thread safety
 
