@@ -383,6 +383,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.windows.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.us` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
+| Compute instance | `<region>.tundra.azureml.us` | UDP | 5831 |
 | Microsoft storage access | `*.blob.core.usgovcloudapi.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.usgovcloudapi.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.usgovcloudapi.net` | TCP | 443 |
@@ -397,6 +398,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.chinacloudapi.cn` | TCP | 443 |
 | Compute instance |  `*.instances.azureml.cn` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
+| Compute instance | `<region>.tundra.azureml.cn` | UDP | 5831 |
 | Microsoft storage access | `*.blob.core.chinacloudapi.cn` | TCP | 443 |
 | Microsoft storage access | `*.table.core.chinacloudapi.cn` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.chinacloudapi.cn` | TCP | 443 |
