@@ -1,5 +1,5 @@
 ---
-title: Test and troubleshoot packages with MSIX app attach - Azure
+title: Test and troubleshoot MSIX packages with app attach - Azure
 description: Learn how to use MSIX app attach to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
@@ -71,7 +71,7 @@ To stage packages at boot using PowerShell 6 or later, you'll need to run the fo
    Add-Type -AssemblyName $dllSdkNet.FullName
    ```
 
-1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
+1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
 ### [PowerShell 5.1 and earlier](#tab/powershell-earlier)
 
@@ -85,7 +85,7 @@ To stage packages at boot with PowerShell version 5.1 or earlier:
    Add-Type -AssemblyName System.Runtime.WindowsRuntime
    ```
 
-1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
+1. If your disk image is in cim format, select the **CimFS** tab in this section. If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
 ### [CimFS](#tab/cimfs)
 
@@ -102,7 +102,7 @@ Import-Module CimDiskImage
 
 ## Mount your disk image
 
-Now that you've prepared your machine to stage MSIX app attach packages, you'll need to mount your disk image. This process will vary depending on whether you're using the [VHD(X)](#mount-a-vhdx-disk-image) or [CimFS](#mount-a-cimfs-disk-image) format for your disk image.
+Now that you've prepared your machine to stage MSIX app attach packages, you'll need to mount your disk image. This process will vary depending on whether you're using the *VHD(X)* or *CimFs* format for your disk image.
 
 >[!NOTE]
 >Make sure to record the the *Device Id* for each application in the command output. You'll need this information to follow directions later in this article.
@@ -226,7 +226,7 @@ Remove-AppxPackage -Package $msixPackageFullName
 
 To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on the format of your disk image.
 
-### [CimFS]((#tab/cimfs)
+### [CimFS](#tab/cimfs)
 
 If your image is in CimFS format, run this cmdlet:
 
@@ -243,6 +243,8 @@ DisMount-DiskImage -DevicePath $DeviceId.TrimEnd('\')
 ```
 
 Once you finish dismounting your disks, you've safely removed your MSIX package.
+
+---
 
 ## Set up simulation scripts for the MSIX app attach agent
 
