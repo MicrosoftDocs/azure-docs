@@ -120,7 +120,7 @@ from azure.identity import DefaultAzureCredential
 keyVaultName = os.environ["KEY_VAULT_NAME"]
 KVUri = "https://" + keyVaultName + ".vault.azure.net"
 
-credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
+credential = DefaultAzureCredential()
 client = KeyClient(vault_url=KVUri, credential=credential)
 
 keyName = input("Input a name for your key > ")
@@ -166,7 +166,7 @@ In this quickstart, `DefaultAzureCredential` authenticates to key vault using th
 In the example code, the name of your key vault is expanded using the value of the `KVUri` variable, in the format: "https://\<your-key-vault-name>.vault.azure.net".
 
 ```python
-credential = DefaultAzureCredential(additionally_allowed_tenants=['*'])
+credential = DefaultAzureCredential()
 client = KeyClient(vault_url=KVUri, credential=credential)
 ```
 
