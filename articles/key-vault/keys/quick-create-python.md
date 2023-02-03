@@ -205,7 +205,7 @@ deleted_key = poller.result()
 
 The `begin_delete_key` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) or the Azure PowerShell command [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey).
+You can verify that the key is deleted with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey).
 
 Once deleted, a key remains in a deleted but recoverable state for a time. If you run the code again, use a different key name.
 
