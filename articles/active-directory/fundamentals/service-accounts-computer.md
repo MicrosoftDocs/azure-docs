@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Secure on-premises computer accounts with Active Directory
 
-A computer account, or LocalSystem account, is highly privileged with access to almost all resources on the local computer. The account is not associated with signed-on user accounts. Services run as LocalSystem access network resources by presenting the computer credentials to remote servers in the format `<domain_name>\\<computer_name>$`. The computer account predefined name is `NT AUTHORITY\SYSTEM`. You can start a service and provide security context for that service.
+A computer account, or LocalSystem account, is highly privileged with access to almost all resources on the local computer. The account isn't associated with signed-on user accounts. Services run as LocalSystem access network resources by presenting the computer credentials to remote servers in the format `<domain_name>\\<computer_name>$`. The computer account predefined name is `NT AUTHORITY\SYSTEM`. You can start a service and provide security context for that service.
 
    ![Screenshot of a list of local services on a computer account.](./media/securing-service-accounts/secure-computer-accounts-image-1.png)
 
@@ -26,7 +26,7 @@ A computer account, or LocalSystem account, is highly privileged with access to 
 A computer account has the following benefits:
 
 * **Unrestricted local access** - the computer account provides complete access to the machine's local resources
-* **Automatic password management** - removes the need for manually-changed passwords. The account is a member of Active Directory, and its password is changed automatically. With a computer account there is no need to register the service principal name.
+* **Automatic password management** - removes the need for manually changed passwords. The account is a member of Active Directory, and its password is changed automatically. With a computer account, there's no need to register the service principal name.
 * **Limited access rights off-machine** - the default access-control list in Active Directory Domain Services (AD DS) permits minimal access to computer accounts. During access by an unauthorized user, the service has limited access to network resources.
 
 ## Computer account security-posture assessment
