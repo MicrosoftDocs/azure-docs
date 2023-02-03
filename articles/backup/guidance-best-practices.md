@@ -161,7 +161,7 @@ While scheduling your backup policy, consider the following points:
 
 ### Retention considerations
 
-* Short-term retention can be "minutes" or "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
+* Short-term retention can be "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
 
 * Long-term retention:
 
