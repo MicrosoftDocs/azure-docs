@@ -98,7 +98,7 @@ The following table gives a detailed comparison of the security policy and compl
 |**Grant controls — Require multifactor authentication**     |  Supported        |   Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-direct-connect.md#to-change-inbound-trust-settings-for-mfa-and-device-state) to accept MFA claims from the external organization       |
 |**Grant controls — Compliant Device**     | Supported by accepting compliant devices from the organization within cross-tenant access settings      | Supported by accepting compliant devices from the organization within cross-tenant access settings         |
 |**Grant controls — Hybrid Azure AD Join**   |  Supported by accepting Hybrid Azure AD joined devices from the organization within cross-tenant access settings  |   Supported by accepting Hybrid Azure AD joined devices from the organization within cross-tenant access settings       |
-|**Grant controls — Require Approved client app**    | Not supported         |   Not supported       |
+|**Grant controls — Require approved client app**    | Not supported         |   Not supported       |
 |**Grant controls — Require App protection policy**     |  Not supported        |  Not supported        |
 |**Grant controls — Require password change**     |  Not supported        |    Not supported      |
 |**Grant controls — Terms of Use**     |  Supported       |  Not supported        |
