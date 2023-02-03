@@ -719,3 +719,5 @@ Next, use the correlation ID obtained from the Browser SSO extension logs  to cr
 
 ## Next steps
 
+- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](../develop/apple-sso-plugin.md)
+- [Deploy the Microsoft Enterprise SSO plug-in for Apple Devices (preview)](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos)
