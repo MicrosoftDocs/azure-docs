@@ -289,7 +289,7 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 
 #### Unexpected SAML application prompts
 
-If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using the SAML protocol, the Microsoft Enterprise SSO plug-in will not be able to provide SSO to the app. The application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
+If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using the SAML protocol, the Microsoft Enterprise SSO plug-in won't be able to provide SSO to the app. The application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
 
 #### Change iOS experience for MSAL-enabled applications
 
