@@ -252,7 +252,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S42020SPS03_v0003ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
 
-        1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
         1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
 
@@ -262,7 +262,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
 
-        1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
         1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
 
@@ -367,7 +367,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S42020SPS03_v0003ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
     
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
         1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
         
@@ -377,7 +377,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
     
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
         1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
         
