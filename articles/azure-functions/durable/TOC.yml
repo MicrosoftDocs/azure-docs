@@ -108,7 +108,11 @@
   - name: HTTP API
     href: durable-functions-http-api.md
   - name: .NET API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+    items:
+    - name: .NET in-process API
+      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+    - name: .NET isolated API
+      href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
