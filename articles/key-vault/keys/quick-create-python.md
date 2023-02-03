@@ -192,7 +192,7 @@ To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/
 retrieved_key = client.get_key(keyName)
  ```
 
-You can also verify that the key has been set with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) or the Azure PowerShell command [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey).
+You can also verify that the key has been set with the Azure CLI command [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) or the Azure PowerShell cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey).
 
 ### Delete a key
 
