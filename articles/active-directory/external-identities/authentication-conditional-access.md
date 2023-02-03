@@ -101,7 +101,7 @@ The following table gives a detailed comparison of the security policy and compl
 |**Grant controls — Require Approved client app**    | Not supported         |   Not supported       |
 |**Grant controls — Require App protection policy**     |  Not supported        |  Not supported        |
 |**Grant controls — Require password change**     |  Not supported        |    Not supported      |
-|**Grant controls — ToU**     |  Supported       |  Not supported        |
+|**Grant controls — Terms of Use**     |  Supported       |  Not supported        |
 |**Session controls — App enforced restrictions**    |   Supported      |  Not supported        |
 |**Session controls — Conditional Access App control**     |  Supported       |   Not supported       |
 |**Session controls — Sign-in frequency**     |  Supported       |   Not supported       |
