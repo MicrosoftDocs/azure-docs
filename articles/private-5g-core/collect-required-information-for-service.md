@@ -58,7 +58,7 @@ During cluster commissioning, the Azure Private 5G Core private mobile network r
 |The ID of the Azure subscription in which the Azure resources are deployed. |**SUBSCRIPTION_ID**|
 |The name of the resource group in which the AKS cluster is deployed. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_GROUP_NAME**|
 |The name of the AKS cluster resource. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_NAME**|
-|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC: **EastUS** or **WestEurope**.</br></br>This value must be the region's code name, see [Region code names](region-code-names.md) for list of the supported regions and their codes. |**LOCATION**|
+|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC: **EastUS** or **WestEurope**.</br></br>This value must be the region's code name; see [Region code names](region-code-names.md) for a list of supported regions and their code names. |**LOCATION**|
 |The name of the **Custom location** resource to be created for the AKS cluster. </br></br>This value must start and end with alphanumeric characters, and must contain only alphanumeric characters, `-` or `.`. |**CUSTOM_LOCATION**|
 
 ## Data flow policy rule(s)
