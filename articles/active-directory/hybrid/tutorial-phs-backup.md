@@ -39,7 +39,7 @@ Your first step in setting up your backup for federation is to turn on password 
 1. In **Additional tasks**, select **Customize synchronization options**, and then select **Next**.
 
       :::image type="content" source="media/tutorial-phs-backup/backup2.png" alt-text="Screenshot that shows the Additional tasks pane, with Customize synchronization options selected.":::
-1. Enter the user name and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
 1. In **Connect your directories**, select **Next**.
 1. In **Domain and OU filtering**, select **Next**.
 1. In **Optional features**, select **Password hash synchronization**, and then select **Next**.
@@ -64,7 +64,7 @@ If you decide to make the switch because fixing the problem will take too long, 
 
 1. In Azure AD Connect, select **Configure**.
 1. Select **Change user sign-in**, and then select **Next**.
-1. Enter the user name and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
 1. In **User sign-in**, select **Password hash synchronization**, and then select the **Do not convert user accounts** checkbox.  
 1. Leave the default **Enable single sign-on** selected and select **Next**.
 1. In **Enable single sign-on**, select **Next**.
@@ -78,7 +78,7 @@ Users can now use their passwords to sign in to Azure and Azure services.
 1. In a new web browser window, go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Sign in with a user account that was created in your new tenant.
 
-   For the user name, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
+   For the username, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
 
    :::image type="content" source="media/tutorial-federation/verify1.png" alt-text="Screenshot that shows a successful message when testing the sign-in.":::
 
@@ -88,9 +88,9 @@ Now, switch back to federation:
 
 1. In Azure AD Connect, select **Configure**.
 1. Select **Change user sign-in**, and then select **Next**.
-1. Enter the user name and password for your Hybrid Identity Administrator account.
+1. Enter the username and password for your Hybrid Identity Administrator account.
 1. In  **User sign-in**, select **Federation with AD FS**, and then select **Next**.  
-1. In **Domain Administrator credentials**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **Domain Administrator credentials**, enter the contoso\Administrator username and password, and then select **Next.**
 1. In **AD FS farm**, select **Next**.
 1. In **Azure AD domain**, select the domain and select **Next**.
 1. In **Ready to configure**, select **Configure**.
@@ -111,8 +111,8 @@ The final task is to reset the trust between AD FS and Azure:
 1. Select **Reset Azure AD trust**, and then select **Next**.
 
    :::image type="content" source="media/tutorial-phs-backup/backup6.png" alt-text="Screenshot that shows the Manage federation pane, with Reset Azure AD selected.":::
-1. In **Connect to Azure AD**, enter the user name and password for your Global Administrator account or your Hybrid Identity Administrator account.
-1. In **Connect to AD FS**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **Connect to Azure AD**, enter the username and password for your Global Administrator account or your Hybrid Identity Administrator account.
+1. In **Connect to AD FS**, enter the contoso\Administrator username and password, and then select **Next.**
 1. In **Certificates**, select **Next**.
 1. Repeat the steps in [Sign in with a user account to test sync](#sign-in-with-a-user-account-to-test-sync).
 

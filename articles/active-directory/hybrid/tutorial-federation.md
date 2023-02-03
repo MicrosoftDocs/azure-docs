@@ -237,7 +237,7 @@ To create the Hybrid Identity Administrator account:
 
    :::image type="content" source="media/tutorial-federation/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
 1. Select **All users**, and then select **New user**.
-1. In the **User** pane, enter a name and a user name for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
+1. In the **User** pane, enter a name and a username for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
 
    In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
 
@@ -279,15 +279,15 @@ Now it's time to download and install Azure AD Connect. After it's installed, yo
 1. In **User sign-in**, select **Federation with AD FS**, and then select **Next**.
 
    :::image type="content" source="media/tutorial-federation/fed1.png" alt-text="Screenshot that shows where to select Federation with AD FS.":::
-1. In **Connect to Azure AD**, enter the user name and password of the Hybrid Identity Administrator account you created earlier, and then select **Next**.
-1. In **Connect your directories**, select **Add directory**. Then select **Create new AD account** and enter the contoso\Administrator user name and password. Select **OK**.
+1. In **Connect to Azure AD**, enter the username and password of the Hybrid Identity Administrator account you created earlier, and then select **Next**.
+1. In **Connect your directories**, select **Add directory**. Then select **Create new AD account** and enter the contoso\Administrator username and password. Select **OK**.
 1. Select **Next**.
 1. In **Azure AD sign-in configuration**, select **Continue without matching all UPN suffixes to verified domains**. Select **Next.**
 1. In **Domain and OU filtering**, select **Next**.
 1. In **Uniquely identifying your users**, select **Next**.
 1. In **Filter users and devices**, select **Next**.
 1. In **Optional features**, select **Next**.
-1. In **Domain Administrator credentials**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **Domain Administrator credentials**, enter the contoso\Administrator username and password, and then select **Next.**
 1. In **AD FS farm**, make sure that **Configure a new AD FS farm** is selected.
 1. Select **Use a certificate installed on the federation servers**, and then select **Browse**.
 1. In the search box, enter **DC1** and select it in the search results. Select **OK**.
@@ -298,7 +298,7 @@ Now it's time to download and install Azure AD Connect. After it's installed, yo
 
    :::image type="content" source="media/tutorial-federation/fed3.png" alt-text="Screenshot that shows where to select your AD FS server.":::
 1. In **Web application proxy servers**, select **Next**.
-1. In **AD FS service account**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **AD FS service account**, enter the contoso\Administrator username and password, and then select **Next.**
 1. In **Azure AD Domain**, select your verified custom domain, and then select **Next**.
 1. In **Ready to configure**, select **Install**.
 1. When the installation is finished, select **Exit**.
@@ -324,7 +324,7 @@ To test that users from your Windows Server AD tenant are synced with your Azure
 1. Go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Sign in with a user account that was created in your new tenant.
 
-   For the user name, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
+   For the username, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
 
 You've successfully set up a hybrid identity environment that you can use to test and to get familiar with what Azure has to offer.
 

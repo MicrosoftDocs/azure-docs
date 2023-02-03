@@ -215,7 +215,7 @@ To create the Hybrid Identity Administrator account:
 
    :::image type="content" source="media/tutorial-password-hash-sync/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
 1. Select **All users**, and then select **New user**.
-1. In the **User** pane, enter a name and a user name for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
+1. In the **User** pane, enter a name and a username for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
 
    In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
 
@@ -233,8 +233,8 @@ Now it's time to download and install Azure AD Connect. After it's installed, yo
 1. In **Express settings**, select **Use express settings**.
 
    :::image type="content" source="media/tutorial-password-hash-sync/express1.png" alt-text="Screenshot that shows the Express settings screen and the Use express settings button.":::
-1. In **Connect to Azure AD**, enter the user name and password for the Hybrid Identity Administrator account for Azure AD. Select **Next**.  
-1. In **Connect to AD DS**, enter the user name and password for an enterprise admin account. Select **Next**.  
+1. In **Connect to Azure AD**, enter the username and password for the Hybrid Identity Administrator account for Azure AD. Select **Next**.  
+1. In **Connect to AD DS**, enter the username and password for an enterprise admin account. Select **Next**.  
 1. In **Ready to configure**, select **Install**.
 1. When the installation is finished, select **Exit**.
 1. Before you use Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.
@@ -259,7 +259,7 @@ To test that users from your Windows Server AD tenant are synced with your Azure
 1. Go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Sign in with a user account that was created in your new tenant.
 
-   For the user name, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
+   For the username, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
 
 You've successfully set up a hybrid identity environment that you can use to test and to get familiar with what Azure has to offer.
 
