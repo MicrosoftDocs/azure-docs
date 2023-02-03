@@ -42,8 +42,6 @@ ExpressRoute enables you to extend your on-premises networks into the Microsoft 
 ### <a name="vpngateway"></a>VPN Gateway
 VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as site-to-site, point-to-site, and VNet-to-VNet. The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../../vpn-gateway/design.md). For more information about VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Site-to-Site Azure VPN Gateway connections.":::
-
 :::image type="content" source="../../vpn-gateway/media/design/vpngateway-multisite-connection-diagram.png" alt-text="Multiple site-to-site Azure VPN Gateway connections.":::
 
 ### <a name="virtualwan"></a>Virtual WAN
