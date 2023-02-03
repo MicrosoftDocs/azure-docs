@@ -20,6 +20,8 @@ To support Python 3.8 (preview) runbooks in the Automation service, Azure packag
 
 Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
 
+See [default python packages][!INCLUDE [automation-python-packages.md](../includes/automation-python-packages.md)]
+
 There are no default packages installed for Python 3.10 (preview). 
 
 ## Packages as source files
