@@ -264,7 +264,7 @@
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability in Microsoft Azure Well-Architected Framework
-    href: /azure/architecture/framework/resiliency/?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    href: /azure/architecture/framework/resiliency/
   - name: Reliability terminology
     href: glossary.md
   

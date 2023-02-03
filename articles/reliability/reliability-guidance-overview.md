@@ -11,7 +11,7 @@ ms.custom: subject-reliability
 
 # Reliability guidance overview 
 
-Azure reliability guidance is a collection of service-specific reliability guides. Each guide can cover both intra-regional resiliency with [availability zones](availability-zones-overview.md) and information on [cross-region resiliency with disaster recovery](cross-region-replication-azure.md). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json).
+Azure reliability guidance is a collection of service-specific reliability guides. Each guide can cover both intra-regional resiliency with [availability zones](availability-zones-overview.md) and information on [cross-region resiliency with disaster recovery](cross-region-replication-azure.md). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/).
 
 ## Azure services reliability guides
 
