@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/12/2023
+ms.date: 02/03/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -108,18 +108,6 @@ This section answers frequently asked questions and discusses known issues with 
 **Q: Which logs are included?**
 
 **A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](./overview-reports.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
-
----
-
-**Q: How soon after an action will the corresponding logs show up in my event hub?**
-
-**A**: The logs should show up in your event hub within two to five minutes after the action is performed. For more information about Event Hubs, see [What is Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
-
----
-
-**Q: How soon after an action will the corresponding logs show up in my storage account?**
-
-**A**: For Azure storage accounts, the latency is anywhere from 5 to 15 minutes after the action is performed.
 
 ---
 
