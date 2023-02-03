@@ -3,7 +3,7 @@ title: Install SAP software (preview)
 description: Learn how to install software on your SAP system created using Azure Center for SAP solutions.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 01/15/2023
+ms.date: 02/03/2023
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.

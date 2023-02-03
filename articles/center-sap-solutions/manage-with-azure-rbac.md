@@ -5,7 +5,7 @@ author: kalyaninamuduri
 ms.author: kanamudu 
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 02/03/2023
 ms.custom: template-concept 
 ---
 
@@ -131,15 +131,25 @@ To install SAP software, a *user* and *user-assigned managed identity* requires 
 | `Microsoft.Workloads/sapVirtualInstances/read` |
 | `Microsoft.Workloads/Operations/read` |
 | `Microsoft.Workloads/Locations/OperationStatuses/read` |
+| `Microsoft.Storage/storageAccounts/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+| `Microsoft.Storage/storageAccounts/fileServices/read` |
+| `Microsoft.Storage/storageAccounts/fileServices/shares/read` |
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | **Azure Center for SAP solutions service role** |
+| **Reader and Data Access** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
 | `Microsoft.Compute/disks/read` |
 | `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/disks/write` |
+| `Microsoft.Compute/virtualMachines/write` |
+| `Microsoft.Compute/virtualMachines/extensions/delete` |
 | `Microsoft.Compute/virtualMachines/extensions/read` |
 | `Microsoft.Compute/virtualMachines/extensions/write` |
 | `Microsoft.Compute/virtualMachines/instanceView/read` |
@@ -159,6 +169,10 @@ To install SAP software, a *user* and *user-assigned managed identity* requires 
 | `Microsoft.Storage/storageAccounts/fileServices/shares/read` |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` |
+| `Microsoft.Storage/storageAccounts/write` |
+| `Microsoft.Storage/storageAccounts/listAccountSas/action` |
+| `Microsoft.Storage/storageAccounts/fileServices/write` |
+| `Microsoft.Storage/storageAccounts/fileServices/shares/write` |
 
 ## Register and manage existing SAP system
 
@@ -171,6 +185,7 @@ To register an existing SAP system and manage that system with Azure Center for 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/write` |
+| `Microsoft.Compute/virtualMachines/read` |
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
@@ -179,6 +194,9 @@ To register an existing SAP system and manage that system with Azure Center for 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
 | `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/disks/read` |
+| `Microsoft.Compute/disks/write` |
+| `Microsoft.Compute/virtualMachines/write` |
 | `Microsoft.Compute/virtualMachines/extensions/read` |
 | `Microsoft.Compute/virtualMachines/extensions/write` |
 | `Microsoft.Compute/virtualMachines/instanceView/read` |
@@ -198,6 +216,7 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | Built-in roles for *users* | 
 | ------------------------- |
 | **Azure Center for SAP solutions reader** |
+| **Reader** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -344,6 +363,10 @@ To delete a VIS resource, a *user* or *user-assigned managed identity* requires 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/delete` |
+| `Microsoft.Workloads/sapVirtualInstances/read` |
+| `Microsoft.Workloads/sapVirtualInstances/applicationInstances/read` |
+| `Microsoft.Workloads/sapVirtualInstances/centralInstances/read` |
+| `Microsoft.Workloads/sapVirtualInstances/databaseInstances/read` |
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
