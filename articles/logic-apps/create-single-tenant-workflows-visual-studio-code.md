@@ -80,11 +80,13 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
+  * [.Net 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0), which is a prerequisite for Logic Apps runtime.
+
   * [Azure Functions Core Tools - 4.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
     * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
 
-    * Azure Functions v3 support ends in late 2022. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have 
+    * Azure Functions v3 support on Logic Apps ends on March 31st, 2023. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. As of January 31st, 2023, existing Standard workflows in the Azure portal were automatically migrated to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version or we detremined that a user action is needed before we could auto migrate, this upgrade is designed to require no action from you nor have 
     a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
