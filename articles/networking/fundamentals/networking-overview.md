@@ -47,7 +47,8 @@ VPN Gateway helps you create encrypted cross-premises connections to your virtua
 :::image type="content" source="../../vpn-gateway/media/design/vpngateway-multisite-connection-diagram.png" alt-text="Multiple site-to-site Azure VPN Gateway connections.":::
 
 ### <a name="virtualwan"></a>Virtual WAN
-Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity. 
+Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity.
+
 Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md).
 
 :::image type="content" source="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png":::
