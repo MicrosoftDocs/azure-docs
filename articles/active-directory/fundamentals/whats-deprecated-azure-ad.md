@@ -1,7 +1,7 @@
 ---
 title: What's deprecated in Azure Active Directory?
 description: Learn about features being deprecated in Azure Active Directory
-author: jricketts
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.subservice: fundamentals

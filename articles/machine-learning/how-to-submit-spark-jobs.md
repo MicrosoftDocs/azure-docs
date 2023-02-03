@@ -80,7 +80,7 @@ If the CLI or SDK code defines an option to use managed identity, Azure Machine 
     ```
 
 ### Attach user assigned managed identity using `ARMClient`
-1. Install [DMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
+1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
 1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
     ```json
     {
@@ -398,9 +398,6 @@ ml_client.jobs.stream(returned_spark_job.name)
 > To use an attached Synapse Spark pool, define the `compute` parameter in the `azure.ai.ml.spark` function, instead of `resources`.
 
 # [Studio UI](#tab/ui)
-This functionality isn't available in the Studio UI. The Studio UI doesn't support this feature.
-
----
 
 ### Submit a standalone Spark job from Azure Machine Learning Studio UI
 To submit a standalone Spark job using the Azure Machine Learning Studio UI:
@@ -485,6 +482,8 @@ To submit a standalone Spark job using the Azure Machine Learning Studio UI:
 1. On the **Review** screen:
     1. Review the job specification before submitting it.
     1. Select **Create** to submit the standalone Spark job.
+
+---
 
 ## Spark component in a pipeline job
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
