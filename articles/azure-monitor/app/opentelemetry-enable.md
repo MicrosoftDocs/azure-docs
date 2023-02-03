@@ -1125,7 +1125,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1230,7 +1230,7 @@ Spans populate the `requests` and `dependencies` tables in Application Insights.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
      <version>1.21.0</version>
    </dependency>
@@ -1264,7 +1264,7 @@ you can add your spans by using the OpenTelemetry API.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1328,7 +1328,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1512,7 +1512,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1665,7 +1665,7 @@ Consult applicable privacy laws before you set the Authenticated User ID.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1917,7 +1917,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
