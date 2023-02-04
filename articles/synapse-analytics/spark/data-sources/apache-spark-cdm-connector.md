@@ -283,7 +283,7 @@ df.write.format("com.microsoft.cdm")
  .save()
 ```
 
-## Explicit Write - using an entity defined in the CDM GitHub
+### Explicit Write - using an entity defined in the CDM GitHub
 
 This code writes the dataframe _df_ to a CDM folder with the manifest at `https://_mystorage_.dfs.core.windows.net/cdmdata/Teams/root.manifest.cdm.json` and a submanifest containing the TeamMembership entity, created in a TeamMembership subdirectory. TeamMembership data is written to CSV files (the default) that overwrite any existing data files. The TeamMembership entity definition is retrieved from the CDM CDN, at:
 [https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json](https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json)
