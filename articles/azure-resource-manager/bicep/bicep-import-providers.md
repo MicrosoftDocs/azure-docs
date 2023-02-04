@@ -19,7 +19,9 @@ import '<provider-name>@<provider-version>' with {
 }
 ```
 
-See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md) for an example of using the Import statement.
+## Kubernetes provider
+
+See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 
 ## Next steps
 

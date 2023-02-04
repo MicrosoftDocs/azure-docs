@@ -40,7 +40,7 @@ import 'kubernetes@1.0.0' with {
 - **namespace**: Specify the namespace of the provider.
 - **KubeConfig**: Specify a base64 encoded value of the [Kubernetes cluster admin credentials](/rest/api/aks/managed-clusters/list-cluster-admin-credentials).
 
-The following sample shows how to pass `kubeConfig` value from parent Bicep file:
+The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
 
 ```bicep
 resource aks 'Microsoft.ContainerService/managedClusters@2022-05-02-preview' existing = {
@@ -59,7 +59,7 @@ The AKS cluster can be a new resource or an existing resource. The [Import Kuber
 
 ## Visual Studio Code import
 
-From Visual Studio Code, you can import Kubernetes manifest files to create Bicep module files. For more information, see [Visual Studio Code](./visual-studio-code.md#bicep-commands)
+From Visual Studio Code, you can import Kubernetes manifest files to create Bicep module files. For more information, see [Visual Studio Code](./visual-studio-code.md#bicep-commands).
 
 ## Next steps
 

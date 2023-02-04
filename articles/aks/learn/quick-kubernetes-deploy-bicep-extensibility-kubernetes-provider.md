@@ -234,7 +234,7 @@ Use the following procedure to add the application definition:
 
 2. From the deployment output, look for the **outputs** section. For example:
 
-    ```bicep
+    ```json
     "outputs": {
       "controlPlaneFQDN": {
         "type": "String",
