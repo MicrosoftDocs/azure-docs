@@ -357,16 +357,7 @@ The following example shows how to use the sort function.
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "languageVersion": "1.9-experimental",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_EXPERIMENTAL_WARNING": "Symbolic name support in ARM is experimental, and should be enabled for testing purposes only. Do not enable this setting for any production usage, or you may be unexpectedly broken at any time!",
-    "_generator": {
-      "name": "bicep",
-      "version": "0.14.6.61914",
-      "templateHash": "12191906435013264658"
-    }
-  },
   "variables": {
     "dogs": [
       {
