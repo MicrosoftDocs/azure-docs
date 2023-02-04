@@ -389,7 +389,7 @@ The following actions should take place for a successful interactive sign-on:
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click-callmsftgraph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click-call-msft-graph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
 
 ```SSOExtensionLogs
 //////////////////////////
@@ -543,7 +543,7 @@ Finished SSO request.
 
 At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msft-graph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msft-graph-user-info.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker.":::
 
 Next, examine server-side [Azure AD Sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO extension logs . For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
 
