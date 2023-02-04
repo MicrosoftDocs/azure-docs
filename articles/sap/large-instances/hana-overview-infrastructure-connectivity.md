@@ -35,7 +35,7 @@ You've purchased SAP HANA on Azure Large Instances from Microsoft and want to de
 - For every Azure deployment region:
 	- A /29 IP address range for ER-P2P connections that connect Azure virtual networks to HANA Large Instances.
 	- A /24 CIDR Block used for the HANA Large Instances server IP pool.
-	- Optional when using [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md), reserve another /29 IP address range. The added range enables direct routing from on-premises to HANA Large Instance units. The added range also enables routing between HANA Large Instance units in different Azure regions. This particular range can't overlap with the IP address ranges you defined before.
+	- Optional when using [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md), reserve another /29 IP address range. The added range enables direct routing from on-premises to HANA Large Instance units. The added range also enables routing between HANA Large Instance units in different Azure regions. This particular range can't overlap with the IP address ranges you defined before.
 - The IP address range values used in the virtual network address space attribute of every Azure virtual network that connects to the HANA Large Instances.
 - Data for each HANA Large Instances system:
   - Desired hostname, ideally with a fully qualified domain name.
