@@ -30,13 +30,13 @@ This article uses the Azure CLI to work with IoT Hub and other Azure services. Y
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-### IoT hub
+### IoT Hub
 
-To create an IoT hub route, you need an IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
+You need an IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
 
 ### Endpoint service
 
-To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages and event logs.
+You need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages and event logs.
 
 Decide which Azure service you want to use as an endpoint to receive routed device and event data: an event hub, a Service queue or topic, a storage account, or a Cosmos DB container. For the service you choose to use, complete the steps to create an endpoint service.
 
@@ -57,8 +57,6 @@ Decide which Azure service you want to use as an endpoint to receive routed devi
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-To create a Service bus queue resource with a subscription, you need an authorization rule to access the Service Bus queue.
-
 1. Create a Service Bus namespace and queue. For more information, see [Use the Azure CLI to create a Service Bus namespace and a queue](../service-bus-messaging/service-bus-quickstart-cli.md).
 
 1. Create an authorization rule that will give IoT Hub permission to send data to the queue. For `name`, use a unique value for your authorization rule.
@@ -71,11 +69,7 @@ To create a Service bus queue resource with a subscription, you need an authoriz
 
 # [Service Bus topic](#tab/servicebustopic)
 
-To create a Service Bus topic resource with a subscription, you need an authorization rule to access the Service Bus topic.
-
-Create your Service Bus topic resources in this order:
-
-1. Create a Service Bus namespace, topic, and subscription. For more information, see [Use Azure CLI to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli.md).
+Create a Service Bus namespace, topic, and subscription. For more information, see [Use Azure CLI to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli.md).
 
 # [Azure Storage](#tab/azurestorage)
 
@@ -85,7 +79,7 @@ Create your Service Bus topic resources in this order:
 
 # [Cosmos DB](#tab/cosmosdb)
 
-1. Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](../cosmos-db/scripts/cli/nosql/create).
+Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](../cosmos-db/scripts/cli/nosql/create.md).
 
 ---
 
@@ -247,8 +241,8 @@ To create a Service Bus queue endpoint, use the authorization rule that you crea
    | *cosmosdb_connection_string* | The connection string that you copied from the Cosmos DB account command. |
    | *container_name* | The name of the container in your Cosmos DB account where the data will be sent. |
    | *database_name* | The name of the database in your Cosmos DB account where the data will be sent. |
-   | *cosmosdb_subscription* | Subscription ID of the Cosmos DB database. This argument can be left out if the cosmosdb is in the same subscription as the IoT hub. |
-   | *cosmosdb_group* | Resource group of the Cosmos DB database. This argument can be left out if the topic is in the same resource group as the IoT hub. |
+   | *cosmosdb_subscription* | Subscription ID of the Cosmos DB database account. This argument can be left out if the database is in the same subscription as the IoT hub. |
+   | *cosmosdb_group* | Resource group of the Cosmos DB database account. This argument can be left out if the database is in the same resource group as the IoT hub. |
 
    ```azurecli
    az iot hub message-endpoint create cosmosdb-container --hub-name {iothub_name} --endpoint-name {endpoint_name} --connection-string "{cosmosdb_connection_string}" --container {container_name} --database-name {database_name} --resource-group my-resource-group --endpoint-account my-cosmosdb-account --container my-cosmosdb-database-container
