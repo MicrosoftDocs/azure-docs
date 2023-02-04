@@ -14,7 +14,7 @@ author: AvinandaMS
 
 The Synapse Spark Common Data Model (CDM) format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes.
 
-For information on defining CDM documents using CDM 1.0 see. [What is CDM and how to use it](/common-data-model/).
+For information on defining CDM documents using CDM 1.2 see. [What is CDM and how to use it](/common-data-model/).
 
 ## High level functionality
 
