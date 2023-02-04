@@ -225,7 +225,7 @@ By default, only MSAL apps invoke the SSO Extension, and then in turn the Extens
    - Ensure that the **All Items** is selected.
    - In the search bar, on the right-hand side, type **primaryrefresh** (To filter).
    
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/prt-located-in-keychainaccess.png" alt-text="screenshot showing how to find the PRT in Keychain access app.":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/prt-located-in-keychain-access.png" alt-text="screenshot showing how to find the PRT in Keychain access app.":::
 
    | Screenshot callout | Keychain credential component | Description |
    |:---------:|:---------|---------|
@@ -543,7 +543,7 @@ Finished SSO request.
 
 At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msftgraph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msft-graph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker.":::
 
 Next, examine server-side [Azure AD Sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO extension logs . For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
 
@@ -560,7 +560,7 @@ For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for
 
 There will also be non-interactive sign-in events, due to the fact the PRT is used to acquire the access token for the client application's request. Follow the [View Azure AD Sign-in logs by Correlation ID Filter](#view-azure-ad-sign-in-logs-by-correlation-id-filter) but in step 2, select **User sign-ins (non-interactive)**.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-msftgraph.png" alt-text="Screenshot showing how the SSO extension uses the PRT to acquire an access token for the Microsoft Graph.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-msft-graph.png" alt-text="Screenshot showing how the SSO extension uses the PRT to acquire an access token for the Microsoft Graph.":::
 
 |Sign-in log attribute  |Description  |
 |---------|---------|
@@ -635,7 +635,7 @@ The logging sample can be broken down into two segments:
 
 We can again take the **correlation Id** obtained from the client-side **SSO Extension** logs and cross reference with the server-side Azure AD Sign-in logs.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-aadsignin-accesstoken.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-aadsignin-access-token.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin.":::
 
 The Azure AD Sign-in shows identical information to the Microsoft Graph resource from the **login** operation in the previous [interactive login section](#view-azure-ad-sign-in-logs-by-correlation-id-filter).  
 
@@ -696,7 +696,7 @@ Request complete
 
 Next, use the correlation ID obtained from the Browser SSO extension logs  to cross-reference the Azure AD Sign-in logs.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browsersso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD Sign-in logs for the Browser SSO Extension.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browser-sso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD Sign-in logs for the Browser SSO Extension.":::
 
 |Sign-in log attribute  |Description  |
 |---------|---------|
