@@ -8,6 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
+
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
