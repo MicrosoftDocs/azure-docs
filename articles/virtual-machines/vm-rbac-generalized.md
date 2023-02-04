@@ -18,10 +18,11 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 
 
+## Shared within your organization
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli)
 
-You can use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
+
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
@@ -143,6 +144,108 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ```
 
 ---
+
+
+## Shared from another tenant
+
+
+
+### [CLI](#tab/cli)
+
+In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
+
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+
+```azurecli-interactive
+
+tenant1='<ID for tenant 1>'
+tenant2='<ID for tenant 2>'
+
+az account clear
+az login --tenant $tenant1
+az account get-access-token 
+az login --tenant $tenant2
+az account get-access-token
+
+```
+ 
+
+Create the VM. Replace the information in the example with your own. Before you create the VM, make sure that the image is replicated into the region where you want to create the VM.
+
+```azurecli-interactive
+imageid="<ID of the image that you want to use>"
+resourcegroup="<name for the resource group>
+location="<location where the image is replicated>"
+user='<username for the VM>'
+name='<name for the VM>'
+
+az group create 
+az vm create \
+  --resource-group $resourcegroup \
+  --name $name \
+  --image $imageid \
+  --admin-username $user \
+  --generate-ssh-keys
+```
+
+
+### [PowerShell](#tab/powershell)
+
+In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
+
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+
+```azurepowershell-interactive
+
+$tenant1 = "<Tenant 1 ID>"
+$tenant2 = "<Tenant 2 ID>"
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+```
+
+
+Create the VM. Replace the information in the example with your own. Before you create the VM, make sure that the image is replicated into the region where you want to create the VM.
+
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVMfromImage"
+
+# Set a variable for the image version in Tenant 1 using the full image ID of the image version
+$image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Networking pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using the $image variable to specify the image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $image | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+### [CLI](#tab/cli2)
 
 
 **Next steps**

@@ -164,6 +164,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 ---
 
+
 ## Create a VM from a community gallery image
 
 > [!IMPORTANT]
@@ -231,7 +232,7 @@ To create the VM from community gallery image, you must accept the license agree
 
 ---
 
-## Create a VM from a gallery shared with your subscription or tenant
+## Create a VM from a direct shared gallery
 
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -313,7 +314,7 @@ az vm create\
 ---
 
 
-**Next steps**
+## Next steps
 
 - [Create an Azure Compute Gallery](create-gallery.md)
 - [Create an image in an Azure Compute Gallery](image-version.md)
