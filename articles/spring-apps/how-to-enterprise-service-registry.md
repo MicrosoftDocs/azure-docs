@@ -462,7 +462,7 @@ Use the following steps to enable or disable Service Registry using the Azure po
 1. Navigate to your service resource, and then select **Service Registry**.
 1. Select **Manage**.
 1. Select or unselect the **Enable Service Registry**, and then select **Save**.
-1. You can then view the state of Service Registry on the **Service Registry** page.
+1. You can now view the state of Service Registry on the **Service Registry** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

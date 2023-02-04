@@ -170,7 +170,7 @@ Use the following steps to enable or disable API portal using the Azure portal:
 1. Navigate to your service resource, and then select **API portal**.
 1. Select **Manage**.
 1. Select or unselect the **Enable API portal**, and then select **Save**.
-1. You can then view the state of API portal on the **API portal** page.
+1. You can now view the state of API portal on the **API portal** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
