@@ -9,23 +9,20 @@ ms.date: 02/02/2023
 
 # Lambda functions for ARM templates
 
-This article describes the lambda functions to use in Bicep. [Lambda expressions (or lambda functions)](https://learn.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are resticted to a single line of code. In Bicep, lambda expression is in this format:
+This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](https://learn.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In ARM templates, lambda expression is in this format:
 
-```bicep
+```json
 <lambda variable> => <expression>
 ```
 
-> [!NOTE]
-> The lambda functions are only supported in Bicep CLI version 0.10.61 or newer.
-
 ## Limitations
 
-Bicep lambda function has these limitations:
+ARM template lambda function has these limitations:
 
 - Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), and [`sort()`](#sort).
 - Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
-- Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
-- Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
+- Using lambda variables inside the [`listKeys`](./template-functions-resource.md#list) function isn't currently supported.
+- Using lambda variables inside the [reference](./template-functions-resource.md#reference) function isn't currently supported.
 
 ## filter
 
@@ -33,7 +30,7 @@ Bicep lambda function has these limitations:
 
 Filters an array with a custom filtering function.
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+Namespace: [sys](template-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -50,31 +47,51 @@ An array.
 
 The following examples show how to use the filter function.
 
-```bicep
-var dogs = [
-  {
-    name: 'Evie'
-    age: 5
-    interests: ['Ball', 'Frisbee']
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "age": 5,
+        "interests": [
+          "Ball",
+          "Frisbee"
+        ]
+      },
+      {
+        "name": "Casper",
+        "age": 3,
+        "interests": [
+          "Other dogs"
+        ]
+      },
+      {
+        "name": "Indy",
+        "age": 2,
+        "interests": [
+          "Butter"
+        ]
+      },
+      {
+        "name": "Kira",
+        "age": 8,
+        "interests": [
+          "Rubs"
+        ]
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "oldDogs": {
+      "type": "array",
+      "value": "[filter(variables('dogs'), lambda('dog', greaterOrEquals(lambdaVariables('dog').age, 5)))]"
+    }
   }
-  {
-    name: 'Casper'
-    age: 3
-    interests: ['Other dogs']
-  }
-  {
-    name: 'Indy'
-    age: 2
-    interests: ['Butter']
-  }
-  {
-    name: 'Kira'
-    age: 8
-    interests: ['Rubs']
-  }
-]
-
-output oldDogs array = filter(dogs, dog => dog.age >=5)
+}
 ```
 
 The output from the preceding example shows the dogs that are five or older:
@@ -83,11 +100,31 @@ The output from the preceding example shows the dogs that are five or older:
 | ---- | ---- | ----- |
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
 
-```bicep
-var itemForLoop = [for item in range(0, 10): item]
-
-output filteredLoop array = filter(itemForLoop, i => i > 5)
-output isEven array = filter(range(0, 10), i => 0 == i % 2)
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "copy": [
+      {
+        "name": "itemForLoop",
+        "count": "[length(range(0, 10))]",
+        "input": "[range(0, 10)[copyIndex('itemForLoop')]]"
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "filteredLoop": {
+      "type": "array",
+      "value": "[filter(variables('itemForLoop'), lambda('i', greater(lambdaVariables('i'), 5)))]"
+    },
+    "isEven": {
+      "type": "array",
+      "value": "[filter(range(0, 10), lambda('i', equals(0, mod(lambdaVariables('i'), 2))))]"
+    }
+  }
+}
 ```
 
 The output from the preceding example:
@@ -105,7 +142,7 @@ The output from the preceding example:
 
 Applies a custom mapping function to each element of an array.
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+Namespace: [sys](template-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -122,37 +159,59 @@ An array.
 
 The following example shows how to use the map function.
 
-```bicep
-var dogs = [
-  {
-    name: 'Evie'
-    age: 5
-    interests: ['Ball', 'Frisbee']
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "age": 5,
+        "interests": [
+          "Ball",
+          "Frisbee"
+        ]
+      },
+      {
+        "name": "Casper",
+        "age": 3,
+        "interests": [
+          "Other dogs"
+        ]
+      },
+      {
+        "name": "Indy",
+        "age": 2,
+        "interests": [
+          "Butter"
+        ]
+      },
+      {
+        "name": "Kira",
+        "age": 8,
+        "interests": [
+          "Rubs"
+        ]
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "dogNames": {
+      "type": "array",
+      "value": "[map(variables('dogs'), lambda('dog', lambdaVariables('dog').name))]"
+    },
+    "sayHi": {
+      "type": "array",
+      "value": "[map(variables('dogs'), lambda('dog', format('Hello {0}!', lambdaVariables('dog').name)))]"
+    },
+    "mapObject": {
+      "type": "array",
+      "value": "[map(range(0, length(variables('dogs'))), lambda('i', createObject('i', lambdaVariables('i'), 'dog', variables('dogs')[lambdaVariables('i')].name, 'greeting', format('Ahoy, {0}!', variables('dogs')[lambdaVariables('i')].name))))]"
+    }
   }
-  {
-    name: 'Casper'
-    age: 3
-    interests: ['Other dogs']
-  }
-  {
-    name: 'Indy'
-    age: 2
-    interests: ['Butter']
-  }
-  {
-    name: 'Kira'
-    age: 8
-    interests: ['Rubs']
-  }
-]
-
-output dogNames array = map(dogs, dog => dog.name)
-output sayHi array = map(dogs, dog => 'Hello ${dog.name}!')
-output mapObject array = map(range(0, length(dogs)), i => {
-  i: i
-  dog: dogs[i].name
-  greeting: 'Ahoy, ${dogs[i].name}!'
-})
+}
 ```
 
 The output from the preceding example is:
@@ -171,7 +230,7 @@ The output from the preceding example is:
 
 Reduces an array with a custom reduce function.
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+Namespace: [sys](template-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -189,32 +248,56 @@ Any.
 
 The following examples show how to use the reduce function.
 
-```bicep
-var dogs = [
-  {
-    name: 'Evie'
-    age: 5
-    interests: ['Ball', 'Frisbee']
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "age": 5,
+        "interests": [
+          "Ball",
+          "Frisbee"
+        ]
+      },
+      {
+        "name": "Casper",
+        "age": 3,
+        "interests": [
+          "Other dogs"
+        ]
+      },
+      {
+        "name": "Indy",
+        "age": 2,
+        "interests": [
+          "Butter"
+        ]
+      },
+      {
+        "name": "Kira",
+        "age": 8,
+        "interests": [
+          "Rubs"
+        ]
+      }
+    ],
+    "ages": "[map(variables('dogs'), lambda('dog', lambdaVariables('dog').age))]"
+  },
+  "resources": {},
+  "outputs": {
+    "totalAge": {
+      "type": "int",
+      "value": "[reduce(variables('ages'), 0, lambda('cur', 'next', add(lambdaVariables('cur'), lambdaVariables('next'))))]"
+    },
+    "totalAgeAdd1": {
+      "type": "int",
+      "value": "[reduce(variables('ages'), 1, lambda('cur', 'next', add(lambdaVariables('cur'), lambdaVariables('next'))))]"
+    }
   }
-  {
-    name: 'Casper'
-    age: 3
-    interests: ['Other dogs']
-  }
-  {
-    name: 'Indy'
-    age: 2
-    interests: ['Butter']
-  }
-  {
-    name: 'Kira'
-    age: 8
-    interests: ['Rubs']
-  }
-]
-var ages = map(dogs, dog => dog.age)
-output totalAge int = reduce(ages, 0, (cur, next) => cur + next)
-output totalAgeAdd1 int = reduce(ages, 1, (cur, next) => cur + next)
+}
 ```
 
 The output from the preceding example is:
@@ -226,12 +309,18 @@ The output from the preceding example is:
 
 **totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
 
-```bicep
-output reduceObjectUnion object = reduce([
-  { foo: 123 }
-  { bar: 456 }
-  { baz: 789 }
-], {}, (cur, next) => union(cur, next))
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": {},
+  "outputs": {
+    "reduceObjectUnion": {
+      "type": "object",
+      "value": "[reduce(createArray(createObject('foo', 123), createObject('bar', 456), createObject('baz', 789)), createObject(), lambda('cur', 'next', union(lambdaVariables('cur'), lambdaVariables('next'))))]"
+    }
+  }
+}
 ```
 
 The output from the preceding example is:
@@ -240,7 +329,7 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | reduceObjectUnion | object | {"foo":123,"bar":456,"baz":789} |
 
-The [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the objects into a new object.
+The [union](./template-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the objects into a new object.
 
 ## sort
 
@@ -248,7 +337,7 @@ The [union](./bicep-functions-object.md#union) function returns a single object 
 
 Sorts an array with a custom sort function.
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+Namespace: [sys](template-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -265,31 +354,60 @@ An array.
 
 The following example shows how to use the sort function.
 
-```bicep
-var dogs = [
-  {
-    name: 'Evie'
-    age: 5
-    interests: ['Ball', 'Frisbee']
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "1.9-experimental",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_EXPERIMENTAL_WARNING": "Symbolic name support in ARM is experimental, and should be enabled for testing purposes only. Do not enable this setting for any production usage, or you may be unexpectedly broken at any time!",
+    "_generator": {
+      "name": "bicep",
+      "version": "0.14.6.61914",
+      "templateHash": "12191906435013264658"
+    }
+  },
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "age": 5,
+        "interests": [
+          "Ball",
+          "Frisbee"
+        ]
+      },
+      {
+        "name": "Casper",
+        "age": 3,
+        "interests": [
+          "Other dogs"
+        ]
+      },
+      {
+        "name": "Indy",
+        "age": 2,
+        "interests": [
+          "Butter"
+        ]
+      },
+      {
+        "name": "Kira",
+        "age": 8,
+        "interests": [
+          "Rubs"
+        ]
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "dogsByAge": {
+      "type": "array",
+      "value": "[sort(variables('dogs'), lambda('a', 'b', less(lambdaVariables('a').age, lambdaVariables('b').age)))]"
+    }
   }
-  {
-    name: 'Casper'
-    age: 3
-    interests: ['Other dogs']
-  }
-  {
-    name: 'Indy'
-    age: 2
-    interests: ['Butter']
-  }
-  {
-    name: 'Kira'
-    age: 8
-    interests: ['Rubs']
-  }
-]
-
-output dogsByAge array = sort(dogs, (a, b) => a.age < b.age)
+}
 ```
 
 The output from the preceding example sorts the dog objects from the youngest to the oldest:
@@ -300,4 +418,4 @@ The output from the preceding example sorts the dog objects from the youngest to
 
 ## Next steps
 
-- See [Bicep functions - arrays](./bicep-functions-array.md) for additional array related Bicep functions.
+- See [Template functions - arrays](./template-functions-array.md) for additional array related template functions.
