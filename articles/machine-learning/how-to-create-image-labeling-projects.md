@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 02/03/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
@@ -72,32 +72,39 @@ In many cases, it's fine to just upload local files. But [Azure Storage Explorer
 
 To create a dataset from data that you've already stored in Azure Blob storage:
 
-1. Select **Create a dataset** > **From datastore**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create** .
+1. Assign a **Name** to your dataset, and optionally a description.
 1. **Dataset type** is set to file, only file dataset types are supported for images.
-1. Select the datastore.
+1. Select **Next**.
+1. Select **From Azure storage**, then **Next**.
+1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. (Optional) Provide a description for your dataset.
-1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **Create**.
+1. Now select the data asset you just created.
 
 ### Create a dataset from uploaded data
 
 To directly upload your data:
 
-1. Select **Create a dataset** > **From local files**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create**.
+1. Assign a **Name** to your dataset, and optionally a description.
 1. **Dataset type** is set to file, only file dataset types are supported for images.
-1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
-1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
-1. Select **Browse** to select the local files or folder(s) to upload.
+1. Select **From local files**, then select **Next**.
+1. (Optional) Select a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Next**.
+1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
+1. In the browser window, find your files or folder, then select **Open**.
+1. Continue using **Upload** until you have specified all your files/folders.
+1. Check the box **Overwrite if already exists** if you wish.  Verify the list of files/folders.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Now select the data asset you just created.
 
-## <a name="incremental-refresh"> </a> Configure incremental refresh
+
+## Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
@@ -180,21 +187,24 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
+The progress charts shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
-The middle section shows the queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned. When ML assisted labeling is on, this section will also show:
+Below the charts is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+
+You also see a distribution of labelers and how many items they've labeled.  
+
+Finally, in the middle section, there is a table showing a queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned. When ML assisted labeling is on, this section will also show:
 
 * Tasks containing clustered items in the queue
 * Tasks containing prelabeled items in the queue
 
-Additionally, when ML assisted labeling is enabled, a small progress bar shows when the next training run will occur.  The Experiments sections give links for each of the machine learning runs.
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
 * Validation - determines whether this model's prediction will be used for pre-labeling the items 
 * Inference - prediction run for new items
 * Featurization - clusters items (only for image classification projects)
 
-On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
 ### Data tab
 
