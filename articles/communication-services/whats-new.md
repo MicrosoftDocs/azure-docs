@@ -16,10 +16,10 @@ We're adding new capabilities to our service all the time, so we wanted to creat
 
 
 ## Updated Documentation
-We've heard your feedback and are working to make it easier to find the documentation you need as quickly and easily as possible. We're also working to make our docs more readable, easier to understand, and more up-to-date. We've started with our new landing page design and an updated, better organized table of contents. We'll be adding the content you've told us you need, and taking time to edit existing docs as well. Don't hesitate to use the feedback link at the top of each page to tell us if a page needs refreshing. Thanks!
+We've heard your feedback and are making it easier to find the documentation you need as quickly and easily as possible. We're making our docs more readable, easier to understand, and more up-to-date. We've started with our new landing page design and an updated, better organized table of contents. We'll be adding the content you've told us you need, and taking time to edit existing docs as well. Don't hesitate to use the feedback link at the top of each page to tell us if a page needs refreshing. Thanks!
 
 ## Teams Interoperability
-Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
+Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](./concepts/ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
 
