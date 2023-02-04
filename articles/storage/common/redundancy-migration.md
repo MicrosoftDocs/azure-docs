@@ -39,7 +39,7 @@ There are three ways to change the replication settings:
 
 If you want to change both zone-redundancy and either geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but the zone-redundancy conversion must be performed separately. It doesn't matter which is done first.
 
-### Replication change table
+### Replication change matrix
 
 The following table provides an overview of how to switch from each type of replication to another.
 
@@ -127,8 +127,7 @@ Customer-initiated conversion adds a new option for customers to start a convers
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-> [!IMPORTANT]
-> Customer-initiated conversion is [not available in all regions](#region).
+Customer-initiated conversion is not available in all regions. See the [region limitations](#region) for more details.
 
 ##### Monitoring customer-initiated conversion progress
 
