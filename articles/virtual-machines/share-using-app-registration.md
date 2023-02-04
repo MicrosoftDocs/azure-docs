@@ -37,7 +37,7 @@ In this example, we are showing how to create a VM from a generalized image. If 
 tenant1='<ID for tenant 1>'
 tenant2='<ID for tenant 2>'
 appid='<client ID of the app registration>'
-secret=
+secret='<secret from the app registration>'
 
 az account clear
 az login --service-principal -u $appid -p $secret --tenant $tenant1
