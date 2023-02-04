@@ -13,7 +13,7 @@ ms.date: 11/03/2022
 
 > [!WARNING]
 > Use of the Apache Kafka Connect framework and its connectors is **not eligible for product support through Microsoft Azure**.
-> Kafka Connect feature relies on Kafka Log compaction feature to fully function. [Log Compaction](./log-compaction.md) feature is current available as a preview. Hence Kafka Connect support is also in the preview state. 
+> Kafka Connect feature relies on Kafka Log compaction feature to fully function. [Log Compaction](./log-compaction.md) feature is currently available as a preview. Hence, Kafka Connect support is also in the preview state. 
 
 
 This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
