@@ -35,6 +35,7 @@ The following capabilities are supported:
 * Supports writing data using user modifiable partition patterns.
 * Supports use of managed identity Synapse and credentials.
 * Supports resolving CDM aliases locations used in imports using CDM adapter definitions described in a config.json.
+* Parallel writes are not supported. It is not recommended. There is no locking mechanism at the storage layer.
 
 ## Limitations
 
@@ -47,7 +48,7 @@ The following scenarios aren't supported:
 * Write support for model.json isn't supported.
 * Executing ```com.microsoft.cdm.BuildInfo.version``` will verify the version
 
-Spark 2.4 and Spark 3.1 are supported.
+Spark 2.4, 3.1, and 3.2 are supported.
 
 ## Reading data
 
