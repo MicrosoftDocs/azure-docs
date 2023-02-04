@@ -104,7 +104,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account. 
 
-When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about sent share assets and data sharing lineage.
+When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
    > Shares created using the SDK and without registering the storage account with Microsoft Purview will not be ingested into the catalog. 
@@ -113,9 +113,9 @@ When a share is created, a new asset of type sent share is ingested into the Mic
 
 Once a share is created, you can update description, assets and recipients.
 
-You'll do this from the asset, just like when you created the data share.
+You'll do this from the Blob Storage or ADLSGen2 asset, just like when you created the data share.
 
-Search for your data asset in the data catalog, open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset.
+Search for your Blob storage or ADLSGen2 asset in the data catalog, open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset.
 
 > [!NOTE]
    > If you have the **Reader** role only on the source storage account, you will be able to view list of sent shares and received shares and not edit. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
