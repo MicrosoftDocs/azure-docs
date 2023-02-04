@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/04/2023
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -120,7 +120,10 @@ There are two ways to initiate a conversion:
 
 #### Customer-initiated conversion
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated. There is no SLA for completion of a customer-initiated conversion.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
+
+> [!NOTE]
+> There is no SLA for completion of a customer-initiated conversion.
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
