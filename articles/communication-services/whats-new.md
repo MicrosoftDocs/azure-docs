@@ -12,11 +12,11 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # What's new in Azure Communication Services
 
-We're adding new capabilities to our service all the time, so we wanted to create a location where you can see the latest developments in Azure Communication Services. Bookmark this page and check in every so often. We'll be updating about once per quarter to start with. Make this page your go-to resource to find out all the latest capabilities of Azure Communication Services. 
+We're adding new capabilities to our service all the time, so we wanted to create a location where you can see the latest developments in Azure Communication Services. Bookmark this page and and make it your go-to resource to find out all the latest capabilities of Azure Communication Services. 
 
 
 ## Updated Documentation
-We've heard your feedback and are working to make it easier to find the documentation you need as quickly and easily as possible. We're also working to make our docs more readable, easier to understand, and more up-to-date. We've started with our new landing page design and an updated, more organized table of contents. We'll be adding the content you've told us you need, and taking time to edit existing docs as well. Don't hesitate to use the feedback link at the top of each page to tell us if a page needs refreshing. Thanks!
+We've heard your feedback and are working to make it easier to find the documentation you need as quickly and easily as possible. We're also working to make our docs more readable, easier to understand, and more up-to-date. We've started with our new landing page design and an updated, better organized table of contents. We'll be adding the content you've told us you need, and taking time to edit existing docs as well. Don't hesitate to use the feedback link at the top of each page to tell us if a page needs refreshing. Thanks!
 
 ## Teams Interoperability
 Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
