@@ -17,24 +17,24 @@ This article is part two in a three-part tutorial series. [Part one](tutorial-re
 ## Terminology 
 
 - Cache Rule
-    - A cache rule is a set of rules used to pull artifacts from a public Registry into your cache. A cache rule contains four parts
+    - A cache rule is a set of rules you can create and use to pull artifacts from a public Registry into your cache. A cache rule contains four parts
         
-        1. A Rule Name - This is the name of your cache rule.
+        1. A Rule Name - The name of your cache rule.
 
-        2. A Source - This is the name of the Source Registry.
+        2. A Source - The name of the Source Registry.
 
-        3. A Repository Path - This is the fully qualified path of the artifact you want cached.
+        3. A Repository Path - The source path of the artifact you want to cache.
 
-        4. A ACR Repository Path - This is the repository path where cached artifacts will be stored.
+        4. ACR Repository Path - The repository path to store cached artifacts. 
 
 - Credential Set
     - A credential set is a username and password in key vault for the source registry. A credential set is needed if a cached is pulling from a private repository. A credential set contains three parts
 
-        1. A Credential Set Name - This is the name of your credential set.
+        1. A Credential Set Name - The name of your credential set.
 
-        2. A Source registry Login Server - This is the login server of your source registry.
+        2. A Source registry Login Server - The login server of your source registry.
 
-        3. A username and password - This is the username and password for your source repository from Secert URI or Key Vault.
+        3. A username and password - The username and password for your source repository from Secret URI or Key Vault.
 
 ## Configure Registry Cache - Azure portal
 
@@ -46,11 +46,11 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
         :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview blade.":::
 
-3. Click on **Create Rule**.
+3. Select on **Create Rule**.
 
         :::image type="content" source="./media/container-registry-registry-cache/cache-blade-02.png" alt-text="Screenshot for Create Rule.":::
 
-4. A **New cache rule** window pops up.
+4. A window for **New cache rule** pops up.
 
         :::image type="content" source="./media/container-registry-registry-cache/new-cache-rule-03.png" alt-text="Screenshot for new Cache Rule.":::
 
@@ -64,15 +64,15 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 9. Choose **Create new credentials** to create a new set of credentials to store the username and password for your source registry. Learn how to [create new credentials](###Create-new-credentials)
 
-10. If you have the credentials ready, **Select credentials** from the drop down menu.
+10. If you have the credentials ready, **Select credentials** from the drop-down menu.
 
 11. Under the **Destination**, specify the name of the **New ACR repository path** to store cached artifacts.
 
         :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png.png" alt-text="Screenshot to save Cache Rule.":::
 
-12. Click on **Save** 
+12. Select on **Save** 
 
-13. Pull the image from your cache using the Azure CLI command <br> `docker pull MyRegistry.azurecr.io/hello-world`
+13. Pull the image from your cache using the Azure CLI command `docker pull MyRegistry.azurecr.io/hello-world`
 
 ### Create new credentials
 
@@ -90,9 +90,9 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 1. For the  **Select from Key Vault** option, Learn more about [creating credentials using key vault][create-and-store-keyvault-credentials]. 
 
-1. For the **Enter secret URI's** option,, Learn more about [securing secret URI's][secure-authentication-secrets].
+1. For the **Enter secret URI's** option, Learn more about [securing secret URIs][secure-authentication-secrets].
 
-1. Click on **Create**
+1. Select on **Create**
 
 ## Next steps
 
