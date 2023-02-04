@@ -6,7 +6,7 @@ ms.author: AvinandaC
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 03/10/2022
+ms.date: 02/03/2023
 author: AvinandaMS
 ---
 
@@ -50,6 +50,9 @@ The following scenarios aren't supported:
 
 Spark 2.4, 3.1, and 3.2 are supported.
 
+## Samples
+Checkout the [sample code and CDM files](https://github.com/Azure/spark-cdm-connector/tree/spark3.2/samples) for a quick start.
+
 ## Reading data
 
 When reading data, the connector uses metadata in the CDM folder to create the dataframe based on the resolved entity definition for the specified entity, as referenced in the manifest. Entity attribute names are used as dataframe column names.  Attribute datatypes are mapped to the column datatype. When the dataframe is loaded, it's populated from the entity partitions identified in the manifest.
@@ -62,8 +65,6 @@ When reading CSV data, the connector uses the Spark FAILFAST option by default. 
 ```scala
   .option("entity", "permissive") or .option("mode", "failfast")
 ```
-
-For example, [here's an example Python sample.](https://github.com/Azure/spark-cdm-connector/blob/master/samples/SparkCDMsamplePython.ipynb)
 
 ## Writing data
 
@@ -433,10 +434,6 @@ val df= spark.createDataFrame(spark.sparkContext.parallelize(data, 2), schema)
         |-- <data folder>
         +-- ...
 ```
-
-## Samples
-
-See https://github.com/Azure/spark-cdm-connector/tree/master/samples for sample code and CDM files.
 
 ### Examples
 
