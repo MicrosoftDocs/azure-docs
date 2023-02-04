@@ -2,7 +2,7 @@
 title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 02/03/2023
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
@@ -13,7 +13,7 @@ Learn how to Bicep extensibility Kubernetes provider to deploy .NET applications
 
 This preview feature can be enabled by configuring the [bicepconfig.json](./bicep-config.md):
 
-```bicep
+```json
 {
   "experimentalFeaturesEnabled": {
     "extensibility": true,
@@ -21,143 +21,41 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 }
 ```
 
-## Import schema for Kubernetes provider
+## Import Kubernetes provider
 
-Use the following syntax to import schema for Kubernetes provider:
+Deployments of Kubernetes must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables and parameters. The Kubernetes manifest in YML does not include any programmability support by contract.
+
+The following sample imports the Kubernetes provider:
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2022-05-02-preview' existing = {
-  name: clusterName
-}
+@secure()
+param kubeConfig string
 
 import 'kubernetes@1.0.0' with {
   namespace: 'default'
-  kubeConfig: aks.listClusterAdminCredential().kubeconfigs[0].value
+  kubeConfig: kubeConfig
 }
 ```
 
-The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the code snippet automatically.
+- **namespace**: Specify the namespace of the provider.
+- **KubeConfig**: Specify a base64 encoded value of the [Kubernetes cluster admin credentials](/rest/api/aks/managed-clusters/list-cluster-admin-credentials).
 
-## Define Kubernetes deployments and services
-
-*** Do I need to cover how a Kubernetes YML is transformed into Bicep?
-
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-        env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
-```
+The following sample shows how to pass `kubeConfig` value from parent Bicep file:
 
 ```bicep
-resource appsDeployment_azureVoteBack 'apps/Deployment@v1' = {
-  metadata: {
-    name: 'azure-vote-back'
-  }
-  spec: {
-    replicas: 1
-    selector: {
-      matchLabels: {
-        app: 'azure-vote-back'
-      }
-    }
-    template: {
-      metadata: {
-        labels: {
-          app: 'azure-vote-back'
-        }
-      }
-      spec: {
-        nodeSelector: {
-          'kubernetes.io/os': 'linux'
-        }
-        containers: [
-          {
-            name: 'azure-vote-back'
-            image: 'mcr.microsoft.com/oss/bitnami/redis:6.0.8'
-            env: [
-              {
-                name: 'ALLOW_EMPTY_PASSWORD'
-                value: 'yes'
-              }
-            ]
-            resources: {
-              requests: {
-                cpu: '100m'
-                memory: '128Mi'
-              }
-              limits: {
-                cpu: '250m'
-                memory: '256Mi'
-              }
-            }
-            ports: [
-              {
-                containerPort: 6379
-                name: 'redis'
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
+resource aks 'Microsoft.ContainerService/managedClusters@2022-05-02-preview' existing = {
+  name: 'demoAKSCluster'
 }
 
-resource coreService_azureVoteBack 'core/Service@v1' = {
-  metadata: {
-    name: 'azure-vote-back'
-  }
-  spec: {
-    ports: [
-      {
-        port: 6379
-      }
-    ]
-    selector: {
-      app: 'azure-vote-back'
-    }
+module kubernetes './kubernetes.bicep' = {
+  name: 'buildbicep-deploy'
+  params: {
+    kubeConfig: aks.listClusterAdminCredential().kubeconfigs[0].value
   }
 }
 ```
+
+The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the import snippet automatically.
 
 ## Visual Studio Code import
 

@@ -3,7 +3,7 @@ title: Quickstart - Deploy Azure applications to Azure Kubernetes Services by us
 description: Learn how to quickly create a Kubernetes cluster and deploy Azure applications in Azure Kubernetes Service (AKS) by using Bicep extensibility Kubernetes provider.
 services: container-service
 ms.topic: quickstart
-ms.date: 01/31/2023
+ms.date: 02/03/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -178,6 +178,11 @@ Use the following procedure to add the application definition:
     :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
 
 1. In the prompt, select **azure-vote.yml**. This process creates an **azure-vote.bicep** in the same folder.
+1. At the end of **azure-vote.bicep**, add the following line to output the load balancer public IP.
+
+    ```bicep
+    output frontendIp string = coreService_azureVoteFront.status.loadBalancer.ingress[0].ip
+    ```
 
 1. Before the `output` statement in **main.bicep**, add the following Bicep to reference the newly created **azure-vote.bicep** module:
 
@@ -189,6 +194,14 @@ Use the following procedure to add the application definition:
       }
     }
     ```
+
+1. At the end of **main.bicep**, add the following line to output the load balancer public IP:
+
+    ```bicep
+    output lbPublicIp string = kubernetes.outputs.frontendIp
+    ```
+
+1. Save both **main.bicep** and **azure-vote.bicep**.
 
 ## Deploy the Bicep file
 
@@ -219,94 +232,24 @@ Use the following procedure to add the application definition:
 
     It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
+2. From the deployment output, look for the **outputs** section. For example:
+
+    ```bicep
+    "outputs": {
+      "controlPlaneFQDN": {
+        "type": "String",
+        "value": "myaks0201-d34ae860.hcp.eastus.azmk8s.io"
+      },
+      "lbPublicIp": {
+        "type": "String",
+        "value": "52.179.23.131"
+      }
+    },
+    ```
+
+    Make a note of the value of lbPublicIp.
+
 ## Validate the Bicep deployment
-
-### Connect to the cluster
-
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
-
-    ```azurecli
-    az aks install-cli
-    ```
-
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
-
-    ```azurecli-interactive
-    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-    ```
-
-3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
-
-    ```console
-    kubectl get nodes
-    ```
-
-    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
-
-    ```output
-    NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
-    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
-    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
-    ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
-
-    ```azurepowershell
-    Install-AzAksKubectl
-    ```
-
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
-
-    ```azurepowershell-interactive
-    Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
-    ```
-
-3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
-
-    ```azurepowershell-interactive
-    kubectl get nodes
-    ```
-
-    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
-
-    ```plaintext
-    NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
-    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
-    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
-    ```
-
----
-
-### Test the application
-
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
-
-Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
-
-```console
-kubectl get service azure-vote-front --watch
-```
-
-The **EXTERNAL-IP** output for the `azure-vote-front` service will initially show as *pending*.
-
-```output
-NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
-```
-
-Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
-
-```output
-azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
-```
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
