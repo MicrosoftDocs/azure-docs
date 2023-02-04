@@ -4,9 +4,9 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/03/2023
 ms.author: justinha
-author: mjsantani
+author: justinha
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
@@ -305,7 +305,7 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 ### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
 
-Number match will be enabled for all users of Microsoft Authenticator after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
+Number match will be enabled for all users of Microsoft Authenticator push notifications after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
 ### Will the changes after February 27th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
 
@@ -361,10 +361,6 @@ If the user has a different default authentication method, there won't be any ch
 - Legacy MFA tenant-wide policy (in the portal, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**)
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications will see number match after February 27th, 2023. If the user is prompted for another method, they won't see any change. 
-
-### Will users who don't use number matching be able to perform MFA?
-
-It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented after February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
 
 ### Is number matching supported with MFA Server?
 
