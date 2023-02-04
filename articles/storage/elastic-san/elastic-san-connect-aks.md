@@ -50,7 +50,9 @@ cd csi-driver-iscsi
 
 Afterwards, check the pods status to verify that the driver installed.
 
-`kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node`
+```bash
+kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
+```
 
 ### Volume information
 
