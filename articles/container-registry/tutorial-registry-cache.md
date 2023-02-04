@@ -18,7 +18,7 @@ This article is part one in a three-part tutorial series. The tutorial covers:
 
 ## About Caching for ACR
 
-By enabling Caching for ACR, you can access, fetch, and cache images. A registry cache enables you to access content from public and private registries such as docker hub.
+By enabling Caching for ACR, you can access, fetch, and cache images. A registry cache enables you to access content from public and private registries. 
 
 The cached artifacts are accessible from private VNETs using ACR [Private Link Support](/azure/container-registry/container-registry-private-link). All the cached artifacts will be delivered through ACR.
 
@@ -32,7 +32,7 @@ Implementing Caching for ACR provides the following benefits:
 
 ## Preview Limitations
 
-- Quarantine functions like signing, scanning, and manuel compliance approval are on the roadmap for cached registries but aren't included in this release.
+- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap for cached registries but aren't included in this release.
 
 - Caching for ACR currently only supports caching for pulled images. Caching for ACR doesn't automatically pull new version of images when a new version is available. This is on the roadmap but isn't supported in this release. 
 
@@ -42,4 +42,4 @@ Implementing Caching for ACR provides the following benefits:
 
 ## Next steps
 
-* To enable Registry Cache using the Azure CLI, and the Azure portal advance to the next article: [Enable Registry Cache](tutorial-enable-registry-cache.md).
+* To enable Registry Cache using the Azure portal advance to the next article: [Enable Registry Cache](tutorial-enable-registry-cache.md).
