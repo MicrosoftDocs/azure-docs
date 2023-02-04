@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli devx-track-azurepowershell
 author: sandeepraichura
 ms.author: saraic
 ---
-# Share gallery VM images across Azure tenants using an app registration and the Azure CLI
+# Share gallery VM images across Azure tenants using an app registration
 
 With Azure Compute Galleries, you can share an image to another organization by using an app registration. For more information about other sharing options, see the [Share the gallery](./share-gallery.md).
 
