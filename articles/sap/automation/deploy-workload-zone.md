@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ---
 
 # Workload zone deployment in SAP automation framework

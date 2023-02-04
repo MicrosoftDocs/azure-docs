@@ -1,6 +1,6 @@
 ---
 author: lauradolan
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ms.topic: include
 ms.date: 10/27/2022
 ms.author: ladolan

@@ -4,7 +4,7 @@ description: Operations guide for SAP HANA systems that are deployed on Azure vi
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/30/2022
@@ -297,9 +297,9 @@ The following sections describe some of the operations related to deploying SAP 
 ### Back up and restore operations on Azure VMs
 The following documents describe how to back up and restore your SAP HANA deployment:
 
-- [SAP HANA backup overview](../../backup/sap-hana-db-about.md)
-- [SAP HANA file-level backup](../../backup/sap-hana-db-about.md)
-- [SAP HANA storage snapshot benchmark](../../backup/sap-hana-db-about.md)
+- [SAP HANA backup overview](../../backup/sap-hana-database-about.md)
+- [SAP HANA file-level backup](../../backup/sap-hana-database-about.md)
+- [SAP HANA storage snapshot benchmark](../../backup/sap-hana-database-about.md)
 
 
 ### Start and restart VMs that contain SAP HANA

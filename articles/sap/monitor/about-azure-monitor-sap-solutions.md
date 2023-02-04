@@ -2,8 +2,8 @@
 title: What is Azure Monitor for SAP solutions? (preview)
 description: Learn about how to monitor your SAP resources on Azure for availability, performance, and operation.
 author: lauradolan
-ms.service: azure-center-sap-solutions
-ms.topic: conceptual
+ms.service: sap-on-azure
+ms.topic: overview
 ms.custom: subject-monitoring
 ms.date: 10/27/2022
 ms.author: ladolan

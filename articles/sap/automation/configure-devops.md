@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/1/2022
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
 ---
 
 # Use SAP on Azure Deployment Automation Framework from Azure DevOps Services

@@ -4,8 +4,8 @@ description: Learn how to use a browser method for configuring alerts in Azure M
 author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
-ms.service: azure-center-sap-solutions
-ms.date: 10/27/2022
+ms.service: sap-on-azure
+ms.date: 10/19/2022
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---
 
