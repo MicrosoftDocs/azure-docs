@@ -32,7 +32,7 @@ You can get pronunciation assessment scores for:
 > [!NOTE]
 > The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
 > 
-> Pronunciation assessment doesn't support commitment tier yet and charges are the same as pay-as-you-go standard Speech to Text [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> Usage of pronunciation assessment costs the same as standard Speech to Text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). Pronunciation assessment doesn't yet support commitment tier pricing.
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
