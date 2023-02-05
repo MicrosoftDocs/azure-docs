@@ -16,11 +16,22 @@ Latency refers to the amount of time it takes for log data to become available i
 
 The factors that affect latency are:
 
+- [Log Analytics workspace health](#log-analytics-workspace-resource-health): The proper functioning of your Log Analytics workspace.
 - [Data collection time](#data-collection-time): The time it takes to discover an event, collect it, and send it to an Azure Monitor Logs ingestion point as a log record. 
 - [Pipeline processing time](#pipeline-processing-time): The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - [Indexing time](#indexing-time): The time spent to ingest a log record into an Azure Monitor big data store.
 
 The following sections detail the latency introduced by each of these factors.
+
+### Log Analytics workspace health
+
+[Azure Service Health](../../service-health/overview.md) monitors the [resource health](../../service-health/resource-health-overview.md) and [service health](../../service-health/service-health-overview.md) of your Log Analytics workspace.
+ 
+To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
+
+:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::
+
+  
 
 ### Data collection time
 In most cases, this process is handled by an agent. 
@@ -36,7 +47,7 @@ In most cases, this process is handled by an agent.
 | Linux performance counters | Polled at 30-second intervals|
 | IIS logs and text logs | Collected when their timestamp changes | 
 
-To ensure the agent is lightweight, Azure Monitor Agent buffers logs before sending them to an Azure Monitor Logs ingestion point. Azure Monitor Logs sends all log data to an ingestion point within a minute of the time it collects the data.
+Azure Monitor Agent buffers log data before sending it to an Azure Monitor Logs ingestion point within a minute of the collection time.
 
 Network conditions can affect how long it takes for data to reach an Azure Monitor Logs ingestion point.
 
@@ -83,14 +94,14 @@ This table specifies which log property you can use to check when the various st
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the `TimeGenerated` value is older than three days, the row will be dropped. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | The record is dropped if the `TimeGenerated` value is older than three days at processing time. |
 | Record received at Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
-| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | Use `ingestion_time()` to retrieve records that were ingested in a certain time window. Add a `TimeGenerated` filter with a larger range to compare generation and ingestion time. |
 
 ### Ingestion latency delays
-You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the `TimeGenerated` property. This data can be used with various aggregations to discover how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amounts of data.
+You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the `TimeGenerated` property. Use this data with various aggregations to discover how ingestion latency behaves. Examine a specific percentile of the ingestion time to get insights for large amounts of data.
 
-For example, the following query will show you which computers had the highest ingestion time over the last eight hours:
+For example, this query shows which computers had the highest ingestion time in the last eight hours:
 
 ``` Kusto
 Heartbeat
@@ -101,9 +112,9 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-The preceding percentile checks are good for finding general trends in latency. To identify a short-term spike in latency, using the maximum (`max()`) might be more effective.
+The [percentiles() aggregation function](/azure/data-explorer/kusto/query/percentiles-aggfunction) is good for finding general trends in latency. To identify a short-term spike in latency, use the [max() aggregation function](/data-explorer/kusto/query/max-aggfunction).
 
-If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query, which also visualizes the data from the past day in a graph:
+To check the ingestion time for a specific computer over a period of time, use this query, which visualizes the data from the past day in a graph:
 
 ``` Kusto
 Heartbeat 
@@ -114,7 +125,7 @@ Heartbeat
 | render timechart
 ```
 
-Use the following query to show computer ingestion time by the country/region where they're located, which is based on their IP address:
+This query shows computer ingestion time by the country/region where the computer is located, based on IP address:
 
 ``` Kusto
 Heartbeat 
@@ -135,9 +146,9 @@ AzureDiagnostics
 ```
 
 ### Resources that stop responding
-In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record, which can be identified by the standard `TimeGenerated` field.
+In some cases, a resource could stop sending data. To understand whether a resource is sending data, look at its most recent record, which you can identify by the standard `TimeGenerated` field.
 
-Use the `Heartbeat` table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently:
+Use the `Heartbeat` table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported a heartbeat recently:
 
 ``` Kusto
 Heartbeat  
