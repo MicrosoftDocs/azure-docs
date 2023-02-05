@@ -50,6 +50,7 @@ In the portal, the end time field becomes the next start time for the default pr
 
 > [!TIP]
 > To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
+> Creating a recurring profile with no end time is only supported via the portal.
 
 ## Multiple profiles using templates, CLI, and PowerShell
 
@@ -205,18 +206,19 @@ The example below shows how to add a recurring autoscale profile, recurring on T
 
 ``` azurecli
 
-az monitor autoscale profile create --autoscale-name VMSS1-Autoscale-607 --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
+az monitor autoscale profile create --autoscale-name VMSS1-Autoscale --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale in 1 --condition "Percentage CPU < 25 avg 5m" --profile-name Thursdays
+az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale --scale in 1 --condition "Percentage CPU < 25 avg 5m" --profile-name Thursdays
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
+az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
 ```
 
 > [!NOTE]  
-> The JSON for your autoscale default profile is modified by adding a recurring profile.  
-> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name of your recurring profile.
+> * The JSON for your autoscale default profile is modified by adding a recurring profile.  
+> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile name\"}"` where *recurring profile* is the profile name of your recurring profile.
 > The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
-> A new default profile is created for each recurring profile.  
+> * A new default profile is created for each recurring profile.  
+> * If the end time is not included in the CLI command, a default end time of 23:59 
 
 ## Updating the default profile when you have recurring profiles
 
