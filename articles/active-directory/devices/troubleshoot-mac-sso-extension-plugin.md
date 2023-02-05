@@ -172,8 +172,6 @@ If the SSO extension configuration profile doesn't appear in the **Profiles** li
 
 1. You should now see the MDM Console logs filtered on **Extensible SSO** configuration profile activities. The following screenshot shows a log entry **Installed configuration profile**, showing that the configuration profile was installed.
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png" alt-text="Screenshot showing a sample of an installed configuration profile in console logs." lightbox="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png":::
-
 ## Application auth flow troubleshooting
 
 The guidance in this section assumes that the macOS device has a correctly deployed configuration profile. See [Validate SSO Configuration Profile on macOS Device](#validate-sso-configuration-profile-on-macos-device) for the steps.
@@ -261,7 +259,7 @@ Scenario: An application developed to use MSAL (Example: **Microsoft To Do** cli
 
 Scenario: A user on an Apple device opens up the Safari web browser (or any Non-MSAL native app that supports the Apple Networking Stack) to sign into an Azure AD protected resource (Example: `https://office.com`).
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-prt-nonmsal-app.gif" alt-text="An animation showing the high level authentication flow of a Non-MSAL app using the SSO Extension.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-prt-non-msal-app.gif" alt-text="An animation showing the high level authentication flow of a Non-MSAL app using the SSO Extension.":::
 
 1. Using a Non-MSAL application (Example: **Safari**), the user attempts to sign into an Azure AD integrated application (Example: office.com) and is redirected to obtain a token from Azure AD
 1. As long as the Non-MSAL application is allow-listed in the MDM payload configuration, the Apple network stack intercepts the authentication request and redirects the request to the SSO Extension broker
@@ -389,7 +387,7 @@ The following actions should take place for a successful interactive sign-on:
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click-call-msft-graph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click-call-microsoft-graph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button.":::
 
 ```SSOExtensionLogs
 //////////////////////////
@@ -543,8 +541,6 @@ Finished SSO request.
 
 At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msft-graph-user-info.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO extension Broker.":::
-
 Next, examine server-side [Azure AD Sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO extension logs . For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
 
 ###### View Azure AD Sign-in logs by correlation ID filter
@@ -554,13 +550,13 @@ Next, examine server-side [Azure AD Sign-in logs](../reports-monitoring/referenc
 1. Select the **Add Filters** and select the **Correlation Id** radio button.
 1. Copy and paste the Correlation ID obtained from the SSO extension logs  and select **Apply**.
 
-For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for the resource **Microsoft Authentication Broker** service. This event is where the user entered their password to bootstrap the PRT. 
+For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for the resource **Microsoft Authentication Broker** service. This event is where the user entered their password to bootstrap the PRT.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-interactive-mab.png" alt-text="Screenshot showing the interactive User Sign-ins from Azure AD showing an interactive sign into the Microsoft Authentication Broker Service.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-azure-ad-details-interactive.png" alt-text="Screenshot showing the interactive User Sign-ins from Azure AD showing an interactive sign into the Microsoft Authentication Broker Service.":::
 
 There will also be non-interactive sign-in events, due to the fact the PRT is used to acquire the access token for the client application's request. Follow the [View Azure AD Sign-in logs by Correlation ID Filter](#view-azure-ad-sign-in-logs-by-correlation-id-filter) but in step 2, select **User sign-ins (non-interactive)**.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-msft-graph.png" alt-text="Screenshot showing how the SSO extension uses the PRT to acquire an access token for the Microsoft Graph.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-azure-ad-details-non-interactive-microsoft-graph.png" alt-text="Screenshot showing how the SSO extension uses the PRT to acquire an access token for the Microsoft Graph.":::
 
 |Sign-in log attribute  |Description  |
 |---------|---------|
@@ -635,7 +631,7 @@ The logging sample can be broken down into two segments:
 
 We can again take the **correlation Id** obtained from the client-side **SSO Extension** logs and cross reference with the server-side Azure AD Sign-in logs.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-aadsignin-access-token.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-azure-ad-sign-ins-access-token.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin.":::
 
 The Azure AD Sign-in shows identical information to the Microsoft Graph resource from the **login** operation in the previous [interactive login section](#view-azure-ad-sign-in-logs-by-correlation-id-filter).  
 
@@ -696,7 +692,7 @@ Request complete
 
 Next, use the correlation ID obtained from the Browser SSO extension logs  to cross-reference the Azure AD Sign-in logs.
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browser-sso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD Sign-in logs for the Browser SSO Extension.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browser-sso-azure-ad-sign-ins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD Sign-in logs for the Browser SSO Extension.":::
 
 |Sign-in log attribute  |Description  |
 |---------|---------|
