@@ -218,7 +218,7 @@ az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale --
 > The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile name\"}"` where *recurring profile* is the profile name of your recurring profile.
 > The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
 > * A new default profile is created for each recurring profile.  
-> * If the end time is not included in the CLI command, a default end time of 23:59 
+> * If the end time is not specified in the CLI command, the end time will be defaulted to 23:59.
 
 ## Updating the default profile when you have recurring profiles
 
