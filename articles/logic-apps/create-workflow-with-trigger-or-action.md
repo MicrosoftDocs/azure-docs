@@ -40,20 +40,7 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, under the search box, select **All** so that you can search all the connectors and triggers by name.
 
-   | Group | Description |
-   |-------|-------------|
-   | **For You** | Any connectors and triggers that you recently used. |
-   | **All** | All available connectors and triggers in Azure Logic Apps. |
-   | **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
-   | **Standard** and **Enterprise** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
-   | **Custom** | Any connectors and triggers that you created and installed. |
-
-   For more information, see the following documentation:
-
-   - [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
-   - [Microsoft-managed (Standard and Enterprise) connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-   - [Custom connectors in Azure Logic Apps](custom-connector-overview.md)
-   - [Billing and pricing for operations in Consumption workflows](logic-apps-pricing.md#consumption-operations)
+   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
 1. In the search box, enter the name for the connector or trigger that you want to find.
 
@@ -78,12 +65,7 @@ The following steps use the Azure portal, but you can also use the following too
    | **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
    | **Azure** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
 
-   For more information, see the following documentation:
-
-   - [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
-   - [Microsoft-managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-   - [Built-in custom connectors in Azure Logic Apps](custom-connector-overview.md)
-   - [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
+   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
 1. To filter the list, in the search box, enter the name for the connector or trigger. From the triggers list, select the trigger that you want.
 
@@ -99,25 +81,22 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, select **Add a trigger**, if not already selected.
 
-1. On the **Browse operations** pane, choose either path:
+   The **Browse operations** pane opens and shows all the available connectors.
 
-   - To filter the connectors or triggers list, in the search box, enter the name for the connector or trigger that you want.
+1. Choose either option:
 
-   - To browse triggers grouped by connector, open the **Filter** list, and select either **In-App** or **Shared**, based on the trigger that you want.
+   - To filter the connectors or triggers list by name, in the search box, enter the name for the connector or trigger that you want.
+
+   - To browse triggers based on the following groups, open the **Filter** list, and select either **In-App** or **Shared**, based on the group that contains the trigger that you want.
 
      | Group | Description |
      |-------|-------------|
      | **In-App** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. In the non-preview designer, this group is the same as the **Built-in** group. |
      | **Shared** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the non-preview designer, this group is the same as the **Azure** group. |
 
-   For more information, see the following documentation:
+   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
 
-   - [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
-   - [Microsoft-managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-   - [Built-in custom connectors in Azure Logic Apps](custom-connector-overview.md)
-   - [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
-
-1. From the triggers list, select the trigger that you want.
+1. From the operation collection or connector list, select the collection or connector that you want. After the triggers list appears, select the trigger that you want.
 
 1. If prompted, provide any necessary connection information, which differs based on the connector. When you're done, select **Create**.
 
@@ -133,7 +112,15 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-1. On the designer, under the search box, select **All** so that you can search all the connectors and actions by name.
+1. On the designer, choose one of the following:
+
+   * To add the action under the last step in the workflow, select **New step**.
+
+   * To add the action between existing steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **All** so that you can search all the connectors and actions by name.
+
+   The designer uses the following groups to organize connectors and their operations:
 
    | Group | Description |
    |-------|-------------|
@@ -143,12 +130,7 @@ The following steps use the Azure portal, but you can also use the following too
    | **Standard** and **Enterprise** | Actions and connectors that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
    | **Custom** | Any actions and connectors that you created and installed. |
 
-   For more information, see the following documentation:
-
-   - [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
-   - [Microsoft-managed (Standard and Enterprise) connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-   - [Custom connectors in Azure Logic Apps](custom-connector-overview.md)
-   - [Billing and pricing for operations in Consumption workflows](logic-apps-pricing.md#consumption-operations)
+   For more information about the way that the designer organizes operation collections, connectors, and actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
 1. In the search box, enter the name for the connector or action that you want to find.
 
@@ -162,17 +144,81 @@ The following steps use the Azure portal, but you can also use the following too
 
 ### [Standard](#tab/standard)
 
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
+
+1. On the designer, choose one of the following:
+
+   * To add the action under the last step in the workflow, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add the action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
+
+1. On the **Add an action** pane, under the search box, select either **Built-in** or **Azure**, based on the trigger that you want to find.
+
+   | Group | Description |
+   |-------|-------------|
+   | **Built-in** | Connectors and actions that run directly and natively within the Azure Logic Apps runtime. |
+   | **Azure** | Connectors and actions that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
+
+   For more information about the way that the designer organizes operation collections, connectors, and actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+
+1. To filter the list, in the search box, enter the name for the connector or action. From the actions list, select the action that you want.
+
+1. If prompted, provide any necessary connection information, which differs based on the connector. When you're done, select **Create**.
+
+1. After the action information box appears, provide the necessary details for your selected action.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
 ### [Standard (Preview)](#tab/standard-preview)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
+
+1. On the designer, select **Add a trigger**, if not already selected.
+
+   The **Browse operations** pane opens and shows all the available connectors.
+
+1. Choose either option:
+
+   - To filter the connectors or actions list by name, in the search box, enter the name for the connector or action that you want.
+
+   - To browse triggers based on the following groups, open the **Filter** list, and select either **In-App** or **Shared**, based on the group that contains the action that you want.
+
+     | Group | Description |
+     |-------|-------------|
+     | **In-App** | Connectors and actions that run directly and natively within the Azure Logic Apps runtime. In the non-preview designer, this group is the same as the **Built-in** group. |
+     | **Shared** | Connectors and actions that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the non-preview designer, this group is the same as the **Azure** group. |
+
+   For more information about the way that the designer organizes operation collections, connectors, and actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
+
+1. From the operation collection or connector list, select the collection or connector that you want. After the actions list appears, select the action that you want.
+
+1. If prompted, provide any necessary connection information, which differs based on the connector. When you're done, select **Create**.
+
+1. After the action information box appears, provide the necessary details for your selected action.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
-## Triggers and actions in the designer
+<a name="connectors-triggers-actions-designer"></a>
+
+## Connectors, triggers, and actions in the designer
 
 In the workflow designer, you can select from hundreds of triggers and actions, collectively called *operations*. Azure Logic Apps organizes these operations into either collections, such as **Schedule**, **HTTP**, and **Data Operations**, or as connectors, such as **Azure Service Bus**, **SQL Server**, **Azure Blob Storage**, and **Office 365 Outlook**. These collections can include triggers, actions, or both.
 
 ### [Consumption](#tab/consumption)
 
-In the designer, the top row that shows the available collections and connectors is organized from left to right, based on global popularity and usage. The individual **Triggers** and **Actions** lists are grouped by collection or connector name. These names appear in ascending order, first numerically if any exist, and then alphabetically.
+The designer uses the following groups to organize connectors and their operations:
+
+| Group | Description |
+|-------|-------------|
+| **For You** | Any actions and connectors that you recently used. |
+| **All** | All available actions and connectors in Azure Logic Apps. |
+| **Built-in** | Actions and connectors that run directly and natively within the Azure Logic Apps runtime. |
+| **Standard** and **Enterprise** | Actions and connectors that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
+| **Custom** | Any actions and connectors that you created and installed. |
+
+Under the search box, a row shows the available operation collections and connectors organized from left to right, based on global popularity and usage. The individual **Triggers** and **Actions** lists are grouped by collection or connector name. These names appear in ascending order, first numerically if any exist, and then alphabetically.
 
 The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. So, the **Triggers** list shows all available triggers, based on the previously described order:
 
@@ -221,11 +267,43 @@ The following example shows the Enterprise actions gallery:
 
 ### [Standard](#tab/standard)
 
+The designer uses the following groups to organize connectors and their operations:
+
+| Group | Description |
+|-------|-------------|
+| **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
+| **Azure** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
+
+In the **Add a trigger** or **Add an action** pane, under the search box, the **Built-in** or **Azure** connectors gallery row shows the available operation collections and connectors organized from left to right in ascending order, first numerically if any exist, and then alphabetically. The individual **Triggers** and **Actions** lists are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically.
+
+For more information, see the following documentation:
+
+- [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
+- [Microsoft-managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Built-in custom connectors in Azure Logic Apps](custom-connector-overview.md)
+- [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
+
 The following example shows the designer for a blank workflow in a Standard logic app, and the triggers list is filtered to show **Built-in** operations:
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with blank stateful workflow designer, and built-in triggers gallery.":::
 
 ### [Standard (Preview)](#tab/standard-preview)
+
+The designer uses the following groups to organize connectors and their operations:
+
+| Group | Description |
+|-------|-------------|
+| **In-App** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. In the non-preview designer, this group is the same as the **Built-in** group. |
+| **Shared** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the non-preview designer, this group is the same as the **Azure** group. |
+
+In the **Browse operations** pane, the connectors gallery lists the available operation collections and connectors organized from left to right in ascending order, first numerically if any exist, and then alphabetically. The individual **Triggers** and **Actions** lists are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. After you select a collection or connector, the triggers or actions appear in ascending order alphabetically.
+
+For more information, see the following documentation:
+
+- [Built-in operations and connectors in Azure Logic Apps](../connectors/built-in.md)
+- [Microsoft-managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Built-in custom connectors in Azure Logic Apps](custom-connector-overview.md)
+- [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
 
 ---
 
