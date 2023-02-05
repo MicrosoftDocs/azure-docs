@@ -41,7 +41,6 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 * Avro
 * Azure SQL Database
-* Azure Synapse Analytics
 * Delimited Text
 * Delta
 * JSON
@@ -52,6 +51,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Currently, when creating source/target mappings, each source and target is only allowed to be used once. 
 * Continuous, real-time streaming is coming soon.
 * Allow schema drift is coming soon.
+* Complex types are currently unsupported.
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
 

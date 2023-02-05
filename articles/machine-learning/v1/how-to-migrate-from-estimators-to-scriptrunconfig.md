@@ -73,7 +73,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 For information on configuring and managing Azure ML environments, see:
 * [How to use environments](how-to-use-environments.md)
 * [Curated environments](../resource-curated-environments.md)
-* [Train with a custom Docker image](../how-to-train-with-custom-image.md)
+* [Train with a custom Docker image](how-to-train-with-custom-image.md)
 
 ## Using data for training
 ### Datasets
