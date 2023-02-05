@@ -14,7 +14,7 @@ recommendations: false
 
 # Document Translation in Azure Cognitive Services Language Studio
 
- The Document Translation feature in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage interactively, and without the need to write code.
+ The Document Translation feature in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage interactively without the need to write code.
 
 ## Prerequisites
 
