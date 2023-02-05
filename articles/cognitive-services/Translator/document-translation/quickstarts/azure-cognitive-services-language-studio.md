@@ -14,7 +14,7 @@ recommendations: false
 
 # Document Translation in Azure Cognitive Services Language Studio
 
- The Document Translation feature in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart you'll learn to translate documents from local storage or Azure Blob Storage interactively, and without the need to write code.
+ The Document Translation feature in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage interactively, and without the need to write code.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To get started, you'll need:
 
   1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-  1. **Resource Region**. For this project, we will use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. Currently, Document Translation doesn't support managed identity in the global region;choose a **non-global** region.
+  1. **Resource Region**. For this project, we'll use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. Currently, Document Translation doesn't support managed identity in the global region;choose a **non-global** region.
 
   1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -63,7 +63,7 @@ The custom domain endpoint is a URL formatted with your resource name, hostname,
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 > * Don't use the Text Translation endpoint found on your Azure portal resource *Keys and Endpoint* page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
-### Retrieve your key and endpoint
+### Get your key and endpoint
 
 Requests to the Translator service require a read-only key and custom endpoint to authenticate access.
 
@@ -77,18 +77,12 @@ Requests to the Translator service require a read-only key and custom endpoint t
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
-## Create Azure blob storage containers
+## Retrieve your source document(s)
 
-You'll need to  [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). The source files container is required; the target files container is optional.
+For this project, you'll need a **source document** downloaded to your local environment. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
-* **Source container**. This container is where you upload your files for translation (required).
-* **Target container**. This container is where your translated files can be stored (optional) or uou can choose to download your translated documents to your local environment.
-
-## Grant access with a system-assigned managed identity
-
-You need to grant Translator access to your storage account before it can create, read, or delete blobs. You will need to enable a system-assigned managed identity for Translator and then you can use Azure role-based access control (`Azure RBAC`), to give Translator access to your Azure storage containers.
-
-To learn how to enable a system-assigned managed identity and grant access to your storage account, see [**Managed identities for Document Translation**](../how-to-guides/create-use-managed-identities.md).
+  > [!NOTE]
+  > Optionally, you can use your Azure blob storage account to store your source and target documents. If you choose to do so, you'll need to setup a managed identity for your Translator resource. For more information, *see* [Managed identities for Document Translation](../how-to-guides/create-use-managed-identities.md).
 
 Now that you've completed the initial configurations, you should be able to start translating documents!
 
@@ -96,7 +90,7 @@ Now that you've completed the initial configurations, you should be able to star
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If this is your first visit to Language Studio, you'll need to choose your language resource or create a new language resource in the Azure portal:
+1. If you're using the Language Studio for the first time, initially, you'll need to choose your language resource or create a new language resource in the Azure portal:
 
    :::image type="content" source="../media/language-studio/choose-language-resource.png" alt-text="Screenshot of the language studio choose your resource dialog window.":::
 
@@ -108,6 +102,43 @@ Now that you've completed the initial configurations, you should be able to star
 
   :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
 
-1. Starting with the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages:
+1. Starting with the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next** from the lower-left area of the page:
 
   :::image type="content" source="../media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
+
+1. In the **files and destination** section, select the files for translation. You can either upload local files or select files from your blob storage container:
+
+  :::image type="content" source="../media/language-studio/files-destination-page.png" alt-text="Screenshot of the select files for translation page.":::
+
+1. While still in the **files and destination** section, select the destination for translated files. You can choose to download translated files or upload them to your Azure blob storage container. Once you have made your choice, select **Next**:
+
+  :::image type="content" source="../media/language-studio/target-file-destination.png" alt-text="Screenshot of the select destination for target files page.":::
+
+1. Optionally, you can add **additional options** for custom translation and/or a glossary file. If you don't require those options, select **Next**:
+
+  :::image type="content" source="../media/language-studio/additional-options.png" alt-text="Screenshot of the additional options page.":::
+
+1. On the **Review and finish** page, check to make sure that your selections are correct. If not, you can go back, If so, select the **Start translation job** button.
+
+  :::image type="content" source="../media/language-studio/start-translation.png" alt-text="Screenshot of the start translation job page.":::
+
+1. On the **Job history** page, you can find the **Translation job id** and the job status.
+
+  > [!NOTE]
+  > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
+
+  :::image type="content" source="../media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
+
+## Troubleshooting
+
+* **Managed identity error**. If you're using source documents located in your Azure blob storage container, make sure that **managed identity** is enabled and you've selected the **Storage blob data contributor** role identity:
+
+  :::image type="content" source="../media/language-studio/troubleshoot-managed-identity.png" alt-text="Screenshot of the managed identity failed connection error.":::
+
+That's it! You now know how to translate documents using Azure Cognitive Services Language Studio.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+>
+> [Use Document Translation REST APIs programmatically](../how-to-guides/use-rest-api-programmatically.md)
