@@ -14,7 +14,7 @@ recommendations: false
 
 # Document Translation in Azure Cognitive Services Language Studio
 
- The Document Translation feature in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage interactively without the need to write code.
+Document Translation in Azure Cognitive Services Language Studio is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage, interactively, without the need to write code.
 
 ## Prerequisites
 
@@ -52,9 +52,9 @@ To get started, you'll need:
 
   1. Review the service terms and select **Create** to deploy your resource.
 
-## Retrieve your source document(s)
+## Retrieve your source documents
 
-For this project, you'll need a **source document** downloaded to your local environment. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
+For this project, you'll need at least one **source document**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
   > [!NOTE]
   > Optionally, you can use your Azure blob storage account to store your source and target documents. If you choose to do so, you'll need to setup a managed identity for your Translator resource. For more information, *see* [Managed identities for Document Translation](../how-to-guides/create-use-managed-identities.md).
@@ -73,19 +73,19 @@ Now that you've completed the prerequisites, let's start translating documents!
 
    :::image type="content" source="../media/language-studio/choose-language-resource.png" alt-text="Screenshot of the language studio choose your resource dialog window.":::
 
-  > [!TIP]
-  > You can update your selected directory and resource on the settings page:
-  > :::image type="content" source="../media/language-studio/studio-settings-page.png" alt-text="Screenshot of the studio settings page.":::
+    > [!TIP]
+    > You can update your selected directory and resource on the settings page:
+    > :::image type="content" source="../media/language-studio/studio-settings-page.png" alt-text="Screenshot of the studio settings page.":::
 
-1. Navigate to the Language Studio and select the Document translation tile:
+1. Navigate to the Language Studio and select the **Document translation** tile:
 
-  :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
+    :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
 
 1. If this is your first time using the Document Translation feature, you'll start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
 
     :::image type="content" source="../media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
-1. In the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next** .
+1. In the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next**:
 
     :::image type="content" source="../media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
 
@@ -93,24 +93,24 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/files-destination-page.png" alt-text="Screenshot of the select files for translation page.":::
 
-1. While still in the **files and destination** section, select the destination for translated files. You can choose to download translated files or upload them to your Azure blob storage container. Once you have made your choice, select **Next**:
+1. While still in the **files and destination** section, select the destination for translated files. You can choose to download the translated files or upload them to your Azure blob storage container. Once you have made your choice, select **Next**:
 
-  :::image type="content" source="../media/language-studio/target-file-destination.png" alt-text="Screenshot of the select destination for target files page.":::
+    :::image type="content" source="../media/language-studio/target-file-destination.png" alt-text="Screenshot of the select destination for target files page.":::
 
 1. You can add **additional options** for custom translation and/or a glossary file. If you don't require these options, select **Next**:
 
-  :::image type="content" source="../media/language-studio/additional-options.png" alt-text="Screenshot of the additional options page.":::
+    :::image type="content" source="../media/language-studio/additional-options.png" alt-text="Screenshot of the additional options page.":::
 
-1. On the **Review and finish** page, check to make sure that your selections are correct. If not, you can go back, If so, select the **Start translation job** button.
+1. On the **Review and finish** page, check to make sure that your selections are correct. If not, you can go back. If everything looks good, select the **Start translation job** button.
 
-  :::image type="content" source="../media/language-studio/start-translation.png" alt-text="Screenshot of the start translation job page.":::
+    :::image type="content" source="../media/language-studio/start-translation.png" alt-text="Screenshot of the start translation job page.":::
 
-1. On the **Job history** page, you can find the **Translation job id** and the job status.
+1. On the **Job history** page, you will find the **Translation job id** and the job status.
 
   > [!NOTE]
   > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
 
-  :::image type="content" source="../media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
+    :::image type="content" source="../media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
 
 That's it! You now know how to translate documents using Azure Cognitive Services Language Studio.
 
