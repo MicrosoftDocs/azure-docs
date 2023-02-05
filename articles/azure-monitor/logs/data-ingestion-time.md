@@ -29,7 +29,7 @@ The following sections detail the latency introduced by each of these factors.
  
 To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
-:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::
+:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::
 
   
 
