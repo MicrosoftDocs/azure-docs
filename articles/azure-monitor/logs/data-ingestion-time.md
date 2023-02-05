@@ -29,12 +29,11 @@ The following sections detail the latency introduced by each of these factors.
  
 To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
-:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::
-
-  
+:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
 
 ### Data collection time
-In most cases, this process is handled by an agent. 
+
+In most cases, Azure Monitor collects log data directly from Azure resource and uses an agent to collect data from non-Azure resources. 
 #### Collection by Azure Monitor Agent
 
 **Typical latency: Varies**
