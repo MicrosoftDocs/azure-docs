@@ -271,7 +271,7 @@ The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams vi
 
 `4:+1123455567`
 
-The raw ID is the E.164 formatted phone number without the leading `+` and prefixed with `4:`.
+The raw ID is the E.164 formatted phone number prefixed with `4:`.
 
 ### Unknown
 
