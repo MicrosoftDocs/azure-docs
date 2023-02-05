@@ -3,7 +3,7 @@ title: Concept - Internet connectivity design considerations
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 2/4/2023
+ms.date: 2/5/2023
 ---
 
 # Internet connectivity design considerations 
@@ -67,7 +67,7 @@ The option that you select depends on the following factors:
 - Use an Azure Public IPv4 address to the NSX-T Data Center Edge for a localized exit to the internet from each private cloud in its local region. Using multiple Azure VMware Solution private clouds in several Azure regions that need to communicate with each other and the internet, it can be challenging to match an Azure VMware Solution private cloud with a security service in Azure. The difficulty is due to the way a default route from Azure works.
 
 > [!IMPORTANT]
-> By design, Public IPv4 Address with NSX-T Data Center does not allow the exchange of Azure/Microsoft owned Public IP Addresses over ExpressRoute Private Peering connections. This means you cannot advertise the Public IPv4 addresses to your customer vNET or on-premises network via ExpressRoute.  All Public IPv4 Addresses with NSX-T Data Center traffic must take the internet path even if the Azure VMware Solution private cloud is connected via ExpressRoute. For more information, visit [ExpressRoute Circuit Peering]: ../expressroute/expressroute-circuit-peerings.
+> By design, Public IPv4 Address with NSX-T Data Center does not allow the exchange of Azure/Microsoft owned Public IP Addresses over ExpressRoute Private Peering connections. This means you cannot advertise the Public IPv4 addresses to your customer vNET or on-premises network via ExpressRoute.  All Public IPv4 Addresses with NSX-T Data Center traffic must take the internet path even if the Azure VMware Solution private cloud is connected via ExpressRoute. For more information, visit [ExpressRoute Circuit Peering](../expressroute/expressroute-circuit-peerings.md).
 
 ## Next Steps
  
