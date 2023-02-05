@@ -90,7 +90,7 @@ This table specifies which log property you can use to check when the various st
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the `TimeGenerated` property. This data can be used with various aggregations to discover how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amounts of data.
 
-For example, the following query will show you which computers had the highest ingestion time over the prior 8 hours:
+For example, the following query will show you which computers had the highest ingestion time over the last eight hours:
 
 ``` Kusto
 Heartbeat
