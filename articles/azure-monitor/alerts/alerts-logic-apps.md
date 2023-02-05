@@ -30,11 +30,14 @@ In this example, we'll use the following steps to create a Logic App that uses t
 1. [Create a rule](#create-a-rule-using-your-action-group) the uses the action group.
 ## Create a Logic App
 
-1. Create a new Logic app. Set **Logic App name** , select **Consumption Plan type**.
+1. In the [portal](https://portal.azure.com/), create a new Logic app. In the **Search** bar at the top of the page, enter "Logic App".
+1. On the **Logic App** page, select **+Add**.
+1. Select the **Subscription** and **Resource group** for your Logic App.
+1. Set **Logic App name**, and select **Consumption Plan type**.
 1. Select **Review + create**, then select **Create**.
 1. Select **Go to resource** when the deployment is complete.
 :::image type="content" source="./media/alerts-logic-apps/create-logic-app.png" alt-text="A screenshot showing the create logic app page.":::
-1. On the Logic Apps Designer page, select **When a HTTP request is received**.  
+1. On the **Logic Apps Designer** page, select **When a HTTP request is received**.  
 :::image type="content" source="./media/alerts-logic-apps/logic-apps-designer.png" alt-text="A screenshot showing the Logic Apps designer start page.":::  
 
 1. Paste the common alert schema into the **Request Body JSON Schema** field from the following JSON:
@@ -121,7 +124,7 @@ In this example, we'll use the following steps to create a Logic App that uses t
 For example:
     - Enter *An alert has monitoring condition:* then select **monitorCondition** from the **Dynamic content** list.
     - Then enter *Date fired:* and select **firedDateTime** from the **Dynamic content** list. 
-    - Enter *Affected resources:* and select **alterTargetIDs** from the **Dynamic content** list.  
+    - Enter *Affected resources:* and select **alertTargetIDs** from the **Dynamic content** list.  
     
 1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
 For example:
@@ -195,7 +198,7 @@ To trigger your Logic app, create an action group, then create an alert that use
 
 The following email will be sent to the specified account:
 
-:::image type="content" source="./media/alerts-logic-apps/sample-output-email.png" alt-text="A screenshot showing an sample email sent by the test page.":::
+:::image type="content" source="./media/alerts-logic-apps/sample-output-email.png" alt-text="A screenshot showing a sample email sent by the test page.":::
 
 
 ## Create a rule using your action group
