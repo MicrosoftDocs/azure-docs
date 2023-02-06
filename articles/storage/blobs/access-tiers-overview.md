@@ -253,3 +253,4 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 - [Set a blob's access tier](access-tiers-online-manage.md)
 - [Archive a blob](archive-blob.md)
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)
