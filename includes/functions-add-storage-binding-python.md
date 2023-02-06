@@ -13,8 +13,6 @@ ms.custom: devdivchpfy22
 
 # [v2](#tab/v2)
 
-In v2 bindings are made directly in the *function_app.py* file.
-
 [!INCLUDE [functions-add-output-binding-python-v2](./functions-add-output-binding-python-v2.md)]
 
 ---
