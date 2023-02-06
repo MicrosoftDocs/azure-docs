@@ -78,7 +78,7 @@ Exemptions are not available for Defender for DevOps within Microsoft Defender f
 
 ### Is continuous, automatic scanning available?
 
-Asynchronous scanning is on the roadmap. Currently scanning occurs at build time.  
+Currently scanning occurs at build time.  
 
 ### Is it possible to block the developers committing code with exposed secrets?  
 
