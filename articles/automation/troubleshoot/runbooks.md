@@ -18,7 +18,7 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 When you run `Start-AzAutomationRunbook` to start specific runbooks:
 
 ```powershell
-`start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" '. 
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
 ```
 It fails with the following error:
  
