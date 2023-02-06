@@ -4,29 +4,29 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 01/22/2023
+ms.date: 02/06/2023
 ms.author: schaffererin
 ---
 
 # Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (PREVIEW)
 
-Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature, which enables you to bypass the private endpoint restriction. Instead of relying on an overpowered [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
+Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature. This feature allows services to privately connect to AKS and Kubernetes via the Azure backend without requiring private endpoint. Instead of relying on identities with [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications you want to use on top of AKS.
 
-Trusted Access eliminates the following concerns:
+Trusted Access addresses the following scenarios:
 
-* Azure services may be unable to access your api-servers when the authorized IP range is enabled, or in private clusters unless you implement a complex private endpoint access model.
+* Azure services may be unable to access the Kubernetes API server when the authorized IP range is enabled, or in private clusters unless you implement a complex private endpoint access model.
 
-* clusterAdmin kubeconfig in Azure services creates risks or privilege escalation and leaking kubeconfig.
+* Providing admin access to the Kubernetes API to an Azure service doesn't follow the least privileged access best practices and could lead to privilege escalations or risks of credential leakage.
 
   * For example, you may have to implement high-privileged service-to-service permissions, which aren't ideal during audit reviews.
 
-This article shows you how to use the AKS Trusted Access feature to enable your Azure resources to access your AKS clusters.
+This article shows you how to enable secure access from your Azure services to your Kubernetes API server in AKS using Trusted Access.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Trusted Access feature overview
 
-Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned MSI authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad.md#disable-local-accounts), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
+Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned managed identity authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad.md#disable-local-accounts), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
 
 ## Prerequisites
 
@@ -151,9 +151,8 @@ az aks trustedaccess rolebinding delete --name <rolebinding name> --resource-gro
 
 ## Next steps
 
-For more information on AKS and AzureML, see:
+For more information on AKS, see:
 
-* [Introduction to Kubernetes compute target in AzureML](../machine-learning/how-to-attach-kubernetes-anywhere.md)
 * [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
 
