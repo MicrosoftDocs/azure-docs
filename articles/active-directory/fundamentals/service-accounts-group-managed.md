@@ -25,7 +25,8 @@ gMSAs are an identity solution with greater security that help reduce administra
 * **Set strong passwords** - 240-byte, randomly generated passwords: the complexity and length of gMSA passwords minimizes the likelihood of compromise by brute force or dictionary attacks
 * **Cycle passwords regularly** - password management goes to the Windows OS, which changes the password every 30 days. Service and domain administrators don't need to schedule password changes, or manage service outages.
 * **Support deployment to server farms** - deploy gMSAs to multiple servers to support load balanced solutions where multiple hosts run the same service 
-* **Support simplified service principal name (SPN) management** - set up an SPN with PowerShell, when you create an account. In addition, services that support automatic SPN registrations might do so against the gMSA, if the gMSA permissions are set correctly. 
+* **Support simplified service principal name (SPN) management** - set up an SPN with PowerShell, when you create an account. 
+  * In addition, services that support automatic SPN registrations might do so against the gMSA, if the gMSA permissions are set correctly. 
 
 ## Using gMSAs
 
