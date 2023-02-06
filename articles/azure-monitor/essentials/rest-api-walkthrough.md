@@ -524,6 +524,7 @@ You may receive one of the following HTTP error statuses:
 * 429 Too Many Requests
 * 503 Service Unavailable
 * 504 Gateway Timeout
+
 If one of these statuses is returned, resend the request.
 
 ## Next steps
