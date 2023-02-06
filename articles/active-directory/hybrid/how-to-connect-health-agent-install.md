@@ -87,15 +87,15 @@ Before you install the agent, make sure your AD FS server host name is unique an
 
 To start the agent installation, double-click the *.exe* file that you downloaded. In the first window, select **Install**.
 
-![Screenshot showing the installation window for the Azure AD Connect Health AD FS agent.](./media/how-to-connect-health-agent-install/install1.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/install1.png" alt-text="Screenshot that shows the installation window for the Azure AD Connect Health AD FS agent.":::
 
 After the installation finishes, select **Configure Now**.
 
-![Screenshot showing the confirmation message for the Azure AD Connect Health AD FS agent installation.](./media/how-to-connect-health-agent-install/install2.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/install2.png" alt-text="Screenshot that shows the confirmation message for the Azure AD Connect Health AD FS agent installation.":::
 
 A PowerShell window opens to start the agent registration process. When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
 
-![Screenshot showing the sign-in window for Azure AD Connect Health AD FS.](./media/how-to-connect-health-agent-install/install3.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/install3.png" alt-text="Screenshot that shows the sign-in window for Azure AD Connect Health AD FS.":::
 
 After you sign in, PowerShell continues the installation. When it finishes, you can close PowerShell. Configuration is complete.
 
@@ -103,15 +103,15 @@ At this point, the agent services should start to automatically allow the agent 
 
 If you haven't met all the prerequisites, warnings appear in the PowerShell window. Be sure to complete the [requirements](how-to-connect-health-agent-install.md#requirements) before you install the agent. The following screenshot shows an example of these warnings.
 
-![Screenshot showing the Azure AD Connect Health AD FS configure script.](./media/how-to-connect-health-agent-install/install4.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/install4.png" alt-text="Screenshot that shows the Azure AD Connect Health AD FS configure script.":::
 
 To verify that the agent was installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they're stopped until the configuration is complete.
 
-* Azure AD Connect Health AD FS Diagnostics Service
-* Azure AD Connect Health AD FS Insights Service
-* Azure AD Connect Health AD FS Monitoring Service
+- Azure AD Connect Health AD FS Diagnostics Service
+- Azure AD Connect Health AD FS Insights Service
+- Azure AD Connect Health AD FS Monitoring Service
 
-![Screenshot showing Azure AD Connect Health AD FS services.](./media/how-to-connect-health-agent-install/install5.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/install5.png" alt-text="Screenshot that shows Azure AD Connect Health AD FS services.":::
 
 ### Enable auditing for AD FS
 
@@ -130,8 +130,10 @@ The Usage Analytics feature needs to gather and analyze data, so the Azure AD Co
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
 1. Close **Local Security Policy**.
+
     > [!IMPORTANT]
     > The remaining steps are required only for primary AD FS servers.
+
 1. Open the **AD FS Management** snap-in. (In **Server Manager**, select **Tools** > **AD FS Management**.)
 1. In the **Actions** pane, select **Edit Federation Service Properties**.
 1. In the **Federation Service Properties** dialog, select the **Events** tab.
@@ -149,8 +151,10 @@ The Usage Analytics feature needs to gather and analyze data, so the Azure AD Co
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
 1. Close **Local Security Policy**.
+
     > [!IMPORTANT]
     > The remaining steps are required only for primary AD FS servers.
+
 1. Open the **AD FS Management** snap-in. (In **Server Manager**, select **Tools** > **AD FS Management**.)
 1. In the **Actions** pane, select **Edit Federation Service Properties**.
 1. In the **Federation Service Properties** dialog, select the **Events** tab.
@@ -170,7 +174,7 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 
     For more information about audit logs, see [Operations questions](./reference-connect-health-faq.yml).
 
-    ![Screenshot showing the Filter Current Log window. In the "Event sources" field, "AD FS auditing" is selected.](./media/how-to-connect-health-agent-install/adfsaudit.png)
+    :::image type="content" source="media/how-to-connect-health-agent-install/adfsaudit.png" alt-text="Screenshot that shows the Filter Current Log window, with AD FS auditing selected.":::
 
 > [!WARNING]
 > A group policy can disable AD FS auditing. If AD FS auditing is disabled, usage analytics about login activities are unavailable. Ensure that you have no group policy that disables AD FS auditing.
@@ -185,7 +189,7 @@ To verify the agent has been installed, look for the following services on the s
 - Azure AD Connect Health Sync Insights Service
 - Azure AD Connect Health Sync Monitoring Service
 
-![Screenshot showing the running Azure AD Connect Health for sync services on the server.](./media/how-to-connect-health-agent-install/services.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/services.png" alt-text="Screenshot that shows the running Azure AD Connect Health for sync services on the server.":::
 
 > [!NOTE]
 > Remember that you must have Azure AD Premium (P1 or P2) to use Azure AD Connect Health. If you don't have Azure AD Premium, you can't complete the configuration in the Azure portal. For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
@@ -212,21 +216,21 @@ When you're prompted for authentication, use the same Global Administrator accou
 
 To start the agent installation, double-click the *.exe* file that you downloaded. In the first window, select **Install**.
 
-![Screenshot showing the Azure AD Connect Health agent for AD DS installation window.](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png" alt-text="Screenshot that shows the Azure AD Connect Health agent for AD DS installation window.":::
 
 When the installation finishes, select **Configure Now**.
 
-![Screenshot showing the window that finishes the installation of the Azure AD Connect Health agent for Azure AD DS.](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png" alt-text="Screenshot showing the window that finishes the installation of the Azure AD Connect Health agent for Azure AD DS.":::
 
 A Command Prompt window opens. PowerShell runs `Register-AzureADConnectHealthADDSAgent`. When you're prompted, sign in to Azure.
 
-![Screenshot showing the sign-in window for the Azure AD Connect Health agent for Azure AD DS.](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png" alt-text="Screenshot showing the sign-in window for the Azure AD Connect Health agent for Azure AD DS.":::
 
 After you sign in, PowerShell continues. When it finishes, you can close PowerShell. The configuration is complete.
 
 At this point, the services should be started automatically, allowing the agent to monitor and gather data. If you haven't met all the prerequisites outlined in the previous sections, warnings appear in the PowerShell window. Be sure to complete the [requirements](how-to-connect-health-agent-install.md#requirements) before you install the agent. The following screenshot shows an example of these warnings.
 
-![Screenshot showing a warning for the Azure AD Connect Health agent for Azure AD DS configuration.](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png" alt-text="Screenshot showing a warning for the Azure AD Connect Health agent for Azure AD DS configuration.":::
 
 To verify that the agent is installed, look for the following services on the domain controller:
 
@@ -235,14 +239,14 @@ To verify that the agent is installed, look for the following services on the do
 
 If you completed the configuration, these services should already be running. Otherwise, they're stopped until the configuration finishes.
 
-![Screenshot showing the running services on the domain controller.](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
+:::image type="content" source="media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png" alt-text="Screenshot showing the running services on the domain controller.":::
 
 ### Quickly install the agent on multiple servers
 
 1. Create a user account in Azure AD. Secure it by using a password.
-2. [Assign the Owner role](how-to-connect-health-operations.md#manage-access-with-azure-rbac) for this local Azure AD account in Azure AD Connect Health by using the portal. Assign the role to all service instances.
-3. Download the *.exe* MSI file in the local domain controller for the installation.
-4. Run the following script. Replace the parameters with your new user account and its password.
+1. [Assign the Owner role](how-to-connect-health-operations.md#manage-access-with-azure-rbac) for this local Azure AD account in Azure AD Connect Health by using the portal. Assign the role to all service instances.
+1. Download the *.exe* MSI file in the local domain controller for the installation.
+1. Run the following script. Replace the parameters with your new user account and its password.
 
     ```powershell
     AdHealthAddsAgentSetup.exe /quiet
