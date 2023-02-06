@@ -463,4 +463,4 @@ When your finished with the resources created in this article, delete the resour
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+> [Integrate NAT gateway in a hub and spoke network](tutorial-hub-spoke-route-nat.md)
