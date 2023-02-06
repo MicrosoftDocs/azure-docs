@@ -55,7 +55,7 @@ landingContent:
             url: telemetry.md
           - text: View and configure DDoS diagnostic logging
             url: diagnostic-logging.md
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Configure Azure DDoS Protection metric alerts through portal
             url: alerts.md
@@ -64,7 +64,7 @@ landingContent:
   # Card
   - title: View attack analytics
     linkLists:
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
         - text: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
           url: ddos-view-alerts-defender-for-cloud.md
