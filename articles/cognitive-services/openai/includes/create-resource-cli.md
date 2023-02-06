@@ -9,7 +9,6 @@ ms.subservice: openai
 ms.topic: include
 ms.date: 6/30/2022
 keywords: 
-
 ---
 
 ## Prerequisites
