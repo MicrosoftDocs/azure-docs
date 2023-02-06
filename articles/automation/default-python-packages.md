@@ -116,6 +116,3 @@ azure_mgmt_billing |  0.2.0 |
 |urllib3 |  1.25.7 |
 |wheel |  0.34.2 |
 
-## Next steps
-
-- See [Manage Python 3 packages in Azure Automation](python-3-packages.md)
