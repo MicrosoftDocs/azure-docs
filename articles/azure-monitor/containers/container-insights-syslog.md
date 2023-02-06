@@ -55,7 +55,8 @@ You can also use ARM templates for enabling syslog collection
    - `syslogLevels`: Array of syslog levels to collect. Default collects all levels.
    - `syslogFacilities`: Array of syslog facilities to collect. Default collects all facilities
 
-NOTE: Syslog level and facilities customization is currently only available via ARM templates.
+> [!NOTE]
+> NOTE: Syslog level and facilities customization is currently only available via ARM templates.
 
 ### Deploy the template
 
