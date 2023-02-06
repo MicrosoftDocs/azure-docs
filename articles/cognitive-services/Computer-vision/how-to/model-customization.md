@@ -230,6 +230,22 @@ The prediction results will appear in the right column.
 
 ![Screenshot of an image being scored in Vision Studio.]( ../media/customization/vision-studio-model-output.png)
 
+
+
+
+## Using REST API
+
+datasets/name PUT registers a new dataset. the dataset JSON specifies details.
+
+models/name PUT trains the custom model. the name param names the model. the model JSON specifies the dataset (and probably the model type)
+
+models/name/evaluations/evalName PUT evaluates an existing model. uses ModelEvaluation JSON
+
+imageanalysis/analyze POST you can specify a custom model in the _model-name_ param. Uses ImageURL JSON
+
+
+
+
 ## Next steps
 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze API, so you can query your custom model from an application.
