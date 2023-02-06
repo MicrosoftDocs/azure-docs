@@ -13,7 +13,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# Live Stream quickstart
+# Live Stream Quick Start
 
 Live streaming will empower Contoso to engage thousands of online attendees by adding interactive live audio and video streaming functionality into their web and 
 mobile applications that their audiences will love, no matter where they are. Interactive Live Streaming is the ability to broadcast media content to thousands of online 
@@ -23,27 +23,27 @@ attendees while enabling some attendees to share their live audio and video, int
 [!INCLUDE [Public Preview](../../includes/private-preview-include-section.md)]
 
 >[!IMPORTANT]
-> [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role based streaming
+> [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role-based streaming.
 
 >[!IMPORTANT]
-> The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quickstart.
+> The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quick start.
 
 >[!IMPORTANT]
 > Please contact with ACS Support team to enable live streaming for your resource.
 
 ## Live Streaming with Rooms
-Rooms prticipants will have four roles: 
+Participants in Rooms meetings will have four roles: 
 1. Organizer 
 2. Presenter
 3. Attendee 
 4. Consumer 
 
-Participants with `Consumer` role will be receving only the live stream. They would not be able to speak or share video or screen. So Contoso should not show the unmute, share video and screen option to the Consumers. Live stream supports both open or closed Rooms. In Open Rooms the default role is `Consumer`.
-On the other hand Participants with other roles will receive both real-time and live stream. Contoso can choose either stream to play. 
+Participants with `Consumer` role will be receiving only the live stream. They would not be able to speak or share video or screen. So Contoso should not show the unmute, share video, and screen option to the Consumers. Live stream supports both open and closed Rooms. In Open Rooms the default role is `Consumer`.
+On the other hand, Participants with other roles will receive both real-time and live stream. Contoso can choose either stream to play. 
 
 
 ### Place a Rooms call (start live streaming)
-Live streaming will start when the Rooms call started.
+Live streaming will start when the Rooms call starts.
 
 ```js
 const context = { roomId: '<RoomId>' }
@@ -89,7 +89,7 @@ const subscribeToLiveVideoStream = async (liveVideoStream) => {
 ```
 
 ### Count Participants in both Real-time and Streaming Media Lane
-Web SDK already exposed `Call.totalParticipantCount` (available in beta release) which includes all participants count (Organizer, Presenter, Attendee, Consumer, Participants in the lobby etc.). We are added new API `Call.feature(Features.LiveStream).participantCount` under the `LiveStream` feature to have the count of streaming participants.
+Web SDK already exposed `Call.totalParticipantCount` (available in beta release) which includes all participants count (Organizer, Presenter, Attendee, Consumer, Participants in the lobby etc.). We have added new API `Call.feature(Features.LiveStream).participantCount` under the `LiveStream` feature to have the count of streaming participants.
 
 ```typescript
 call.feature(Features.LiveStream).on('participantCountChanged', e => {
