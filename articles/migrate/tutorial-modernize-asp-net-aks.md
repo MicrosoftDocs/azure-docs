@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Modernize ASP.NET web apps to Azure Kubernetes Service
 
-This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](../aks/intro-kubernetes.md) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMWare. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
+This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](../aks/intro-kubernetes.md) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMware. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible and don't show all possible settings and paths.
@@ -50,7 +50,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
 2. In the **Specify intent** blade, > **What do you want to migrate?**, select **ASP.NET web apps** from the drop down.
 3. In **Where do you want to migrate to?**, select **Azure Kubernetes Service (AKS)**.
-4. In **Virtualization type**, select **VMWare vSphere**.
+4. In **Virtualization type**, select **VMware vSphere**.
 5. In **On-premises appliance**, choose the appliance which discovered your desired web apps on vSphere.
 6. Click Continue.
 
