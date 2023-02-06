@@ -41,7 +41,7 @@ The required network ports are as follows:
 
 | Service | Port | Protocol |
 | -- | - | - |
-|AD Web Services | 9839 | TCP |
+|AD Web Services | 9389 | TCP |
 | DNS* | 53 | TCP |
 | DNS* | 53 | UDP |
 | ICMPv4 | N/A | Echo Reply |

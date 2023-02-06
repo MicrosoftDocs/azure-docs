@@ -43,7 +43,7 @@ The most important fields in a Web Session schema are:
 - The [SrcIpAddr](normalization-schema-network.md#srcipaddr) (aliased to [IpAddr](normalization-schema-network.md#ipaddr)), which represents the IP address from which the request was generated. 
 - [EventResultDetails](#eventresultdetails) field, which typically reports the HTTP Status Code.
 
-Web Session events may also include [User](normalization-schema-network.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
+Web Session events may also include [User](normalization-schema-network.md#user) and [Process](normalization-schema-process-event.md) information for the user and process initiating the request. 
 
 
 ## Parsers
@@ -185,7 +185,7 @@ The following are additional fields that are specific to web sessions:
 
 ### Other fields
 
-If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
+If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](normalization-schema-process-event.md) to normalize this information.
 
 ### Schema updates
 
