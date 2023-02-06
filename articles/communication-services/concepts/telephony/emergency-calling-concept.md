@@ -23,7 +23,7 @@ Calls to an emergency number are routed over the Microsoft network. Microsoft as
 
 The service is available for Microsoft phone numbers. It requires that the Azure resource from where the emergency call originates has a Microsoft-issued phone number enabled with outbound dialing (also referred to as ‘make calls').  
 
-Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So emergency dialing is out of scope for Azure Communication Services direct routing.
+Azure Communication Services direct routing is currently in public preview and not intended for production workloads, so emergency dialing is out of scope for Azure Communication Services direct routing.
 
 ## The call flow
 
