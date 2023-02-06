@@ -43,8 +43,8 @@ The steps you'll take are:
 
 ## Prerequisites
 
-1. If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you can skip to #3 in the prerequisites.
-1. If you haven't completed either of these earlier tutorials, be sure to do the following:
+1. If you already completed the earlier training tutorial, "Train model responsibly", you can skip to #3 in the prerequisites.
+1. If you haven't completed the earlier training tutorial, be sure to do the following:
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
     * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
@@ -120,7 +120,7 @@ mlflow_model = Model(
 ml_client.models.create_or_update(mlflow_model)
 ```
 
-## Confirm that the model is registered
+### Confirm that the model is registered
 
 You can check the **Models** page in [AzureML studio](https://ml.azure.com/) to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
@@ -172,7 +172,7 @@ online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 First, we'll define the endpoint, using the `ManagedOnlineEndpoint` class.
 
 > [!TIP]
-> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](https://learn.microsoft.com/azure/machine-learning/how-to-authenticate-online-endpoint).
+> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 > * Optionally, you can add a description and tags to your endpoint.
 
 ```python
@@ -339,7 +339,7 @@ ml_client.online_endpoints.invoke(
 )
 ```
 
-## Get logs of the deployment
+### Get logs of the deployment
 Check the logs to see whether the endpoint/deployment were invoked successfully
 If you face errors, see [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md).
 
