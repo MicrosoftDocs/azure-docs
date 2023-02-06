@@ -30,7 +30,7 @@ You can configure a [private endpoint](../private-link/private-endpoint-overview
 
 * Only the API Management instance's Gateway endpoint supports inbound Private Link connections. 
 * Each API Management instance supports at most 100 Private Link connections.
-* Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
+* Connections aren't supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
 
 ## Prerequisites
 
@@ -111,6 +111,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
     | **Instance details** |  |
     | Name  | Enter a name for the endpoint such as **myPrivateEndpoint**. |
+    | Network Interface Name | Enter a name for the network interface, such as **myInterface** |
     | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
 
 1. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page. The following information about your API Management instance is already populated:
@@ -122,22 +123,29 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
     :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Create a private endpoint in Azure portal":::
 
-1. Select the **Configuration** tab or the **Next: Configuration** button at the bottom of the screen.
+1. Select the **Virtual Network** tab or the **Next: Virtual Network** button at the bottom of the screen.
 
-1. In **Configuration**, enter or select this information:
+1. In **Networking**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | **Networking** |  |
     | Virtual network | Select your virtual network. |
     | Subnet | Select your subnet. |
-    | **Private DNS integration** |  |
+    | Private IP configuration | In most cases, select **Dynamically allocate IP address.** |
+    | Application security group | Optionally select an [application security group](../virtual-network/application-security-groups.md). |
+
+1. Select the **DNS** tab or the **Next: DNS** button at the bottom of the screen.
+
+1. In **Private DNS integration**, enter or select this information:
+
     | Integrate with private DNS zone | Leave the default of **Yes**. |
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group. |
-    | Private DNS zones | Leave the default of **(new) privatelink.azure-api.net**.
+    | Private DNS zones | The default value is displayed: **(new) privatelink.azure-api.net**.
 
-1. Select **Review + create**.
+1. Select the **Tags** tab or the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
+
+1.  Select **Review + create**.
 
 1. Select **Create**.
 
@@ -190,9 +198,12 @@ Use the following JSON body:
 
 After the private endpoint is created, confirm its DNS settings in the portal:
 
-1. In the portal, navigate to the **Private Link Center**.
-1. Select **Private endpoints** and select the private endpoint you created.
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+
+1. In the left-hand menu, select **Network** > **Private endpoint connections**, and select the private endpoint you created.
+
 1. In the left-hand navigation, select **DNS configuration**.
+
 1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where the private endpoint is configured.
 
 ### Test in virtual network
