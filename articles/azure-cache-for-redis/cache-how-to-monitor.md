@@ -238,12 +238,13 @@ For more information about configuring and using Alerts, see [Overview of Alerts
 ## Organize with workbooks
 
 Once you've defined a metric, you can send it to a workbook. Workbooks provide a way to organize your metrics into groups that provide the information in coherent way.
+   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
 
 For information on creating a metric, see [Create your own metrics](#create-your-own-metrics).
 
 Two workbooks are provided by default in the **Azure Cache for Redis Insights** section: 
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
-   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
+    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="screenshot of ":::
 
 - **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary. 
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
