@@ -19,13 +19,13 @@ Latency refers to the amount of time it takes for log data to become available i
  
 1. To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
-    :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
-
     The **Resource health** screen shows:
 
-    - Health history: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-latency).  
-    - Azure service issues: Displayed when a know issue with an Azure service might impact latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
+    - **Health history**: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-latency).  
+    - **Azure service issues**: Displayed when a know issue with an Azure service might impact latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
 
+    :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
+    
 1. To get notification about Log Analytics workspace latency issues, create an alert:
     1. Select **Add resource health alert**.
     
