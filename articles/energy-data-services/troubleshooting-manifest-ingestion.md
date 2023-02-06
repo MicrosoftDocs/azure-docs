@@ -8,30 +8,6 @@ ms.topic: troubleshooting-general #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023
 ---
 
-
-<!-- Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a general troubleshooting article pattern. See the
-[instructions troubleshooting -general](contribute-how-to-general-troubleshoot.md) in the pattern
-library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-We write general troubleshooting articles when a specific error message isn't known.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: The headline (H1) is the primary heading at the top of the article. Pick an H1 that
-clearly conveys what the content's about.
-
-The heading of the general troubleshooting article should concisely describe the issue that the
-customer is trying to fix. Make sure to include the word **troubleshoot** somewhere in the H1 of the
-article to improve SEO.
-
--->
-
 # Troubleshoot Manifest ingestion issues using Airflow task logs
 This article helps you troubleshoot manifest ingestion workflow issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
 
@@ -47,7 +23,7 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 |---------|---------|
 |**Update_status_running_task** | Calls Workflow service and marks the status of DAG as running in the database        |
 |**Check_payload_type** | Validates whether the ingestion is of batch type or single manifest|
-|**Validate_manifest_schema_task** |  Performs schema validation check; ensures all the schema kinds mentioned in the manifest are present in the system and ensures manifest schema integrity (all references are resolved and validated against its schemas), all invalid values will be evicted from the manifest |
+|**Validate_manifest_schema_task** | Ensures all the schema kinds mentioned in the manifest are present and there is referential schema integrity. All invalid values will be evicted from the manifest |
 |**Provide_manifest_intergrity_task** | Validates references inside the OSDU&trade; R3 manifest and removes invalid entities. This operator is responsible for parent-child validation. All orphan-like entities will be logged and excluded from the validated manifest. Any external referenced records will be searched and in case not found, the manifest entity will be dropped. All surrogate key references are also resolved |
 |**Process_single_manifest_file_task** | Performs ingestion of the final obtained manifest entities from the previous step, data records will be ingested via the storage service |
 |**Update_status_finished_task** | Calls workflow service and marks the status of DAG as `finished` or `failed` in the database |
@@ -73,27 +49,27 @@ Following columns are exposed in Airflow Task Logs for you to debug the issue:
 
 |Parameter Name  |Description  |
 |---------|---------|
-|**Run Id**    |  Unique run id of the DAG run which was triggered  |
-|**Correlation ID**     | Unique correlation id of the DAG run (same as run id)        |
-|**DagName**     |  DAG workflow name. For instance, `Osdu_ingest` in case of manifest ingestion       |
-|**DagTaskName**     | DAG workflow task name. For instance `Update_status_running_task` in case of manifest ingestion        |
+|**Run Id**    |  Unique run ID of the DAG run, which was triggered  |
+|**Correlation ID**     | Unique correlation ID of the DAG run (same as run ID)        |
+|**DagName**     |  DAG workflow name. For instance, `Osdu_ingest` for manifest ingestion       |
+|**DagTaskName**     | DAG workflow task name. For instance, `Update_status_running_task` for manifest ingestion        |
 |**Content**     |  Contains error log messages (errors/exceptions) emitted by Airflow during the task execution|
 |**LogTimeStamp**     | Captures the time interval of DAG runs       |
 |**LogLevel**     | DEBUG/INFO/WARNING/ERROR. Mostly all exception and error messages can be seen by filtering at ERROR level        |
 
 
 ## Cause 1: A DAG run has failed in the Update_status_running_task or Update_status_finished_task
-The workflow run has failed and the data records were not ingested.
+The workflow run has failed and the data records weren't ingested.
 
 **Possible reasons**
-* Provided incorrect data partition id
+* Provided incorrect data partition ID
 * Provided incorrect key name in the execution context of the request body
-* Workflow service is not running or throwing 5xx errors
+* Workflow service isn't running or throwing 5xx errors
 
 **Workflow status**
 * Workflow status is marked as `failed`.
 
-### Solution: Check the airflow task logs for `update_status_running_task` or `update_status_finished_task`. Fix the payload (pass the correct data partition id or key name)
+### Solution: Check the airflow task logs for `update_status_running_task` or `update_status_finished_task`. Fix the payload (pass the correct data partition ID or key name)
 
 **Sample Kusto query**
 ```kusto
@@ -116,7 +92,7 @@ The workflow run has failed and the data records were not ingested.
 ```
 
 ## Cause 2: Schema validation failures
-Records were not ingested due to schema validation failures.
+Records weren't ingested due to schema validation failures.
 
 **Possible reasons** 
 * Schema not found errors
@@ -127,7 +103,7 @@ Records were not ingested due to schema validation failures.
 **Workflow Status**
 * Workflow status is marked as `finished`. No failure in the workflow status will be observed because the invalid entities are skipped and the ingestion is continued.
 
-### Solution: Check the airflow task logs for `validate_manifest_schema_task` or `process_manifest_task`. Fix the payload (pass the correct data partition id or key name)
+### Solution: Check the airflow task logs for `validate_manifest_schema_task` or `process_manifest_task`. Fix the payload (pass the correct data partition ID or key name)
 
 **Sample Kusto query**
 ```kusto
@@ -164,7 +140,7 @@ Records were not ingested due to schema validation failures.
 ```
 
 ## Cause 3: Failed reference checks
-Records were not ingested due to failed reference checks.
+Records weren't ingested due to failed reference checks.
 
 **Possible reasons** 
 * Failed to find referenced records
@@ -186,13 +162,13 @@ Records were not ingested due to failed reference checks.
 ```
 
 **Sample trace output**
-Since there are no such error logs specifically for referential integrity tasks, you should watch out for the debug log statements to see whether all external records were actually fetched using the search service.
+Since there are no such error logs specifically for referential integrity tasks, you should watch out for the debug log statements to see whether all external records were fetched using the search service.
 
-For instance, the below output shows records queried using the Search service for referential integrity 
+For instance, the output shows record queried using the Search service for referential integrity 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:75} DEBUG - Search query "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e140838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a"
 ```
-The records that were retrieved and were in the system are shown in the output below. The related manifest object that referenced a record would be dropped and no longer be ingested if we noticed that some of the records weren't present.
+The records that were retrieved and were in the system are shown in the output. The related manifest object that referenced a record would be dropped and no longer be ingested if we noticed that some of the records weren't present.
 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
@@ -200,7 +176,7 @@ The records that were retrieved and were in the system are shown in the output b
 In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons
 
 ## Cause 4: Invalid Legal Tags/ACLs in manifest
-Records were not ingested due to invalid legal tags or ACLs present in the manifest.
+Records weren't ingested due to invalid legal tags or ACLs present in the manifest.
 
 **Possible reasons** 
 * Incorrect ACLs
@@ -229,7 +205,7 @@ Records were not ingested due to invalid legal tags or ACLs present in the manif
     [2023-02-05, 16:57:05 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Invalid legal tags","message":"Invalid legal tags: it1672283875-dp1-R3FullManifest-Legal-Tag-Test779759112"}
     
 ```
-and below output indicates records which were retrieved and present in the system, if we observe some of the records were not present and hence the corresponding manifest entity which referenced that record would get dropped and no longer be ingested
+and the output indicates records that were retrieved. Manifest entity records corresponding to missing search records will get dropped and not ingested.
 
 ```md
     "PUT /api/storage/v2/records HTTP/1.1" 400 None
@@ -238,7 +214,7 @@ and below output indicates records which were retrieved and present in the syste
 ```
 
 ## Known issues
-- Exception traces were not exporting with Airflow Task Logs due to a known problem in the logs; the patch has been submitted and will be included in the February release.
+- Exception traces weren't exporting with Airflow Task Logs due to a known problem in the logs; the patch has been submitted and will be included in the February release.
 - Since there are no specific error logs for referential integrity tasks, you must manually search for the debug log statements to see whether all external records were retrieved via the search service. We intend to improve the logs in the upcoming release by properly logging skipped data with justifications.
 
 
