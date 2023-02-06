@@ -1,13 +1,19 @@
 ---
-title: Deploy Arc resource bridge (preview) by using Azure CLI commands
-description: Learn how to use Azure CLI commands to manage your Azure Arc resource bridge (preview) deployment.
-ms.date: 01/31/2023
+title: Azure Arc resource bridge (preview) deployment command overview
+description: Learn about the Azure CLI commands which can be used to manage your Azure Arc resource bridge (preview) deployment.
+ms.date: 02/06/2023
 ms.topic: overview
 ---
 
-# Deploy Arc resource bridge (preview) by using Azure CLI commands
+# Azure Arc resource bridge (preview) deployment command overview
 
-You can use Azure CLI commands to deploy Arc resource bridge (preview). This topic provides an overview of these commands, in the order in which they are used for deployment.
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge. When deploying Arc resource bridge with a corresponding partner project, the Azure CLI commands may be combined into an automation script, along with additional provider-specific commands. To learn about installing Arc resource bridge with a corresponding partner product, see:
+
+- [Connect VMware vCenter Server to Azure with Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md)
+- [Connect System Center Virtual Machine Manager (SCVMM) to Azure with Arc resource bridge](../system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc.md#download-the-onboarding-script)
+- [Azure Stack HCI VM Management through Arc resource bridge](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites)
+
+This topic provides an overview of the [Azure CLI commands](/cli/azure/arcappliance) that are used to manage Arc resource bridge (preview) deployment, in the order in which they are typically used for deployment.
 
 ## az arcappliance createconfig
 
@@ -48,14 +54,7 @@ Deletes the appliance VM and Azure resources. It doesn't clean up the OS image, 
 
 If a deployment fails, you must run this command to clean up the environment before you attempt to deploy again.
 
-> [!NOTE]
-> A partner product may choose to deploy Arc resource bridge differently, by utilizing these commands in one automation script and incorporating additional provider-specific commands. For more information about installing Arc resource bridge as paired with a corresponding partner product, see:
->
-> - [Azure Stack HCI VM Management through Arc resource bridge](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites)
-> - [Connect VMware vCenter Server to Azure with Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md)
-> - [Connect System Center Virtual Machine Manager (SCVMM) to Azure with Arc resource bridge](../system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc.md#download-the-onboarding-script)
-
 ## Next steps
 
-- Explore the full list of [Arc resource bridge commands and required parameters](/cli/azure/arcappliance).
+- Explore the full list of [Azure CLI commands and required parameters](/cli/azure/arcappliance) for Arc resource bridge.
 - Get [troubleshooting tips for Arc resource bridge](troubleshoot-resource-bridge.md).
