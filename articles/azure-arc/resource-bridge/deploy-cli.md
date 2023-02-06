@@ -7,7 +7,7 @@ ms.topic: overview
 
 # Azure Arc resource bridge (preview) deployment command overview
 
-[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge. When deploying Arc resource bridge with a corresponding partner project, the Azure CLI commands may be combined into an automation script, along with additional provider-specific commands. To learn about installing Arc resource bridge with a corresponding partner product, see:
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge. When deploying Arc resource bridge with a corresponding partner product, the Azure CLI commands may be combined into an automation script, along with additional provider-specific commands. To learn about installing Arc resource bridge with a corresponding partner product, see:
 
 - [Connect VMware vCenter Server to Azure with Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md)
 - [Connect System Center Virtual Machine Manager (SCVMM) to Azure with Arc resource bridge](../system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc.md#download-the-onboarding-script)
