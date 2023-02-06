@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2022
+ms.date: 02/06/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
