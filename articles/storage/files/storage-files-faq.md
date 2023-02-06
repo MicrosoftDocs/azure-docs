@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 09/08/2022
+ms.date: 02/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -113,7 +113,12 @@ ms.topic: conceptual
 * <a id="ad-multiple-forest"></a>
 **Does on-premises AD DS authentication for Azure file shares support integration with an AD DS environment using multiple forests?**
 
-    Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. The way Azure Files register in AD DS almost the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your suffix routing policy is required to enable multiple forest authentication due to the different domain suffix. We provide an example below to configure suffix routing policy.
+    Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly.
+
+   > [!Note]  
+   > In a multi-forest setup, don't use Windows Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) instead.
+
+    The way Azure Files register in AD DS almost the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your suffix routing policy is required to enable multiple forest authentication due to the different domain suffix. We provide an example below to configure suffix routing policy.
     
     Example: When users in forest A domain want to reach a file share with the storage account registered against a domain in forest B, this won't automatically work because the service principal of the storage account doesn't have a suffix matching the suffix of any domain in forest A. We can address this issue by manually configuring a suffix routing rule from forest A to forest B for a custom suffix of "file.core.windows.net".
 
