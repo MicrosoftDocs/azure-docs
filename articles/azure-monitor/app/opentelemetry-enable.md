@@ -1503,7 +1503,7 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 
 ##### [Java](#tab/java)
 
-You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+You can use `opentelemetry-api` to add attributes to spans.
 
 Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
 
@@ -1614,7 +1614,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 ##### [Java](#tab/java)
 
-Java automatically sets the user IP.
+Java automatically populates this field.
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1909,7 +1909,7 @@ Coming soon.
 
 #### [Java](#tab/java)
 
-You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
+You can use `opentelemetry-api` to get the trace ID or span ID.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -2032,7 +2032,7 @@ Coming soon.
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
