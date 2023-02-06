@@ -1,6 +1,6 @@
 ---
 title: "Configure Durable Functions with Azure Active Directory"
-descrption: Configure Durable Functions with Managed Identity Credentials and Client Secret Credentials.
+description: Configure Durable Functions with Managed Identity Credentials and Client Secret Credentials.
 author: naiyuantian
 ms.topic: quickstart
 ms.date: 02/01/2023
@@ -9,12 +9,12 @@ ms.author: azfuncdf
 
 # Configure Durable Functions with Azure Active Directory
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service. Using the default storage provider, Durable Functions needs to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default storage provider, Durable Functions needs to authenticate against an Azure storage account. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
 
 
-## Configure your app to use Managed Identity
+## Configure your app to use Managed Identity (Recommended)
 
-[Managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. This can be **only used in the Azure Portal**. Managed Identity is supported by [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) from version **2.7.0** or greater.  
+[Managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. This can **only be used in the Azure Portal**. Managed Identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions **2.7.0** and greater.  
 
 ### Prerequisites
 
@@ -33,16 +33,14 @@ If this isn't the case, we suggest you start with one of the following articles,
 
 ### Enable Managed Identity
 
-Only one identity is needed for your function, either a **system assigned managed identity** or a **user assigned managed identity**. To enable Managed Identity for your function and learn more about the differences between the two identities, read the detailed instructions here [Managed identities](../../app-service/overview-managed-identity.md).   
+Only one identity is needed for your function, either a **system assigned managed identity** or a **user assigned managed identity**. To enable Managed Identity for your function and learn more about the differences between the two identities, read the detailed instructions [here](../../app-service/overview-managed-identity.md).   
 
 ### Assign Role-based Access Controls (RBAC) to Managed Identity
 
-Navigate to your app's storage resource on the Azure portal.  There, follow these [instructions](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) to assign the following roles to your managed identity resource.
+Navigate to your app's storage resource on the Azure portal. Follow [these instructions](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) to assign the following roles to your managed identity resource.
 
 * Storage Queue Data Contributor 
-
 * Storage Blob Data Contributor 
-
 * Storage Table Data Contributor 
 
 ### Add Managed Identity Configuration in the Azure Portal
@@ -53,7 +51,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
    ![Default Sample](./media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-01.png)
 
-2. Link Azure storage account by adding either one of the following value settings: 
+2. Link Azure storage account by adding **either one** of the following value settings: 
 
    * **AzureWebJobsStorage__accountName**: MyStorageAccount 
 
@@ -61,19 +59,15 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
    **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;
    **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
-   The values for these variables can be found in the storage account blade the Endpoints tab. 
+   The values for these variables can be found in the storage account under the **Endpoints** tab. 
 
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Managed Identity setting: 
 
-   * If **system-assigned identity** should be used: 
-   
-     Specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) take care of everything. 
+   * If **system-assigned identity** should be used:  then specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) take care of everything. 
 
-   * If **user-assigned identity** should be used: 
-   
-     Add the following value settings in configuration: 
+   * If **user-assigned identity** should be used: then add the following value settings in configuration: 
      * **AzureWebJobsStorage__credential**: managedidentity 
 
      * **AzureWebJobsStorage__clientId**: MyUserIdentityClientId
@@ -99,25 +93,23 @@ In particular, this quickstart assumes that you have already:
 
 2. Create a Client Secret for your client application. In your registered application,  
 
-   1. Select Certificates & Secrets and select New Client Secret.  
+   1. Select **Certificates & Secrets** and select **New Client Secret**.  
 
-   2. Add description and choose secret valid time in Expires field.  
+   2. Add **description** and choose secret valid time in **Expires** field.  
 
    3. Copy and save the secret value carefully because it will not show up again.  
    
    ![Client Secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-01.png)
 
-### Assign Role-based Access Controls (RBAC) to Client Application 
+### Assign Role-based Access Controls (RBAC) to the Client Application 
 
 Assign these three roles to your client application with the following steps. 
 
 * Storage Queue Data Contributor 
-
 * Storage Blob Data Contributor 
-
 * Storage Table Data Contributor 
 
-1. Navigate to function’s storage account **Access Control(IAM)**, select add new role assignment. 
+1. Navigate to your function’s storage account **Access Control(IAM)** and add a new role assignment. 
 
    ![Access Control Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-02.png)
 
@@ -125,9 +117,9 @@ Assign these three roles to your client application with the following steps.
 
    ![Role Assignment Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-03.png)
 
-### Change Configuration 
+### Configure your app to use Client Secret Credential
 
-For run and test in Azure, specify the followings in your Azure function app’s **Configuration** page. For local run and test, specify these environment variables in the function’s **local.settings.json** file. 
+To run and test in Azure, specify the following in your Azure function app’s **Configuration** page. To run and test locally, specify the following in the function’s **local.settings.json** file. 
 
 1. Remove the default value "AzureWebJobsStorage". 
 
@@ -144,20 +136,20 @@ For run and test in Azure, specify the followings in your Azure function app’s
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
 3. Add client secret credentials by specifying the following values: 
-   * **AzureWebJobsStorage__clientId**: MyClientId; 
+   * **AzureWebJobsStorage__clientId**: MyClientId 
 
-   * **AzureWebJobsStorage__ClientSecret**: MyClientSecret;  
+   * **AzureWebJobsStorage__ClientSecret**: MyClientSecret
 
-   * **AzureWebJobsStorage__tenantId**: MyTenantId. 
+   * **AzureWebJobsStorage__tenantId**: MyTenantId
 
-   Client Secret is saved when you create it, and the other two values can be found on your client application’s overview page. 
+   Client Secret is saved when you create it and the other two values can be found on your client application’s overview page. 
    
    ![client secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
 
 
-## (Optional) custom non-AzureWebJobsStorage connection  
+## (Optional) Configure a custom non-AzureWebJobsStorage storage connection  
 
-Durable Functions support using a separate storage account for Durable Task related operations. If this setting is desired, the steps are as follows:  
+Durable Functions supports using a separate storage account for Durable Task related operations. If this setting is desired, the steps are as follows:  
 
 1. Use the following configuration in host.json: 
     ```json
@@ -173,6 +165,6 @@ Durable Functions support using a separate storage account for Durable Task rela
     }
     ```
 
-2. In function’s configuration or local.settings.json, add the value  **mySeparateStorageAccount: storage account connection string**. The connection string can be found in the storage account’s Access keys: 
+2. In your function’s configuration or local.settings.json, add the value  **mySeparateStorageAccount: storage account connection string**. The connection string can be found in the storage account’s **Access keys**: 
 
    ![connection string Sample](media/durable-functions-configure-df-with-credentials/durable-functions-option-scenario-01.png)
