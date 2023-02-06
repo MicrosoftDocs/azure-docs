@@ -154,6 +154,8 @@ items:
         href: concept-generating-thumbnails.md
       - name: People detection (preview)
         href: concept-people-detection.md
+      - name: Model customization
+        href: concept-model-customization.md
     - name: Version 3.2
       items:   
       - name: Object detection

@@ -46,6 +46,10 @@ For a more structured approach, follow a Training module for Image Analysis.
 
 You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
 
+### Model customization (v4.0 only)
+
+You can create and train custom models to do image classification or object detection. Bring your own images, label them with custom tags, and Image Analysis will train a model customized for your use case. [Model customization](./concept-model-customization.md)
+
 ### Extract text from images (v4.0 only)
 
 Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
