@@ -71,6 +71,8 @@ resources
 | order by tolower(name) asc
 ```
 
+Please reference the [Limitations](./container-insights-cost-config.md#Limitations) section below for information on migrating your Recommended alerts.
+
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
@@ -80,14 +82,14 @@ resources
     - For AKS clusters, aks-preview version 0.5.125 or higher
     - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
-## Cost presets and advanced collection settings
-Cost presets are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
+## Cost presets and collection settings
+Cost presets and collection settings are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
 
 | Cost preset | Collection frequency | Namespace filters | Syslog collection |
 | --- | --- | --- | --- |
 | Standard | 1m | None | Not enabled |
 | Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
-| Advanced | Custom | Custom | Enabled by default (but can be turned off) |
+| Syslog | 1m | None | Enabled by default (but can be turned off) |
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -314,7 +316,7 @@ To update your data collection Settings, modify the values in parameter files, a
 - Only clusters using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), are able to use this feature.
 - Missing data in your container insights charts is an expected behavior for namespace exclusion, if excluding all namespaces
 
-## Known Issues/Limitations
+## Limitations
 
-- Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. To continue using Recommend alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
+- Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There will be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
