@@ -91,6 +91,7 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
     | The alert was not enriched due to entity mapping issues.             |                                                                                      |
     | \<number> entities were dropped in alert \<name> due to the 32 KB alert size limit.   |                                                                     |
     | \<number> entities were dropped in alert \<name> due to entity mapping issues.        |                                                                     |
+    | The query resulted in `n` events, which exceeds the maximum of 150 results allowed for rules with alert-per-row events-grouping configuration. Alert-per-row was generated for first {3} events and an additional aggregated alert was generated to account for all events.
 
 
 ## Next steps
