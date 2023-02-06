@@ -76,7 +76,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
 
 
-## Client Secret Credential
+## Configure your app to use Client Secret Credential
 
 Registering a client application in Azure Active Directory (Azure AD) can also help us get access to an Azure service. In the following steps, you will learn how to use client secret credentials for authentication.  This method can be used both locally and on Azure. However, Client Secret Credential is **less recommended** compared to Managed Identity since this is sensitive information and including this in your function might cause security concerns. 
 
@@ -117,7 +117,7 @@ Assign these three roles to your client application with the following steps.
 
    ![Role Assignment Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-03.png)
 
-### Configure your app to use Client Secret Credential
+### Add Client Secret Configuration 
 
 To run and test in Azure, specify the following in your Azure function app’s **Configuration** page. To run and test locally, specify the following in the function’s **local.settings.json** file. 
 
