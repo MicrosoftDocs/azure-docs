@@ -107,7 +107,12 @@ Performance improvements have cut the time to deploy new instances of the DICOM 
 
 **Reduced strictness when validating STOW requests**
 
-Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. <p>The service will now accept the following: <p><ul><li>DICOM UIDs that contain trailing whitespace <li>IS, DS, SV, and UV VRs that are not valid numbers<li>Invalid private creator tags
+Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. 
+
+The service will now accept the following: 
+* DICOM UIDs that contain trailing whitespace 
+* IS, DS, SV, and UV VRs that are not valid numbers
+* Invalid private creator tags
 
 #### Toolkit and Samples Open Source
 
