@@ -309,7 +309,7 @@ Score:          POST  127.0.0.1:<port>/score
 <logs>
 ```
 
-For example, when you launch the server followed the (end-to-end example)[#end-to-end-example]:
+For example, when you launch the server followed the [end-to-end example](#end-to-end-example):
 
 ```
 Azure ML Inferencing HTTP server v0.8.0

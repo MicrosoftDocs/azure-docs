@@ -248,9 +248,9 @@ You can configure the sensor's time and region so that all the users see the sam
 
 ## Set up backup and restore files
 
-System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`.
+System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`. You can automatically transfer this file to the internal network.
 
-You can automatically transfer this file to the internal network.
+For more information, see [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
 
 > [!NOTE]
 >
@@ -466,7 +466,7 @@ Use Defender for IoT data mining reports on an OT network sensor to retrieve for
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Clearing sensor data
 
