@@ -65,7 +65,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If you're using the Language Studio for the first time, you'll need to complete the following:
+ 1. If you're using the Language Studio for the first time, you'll need to complete the sections:
 
     * **Choose a language resource** or create a new language resource in the Azure portal.
 
@@ -81,7 +81,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
 
-1. If this is your first time using the Document Translation feature, you'll start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
+1. If you're using the Document Translation feature for the first time, you'll start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
 
     :::image type="content" source="../media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
@@ -93,7 +93,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/files-destination-page.png" alt-text="Screenshot of the select files for translation page.":::
 
-1. While still in the **files and destination** section, select the destination for translated files. You can choose to download the translated files or upload them to your Azure blob storage container. Once you have made your choice, select **Next**:
+1. While still in the **files and destination** section, select the destination for translated files. You can choose to download the translated files or upload to your Azure blob storage container. Once you have made your choice, select **Next**:
 
     :::image type="content" source="../media/language-studio/target-file-destination.png" alt-text="Screenshot of the select destination for target files page.":::
 
@@ -105,12 +105,12 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/start-translation.png" alt-text="Screenshot of the start translation job page.":::
 
-1. On the **Job history** page, you will find the **Translation job id** and the job status.
+1. On the **Job history** page, you'll find the **Translation job id** and the job status.
 
   > [!NOTE]
   > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
 
-    :::image type="content" source="../media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
+  :::image type="content" source="../media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
 
 That's it! You now know how to translate documents using Azure Cognitive Services Language Studio.
 
