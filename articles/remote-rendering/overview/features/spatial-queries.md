@@ -12,11 +12,13 @@ ms.custom: devx-track-csharp
 
 Spatial queries are operations with which you can ask the remote rendering service which objects are located in an area. Spatial queries are frequently used to implement interactions, such as figuring out which object a user is pointing at.
 
-All spatial queries are evaluated on the server. Accordingly, the queries are asynchronous operations and results will arrive with a delay that depends on your network latency. Since every spatial query generates network traffic, be careful not to do too many at once.
+All spatial queries are evaluated on the server. Accordingly, the queries are asynchronous operations and results will arrive with a delay that depends on your network latency.
 
 ## Ray casts
 
 A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
+Although doing hundreds of ray casts each frame is computationally feasible on the server side, each query also generates network traffic, so the number of queries per frame should be kept as low as possible.
+
 
 ```cs
 async void CastRay(RenderingSession session)
@@ -101,7 +103,7 @@ A Hit has the following properties:
 
 ## Spatial queries
 
-A *spatial query* allows for the runtime to check which [MeshComponent](../../concepts/meshes.md#meshcomponent) are intersected by a user defined volume. This check is performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
+A *spatial query* allows for the runtime to check which [MeshComponents](../../concepts/meshes.md#meshcomponent) intersect with a user defined volume. This check is performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
 While such a query can be run manually on the client side, for large scenes it can be orders of magnitude faster for the server to compute this.
 
 The following example code shows how to do queries against an axis aligned bounding box (AABB). Variants of the query also allow for oriented bounding box volumes (`SpatialQueryObbAsync`) and sphere volumes (`SpatialQuerySphereAsync`).
