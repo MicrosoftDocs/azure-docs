@@ -74,7 +74,7 @@ Defender for DevOps currently doesn't process or store your code, build, and aud
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
-Exemptions are not available yet for Defender for DevOps within Microsoft Defender for Cloud. But they will be trackable when supported.
+Exemptions are not available for Defender for DevOps within Microsoft Defender for Cloud.
 
 ### Is continuous, automatic scanning available today?
 
