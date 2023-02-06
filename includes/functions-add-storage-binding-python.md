@@ -9,13 +9,7 @@ ms.custom: devdivchpfy22
 
 # [v1](#tab/v1)
 
-Your project has been configured to use [extension bundles](../articles/azure-functions/functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
-
-Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
-
-:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
-
-Now, you can add the storage output binding to your project.
+[!INCLUDE [functions-add-output-binding-json](./functions-add-output-binding-json.md)]
 
 # [v2](#tab/v2)
 
