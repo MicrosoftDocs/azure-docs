@@ -17,6 +17,8 @@ In this guide, learn how to configure SMTP settings to generate email alerts in 
 > Email settings is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+It can be enabled on an existing Azure Managed Grafana instance via the Azure Portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
+
 ## Prerequisites
 
 To follow the steps in this guide, you must have:
@@ -44,14 +46,14 @@ To activate SMTP settings, enable email notifications and configure an email con
         | Password       | password              | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                               |
         | From Address   | user@domain.com       | Enter the email address used when sending out emails.                                                                                      |
         | From Name      | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is "Azure Managed Grafana Notification" if parameter isn't given or empty. |
-        | Skip Verify    | Disable                 |This setting controls whether a client verifies the server's certificate chain and host name. If **Skip Verify** is true, client accepts any certificate presented by the server and any host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks unless custom verification is used. Default is **Disable** (toggled off). [More information](https://pkg.go.dev/crypto/tls#Config).                              |
+        | Skip Verify    | Disable                 |This setting controls whether a client verifies the server's certificate chain and host name. If **Skip Verify** is **Enable**, client accepts any certificate presented by the server and any host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks unless custom verification is used. Default is **Disable** (toggled off). [More information](https://pkg.go.dev/crypto/tls#Config).                              |
         | StartTLS Policy | OpportunisticStartTLS | There are 3 options. [More information](https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy).<br><ul><li>**OpportunisticStartTLS** means that SMTP transactions are encrypted if STARTTLS is supported by the SMTP server. Otherwise, messages are sent in the clear. This is the default setting.</li><li>**MandatoryStartTLS** means that SMTP transactions must be encrypted. SMTP transactions are aborted unless STARTTLS is supported by the SMTP server.</li><li>**NoStartTLS** means encryption is disabled and messages are sent in the clear.</li></ul>          |
 
   1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes.
 
        :::image type="content" source="media/smtp-settings/save-updated-settings.png" alt-text="Screenshot of the Azure platform. Email Settings tab with new data.":::
 
-  1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Provisioning**, and then **Succeeded** once the update is complete.
+  1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Updating**, and then **Succeeded** once the update is complete.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -77,12 +79,12 @@ To activate SMTP settings, enable email notifications and configure an email con
     | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                                                                            |
     | `--smtp`             | enabled                            | Enter **enabled** to disable SMTP settings.                                                                                      |
     | `--from-address`     | user@domain.com                    | Enter the email address used when sending out emails.                                                                            |
-    | `--from-name`        | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is Azure Managed Grafana Notification if parameter isn't given or empty.    |
+    | `--from-name`        | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is "Azure Managed Grafana Notification" if parameter isn't given or empty.    |
     | `--host`             | test.sendgrid.net:587              | Enter the SMTP server hostname with port.                                                                                        |
     | `--user`             | admin                              | Enter the name of the user of the SMTP authentication.                                                                           |
     | `--password`         | password                           | Enter password of the SMTP authentication. If the password contains "#" or ";" wrap it within triple quotes.                     |
-    | `--start-tls-policy` | OpportunisticStartTLS              | The StartTLSPolicy setting of the SMTP configuration. Enter **OpportunisticStartTLS**, **MandatoryStartTLS**, or **NoStartTLS**  |
-    | `--skip-verify`      | false                              | SSL verification for the SMTP server. Enter **false** to maintain the verification, or **true** to skip it.                      |
+    | `--start-tls-policy` | OpportunisticStartTLS              | The StartTLSPolicy setting of the SMTP configuration. There are 3 options. [More information](https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy).<br><ul><li>**OpportunisticStartTLS** means that SMTP transactions are encrypted if STARTTLS is supported by the SMTP server. Otherwise, messages are sent in the clear. This is the default setting.</li><li>**MandatoryStartTLS** means that SMTP transactions must be encrypted. SMTP transactions are aborted unless STARTTLS is supported by the SMTP server.</li><li>**NoStartTLS** means encryption is disabled and messages are sent in the clear.</li></ul>  |
+    | `--skip-verify`      | false                              |This setting controls whether a client verifies the server's certificate chain and host name. If **--skip-verify** is **true**, client accepts any certificate presented by the server and any host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks unless custom verification is used. Default is **false**. [More information](https://pkg.go.dev/crypto/tls#Config).                      |
 
 ---
 
@@ -140,6 +142,10 @@ Below are some common error messages you may encounter:
 
 - "Authentication failed: The provided authorization grant is invalid, expired, or revoked". Grafana couldn't connect to the SMTP server. Check if the password entered in the SMTP settings in the Azure portal is correct.
 - "Failed to sent test alert.: SMTP not configured". SMTP is disabled. Open the Azure Managed Grafana instance in the Azure portal and enable SMTP settings.
+
+## Known limitation
+
+Due to limitation on alerting high availability configuration in Azure Managed Grafana, there could be duplicate email notifications delivered for a single firing alert.
 
 ## Next steps
 
