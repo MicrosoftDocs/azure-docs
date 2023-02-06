@@ -65,15 +65,15 @@ We recommend the following practices for service account privileges.
 * [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource
 * Service principals and managed identities can use OAuth 2.0 scopes in a delegated context impersonating a signed-on user, or as service account in the application context. In the application context, no one is signed in.
 * Confirm the scopes service accounts request for resources
-  * If an account requests Files.ReadWrite.All, evaluate if it needs File.Read.All. 
+  * If an account requests Files.ReadWrite.All, evaluate if it needs File.Read.All
   * [Overview of Microsoft Graph permissions](/graph/permissions-reference)
 * Ensure you trust the application developer, or API, with the requested access
 
 ### Duration
 
 * Limit service account credentials (client secret, certificate) to an anticipated usage period
-* Schedule periodic reviews of service account usage and purpose. 
-  * Ensure reviews occur prior to account expiration.
+* Schedule periodic reviews of service account usage and purpose
+  * Ensure reviews occur prior to account expiration
 
 After you understand the purpose, scope, and permissions, create your service account, use the instructions in the following articles. 
 
@@ -119,8 +119,9 @@ Regularly review service account permissions and accessed scopes to see if they 
 
 * Use [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) to [build automation to check and document](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
 * Use PowerShell to [review service principal credentials](https://github.com/AzureAD/AzureADAssessment) and confirm validity
-* Don't set service principal credentials to **Never expire**.
-* Use certificates or credentials stored in Azure KeyVault, when possible
+* Don't set service principal credentials to **Never expire**
+* Use certificates or credentials stored in Azure Key Vault, when possible
+  * [what is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
 
 The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [Microsoft Azure AD Assessment, Assessor Guide](https://github.com/AzureAD/AzureADAssessment).
 
@@ -133,9 +134,9 @@ The process includes:
 * Determine service account review cycle, and document it in your CMDB
 * Communications to owner, security team, IT team, before a review
 * Determine warning communications, and their timing, if the review is missed
-* Instructions if the owners fail to review or respond.
+* Instructions if owners fail to review or respond
   * Disable, but don't delete, the account until the review is complete
-* Instructions to determine dependencies. Notify resource owners of effects.
+* Instructions to determine dependencies. Notify resource owners of effects
 
 The review includes the owner and an IT partner, and they certify:
 
