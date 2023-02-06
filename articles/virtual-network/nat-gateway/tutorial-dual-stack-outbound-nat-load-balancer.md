@@ -426,13 +426,13 @@ Before you can validate outbound connectivity, make not of the IPv4 and IPv6 pub
 
 1. You should see the IPv4 address of **20.230.191.5** displayed.
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar enter **http://v6.testmyipv6.com**
 
 1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
 1. Close the bastion connection to **myVM**.
 
@@ -461,6 +461,6 @@ When your finished with the resources created in this article, delete the resour
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to:
 > [!div class="nextstepaction"]
 > [Integrate NAT gateway in a hub and spoke network](tutorial-hub-spoke-route-nat.md)
