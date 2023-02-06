@@ -84,7 +84,7 @@ With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute ta
 |Batch inference | No | Yes |
 |Real-time inference new features | No new features development | Active roadmap |
 
-With these key differences and overall AzureML evolves to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
+With these key differences and overall AzureML evolution to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
 
 ## Next steps
 
