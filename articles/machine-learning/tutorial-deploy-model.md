@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 01/06/2023
+ms.date: 02/06/2023
 ms.custom: mlops #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
