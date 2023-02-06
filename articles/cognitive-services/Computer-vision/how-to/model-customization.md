@@ -234,4 +234,5 @@ The prediction results will appear in the right column.
 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze API, so you can query your custom model from an application.
 
-* [Call the Analyze Image API](./call-analyze-image-40.md) 
+* [Call the Analyze Image API](./call-analyze-image-40.md)
+* See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of the feature and a list of frequently asked questions.
