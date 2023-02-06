@@ -368,5 +368,3 @@ You can now run your indexer and validate that the `predicted_price` property is
 > [Review the custom skill web api](./cognitive-search-custom-skill-web-api.md)
 
 > [Learn more about adding custom skills to the enrichment pipeline](./cognitive-search-custom-skill-interface.md)
-
-> [Learn more about the AML skill](./cognitive-search-tutorial-aml-custom-skill.md)
