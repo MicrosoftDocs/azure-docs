@@ -28,6 +28,7 @@ In this example, we'll use the following steps to create a Logic App that uses t
 1. [Create a Logic App](#create-a-logic-app) for sending an email or a Teams post.
 1. [Create an alert action group](#create-an-action-group) that triggers the logic app.
 1. [Create a rule](#create-a-rule-using-your-action-group) the uses the action group.
+
 ## Create a Logic App
 
 1. In the [portal](https://portal.azure.com/), create a new Logic app. In the **Search** bar at the top of the page, enter "Logic App".
@@ -108,12 +109,19 @@ In this example, we'll use the following steps to create a Logic App that uses t
     }
     ```
 
-1. Select the **+** icon to insert a new step.
-:::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
+
+1. (Optional). You  may want to add additional customizations to the alert notification, by adding resource tags to the alert payload and then including that information in the notification.
+    1. Select the **+** icon to insert a new step.
+
+    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
 
 1. Send an email or post a Teams message.
 
 ## [Send an email](#tab/send-email)
+
+1. Select the **+** icon to insert a new step.
+
+    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
 
 1. In the search field, search for *outlook*.
 1. Select **Office 365 Outlook**. 
