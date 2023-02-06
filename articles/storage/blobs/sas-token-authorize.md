@@ -22,7 +22,7 @@ For example, if a developer possesses a SAS that grants access to the blobs in a
 
 A common architecture is to have a service that generates a SAS for a user or client when needed. The service has permissions to generate a SAS, while the user or client does not.
 
-This article describes how to consume different types of shared access signatures with the Blob Storage SDK for .NET.
+This article describes how to use shared access signatures to authorize access to data with the Blob Storage SDK for .NET. For information on how to create a SAS, see one of the following articles:
 
 ## Authorize with an AzureSasCredential object
 

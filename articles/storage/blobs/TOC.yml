@@ -566,7 +566,7 @@ items:
         href: network-file-system-protocol-support-how-to.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Develop applications
+    - name: Develop with Blob Storage
       items:
       - name: Set up Azure AD
         items:
@@ -586,6 +586,8 @@ items:
             items:
             - name: Azure Active Directory
               items:
+              - name: Overview
+                href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Auth using developer service principals
                 href: /dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Auth using developer accounts
@@ -594,8 +596,10 @@ items:
                 href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
               - name: Auth from on-premises apps
                 href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
-            - name: Shared access signature (SAS)
+            - name: Shared access signature (SAS) (new)
               href: sas-token-authorize.md
+            - name: Account access key (new)
+              href: ../common/storage-configure-connection-string.md
           - name: Container actions
             items:
             - name: Create a container
