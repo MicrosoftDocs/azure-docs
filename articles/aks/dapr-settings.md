@@ -158,6 +158,21 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
+## Using Mariner-based images
+
+As of Dapr version 1.10, you can use Mariner images using the Dapr extension. Set the following global tag to use:
+
+```azurecli
+az k8s-extension upgrade --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--set global.tag=1.10.0-mariner
+```
+
+[Learn more about using Mariner-based images with Dapr.][dapr-mariner]
+
 ## Disable automatic CRD updates
 
 With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
@@ -212,3 +227,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
+[dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images
