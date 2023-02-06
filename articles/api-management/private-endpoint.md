@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 02/06/2023
 
 ---
 
@@ -13,23 +13,13 @@ ms.date: 03/31/2022
 
 You can configure a [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
 
-* The private endpoint uses an IP address from your Azure VNet address space. 
+* The private endpoint uses an IP address from an Azure VNet in which it's hosted.
 
 * Network traffic between a client on your private network and API Management traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 * Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
 :::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure connection to API Management using private endpoint.":::
-
-With a private endpoint and Private Link, you can:
-
-- Create multiple Private Link connections to an API Management instance. 
-
-- Use the private endpoint to send inbound traffic on a secure connection. 
-
-- Use policy to distinguish traffic that comes from the private endpoint. 
-
-- Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
 [!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
 
@@ -38,8 +28,8 @@ With a private endpoint and Private Link, you can:
 
 ## Limitations
 
-* Only the API Management instance's Gateway endpoint currently supports Private Link connections. 
-* Each API Management instance currently supports at most 100 Private Link connections.
+* Only the API Management instance's Gateway endpoint supports inbound Private Link connections. 
+* Each API Management instance supports at most 100 Private Link connections.
 * Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
 
 ## Prerequisites

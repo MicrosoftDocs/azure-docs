@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/07/2022
+ms.date: 02/06/2023
 ms.author: danlep
 ---
 
@@ -22,6 +22,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Azure AD integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
 | Virtual Network (VNet) support                                                               | No          | Yes       | No    | No       | Yes     |
+| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | Yes       | Yes     |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | Yes     |
 | Availability zones                                                                           | No          | No        | No    | No       | Yes     |
 | Multiple custom domain names                                                                 | No          | Yes        | No    | No       | Yes     |
@@ -45,5 +46,5 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
-<sup>4</sup> The following policies aren't available in the Consumption tier: rate limit by key and quota by key. <br/>
+<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the dedicated, consumption, and self-hosted gateways. <br/>
 <sup>5</sup> GraphQL subscriptions aren't supported in the Consumption tier.
