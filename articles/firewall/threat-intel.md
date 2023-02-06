@@ -22,6 +22,10 @@ You can choose to just log an alert when a rule is triggered, or you can choose 
 
 By default, threat intelligence-based filtering is enabled in alert mode. You can’t turn off this feature or change the mode until the portal interface becomes available in your region.
 
+You can define allow lists so threat intelligence will not filter traffic to any of the listed FQDNs, IP addresses, ranges, or subnets.
+
+For a batch operation, you can upload a CSV file with list of IP addresses, ranges, and subnets.
+
 :::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Threat intelligence based filtering portal interface":::
 
 ## Logs
