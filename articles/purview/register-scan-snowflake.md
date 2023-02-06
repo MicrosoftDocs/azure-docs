@@ -205,7 +205,7 @@ To create and run a new scan, follow these steps:
 
 1. Select **Continue**.
 
-1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline.
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 
