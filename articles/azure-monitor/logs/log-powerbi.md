@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.date: 02/06/2023
 
 ---
 # Log Analytics integration with Power BI
@@ -29,21 +29,13 @@ More advanced features might require purchasing a Power BI Pro or Premium accoun
 
 For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
-## Integrate queries
+## Create Power BI datasets and reports from Log Analytics queries
 
-Power BI uses the [M query language](/powerquery-m/power-query-m-language-specification/) as its main querying language.
+You can create Power BI datasets and reports from your Log Analytics queries. Two options are available under the **Export** menu in Log Analytics:
+- **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
+- **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service, otherwise, consider exporting the query as a new dataset.
 
-Log Analytics queries can be exported to M and used in Power BI directly. After you run a successful query, select **Export to Power BI (M query)** from the **Export** dropdown list in the Log Analytics top toolbar.
-
-:::image type="content" source="media/log-powerbi/export-query2.png" alt-text="Screenshot that shows a Log Analytics query showing the Export dropdown list." border="true":::
-
-Log Analytics creates a .txt file containing the M code that can be used directly in Power BI.
-
-## Connect your logs to a dataset
-
-A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, copy the M code exported from Log Analytics into a blank query in Power BI.
-
-For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/).
+:::image type="content" source="/power-bi/connect-data/media/create-dataset-log-analytics/export-to-power-bi-log-analytics-option.png" alt-text="Screenshot showing Export to Power BI option in the Log Analytics Export menu.":::
 
 ## Collect data with Power BI dataflows
 
