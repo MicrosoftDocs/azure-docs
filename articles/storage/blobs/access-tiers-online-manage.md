@@ -134,6 +134,8 @@ To upload a blob or set of blobs to a specific tier with PowerShell, call the [S
 $rgName = <resource-group>
 $storageAccount = <storage-account>
 $containerName = <container>
+# tier can be hot, cool, cold, or archive
+$tier = <tier>
 
 # Get context object
 $ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount
@@ -152,12 +154,12 @@ Set-AzStorageBlobContent -Container $containerName `
 Get-ChildItem -Path "C:\sample-blobs" -File -Recurse | 
     Set-AzStorageBlobContent -Container $containerName `
         -Context $ctx `
-        -StandardBlobTier Cool
+        -StandardBlobTier $tier
 ```
 
 ### [Azure CLI](#tab/azure-cli)
 
-To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
 ```azurecli
 az storage blob upload \
@@ -165,18 +167,18 @@ az storage blob upload \
     --container-name <container> \
     --name <blob> \
     --file <file> \
-    --tier Cool \
+    --tier <tier> \
     --auth-mode login
 ```
 
-To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
 ```azurecli
 az storage blob upload-batch \
     --destination <container> \
     --source <source-directory> \
     --account-name <storage-account> \
-    --tier Cool \
+    --tier <tier> \
     --auth-mode login
 ```
 
@@ -301,6 +303,7 @@ $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $containerName = "<container>"
 $blobName = "<blob>"
+$tier = "<tier>"
 
 # Get the storage account context
 $ctx = (Get-AzStorageAccount `
@@ -309,7 +312,7 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob's access tier.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.BlobClient.SetAccessTier("Cool", $null, "Standard")
+$blob.BlobClient.SetAccessTier($tier, $null, "Standard")
 ```
 
 #### [Azure CLI](#tab/azure-cli)
@@ -321,23 +324,23 @@ az storage blob set-tier \
     --account-name <storage-account> \
     --container-name <container> \
     --name <blob> \
-    --tier Cool \
+    --tier <tier> \
     --auth-mode login
 ```
 
 #### [AzCopy](#tab/azcopy)
 
-To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to `cool`. 
+To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter. 
 
 > [!IMPORTANT]
 > Using AzCopy to change a blob's access tier is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS tokenn because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
-azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=cool
+azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<tier>
 ```
 
 > [!NOTE]
@@ -346,7 +349,7 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
 ```azcopy
-azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=cool --recursive=true
+azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=<tier> --recursive=true
 ```
 
 ---
