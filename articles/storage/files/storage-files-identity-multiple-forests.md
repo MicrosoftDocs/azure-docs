@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 02/06/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -92,7 +92,7 @@ Once the trust is established, follow these steps to create a storage account an
 1. Sync the user to Azure AD using Azure AD Connect. Normally Azure AD Connect sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the AzureAD Sync module first by running `Import-Module ADSync`.
 1. To verify that the user has been synced to Azure AD, log in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Azure Active Directory**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
 1. Grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
-1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md) (Windows ACLs).
+1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) (Windows ACLs) using the icacls command-line utility. In a multi-forest environment, you shouldn't use Windows File Explorer to configure ACLs. Use icacls instead.
 
 Repeat steps 4-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
 
