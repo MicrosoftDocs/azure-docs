@@ -15,8 +15,6 @@ ms.custom: devdivchpfy22
 
 In v2 bindings are made directly in the *function_app.py* file.
 
-```python
-@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-```
+[!INCLUDE [functions-add-output-binding-python-v2](./functions-add-output-binding-python-v2.md))]
 
 ---
