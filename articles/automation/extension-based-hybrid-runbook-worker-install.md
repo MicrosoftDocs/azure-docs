@@ -89,7 +89,7 @@ If you use a proxy server for communication between Azure Automation and machine
 
 ```azurepowershell-interactive
 $settings = @{
-    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
+    "AutomationAccountURL"  = "<registrationurl>";    
     "ProxySettings" = @{
         "ProxyServer" = "<ipaddress>:<port>";
         "UserName"="test";
@@ -124,13 +124,13 @@ $settings = @{
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true
 ```
 
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Setting $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Setting $settings -EnableAutomaticUpgrade $true
 ```
 
 ---
