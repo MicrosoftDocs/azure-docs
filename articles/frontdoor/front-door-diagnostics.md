@@ -27,11 +27,11 @@ Logs and metrics are stored and managed by [Azure Monitor](../azure-monitor/over
 
 Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
 
-The metrics listed in the following table are recorded and stored free of charge. For an extra cost, you can store for a longer period of time.
+The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
-| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li><li>>Byte hit ratio can be low if most of the traffic is forwarded to the origin rather than served from the cache.</ul></ol> | Endpoint |
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li><li>Byte hit ratio can be low if most of the traffic is forwarded to the origin rather than served from the cache.</ul></ol> | Endpoint |
 | Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins.| Origin, Origin Group |
 | Origin Latency | The time calculated from when the request was sent by the Azure Front Door edge to the origin until Azure Front Door received the last response byte from the origin. | Endpoint, Origin |
 | Origin Request Count  | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |

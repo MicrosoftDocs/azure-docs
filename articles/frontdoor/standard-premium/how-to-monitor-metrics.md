@@ -18,7 +18,7 @@ You can also configure alerts for each metric such as a threshold for 4XXErrorRa
 
 ## Access metrics in the Azure portal
 
-1. From the Azure portal menu, select **All Resources** >> **\<your-AFD-profile>**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door Standard/Premium profile.
 
 1. Under **Monitoring**, select **Metrics**:
 

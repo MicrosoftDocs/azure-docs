@@ -120,7 +120,7 @@ When you configure caching, you specify how the cache should handle query string
 
 * **Specify cache key query string** behavior to include or exclude specified parameters when the cache key is generated.
 
-  For example, suppose that the default cache key is `/foo/image/asset.html`, and a request is made to the URL `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. If there's a rules engine rule to exclude the `userid` query string parameter, then the query string cache key would be `/foo/image/asset.html?language=EN&sessionid=200`.
+  For example, suppose that the default cache key is `/foo/image/asset.html`, and a request is made to the URL `https://contoso.com/foo/image/asset.html?language=EN&userid=100&sessionid=200`. If there's a rules engine rule to exclude the `userid` query string parameter, then the query string cache key would be `/foo/image/asset.html?language=EN&sessionid=200`.
 
 Configure the query string behavior on the Front Door route.
 
