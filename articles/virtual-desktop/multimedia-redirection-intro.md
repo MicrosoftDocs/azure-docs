@@ -3,7 +3,7 @@ title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: An overview of multimedia redirection on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/07/2023
 ms.author: helohr
 manager: femila
 ---
