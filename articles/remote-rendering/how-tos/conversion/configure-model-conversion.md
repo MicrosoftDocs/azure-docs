@@ -147,7 +147,8 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Physics parameters
 
-* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. There's no extra runtime memory-/performance overhead involved when this flag is enabled. Accordingly this flag can be left to default (enabled) unless there are strong reasons to exclude a model from spatial queries.
+* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. Collision mesh generation does not add any extra conversion time and also does not increase the output file size. Furthermore, the loading time and runtime cost of a model with collision meshes is only insignificantly higher.
+Accordingly this flag can be left to default (enabled) unless there are strong reasons to exclude a model from spatial queries.
 
 ### Unlit materials
 
