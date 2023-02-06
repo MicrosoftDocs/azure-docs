@@ -450,7 +450,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](#deploy-locally) instead.
 - Readiness or liveness probes aren't set up correctly.
-- There's an error in the environment setup of the container, such as a missing dependency.
+- There's an error in the environment set up of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
 ### ERROR: ResourceNotFound
@@ -501,27 +501,78 @@ Retrying the operation after waiting several seconds up to a minute may allow it
 
 ### ERROR: NamespaceNotFound
 
-The reason you might run into this error when using Kubernetes online endpoint is because the namespace your Kubernetes compute used is unavailable in your cluster. 
+The reason you might run into this error when creating/updating the Kubernetes online endpoints is because the namespace your Kubernetes compute used is unavailable in your cluster. 
 
 You can check the Kubernetes compute in your workspace portal and check the namespace in your Kubernetes cluster. If the namespace is not available, you can detach the legacy compute and re-attach to create a new one, specifying a namespace that already exists in your cluster.    
 
-### ERROR: KubernetesCrashLoopBackOff
+### ERROR: EndpointAlreadyExists
 
-Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
-* There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotfound) part. 
-* Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
+The reason you might run into this error when creating a Kubernetes online endpoint is because the creating endpoint already exists in your cluster.
+
+The endpoint name should be unique per workspace and per cluster, so in this case, you should create endpoint with another name. 
+
+### ERROR: ScoringFeUnhealthy
+
+The reason you might run into this error when creating/updating a Kubernetes online endpoint/deployment is because the [Azureml-fe](how-to-kubernetes-inference-routing-azureml-fe.md) that is the system service running in the cluster is not found or unhealthy.
+
+To trouble shoot this issue, you can re-install or update the Azure Machine Learning extension in your cluster.
 
 ### ERROR: ACRSecretError 
 
-Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online deployments:
 
 * Role assignment has not yet been completed. In this case, please wait for a few seconds and try again later. 
-* The Azure ARC (For Azure Arc Kubernetes cluster) or AMLArc extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or AMLArc extension configuration and status. 
-* The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate. 
+* The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
+* The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
+  * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
+
+### ERROR: EndpointNotFound
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the system can't find the endpoint resource for the deployment in the cluster. You should create the deployment in an exist endpoint or create this endpoint first in your cluster.
+
+### ERROR: ValidateScoringFailed
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the scoring request URL validation failed when processing the model deploying. 
+
+In this case, you can first check the endpoint URL and then try to re-deploy the deployment.
+
+### ERROR: InvalidDeploymentSpec
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the deployment spec is invalid.
+
+In this case, you can check the error message.
+* Make sure the `instance count` is valid.
+* If you have enabled auto scaling, make sure the `minimum instance count` and `maximum instance count` are both valid.
+
+### ERROR: ImagePullLoopBackOff
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the images can't be downloaded from the container registry, resulting in the images pull failure. 
+
+In this case, you can check the cluster network policy and the workspace container registry if cluster can pull image from the container registry.
+
+### ERROR: KubernetesCrashLoopBackOff
+
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online endpoints/deployments:
+* One or more pod(s) stuck in CrashLoopBackoff status, you can check if the deployment log exists, and check if there are error messages in the log.
+* There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotready) part. 
+* Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
+
+### ERROR: PodUnschedulable
+
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online endpoints/deployments:
+* Unable to schedule pod to nodes, due to insufficient resources in your cluster.
+* No node match node affinity/selector.
+
+To mitigate this error, refer to the following steps: 
+* Check the `node selector` definition of the `instance type` you used, and `node label` configuration of your cluster nodes. 
+* Check `instance type` and the node SKU size for AKS cluster or the node resource for Arc-Kubernetes cluster.
+  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use another instance type with smaller resource required. 
+* If the cluster has no more resource to meet the requirement of the deployment, delete some deployment to release resources.
+
 
 ### ERROR: InferencingClientCallFailed 
 
-The reason you might run into this error when using Kubernetes online endpoint is because the k8s-extension of the Kubernetes cluster is not connectable.
+The reason you might run into this error when creating/updating Kubernetes online endpoints/deployments is because the k8s-extension of the Kubernetes cluster is not connectable.
 
 In this case, you can detach and then **re-attach** your compute. 
 
@@ -563,6 +614,7 @@ Managed online endpoints have bandwidth limits for each endpoint. You find the l
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
+#### Common error codes for managed online endpoints
 Below are common error codes when consuming managed online endpoints with REST requests:
 
 | Status code | Reason phrase             | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -576,6 +628,8 @@ Below are common error codes when consuming managed online endpoints with REST r
 | 429         | Rate-limiting             | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | 500         | Internal server error     | AzureML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
+#### Common error codes for kubernetes online endpoints
+
 Below are common error codes when consuming Kubernetes online endpoints with REST requests:
 
 | Status code | Reason phrase                                                                 | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                       |
@@ -583,7 +637,7 @@ Below are common error codes when consuming Kubernetes online endpoints with RES
 | 409         | Conflict error                                                                | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error.                                                                                                                             |
 | 502         | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file.                                                                                                                                                                   |
 | 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
-| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout is 1 minute. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
+| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
 | 500         | Internal server error                                                         | Azure ML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                        |
 
 
@@ -623,7 +677,7 @@ There are two things that can help prevent 503 status codes:
     ```
 
     > [!NOTE]
-    > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your endpoint increases, you may need to increase the minimum replicas.
+    > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503 again. For example, as traffic to your endpoint increases, you may need to increase the minimum replicas.
 
 #### How to calculate instance count
 To increase the number of instances, you can calculate the required replicas by using the following code:
@@ -662,3 +716,4 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
+- [Troubleshoot kubernetes compute ](how-to-troubleshoot-kubernetes-compute.md)

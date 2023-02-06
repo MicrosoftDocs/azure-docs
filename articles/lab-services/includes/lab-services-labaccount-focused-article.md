@@ -8,4 +8,8 @@ ms.custom: devdivchpfy22
 ---
 
 > [!IMPORTANT]
-> The information in this article applies to early versions of Azure Lab Services prior to the [August 2022 Update](../lab-services-whats-new.md). Newer updates to the service build upon [lab plans]( ../classroom-labs-concepts.md#lab-plans) instead of lab accounts. We recommend you use lab plans for all new labs.
+> The information in this article applies to early versions of Azure Lab Services prior to the [August 2022 Update](../lab-services-whats-new.md). Newer updates to the service build upon [lab plans]( ../classroom-labs-concepts.md#lab-plans) instead of lab accounts.
+>
+> Beginning **7th February 2023**, you won't be able to create a **Lab Account** to use the service. If you have a new subscription, you will instead be able to create a **Lab plan** to use the service. If you already have a Lab account, you can continue to use it.
+>
+> As part of the August 2022 update, **Azure Lab Services Lab Plans** replace lab accounts. For new customers, learn how you can get started by [creating a lab plan](../tutorial-setup-lab-plan.md). For existing lab account customers we recommend that you [transition from lab accounts to lab plans](../migrate-to-2022-update.md).

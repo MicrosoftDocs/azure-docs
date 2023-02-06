@@ -6,8 +6,7 @@ description: This article provides a set of operational best practices for prote
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: tomsh
+manager: rkarlin
 
 ms.assetid:
 ms.service: security
@@ -15,7 +14,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 01/16/2023
 ms.author: terrylan
 
 ---
@@ -71,7 +70,7 @@ Here are some best practices for using management groups:
 Good candidates include:
 
 - Regulatory requirements that have a clear business impact (for example, restrictions related to data sovereignty)
-- Requirements with near-zero potential negative affect on operations, like policy with audit effect or Azure RBAC permission assignments that have been carefully reviewed
+- Requirements with near-zero potential negative effect on operations, like policy with audit effect or Azure RBAC permission assignments that have been carefully reviewed
 
 **Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, Azure RBAC model, and so on).   
 **Detail**: Changes in the root management group can affect every resource on Azure. While they provide a powerful way to ensure consistency across the enterprise, errors or incorrect usage can negatively affect production operations. Test all changes to the root management group in a test lab or production pilot.
@@ -179,7 +178,7 @@ Ensuring that an application is resilient enough to handle a denial of service t
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../../cloud-services/cloud-services-choose-me.md).
 
-For [Azure Virtual Machines](../../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using virtual machine scale sets for autoscaling capabilities.
+For [Azure Virtual Machines](../../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using Virtual Machine Scale Sets for autoscaling capabilities.
 
 **Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
 **Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using an approval list to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) and [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)).

@@ -224,13 +224,13 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az login
    ```
 
-1. Get your subscription ID. You'll provide this value as variable in a future step.
+1. Get your subscription ID. You'll provide this value as variable in a future step. 
 
    ```azurecli
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step.
+1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step. The role you'll create will be scoped to the resource group.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
