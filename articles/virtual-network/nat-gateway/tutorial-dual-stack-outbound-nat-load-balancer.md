@@ -122,7 +122,7 @@ $rsg = @{
 New-AzResourceGroup @rsg
 ```
 
-## Create virtual network
+## Create network
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
 
