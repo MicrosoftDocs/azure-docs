@@ -62,15 +62,6 @@ Make sure your code follows these tips:
 
 * For the full notebook to run the above example, see [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
 
-### DeepSpeed
-
-Don't use DeepSpeed's custom launcher to run distributed training with the [DeepSpeed](https://www.deepspeed.ai/) library on Azure ML. Instead, configure an MPI job to launch the training job [with MPI](https://www.deepspeed.ai/getting-started/#mpi-and-azureml-compatibility).
-
-Make sure your code follows these tips:
-
-* Your Azure ML environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
-* Create an `MpiConfiguration` with your distribution.
-
 ### Environment variables from Open MPI
 
 When running MPI jobs with Open MPI images, the following environment variables for each process launched:
@@ -127,6 +118,21 @@ Azure ML will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK
 ### Pytorch example
 
 - For the full notebook to run the above example, see [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb)
+
+## DeepSpeed
+
+[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalabibility in terms of 
+
+* Increase in model size
+* Increase in number of GPUs
+
+`DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
+
+You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
+
+### DeepSpeed example
+
+- For DeepSpeed training and autotuning examples, see [these folders](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/deepspeed).
 
 ## TensorFlow
 

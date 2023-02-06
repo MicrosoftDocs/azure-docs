@@ -1,10 +1,8 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 12/27/2022
-author: mgoedtel
+ms.date: 01/18/2023
 
 ---
 
@@ -14,7 +12,7 @@ The Azure Blob storage Container Storage Interface (CSI) driver is a [CSI specif
 
 By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
-Mounting Azure Blob storage as a file system into a container or pod, enables you to use blob storage with a number of applications that work massive amounts of unstructured data. For example:
+When you mount Azure Blob storage as a file system into a container or pod, it enables you to use blob storage with a number of applications that work massive amounts of unstructured data. For example:
 
 * Log file data
 * Images, documents, and streaming video or audio
@@ -55,7 +53,7 @@ To enable the driver on an existing cluster, include the `--enable-blob-driver` 
 az aks update --enable-blob-driver -n myAKSCluster -g myResourceGroup
 ```
 
-You're prompted to confirm there isn't an open-source Blob CSI driver installed. After confirming, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example is resembles the section indicating the results of the previous command:
+You're prompted to confirm there isn't an open-source Blob CSI driver installed. After you confirm, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results of the previous command:
 
 ```output
 "storageProfile": {
@@ -211,8 +209,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 ## Next steps
 
-- To learn how to manually set up a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
-- To learn how to dynamically set up a persistent volume, see [Create and use a dynamic persistent volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
+- To learn how to set up a static or dynamic persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-provision].
 - To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi-driver]
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi-driver]
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
@@ -229,9 +226,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [concepts-storage]: concepts-storage.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [csi-drivers-aks]: csi-storage-drivers.md
-[azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
-[azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
-[csi-storage-driver-overview]: csi-storage-drivers.md
+[azure-csi-blob-storage-provision]: azure-csi-blob-storage-provision.md
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
-[install-azure-cli]: /cli/azure/install_azure_cli
+[install-azure-cli]: /cli/azure/install-azure-cli

@@ -43,7 +43,7 @@ Next, assign the role you created to the user account or service principal that 
 Retrieve the details of your account using the `az ad user` command.
 
 ```azurecli
-az ad user --id "<your-email-address>"
+az ad user show --id "<your-email-address>"
 ```
 
 Copy the value of the `id` property out of the results and paste it somewhere for later use.
@@ -52,8 +52,8 @@ Finally, assign the custom role you created to your user account using the `az c
 
 ```azurecli
 az cosmosdb sql role assignment create 
-    --account-name msdocs-cosmos-nosql
-    --resource-group msdocs
+    --account-name passwordlessnosql
+    --resource-group passwordlesstesting
     --scope "/" 
     --principal-id <your-user-id>
     --role-definition-id <your-custom-role-id> 

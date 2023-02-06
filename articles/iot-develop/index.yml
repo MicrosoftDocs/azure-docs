@@ -63,7 +63,5 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Central
-          url: quickstart-devkit-espressif-esp32-freertos.md
-        - text: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Central
-          url: quickstart-devkit-stm-b-l475e-freertos.md
+        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Hub
+          url: quickstart-devkit-espressif-esp32-freertos-iot-hub.md

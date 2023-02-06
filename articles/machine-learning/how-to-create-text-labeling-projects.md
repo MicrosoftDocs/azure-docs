@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 02/03/2023
 ms.custom: data4ml, ignite-fall-2021
 ---
 
@@ -72,39 +72,41 @@ In many cases, it's fine to just upload local files. But [Azure Storage Explorer
 
 To create a dataset from data that you've already stored in Azure Blob storage:
 
-1. Select **Create a dataset** > **From datastore**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create** .
+1. Assign a **Name** to your dataset, and optionally a description.
 1. Choose the **Dataset type**:
     * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
-1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
-1. Select the datastore.
+1. Select **From Azure storage**, then **Next**.
+1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **Create**.
+1. Now select the data asset you just created.
 
 ### Create a dataset from uploaded data
 
 To directly upload your data:
 
-1. Select **Create a dataset** > **From local files**.
-1. Assign a **Name** to your dataset.
-1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. 
+1. Select **+ Create**.
+1. Assign a **Name** to your dataset, and optionally a description.
+1. Choose the **Dataset type**:
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
-1. (Optional) Provide a description of your dataset.
-1. Select **Next**
-1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
-1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
-1. If uploading .csv or .tsv files:
-    * Confirm the settings and preview, select **Next**.
-    * Include all columns of text you'd like the labeler to see when classifying that row.  If you'll be using ML assisted labeling, adding numeric columns may degrade the ML assist model.
-    * Select **Next**.
-1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **From local files**, then select **Next**.
+1. (Optional) Select a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Next**.
+1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
+1. In the browser window, find your files or folder, then select **Open**.
+1. Continue using **Upload** until you have specified all your files/folders.
+1. Check the box **Overwrite if already exists** if you wish.  Verify the list of files/folders.
+1. Select **Next**.
+1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Now select the data asset you just created.
+
 
 
 ## Configure incremental refresh
@@ -113,6 +115,7 @@ To directly upload your data:
 
 > [!NOTE]
 > Incremental refresh is available for projects that use tabular (.csv or .tsv) dataset input. However, only new tabular files are added.  Changes to existing tabular files will not be recognized from the refresh.
+
 
 ## Specify label categories
 
@@ -142,7 +145,7 @@ To use **ML-assisted labeling**:
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. 
 
-For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
+For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally used by the model during the training process.
 
 The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution. 
 
@@ -173,15 +176,17 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
+The progress charts shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
+Below the charts is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
-The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
+You also see a distribution of labelers and how many items they've labeled.  
 
+Finally, in the middle section, there is a table showing a queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned.
 
-On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
-### Data tab
+### Data
 
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
@@ -193,7 +198,7 @@ If your project uses consensus labeling, you'll also want to review those images
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
-1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus was not achieved among the labelers.
+1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus wasn't achieved among the labelers.
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
 
@@ -212,6 +217,7 @@ View and change details of your project.  In this tab you can:
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
+* Change settings for ML assisted labeling, and kick off a labeling task
 
 ### Access for labelers
 
@@ -220,6 +226,10 @@ View and change details of your project.  In this tab you can:
 ## Add new labels to a project
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
+
+## Start an ML assisted labeling task
+
+[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
  

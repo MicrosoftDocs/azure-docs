@@ -406,6 +406,34 @@ This SSML snippet illustrates how the `src` attribute is used to insert audio fr
 </speak>
 ```
 
+## Audio duration
+
+Use the `mstts:audioduration` element to set the duration of the output audio. Use this element to help synchronize the timing of audio output completion. The audio duration can be decreased or increased between 0.5 to 2 times the rate of the original audio. The original audio here is the audio without any other rate settings. The speaking rate will be slowed down or sped up accordingly based on the set value. 
+
+The audio duration setting is applied to all input text within its enclosing `voice` element. To reset or change the audio duration setting again, you must use a new `voice` element with either the same voice or a different voice.
+
+Usage of the `mstts:audioduration` element's attributes are described in the following table.
+
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | ---------- |
+| `value` | The requested duration of the output audio in either seconds (such as `2s`) or milliseconds (such as `2000ms`).<br/><br/>This value should be within 0.5 to 2 times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio will sound most natural when you set the audio duration closest to the estimated duration.| Required |
+
+###  mstts audio duration examples
+
+The supported values for attributes of the `mstts:audioduration` element were [described previously](#audio-duration).
+
+In this example, the original audio is around 15 seconds. The `mstts:audioduration` element is used to set the audio duration to 20 seconds (`20s`).
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
+<voice name="en-US-JennyNeural">
+<mstts:audioduration value="20s"/>
+If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
+</voice>
+</speak>
+```
+
 ## Background audio
 
 You can use the `mstts:backgroundaudio` element to add background audio to your SSML documents or mix an audio file with text-to-speech. With `mstts:backgroundaudio`, you can loop an audio file in the background, fade in at the beginning of text-to-speech, and fade out at the end of text-to-speech.
