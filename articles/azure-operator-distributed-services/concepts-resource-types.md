@@ -8,9 +8,13 @@ ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
+
 # Azure Operator Distributed Services resource types
 
 This article introduces you to the Azure Operator Distributed Services (AODS) components represented as Azure resources in Azure Resource Manager.
+
+:::image type="content" source="media/AODS Resource Model 02012023.png" alt-text="AODS Resource model":::
+Figure: AODS Resource model
 
 ## Platform components
 
@@ -18,7 +22,12 @@ Your AODS instance platform components include the infrastructure resources and 
 
 ### Network Fabric Controller
 
-The Network Fabric Controller (NFC) resource is created in the Resource Group specified by you in your Azure subscription. It automates the life cycle management of all network devices deployed in an AODS instance. NFC is hosted in a Microsoft Azure Virtual Network in an Azure region. The region should be connected to your on-premises network via Microsoft Azure ExpressRoute. An NFC can manage multiple AODS instances. And, you can create many Network Fabric Controllers in your subscription. (See limits)
+The Network Fabric Controller (NFC) resource is created in the Resource group specified by you in your Azure subscription.
+It automates the life cycle management of all network devices deployed in an AODS instance.
+NFC is hosted in a [Microsoft Azure Virtual Network](../virtual-network/virtual-networks-overview.md) in an Azure region.
+The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+An NFC can manage the network fabric of up to 32 AODS instances.
+And you can create many Network Fabric Controllers in your subscription. (See limits)
 
 ### Network Fabric
 
@@ -35,7 +44,7 @@ A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-pr
 
 ### Azure Operator Distributed Services Cluster
 
-An AODS cluster models a collection of racks, bare metal machines, and storage appliance. Each AODS cluster is mapped to one Network Fabric. An AODS cluster provides a holistic view of the deployed capacity. AODS cluster capacity examples include the number of CPU cores, the amount of memory, and the amount of storage space. An AODS cluster is also the basic unit for compute and storage upgrades.
+An AODS cluster models a collection of racks, bare metal machines, and storage appliance. Each AODS cluster (sometimes also referred as AODS instance) is mapped to one Network Fabric. An AODS cluster provides a holistic view of the deployed capacity. AODS cluster capacity examples include the number of CPU cores, the amount of memory, and the amount of storage space. An AODS cluster is also the basic unit for compute and storage upgrades.
 
 ### Rack SKU
 

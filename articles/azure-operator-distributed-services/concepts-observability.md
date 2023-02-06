@@ -4,7 +4,6 @@ description: AODS uses Azure Monitor and collects and aggregates data in Azure L
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
 ms.service: Azure Operator Distributed Services #Required
-
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 01/31/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
@@ -37,7 +36,7 @@ AODS observability allows you to collect the same kind of data as other Azure
 resources as described in
  [monitor Azure resource](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
-You can view the detailed information on the metrics collected from each AODS instance in the [AODS observability data reference]()
+The telemetry collected for each AODS instance can be viewed in the customers LAW (Log Analytics Workspace).
 
 ### Collection and Routing
 
@@ -133,9 +132,3 @@ combine data from multiple services. Each workspace consists of multiple data ta
 
 A single Log Analytics Workspace can be created to collect all relevant data or multiple Log
 Analytics Workspaces based on operator requirements.
-
-## Logging and Metrics Collection (TBD)
-
-### CNF Logging and Metrics Collection
-
-### VNF Logging and Metrics Collection

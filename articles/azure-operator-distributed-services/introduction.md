@@ -1,7 +1,7 @@
 ---
-title: Introduction to Azure Operator Distributed Services (AODS)
-description: High level information about the Azure Operator Distributed Services (AODS) product.
-author: scottsteinbrueck
+Title: Introduction to Azure Operator Distributed Services (AODS)
+Description: High level information about the Azure Operator Distributed Services (AODS) product.
+Author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 01/30/2023
 ms.topic: overview
@@ -40,7 +40,7 @@ These NFs are tested for deployment and lifecycle management on AODS before they
 For example, they can provision and manage AODS through Azure portal or Azure CLI.
 They can monitor logs and metrics via Azure Monitor, and analyze telemetry data using Log Analytics or Azure AI/Machine Learning framework.
 * Unified governance and compliance – As an Azure service, AODS extends Azure management and services to operators' premises.
-Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview.md) and [Azure Policy](../governance/policy/overview.md).
+Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview) and [Azure Policy](../governance/policy/overview).
 
 ## Key features
 
@@ -78,9 +78,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets
 
 As a platform, AODS is designed for telco network functions and optimized for carrier-grade performance and resiliency. It has many built-in NVFI capabilities:
 
-* Compute: CPU Pinning for performance isolation, NUMA alignment for predictable performance, Huge Page for faster memory access, and precision placement
-* Networking: SR-IOV and DPDK for high throughput, multiple network adapters in a container for workload isolation
-* Storage: high IOPS storage for performance
+* Compute: Completely NUMA aligned VMs with dedicated vCPUs from SMT siblings backed by hugepages to ensure consistent performance without impact from other workloads running on the same hypervisor host.
+* Networking: SR-IOV & DPDK for low latency and high throughput. Highly available VFs to VMs with redundant physical paths providing simple and consistent telco grade links to all workloads. Advanced APIs to control access and trunk port consumption in both VNFs and CNFs via industry standard interfaces.
+* Storage: Filesystem storage for CNFs backed by high performance storage arrays
 
 ### Network function management
 

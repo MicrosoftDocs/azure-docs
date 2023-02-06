@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Distributed Services: Install CLI extensions"
-description: Learn to install the needed Azure CLI extensions for AODS
+description: Learn to install the needed Azure CLI extensions for Azure Operator Distributed Services
 author: Travisivart #Required
 ms.author: travisneely #Required
 ms.service: Azure Operator Distributed Services #Required
@@ -19,7 +19,7 @@ This document will guide you through installing the following CLI extensions:
 
 ## Prerequisites
 
-It is assumed you already have Azure CLI installed. If not, [Install Azure CLI][installation-instruction]. The aka.ms links will always download the latest available version of the extension.
+It's assumed you already have Azure CLI installed. If not, [Install Azure CLI][installation-instruction]. The aka.ms links will always download the latest available version of the extension.
 
 ## Install `networkcloud` CLI extension
 

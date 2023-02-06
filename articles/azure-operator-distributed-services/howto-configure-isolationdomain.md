@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Distributed Services: How to configure the L2 and L3 Isolation Domains in AODS instances"
 description: Learn to create, view, list, update, delete commands for Layer 2 and Layer Isolation Domains in AODS instances
-author: umamaheshmsft, surajmb #Required
-ms.author: mudigonda.umamahesh, surmb #Required
+author: surajmb #Required
+ms.author: surmb #Required
 ms.service: Azure Operator Distributed Services #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/02/2023 #Required; mm/dd/yyyy format.

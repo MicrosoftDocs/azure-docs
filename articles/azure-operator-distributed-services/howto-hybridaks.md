@@ -15,7 +15,7 @@ This document shows how to manage an AKS-Hybrid cluster that you use for your CN
 
 ## Before you begin
 
-You will need:
+You'll need:
 
 - You should have created an [AKS-Hybrid Cluster](./quickstarts-tenant-workload-deployment.md#how-to-create-aks-hybrid-cluster-for-cnf-workloads)
 - <`YourAKS-HybridClusterName`>: the name of your previously created AKS-Hybrid cluster

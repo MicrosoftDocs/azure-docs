@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Distributed Services: How to configure the L2 and L3 Isolation Domains in AODS instances"
-description: Learn to create, view, list, update, delete commands for Layer 2 and Layer Isolation Domains in AODS instances
+title: "Azure Operator Distributed Services: How to configure the Network Fabric"
+description: Learn to create, view, list, update, delete commands for Network Fabric
 author: surajmb #Required
 ms.author: surmb #Required
 ms.service: Azure Operator Distributed Services #Required
