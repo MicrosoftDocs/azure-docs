@@ -1,5 +1,5 @@
 --- 
-title: "Quickstart: Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)"
+title: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to perform interactive data wrangling with Apache Spark in Azure Machine Learning
 author: ynpandey
@@ -29,7 +29,7 @@ In this quickstart guide, you'll learn how to perform interactive data wrangling
   1. Navigate to the Azure Machine Learning studio UI
   2. In the icon section at the top right of the screen, select **Manage preview features** (megaphone icon)
   3. In the **Managed preview feature** panel, toggle the **Run notebooks and jobs on managed Spark** feature to **on**
-  :::image type="content" source="media/quickstart-spark-data-wrangling/how_to_enable_managed_spark_preview.png" lightbox="media/quickstart-spark-data-wrangling/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
+  :::image type="content" source="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
 
 ## Add role assignments in Azure storage accounts
 
