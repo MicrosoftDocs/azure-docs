@@ -76,7 +76,7 @@ Defender for DevOps currently doesn't process or store your code, build, and aud
 
 Exemptions are not available for Defender for DevOps within Microsoft Defender for Cloud.
 
-### Is continuous, automatic scanning available today?
+### Is continuous, automatic scanning available?
 
 Asynchronous scanning is on the roadmap. Currently scanning occurs at build time.  
 
