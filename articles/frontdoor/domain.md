@@ -18,7 +18,7 @@ A *domain* represents a custom domain name that Azure Front Door uses to receive
 - **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`. For more information about using apex domains with Azure Front Door, see [Apex domains](./apex-domain.md).
 - **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
-Domains are added to your Azure Front Door profile. You can use a domain in multiple endpoints, if you use different paths in each route.
+Domains are added to your Azure Front Door profile. You can use a domain in multiple routes within an endpoint, if you use different paths in each route.
 
 To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
