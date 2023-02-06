@@ -1,29 +1,25 @@
 ---
-title: Diagnostics settings policies for Azure Monitor
-description: Use Azure builtin policies to create diagnostic settings in Azure Monitor with deploy if not exits defaults.
+title: Enable Diagnostics settings using built-in policies for Azure Monitor
+description: Use Azure builtin policies to create diagnostic settings in Azure Monitor.
 author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/18/2023
 ms.reviewer: lualderm
----
+--- 
 
-# Built-in DeployIfNotExists policies for Azure Monitor
+# Built-in policies for Azure Monitor
+Policies and policy initiatives provide a simple method to enable logging at-scale via diagnostics settings for Azure Monitor. Using a policy initiative, turn on audit logging for all [supported resources](#supported-resources) in your Azure environment.  
 
-A set of built-in policies and initiatives exists to provide a way to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. All policies have the default `effect` set to `DeployIfNotExists`.
+Enable resource logs to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
+Assign policies to enable resource logs and to send them to destinations according to your needs. Send logs to Event Hubs for third-party SIEM systems, enabling continuous security operations. Send logs to storage accounts for longer term storage or the fulfillment of regulatory compliance. 
 
-The policies enable resource logging of a category group for the resource to an Event Hub, Log Analytics workspace or Storage Account. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
+A set of built-in policies and initiatives exists to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. The policies have `effect` set to `DeployIfNotExists` which deploys the policy as a default if there are not other settings defined.
 
-## Use cases 
+The policies enable audit logging sending the logs to an Event Hub, Log Analytics workspace or Storage Account.
 
-* Azure Defender for Cloud and Azure Security Benchmark need a AuditIfNotExists policy to audit at least one diagnostic setting, forwarding the logs to a Log Analytics Workspace for each resource. Additionally, forwarding resource logs to a Log Analytics Workspace is needed to use Azure Sentinel as your main SIEM and to enable security investigations.
-
-* Assign policies to send resource logs to Event Hubs for third-party SIEM systems enabling continuous security operations.  
-
-* Assign policies to send resource logs to storage accounts for the fulfillment of regulatory compliance. 
-
-
+>>>>> include portal how to implement with screen shots.
 ## Common parameters
 
 The following table describes the common parameters for each set of policies.

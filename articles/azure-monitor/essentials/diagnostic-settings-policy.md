@@ -1,15 +1,17 @@
 ---
-title: Create diagnostic settings at scale using Azure Policy
+title: Create diagnostic settings at scale using Azure Policies and Initiatives
 description: Use Azure Policy to create diagnostic settings in Azure Monitor to be created at scale as each Azure resource is created.
 author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
-ms.topic: conceptual
+aliasms.topic: conceptual
 ms.date: 05/09/2022
 ms.reviewer: lualderm
 ---
 
-# Create diagnostic settings at scale using Azure Policy
+
+# Create diagnostic settings at scale using Azure Policies and Initiatives
+
 Since a [diagnostic settings](diagnostic-settings.md) needs to be created for each monitored Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this fact, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition. 
 
 With the addition of resource log category groups, you can now choose options that dynamically update as the log categories change.  For more information, see [diagnostic settings sources](diagnostic-settings.md#sources) listed earlier in this article. All resource types have the "All" category. Some have the "Audit" category.  
