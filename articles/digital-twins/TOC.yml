@@ -178,7 +178,7 @@
   - name: Digital Twins CLI
     href: /cli/azure/dt
   - name: DTDL v2 spec
-    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
   - name: Query language reference
     items:
       - name: Clauses
