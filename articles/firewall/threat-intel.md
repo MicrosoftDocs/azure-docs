@@ -22,7 +22,7 @@ You can choose to just log an alert when a rule is triggered, or you can choose 
 
 By default, threat intelligence-based filtering is enabled in alert mode. You can’t turn off this feature or change the mode until the portal interface becomes available in your region.
 
-You can define allow lists so threat intelligence will not filter traffic to any of the listed FQDNs, IP addresses, ranges, or subnets.
+You can define allowlists so threat intelligence won't filter traffic to any of the listed FQDNs, IP addresses, ranges, or subnets.
 
 For a batch operation, you can upload a CSV file with list of IP addresses, ranges, and subnets.
 
@@ -48,7 +48,7 @@ The following log excerpt shows a triggered rule:
 
 - **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, a test FQDN has been created that triggers an alert. Use `testmaliciousdomain.eastus.cloudapp.azure.com` for your outbound tests.
 
-- **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. This is true even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall doesn't alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
+- **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. You'll see alerts even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall doesn't alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
 
 ## Next steps
 
