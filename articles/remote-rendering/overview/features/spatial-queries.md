@@ -102,7 +102,7 @@ A Hit has the following properties:
 ## Spatial queries
 
 A *spatial query* allows for the runtime to check which [MeshComponent](../../concepts/meshes.md#meshcomponent) are intersected by a user defined volume. This check is performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
-While such a query can be run manually on the client side, for large scenes it will be orders of magnitude faster for the server to compute this.
+While such a query can be run manually on the client side, for large scenes it can be orders of magnitude faster for the server to compute this.
 
 The following example code shows how to do queries against an axis aligned bounding box (AABB). Variants of the query also allow for oriented bounding box volumes (`SpatialQueryObbAsync`) and sphere volumes (`SpatialQuerySphereAsync`).
 
