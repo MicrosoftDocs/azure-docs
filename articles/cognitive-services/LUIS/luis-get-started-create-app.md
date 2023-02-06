@@ -3,16 +3,18 @@ title: "Quickstart: Build your app in LUIS portal"
 description: This quickstart shows how to create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 ms.service: cognitive-services
 ms.subservice: language-understanding
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 07/19/2022
 ms.custom: ignite-fall-2021, mode-ui
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
 # Quickstart: Build your app in LUIS portal
 
-> [!NOTE]
-> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/overview.md), [Custom Named Entity Recognition](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 In this quickstart, create a LUIS app using the prebuilt home automation domain for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. Next, try customizing your app by adding more intents and entities. When you're finished, you'll have a LUIS endpoint running in the cloud.
 

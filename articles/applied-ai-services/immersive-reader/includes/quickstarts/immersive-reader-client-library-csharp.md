@@ -20,12 +20,12 @@ In this quickstart, you build a web app from scratch and integrate Immersive Rea
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/downloads)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create a web app project
 
-Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
+Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 6. Name the project "QuickstartSampleWebApp".
 
 ![New project - C#](../../media/quickstart-csharp/1-createproject.png)
 
@@ -39,6 +39,9 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
 
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+
 ```json
 {
   "TenantId": "YOUR_TENANT_ID",
@@ -48,14 +51,17 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 }
 ```
 
-### Install Active Directory NuGet package
+### Install Identity Client NuGet package
 
-The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
+The following code uses objects from the **Microsoft.Identity.Client** NuGet package so you'll need to add a reference to that package in your project.
+
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../../../active-directory/develop/msal-migration.md) for more details.
 
 Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following command:
 
 ```powershell
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
+    Install-Package Microsoft.Identity.Client -Version 4.42.0
 ```
 
 ### Update the controller to acquire the token 
@@ -63,7 +69,7 @@ Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> 
 Open _Controllers\HomeController.cs_, and add the following code after the _using_ statements at the top of the file.
 
 ```csharp
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 ```
 
 Now, we'll configure the controller to obtain the Azure AD values from _secrets.json_. At the top of the _HomeController_ class, after ```public class HomeController : Controller {```, add the following code.
@@ -73,6 +79,21 @@ private readonly string TenantId;     // Azure subscription TenantId
 private readonly string ClientId;     // Azure AD ApplicationId
 private readonly string ClientSecret; // Azure AD Application Service Principal password
 private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+
+private IConfidentialClientApplication _confidentialClientApplication;
+private IConfidentialClientApplication ConfidentialClientApplication
+{
+    get {
+        if (_confidentialClientApplication == null) {
+            _confidentialClientApplication = ConfidentialClientApplicationBuilder.Create(ClientId)
+            .WithClientSecret(ClientSecret)
+            .WithAuthority($"https://login.windows.net/{TenantId}")
+            .Build();
+        }
+
+        return _confidentialClientApplication;
+    }
+}
 
 public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
 {
@@ -105,15 +126,14 @@ public HomeController(Microsoft.Extensions.Configuration.IConfiguration configur
 /// <summary>
 /// Get an Azure AD authentication token
 /// </summary>
-private async Task<string> GetTokenAsync()
+public async Task<string> GetTokenAsync()
 {
-    string authority = $"https://login.windows.net/{TenantId}";
     const string resource = "https://cognitiveservices.azure.com/";
 
-    AuthenticationContext authContext = new AuthenticationContext(authority);
-    ClientCredential clientCredential = new ClientCredential(ClientId, ClientSecret);
-
-    AuthenticationResult authResult = await authContext.AcquireTokenAsync(resource, clientCredential);
+    var authResult = await ConfidentialClientApplication.AcquireTokenForClient(
+        new[] { $"{resource}/.default" })
+        .ExecuteAsync()
+        .ConfigureAwait(false);
 
     return authResult.AccessToken;
 }
@@ -129,7 +149,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
     }
     catch (Exception e)
     {
-        string message = "Unable to acquire Azure AD token. Check the debugger for more information.";
+        string message = "Unable to acquire Azure AD token. Check the console for more information.";
         Debug.WriteLine(message, e);
         return new JsonResult(new { error = message });
     }
@@ -251,7 +271,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
                     const token = response["token"];
                     const subdomain = response["subdomain"];
     
-                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                    // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                     const data = {
                         title: $("#ir-title").text(),
                         chunks: [{
@@ -260,7 +280,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
                         }]
                     };
     
-                    // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                    // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                     const options = {
                         "onExit": exitCallback,
                         "uiZIndex": 2000

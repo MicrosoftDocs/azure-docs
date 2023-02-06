@@ -1,19 +1,21 @@
 ---
 title: 'Quickstart: Connect using Ruby - Azure Database for MySQL'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.devlang: ruby
 ms.topic: quickstart
 ms.custom: mvc, mode-other
-ms.date: 5/26/2020
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use Ruby to connect and query data in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL using a [Ruby](https://www.ruby-lang.org) application and the [mysql2](https://rubygems.org/gems/mysql2) gem from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Ruby and that you are new to working with Azure Database for MySQL.
 

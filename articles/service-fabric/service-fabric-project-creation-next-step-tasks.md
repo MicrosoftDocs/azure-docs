@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
 ---
+
 # Your Service Fabric application and next steps
 Your Azure Service Fabric application has been created. This article includes a number of resources, some more information you might be interested in, and potential [next steps](#next-steps).
 

@@ -1,10 +1,14 @@
 ---
 title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-ms.topic: conceptual
-ms.date: 11/01/2017
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # How to use the Reliable Services communication APIs
 Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides built-in communication stacks as well as APIs that you can use to build your custom communication components.
 

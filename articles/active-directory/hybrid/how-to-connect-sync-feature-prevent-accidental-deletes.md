@@ -4,7 +4,7 @@ description: This topic describes how to prevent accidental deletes in Azure AD 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

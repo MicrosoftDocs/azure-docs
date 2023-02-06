@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 08/04/2022
 ms.author: cherylmc
 
 ---
@@ -36,7 +36,9 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-Before you can create a virtual wan, you have to create a resource group to host the virtual wan or use an existing resource group. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a new resource group named **testRG** in the **West US** location.
+Before you can create a virtual wan, you have to create a resource group to host the virtual wan or use an existing resource group. Use one of the following examples.
+
+**New resource group** - This example creates a new resource group named **testRG** in the **West US** location.
 
 1. Create a resource group.
 
@@ -50,9 +52,7 @@ Before you can create a virtual wan, you have to create a resource group to host
    $virtualWan = New-AzVirtualWan -ResourceGroupName testRG -Name myVirtualWAN -Location "West US"
    ```
 
-### To create the virtual wan in an already existing resource group
-
-Use the steps in this section if you need to create the virtual wan in an already existing resource group.
+**Existing resource group** - Use the following steps if you want to create the virtual wan in an already existing resource group.
 
 1. Set the variables for the existing resource group.
 

@@ -2,7 +2,9 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.service: azure-vmware
+ms.date: 2/4/2023
+ms.custom: engagement-fy23
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -39,6 +41,7 @@ The diagram below shows the basic network interconnectivity established at the t
 - Outbound access from VMs on the private cloud to Azure services.
 - Inbound access of workloads running in the private cloud.
 
+When connecting **production** Azure VMware Solution private clouds to an Azure virtual network, an ExpressRoute virtual network gateway with the Ultra Performance Gateway SKU should be used with FastPath enabled to achieve 10Gbps connectivity. Less critical environments can use the Standard or High Performance Gateway SKUs for slower network performance.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Diagram showing the basic network interconnectivity established at the time of an Azure VMware Solution private cloud deployment." border="false":::
 
@@ -49,7 +52,7 @@ In the fully interconnected scenario, you can access the Azure VMware Solution f
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
 - Hot/Cold vSphere vMotion between on-premises and Azure VMware Solution.
-- On-Premises to Azure VMware Solution private cloud management access.
+- On-premises to Azure VMware Solution private cloud management access.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false":::
 

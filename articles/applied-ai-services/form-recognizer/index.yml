@@ -11,10 +11,10 @@ metadata:
   ms.topic: landing-page # Required
   author: laujan #Required; your GitHub user alias, with correct capitalization.
   ms.author: lajanuar #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/21/2022
+  ms.date: 08/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-# Limits: https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
+# Limits: https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -38,15 +38,15 @@ landingContent:
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
       - linkListType: concept
         links:
-          - text: 🆕Read model (preview)
+          - text: Read model 
             url: concept-read.md
-          - text: 🆕General document model (preview)
+          - text: General document model 
             url: concept-general-document.md
           - text: Layout model
             url: concept-layout.md
           - text: Custom model
             url: concept-custom.md
-          - text: 🆕W-2 Form model (preview)
+          - text: W-2 Form model 
             url: concept-w2.md
           - text: Invoice model
             url: concept-invoice.md
@@ -62,20 +62,20 @@ landingContent:
      linkLists:
       - linkListType: quickstart
         links:
-        - text: 🆕Form Recognizer Studio (preview)
+        - text: Form Recognizer Studio 
           url: quickstarts/try-v3-form-recognizer-studio.md
         - text: Form Recognizer Sample Labeling tool
           url: quickstarts/try-sample-label-tool.md
         - text: REST API
-          url: quickstarts/try-v3-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: C# SDK
-          url: quickstarts/try-v3-csharp-sdk.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Java SDK
-          url: quickstarts/try-v3-java-sdk.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: JavaScript SDK
-          url: quickstarts/try-v3-javascript-sdk.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Python SDK
-          url: quickstarts/try-v3-python-sdk.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
 
       - linkListType: how-to-guide
         links:
@@ -84,36 +84,36 @@ landingContent:
           - text: Migrate to Form Recognizer v3.0
             url: v3-migration-guide.md
           - text: Use the read model
-            url: how-to-guides/use-prebuilt-read.md
-          - text: Generate SAS tokens for Azure Blob containers
-            url: generate-sas-tokens.md
+            url: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
+          - text: Create SAS tokens for storage containers
+            url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
             url:  how-to-guides/build-custom-model-v3.md
           - text: Compose custom models (v3.0)
-            url: compose-custom-models-preview.md
+            url: how-to-guides/compose-custom-models.md?view=form-recog-3.0.0&preserve-view=true
           - text: Install and run Form Recognizer containers
             url: containers/form-recognizer-container-install-run.md
           - text: Create and use managed identities
             url: managed-identities.md
 
   #Card 3
-   - title: 🆕Form Recognizer Studio (v3.0)
+   - title: Form Recognizer Studio (v3.0)
      linkLists:
       - linkListType: overview
         links:
           - text: Studio overview
-            url: concept-form-recognizer-studio.md
+            url: form-recognizer-studio-overview.md
       - linkListType: get-started
         links:
-          - text: 🆕Read model (preview)
+          - text: Read model 
             url: https://formrecognizer.appliedai.azure.com/studio/read
-          - text: 🆕General document model (preview)
+          - text: General document model 
             url: https://formrecognizer.appliedai.azure.com/studio/document
           - text:  Layout model
             url: https://formrecognizer.appliedai.azure.com/studio/layout
           - text:  Custom model
             url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
-          - text: 🆕W2 model (preview)
+          - text: W2 model 
             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
           - text:  Invoice model
             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
@@ -130,26 +130,26 @@ landingContent:
      linkLists:
       - linkListType: video
         links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+          - text: Analyze unstructured documents and more with Azure Form Recognizer
+            url: https://aka.ms/form-recognizer/ai-show
+          - text: Using AI With Documents - Syntex, AI Builder & Azure Cognitive Services
+            url: https://aka.ms/form-recognizer/event-session
       - linkListType: reference
         links:
-          - text: Extract data from PDFs with or without code
-            url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
-          - text: Read more languages, process IDs and invoices, train on tables, and more
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
-          - text: Build a personal finance app using Form Recognizer
-            url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
-          - text: Enhanced document table extraction
-            url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
-          - text: Use a meta-data-driven approach to extract key-value pairs
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
-          - text: Accelerate text, data, and structure extraction from documents
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
-          - text: Automating document processing to enhance productivity
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
+          - text: What's new in Form Recognizer - Semantic document segmentation, cross page tables and lots more
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/what-s-new-in-form-recognizer-semantic-document-segmentation/ba-p/3468826
+          - text: Streamline insurance claim, patient check-in and more processes with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/streamline-insurance-claim-patient-check-in-and-more-processes/ba-p/3419467
+          - text: Process large scale PDF or images to extract information forms using Azure Form Recognizer
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/process-large-scale-pdf-or-images-to-extract-information-forms/ba-p/3481533
+          - text: Form Recognizer Solution Accelerator
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/form-recognizer-solution-accelerator/ba-p/3262782
+          - text: Extracting information from unstructured document (e.g., contracts) with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extracting-information-from-unstructured-document-e-g-contracts/ba-p/3267207
+          - text: Improve Customer Loyalty Program Automation with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/improve-customer-loyalty-program-automation-with-azure-form/ba-p/3069233
+          - text: Extract values and line items from invoices with Form Recognizer now generally available
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extract-values-and-line-items-from-invoices-with-form-recognizer/ba-p/2414729
 
 # Card 5
    - title: Responsible AI
@@ -164,160 +164,3 @@ landingContent:
              url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Data privacy, compliance, and security
              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-
-
-# Card 6
-   - title: Sample labeling tool (v2.1)
-     linkLists:
-      - linkListType: overview
-        links:
-        - text: Deploy the Sample labeling tool
-          url: deploy-label-tool.md
-      - linkListType: get-started
-        links:
-          - text: Custom model
-            url: "concept-custom.md#sample-labeling-tool-api-v21"
-          - text:  Invoice model
-            url: "concept-invoice.md#sample-labeling-tool-api-v21"
-          - text:  Receipt model
-            url: "concept-receipt.md#sample-labeling-tool-api-v21"
-          - text:  ID document model
-            url: "concept-id-document.md#sample-labeling-tool-api-v21"
-          - text:  Business card model
-            url: "concept-business-card.md#sample-labeling-tool-api-v21"
-
-
-#    - title: 🆕General document model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview | Preview
-#             url: concept-general-document.md
-#       - linkListType: get-started
-#         links:
-#           - text: Form Recognizer Studio
-#             url: https://formrecognizer.appliedai.azure.com/studio/document
-#           - text: REST API (cURL)
-#             url: quickstarts/try-v3-rest-api.md
-
-# #Card 5
-#    - title: Layout model
-#      linkLists:
-#      - linkListType: overview
-#        links:
-#         - text: Model overview
-#           url: concept-layout.md
-#      - linkListType: get-started
-#        links:
-#         - text: Form Recognizer Studio
-#           url: https://formrecognizer.appliedai.azure.com/studio/layout
-#         - text: Sample Labeling tool
-#           url: "concept-layout.md#sample-labeling-tool"
-#         - text: REST API (cURL)
-#           url: quickstarts/try-v3-rest-api.md
-# #Card 6
-#    - title: 🆕Read model
-#      linkLists:
-#      - linkListType: overview
-#        links:
-#         - text: Model overview
-#           url: concept-read.md
-#      - linkListType: get-started
-#        links:
-#         - text: Form Recognizer Studio
-#           url: https://formrecognizer.appliedai.azure.com/studio/read
-#         - text: REST API (cURL)
-#           url: quickstarts/try-v3-rest-api.md
-
-# #Card 7
-#    - title: 🆕W-2 Form model
-#      linkLists:
-#      - linkListType: overview
-#        links:
-#        - text: Model overview
-#          url: concept-w2.md
-#      - linkListType: get-started
-#        links:
-#        - text: Form Recognizer Studio
-#          url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
-#        - text: REST API (cURL)
-#          url: quickstarts/try-v3-rest-api.md#
-
-#   #Card 8
-#    - title: Invoice model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview
-#             url: concept-invoice.md
-#       - linkListType: get-started
-#         links:
-#          - text: Form Recognizer Studio
-#            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
-#          - text: REST API (cURL)
-#            url: quickstarts/try-v3-rest-api.md#
-#          - text:  Sample Labeling tool
-#            url: "concept-invoice.md#sample-labeling-tool"
-#    #Card 9
-#    - title: Custom model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview
-#             url: concept-custom.md
-#       - linkListType: get-started
-#         links:
-#           - text: Form Recognizer Studio
-#             url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
-#           - text: REST API (cURL)
-#             url: quickstarts/try-v3-rest-api.md#
-#           - text: Sample Labeling tool
-#             url: "concept-custom.md##sample-labeling-tool-api-v21"
-
-# #Card 10
-#    - title: Receipt model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview
-#             url: concept-receipt.md
-#       - linkListType: get-started
-#         links:
-#           - text: Form Recognizer Studio
-#             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt
-#           - text: REST API (cURL)
-#             url: quickstarts/try-v3-rest-api.md#
-#           - text:  Sample Labeling tool
-#             url: "concept-receipt.md#sample-labeling-tool"
-# #Card 11
-#    - title: ID document model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview
-#             url: concept-id-document.md
-#       - linkListType: get-started
-#         links:
-#           - text: Form Recognizer Studio
-#             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument
-#           - text: REST API (cURL)
-#             url: quickstarts/try-v3-rest-api.md#
-#           - text:  Sample Labeling tool
-#             url: "concept-id-document.md#sample-labeling-tool"
-#  #Card 12
-#    - title: Business Card model
-#      linkLists:
-#       - linkListType: overview
-#         links:
-#           - text: Model overview
-#             url: concept-business-card.md
-#       - linkListType: get-started
-#         links:
-#           - text: Form Recognizer Studio
-#             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
-#           - text: REST API (cURL)
-#             url: quickstarts/try-v3-rest-api.md#
-#           - text:  Sample Labeling tool
-#             url: "concept-business-card.md#sample-labeling-tool"
-
-

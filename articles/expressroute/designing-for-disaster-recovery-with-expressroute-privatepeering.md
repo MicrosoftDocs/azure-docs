@@ -34,7 +34,7 @@ If you rely on ExpressRoute connectivity between your on-premises network and Mi
 - using diverse service provider network(s) for different ExpressRoute circuit
 - designing each of the ExpressRoute circuit for [high availability][HA]
 - terminating the different ExpressRoute circuit in different location on the customer network
-- using [Availability zone aware ExpressRoute Virtual Network Gateways](/articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)
+- using [Availability zone aware ExpressRoute Virtual Network Gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md)
 
 ## Challenges of using multiple ExpressRoute circuits
 
@@ -57,7 +57,7 @@ In this article, let's discuss how to address challenges you may face when confi
 
 ## Small to medium on-premises network considerations
 
-Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid green line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
+Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid blue line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
 

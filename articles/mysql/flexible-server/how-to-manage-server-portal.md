@@ -1,11 +1,11 @@
 ---
 title: Manage server - Azure portal - Azure Database for MySQL Flexible Server
 description: Learn how to manage an Azure Database for MySQL Flexible server from the Azure portal.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
+ms.author: sumuth
+author: mksuni
 ms.date: 9/21/2020
 ---
 

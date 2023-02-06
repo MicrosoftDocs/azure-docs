@@ -139,7 +139,7 @@ The below table shows all the valid operators for `Find Blobs by Tags`:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 | @container | Scope to a specific container | `@container = 'videofiles' AND "status" = 'done'` |
 
@@ -165,7 +165,7 @@ The below table shows the valid operators for conditional operations:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 |     OR     | Logical or   | `"Status" = 'Done' OR "Priority" >= '05'` |
 
@@ -316,20 +316,13 @@ You're charged for the monthly average number of index tags within a storage acc
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 

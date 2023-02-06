@@ -19,7 +19,7 @@ ms.custom:
 
 A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
-The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery (preview)](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images.
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery (preview)](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. Many new features like ARM64, Accelerated Networking and TrustedVM are only supported through Azure Compute Gallery and not available for managed images.
 
 The Azure Compute Gallery feature has multiple resource types:
 
@@ -134,7 +134,7 @@ For more information about the parameters you can specify for an image definitio
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az sig image-definition create \
    --resource-group myGalleryRG \
    --gallery-name myGallery \

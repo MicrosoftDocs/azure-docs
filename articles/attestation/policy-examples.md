@@ -1,11 +1,11 @@
 ---
-title: Examples of an Azure Attestation policy
+title: Examples of an Azure SGX Attestation policy
 description: Examples of Azure Attestation policy.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 
@@ -39,11 +39,14 @@ Issuance rules section isn't mandatory. This section can be used by the users to
 ## Default policy for an SGX enclave
 
 ```
-version= 1.0;
-authorizationrules {
+version= 1.1;
+configurationrules{
+	=> issueproperty(type="x-ms-sgx-tcbidentifier", value="azuredefault");
+};
+authorizationrules{
 	=> permit();
 };
-issuancerules {
+issuancerules{
 	c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
 	c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
 	c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
@@ -54,74 +57,6 @@ issuancerules {
 ```
 
 Claims used in default policy are considered deprecated but are fully supported and will continue to be included in the future. It's recommended to use the non-deprecated claim names. For more information on the recommended claim names, see [claim sets](./claim-sets.md).
-
-## Sample policy for TPM using Policy version 1.0
-
-```
-version=1.0;
-
-authorizationrules { 
-    => permit();
-};
-
-issuancerules
-{
-[type=="aikValidated", value==true]&& 
-[type=="secureBootEnabled", value==true] &&
-[type=="bootDebuggingDisabled", value==true] && 
-[type=="vbsEnabled", value==true] && 
-[type=="notWinPE", value==true] && 
-[type=="notSafeMode", value==true] => issue(type="PlatformAttested", value=true);
-};
-```
-
-A simple TPM attestation policy that can be used to verify minimal aspects of the boot.
-
-## Sample policy for TPM using Policy version 1.2
-
-```
-version=1.2;
-
-configurationrules{
-	=> issueproperty(type="required_pcr_mask", value=131070);
-	=> issueproperty(type="require_valid_aik_cert", value=false);
-};
-
-authorizationrules { 
-c:[type == "tpmVersion", issuer=="AttestationService", value==2] => permit();
-};
-
-issuancerules{
-
-c:[type == "aikValidated", issuer=="AttestationService"] =>issue(type="aikValidated", value=c.value);
-
-// SecureBoot enabled 
-c:[type == "events", issuer=="AttestationService"] => add(type = "efiConfigVariables", value = JmesPath(c.value, "Events[?EventTypeString == 'EV_EFI_VARIABLE_DRIVER_CONFIG' && ProcessedData.VariableGuid == '8BE4DF61-93CA-11D2-AA0D-00E098032B8C']"));
-c:[type == "efiConfigVariables", issuer=="AttestationPolicy"]=> issue(type = "SecureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
-![type=="SecureBootEnabled", issuer=="AttestationPolicy"] => issue(type="SecureBootEnabled", value=false);
-
-// Retrieve bool properties Code integrity
-c:[type=="events", issuer=="AttestationService"] => add(type="boolProperties", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == `12` || PcrIndex == `13` || PcrIndex == `19` || PcrIndex == `20`)].ProcessedData.EVENT_TRUSTBOUNDARY"));
-c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="codeIntegrityEnabledSet", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_CODEINTEGRITY")));
-c:[type=="codeIntegrityEnabledSet", issuer=="AttestationPolicy"] => issue(type="CodeIntegrityEnabled", value=ContainsOnlyValue(c.value, true));
-![type=="CodeIntegrityEnabled", issuer=="AttestationPolicy"] => issue(type="CodeIntegrityEnabled", value=false);
-
-// Bitlocker Boot Status, The first non zero measurement or zero.
-c:[type=="events", issuer=="AttestationService"] => add(type="srtmDrtmEventPcr", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == `12` || PcrIndex == `19`)].ProcessedData.EVENT_TRUSTBOUNDARY"));
-c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="BitlockerStatus", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_BITLOCKER_UNLOCK | @[? Value != `0`].Value | @[0]")));
-[type=="BitlockerStatus", issuer=="AttestationPolicy"] => issue(type="BitlockerStatus", value=true);
-![type=="BitlockerStatus", issuer=="AttestationPolicy"] => issue(type="BitlockerStatus", value=false);
-
-// Elam Driver (windows defender) Loaded
-c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="elamDriverLoaded", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_LOADEDMODULE_AGGREGATION[] | [? EVENT_IMAGEVALIDATED == `true` && (equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\wdboot.sys') || equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\wd\\wdboot.sys'))] | @ != `null`")));
-[type=="elamDriverLoaded", issuer=="AttestationPolicy"] => issue(type="ELAMDriverLoaded", value=true);
-![type=="elamDriverLoaded", issuer=="AttestationPolicy"] => issue(type="ELAMDriverLoaded", value=false);
-
-};
-
-```
-
-The policy uses the TPM version to restrict attestation calls. The issuancerules looks at various properties measured during boot.
 
 ## Sample custom policy to support multiple SGX enclaves
 

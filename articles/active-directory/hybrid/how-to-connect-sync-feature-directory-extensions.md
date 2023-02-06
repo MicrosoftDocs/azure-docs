@@ -4,7 +4,7 @@ description: This topic describes the directory extensions feature in Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

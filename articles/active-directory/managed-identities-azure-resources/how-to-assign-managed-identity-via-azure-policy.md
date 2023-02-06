@@ -2,15 +2,15 @@
 title: Use Azure Policy to assign managed identities (preview)
 description: Documentation for the Azure Policy that can be used to assign managed identities to Azure resources.
 services: active-directory
-author: karavar
-manager: skwan
+author: barclayn
+manager: amycolannino
 editor: barclayn
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/23/2022
-ms.author: vakarand
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -106,4 +106,4 @@ For example, if the policy in this document is updating the managed identities o
 
 ## Next steps
 
-- [Deploy Azure Monitoring Agent](../../azure-monitor/overview.md)
+- [Deploy Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-manage.md#use-azure-policy)

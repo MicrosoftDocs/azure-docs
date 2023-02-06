@@ -3,17 +3,14 @@
 title: How to troubleshoot sign-in errors reports | Microsoft Docs
 description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management
@@ -35,7 +32,7 @@ In addition, the sign-ins report can also help you troubleshoot sign-in failures
 You need:
 
 * An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
-* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
+* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **reports reader** role for the tenant. In addition, any user can access their own sign-ins. 
 
 ## Troubleshoot sign-in errors using the sign-ins report
 
@@ -45,7 +42,7 @@ You need:
 
     ![Filter results](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identify the failed sign-in you want to investigate. Select it to open up the additional details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
+4. Identify the failed sign-in you want to investigate. Select it to open up the other details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
 
     ![Select record](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         

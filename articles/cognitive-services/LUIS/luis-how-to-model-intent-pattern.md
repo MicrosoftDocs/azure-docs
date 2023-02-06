@@ -14,6 +14,9 @@ ms.date: 01/07/2022
 ---
 
 # How to add patterns to improve prediction accuracy
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](./luis-concept-entity-types.md), and optional text.
 
 >[!Note] 

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector'
 description: Create a web app connected to Azure Blob Storage with Service Connector.
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
@@ -21,7 +21,7 @@ Learn how to access Azure Blob Storage for a web app (not a signed-in user) runn
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher. You'll use it to run commands in any shell to provision and configure Azure resources.
 
 ## Set up your initial environment

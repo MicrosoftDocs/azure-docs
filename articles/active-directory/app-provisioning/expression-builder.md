@@ -3,12 +3,12 @@ title: Understand how expression builder works with Application Provisioning in 
 description: Understand how expression builder works with Application Provisioning in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/02/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

@@ -1,8 +1,8 @@
 ---
-title: Set up a networking lab with Azure Lab Services and GNS3 | Microsoft Docs
+title: Set up a networking lab with GNS3
 description: Learn how to set up a lab using Azure Lab Services to teach networking with GNS3. 
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/19/2022
 ---
 
 # Set up a lab to teach a networking class

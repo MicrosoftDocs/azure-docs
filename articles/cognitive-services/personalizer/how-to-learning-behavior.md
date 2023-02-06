@@ -7,20 +7,18 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
-ms.date: 05/01/2020
+ms.date: 07/26/2022
 ---
 
 # Configure the Personalizer learning behavior
 
 [Apprentice mode](concept-apprentice-mode.md) gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 
-[!INCLUDE [Important Blue Box - Apprentice mode pricing tier](./includes/important-apprentice-mode.md)]
-
 ## Configure Apprentice mode
 
 1. Sign in to the [Azure portal](https://portal.azure.com), for your Personalizer resource.
 
-1. On the **Configuration** page, on the **Learning behavior** tab, select **Return baseline action, learn as an apprentice** then select **Save**.
+2. On the **Setup** page, on the **Model settings** tab, select **Apprentice mode** then select **Save**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of configuring apprentice mode learning behavior in Azure portal](media/settings/configure-learning-behavior-azure-portal.png)
@@ -39,13 +37,16 @@ In order to add Personalizer to your application, you need to call the Rank and 
 
 ### Configure your application to call Reward API
 
+> [!NOTE] 
+> Reward API calls do not affect training while in Apprentice mode. The service learns by matching your application's current logic, or default actions. However implementing Reward calls at this stage does help ensure a smooth transition to Online mode later on with a simple switch in the Azure portal.  Additionally, the rewards will be logged, enabling you to analyze how well the current logic is performing and how much reward is being received.
+
 1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). The reward value is not expected immediately and can be delayed over a time period - depending on your business logic.
 
-1. If you don't return the reward within the configured **Reward wait time**, the default reward will be used instead.
+1. If you don't return the reward within the configured **Reward wait time**, the default reward will be logged instead.
 
 ## Evaluate Apprentice mode
 
-In the Azure portal, on the **Evaluations** page for your Personalizer resource, review the **Current learning behavior performance**.
+In the Azure portal, on the **Monitor** page for your Personalizer resource, review the **Matching performance**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of reviewing evaluation of apprentice mode learning behavior in Azure portal](media/settings/evaluate-apprentice-mode.png)
@@ -59,7 +60,7 @@ Apprentice mode provides the following **evaluation metrics**:
 
 When you determine Personalizer is trained with an average of 75-85% rolling average, the model is ready to switch to Online mode.
 
-In the Azure portal for your Personalizer resource, on the **Configuration** page, on the **Learning behavior** tab, select **Return the best action** then select **Save**.
+In the Azure portal for your Personalizer resource, on the **Setup** page, on the **Model settings** tab, select **Online mode* then select **Save**.
 
 You do not need to make any changes to the Rank and Reward API calls.
 

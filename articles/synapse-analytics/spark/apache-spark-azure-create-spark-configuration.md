@@ -11,6 +11,7 @@ ms.subservice: spark
 ms.date: 04/21/2022
 ms.custom: references_regions
 ---
+
 # Manage Apache Spark configuration
 
 In this tutorial, you will learn how to create an Apache Spark configuration for your synapse studio. The created Apache Spark configuration can be managed in a standardized manner and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
@@ -19,7 +20,7 @@ In this tutorial, you will learn how to create an Apache Spark configuration for
 
 You can create custom configurations from different entry points, such as from the Apache Spark configurations page, from the Apache Spark configuration page of an existing spark pool.
 
-### Create custom configurations in Apache Spark configurations
+## Create custom configurations in Apache Spark configurations
 
 Follow the steps below to create an Apache Spark Configuration in Synapse Studio.
 
@@ -42,7 +43,7 @@ Follow the steps below to create an Apache Spark Configuration in Synapse Studio
 >
 > **Upload Apache Spark configuration** feature has been removed, but Synapse Studio will keep your previously uploaded configuration.
 
-### Create an Apache Spark Configuration in already existing Apache Spark pool
+## Create an Apache Spark Configuration in already existing Apache Spark pool
 
 Follow the steps below to create an Apache Spark configuration in an existing Apache Spark pool.
 
@@ -65,7 +66,7 @@ Follow the steps below to create an Apache Spark configuration in an existing Ap
    5. Click on **Apply** button to save your action.
 
 
-### Create an Apache Spark Configuration in the Notebook's configure session
+## Create an Apache Spark Configuration in the Notebook's configure session
 
 If you need to use a custom Apache Spark Configuration when creating a Notebook, you can create and configure it in the **configure session** by following the steps below.
 
@@ -77,7 +78,7 @@ If you need to use a custom Apache Spark Configuration when creating a Notebook,
 
       ![Screenshot that create configuration in configure session.](./media/apache-spark-azure-create-spark-configuration/create-spark-config-in-configure-session.png)
 
-### Create an Apache Spark Configuration in Apache Spark job definitions
+## Create an Apache Spark Configuration in Apache Spark job definitions
 
 When you are creating a spark job definition, you need to use Apache Spark configuration, which can be created by following the steps below:
 
@@ -91,6 +92,47 @@ When you are creating a spark job definition, you need to use Apache Spark confi
 > [!NOTE] 
 >
 > If the Apache Spark configuration in the Notebook and Apache Spark job definition does not do anything special, the default configuration will be used when running the job.
+
+
+## Import and Export an Apache Spark configuration
+
+You can import .txt/.conf/.json config in three formats and then convert it to artifact and publish it. And can also export to one of these three formats.  
+
+- Import .txt/.conf/.json configuration from local.
+
+   ![Screenshot that import config.](./media/apache-spark-azure-create-spark-configuration/import-config.png)
+
+
+- Export .txt/.conf/.json configuration to local.
+
+   ![Screenshot that export config.](./media/apache-spark-azure-create-spark-configuration/export-config.png)
+
+
+For .txt config file and .conf config file, you can refer to the following examples:
+
+   ```txt
+
+   spark.synapse.key1 sample
+   spark.synapse.key2 true
+   # spark.synapse.key3 sample2
+
+   ```
+
+For .json config file, you can refer to the following examples:
+
+   ```json
+   {
+    "configs": {
+      "spark.synapse.key1": "hello world",
+     "spark.synapse.key2": "true"
+    },
+    "annotations": [
+      "Sample"
+    ]
+   }
+   ```
+
+
 
 
 ## Next steps

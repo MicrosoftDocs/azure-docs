@@ -39,6 +39,8 @@ You'll use a command like the following to call the Content Moderator API to ana
 Copy the command to a text editor and make the following changes:
 
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
+   > [!IMPORTANT]
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the body of the request to whatever string of text you'd like to analyze.

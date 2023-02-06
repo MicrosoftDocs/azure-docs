@@ -61,6 +61,15 @@ Communication Services connections require internet connectivity to specific por
 | Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or ACS TURN service. | UDP 3478 through 3481, TCP ports 443 |
 | Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
 
+
+The endpoints below should be reachable for U.S. Government GCC High customers only
+
+| Category | IP ranges or FQDN | Ports | 
+| :-- | :-- | :-- |
+| Media traffic | 52.127.88.0/21, 52.238.114.160/32, 52.238.115.146/32, 52.238.117.171/32, 52.238.118.132/32, 52.247.167.192/32, 52.247.169.1/32, 52.247.172.50/32, 52.247.172.103/32, 104.212.44.0/22, 195.134.228.0/22 | UDP 3478 through 3481, TCP ports 443 |
+| Signaling, telemetry, registration| *.gov.teams.microsoft.us, *.infra.gov.skypeforbusiness.us, *.online.gov.skypeforbusiness.us, gov.teams.microsoft.us | TCP 443, 80 |
+
+
 ## Network optimization
 
 The following tasks are optional and aren't required for rolling out Communication Services. Use this guidance to optimize your network and Communication Services performance or if you know you have some network limitations.

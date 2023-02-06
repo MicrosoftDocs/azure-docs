@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 12/07/2022
 ms.author: alkohli
 ---
 
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create a new virtual switch on your Azure Stack Edge Pro GPU device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port.
+This article describes how to create a new virtual switch on your Azure Stack Edge Pro GPU device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port. For more information, see [Use the Azure portal to manage network interfaces on the VMs on your Azure Stack Edge Pro GPU](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
 ## VM deployment workflow
 
@@ -32,7 +32,7 @@ Before you begin, make sure that:
 
     The client machine should be running a [Supported OS](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
 
-- Use the local UI to enable compute on one of the physical network interfaces on your device as per the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips) on your device. 
+- Use the local UI to enable compute on one of the physical network interfaces on your device as per the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches) on your device. 
 
 
 ## Connect to the PowerShell interface
@@ -142,47 +142,40 @@ To identify the virtual network and the subnet associated with the new switch th
 To add a virtual local area network (LAN) configuration on a virtual switch, use the following cmdlet.
 
 ```powershell
-Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
+Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -Name <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
 ``` 
 
 The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwitchName` cmdlet.
 
 
-|Parameters  |Description  |
+|Parameter  |Description  |
 |---------|---------|
-|VNetName     |Name for the virtual LAN network         |
-|VirtualSwitchName    |Virtual switch name where you want to add virtual LAN config         |
+|Name     |Name for the virtual LAN network        |
+|VirtualSwitchName    |Virtual switch name where you want to add the virtual LAN configuration         |
 |AddressSpace     |Subnet address space for the virtual LAN network         |
 |GatewayIPAddress     |Gateway for the virtual network         |
-|DnsServers     |List of Dns Server IP addresses         |
-|DnsSuffix     |Dns name without the host part for the virtual LAN network subnet         |
-
-
+|DnsServers     |List of DNS Server IP addresses         |
+|DnsSuffix     |DNS name without the host part for the virtual LAN network subnet         |
+|VlanId        |VlanId can be set to 0 if you need an untagged network. If a tagged or trunk configuration is supported, specify a VlanID in the range 1-4094.            |
 
 Here is an example output.
 
 ```output
-[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
-
-[10.100.10.10]: PS> Get-HcsVirtualNetwork
- 
-Name             : vnet2015
-AddressSpace     : 10.128.48.0/22
+PS C:\> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -Name vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50,5.5.50.100" -DnsSuffix "name.domain.com"
+PS C:\> Get-HcsVirtualNetwork 
+Name             : vlanNetwork100
+AddressSpace     : 5.5.0.0/16
 SwitchName       : vSwitch1
-GatewayIPAddress : 10.128.48.1
-DnsServers       : {}
-DnsSuffix        :
-VlanId           : 2015
- 
-Name             : vnet3011
-AddressSpace     : 10.126.64.0/22
-SwitchName       : vSwitch1
-GatewayIPAddress : 10.126.64.1
-DnsServers       : {}
-DnsSuffix        :
-VlanId           : 3011
+GatewayIPAddress : 5.5.0.1
+DnsServers       : {5.5.50.50, 5.5.50.100}
+DnsSuffix        : name.domain.com
+VlanId           : 100
+MacAddressPools  :
+IPAddressPools   : {}
+BGPPeers         :
+EnabledForK8s    : False
 ```
- 
+
 > [!NOTE]
 > - You can configure multiple virtual LANs on the same virtual switch. 
 > - The gateway IP address must in the same subnet as the parameter passed in as address space.

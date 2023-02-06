@@ -56,17 +56,17 @@ In this section, you'll:
 
 ```azurepowershell-interactive
 ## Configure the back-end subnet. ##
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.1.0.0/24
 
 ## Create the Azure Bastion subnet. ##
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.1.1.0/24
 
 ## Create the virtual network. ##
 $net = @{
     Name = 'MyVNet'
     ResourceGroupName = 'CreatePrivateEndpointQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig, $bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -160,7 +160,7 @@ $ip = @{
     Name = 'myIPconfig'
     GroupId = 'sites'
     MemberName = 'sites'
-    PrivateIPAddress = '10.0.0.10'
+    PrivateIPAddress = '10.1.0.10'
 }
 $ipconfig = New-AzPrivateEndpointIpConfiguration @ip
 
@@ -316,13 +316,21 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 8. In the bastion connection to **myVM**, open the web browser.
 
-9. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
+9. Enter the URL of your web app, ``https://mywebapp1979.azurewebsites.net``.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
+
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, virtual network, and the remaining resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg'
+```
 
 ## Next steps
 

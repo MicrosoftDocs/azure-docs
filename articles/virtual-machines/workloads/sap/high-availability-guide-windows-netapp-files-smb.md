@@ -9,11 +9,11 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2022
+ms.date: 12/16/2022
 ms.author: radeltch
 
 ---
@@ -23,7 +23,6 @@ ms.author: radeltch
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[high-availability-guide]:high-availability-guide.md
 [dfs-n-reference]:high-availability-guide-windows-dfs.md
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
@@ -121,6 +120,16 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 > [!TIP]
 > You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  
 
+### Important considerations
+
+When considering Azure NetApp Files for the SAP Netweaver architecture, be aware of the following important considerations:
+
+- The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
+- The minimum volume is 100 GiB
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files.
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
+ 
+
 ## Prepare the infrastructure for SAP HA by using a Windows failover cluster 
 
 1. [Set the ASCS/SCS load balancing rules for the Azure internal load balancer](./sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716).
@@ -170,7 +179,8 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 
 Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  
 Restart the SAP ASCS/SCS instance. 
-Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance][high-availability-guide]. 
+Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158). 
+
 
 ### Install a DBMS instance and SAP application servers
 

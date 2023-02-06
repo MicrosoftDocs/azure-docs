@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: likebupt
 ms.author: keli19
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer, devx-track-python
@@ -82,4 +83,4 @@ Now, you have a dataset with the new feature **Dollars/HP**, which could be usef
 
 ## Next steps
 
-Learn how to [import your own data](how-to-designer-import-data.md) in Azure Machine Learning designer.
+Learn how to [import your own data](v1/how-to-designer-import-data.md) in Azure Machine Learning designer.

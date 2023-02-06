@@ -3,13 +3,13 @@ title: Extract information in Excel using Power Automate
 titleSuffix: Azure Cognitive Services
 description: Learn how to Extract Excel text without having to write code, using Named Entity Recognition and Power Automate.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 11/02/2021
-ms.author: aahi
+ms.date: 11/21/2022
+ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021, cogserv-non-critical-language
 ---
 
@@ -32,8 +32,8 @@ In this tutorial, you'll learn how to:
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Language resource. If you don't have one, you can [create one in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
-- A spreadsheet containing tenant issues. Example data is provided on GitHub
-- Microsoft 365, with OneDrive for business.
+- A spreadsheet containing tenant issues. Example data for this tutorial is [available on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx).
+- Microsoft 365, with [OneDrive for business](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business).
 
 ## Add the Excel file to OneDrive for Business
 

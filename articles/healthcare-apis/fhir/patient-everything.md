@@ -2,17 +2,17 @@
 title: Patient-everything - Azure Health Data Services
 description: This article explains how to use the Patient-everything operation.
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Using Patient-everything in FHIR service
 
-The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the FHIR specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in Azure Health Data Services(hereby called FHIR service), Patient-everything is available to pull data related to a specific patient.
+The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the Fast Healthcare Interoperability Resources (FHIR&#174;) specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in Azure Health Data Services(hereby called FHIR service), Patient-everything is available to pull data related to a specific patient.
 
 ## Use Patient-everything
 To call Patient-everything, use the following command:
@@ -124,3 +124,5 @@ Now that you know how to use the Patient-everything operation, you can learn abo
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR search](overview-of-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

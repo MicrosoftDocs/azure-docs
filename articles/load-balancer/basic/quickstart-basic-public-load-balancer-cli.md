@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a basic public load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
@@ -16,7 +16,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

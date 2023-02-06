@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 02/07/2022
+ms.date: 11/04/2022
 ms.author: lle
 ---
 
@@ -56,6 +56,19 @@ The problem is usually caused by one of the following factors:
 
 If none of the preceding methods works, contact Microsoft for help.
 
+### Deleted or rejected private end point still shows Aprroved in ADF
+
+#### Symptoms
+
+You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows “Approved”.
+
+#### Cause 
+
+Currently, ADF stops pulling private end point status after the it is approved. Hence the status shown in ADF is stale.
+
+##### Resolution
+
+You should delete the managed private end point in ADF once existing private endpoints are rejected/deleted from source/sink datasets. 
 
 ### Invalid or empty authentication key issue after public network access is disabled
 
@@ -181,7 +194,7 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 `
 <LogProperties><Text>Invoke callback url with req:
-"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+"ErrorCode=AzureBlobFailedToCreateContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
 `
 
 #### Cause

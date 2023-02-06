@@ -1,8 +1,10 @@
 ---
-title: Azure Blob Storage monitoring data reference | Microsoft Docs
+title: Azure Blob Storage monitoring data reference
+titleSuffix: Azure Storage
 description: Log and metrics reference for monitoring data from Azure Blob Storage.
+recommendations: false
 author: normesta
-services: storage
+
 ms.service: storage
 ms.topic: reference
 ms.date: 10/02/2020
@@ -133,9 +135,9 @@ The following table lists the properties for Azure Storage resource logs when th
 {
     "properties": {
         "accountName": "testaccount1",
-        "requestUrl": "https://testaccount1.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=%2F&marker=&maxresults=30&include=metadata&_=1551405598426",
+        "requestUrl": "https://testaccount1.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=/&marker=&maxresults=30&include=metadata&_=1551405598426",
         "userAgentHeader": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134",
-        "referrerHeader": "blob:https://ms.portal.azure.com/6f50025f-3b88-488d-b29e-3c592a31ddc9",
+        "referrerHeader": "blob:https://portal.azure.com/6f50025f-3b88-488d-b29e-3c592a31ddc9",
         "clientRequestId": "",
         "etag": "",
         "serverLatencyMs": 63,

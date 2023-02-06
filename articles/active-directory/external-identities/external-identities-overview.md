@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 05/17/2022
+ms.date: 06/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -28,6 +28,8 @@ The following capabilities make up External Identities:
 - **B2B direct connect** - Establish a mutual, two-way trust with another Azure AD organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users aren't represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
 
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+
+- **Azure AD multi-tenant organization** - Collaborate with multiple tenants in a single Azure AD organization via cross-tenant synchronization.  
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
@@ -87,11 +89,13 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | **Branding**  | Host/inviting organization's brand is used.  | For sign-in screens, the user’s home organization brand is used. In the shared channel, the resource organization's brand is used. | Fully customizable branding per application or organization.   |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)            |   [Documentation](b2b-direct-connect-overview.md)     | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
 
+Based on your organization’s requirements you might use cross-tenant synchronization (preview) in multi-tenant organizations. For more information about this new feature, see the [multi-tenant organization documentation](/azure/active-directory/multi-tenant-organizations) and the [feature comparison](../multi-tenant-organizations/overview.md#compare-multi-tenant-capabilities). 
+
 ## Managing External Identities features
 
 Azure AD B2B collaboration and B2B direct connect are features Azure AD, and they're managed in the Azure portal through the Azure Active Directory service. To control inbound and outbound collaboration, you can use a combination of *cross-tenant access settings* and *external collaboration settings*.
 
-### Cross-tenant access settings (Preview)
+### Cross-tenant access settings
 
 Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations, that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
@@ -100,6 +104,8 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 - **Organization-specific access settings** let you configure customized settings for individual Azure AD organizations. Once you add an organization and customize your cross-tenant access settings with this organization, these settings will take precedence over your defaults. For example, you could disable B2B collaboration and B2B direct connect with all external organizations by default, but enable these features only for Fabrikam.
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
+
+Azure AD has a new feature for multi-tenant organizations called cross-tenant synchronization (preview), which allows for a seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](/azure/active-directory/multi-tenant-organizations).
 
 ### Microsoft cloud settings for B2B collaboration (preview)
 
@@ -162,8 +168,13 @@ Organizations can enforce Conditional Access policies for external B2B collabora
 
 If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. This configuration is called making your application multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application. See how to [enable multitenant sign-ins](../develop/howto-convert-app-to-be-multi-tenant.md).
 
+### Multi-tenant organizations
+
+A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](../../active-directory/multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](../../active-directory/multi-tenant-organizations/overview.md#cross-tenant-synchronization-preview). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization. It improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in preview.
+
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [What is Azure AD B2B direct connect?](b2b-direct-connect-overview.md)
 - [About Azure AD B2C](../../active-directory-b2c/overview.md)
+- [About Azure AD multi-tenant organizations](../../active-directory/multi-tenant-organizations/overview.md)

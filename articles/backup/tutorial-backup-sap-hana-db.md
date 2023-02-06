@@ -3,9 +3,9 @@ title: Tutorial - Back up SAP HANA databases in Azure VMs
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
 ms.date: 05/16/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -75,8 +75,8 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingsOverrides.json
-    chown root:msawb ExtensionSettingsOverrides.json
+    chmod 750 ExtensionSettingOverrides.json
+    chown root:msawb ExtensionSettingOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.

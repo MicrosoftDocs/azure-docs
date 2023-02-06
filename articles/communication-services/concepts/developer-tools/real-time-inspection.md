@@ -36,7 +36,7 @@ Communication Monitoring is compatible with the same browsers as the Calling SDK
 
 ## Get started with Communication Monitoring
 
-The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
+The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
 
 ### Installing Communication Monitoring
 
@@ -50,17 +50,11 @@ npm i  @azure/communication-monitoring
 import { CallAgent, CallClient } from '@azure/communication-calling'
 import { CommunicationMonitoring } from '@azure/communication-monitoring'
 
-interface Options {
-  callClient: CallClient
-  callAgent: CallAgent
-  divElement: HTMLDivElement
-}
-
 const selectedDiv = document.getElementById('selectedDiv')
 
 const options = {
-  callClient = this.callClient,
-  callAgent = this.callAgent,
+  callClient = {INSERT CALL CLIENT OBJECT},
+  callAgent = {INSERT CALL AGENT OBJECT},
   divElement = selectedDiv,
 }
 

@@ -4,8 +4,10 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 12/07/2022
 ---
+
+
 # Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
@@ -15,74 +17,87 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 03/10/2022
+## Release date: December 12, 2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
 
-The OS versions for this release are: 
-- 	HDInsight 4.0: Ubuntu 18.04.5 
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
-## Spark 3.1 is now generally available
+**OS versions**
 
-Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-* Adaptive Query Execution, 
-* Convert Sort Merge Join to Broadcast Hash Join, 
-* Spark Catalyst Optimizer,
-* Dynamic Partition Pruning, 
-* Customers will be able to create new Spark 3.1 clusters and not Spark 3.0 (preview) clusters.
+For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
 
-For more details, see the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
-For a complete list of improvements, see the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
+* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
+* **Ambari** user auto UI logout due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
+* **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
-For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
 
-## Kafka 2.4 is now generally available
+* Qatar Central
+* Germany North
 
-Kafka 2.4.1 is now Generally Available.  For more information, please see [Kafka 2.4.1 Release Notes.](http://kafka.apache.org/24/documentation.html) 
-Other features include MirrorMaker 2 availability, new metric category AtMinIsr topic partition, Improved broker start-up time by lazy on demand mmap of index files, More consumer metrics to observe user poll behavior.
+![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
 
-## Map Datatype in HWC is now supported in HDInsight 4.0 
+* HDInsight has moved away from Azul Zulu Java JDK  8 to Adoptium Temurin JDK 8, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
 
-This release includes Map Datatype Support for HWC 1.0 (Spark 2.4) Via the spark-shell  application, and all other all spark clients that HWC supports. Following improvements are included like any other data types:
+* HDInsight has migrated to reload4j. The log4j changes are applicable to
 
-A user can 
-*	Create a Hive table with any column(s) containing Map datatype, insert data into it and read the results from it.
-*	Create an Apache Spark dataframe with Map Type and do batch/stream reads and writes.
+  * Apache Hadoop
+  * Apache Zookeeper
+  * Apache Oozie
+  * Apache Ranger
+  * Apache Sqoop
+  * Apache Pig
+  * Apache Ambari 
+  * Apache Kafka
+  * Apache Spark
+  * Apache Zeppelin
+  * Apache Livy
+  * Apache Rubix
+  * Apache Hive
+  * Apache Tez
+  * Apache HBase
+  * OMI
+  * Apache Pheonix
 
-### New regions
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
 
-HDInsight has now expanded its geographical presence to two new regions: China East 3 and China North 3.
+HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
 
-### OSS backport changes
+For more information, see [How to enable Transport Layer Security (TLS)](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
-OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supports Map data type.
 
-### Here are the OSS backported Apache JIRAs for this release:
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 
-| Impacted Feature    |   Apache JIRA                                                      |
-|---------------------|--------------------------------------------------------------------|
-| Metastore direct sql queries with IN/(NOT IN) should be split based on max parameters allowed by SQL DB   | [HIVE-25659](https://issues.apache.org/jira/browse/HIVE-25659)     |
-| Upgrade log4j 2.16.0 to 2.17.0                    | [HIVE-25825](https://issues.apache.org/jira/browse/HIVE-25825)     |
-| Update Flatbuffer version                    | [HIVE-22827](https://issues.apache.org/jira/browse/HIVE-22827)     |
-| Support Map data-type natively in Arrow format                    | [HIVE-25553](https://issues.apache.org/jira/browse/HIVE-25553)     |
-| LLAP external client - Handle nested values when the parent struct is null                    | [HIVE-25243](https://issues.apache.org/jira/browse/HIVE-25243)     |
-| Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
+End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight had begun release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
 
-## Deprecation notices
-### Azure Virtual Machine Scale Sets on HDInsight  
+For more information on how to check Ubuntu version of cluster, see [here](https://learnubuntu.com/check-ubuntu-version)
 
-HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
+1. Execute the command “lsb_release -a” in the terminal.  
 
-### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
+1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
 
-Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
+![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
 
-## HDInsight 3.6 end of support extension 
+* Support for Availability Zones selection for Kafka and HBase (write access) clusters.
 
-HDInsight 3.6 end of support is extended until September 30, 2022.
+## Open source bug fixes
 
-Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+**Hive bug fixes**
 
-Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](./hdinsight-component-versioning.md#support-options-for-hdinsight-versions) until September 30, 2022. After September 30, 2022 customers won't be able to create new HDInsight 3.6 clusters.
+|Bug Fixes|Apache JIRA|
+|---|---|
+|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
+|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
+|[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
+|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest fails|
+|[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
+|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
+|[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
+|[HIVE-25920](https://issues.apache.org/jira/browse/HIVE-25920)| Bump Xerce2 to 2.12.2.|
+|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson data bind version to 2.12.6.1+ to avoid CVE-2020-36518|

@@ -70,7 +70,7 @@ Remove old diagnostics settings for each role in the Service Configuration (.csc
 > Changes in service definition file (.csdef) requires the package file (.cspkg) to be generated again. Please build and repackage your .cspkg post making the following changes in the .csdef file to get the latest settings for your cloud service
 
 ### 1) Virtual Machine sizes
-The following sizes are deprecated in Azure Resource Manager. However, if you want to continue to use them update the `vmsize` name with the associated Azure Resource Manager naming convention.  
+The sizes listed in the left column below are deprecated in Azure Resource Manager. However, if you want to continue to use them update the `vmsize` name with the associated Azure Resource Manager naming convention.  
 
 | Previous size name | Updated size name | 
 |---|---|

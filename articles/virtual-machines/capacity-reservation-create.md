@@ -5,12 +5,14 @@ author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create a Capacity Reservation
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 Capacity Reservation is always created as part of a Capacity Reservation group. The first step is to create a group if a suitable one doesn’t exist already, then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
 
@@ -30,6 +32,46 @@ The Capacity Reservation must meet the following rules:
 - Each Capacity Reservation group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation group will result in an error. However, another reservation can be created in the same group for other VM sizes, such as `Standard_D4s_v3`, `Standard_D8s_v3`, and so on.  
 - For a Capacity Reservation group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and a third Capacity Reservation for `Standard_D2s_v3` in `Zone 3` is supported.
 
+
+## Checking VM sizes available for Capacity Reservation in a region
+
+Before creating capacity reservation, VM sizes available for reservation can be checked for a particular region.
+
+ 
+### [Portal](#tab/portal1)
+
+<!-- no images necessary if steps are straightforward --> 
+
+1. Open [Azure portal](https://portal.azure.com)
+1. In the search bar, type **Capacity Reservation groups**
+1. Select **Capacity Reservation groups** from the options
+1. Select **Create**
+1. Under the *Basics* tab, create a Capacity Reservation group:
+    1. Select a **Subscription**
+    1. Select or create a **Resource group**
+    1. **Name** your group 
+    1. Select a **Region** 
+    1. Optionally select **Availability zones** or opt not to specify any zones and allow Azure to choose for you
+1. Select **Next**
+1. On VM size, click on **See all sizes** to check what VM sizes are available for Capacity Reservation
+
+  ### [CLI](#tab/cli1)
+
+Before you create a capacity reservation, you can check the reservation available VM sizes for the region selected. The following example lists the capacity reservation available VM sizes in East US location using Azure CLI:
+
+   ```azurecli-interactive
+    az vm list-skus -l eastus --resource-type virtualMachines --query "[?contains(capabilities[?name == 'CapacityReservationSupported' && value == 'True'].name,'CapacityReservationSupported')].name"
+   ```
+ ### [PowerShell](#tab/powershell1)
+
+Before you create a capacity reservation, you can check the reservation available VM sizes for the region selected using Get-AzComputeResourceSku for Capability property for Resource type Virtual Machines. The following example lists the capacity reservation available VM sizes in East US location:
+
+   ```powershell-interactive
+    $vmsizes = Get-AzComputeResourceSku -Location eastus | where {$_.ResourceType -eq "virtualMachines"}
+    foreach($vmsize in $vmsizes) { foreach($capability in $vmsize.capabilities) {  if($capability.Name -eq 'CapacityReservationSupported' -and $capability.Value -eq 'true'){ $vmsize.name  } } }
+   ```
+--- 
+<!-- The three dashes above show that your section of tabbed content is complete. Do not remove them :) -->
 
 ## Create a Capacity Reservation 
 
@@ -87,7 +129,7 @@ The Capacity Reservation must meet the following rules:
     The above request creates a reservation in the East US location for 5 quantities of the D2s_v3 VM size. 
 
 
-### [Portal](#tab/portal1)
+### [Portal](#tab/portal2)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -112,7 +154,7 @@ The Capacity Reservation must meet the following rules:
 1. Select **Create**
 
 
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli2)
 
 1. Before you can create a Capacity Reservation, create a resource group with `az group create`. The following example creates a resource group *myResourceGroup* in the East US location.
 
@@ -145,7 +187,7 @@ The Capacity Reservation must meet the following rules:
     --zone 1
     ```
 
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell2)
 
 1. Before you can create a Capacity Reservation, create a resource group with `New-AzResourceGroup`. The following example creates a resource group *myResourceGroup* in the East US location.
 
@@ -229,7 +271,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli3)
 
  ```azurecli-interactive
  az capacity reservation show 
@@ -238,7 +280,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
  -g myResourceGroup
  ```
 
-### [PowerShell](#tab/powershell2)
+### [PowerShell](#tab/powershell3)
 
 Check on your Capacity Reservation:
 

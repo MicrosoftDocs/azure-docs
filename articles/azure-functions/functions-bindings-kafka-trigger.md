@@ -1,10 +1,8 @@
 ---
 title: Apache Kafka trigger for Azure Functions
 description: Use Azure Functions to run your code based on events from an Apache Kafka stream.
-author: ggailey777
 ms.topic: reference
 ms.date: 05/14/2022
-ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -26,7 +24,7 @@ An [in-process class library](functions-dotnet-class-library.md) is a compiled C
  
 # [Isolated process](#tab/isolated-process)
 
-An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
 
 ---
 
@@ -361,7 +359,7 @@ For a complete set of working Java examples for Event Hubs, see the [Kafka exten
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. 
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. 
 
 The following table explains the properties you can set using this trigger attribute:
 

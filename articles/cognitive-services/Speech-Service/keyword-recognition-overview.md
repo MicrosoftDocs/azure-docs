@@ -40,7 +40,7 @@ With the [Custom Keyword portal on Speech Studio](https://speech.microsoft.com/c
 
 ### Pricing
 
-There's no cost to use custom keyword to generate models, including both Basic and Advanced models. There's also no cost to run models on-device with the Speech SDK.
+There's no cost to use custom keyword to generate models, including both Basic and Advanced models. There's also no cost to run models on-device with the Speech SDK when used in conjunction with other Speech service features such as speech-to-text.
 
 ### Types of models
 
@@ -52,7 +52,7 @@ You can use custom keyword to generate two types of on-device models for any key
 | Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model by using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
 
 > [!NOTE]
-> You can view a list of regions that support the **Advanced** model type in the [keyword recognition region support](regions.md#keyword-recognition) documentation.
+> You can view a list of regions that support the **Advanced** model type in the [keyword recognition region support](regions.md#speech-service) documentation.
 
 Neither model type requires you to upload training data. Custom keyword fully handles data generation and model training.
 

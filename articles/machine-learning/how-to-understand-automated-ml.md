@@ -1,10 +1,11 @@
 ---
 title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
-description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
+description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment jobs. 
 services: machine-learning
-ms.author: larryfr
-author: blackmist
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 04/08/2022
@@ -14,7 +15,7 @@ ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many runs are created and each run creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
 
 For example, automated ML generates the following charts based on experiment type.
 
@@ -35,22 +36,20 @@ For example, automated ML generates the following charts based on experiment typ
   - The [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (no code required)
   - The [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)
 
-## View run results
+## View job results
 
-After your automated ML experiment completes, a history of the runs can be found via:
-  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
+After your automated ML experiment completes, a history of the jobs can be found via:
+  - A browser with [Azure Machine Learning studio](https://ml.azure.com)
+  - A Jupyter notebook using the [JobDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Experiments**.
+1. In the left menu, select **Runs**.
 1. Select your experiment from the list of experiments.
-1. In the table at the bottom of the page, select an automated ML run.
+1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
-
-![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
 ## Classification metrics
 
@@ -204,7 +203,7 @@ spearman_correlation| Spearman correlation is a nonparametric measure of the mon
 
 ### Metric normalization
 
-Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+Automated ML normalizes regression and forecasting metrics which enable comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
 
 While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
 

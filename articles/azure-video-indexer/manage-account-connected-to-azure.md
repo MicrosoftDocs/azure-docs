@@ -1,12 +1,12 @@
 ---
-title: Manage an Azure Video Indexer account
-description: Learn how to manage an Azure Video Indexer account connected to Azure.
+title: Repair the connection to Azure, check errors/warnings
+description: Learn how to manage an Azure Video Indexer account connected to Azure repair the connection, examine errors/warnings.
 ms.topic: how-to
 ms.date: 01/14/2021
 ms.author: juliako
 ---
 
-# Manage an Azure Video Indexer account connected to Azure
+# Repair the connection to Azure, examine errors/warnings
 
 This article demonstrates how to manage an Azure Video Indexer account that's connected to your Azure subscription and an Azure Media Services account.
 
@@ -64,7 +64,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 
 * Media reserved units
 
-    You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/) page.
+    You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
 
 ## Next steps
 

@@ -52,7 +52,7 @@ To complete this tutorial:
 
 - <a href="https://git-scm.com/" target="_blank">Install Git</a>
 - <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create local .NET Core app
 
@@ -319,7 +319,7 @@ The commands effectively adds a `loginParameters` property with additional custo
 > For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
 >
 > ```azurecli-interactive
-> id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+> id=$(az ad app show --id <back-end-client-id> --query id --output tsv)
 > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
 > ```    
 
@@ -480,4 +480,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

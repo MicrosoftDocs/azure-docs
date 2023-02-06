@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 07/05/2022
 ms.author: pafarley
 ---
 
 # Export your model for use with mobile devices
 
-Custom Vision Service allows classifiers to be exported to run offline. You can embed your exported classifier into an application and run it locally on a device for real-time classification.
+Custom Vision Service lets you export your classifiers to be run offline. You can embed your exported classifier into an application and run it locally on a device for real-time classification.
 
 ## Export options
 

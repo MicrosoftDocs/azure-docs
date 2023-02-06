@@ -4,6 +4,7 @@ description: Understanding the non-common alert schema definitions for Azure Mon
 author: issahn
 ms.topic: conceptual
 ms.date: 01/25/2022
+ms.reviewer: issahn
 ---
 
 # Non-common alert schema definitions for Test Action Group (Preview)
@@ -387,5 +388,32 @@ The non-common alert schema lets you customize the consumption experience for al
 			"customKey2": "value2"
 		}
 	}
+}
+```
+#### `monitoringService` = `Actual Cost Budget` or `Forecasted Budget`
+
+**Sample values**
+```json
+{
+  "schemaId": "AIP Budget Notification",
+  "data": {
+    "SubscriptionName": "test-subscription",
+    "SubscriptionId": "11111111-1111-1111-1111-111111111111",
+    "EnrollmentNumber": "",
+    "DepartmentName": "test-budgetDepartmentName",
+    "AccountName": "test-budgetAccountName",
+    "BillingAccountId": "",
+    "BillingProfileId": "",
+    "InvoiceSectionId": "",
+    "ResourceGroup": "test-RG",
+    "SpendingAmount": "1111.32",
+    "BudgetStartDate": "2023-01-20T23:49:40.216Z",
+    "Budget": "10000",
+    "Unit": "USD",
+    "BudgetCreator": "email@domain.com",
+    "BudgetName": "test-budgetName",
+    "BudgetType": "Cost",
+    "NotificationThresholdAmount": "8000.0"
+  }
 }
 ```

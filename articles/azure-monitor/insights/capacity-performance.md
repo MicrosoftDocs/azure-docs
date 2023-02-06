@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
+ms.reviewer: shijain
 
 ---
 
@@ -95,9 +96,9 @@ Click on the Capacity and Performance tile to open the Capacity and Performance 
 - **Host Density** The top tile shows the total number of hosts and virtual machines available to the solution. Click the top tile to view additional details in log search. Also lists all hosts and the number of virtual machines that are hosted. Click a host to drill into the VM results in a log search.
 
 
-![dashboard Hosts blade](./media/capacity-performance/dashboard-hosts.png)
+![dashboard Hosts columns](./media/capacity-performance/dashboard-hosts.png)
 
-![dashboard virtual machines blade](./media/capacity-performance/dashboard-vms.png)
+![dashboard virtual machines columns](./media/capacity-performance/dashboard-vms.png)
 
 
 ### Evaluate performance

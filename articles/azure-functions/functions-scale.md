@@ -69,13 +69,13 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
 | **[Consumption plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | **Windows:** 200<br/>**Linux:** 100<sup>1</sup>  | 
-| **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-40<sup>2</sup>| 
+| **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
 | **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-20| 
 | **[ASE][Dedicated plan]**<sup>3</sup> | Manual/autoscale |100 | 
 | **[Kubernetes]**  | Event-driven autoscale for Kubernetes clusters using [KEDA](https://keda.sh). | Varies&nbsp;by&nbsp;cluster&nbsp;&nbsp;| 
 
 <sup>1</sup> During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
-<sup>2</sup> In some regions, Linux apps on a Premium plan can scale to 40 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
+<sup>2</sup> In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 <sup>3</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ## Cold start behavior
@@ -91,6 +91,23 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 ## Service limits
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]
+
+## Limitations for creating new function apps in an existing resource group
+
+In some cases, when trying to create a new hosting plan for your function app in an existing resource group you may receive one of the following errors:
+
+* The pricing tier is not allowed in this resource group
+* <SKU_name> workers are not available in resource group <resource_group_name>
+
+This can happen when the following conditions are met:
+
+* You create a function app in an existing resource group that has ever contained another function app or web app.
+* Your new function app is created in the same region as the previous app.
+* The previous app is in some way incompatible with your new app. This can happen between SKUs, operating systems, or due to other platform-level features, such as availability zone support.
+
+The reason this happens is due to how function app and web app plans are mapped to different pools of resources when being created. Different SKUs require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool does not have the required resources, this error will occur.
+
+When this error occurs, instead create your function app and hosting plan in a new resource group.
 
 ## Networking features
 

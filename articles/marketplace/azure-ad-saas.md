@@ -3,7 +3,6 @@ title: Azure Active Directory and transactable SaaS offers in the commercial mar
 description: Learn how Azure Active Directory works with transactable SaaS offers in the Microsoft commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

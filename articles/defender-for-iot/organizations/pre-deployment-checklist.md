@@ -46,9 +46,9 @@ Review your industrial network architecture to define the proper location for th
     :::image type="content" source="media/how-to-set-up-your-network/backbone-switch.png" alt-text="Diagram of the industrial OT environment for the global network.":::
 
     > [!NOTE]
-    > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
+    > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You'll need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you'll be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You'll need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you'll be prompted to enter the number of devices in increments of 100. For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional).
 
@@ -184,5 +184,5 @@ Review your industrial network architecture to define the proper location for th
 For more information, see:
 
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 - [Prepare your network for Microsoft Defender for IoT](how-to-set-up-your-network.md)

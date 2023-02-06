@@ -1,19 +1,18 @@
 ---
 title: Migrating to MSAL.NET and Microsoft.Identity.Web
-titleSuffix: Microsoft identity platform
 description: Learn why and how to migrate from  Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET) or Microsoft.Identity.Web
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2021
-ms.author: jmprieur
-ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.date: 11/25/2022
+ms.author: dmwendia
+ms.reviewer: jmprieur, saeeda
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref, engagement-fy23"
 #Customer intent: As an application developer, I want to learn why and how to migrate from ADAL.NET and MSAL.NET or Microsoft.Identity.Web libraries.
 ---
 
@@ -31,13 +30,13 @@ MSAL comes with benefits over ADAL. Some of these benefits are listed below:
 - You benefit from continuous innovation in term of security and resilience,
 - Your application implements the best practices in term of resilience and security.
 
-**MSAL.NET or Microsoft.Identity.Web are now the recommended auth libraries to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.NET. For details see the announcement: [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+**MSAL.NET or Microsoft.Identity.Web are now the recommended auth libraries to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.NET. For details see the announcement: [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363).
 
 ## Should you migrate to MSAL.NET or to Microsoft.Identity.Web
 
-Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check if you want to use MSAL.NET or a higher-level abstraction like [Microsoft.Identity.Web](microsoft-identity-web.md)
+Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check if you want to use MSAL.NET or a higher-level abstraction like [Microsoft.Identity.Web](microsoft-identity-web.md).
 
-For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.Web?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-or-Microsoft.Identity.Web)
+For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-or-Microsoft.Identity.Web).
 
 !["Block diagram explaining how to choose if you need to use MSAL.NET and Microsoft.Identity.Web or both when migrating from ADAL.NET"](media/msal-net-migration/decision-diagram.png)
 

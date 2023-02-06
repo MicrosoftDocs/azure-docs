@@ -36,7 +36,7 @@ ms.author: danlep
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/acr/connected-registry:0.5.0",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/acr/connected-registry:0.8.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"]}}"
                         },
                         "type": "docker",

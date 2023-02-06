@@ -3,23 +3,22 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/18/2022
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
 
 # Durable Functions storage providers
 
-Durable Functions automatically persists function parameters, return values, and other state to durable storage to guarantee reliable execution. The default configuration for Durable Functions stores this runtime state in an Azure Storage (classic) account. However, it's possible to configure Durable Functions v2.0 and above to use an alternate durable storage provider.
-
 Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 > [!NOTE]
-> The choice to use storage providers other than Azure Storage should be made carefully. Most function apps running in Azure should use the default Azure Storage provider for Durable Functions. However, there are important cost, scalability, and data management tradeoffs that should be considered when deciding whether to use an alternate storage provider. This article describes many of these tradeoffs in detail.
->
-> Also note that it's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
+> For many function apps, the default Azure Storage provider for Durable Functions is likely to suffice, and is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate storage provider.
 
-Two alternate DTFx storage providers were developed for use with Durable Functions, the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
+Two alternate storage providers were developed for use with Durable Functions and the Durable Task Framework, namely the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
+
+> [!NOTE]
+> It's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
 
 ## Azure Storage
 
@@ -38,7 +37,7 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite"></a>Netherite (preview)
+## <a name="netherite"></a>Netherite
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables significantly higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -54,9 +53,9 @@ You can learn more about the technical details of the Netherite storage provider
 > [!NOTE]
 > The _Netherite_ name originates from the world of [Minecraft](https://minecraft.fandom.com/wiki/Netherite).
 
-## <a name="mssql"></a>Microsoft SQL Server (MSSQL) (preview)
+## <a name="mssql"></a>Microsoft SQL Server (MSSQL)
 
-The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
+The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premises and cloud-hosted deployments of SQL Server, including [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 The key benefits of the MSSQL storage provider include:
 
@@ -112,9 +111,6 @@ Additional properties may be set to customize the connection. See [Common proper
 
 To use the Netherite storage provider, you must first add a reference to the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
 
-> [!NOTE]
-> The Netherite storage provider is not yet supported in apps that use [extension bundles](../functions-bindings-register.md#extension-bundles).
-
 The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
 
 ```json
@@ -137,9 +133,6 @@ For more detailed setup instructions, see the [Netherite getting started documen
 ### Configuring the MSSQL storage provider
 
 To use the MSSQL storage provider, you must first add a reference to the [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
-
-> [!NOTE]
-> The MSSQL storage provider is not yet supported in apps that use [extension bundles](../functions-bindings-register.md#extension-bundles).
 
 The following example shows the minimum configuration required to enable the MSSQL storage provider.
 
@@ -165,18 +158,17 @@ There are many significant tradeoffs between the various supported storage provi
 
 | Storage provider | Azure Storage | Netherite | MSSQL |
 |- |-              |-          |-      |
-| Official support status | ✅ Generally available (GA) | ⚠ Public preview | ⚠ Public preview |
+| Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) |
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | In-memory emulation ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
 | Maximum throughput | Moderate | Very high | Moderate |
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
-| Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
-| Elastic Premium plan support | ✅ Fully supported | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
+| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
+| Managed Identity Support | ✅ Fully supported | ❌ Not supported | ⚠️ Requires runtime-driven scaling |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
 | Identity-based connections | ✅ Yes (preview) |❌ No | ❌ No |
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 10/17/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Accepted custom NER data formats
 
-If you are trying to [import your data](../how-to/create-project.md#import-project) into custom NER, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).
+If you are trying to [import your data](../how-to/create-project.md#import-project) into custom NER, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/tag-data.md).
 
 ## Labels file format
 
@@ -31,7 +31,8 @@ Your Labels file should be in the `json` format below to be used in [importing](
     "projectName": "{PROJECT-NAME}",
     "multilingual": false,
     "description": "Project-description",
-    "language": "en-us"
+    "language": "en-us",
+    "settings": {}
   },
   "assets": {
     "projectKind": "CustomEntityRecognition",
@@ -103,7 +104,7 @@ Your Labels file should be in the `json` format below to be used in [importing](
 | `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
 | `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
 | `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
-| `offset` |  |  The type of entity associated with the span of text specified. | `25`|
+| `offset` |  |  The start position for the entity text. | `25`|
 | `length` |  |  The length of the entity in terms of UTF16 characters. | `20`|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../language-support.md) for more information about supported language codes. |`en-us`|
 

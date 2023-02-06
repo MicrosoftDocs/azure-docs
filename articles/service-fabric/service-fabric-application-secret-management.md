@@ -1,11 +1,14 @@
 ---
 title: Manage Azure Service Fabric application secrets
 description: Learn how to secure secret values in a Service Fabric application (platform-agnostic).
-
-ms.topic: conceptual
-ms.date: 01/04/2019
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage encrypted secrets in Service Fabric applications
 This guide walks you through the steps of managing secrets in a Service Fabric application. Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
 

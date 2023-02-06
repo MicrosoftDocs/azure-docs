@@ -3,11 +3,11 @@ title: 'Azure AD Connect: Hybrid identity considerations for Azure Government cl
 description: Special considerations for deploying Azure AD Connect with the Azure Government cloud.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

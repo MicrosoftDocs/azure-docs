@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/20/2022
 ms.topic: how-to 
 ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 ---
@@ -20,7 +20,7 @@ If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go, see
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [PowerShell](#tab/azure-powershell)
 

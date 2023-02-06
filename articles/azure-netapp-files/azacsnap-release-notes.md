@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 12/16/2022
 ms.author: phjensen
 ---
 
@@ -20,13 +20,65 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+## Dec-2022
+
+### AzAcSnap 7 (Build: 1A8FDFF)
+
+AzAcSnap 7 is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Backup (`-c backup`) changes:
+    - Shorten suffix added to the snapshot name.  The previous 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (for example, 2022-11-17T030002-7299835Z) was too long, this is replaced with an 11 character hex-decimal equivalent based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions (for example, F2D212540D5).
+    - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
+    - Time out when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
+    - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (also known as 'backint'). Therefore, AzAcSnap 'backint' detection logic has been reordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 will continue to disable/enable backint.  As this setting is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
+  - Restore (`-c restore`) changes:
+    - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
+      - via the command-line with `--clonesuffix <custom suffix>`.
+      - interactively when running the command without the `--force` option.
+    - When doing a `--restore snaptovol` on ANF, then Volume Clone will also inherit the new 'NetworkFeatures' setting from the Source Volume.
+    - Can now do a restore if there are no Data Volumes configured.  It will only do a restore of the Other Volumes using the Other Volumes latest snapshot (the `--snapshotfilter` option only applies to Data Volumes).
+    - Extra logging for `-c restore` command to help with user debugging.
+  - Test (`-c test`) changes:
+    - Now tests managing snapshots for all otherVolume(s) and all dataVolume(s).
+- Features moved to GA (generally available):
+  - None.
+- Features added to [Preview](azacsnap-preview.md):
+  - Preliminary support for Azure NetApp Files Backup.
+  - Db2 database support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner.
+ 
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Jul-2022
+
+### AzAcSnap 6 (Build: 1A5F0B8)
+
+> [!IMPORTANT]
+> AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
+ 
+Since AzAcSnap v5.0 was released as GA in April 2021, there have been 8 releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6 we'll have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  This means the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
+
+AzAcSnap 6 is being released with the following fixes and improvements:
+
+- Features moved to GA (generally available):
+  - Oracle Database support.
+  - Backint integration to work with Azure Backup.
+  - RunBefore/RunAfter command line options to execute custom shell scripts and commands before or after taking storage snapshots.
+- Features in Preview:
+  - Azure Key Vault to store Service Principal content.
+  - Azure Managed Disk as an alternate storage back-end.
+- ANF Client API Version updated to 2021-10-01.
+- Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
+ 
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
 ## May-2022
 
 ### AzAcSnap v5.0.3 (Build: 20220524.14204) - Patch update to v5.0.2
 
 AzAcSnap v5.0.3 (Build: 20220524.14204) is provided as a patch update to the v5.0 branch with the following fix:
 
-- Fix for handling delimited identifiers when querying SAP HANA.  This issue only impacted SAP HANA in HSR-HA node when there is a Secondary node configured with 'logreplay_readaccss' and has been resolved.
+- Fix for handling delimited identifiers when querying SAP HANA.  This issue only impacted SAP HANA in HSR-HA node when there's a Secondary node configured with 'logreplay_readaccss' and has been resolved.
 
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
 
@@ -58,7 +110,7 @@ AzAcSnap v5.1 Preview (Build: 20220220.55340) has been released with the followi
 
 AzAcSnap v5.1 Preview (Build: 20220203.77807) has been released with the following fixes and improvements:
 
-- Minor update to resolve STDOUT buffer limitations.  Now the list of Oracle table files put into archive-mode is sent to an external file rather than output in the main AzAcSnap log file.  The external file is in the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file).  It is overwritten each time `azacsnap` runs.
+- Minor update to resolve STDOUT buffer limitations.  Now the list of Oracle table files put into archive-mode is sent to an external file rather than output in the main AzAcSnap log file.  The external file is in the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file).  It's overwritten each time `azacsnap` runs.
 
 ## Jan-2022
 
@@ -87,7 +139,7 @@ AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.
 
 AzAcSnap v5.0.1 (Build: 20210524.14837) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
 
-- Improved exit code handling.  In some cases AzAcSnap would emit an exit code of 0 (zero), even after an execution failure when the exit code should have been non-zero.  Exit codes should now only be zero on successfully running `azacsnap` to completion and non-zero if there is any failure.  
+- Improved exit code handling.  In some cases AzAcSnap would emit an exit code of 0 (zero), even after an execution failure when the exit code should have been non-zero.  Exit codes should now only be zero on successfully running `azacsnap` to completion and non-zero if there's any failure.  
 - AzAcSnap's internal error handling has been extended to capture and emit the exit code of the external commands run by AzAcSnap.
 
 ## April-2021

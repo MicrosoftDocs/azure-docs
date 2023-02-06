@@ -2,12 +2,12 @@
 title: Azure networking services overview
 description: Learn about networking services in Azure, including connectivity, application protection, application delivery, and network monitoring services.
 services: networking
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: kumud
+ms.author: mbender
 
 ---
 
@@ -51,7 +51,7 @@ For more information about different types of VPN connections, see [What is VPN 
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity. 
 Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md).
 
-:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png":::
 
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../../dns/dns-overview.md).
@@ -154,7 +154,7 @@ This section describes networking services in Azure that help monitor your netwo
 Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### Azure Monitor Network Insights
-Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroutemonitor"></a>ExpressRoute Monitor
 To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -61,7 +61,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ```csharp
 // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion

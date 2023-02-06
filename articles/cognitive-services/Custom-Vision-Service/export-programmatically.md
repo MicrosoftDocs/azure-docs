@@ -53,6 +53,9 @@ export = trainer.export_iteration(project_id, iteration_id, platform, flavor, ra
 
 For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
 
+> [!IMPORTANT]
+> If you've already exported a particular iteration, you cannot call the **export_iteration** method again. Instead, skip ahead to the **get_exports** method call to get a link to your existing exported model.
+
 ## Download the exported model
 
 Next, you'll call the **get_exports** method to check the status of the export operation. The operation runs asynchronously, so you should poll this method until the operation completes. When it completes, you can retrieve the URI where you can download the model iteration to your device.

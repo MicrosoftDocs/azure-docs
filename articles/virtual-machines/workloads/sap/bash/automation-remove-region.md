@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/10/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 title: Remove_region.sh
 description: Removes the SAP Control Plane (Deployer, Library) using a shell script.
 ---
@@ -105,4 +105,4 @@ Licensed under the MIT license.
 
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation )
+[GitHub repository: SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-automation )

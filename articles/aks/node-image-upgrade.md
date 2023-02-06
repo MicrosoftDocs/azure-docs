@@ -75,6 +75,9 @@ az aks upgrade \
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
 
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
+
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
@@ -103,6 +106,9 @@ az aks nodepool upgrade \
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
 
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
+
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
@@ -125,12 +131,11 @@ If you'd like to increase the speed of upgrades, use the `--max-surge` value to 
 The following command sets the max surge value for performing a node image upgrade:
 
 ```azurecli
-az aks nodepool upgrade \
+az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --max-surge 33% \
-    --node-image-only \
     --no-wait
 ```
 
@@ -155,6 +160,9 @@ az aks nodepool show \
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+
+<!-- LINKS - external -->
+[kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md

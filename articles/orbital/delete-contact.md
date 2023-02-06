@@ -1,12 +1,12 @@
 ---
-title: 'Cancel a scheduled contact on Azure Orbital Earth Observation service' 
-description: 'Cancel a scheduled contact'
-author: wamota
+title: Cancel a scheduled contact on Azure Orbital Ground Station service 
+description: Learn how to cancel a scheduled contact.
+author: apoorvanori
 ms.service: orbital
-ms.topic: tutorial
-ms.custom: public-preview
-ms.date: 11/16/2021
-ms.author: wamota
+ms.topic: how-to
+ms.custom: ga
+ms.date: 07/13/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
@@ -23,12 +23,12 @@ To cancel a scheduled contact, the contact entry must be deleted on the **Contac
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
+Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 ## Delete a scheduled contact entry
 
-1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select the name of the spacecraft for the scheduled contact.
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select the name of the spacecraft for the scheduled contact.
 3. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
 
    :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
@@ -39,7 +39,8 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
 
 6. The scheduled contact will be canceled once the contact entry is deleted.
+
 ## Next steps
 
-- [Quickstart: Schedule a contact](schedule-contact.md)
-- [Tutorial: Update the spacecraft TLE](update-tle.md)
+- [Schedule a contact](schedule-contact.md)
+- [Update the spacecraft TLE](update-tle.md)

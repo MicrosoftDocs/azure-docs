@@ -4,13 +4,16 @@ description: Learn how to backup and restore a server in Azure Database for Post
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
-ms.date: 06/08/2020
+ms.date: 06/24/2022
 ---
+
 # How to back up and restore an Azure Database for PostgreSQL server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Azure Database for PostgreSQL servers is backed up periodically to enable restore features. Using
 this feature you may restore the server and all its databases to an earlier point-in-time, on a new

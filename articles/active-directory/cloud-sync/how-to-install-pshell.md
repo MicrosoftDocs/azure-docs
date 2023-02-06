@@ -3,11 +3,11 @@ title: 'Install the Azure AD Connect cloud provisioning agent using a command-li
 description: Learn how to install the Azure AD Connect cloud provisioning agent by using PowerShell cmdlets.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

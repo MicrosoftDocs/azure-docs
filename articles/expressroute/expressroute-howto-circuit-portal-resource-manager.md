@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 04/13/2022
+ms.date: 07/18/2022
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
@@ -34,15 +34,21 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 1. On the Azure portal menu, select **+ Create a resource**. Search for **ExpressRoute** and then select **Create**.
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png" alt-text="Create an ExpressRoute circuit":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png" alt-text=" Screenshot of ExpressRoute circuit resource.":::
 
 1. On the **Create ExpressRoute** page. Provide the **Resource Group**, **Region**, and  **Name** for the circuit. Then select **Next: Configuration >**.
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configure the resource group and region":::
+    | Setting | Value |
+    | ---     | ---   |
+    | Resource group | Select **Create new**. Enter **ExpressRouteResourceGroup** </br>  Select **OK**. |
+    | Region   |  West US 2 |
+    | Name   |  TestERCircuit |
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
 
 1. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configure the circuit":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Screenshot of how to configure the circuit.":::
     
     | Setting | Description |
     | --- | --- |
@@ -67,17 +73,17 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 You can view all the circuits that you created by searching for **ExpressRoute circuits** in the search box at the top of the portal.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Expressroute circuit menu":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Screenshot of ExpressRoute circuit menu.":::
 
 All Expressroute circuits created in the subscription will appear here.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Expressroute circuit list":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Screenshot of ExpressRoute circuit list.":::
 
 **View the properties**
 
 You can view the properties of the circuit by selecting it. On the Overview page for your circuit, you'll find the **Service Key**. Provide the service key to the service provider to complete the provisioning process. The service key is unique to your circuit.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="View properties":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Screenshot of ExpressRoute properties.":::
 
 ### Send the service key to your connectivity provider for provisioning
 
@@ -88,7 +94,7 @@ When you create a new ExpressRoute circuit, the circuit is in the following stat
 Provider status: **Not provisioned**<BR>
 Circuit status: **Enabled**
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Starts provisioning process":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Screenshot of provisioning process.":::
 
 The circuit changes to the following state when the connectivity provider is currently enabling it for you:
 
@@ -104,7 +110,7 @@ Circuit status: **Enabled**
 
 You can view the properties of the circuit that you're interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before you continue.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Circuit and provider status":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Screenshot of circuit and provider status.":::
 
 ### Create your routing configuration
 
@@ -152,7 +158,7 @@ You can do the following tasks with no downtime:
 
 To modify an ExpressRoute circuit, select **Configuration**.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modify circuit":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Screenshot of modifying circuit.":::
 
 ## <a name="delete"></a>Deprovisioning an ExpressRoute circuit
 
@@ -167,7 +173,7 @@ If the ExpressRoute circuit service provider provisioning state is **Provisionin
 
 You can delete your ExpressRoute circuit by selecting the **Delete** icon. Ensure the provider status is *Not provisioned* before proceeding.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Delete circuit":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Screenshot of deleting circuit.":::
 
 ## Next steps
 

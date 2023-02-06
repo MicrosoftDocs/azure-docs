@@ -4,7 +4,7 @@ description: Learn about the data in a body frame and the functions to access th
 author: qm13
 ms.author: quentinm
 ms.reviewer: yijwan
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: how-to
 keywords: body, frame, azure, kinect, body, tracking, tips

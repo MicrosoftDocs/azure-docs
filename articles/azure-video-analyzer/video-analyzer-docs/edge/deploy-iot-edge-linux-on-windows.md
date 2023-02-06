@@ -18,7 +18,7 @@ In this article, you'll learn how to deploy Azure Video Analyzer on an edge devi
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
-* [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Read [What is EFLOW](../../../iot-edge/iot-edge-for-linux-on-windows.md).
 
 ## Deployment steps
@@ -93,7 +93,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the Cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
-* Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional pipelines.
+* Use our [VS Code extension](https://marketplace.visualstudio.com/vscode) to view additional pipelines.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
 * Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above).
 

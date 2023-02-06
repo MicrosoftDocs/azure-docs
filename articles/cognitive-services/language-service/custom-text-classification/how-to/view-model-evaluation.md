@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -48,6 +48,19 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ---
 
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../includes/rest-api/load-export-model.md)]
+
+---
+
 ## Delete model
 
 ### [Language studio](#tab/language-studio)
@@ -64,4 +77,4 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Next steps
 
-As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation-metrics.md) that are used. Once you know whether your model performance needs to improve, you can begin [improving the model](improve-model.md).
+As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation-metrics.md) that are used. Once you know whether your model performance needs to improve, you can begin improving the model.

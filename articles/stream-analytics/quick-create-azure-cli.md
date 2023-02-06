@@ -3,8 +3,8 @@ title: Quickstart - Create an Azure Stream Analytics job using the Azure CLI
 description: This quickstart shows how to use the Azure CLI to create an Azure Stream Analytics job.
 services: stream-analytics
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: ahartoon
+ms.author: anboisve
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
@@ -20,7 +20,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - Create a resource group. All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
@@ -54,10 +54,10 @@ The following Azure CLI code blocks are commands that prepare the input data req
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-3. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show-connection-string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+3. Get the device connection string using the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+    az iot hub device-identity connection-string show --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
     ```
 
     **Output example:**

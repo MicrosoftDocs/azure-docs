@@ -3,24 +3,24 @@ title: Azure CLI Script Sample - Create an Azure App Configuration Store
 titleSuffix: Azure App Configuration
 description: Create an Azure App Configuration store using a sample Azure CLI script. See reference article links to commands used in the script.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/24/2020
-ms.author: alkemper 
+ms.date: 01/18/2023
+ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
 
-# Create an Azure App Configuration Store
+# Create an Azure App Configuration store with the Azure CLI
 
-This sample script creates a new instance of Azure App Configuration in a new resource group.
+This sample script creates a new instance of Azure App Configuration using the Azure CLI in a new resource group.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -55,7 +55,7 @@ appConfigConnectionString=$(az appconfig credential list \
 echo "$appConfigConnectionString"
 ```
 
-Make a note of the actual name generated for the new resource group. You will use that resource group name when you want to delete all group resources.
+Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
@@ -73,4 +73,4 @@ This script uses the following commands to create a new resource group and an Ap
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration  CLI samples](../cli-samples.md).
+More App Configuration CLI script samples can be found in the [Azure App Configuration  CLI samples](../cli-samples.md).

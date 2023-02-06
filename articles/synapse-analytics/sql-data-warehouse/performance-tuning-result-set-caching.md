@@ -16,6 +16,9 @@ ms.custom: azure-synapse
 
 When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  Result set caching is OFF by default at the database and session levels. 
 
+>[!NOTE]
+> Result set caching should not be used in conjunction with [DECRYPTBYKEY](/sql/t-sql/functions/decryptbykey-transact-sql). If this cryptographic function must be used, ensure you have result set caching disabled (either at [session-level](/sql/t-sql/statements/set-result-set-caching-transact-sql) or [database-level](/sql/t-sql/statements/alter-database-transact-sql-set-options)) at the time of execution.
+
 ## Key commands
 
 [Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -32,7 +35,7 @@ Once result set caching is turned ON for a database, results are cached for all 
 
 - Queries with built-in functions or runtime expressions that are non-deterministic even when there’s no change in base tables’ data or query. For example, DateTime.Now(), GetDate().
 - Queries using user defined functions
-- Queries using tables with row level security or column level security enabled
+- Queries using tables with row level security
 - Queries returning data with row size larger than 64KB
 - Queries returning large data in size (>10GB) 
 >[!NOTE]

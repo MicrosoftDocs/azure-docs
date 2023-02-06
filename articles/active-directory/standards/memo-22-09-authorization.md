@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: standards
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
 ms.date: 3/10/2022

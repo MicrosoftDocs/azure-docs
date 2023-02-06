@@ -107,7 +107,7 @@ To provision a custom domain you need to
 
 ## Changing MailFrom and FROM display name for custom domains
 
-When Azure Manged Domain is provisioned to send mail, it has default Mail from address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
+When Azure Managed Domain is provisioned to send mail, it has default Mail from address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.

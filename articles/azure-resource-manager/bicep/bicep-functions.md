@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 07/05/2022
 ---
 
 # Bicep functions
@@ -40,6 +40,7 @@ The following functions are available for working with arrays. All of these func
 * [empty](./bicep-functions-array.md#empty)
 * [indexOf](./bicep-functions-array.md#indexof)
 * [first](./bicep-functions-array.md#first)
+* [flatten](./bicep-functions-array.md#flatten)
 * [intersection](./bicep-functions-array.md#intersection)
 * [last](./bicep-functions-array.md#last)
 * [lastIndexOf](./bicep-functions-array.md#lastindexof)
@@ -72,7 +73,18 @@ The following functions are available for getting values related to the deployme
 The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
+
+## Lambda functions
+
+The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
+
+* [filter](bicep-functions-lambda.md#filter)
+* [map](bicep-functions-lambda.md#map)
+* [reduce](bicep-functions-lambda.md#reduce)
+* [sort](bicep-functions-lambda.md#sort)
+
 
 ## Logical functions
 
@@ -143,6 +155,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [format](./bicep-functions-string.md#format)
 * [guid](./bicep-functions-string.md#guid)
 * [indexOf](./bicep-functions-string.md#indexof)
+* [join](./bicep-functions-string.md#join)
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)

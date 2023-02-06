@@ -4,14 +4,14 @@ description: Azure AD checks the specific conditions you pick when authenticatin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/29/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1

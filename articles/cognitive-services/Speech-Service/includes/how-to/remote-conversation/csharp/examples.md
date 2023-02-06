@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/25/2022
+ms.date: 07/26/2022
 ms.author: eur
 ms.custom: devx-track-csharp
 ---
@@ -33,7 +33,11 @@ async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, str
     };
 
     await recognizer.StartTranscribingAsync().ConfigureAwait(false);
-    await Task.WhenAny(finishedTaskCompletionSource.Task, Task.Delay(TimeSpan.FromSeconds(10)));
+    
+    // Waits for completion.
+    // Use Task.WaitAny to keep the task rooted.
+    Task.WaitAny(new[] { finishedTaskCompletionSource.Task });
+    
     await recognizer.StopTranscribingAsync().ConfigureAwait(false);
 }
 

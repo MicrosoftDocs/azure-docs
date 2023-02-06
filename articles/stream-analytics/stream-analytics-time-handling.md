@@ -1,11 +1,11 @@
 ---
 title: Understand time handling in Azure Stream Analytics
 description: Learn how to choose the best start time, handle late and early events, and about time handling metrics in Azure Stream Analytics.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/22/2022
 ---
 
 # Understand time handling in Azure Stream Analytics
@@ -92,7 +92,7 @@ You may have noticed another concept called early arrival window that looks like
 
 Because Azure Stream Analytics guarantees complete results, you can only specify **job start time** as the first output time of the job, not the input time. The job start time is required so that the complete window is processed, not just from the middle of the window.
 
-Stream Analytics derives the start time from the query specification. However, because the input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward: starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen as having an event time 5 minutes earlier than the arrival time. The [early input events metric](stream-analytics-monitoring.md) is incremented when the events are dropped.
+Stream Analytics derives the start time from the query specification. However, because the input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward: starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen as having an event time 5 minutes earlier than the arrival time. The [early input events metric](stream-analytics-job-metrics.md) is incremented when the events are dropped.
 
 This concept is used to ensure the processing is repeatable no matter where you start to output from. Without such a mechanism, it would not be possible to guarantee repeatability, as many other streaming systems claim they do.
 
@@ -122,7 +122,7 @@ Stream Analytics jobs have several **Event ordering** options. Two can be config
 
 ## Metrics to observe
 
-You can observe a number of the Event ordering time tolerance effects through [Stream Analytics job metrics](stream-analytics-monitoring.md). The following metrics are relevant:
+You can observe a number of the Event ordering time tolerance effects through [Azure Stream Analytics job metrics](stream-analytics-job-metrics.md). The following metrics are relevant:
 
 |Metric  | Description  |
 |---------|---------|
@@ -217,4 +217,4 @@ In this illustration, the following tolerances are used:
 ## Next steps
 
 - [Azure Stream Analytics event order considerations]()
-- [Stream Analytics job metrics](stream-analytics-monitoring.md)
+* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)

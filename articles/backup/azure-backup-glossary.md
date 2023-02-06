@@ -3,6 +3,8 @@ title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup glossary
@@ -75,7 +77,7 @@ Refer to [Azure Resource Manager documentation](../azure-resource-manager/manage
 
 ## Azure Disk Encryption (ADE)
 
-Refer to [Azure Disk Encryption documentation](../security/fundamentals/azure-disk-encryption-vms-vmss.md).
+Refer to [Azure Disk Encryption documentation](../virtual-machines/disk-encryption-overview.md).
 
 ## Backend storage / Cloud storage / Backup storage
 
