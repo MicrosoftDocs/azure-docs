@@ -24,7 +24,7 @@ When you run `Start-AzAutomationRunbook` to start specific runbooks it fails wit
 
 ## Cause
 
-Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters, or with an "_" character in the name, as invalid.
+Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters, or with an "_" character in the name as invalid.
 
 ## Workaround
 We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
