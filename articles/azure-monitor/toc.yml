@@ -32,7 +32,7 @@ items:
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
+      href: /security/benchmark/azure/baselines/azure-monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -794,7 +794,7 @@ items:
       - name: Failure anomalies
         href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: alerts/proactive-performance-diagnostics.md
+        href: alerts/smart-detection-performance.md
       - name: Trace degradation
         href: alerts/proactive-trace-severity.md
       - name: Exception volume
@@ -1692,8 +1692,6 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

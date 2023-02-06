@@ -168,7 +168,7 @@ IP addresses are broken down into the following types:
 | Type | Description |
 |--|--|
 | Public inbound IP address | Used for app traffic in an external deployment, and management traffic in both internal and external deployments. |
-| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Using a NAT gateway or other proxy for outbound traffic from a Container App environment isn't supported.  Outbound IPs are not guaranteed and may change over time. |
+| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Using a NAT gateway or other proxy for outbound traffic from a Container App environment isn't supported.  Outbound IPs aren't guaranteed and may change over time. |
 | Internal load balancer IP address | This address only exists in an internal deployment. |
 | App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 
@@ -198,9 +198,11 @@ There's no forced tunneling in Container Apps routes.
 
 -	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](./ingress.md#configuration) in an internal Container Apps environment, configure your domains in one of the following ways:
 
-    1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record that points to the static IP address of the Container Apps environment.
+    1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 
     1. **Custom domains**: If you plan to use custom domains, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+
+The static IP address of the Container Apps environment can be found in the Azure portal in  **Custom DNS suffix** of the container app page or using the Azure CLI `az containerapp env list` command.
 
 ## Managed resources
 
