@@ -39,7 +39,7 @@ The **Choose the model you want to try out** drop-down lets you select the Pretr
 
 ## Upload images to blob storage
 
-If you don't have a storage account, learn how to create one [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
+If you don't have a storage account, learn how to create one [here](/azure/storage/common/storage-account-create?tabs=azure-portal).
 
 ## Adding a dataset from blob storage account
 
@@ -222,13 +222,13 @@ After the training has completed, the model's performance is estimated based on 
 
 Once you've build a custom model, you can go back to the **Extract common tags from images** tile in Vision Studio and test it by uploading new images.
 
-![Test model]( ../media/customization/evaluate-model.png)
+![Screenshot of selecing test model in Vision Studio.]( ../media/customization/evaluate-model.png)
 
 ![Test model]( ../media/customization/evaluate-model2.png)
 
 The prediction results will appear in the right column.
 
-![Test result]( ../media/customization/vision-studio-model-output.png)
+![Screenshot of an image being scored in Vision Studio.]( ../media/customization/vision-studio-model-output.png)
 
 ## Next steps
 
