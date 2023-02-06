@@ -97,4 +97,6 @@
   - name: Partners
     href: resources-partner-solutions.md
   - name: Troubleshooting
-    href: troubleshooting-manifest-ingestion.md
+    items:
+    - name: Troubleshooting manifest ingestion
+      href: troubleshooting-manifest-ingestion.md
