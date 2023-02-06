@@ -40,11 +40,6 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-- Install java 17, you can check with
-```
-echo %JAVA_HOME%
-```
-to make sure JAVA_HOME is pointed to the installation path.
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Provision an instance of Azure Spring Apps
@@ -110,7 +105,7 @@ Use the following steps to clone the Spring Boot sample project.
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
    ```azurecli-interactive
-   git clone https://github.com/spring-guides/gs-spring-boot.git
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
 1. Use the following command to move to the project folder.
@@ -146,11 +141,6 @@ Deploying the application can take a few minutes.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
-- Install java 17, you can check with
-```
-echo %JAVA_HOME%
-```
-to make sure JAVA_HOME is pointed to the installation path.
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Generate a Spring project
@@ -266,12 +256,6 @@ Use the following steps to build and deploy your app.
 ## [Visual Studio Code](#tab/VS-Code)
 
 ## Prerequisites
-
-- Install java 17, you can check with
-```
-echo %JAVA_HOME%
-```
-to make sure JAVA_HOME is pointed to the installation path.
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
