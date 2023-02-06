@@ -23,7 +23,7 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 
 ## Import Kubernetes provider
 
-Deployments of Kubernetes must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables and parameters. The Kubernetes manifest in YML does not include any programmability support by contract.
+Deployments of Kubernetes must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, The Kubernetes manifest in YML does not include any programmability support.
 
 The following sample imports the Kubernetes provider:
 
@@ -55,7 +55,7 @@ module kubernetes './kubernetes.bicep' = {
 }
 ```
 
-The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the import snippet automatically.
+The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the import snippet.
 
 ## Visual Studio Code import
 
