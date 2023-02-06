@@ -34,6 +34,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Investigate an OT network alert
+    href: respond-ot-alert.md
 - name: Concepts
   items:
     - name: Subscription billing
