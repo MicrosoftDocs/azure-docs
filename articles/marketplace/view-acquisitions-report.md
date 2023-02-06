@@ -10,11 +10,8 @@ ms.date: 01/10/2022
 ---
 
 # View the Acquisitions report in the dashboard
-<!--- [
-[image](https://user-images.githubusercontent.com/62076972/134597753-6fd281d2-9cdd-4ba0-b45d-645ca18e22d1.png)
-]() --->
 
-The _Acquisitions report_ in the Partner Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing.
+The Acquisitions report in the [Partner Center dashboard](https://partner.microsoft.com/dashboard/home) lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing.
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
 
