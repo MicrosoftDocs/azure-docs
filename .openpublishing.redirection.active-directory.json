@@ -4417,6 +4417,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-reports-latencies.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-ad-sla-performance",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
       "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
       "redirect_document_id": false

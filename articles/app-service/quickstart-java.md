@@ -63,3 +63,6 @@ adobe-target-content: ./quickstart-java-uiex
 
 > [!div class="nextstepaction"]
 > [Configure your Java app](configure-language-java.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

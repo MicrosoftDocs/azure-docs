@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
 
-In this article, learn how to test private application endpoints with Azure Load Testing Preview. You'll create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
+In this article, learn how to test private application endpoints with Azure Load Testing. You'll create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
 
 This functionality enables the following usage scenarios:
 
@@ -38,9 +38,6 @@ These resources are ephemeral and exist only during the load test run. If you re
 
 > [!NOTE]
 > Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, UK South, and West US 2.
-> 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
