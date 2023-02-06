@@ -54,6 +54,23 @@ The below table outlines the list of the container insights Log Analytics tables
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |
 
+## Impact on existing alerts and visualizations
+If you are currently using the above tables for charts or alerts, then modifying your data collection settings may degrade those experiences if you are excluding namespaces or reducing data collection frequency. Please review your existing alerts, dashboards, and workbooks using this data.
+
+To scan for alerts that may be referencing these tables, please run the following Azure Resource Graph query:
+
+```Kusto
+resources
+| where type in~ ('microsoft.insights/scheduledqueryrules') and ['kind'] !in~ ('LogToMetric')
+| extend severity = strcat("Sev", properties["severity"])
+| extend enabled = tobool(properties["enabled"])
+| where enabled in~ ('true')
+| where tolower(properties["targetResourceTypes"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["targetResourceType"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["scopes"]) matches regex 'providers/microsoft.operationalinsights/workspaces($|/.*)?'
+| where properties contains "Perf" or properties  contains "InsightsMetrics" or properties  contains "ContainerInventory" or properties  contains "ContainerNodeInventory" or properties  contains "KubeNodeInventory" or properties  contains"KubePodInventory" or properties  contains "KubePVInventory" or properties  contains "KubeServices" or properties  contains "KubeEvents" 
+| project id,name,type,properties,enabled,severity,subscriptionId
+| order by tolower(name) asc
+```
+
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
