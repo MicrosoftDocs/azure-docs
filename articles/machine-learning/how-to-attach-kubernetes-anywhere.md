@@ -73,7 +73,7 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 
 ## KubernetesCompute and legacy AksCompute
 
-With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it differently. Following table shows key differences.
+With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it differently. The following table shows their key differences:
 
 |Capabilities  |AKS integration with AksCompute (legacy)  |AKS integration with KubernetesCompute|
 |--|--|--|
