@@ -79,7 +79,7 @@ You can connect your function to other services by using input or output binding
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md). Note that versions of triggers and bindings are only supported when the underlying SDK is also supported.
 
 ## Bindings code examples
 
