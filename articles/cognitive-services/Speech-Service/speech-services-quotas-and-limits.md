@@ -24,16 +24,16 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 In the following tables, the parameters without the **Adjustable** row aren't adjustable for all price tiers.
 
-#### Online transcription
+#### Online transcription<sup>1</sup>
 
 You can use online transcription with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+| Quota | Free (F0)<sup>2</sup> | Standard (S0) |
 |--|--|--|
 | Concurrent request limit - base model endpoint | 1 | 100 (default value) |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| Adjustable | No<sup>3</sup> | Yes<sup>3</sup> |
 | Concurrent request limit - custom endpoint | 1 | 100 (default value) |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| Adjustable | No<sup>3</sup> | Yes<sup>3</sup> |
 
 #### Batch transcription
 
@@ -57,8 +57,9 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
 | Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
-<sup>1</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
-<sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>
+<sup>1</sup> The same restrictions apply to Speech translation feature.
+<sup>2</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
+<sup>3</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>
 
 ### Text-to-speech quotas and limits per Speech resource
 
