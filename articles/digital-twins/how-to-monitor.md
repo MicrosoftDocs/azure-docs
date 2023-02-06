@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/30/2023
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23

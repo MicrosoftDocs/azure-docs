@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/16/2022
+ms.date: 02/06/2023
 ms.topic: conceptual
 ms.service: digital-twins
 

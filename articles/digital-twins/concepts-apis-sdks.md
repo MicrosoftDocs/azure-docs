@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/26/2023
+ms.date: 02/06/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23

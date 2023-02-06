@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/26/2023
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.service: digital-twins
 
