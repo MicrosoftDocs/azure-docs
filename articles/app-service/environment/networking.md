@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 09/27/2022
+ms.date: 02/06/2023
 ms.author: madsd
 ---
 
