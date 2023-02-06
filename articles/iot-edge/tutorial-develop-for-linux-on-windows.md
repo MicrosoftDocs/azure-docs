@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: fcabrera
 
 ms.author: fcabrera
-ms.date: 03/01/2020
+ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

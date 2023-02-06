@@ -10,6 +10,8 @@ ms.date: 01/31/2019
 
 # Understand differences between U-SQL and Spark data formats
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 If you want to use either [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) or [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), we recommend that you migrate your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 In addition to moving your files, you'll also want to make your data, stored in U-SQL tables, accessible to Spark.

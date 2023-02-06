@@ -277,7 +277,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
 For more information, see:
 
-* [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent)
+* [Configure the IoT Edge agent](./how-to-configure-proxy-support.md#configure-the-iot-edge-agent)
 * [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
 * [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
 

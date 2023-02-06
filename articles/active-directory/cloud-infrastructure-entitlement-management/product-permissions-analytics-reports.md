@@ -8,23 +8,21 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 01/20/2023
 ms.author: jfields
 ---
 
 # Generate and download the Permissions analytics report
 
-This article describes how to generate and download the **Permissions analytics report** in Permissions Management.
+This article describes how to generate and download the **Permissions analytics report** in Permissions Management for AWS, Azure, and GCP. You can generate the report in Excel format, and also as a PDF.
 
-> [!NOTE]
-> This topic applies only to Amazon Web Services (AWS) users.
 
 ## Generate the Permissions analytics report
 
 1. In the Permissions Management home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
     The **Systems Reports** subtab displays a list of reports the **Reports** table.
-1. Find **Permissions Analytics Report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
+1. Select **Permissions Analytics Report** from the list. o download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 
     The following message displays: **Successfully Started To Generate On Demand Report.**
 

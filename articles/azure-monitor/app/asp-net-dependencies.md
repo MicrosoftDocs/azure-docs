@@ -82,7 +82,7 @@ To have this data displayed in the dependency charts in Application Insights, se
 
 Alternatively, `TelemetryClient` provides the extension methods `StartOperation` and `StopOperation`, which can be used to manually track dependencies as shown in [Outgoing dependencies tracking](custom-operations-tracking.md#outgoing-dependencies-tracking).
 
-If you want to switch off the standard dependency tracking module, remove the reference to `DependencyTrackingTelemetryModule` in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow the instructions in [Application Insights for ASP.NET Core applications](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+If you want to switch off the standard dependency tracking module, remove the reference to `DependencyTrackingTelemetryModule` in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow the instructions in [Application Insights for ASP.NET Core applications](asp-net-core.md#configure-or-remove-default-telemetrymodules).
 
 ## Track AJAX calls from webpages
 
@@ -269,7 +269,7 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
 * [Availability](./monitor-web-app-availability.md)
-* Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans-using-the-opentelemetry-annotation).
+* Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans-by-using-the-opentelemetry-annotation).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 * See [data model](./data-model.md) for Application Insights types and data model.

@@ -4,7 +4,7 @@ description: Learn about how to navigate nested virtualization in Azure IoT Edge
 author: fcabrera
 manager: kgremban
 ms.author: fcabrera
-ms.date: 2/24/2021
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

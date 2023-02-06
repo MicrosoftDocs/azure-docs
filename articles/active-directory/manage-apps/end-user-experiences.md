@@ -69,7 +69,7 @@ As an admin, you can choose to try out new app launcher features while they are 
 
 To enable or disable previews for your app launchers:
 
-- Sign in to the Azure portal as a global administrator for your directory.
+- Sign in to the Azure portal as a global administrator, application administrator or cloud application administrator for your directory.
 - Search for and select **Azure Active Directory**, then select **Enterprise applications**.
 - On the left menu, select **App launchers**, then select **Settings**.
 - Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.

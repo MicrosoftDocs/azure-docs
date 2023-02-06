@@ -52,6 +52,13 @@ The newly updated rows or updated files can be automatically detected and extrac
 -   [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)
 -   [Common data model](format-common-data-model.md)
 
+### Change data capture top-level resource
+
+A new top-level change data capture resource guides users through a simple configuration process to create a resource that will continuously and automatically read changes from data source(s) without needing to design pipelines, data flows, or set up triggers. 
+
+:::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level artifact in Factory Resources panel.":::
+
+
 ### Customer managed delta data extraction in pipeline
 
 You can always build your own delta data extraction pipeline for all ADF supported data stores including using lookup activity to get the watermark value stored in an external control table, copy activity or mapping data flow activity to query the delta data against timestamp or ID column, and SP activity to write the new watermark value back to your external control table for the next run.  When you want to load new files only from a storage store, you can either delete files every time after they have been moved to the destination successfully, or leverage the time partitioned folder or file names or last modified time to identify the new files. 
@@ -96,3 +103,4 @@ The followings are the templates to use the change data capture in Azure Data Fa
 ## Next steps
 
 - [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
+- [Learn about the Change data capture resource in ADF](concepts-change-data-capture-resource.md).

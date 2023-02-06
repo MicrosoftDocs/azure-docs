@@ -71,7 +71,7 @@ Cost analysis is your tool for interactive analytics and insights. You've seen t
 
 The first time you open the cost analysis preview, you'll see a list of all views. When you return, you'll see a list of the recently used views to help you get back to where you left off quicker than ever. You can pin any view or even rename or subscribe to alerts for your saved views.
 
-The recent and pinned views can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+**Recent and pinned views are available by default in the cost analysis preview.** Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback.
 
 
 <a name="aksnestedtable"></a>

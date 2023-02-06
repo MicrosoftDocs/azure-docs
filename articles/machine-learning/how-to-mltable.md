@@ -406,7 +406,7 @@ If you author files locally (or in a DSVM), you can use `azcopy` or the [Azure S
 |---------|---------|
 |`read_delimited` | `infer_column_types`: Boolean to infer column data types. Defaults to True. Type inference requires that the data source is accessible from the current compute. Currently type inference will only pull the first 200 rows.<br><br>`encoding`: Specify the file encoding. Supported encodings: `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default encoding: `utf8`.<br><br>`header`: user can choose one of the following options: `no_header`, `from_first_file`, `all_files_different_headers`, `all_files_same_headers`. Defaults to `all_files_same_headers`.<br><br>`delimiter`: The separator used to split columns.<br><br>`empty_as_string`: Specify if empty field values should be loaded as empty strings. The default (False) will read empty field values as nulls. Passing this setting as *True* will read empty field values as empty strings. If the values are converted to numeric or datetime, then this setting has no effect, as empty values will be converted to nulls.<br><Br>`include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when reading multiple files, and you want to know which file a particular record originated from. Also, you can keep useful information in file path.<br><br>`support_multi_line`: By default (`support_multi_line=False`), all line breaks, including line breaks in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silent production of more records with misaligned field values. This setting should be set to True when the delimited files are known to contain quoted line breaks. |
 | `read_parquet` | `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when you're reading multiple files, and you want to know which file a particular record originated from. Also, you can keep useful information in file path. |
-| `read_delta_lake` | `timestamp_as_of`: Timestamp to be specified for time-travel on the specific Delta Lake data.<br><br>`version_as_of`: Version to be specified for time-travel on the specific Delta Lake data.
+| `read_delta_lake` (preview) | `timestamp_as_of`: Timestamp to be specified for time-travel on the specific Delta Lake data.<br><br>`version_as_of`: Version to be specified for time-travel on the specific Delta Lake data.
 | `read_json_lines` | `include_path_column`: Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you're reading multiple files, and you want to know which file a particular record originated from. Also, you can keep useful information in file path.<br><br>`invalid_lines`: How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.<br><br>`encoding`: Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
 ##### Other transformations
@@ -857,7 +857,7 @@ tbl = mltable.load(uri)
 df = tbl.to_pandas_dataframe()
 ```
     
-### Delta Lake
+### Delta Lake (preview)
 
 In this example, we assume you have a data in Delta format on Azure Data Lake:
 

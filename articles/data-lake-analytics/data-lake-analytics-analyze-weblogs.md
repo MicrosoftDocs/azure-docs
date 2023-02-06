@@ -9,6 +9,8 @@ ms.date: 12/05/2016
 # Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
 * **[Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)**.

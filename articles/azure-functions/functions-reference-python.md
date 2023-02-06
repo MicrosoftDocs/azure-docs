@@ -397,7 +397,11 @@ def main(req: func.HttpRequest,
 ```
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+::: zone-end
 
+For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
+
+::: zone pivot="python-mode-decorators" 
 At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
 
 | Type | Trigger | Input binding | Output binding |

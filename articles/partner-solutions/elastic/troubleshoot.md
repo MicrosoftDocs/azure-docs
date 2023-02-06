@@ -13,7 +13,7 @@ This document contains information about troubleshooting your solutions that use
 
 ## Unable to create an Elastic resource
 
-Elastic integration with Azure can only be set up by users who have *Owner* or *Contributor* access on the Azure subscription. [Confirm that you have the appropriate access](/azure/role-based-access-control/check-access).
+Elastic integration with Azure can only be set up by users who have *Owner* or *Contributor* access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
 
 ## Logs not being emitted to Elastic
 
@@ -23,9 +23,9 @@ Elastic integration with Azure can only be set up by users who have *Owner* or *
 
     :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Verify diagnostic setting":::
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
 
 - Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
@@ -34,11 +34,11 @@ Elastic integration with Azure can only be set up by users who have *Owner* or *
 
 * Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
+  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 * The EA subscription doesn't allow Marketplace purchases.
 
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 
 
 ## Get support

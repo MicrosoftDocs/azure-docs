@@ -19,6 +19,8 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 * Any device that doesn't have the DigiCert Global Root G2 in its certificate store won't be able to connect to Azure.
 * The IP address of the IoT hub will change.
 
+> [!VIDEO 8f4fe09a-3065-4941-9b4d-d9267e817aad]
+
 ## Timeline
 
 The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023** and completing by October 15, 2023. After all IoT hubs have migrated, then DPS will perform its migration between January 15 and February 15, 2024.

@@ -148,32 +148,29 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     ---
 
-1. To run the template, use the following command:
-
-    # [Azure CLI](#tab/cli)
+1. To run the template, use the following command. Replace the `prefix` with a unique prefix. The prefix will be used when creating Azure resources that are required for Azure Machine Learning. Replace the `securepassword` with a secure password for the jump box. The password is for the login account for the jump box (`azureadmin` in the examples below):
 
     > [!TIP]
-    > The `prefix` must be 5 or less characters.
+    > The `prefix` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az deployment group create \
         --resource-group exampleRG \
         --template-file main.bicep \
         --parameters \
-        prefix=myprefix \
+        prefix=prefix \
         dsvmJumpboxUsername=azureadmin \
         dsvmJumpboxPassword=securepassword
     ```
     # [Azure PowerShell](#tab/ps1)
 
-    > [!TIP]
-    > The `prefix` must be 5 or less characters.
-
     ```azurepowershell
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
         -TemplateFile ./main.bicep `
-        -prefix "myprefix" `
+        -prefix "prefix" `
         -dsvmJumpboxUsername "azureadmin" `
         -dsvmJumpboxPassword $dsvmPassword
     ```

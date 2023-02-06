@@ -4,7 +4,7 @@ description: Learn about troubleshooting and diagnostics for Azure IoT Edge for 
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 08/03/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

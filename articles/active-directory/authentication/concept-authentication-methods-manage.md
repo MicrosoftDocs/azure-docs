@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/07/2023
+ms.date: 01/10/2023
 
 ms.author: justinha
 author: justinha
@@ -105,6 +105,9 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 > - The SSPR administrator policy: admins can continue to register and use any methods listed under the legacy SSPR administrator policy or methods they're enabled to use in the Authentication methods policy.
 > 
 > In the future, both of these features will be integrated with the Authentication methods policy.
+
+## Known issues
+Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
 
 ## Next steps
 

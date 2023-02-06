@@ -144,7 +144,7 @@ The memo requires organizations to change password policies that are proven inef
 
 * Use [password protection](..//authentication/concept-password-ban-bad.md) to enforce a common list of weak passwords that Microsoft maintains. You can also add custom banned passwords.
 
-* Use [self-service password protection](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
+* Use [self-service password reset](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
 
 * Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
 

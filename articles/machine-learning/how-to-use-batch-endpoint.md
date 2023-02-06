@@ -269,8 +269,17 @@ A deployment is a set of resources required for hosting the model that does the 
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
 
-1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`.
-
+1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]` which are required by batch endpoints plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
+    
+    __mnist/environment/conda.yml__
+        
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
+    
+    > [!IMPORTANT]
+    > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
+    
+    Indicate the environment as follows:
+    
     # [Azure CLI](#tab/azure-cli)
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You will see in the following lines in the deployment:
@@ -303,18 +312,8 @@ A deployment is a set of resources required for hosting the model that does the 
     
     ---
     
-    The conda file we used looks as follows:
-    
-    __mnist/environment/conda.yml__
-        
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
-
     > [!WARNING]
     > Curated environments are not supported in batch deployments. You will need to indicate your own environment. You can always use the base image of a curated environment as yours to simplify the process.
-
-    > [!IMPORTANT]
-    > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
-    
 
 1. Create a deployment definition
 

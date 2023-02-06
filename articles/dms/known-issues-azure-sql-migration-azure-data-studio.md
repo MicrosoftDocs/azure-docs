@@ -11,25 +11,27 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: troubleshooting
-ms.date: 10/19/2022
+ms.date: 01/05/2023
 ---
 
 # Known issues, limitations, and troubleshooting
 
-Known issues and limitations associated with the Azure SQL Migration extension for Azure Data Studio.
+Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
 > [!NOTE]
 > When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
 
 
-### Error code: 2007 - CutoverFailedOrCancelled 
+## Error code: 2007 - CutoverFailedOrCancelled 
+
 - **Message**: `Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`  
 
 - **Cause**: The error might occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
 
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there might be network-related issues and lags that are causing this error. Wait for the process to be completed.
 
-### Error code: 2009 - MigrationRestoreFailed
+## Error code: 2009 - MigrationRestoreFailed
+
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
 
 - **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
@@ -88,7 +90,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
     > [!NOTE]
     > For more information on general troubleshooting steps for Azure SQL Managed Instance errors, see [Known issues with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/doc-changes-updates-known-issues)
 
-### Error code: 2012 - TestConnectionFailed
+## Error code: 2012 - TestConnectionFailed
+
 - **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
 
 - **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is caused by network settings in the firewall.
@@ -114,7 +117,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: See [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.  
 
 
-### Error code: 2014 - IntegrationRuntimeIsNotOnline
+## Error code: 2014 - IntegrationRuntimeIsNotOnline
+
 - **Message**: `Integration Runtime <IR Name> in resource group <Resource Group Name> Subscription <SubscriptionID> isn't online.`
 
 - **Cause**: The Self-Hosted Integration Runtime isn't online.
@@ -122,7 +126,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Make sure the Self-hosted Integration Runtime is registered and online. To perform the registration, you can use scripts from [Automating self-hosted integration runtime installation using local PowerShell scripts](../data-factory/self-hosted-integration-runtime-automation-scripts.md). Also, see [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for general troubleshooting steps for Integration Runtime connectivity errors.  
 
 
-### Error code: 2030 - AzureSQLManagedInstanceNotReady
+## Error code: 2030 - AzureSQLManagedInstanceNotReady
+
 - **Message**: `Azure SQL Managed Instance <Instance Name> isn't ready.`
 
 - **Cause**: Azure SQL Managed Instance not in ready state.
@@ -130,7 +135,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Wait until the Azure SQL Managed Instance has finished deploying and is ready, then retry the process.  
 
 
-### Error code: 2033 - SqlDataCopyFailed 
+## Error code: 2033 - SqlDataCopyFailed
+
 - **Message**: `Migration for Database <Database> failed in state <state>.`
 
 - **Cause**: ADF pipeline for data movement failed.
@@ -138,7 +144,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Check the MigrationStatusDetails page for more detailed error information.  
 
 
-### Error code: 2038 - MigrationCompletedDuringCancel
+## Error code: 2038 - MigrationCompletedDuringCancel
+
 - **Message**: `Migration cannot be canceled as Migration was completed during the cancel process. Target server: <Target server> Target database: <Target database>.`
 
 - **Cause**: A cancellation request was received, but the migration was completed successfully before the cancellation was completed.
@@ -146,7 +153,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: No action required migration succeeded.  
 
 
-### Error code: 2039 - MigrationRetryNotAllowed
+## Error code: 2039 - MigrationRetryNotAllowed
+
 - **Message**: `Migration isn't in a retriable state. Migration must be in state WaitForRetry. Current state: <State>, Target server: <Target Server>, Target database: <Target database>.`
 
 - **Cause**: A retry request was received when the migration wasn't in a state allowing retrying.
@@ -154,7 +162,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: No action required migration is ongoing or completed.  
 
 
-### Error code: 2040 - MigrationTimeoutWaitingForRetry
+## Error code: 2040 - MigrationTimeoutWaitingForRetry
+
 - **Message**: `Migration retry timeout limit of 8 hours reached. Target server: <Target Server>, Target database: <Target Database>.`
 
 - **Cause**: Migration was idle in a failed, but retrievable state for 8 hours and was automatically canceled.
@@ -162,7 +171,8 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: No action is required; the migration was canceled.  
 
 
-### Error code: 2041 - DataCopyCompletedDuringCancel
+## Error code: 2041 - DataCopyCompletedDuringCancel
+
 - **Message**: `Data copy finished successfully before canceling completed. Target schema is in bad state. Target server: <Target Server>, Target database: <Target Database>.`
 
 - **Cause**: Cancel request was received, and the data copy was completed successfully, but the target database schema hasn't been returned to its original state.
@@ -178,7 +188,8 @@ WHERE STEP in (5,7,8) ORDER BY STEP DESC;
 ```
   
 
-### Error code: 2042 - PreCopyStepsCompletedDuringCancel 
+## Error code: 2042 - PreCopyStepsCompletedDuringCancel 
+
 - **Message**: `Pre Copy steps finished successfully before canceling completed. Target database Foreign keys and temporal tables have been altered. Schema migration may be required again for future migrations. Target server: <Target Server>, Target database: <Target Database>.`
 
 - **Cause**: Cancel request was received and the steps to prepare the target database for copy were completed successfully. The target database schema hasn't been returned to its original state.
@@ -191,67 +202,31 @@ WHERE STEP in (3,4,6);
 ```
   
 
-### Error code: 2043 - CreateContainerFailed
+## Error code: 2043 - CreateContainerFailed
+
 - **Message**: `Create container <ContainerName> failed with error Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>.`
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
 
+## Azure SQL Database limitations 
 
-## Database Migration Service issues
-Migrations that were completed before early December 2022 may be missing migration details. This action doesn't have a negative effect on new or ongoing migrations.
+Migrating to Azure SQL Database by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-## Azure SQL Database Migration limitations
+[!INCLUDE [sql-db-limitations](includes/sql-database-limitations.md)]
 
-The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service.
- The machine where the SHIR is installed acts as the compute for migration. Make sure this machine can handle the cpu and memory load of the data copy. To learn more, review [SHIR recommendations](/azure/data-factory/create-self-hosted-integration-runtime). 
-- 100,000 table per database limit. 
-- 10,000 concurrent database migrations per service. 
-- Migration speed heavily depends on the target Azure SQL Database SKU and the self-hosted Integration Runtime host. 
-- Azure SQL Database migration scales poorly with table numbers due to ADF overhead in starting activities. If a database has thousands of tables, there will be a couple of seconds of startup time for each, even if they're composed of one row with 1 bit of data. 
-- Azure SQL Database table names with double-byte characters currently aren't supported for migration.  Mitigation is to rename tables before migration; they can be changed back to their original names after successful migration.
-- Tables with large blob columns may fail to migrate due to timeout.
-- Database names with SQL Server reserved are currently not supported.
-- Database names that include semicolons are currently not supported.
-- Computed columns don't get migrated.
+## Azure SQL Managed Instance limitations 
 
-## Azure SQL Managed Instance known issues and limitations
+Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-- If migrating a single database, the database backups must be placed in a flat-file structure inside a database folder (including the container root folder), and the folders can't be nested, as it's not supported.
-- If migrating multiple databases using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
-- Overwriting existing databases using DMS in your target Azure SQL Managed Instance isn't supported.
-- Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
-- The following server objects aren't supported:
-    - Logins
-    - SQL Server Agent jobs
-    - Credentials
-    - SSIS packages
-    - Server roles
-    - Server audit
-- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations.
+[!INCLUDE [sql-mi-limitations](includes/sql-managed-instance-limitations.md)]
 
-## SQL Server on Azure Virtual Machine known issues and limitations
+## SQL Server on Azure VMs limitations 
 
-- If migrating a single database, the database backups must be placed in a flat-file structure inside a database folder (including the container root folder), and the folders can't be nested, as it's not supported.
-- If migrating multiple databases using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
-- Overwriting existing databases using DMS in your target SQL Server on Azure Virtual Machine isn't supported.
-- Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
-- The following server objects aren't supported:
-    - Logins
-    - SQL Server Agent jobs
-    - Credentials
-    - SSIS packages
-    - Server roles
-    - Server audit
+Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations.
-- VM with SQL Server 2008 and below as target versions aren't supported when migrating to SQL Server on Azure Virtual Machines.
-- If you're using VM with SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
-- You must make sure the [SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) in the target Azure Virtual Machine is in **Full** mode instead of **Lightweight** mode.
-- [SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management)only supports management of **Default Server Server Instance** or **Single Named Instance**, 
-- There's a temporary limit of 80 databases per target Azure Virtual Machine. A workaround to break the limit (reset the counter) is to **Uninstall** and **Reinstall** [SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) in the target Azure Virtual Machine.
-- Apart from configuring the Networking/Firewall of your Storage Account to allow your VM to access backup files, you also need to configure the Networking/Firewall of your VM to allow outbound connection to your storage account.
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
 
 ## Next steps
 

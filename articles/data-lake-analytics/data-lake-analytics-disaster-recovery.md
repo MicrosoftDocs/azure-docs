@@ -8,6 +8,8 @@ ms.date: 06/03/2019
 ---
 # Disaster recovery guidance for Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]s
+
 Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. This article provides guidance on how to protect your jobs from rare region-wide outages or accidental deletions.
 
 ## Disaster recovery guidance

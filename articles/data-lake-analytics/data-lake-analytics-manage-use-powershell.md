@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs by using Azure PowerShell.
 
 ## Prerequisites

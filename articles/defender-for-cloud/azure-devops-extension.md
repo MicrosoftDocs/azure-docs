@@ -8,6 +8,9 @@ ms.custom: ignite-2022
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
 
+> [!Note]
+> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the Microsoft Security DevOps Azure DevOps extension. MSCA customers should follow the instructions in this article to install and configure the extension.
+
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
 The Microsoft Security DevOps uses the following Open Source tools:

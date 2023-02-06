@@ -22,7 +22,6 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md)
 - [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
 - [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
 - [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
 - [End-user experiences for applications](end-user-experiences.md)
 - [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)

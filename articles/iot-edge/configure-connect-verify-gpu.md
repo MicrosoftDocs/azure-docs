@@ -4,7 +4,7 @@ description: Configure your environment to connect and verify your GPU to proces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 7/22/2022
+ms.date: 9/22/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

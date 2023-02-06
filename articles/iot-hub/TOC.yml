@@ -508,6 +508,8 @@
           href: troubleshoot-message-routing.md
         - name: Resolve error codes
           href: troubleshoot-error-codes.md
+        - name: Capture trace logs
+          href: how-to-collect-device-logs.md
     - name: Migrate TLS certificate root
       href: migrate-tls-certificate.md
 

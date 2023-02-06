@@ -178,29 +178,29 @@ After your Azure VMware Solution vCenter resources have been enabled for access 
 
 This section will demonstrate how to use custom roles to manage granular access to VMware vSphere resources through Azure.
 
-#### Arc-enabled VMware vSphere custom roles
+#### Arc-enabled VMware vSphere built-in roles
 
-Three custom roles are provided to meet your Role-based access control (RBAC) requirements. These roles can be applied to a whole subscription, resource group, or a single resource.
+There are three built-in roles to meet your Role-based access control (RBAC) requirements. You can apply these roles to a whole subscription, resource group, or a single resource.
 
-- Azure Arc VMware vSphere Administrator role
-- Azure Arc VMware vSphere Private Cloud User role
-- Azure Arc VMware vSphere VM Contributor role
+**Azure Arc VMware Administrator role** - is used by administrators
 
-The first role is for an Administrator. The other two roles apply to anyone who needs to deploy or manage a VM.
+**Azure Arc VMware Private Cloud User role** - is used by anyone who needs to deploy and manage VMs
+
+**Azure Arc VMware VM Contributor role** - is used by anyone who needs to deploy and manage VMs
 
 **Azure Arc Azure VMware Solution Administrator role**
 
-This custom role gives the user permission to conduct all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. This role should be assigned to users or groups who are administrators that manage Azure Arc-enabled Azure VMware Solution deployment.
+This role provides permissions to perform all possible operations for the Microsoft.ConnectedVMwarevSphere resource provider. Assign this role to users or groups that are administrators managing Azure Arc enabled VMware vSphere deployment.
 
 **Azure Arc Azure VMware Solution Private Cloud User role**
 
-This custom role gives the user permission to use the Arc-enabled Azure VMware Solutions vSphere resources that have been made accessible through Azure. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+This role gives the user permission to use the Arc-enabled Azure VMware Solutions vSphere resources that have been made accessible through Azure. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
 
 We recommend assigning this role at the individual resource pool (host or cluster), virtual network, or template that you want the user to deploy VMs with. 
 
 **Azure Arc Azure VMware Solution VM Contributor role**
 
-This custom role gives the user permission to perform all VMware VM operations. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+This role gives the user permission to perform all VMware VM operations. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
 
 We recommend assigning this role at the subscription level or resource group you want the user to deploy VMs with.
 
@@ -403,7 +403,7 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 **Is Arc supported in all the Azure VMware Solution regions?**
  
-Arc is supported in EastUS and WestEU regions however we are working to extend the regional support.
+Arc is supported in EastUS, WestEU, UK South, Australia East, Canada Central and Southeast Asia regions however we are working to extend the regional support.
 
 **How does support work?**
 

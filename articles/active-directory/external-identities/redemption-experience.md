@@ -8,8 +8,8 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/16/2022
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management

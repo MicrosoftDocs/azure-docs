@@ -212,7 +212,7 @@ By default, Teams allows external access. The organization can communicate with
 Sharing through SharePoint and OneDrive adds users not in the Entitlement Management process. 
 
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
-* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office.md) 
+* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 
 
 ### Documents in email
 
