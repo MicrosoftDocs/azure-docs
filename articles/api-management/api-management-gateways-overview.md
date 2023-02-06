@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 02/06/2023
 ms.author: danlep
 ---
 
