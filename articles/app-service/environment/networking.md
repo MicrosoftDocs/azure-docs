@@ -107,7 +107,7 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples uses the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you are using sovereign clouds like Azure Government or Azure China, you will need to use their respective domain suffix.
 
 ### DNS configuration to your App Service Environment
 
