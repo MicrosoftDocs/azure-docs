@@ -1,7 +1,7 @@
 ---
 title: Collect the required information for a service
-titleSuffix: Azure Private 5G Core Preview
-description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -10,15 +10,15 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Collect the required information for a service for Azure Private 5G Core Preview
+# Collect the required information for a service for Azure Private 5G Core
 
 A *service* is a set of quality of service (QoS) characteristics you want to offer SIMs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources.
 
 Each service has a set of rules to identify the service data flows (SDFs) to which the QoS characteristics should be applied. For more information, see [Policy control](policy-control.md). 
 
-In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
+In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core.
 
-- You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md).
+- You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core - Azure portal](configure-service-azure-portal.md).
 - Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
 
 ## Prerequisites
@@ -87,5 +87,5 @@ Collect the following values for each data flow template you want to use for a p
 
 You can use this information to either create a service using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
 
-- [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md)
+- [Configure a service for Azure Private 5G Core - Azure portal](configure-service-azure-portal.md)
 - [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md)

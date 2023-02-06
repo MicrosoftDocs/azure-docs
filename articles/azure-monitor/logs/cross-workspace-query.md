@@ -25,8 +25,8 @@ There are two methods to query data that is stored in multiple workspace and app
 ## Cross-resource query limits 
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include in [Workbooks](../visualize/workbooks-overview.md).
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
+* References to cross resource such as another workspace, should be explicit and cannot be parameterized. See [Identifying workspace resources](#identifying-workspace-resources) for examples.
 
 
 ## Querying across Log Analytics workspaces and from Application Insights

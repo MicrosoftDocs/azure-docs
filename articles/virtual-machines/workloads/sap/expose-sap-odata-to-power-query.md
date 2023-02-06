@@ -3,7 +3,7 @@ title: Enable SAP Principal Propagation for live OData feeds with Power Query
 description: Learn about configuring SAP Principal Propagation for live OData feeds with Power Query 
 author: MartinPankraz
 
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/10/2022

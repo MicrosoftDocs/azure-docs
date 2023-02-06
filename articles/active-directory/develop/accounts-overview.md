@@ -2,7 +2,7 @@
 title: Microsoft identity platform accounts & tenant profiles on Android
 description: An overview of the Microsoft identity platform accounts for Android
 services: active-directory
-author: shoatman
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
-ms.author: shoatman
+ms.author: cwerner
 ms.custom: aaddev, devx-track-java, has-adal-ref
 ms.reviewer: shoatman
 ---
