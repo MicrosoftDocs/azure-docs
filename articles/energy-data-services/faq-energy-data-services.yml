@@ -34,11 +34,11 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Microsoft Energy Data Services?
           answer: >
-            Pricing for Microsoft Energy Data Services will be made available by February 2023. 
+            Pricing for Microsoft Energy Data Services will be made available on Azure.com via the Product Pricing Page. 
 
         - question: When will billing begin for Microsoft Energy Data Services Preview?
           answer: >
-            Microsoft Energy Data Services is currently free and billing will begin starting December 1, 2022.
+            Microsoft Energy Data Services is currently free and billing will begin February 15th, 2023.
 
     - name: Support policies
       questions:
