@@ -3,6 +3,7 @@ title: Troubleshooting manifest ingestion #Required; this page title is displaye
 description: Find out how to troubleshoot manifest ingestion using Airflow task logs #Required; this article description is displayed in search results.
 author: bharathim #Required; your GitHub user alias — correct capitalization is needed.
 ms.author: bselvaraj #Required; Microsoft alias of the author.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: troubleshooting-general #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023
 ---
