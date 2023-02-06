@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 02/06/2022
 
 ---
 # Monitor Azure Cache for Redis
