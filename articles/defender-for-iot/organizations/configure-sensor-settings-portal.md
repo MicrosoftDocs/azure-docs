@@ -48,7 +48,7 @@ Define a new setting whenever you want to define a specific configuration for on
     |**Apply**     | Use the **Select sites**, **Select zones**, and **Select sensors** dropdown menus to define where you want to apply your setting.   <br><br>**Important**:  Selecting a site or zone applies the setting to all connected OT sensors, including any OT sensors added to the site or zone later on. <br>If you select to apply your settings to an entire site, you don't also need to select its zones or sensors. |
     |**Review and create**     | Check the selections you've made for your setting. <br><br>If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.<br><br>When you're satisfied with the setting's configuration, select **Create**.     |
 
-Your new setting is now listed on the **Sensor settings (Preview)** page under it's setting type, and on the sensor details page for any related OT sensor. Sensor settings are shown as read-only on the sensor details page. For example:
+Your new setting is now listed on the **Sensor settings (Preview)** page under its setting type, and on the sensor details page for any related OT sensor. Sensor settings are shown as read-only on the sensor details page. For example:
 
 :::image type="content" source="media/configure-sensor-settings-portal/sensor-details-setting.png" alt-text="Screenshot of a sensor details page showing a setting applied.":::
 
@@ -68,13 +68,13 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
     :::image type="content" source="media/configure-sensor-settings-portal/view-settings.png" alt-text="Screenshot of OT sensor settings on the Azure portal.":::
 
-1. Select a specific setting to view it's exact configuration and the site, zones, or individual sensors where the setting is applied.
+1. Select a specific setting to view its exact configuration and the site, zones, or individual sensors where the setting is applied.
 
 1. To edit the setting's configuration, select **Edit** and then use the same wizard you used to create the setting to make the updates you need. When you're done, select **Apply** to save your changes.
 
 ### Delete an existing OT sensor setting
 
-To delete a OT sensor setting altogether:
+To delete an OT sensor setting altogether:
 
 1. On the **Sensor settings (Preview)** page, locate the setting you want to delete.
 1. Select the **...** options menu at the top-right corner of the setting's card and then select **Delete**.
