@@ -848,7 +848,63 @@ Make note of both IP addresses. You will use them later to verify the outbound c
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **myVM**.
+
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
+
+1. Enter the username and password you created when you created the virtual machine.
+
+1. Select **Connect**.
+
+1. On the desktop of **myVM**, open **Microsoft Edge**.
+
+1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+
+1. You should see the IPv4 address of **20.230.191.5** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
+
+1. In the address bar, enter **http://v6.testmyipv6.com**
+
+1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
+
+1. Close the bastion connection to **myVM**.
+
 # [**CLI**](#tab/dual-stack-outbound--cli)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **myVM**.
+
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
+
+1. Enter the username and password you created when you created the virtual machine.
+
+1. Select **Connect**.
+
+1. On the desktop of **myVM**, open **Microsoft Edge**.
+
+1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+
+1. You should see the IPv4 address of **20.230.191.5** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
+
+1. In the address bar, enter **http://v6.testmyipv6.com**
+
+1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
+
+1. Close the bastion connection to **myVM**.
 
 ---
 ## Clean up resources
@@ -864,6 +920,12 @@ When your finished with the resources created in this article, delete the resour
 1. Enter **TutorialIPv6NATLB-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
+
+Use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources created.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'TutorialIPv6NATLB-rg'
+```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
