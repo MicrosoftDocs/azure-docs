@@ -77,7 +77,7 @@ Metrics having to do with data ingress:
 
 ### Bulk operation metrics (from the Jobs API)
 
-Metrics having to do with bulk operations using the [Jobs API]():
+Metrics having to do with bulk operations using the Jobs API:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
