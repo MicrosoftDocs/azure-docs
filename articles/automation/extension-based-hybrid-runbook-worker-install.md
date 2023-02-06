@@ -118,7 +118,7 @@ $protectedsettings = @{
       "Proxy_URL"="http://username:password@<IP Address>"
 };
 $settings = @{
-    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
+    "AutomationAccountURL"  = "<registration-url>";    
 };
 ```
 **Azure VMs**
