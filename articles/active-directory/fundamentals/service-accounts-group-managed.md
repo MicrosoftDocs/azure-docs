@@ -118,7 +118,7 @@ To move to a gMSA:
 3. Install the new gMSA on hosts that run the service.
    
    > [!NOTE] 
-   > Before configuring your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11).
+   > Before configuring your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
 
 4. Change your service identity to gMSA.
 5. Specify a blank password.
