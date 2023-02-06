@@ -69,7 +69,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 Because you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
@@ -78,12 +78,6 @@ Extension bundles usage is enabled in the *host.json* file at the root of the pr
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
 Now, you can add the storage output binding to your project.
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [functions-register-storage-binding-extension-python](../../includes/functions-register-storage-binding-extension-python.md)]
 
 ::: zone-end
 
@@ -97,9 +91,15 @@ Now, you can add the storage output binding to your project.
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
 
 ::: zone-end
 
