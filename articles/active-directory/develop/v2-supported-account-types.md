@@ -26,7 +26,7 @@ This article explains what account types (sometimes called *audiences*) are supp
 In the Microsoft Azure public cloud, most types of apps can sign in users with any audience:
 
 - If you're writing a line-of-business (LOB) application, you can sign in users in your own organization. Such an application is sometimes called *single-tenant*.
-- If you're an ISV, you can write an application that signs in users:
+- If you're an independent software vendor (ISV), you can write an application that signs in users:
 
   - In any organization. Such an application is called a *multitenant* web application. You'll sometimes read that it signs in users with their work or school accounts.
   - With their work or school or personal Microsoft accounts.
@@ -36,7 +36,7 @@ In the Microsoft Azure public cloud, most types of apps can sign in users with a
 
 ## Account type support in authentication flows
 
-Some account types can't be used with certain authentication flows. For instance, in desktop, UWP, or daemon applications:
+Some account types can't be used with certain authentication flows. For instance, in desktop, Universal Windows Platform (UWP), or daemon applications:
 
 - Daemon applications can be used only with Azure AD organizations. It doesn't make sense to try to use daemon applications to manipulate Microsoft personal accounts. The admin consent will never be granted.
 - You can use the integrated Windows authentication flow only with work or school accounts (in your organization or any organization). Integrated Windows authentication works with domain accounts, and it requires the machines to be domain-joined or Azure AD-joined. This flow doesn't make sense for personal Microsoft accounts.
