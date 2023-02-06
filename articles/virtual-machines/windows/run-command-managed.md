@@ -91,7 +91,7 @@ Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```powershell-interactive
-Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Status
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand InstanceView
 ```
 
 ### Create or update Run Command on a VM using SourceScriptUri (storage blob SAS URL)

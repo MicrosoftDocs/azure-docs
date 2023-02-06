@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to create a Form Recognizer custom skill using C# and Visual Studio.
 
 manager: nitinme
-author: PatrickFarley
-ms.author: pafarley
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 12/01/2022
+ms.topic: how-to
+ms.date: 02/01/2023
 ---
 
 # Example: Create a Form Recognizer custom skill
 
-In this Azure Cognitive Search skillset example, you'll learn how to create a Form Recognizer custom skill using C# and Visual Studio. Form Recognizer analyzes documents and extracts key/value pairs and table data. By wrapping Form Recognizer into the [custom skill interface](cognitive-search-custom-skill-interface.md), you can add this capability as a step in an end-to-end enrichment pipeline. The pipeline can then load the documents and do other transformations.
+In this Azure Cognitive Search skillset example, you'll learn how to create a Form Recognizer custom skill using C# and Visual Studio. Form Recognizer analyzes documents and extracts key/value pairs and table data. By wrapping Form Recognizer into the [custom skill interface](cognitive-search-custom-skill-interface.md), you can add form recognition as a step in an end-to-end [AI enrichment pipeline](cognitive-search-concept-intro.md). The pipeline can then load the recognized forms and do other transformations.
 
 ## Prerequisites
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/) (any edition).
 - At least five forms of the same type. You can use sample data provided with this guide.
 
 ## Create a Form Recognizer resource
@@ -26,13 +26,15 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. [Use Form Recognizer models](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) explains how to train a model. You can use sample data or provide your own.
+
+Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 
 This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
-First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
+First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, select the **Debug** tab and then find the **Environment variables** field. Select **Add** to add the following variables:
 * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
 * `FORMS_RECOGNIZER_API_KEY` with the value set to your subscription key.
 * `FORMS_RECOGNIZER_MODEL_ID` with the value set to the ID of the model you trained.
@@ -52,12 +54,12 @@ After you've edited your project, save it and set the **AnalyzeForm** project as
 You'll make the following request to call the function.
 
 ```HTTP
-POST https://localhost:7071/api/analyze-form
+POST http://localhost:7071/api/analyze-form
 ```
 
 ### Request body
 
-Start with the request body template below.
+Start with the request body template
 
 ```json
 {
