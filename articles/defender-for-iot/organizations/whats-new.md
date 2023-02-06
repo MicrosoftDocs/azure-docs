@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
-For sensor versions 22.2.3 and higher, you can now configure selected settings for cloud-connected sensors from the Azure portal using the new **Sensor settings (Preview)** page. For example:
+For sensor versions 22.2.3 and higher, you can now configure selected settings for cloud-connected sensors using the new **Sensor settings (Preview)** page, accessed via the Azure portal's **Sites and sensors** page. For example:
 
 :::image type="content" source="media/configure-sensor-settings-portal/view-settings.png" alt-text="Screenshot of the OT sensor settings on the Azure portal.":::
 
