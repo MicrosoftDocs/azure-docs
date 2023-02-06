@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting manifest ingestion #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
+title: Troubleshoot manifest ingestion in Microsoft Energy Data Services Preview #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
 description: Find out how to troubleshoot manifest ingestion using Airflow task logs #Required; this article description is displayed in search results.
 author: bharathim #Required; your GitHub user alias — correct capitalization is needed.
 ms.author: bselvaraj #Required; Microsoft alias of the author.
@@ -8,10 +8,10 @@ ms.topic: troubleshooting-general #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023
 ---
 
-# Troubleshoot Manifest ingestion issues using Airflow task logs
+# Troubleshoot manifest ingestion issues using Airflow task logs
 This article helps you troubleshoot manifest ingestion workflow issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
 
-## Manifest Ingestion DAG workflow types
+## Manifest ingestion DAG workflow types
 The Manifest ingestion workflow is of two types:
 - Single manifest
 - Batch upload
@@ -23,7 +23,7 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 |---------|---------|
 |**Update_status_running_task** | Calls Workflow service and marks the status of DAG as running in the database        |
 |**Check_payload_type** | Validates whether the ingestion is of batch type or single manifest|
-|**Validate_manifest_schema_task** | Ensures all the schema kinds mentioned in the manifest are present and there is referential schema integrity. All invalid values will be evicted from the manifest |
+|**Validate_manifest_schema_task** | Ensures all the schema kinds mentioned in the manifest are present and there's referential schema integrity. All invalid values will be evicted from the manifest |
 |**Provide_manifest_intergrity_task** | Validates references inside the OSDU&trade; R3 manifest and removes invalid entities. This operator is responsible for parent-child validation. All orphan-like entities will be logged and excluded from the validated manifest. Any external referenced records will be searched and in case not found, the manifest entity will be dropped. All surrogate key references are also resolved |
 |**Process_single_manifest_file_task** | Performs ingestion of the final obtained manifest entities from the previous step, data records will be ingested via the storage service |
 |**Update_status_finished_task** | Calls workflow service and marks the status of DAG as `finished` or `failed` in the database |
