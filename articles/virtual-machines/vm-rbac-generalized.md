@@ -18,11 +18,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 
 
-## Shared within your organization
+## RBAC - Shared within your organization
 
+If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 ### [CLI](#tab/cli)
-
-
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
@@ -146,8 +145,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ---
 
 
-## Shared from another tenant
-
+## RBAC - Shared from another tenant
 
 
 ### [CLI](#tab/cli)
@@ -174,12 +172,12 @@ Create the VM. Replace the information in the example with your own. Before you 
 
 ```azurecli-interactive
 imageid="<ID of the image that you want to use>"
-resourcegroup="<name for the resource group>
+resourcegroup="<name for the resource group>"
 location="<location where the image is replicated>"
 user='<username for the VM>'
 name='<name for the VM>'
 
-az group create 
+az group create --location --resource-group $resourcegroup
 az vm create \
   --resource-group $resourcegroup \
   --name $name \

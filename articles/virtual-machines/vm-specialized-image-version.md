@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Create a VM using a specialized image version 
+# Create a VM using a specialized image version
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
@@ -145,27 +145,227 @@ New-AzVM `
 
 ```
 
-### [Portal](#tab/portal)
+## RBAC - within your organization
 
-Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
+If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 
-1. Go to your image definition. You can use the resource filter to show all image definitions available.
-1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
-1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
-1. In **Virtual machine name**, type *myVM*.
-1. For **Region**, select *East US*.
-1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
-1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
-1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
-1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
-1. When you're finished, select the **Review + create** button at the bottom of the page.
-1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
 
----
+### [CLI](#tab/cli)
 
 
-## Create a VM from a community gallery image
+```azurecli-interactive
+
+image="/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
+vmResourceGroup='myResourceGroup'
+location='westus'
+vmName='myVM'
+
+az group create --name $vmResourceGroup --location $location
+
+az vm create\
+   --resource-group $vmResourceGroup \
+   --name $vmName \
+   --image $image \
+   --specialized
+```
+
+### [PowerShell](#tab/powershell)
+
+
+```azurepowershell-interactive
+
+# Create some variables for the new VM.
+
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVM"
+$image = "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
+
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Create the network resources.
+
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+   -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 -Access Deny
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name myNetworkSecurityGroup `
+   -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name $vmName `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using Set-AzVMSourceImage -Id $imageDefinition.Id to use the latest available image version.
+
+$vmConfig = New-AzVMConfig `
+   -VMName $vmName `
+   -VMSize Standard_D1_v2 | `
+   Set-AzVMSourceImage $image | `
+   Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -VM $vmConfig
+
+```
+
+## RBAC - from another tenant or organization
+
+If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to log in to each tenant to verify you have access.
+
+You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
+
+### [CLI](#tab/cli)
+
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+
+```azurecli-interactive
+tenant1='<ID for tenant 1>'
+tenant2='<ID for tenant 2>'
+
+az account clear
+az login --tenant $tenant1
+az account get-access-token 
+az login --tenant $tenant2
+az account get-access-token
+
+```
+
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image.
+
+```azurecli-interactive
+
+imageid=""/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition""
+resourcegroup="myResourceGroup"
+location="West US 3"
+name='myVM'
+
+az group create --name $resourcegroup --location $location
+az vm create --resource-group $resourcegroup \
+    --name $name \
+    --image $image \
+    --specialized
+```
+
+### [PowerShell](#tab/powershell)
+
+
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+
+```azurepowershell-interactive
+
+$tenant1 = "<Tenant 1 ID>"
+$tenant2 = "<Tenant 2 ID>"
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+```
+
+Create the VM. Replace the information in the example with your own. Before you create the VM, make sure that the image is replicated into the region where you want to create the VM.
+
+```azurepowershell-interactive
+
+# Create some variables for the new VM.
+
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVM"
+
+# Set a variable for the image version in Tenant 1 using the full image ID of the image version
+$image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
+
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Create the network resources.
+
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+   -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 -Access Deny
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name myNetworkSecurityGroup `
+   -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name $vmName `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using Set-AzVMSourceImage -Id $imageDefinition.Id to use the latest available image version.
+
+$vmConfig = New-AzVMConfig `
+   -VMName $vmName `
+   -VMSize Standard_D1_v2 | `
+   Set-AzVMSourceImage -Id $image | `
+   Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -VM $vmConfig
+
+```
+
+
+## Community gallery 
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -232,7 +432,7 @@ To create the VM from community gallery image, you must accept the license agree
 
 ---
 
-## Create a VM from a direct shared gallery
+## Direct shared gallery
 
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
