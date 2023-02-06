@@ -27,13 +27,12 @@ Since a typical cloud solution consists of multiple applications, database, stor
 
 [Safe deployment practices - Azure DevOps | Microsoft Learn](/devops/operate/safe-deployment-practices)
 
-<img src="/media/image2.png" style="width:7.13607in;height:4.74251in" />
+:::image type="content" source="/media/routine-maintenance/routine-maintenance.png" alt-text="A sample maintenance event in the Azure Portal":::
 
 In order from top to bottom we see:
 - A descriptive title of the maintenance event
 - Impacted regions and subscriptions
 - Expected maintenance window
-
 
 ## Frequently Asked Questions
 
