@@ -18,9 +18,9 @@ Passive geo-replication links together two Premium tier Azure Cache for Redis in
 
 Compare _active-passive_ to _active-active_, where you can write to either side of the pair, and it will synchronize with the other side.
 
-With passive geo-replication, the cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary.
+With passive geo-replication, the cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests, and the primary propagates changes to the secondary.
 
-Failover is not automatic. For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary](#initiate-a-failover-from-geo-primary-to-geo-secondary).
+Failover isn't automatic. For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary](#initiate-a-failover-from-geo-primary-to-geo-secondary).
 
 > [!NOTE]
 > Passive geo-replication is designed as a disaster-recovery solution.
@@ -66,7 +66,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
 - You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Failover is not automatic. You must start the failover from the primary to the secondary linked cache.  For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary](#initiate-a-failover-from-geo-primary-to-geo-secondary).
+- Failover isn't automatic. You must start the failover from the primary to the secondary linked cache.  For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary](#initiate-a-failover-from-geo-primary-to-geo-secondary).
 
 - Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
@@ -88,11 +88,11 @@ After geo-replication is configured, the following restrictions apply to your li
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Screenshot showing how to link caches for geo-replication.":::
 
-1. You can view the progress of the replication process using **Geo-replication** on the left.
+1. You can view the progress of the replication process using **Geo-replication** in the Resource menu.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Screenshot showing the current Linking status.":::
 
-    You can also view the linking status on the left, using **Overview**, for both the primary and secondary caches.
+    You can also view the linking status using **Overview** from the Resource menu for both the primary and secondary caches.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-status.png" alt-text="Screenshot that highlights how to view the linking status for the primary and secondary caches.":::
 
@@ -110,14 +110,14 @@ Once the caches are linked, a URL is generated for each cache that always points
 
 Three URLs are shown:
 
-- **Geo-Primary URL** is a proxy URL with the format of `<cachename>.geo.redis.cache.windows.net`. This URL always points to whichever cache in the geo-replication pair is the current geo-primary. 
-- **Current Geo Primary Cache** is the direct address of the cache that is currently the geo-primary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`. The address listed in this field changes if a failover is initiated.  
-- **Current Geo Secondary Cache** is the direct address of the cache that is currently the geo-secondary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`.  The address listed in this field changes if a failover is initiated.
+- **Geo-Primary URL** is a proxy URL with the format of `<cachename>.geo.redis.cache.windows.net`. The URL always points to whichever cache in the geo-replication pair is the current geo-primary. 
+- **Current Geo Primary Cache** is the direct address of the cache that is currently the geo-primary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`. The address listed in the field changes if a failover is initiated.  
+- **Current Geo Secondary Cache** is the direct address of the cache that is currently the geo-secondary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`.  The address listed in the field changes if a failover is initiated.
 
 
 ## Initiate a failover from geo-primary to geo-secondary
 
-With one click, you can trigger a failover from the geo-primary to the geo-secondary.
+With one select, you can trigger a failover from the geo-primary to the geo-secondary.
 
 :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-failover.png" alt-text="Screenshot of linked caches with Failover highlighted.":::
 
@@ -137,7 +137,7 @@ Be sure to check the following items:
 
 - If you’re using a firewall in either cache, make sure that the firewall settings are similar so you have no connection issues.
 - Make sure both caches are using the same port and TLS/SSL settings
-- The geo-primary and geo-secondary caches have different access keys. In the event of a failover being triggered, make sure your application can update the access key it's using to match the new geo-primary.
+- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary.
 
 ### Failover with minimal data loss
 
