@@ -19,8 +19,17 @@ Before you can use MSIX app attach to follow the directions in this article, you
 
 - A Windows 10 or 11 client.
 - An application you've expanded from MSIX format into app attach format. To learn how to expand an MSIX application, see [Using the MSIXMGR tool](app-attach-msixmgr.md).
+- If you're using a cimFS image, you'll need to install the following module before you can get started:
+  
+      ```powershell
+      Install-Module CimDiskImage
+      Import-Module CimDiskImage
+      ```
 
 These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
+
+>[!NOTE]
+>Microsoft Support doesn't currently support the PowerShell scripts in this article, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ## Phases of MSIX app attach
 
@@ -31,7 +40,7 @@ To use MSIX packages outside of Azure Virtual Desktop, there are four distinct p
 3. Deregister
 4. Destage
 
-Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *cim* or *VHD(X)* format.
+Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *CimFS* or *VHD(X)* format.
 
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
@@ -40,22 +49,11 @@ Staging and destaging are machine-level operations, while registering and deregi
 
 The staging script prepares your machine to receive the MSIX package and mounts the relevant package to your machine. You'll only need to run the following commands once per machine.
 
-However, if you're using an image in cim format or a version of PowerShell greater than 5.1, the instructions will look a bit different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You'll need to use a slightly different version of the commands to install a package with a multi-platform version of PowerShell.
+However, if you're using an image in CimFS format or a version of PowerShell greater than 5.1, the instructions will look a bit different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You'll need to use a slightly different version of the commands to install a package with a multi-platform version of PowerShell.
 
 You'll need to run PowerShell as an Administrator to run the commands in the following sections.
 
-Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using and whether your disk image is in *cim* or *VHD(X)* format.
-
-### CimFS
-
-If your disk image is in VHD(X) format, ignore this section and skip ahead to either [PowerShell 6 and later](#powershell-6-and-later) or [PowerShell 5.1 and earlier](#powershell-51-and-earlier), depending on which version of PowerShell you're using.
-
-If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll need run the following cmdlets to install a PowerShell module from the PowerShell image gallery in order to use the commands in this article.
-
-```powershell
-Install-Module CimDiskImage
-Import-Module CimDiskImage
-```
+Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using.
 
 ### PowerShell 6 and later
 
@@ -91,9 +89,6 @@ To stage packages at boot with PowerShell version 5.1 or earlier, run this comma
    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
    Add-Type -AssemblyName System.Runtime.WindowsRuntime
    ```
-
->[!NOTE]
->Microsoft Support doesn't currently support this module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ## Mount your disk image
 
