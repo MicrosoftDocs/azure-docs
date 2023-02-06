@@ -50,13 +50,13 @@ If available in a stable upgrade channel, newer minor releases (N+1, N+2) availa
 
 Critical patch updates are applied to clusters automatically by Azure Red Hat OpenShift Site Reliability Engineers (SRE). Customers that wish to install patch updates in advance are free to do so.
 
-For example, if Azure Red Hat OpenShift introduces 4.5.z today, support is provided for the following versions:
+For example, if Azure Red Hat OpenShift introduces 4.10.z today, support is provided for the following versions:
 
 |New minor version|Supported version list|
 |-|-|
 |4.10.z|4.10.z, 4.9.z|
 
-".z" is representative of patch versions. If available in a stable upgrade channel, customers may also upgrade to 4.6.z.
+".z" is representative of patch versions. If available in a stable upgrade channel, customers may also upgrade to 4.9.z.
 
 When a new minor version is introduced, the oldest minor version is deprecated and removed. For example, say the current supported version list is 4.10.z and 4.9.z. When Azure Red Hat OpenShift releases 4.11.z, the 4.9.z release will be removed and will be out of support within 30 days.
 
