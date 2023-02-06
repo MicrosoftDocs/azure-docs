@@ -75,7 +75,9 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
+| **Define OT network sensor settings** (Preview) | Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
 |<a name="endpoint"></a> **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
+
 
 ## Retrieve forensics data stored on the sensor
 
@@ -87,7 +89,7 @@ Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data fr
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md).
+Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Reactivate an OT sensor
 
@@ -176,4 +178,11 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
 ## Next steps
 
-[View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+> [!div class="nextstepaction"]
+> [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md)
+
+> [!div class="nextstepaction"]
+> [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
