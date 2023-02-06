@@ -17,10 +17,16 @@ Latency refers to the amount of time it takes for log data to become available i
 
 [Azure Service Health](../../service-health/overview.md) monitors the [resource health](../../service-health/resource-health-overview.md) and [service health](../../service-health/service-health-overview.md) of your Log Analytics workspace.
  
-To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
+1. To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
-:::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
+    :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
 
+    The **Resource health** screen shows:
+
+    - Health history: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-latency).  
+    - Azure service issues: Displayed when a know issue with an Azure service might impact latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
+
+1. 
 
 ## Factors that affect latency
 
@@ -146,9 +152,9 @@ AzureDiagnostics
 ```
 
 ### Resources that stop responding
-In some cases, a resource could stop sending data. To understand whether a resource is sending data, look at its most recent record, which you can identify by the standard `TimeGenerated` field.
+In some cases, a resource might stop sending data. To understand whether a resource is sending data, look at its most recent record, which you can identify by the standard `TimeGenerated` field.
 
-Use the `Heartbeat` table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported a heartbeat recently:
+For example, agents send use the `Heartbeat` table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported a heartbeat recently:
 
 ``` Kusto
 Heartbeat  
