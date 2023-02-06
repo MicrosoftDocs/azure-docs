@@ -43,7 +43,7 @@ Traffic latency from AVS to Azure NetApp Files datastores varies from sub-millis
 
 ## One-to-multiple virtual machines running on a single AVS host and a single Azure NetApp Files datastore
 
-Each AVS host to Azure NetApp Files datastore connection represents a unique TCP network flow. In this scenario, all I/O occurs over a single network flow. The following graphs compare the throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines over a single network flow. In the subsequent scenarios, the number of network flows is increased as more hosts and datastores are added.
+In a single AVS host scenario, the AVS to Azure NetApp Files datastore I/O occurs over a single network flow. The following graphs compare the throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines. In the subsequent scenarios, the number of network flows increases as more hosts and datastores are added.
 
 :::image type="content" source="../media/azure-netapp-files/performance-vmware-single-datastore.png" alt-text="Graphs comparing a single virtual machine with four virtual machines over a single network flow." lightbox="../media/azure-netapp-files/performance-vmware-single-datastore.png":::
 
