@@ -160,7 +160,7 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
 
 ## Using Mariner-based images
 
-As of Dapr version 1.10, you can use Mariner images using the Dapr extension. Set the following global tag to use:
+As of Dapr version 1.10, you can use Mariner images using the Dapr extension. To use, set the following `--set global.tag` flag:
 
 ```azurecli
 az k8s-extension upgrade --cluster-type managedClusters \
