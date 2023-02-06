@@ -23,22 +23,7 @@ This article shows how to create a VM from a generalized image:
 
 
 ## Your own gallery
-### [Portal](#tab/portal)
 
-Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
-
-1. Go to your image definition. You can use the resource filter to show all image definitions available.
-1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
-1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
-1. In **Virtual machine name**, type *myVM*.
-1. For **Region**, select *East US*.
-1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
-1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
-1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, you need to provide a username, such as *azureuser* and a password or SSH key. The password must be at least 12 characters long and meet the [defined complexity requirements](./windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
-1. When you are finished, select the **Review + create** button at the bottom of the page.
-1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 ### [CLI](#tab/cli)
 
@@ -390,6 +375,23 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     },
 ```
 
+### [Portal](#tab/portal)
+
+Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
+
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
+1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
+1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
+1. In **Virtual machine name**, type *myVM*.
+1. For **Region**, select *East US*.
+1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
+1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
+1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
+1. Under **Administrator account**, you need to provide a username, such as *azureuser* and a password or SSH key. The password must be at least 12 characters long and meet the [defined complexity requirements](./windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. When you are finished, select the **Review + create** button at the bottom of the page.
+1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+
 ---
 
 ## RBAC - Shared within your organization
@@ -397,7 +399,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 
 You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
@@ -419,14 +421,56 @@ az vm create\
    --generate-ssh-keys
 ```
 
+### [PowerShell](#tab/powershell2)
 
 
+Create the VM. Replace the information in the example with your own. Before you create the VM, make sure that the image is replicated into the region where you want to create the VM.
+
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVMfromImage"
+
+# Set a variable for the image version in Tenant 1 using the full image ID of the image version
+$image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Networking pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using the $image variable to specify the image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $image | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+---
 ## RBAC - Shared from another tenant
 
 If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to log in to each tenant to verify you have access.
 
 You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 
 In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
@@ -465,7 +509,7 @@ az vm create \
 ```
 
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
@@ -521,6 +565,7 @@ Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
+---
 ## Community gallery
 
 > [!IMPORTANT]
@@ -529,7 +574,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli3)
 
 To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
 
@@ -564,24 +609,9 @@ When using a community image, you'll be prompted to accept the legal terms. The 
 To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
 ```
 
-### [Portal](#tab/portal2)
-
-1. Type **virtual machines** in the search.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
-1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
 
-### [REST](#tab/rest2)
+### [REST](#tab/rest3)
 
 Get the ID of the image version. The value will be used in the VM deployment request.
 
@@ -648,6 +678,23 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 ```
 
+### [Portal](#tab/portal3)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
+1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+
 ---
 
 ## Direct shared gallery
@@ -662,7 +709,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli4)
 
 To create a VM using an image shared to your subscription or tenant, you need the unique ID of the image in the following format:
 
@@ -709,27 +756,7 @@ az vm create\
 ```
 
 
-### [Portal](#tab/portal2)
-
-> [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
->
-> You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
-
-1. Type **virtual machines** in the search.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
-1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
-
-
-### [REST](#tab/rest2)
+### [REST](#tab/rest4)
 
 Get the ID of the image version. The value will be used in the VM deployment request.
 
@@ -795,6 +822,26 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 } 
 
 ```
+
+### [Portal](#tab/portal4)
+
+> [!NOTE]
+> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+>
+> You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
 
 ---
 

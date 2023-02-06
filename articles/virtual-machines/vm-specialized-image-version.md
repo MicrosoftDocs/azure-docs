@@ -240,7 +240,7 @@ New-AzVM `
    -VM $vmConfig
 
 ```
-
+---
 ## RBAC - from another tenant or organization
 
 If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to log in to each tenant to verify you have access.
@@ -363,9 +363,9 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+---
 
-
-## Community gallery 
+## Community gallery
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

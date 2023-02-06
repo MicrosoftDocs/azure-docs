@@ -91,6 +91,6 @@ New-AzRoleAssignment `
 ## Next steps
 
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-your-gallery) or [specialized](vm-specialized-image-version.md#create-a-vm-from-your-gallery) private gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) image in a gallery.
 
 

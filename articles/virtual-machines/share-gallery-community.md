@@ -132,7 +132,7 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 
 Create an [image definition and an image version](image-version.md).
 
-Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a community gallery.
+Create a VM from a [generalized](vm-generalized-image-version.md#community-gallery) or [specialized](vm-specialized-image-version.md#community-gallery) image in a community gallery.
 
 
 
