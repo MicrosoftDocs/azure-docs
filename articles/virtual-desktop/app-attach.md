@@ -21,10 +21,10 @@ Before you can use MSIX app attach to follow the directions in this article, you
 - An application you've expanded from MSIX format into app attach format. To learn how to expand an MSIX application, see [Using the MSIXMGR tool](app-attach-msixmgr.md).
 - If you're using a cimFS image, you'll need to install the following module before you can get started:
   
-      ```powershell
-      Install-Module CimDiskImage
-      Import-Module CimDiskImage
-      ```
+   ```powershell
+   Install-Module CimDiskImage
+   Import-Module CimDiskImage
+   ```
 
 These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
 
