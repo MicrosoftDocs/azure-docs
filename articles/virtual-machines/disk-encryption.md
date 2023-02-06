@@ -76,7 +76,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ### Restrictions
 
-Double encryption isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
 ### Supported regions
 

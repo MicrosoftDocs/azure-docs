@@ -18,7 +18,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 ## Restrictions
 
-Double encryption isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
 ## Prerequisites
 
