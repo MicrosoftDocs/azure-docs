@@ -12,24 +12,25 @@ ms.date: 01/31/2023
 # Monitor and troubleshoot data ingestion latency in Azure Monitor Logs
 Latency refers to the amount of time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. The typical latency for log data in Azure Monitor Logs is between 20 seconds and three minutes. This article explains the factors that affect latency in Azure Monitor Logs and how to monitor latency in a Log Analytics workspace.
 
-## Factors that affect latency
 
-The factors that affect latency are:
-
-- [Log Analytics workspace health](#log-analytics-workspace-resource-health): The proper functioning of your Log Analytics workspace.
-- [Data collection time](#data-collection-time): The time it takes to discover an event, collect it, and send it to an Azure Monitor Logs ingestion point as a log record. 
-- [Pipeline processing time](#pipeline-processing-time): The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
-- [Indexing time](#indexing-time): The time spent to ingest a log record into an Azure Monitor big data store.
-
-The following sections detail the latency introduced by each of these factors.
-
-### Log Analytics workspace health
+## Monitor Log Analytics workspace health
 
 [Azure Service Health](../../service-health/overview.md) monitors the [resource health](../../service-health/resource-health-overview.md) and [service health](../../service-health/service-health-overview.md) of your Log Analytics workspace.
  
 To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
 :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
+
+
+## Factors that affect latency
+
+The factors that affect latency are:
+
+- [Data collection time](#data-collection-time): The time it takes to discover an event, collect it, and send it to an Azure Monitor Logs ingestion point as a log record. 
+- [Pipeline processing time](#pipeline-processing-time): The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
+- [Indexing time](#indexing-time): The time spent to ingest a log record into an Azure Monitor big data store.
+
+The following sections detail the latency introduced by each of these factors.
 
 ### Data collection time
 
@@ -59,7 +60,7 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 | Type of data  | Collection frequency  |
 |:--------------|:----------------------|
 | Azure platform metrics | Available in under a minute in the metrics database, but they take another three minutes to be exported to the Azure Monitor Logs ingestion point.|
-| Resource logs | Typically, 30 to 90 seconds, depending on the Azure service.<br/> SQL Database and Azure Virtual Network currently report their logs at 5-minute intervals. Work is in progress to improve this time.<br/>To examine this latency in your environment, see the [query that follows](#check-ingestion-time).|
+| Resource logs | Typically, 30 to 90 seconds, depending on the Azure service.<br/> SQL Database and Azure Virtual Network currently report their logs at 5-minute intervals. Work is in progress to improve this time.<br/>To examine this latency in your environment, see the [query that follows](#investigate-latency).|
 |Activity log| 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs.
 
 ### Pipeline processing time
