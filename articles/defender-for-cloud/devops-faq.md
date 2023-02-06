@@ -84,7 +84,7 @@ Currently scanning occurs at build time.
 
 ### Is it possible to block the developers committing code with exposed secrets?  
 
-Block ability for exposes secrets in on the roadmap.
+The ability to block developers from committing code with exposed secrets is not currently available.
 
 ### I am not able to configure Pull Request Annotations
 
