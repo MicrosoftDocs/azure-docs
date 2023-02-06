@@ -123,6 +123,8 @@ items:
     items:
     - name: Enrich a Cognitive Search index 
       href: custom-text-classification/tutorials/cognitive-search.md
+    - name: Triage incoming emails with power automate
+      href: custom-text-classification/tutorials/triage-email.md
   - name: Reference
     items:
     - name: Glossary
@@ -1166,6 +1168,8 @@ items:
     href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
   - name: Use Azure Kubernetes Service
     href: tutorials/use-kubernetes-service.md
+  - name: Use language in power automate flows
+    href: tutorials/power-automate.md
 - name: Resources
   items:
     - name: Support and help options

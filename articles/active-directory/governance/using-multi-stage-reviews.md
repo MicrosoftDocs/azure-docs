@@ -1,6 +1,6 @@
 ---
-title: Using multi-stage reviews to meet your attestation and certification needs - Azure AD 
-description: Learn how to use multi-stage reviews to design more efficient reviews in Azure Active Directory. 
+title: Using multi-stage reviews to meet your attestation and certification needs - Microsoft Entra
+description: Learn how to use multi-stage reviews to design more efficient reviews with Microsoft Entra. 
 services: active-directory
 author: amsliu
 manager: amycolannino
@@ -16,9 +16,9 @@ ms.reviewer: florianf
 ms.collection: M365-identity-device-management
 ---
  
-# Using multi-stage reviews to meet your attestation and certification needs in Azure AD 
+# Using multi-stage reviews to meet your attestation and certification needs with Microsoft Entra 
 
-Azure AD Access Reviews support up to three review stages, in which multiple types of reviewers engage in determining who still needs access to company resources. These reviews could be for membership in groups or teams, access to applications, assignments to privileged roles, or access package assignments. When review administrators configure the review for automatic application of decisions, at the end of the review period, access is revoked for denied users.
+Microsoft Entra Access Reviews support up to three review stages, in which multiple types of reviewers engage in determining who still needs access to company resources. These reviews could be for membership in groups or teams, access to applications, assignments to privileged roles, or access package assignments. When review administrators configure the review for automatic application of decisions, at the end of the review period, access is revoked for denied users.
 
 ## Use cases for multi-stage reviews
 

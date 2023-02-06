@@ -5,8 +5,8 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 12/07/2022
-ms.custom: references_regions
+ms.date: 01/17/2023
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Business case (preview) - Common questions
@@ -18,9 +18,15 @@ This article answers common questions about Business case in Azure Migrate. If y
 
 ## General
 
-### Why is the export gesture disabled?
+### How can I export the business case?
 
-Currently, Business case export in .xlsx file is not supported.
+You can click on export from the Business case to export it in an .xlsx file. If you see the **Export** gesture as disabled, you need to recalculate the business case by modifying any one assumption (Azure or on-premises) in the Business Case and click on Save. For example:
+
+1. Go to a business case and select **Edit assumptions** and choose **Azure assumptions**.
+1. Select **Reset** next to **Performance history duration date range is outdated** warning. You could also choose to change any other setting.
+1. Select **Save**.
+
+This will recalculate the business case with the updated assumptions and will enable the export gesture.
 
 ### What is the difference between an assessment and a business case?
 
@@ -78,7 +84,7 @@ Currently, the currency is defaulted to USD.
 
 ### I can't see some servers and SQL instances
 
-Multiple possibilities:
+There are multiple possibilities for this issue.
 
 - Discovery hasn't completed - Wait for the discovery to complete. It is recommended to wait for at least 24 hours.
 - Check and resolve any discovery issues.

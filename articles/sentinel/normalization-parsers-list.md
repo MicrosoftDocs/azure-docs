@@ -103,7 +103,7 @@ ASIM Network Session parsers are available in every workspace. Microsoft Sentine
 | **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
 | **Sysmon for Linux**  (event 3) | Collected using the Log Analytics Agent<br> or the Azure Monitor Agent. |`_Im_NetworkSession_LinuxSysmonVxx`  |
-| **Vectra AI** | | `_Im_NetworkSession_VectraIAVxx`  |
+| **Vectra AI** | Supports the [pack](normalization-about-parsers.md#the-pack-parameter) parameter. | `_Im_NetworkSession_VectraIAVxx`  |
 | **Windows Firewall logs** | Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. | `_Im_NetworkSession_MicrosoftWindowsEventFirewallVxx`|
 | **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
 | **Zscaler ZIA firewall logs** | Collected using CEF. | `_Im_NetworkSessionZscalerZIAVxx` |
@@ -136,7 +136,7 @@ ASIM Web Session parsers are available in every workspace. Microsoft Sentinel pr
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
 | **Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
-| **Vectra AI Streams** | | `_Im_WebSession_VectraAIVxx`  |
+| **Vectra AI Streams** | Supports the [pack](normalization-about-parsers.md#the-pack-parameter) parameter. | `_Im_WebSession_VectraAIVxx`  |
 | **Zscaler ZIA** | Collected using CEF | `_Im_WebSessionZscalerZIAVxx` |
 
 Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).

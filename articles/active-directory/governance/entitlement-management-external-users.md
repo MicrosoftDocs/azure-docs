@@ -1,5 +1,5 @@
 ---
-title: Govern access for external users in entitlement management - Microsoft Entra
+title: Govern access for external users in entitlement management - Azure AD
 description: Learn about the settings you can specify to govern access for external users in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/27/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management

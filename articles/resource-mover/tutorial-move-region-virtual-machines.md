@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: resource-move
 ms.topic: tutorial
 ms.date: 12/21/2022
-ms.author: raynew
+ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 
@@ -277,4 +277,4 @@ To delete the additional resources created for the move, follow these steps:
 
 ## Next steps
 
-[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region].
+[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region.

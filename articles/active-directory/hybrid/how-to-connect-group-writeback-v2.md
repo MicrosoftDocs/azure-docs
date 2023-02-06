@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/12/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 
 > [!NOTE]
-> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality.
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality. You should not deploy the functionality to write back security groups in your production environment. We are planning to replace the AADConnect security group writeback functionality with the new Cloud Sync group writeback feature, and when this releases we will remove the AADConnect Group Writeback functionality. This does not impact M365 group writeback funcitonality, which will remain unchanged.
 
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
@@ -118,7 +118,10 @@ You can modify the default behavior as follows:
 - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
 If you plan to make changes to the default behavior, we recommend that you do so before you enable group writeback. However, you can still modify the default behavior if group writeback is already enabled. For more information, see [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 
- 
+
+> [!NOTE]
+> You need to make these changes before enabling group writeback; otherwise, all existing Microsoft 365 groups will be automatically written back to Active Directory. Also, the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
+
 ## Understand limitations of public preview  
 
 Although this release has undergone extensive testing, you might still encounter issues. One of the goals of this public preview release is to find and fix any issues before the feature moves to general availability. Please also note that any public preview functionality can still receive breaking changes which may require you to make changes to you configuration to continue using this feature. We may also decide to change or remove certain functionality without prior notice.

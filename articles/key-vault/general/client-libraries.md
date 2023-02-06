@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 
 
@@ -16,11 +16,11 @@ ms.author: mbaldwin
 
 # Client Libraries for Azure Key Vault
 
-The client libraries for Azure Key Vault allow programmatic access to Key Vault functionality from a variety of languages, including .NET, Python, Java, and JavaScript.
+The client libraries for Azure Key Vault allow programmatic access to Key Vault functionality from a several languages, including .NET, Python, Java, and JavaScript.
 
 ## Client libraries per language and object
 
-Each SDK has separate client libraries for key vault, secrets, keys, and certificates, per the table below.
+Each SDK has separate client libraries for key vault, secrets, keys, and certificates.
 
 | Language | Secrets | Keys | Certificates | Key Vault (Management plane) |
 |--|--|--|--|--|

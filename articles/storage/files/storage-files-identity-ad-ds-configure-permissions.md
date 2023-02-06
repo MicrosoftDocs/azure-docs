@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: kendownie
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Configure directory and file-level permissions over SMB
@@ -98,6 +99,9 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 ## Configure Windows ACLs
 
 You can configure the Windows ACLs using either [icacls](#configure-windows-acls-with-icacls) or [Windows File Explorer](#configure-windows-acls-with-windows-file-explorer). You can also use the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command.
+
+> [!IMPORTANT]
+> If your environment has multiple AD DS forests, don't use Windows Explorer to configure ACLs. Use icacls instead.
 
 If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 

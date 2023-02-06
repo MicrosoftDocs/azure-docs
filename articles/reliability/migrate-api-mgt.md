@@ -6,7 +6,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 
@@ -38,6 +38,7 @@ In this article, we'll take you through the different options for availability z
     * South Central US
     * Southeast Asia
     * Switzerland North
+    * UAE North
     * UK South
     * West Europe
     * West US 2
@@ -60,16 +61,15 @@ There are no downtime requirements for any of the migration options.
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
+* When migrating an API Management deployed in an external or internal virtual network to availability zones, a new public IP address resource must be specified. In an internal VNet, the public IP address is used only for management operations, not for API requests. Learn more about [IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
+
 * Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
 * If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
-
 ## Option 1: Migrate existing location of API Management instance, not injected in VNet
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it’s not injected (deployed) in a virtual network.
-
-### How to migrate API Management in a VNet
 
 1.	In the Azure portal, navigate to your API Management service.
 

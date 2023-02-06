@@ -22,7 +22,7 @@ Microsoft has preemptively configured the attack surfaces of many organizations,
 
 When first accessing your Defender EASM instance, select “Getting Started” in the “General” section to search for your organization in the list of automated attack surfaces. Then select your organization from the list and click “Build my Attack Surface”.
 
-![Screenshot of pre-configured attack surface selection screen](media/Discovery_1.png)
+:::image type="content" source="media/Discovery_1.png" alt-text="Screenshot of pre-configured attack surface selection screen."::: 
 
 At this point, the discovery will be running in the background. If you selected a pre-configured Attack Surface from the list of available organizations, you will be redirected to the Dashboard Overview screen where you can view insights into your organization’s infrastructure in Preview Mode. Review these dashboard insights to become familiar with your Attack Surface as you wait for additional assets to be discovered and populated in your inventory. See the [Understanding dashboards](understanding-dashboards.md) article for more information on how to derive insights from these dashboards.
 
@@ -40,35 +40,35 @@ Custom discoveries are organized into Discovery Groups. They are independent see
 
 1. Select the **Discovery** panel under the **Manage** section in the left-hand navigation column.
 
-     ![Screenshot of EASM instance from overview page with manage section highlighted](media/Discovery_2.png)
+     :::image type="content" source="media/Discovery_2.png" alt-text="Screenshot of EASM instance from overview page with manage section highlighted.":::
 
 2. This Discovery page shows your list of Discovery Groups by default. This list will be empty when you first access the platform. To run your first discovery, click **Add Discovery Group**.
 
-     ![Screenshot of Discovery screen with “add disco group” highlighted](media/Discovery_3.png)
+     :::image type="content" source="media/Discovery_3.png" alt-text="Screenshot of Discovery screen with “add disco group” highlighted.":::
 
 3. First, name your new discovery group and add a description. The **Recurring Frequency** field allows you to schedule discovery runs for this group, scanning for new assets related to the designated seeds on a continuous basis. The default recurrence selection is **Weekly**; Microsoft recommends this cadence to ensure that your organization’s assets are routinely monitored and updated. For a single, one-time discovery run, select **Never**. However, we recommend that users keep the **Weekly** default cadence and instead turn off historical monitoring within their Discovery Group settings if they later decide to discontinue recurrent discovery runs.
 
     Select **Next: Seeds >**
 
-    ![Screenshot of first page of disco group setup](media/Discovery_4.png)
+    :::image type="content" source="media/Discovery_4.png" alt-text="Screenshot of first page of disco group setup.":::
 
 4. Next, select the seeds that you’d like to use for this Discovery Group. Seeds are known assets that belong to your organization; the Defender EASM platform scans these entities, mapping their connections to other online infrastructure to create your Attack Surface.
 
-    ![Screenshot of seed selection page of disco group setup](media/Discovery_5.png)
+    :::image type="content" source="media/Discovery_5.png" alt-text="Screenshot of seed selection page of disco group setup."::: 
 
     The **Quick Start** option lets you search for your organization in a list of pre-populated Attack Surfaces. You can quickly create a Discovery Group based on the known assets belonging to your organization.
 
-    ![Screenshot of pre-baked attack surface selection page, then output in seed list](media/Discovery_6.png)
+    :::image type="content" source="media/Discovery_6.png" alt-text="Screenshot of pre-baked attack surface selection page, then output in seed list."::: 
     
-    ![Screenshot of pre-baked attack surface selection page.](media/Discovery_7.png)
+    :::image type="content" source="media/Discovery_7.png" alt-text="Screenshot of pre-baked attack surface selection page..":::
 
-    Alternatively, users can manually input their seeds. Defender EASM accepts domains, IP blocks, hosts, email contacts, ASNs, certificate common names, and WhoIs organizations as seed values. You can also specify entities to exclude from asset discovery to ensure they are not added to your inventory if detected. For example, this is useful for organizations that have subsidiaries that will likely be connected to their central infrastructure, but do not belong to your organization.
+    Alternatively, users can manually input their seeds. Defender EASM accepts organization names, domains, IP blocks, hosts, email contacts, ASNs, and WhoIs organizations as seed values. You can also specify entities to exclude from asset discovery to ensure they are not added to your inventory if detected. For example, this is useful for organizations that have subsidiaries that will likely be connected to their central infrastructure, but do not belong to your organization.
 
     Once your seeds have been selected, select **Review + Create**.
 
 5. Review your group information and seed list, then select **Create & Run**.
 
-    ![Screenshot of review + create screen](media/Discovery_8.png)
+    :::image type="content" source="media/Discovery_8.png" alt-text="Screenshot of review + create screen."::: 
 
     You will then be taken back to the main Discovery page that displays your Discovery Groups. Once your discovery run is complete, you will see new assets added to your Confirmed Inventory.
 
@@ -76,7 +76,7 @@ Custom discoveries are organized into Discovery Groups. They are independent see
 
 Users can manage their discovery groups from the main “Discovery” page. The default view displays a list of all your discovery groups and some key data about each one. From the list view, you can see the number of seeds, recurrence schedule, last run date and created date for each group.
 
-![Screenshot of discovery groups screen](media/Discovery_9.png)
+:::image type="content" source="media/Discovery_9.png" alt-text="Screenshot of discovery groups screen."::: 
 
 Click on any discovery group to view more information, edit the group, or immediately kickstart a new discovery process.
 
@@ -86,17 +86,17 @@ The discovery group details page contains the run history for the group. Once ex
 
 Run history is organized by the seed assets scanned during the discovery run. To see a list of the applicable seeds, click “Details”. This opens a right-hand pane that lists all the seeds and exclusions by kind and name.
 
-![Screenshot of run history for disco group screen](media/Discovery_10.png)
+:::image type="content" source="media/Discovery_10.png" alt-text="Screenshot of run history for disco group screen."::: 
 
 ### Viewing seeds and exclusions
 
-The Discovery page defaults to a list view of Discovery Groups, but users can also view lists of all seeds and excluded entities from this page. Simply click the either tab to view a list of all the seeds or exclusions that power your discovery groups.
+The Discovery page defaults to a list view of Discovery Groups, but users can also view lists of all seeds and excluded entities from this page. Simply click either tab to view a list of all the seeds or exclusions that power your discovery groups.
 
 ### Seeds
 
 The seed list view displays seed values with three columns: type, source name, and discovery group. The “type" field displays the category of the seed asset; the most common seeds are domains, hosts and IP blocks, but you can also use email contacts, ASNs, certificate common names or WhoIs organizations. The source name is simply the value that was inputted in the appropriate type box when creating the discovery group. The final column shows a list of discovery groups that use the seed; each value is clickable, taking you to the details page for that discovery group.
 
-![Screenshot of seeds view of discovery page](media/Discovery_11.png)
+:::image type="content" source="media/Discovery_11.png" alt-text="Screenshot of seeds view of discovery page."::: 
 
 ### Exclusions
 

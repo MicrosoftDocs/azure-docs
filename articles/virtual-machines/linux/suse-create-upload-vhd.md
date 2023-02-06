@@ -141,7 +141,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     exit
     ```
 
-    For more information on the waagent.conf configuration options, see the [Linux agent configuration](/azure/virtual-machines/extensions/agent-linux#configuration) documentation.
+    For more information on the waagent.conf configuration options, see the [Linux agent configuration](../extensions/agent-linux.md#configuration) documentation.
 
     If you want to mount, format and create a swap partition you can either:
     * Pass this configuration in as a cloud-init config every time you create a VM.
