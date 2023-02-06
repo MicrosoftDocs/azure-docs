@@ -15,9 +15,9 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 ## Start-AzAutomationRunbook fails with runbookName does not match expected pattern error message
 
 ### Issue
-When you run `Start-AzAutomationRunbook` to start specific runbooks, it fails with the following error -
+When you run `Start-AzAutomationRunbook` to start specific runbooks, it fails with the following error:
 
-`*runbookName does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*`
+`runbookName does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]`
 
 ```powershell
 `start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" `Start-AzAutomationRunbook: `runbookname`does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'. 
