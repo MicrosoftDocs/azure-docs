@@ -4,16 +4,19 @@ description: Describes the lambda functions to use in an Azure Resource Manager 
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 02/02/2023
+ms.date: 02/06/2023
 ---
 
 # Lambda functions for ARM templates
 
-This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](https://learn.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In ARM templates, lambda expression is in this format:
+This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In ARM templates, lambda expression is in this format:
 
 ```json
 <lambda variable> => <expression>
 ```
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
 
 ## Limitations
 
@@ -30,7 +33,7 @@ ARM template lambda function has these limitations:
 
 Filters an array with a custom filtering function.
 
-Namespace: [sys](template-functions.md#namespaces-for-functions).
+In Bicep, use the [filter](../bicep/bicep-functions-lambda.md#filter) function.
 
 ### Parameters
 
@@ -142,7 +145,7 @@ The output from the preceding example:
 
 Applies a custom mapping function to each element of an array.
 
-Namespace: [sys](template-functions.md#namespaces-for-functions).
+In Bicep, use the [map](../bicep/bicep-functions-lambda.md#map) function.
 
 ### Parameters
 
@@ -230,7 +233,7 @@ The output from the preceding example is:
 
 Reduces an array with a custom reduce function.
 
-Namespace: [sys](template-functions.md#namespaces-for-functions).
+In Bicep, use the [reduce](../bicep/bicep-functions-lambda.md#reduce) function.
 
 ### Parameters
 
@@ -337,7 +340,7 @@ The [union](./template-functions-object.md#union) function returns a single obje
 
 Sorts an array with a custom sort function.
 
-Namespace: [sys](template-functions.md#namespaces-for-functions).
+In Bicep, use the [sort](../bicep/bicep-functions-lambda.md#sort) function.
 
 ### Parameters
 
