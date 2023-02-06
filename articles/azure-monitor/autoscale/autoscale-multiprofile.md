@@ -63,9 +63,9 @@ See the autoscale section of the [ARM template resource definition](https://lear
 There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
 
-## Add a recurring profile using AIM templates
+## Add a recurring profile using ARM templates
 
-The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday end just after midnight on Saturday morning.
+The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday and end just after midnight on Saturday morning.
 
 Use the following command to deploy the template:
 ` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
