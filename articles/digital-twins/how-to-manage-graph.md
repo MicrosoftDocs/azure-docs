@@ -89,7 +89,7 @@ You can view an example import file and a sample project for creating these file
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in the API call like this:
+Then, the file can be used in a [Jobs API]() call.
 
 ## List relationships
 
@@ -188,7 +188,7 @@ You can view an example import file and a sample project for creating these file
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in the API call like this:
+Then, the file can be used in a [Jobs API]() call.
 
 ### Import graph with Azure Digital Twins Explorer
 
