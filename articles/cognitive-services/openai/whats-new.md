@@ -58,13 +58,13 @@ keywords:
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"hyperparams": { ​
-              "batch_size": 4,​
-              "learning_rate_multiplier": 0.1,​
-              "n_epochs": 4,​
-              "prompt_loss_weight": 0.1, ​
-              }​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "hyperparams": { ​
+        "batch_size": 4,​
+        "learning_rate_multiplier": 0.1,​
+        "n_epochs": 4,​
+        "prompt_loss_weight": 0.1,​
+    }​
 }
 ```
 
@@ -72,11 +72,11 @@ keywords:
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"batch_size": 4,​
-“learning_rate_multiplier": 0.1,​
-"n_epochs": 4,​
-"prompt_loss_weight": 0.1, ​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "batch_size": 4,​
+    "learning_rate_multiplier": 0.1,​
+    "n_epochs": 4,​
+    "prompt_loss_weight": 0.1,​
 }
 ```
 
