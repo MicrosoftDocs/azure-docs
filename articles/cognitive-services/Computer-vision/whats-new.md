@@ -16,11 +16,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
-## February 2023
+## March 2023
 
 ### Computer Vision Image Analysis 4.0 SDK public preview
 
 Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning model that achieved human parity performance.
+
+### Image Analysis 4.0 model customization
+
+You can now create and train your own custom image classification and object detection models, using Vision Studio or the v4.0 REST APIs.
 
 ## October 2022
 
