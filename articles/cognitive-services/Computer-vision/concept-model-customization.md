@@ -18,73 +18,60 @@ ms.author: pafarley
 ## Scenario components
 
 
-## FAQ
+## Frequently asked questions
 
-### Why does my training takes longer/shorter than my specified budget?
+### Why does training take longer/shorter than my specified budget?
 
-The specified training budget is caliberated **compute time** instead of **wall-clock time**. Some common reasons for the difference are listed below:
+The specified training budget is the calibrated **compute time**, not the **wall-clock time**. Some common reasons for the difference are listed:
 
-#### Longer than specified budget
-
-- UVS experiences a high training traffic, and GPU resources might be tight and your job might stay in queue or be on hold during training
-- Training in our backend run into un/expected failures, which results in retrying logic. As the failed runs do not consume your budget, this can lead to longer training time in general
-
-#### Shorter than specified budget
-
-- UVS sometimes trains with multi-GPU depending on your data, which 
-- UVS sometimes training mutiple exploration trials on multiple GPUs at the same time
-- UVS sometimes uses premier/faster GPU skus to train
-
-Those three speed up training at the cost of using more budget in certain wall-clock time.
+- **Longer than specified budget:**
+   - Image Analysis experiences a high training traffic, and GPU resources may be tight. Your job may wait in the queue or be put on hold during training.
+   - The backend training process ran into unexpected failures, which resulted in retrying logic. The failed runs don't consume your budget, but this can lead to longer training time in general.
+- **Shorter than specified budget:** The following factors speed up training at the cost of using more budget in certain wall-clock time.
+   - Image Analysis sometimes trains with multiple GPUs depending on your data. 
+   - Image Analysis sometimes trains multiple exploration trials on multiple GPUs at the same time.
+   - Image Analysis sometimes uses premier (faster) GPU SKUs to train.
 
 ### Why does my training fail and what I should do?
 
-Some common failures:
+The following are some common reasons for training failure:
 
-- **Training diverged**: It means the training cannot learn meaningful things from your data. Some common causes are
-  - Data is not enough: provide more data should help
-  - Data is of bad quality: check if your images are of very low resolution, aspect ratio being very extreme, or annotations are wrong
-- **Budget not enough**: it means your specified budget is not enough for the size of your dataset and model kind you are training. Specify more budget please 
-- **Dataset corrupt**: Usually this is due to the fact your provided images are not accessible or annotation file is of wrong format. For annotation check, you can check `tutorial.ipynb` for annotation format documentation and run `check_coco_annotations.py` for a quick check
-- **Unknown**: It could be our system's issue, please reach out to us for investigation
+- `Training diverged`: The training can't learn meaningful things from your data. Some common causes are:
+   - Data is not enough: providing more data should help.
+   - Data is of poor quality: check if your images are of low resolution, extreme aspect ratios, or if annotations are wrong.
+- `Budget not enough`: Your specified budget isn't enough for the size of your dataset and model type you're training. Specify a larger budget.
+- `Dataset corrupt`: Usually this means your provided images aren't accessible or the annotation file is in the wrong format.
+- `Unknown`: This could be a backend issue. Reach out to support for investigation.
 
-### Why does the evaluation run fail for my object detection model?
+### Can I control the hyper-parameters or use my own models in training?
 
-Evaluation API for object detection model is on-going effort.
-
-### Can I controll the hyper-parameters or use my own models in training?
-
-No, UVS model customization service a low-code AutoML training system that takes care of the hyper-param search and base model selection in the backend.
+No, Image Analysis model customization service uses a low-code AutoML training system that handles hyper-param search and base model selection in the backend.
 
 ### Can I export my model after training?
 
-Not for now, currently only cloud inference via prediction API is supported (see `tutorial.ipynb` for example). We have the plan of supporting container export for future.
+Currently, the prediction API is only supported through the cloud service.
 
-### What are the metrics used for evaluating the models?
+### What metrics are used for evaluating the models?
 
-`https://github.com/microsoft/vision-evaluation` contains the metrics code we use for model evaluation.
+See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
 
-### How many images are required for a reasonble/good/best model quality?
+### How many images are required for reasonable/good/best model quality?
 
-Short answer is the more the better. 
+Although Florence models have great few-shot capability (achieving great model performance under limited data availability), in general more data makes your trained model better and more robust. Some scenarios require little data (like classifying an apple against a banana), but others require more (like detecting 200 kinds of insects in a rainforest). This makes it difficult to give a single recommendation.
 
-Although Florence models have great few-shot capability, i.e. achieving great model performance under limited data availability, in general more data makes your trained model better and more robust. Moreover, some problem is easy requiring little data (classify an apple against a banana), while some problem is hard requiring more data (detecting 200 kinds of insects in a rain forest.), which makes it hard for us to give a universal recommendation here.
+If your data labeling budget is constrained, our recommended workflow is to repeat the following steps:
 
-If data labeling budget is under constraints, our recommended workflow is to repeat the following steps:
+1. Collect $N$ images per class, where $N$ images are easy for you to collect (for example, $N=3$)
+1. Train a model and test it on your evaluation set.
+1. If the model performance is-
+   -  **Good enough** (performance is better than expected or close to your previous experiments with less data collected): Stop here and use this model.
+   - **Not good enough** (performance is still below expectation or better than your previous experiment with less data collected at a reasonable margin): Collect $N+\delta$ images, and go back to Step 2.
 
-1. Collect $N$ images per class, where $N$ images per class are quite easy for you to collect, e.g., $N=3$
-2. Train a model, and test on your evaluation set
-3. If the model performance is
-    -  **Good enough** (performance is better than your expectation or performance close to your previous experiment with less data collected): Stop here and use this model.
-    - **Not good** (performance is still below your expectation or better than your previous experiment with less data collected at a reasonable margin): Collect $N+\delta$ images, and go back to Step 2.
+### How much training budget should I specify?
 
-### How much training budget should I specify
+You should specify the upper limit of budget that you're willing to consume. Image Analysis uses an AutoML system in its backend to try out different models and training recipes to find the best model for your use case. The more budget that's given, the higher the chance of finding a better model.
 
-Short answer is to specify the upper limit of budget you are willing to consume. We have an AutoML system in our backend to try out different models/training recipes to find the best model for your problem/data. The more budget given, the higher chance of finding a better model. 
-
-Our AutoML system also stops automatically, if it thinks there is no need to try more, even if there is still remaining budget, i.e., it does not always exhaust your specified budget. You are guanranteed not to be billed over your specified budget as well.
-
-We are adding a budget suggestion API to help you pick the right budget, which will come later.
+The AutoML system also stops automatically if it concludes there's no need to try more, even if there is still remaining budget. So, it doesn't always exhaust your specified budget. You're guaranteed not to be billed over your specified budget.
 
 ## Next steps
 
