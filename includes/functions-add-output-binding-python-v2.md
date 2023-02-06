@@ -6,9 +6,9 @@ ms.date: 02/06/2023
 ms.author: glenga
 ---
 
-Binding attributes are defined directly in the *function_app.json* file. You use the `queue_output` decorator to add `QueueOutput` to the `FunctionBuilder` object for building `Function` object used in worker function indexing model. It is equivalent to defining QueueOutput in the *function.json* for v1, which enables function to write message(s) to the storage queue. All optional fields will be given default value by function host when they are parsed by function host.
+Binding attributes are defined directly in the *function_app.json* file. You use the `queue_output` decorator to add an [Azure Queue storage output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-queue-storage-output-binding).
 
-By using the `queue_output` decorator, the binding direction is 'out' and type is Azure Storage Queue. You can customize the binding with the following properties:
+By using the `queue_output` decorator, the binding direction is 'out' and type is Azure Storage Queue. You can further customize the binding with the following properties:
 
 | Parameter | Value | Description |
 | --------- | ----- | ----------- |
