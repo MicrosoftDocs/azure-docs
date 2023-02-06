@@ -2,13 +2,13 @@
 title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 02/06/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
