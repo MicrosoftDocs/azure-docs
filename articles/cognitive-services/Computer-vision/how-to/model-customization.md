@@ -16,12 +16,12 @@ ms.custom:
 
 Image Analysis 4.0 allows you to train a custom model using your own training images and labels. By manually labeling your images, you can train a model to apply custom tags to images (image classification) or detect custom objects (object detection).
 
-This guide shows you how to create an train a custom model, noting the few differences between classification and detection.
+This guide shows you how to create and train a custom model, noting the few differences between classification and detection.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
 
 
 
@@ -47,7 +47,7 @@ To train a custom model, you need to create a _dataset_ where you provide images
 
 To create a new dataset, select **add new dataset**. Enter a name and select a dataset type: If you'd like to do image classification, select `Multi-class image classification`. If you'd like to do object detection, select `Object detection`.
 
-Then, select the container from the Azure Blob Storage account where you've stored the training images. Check the box to allow Vision Studio to read and write to the blob storage container (this is a necessary step to import labeled data) and create the dataset.
+Then, select the container from the Azure Blob Storage account where you've stored the training images. Check the box to allow Vision Studio to read and write to the blob storage container. This is a necessary step to import labeled data. Create the dataset.
 
 
 ![Choose Blob Storage]( ../media/customization/vision-studio-create-dataset.png)
@@ -67,7 +67,7 @@ In the Vision studio tab, select the AML project you just create. The AML portal
 
 ### Create labels
 
-To start, follow the prompt shown below to add label classes.
+To start, follow the **Please add label classes** prompt to add label classes.
 
 ![Label classes]( ../media/customization/aml-label-classes.png)
 
@@ -78,7 +78,7 @@ Once all label classes are added, save the labels, select **start** on the proje
 
 ### Manually label training data
 
-Choose `Start labeling` and follow the prompts to complete labeling of all data. When you're finished, return to the "Vision Studio" tab in your browser. You should now have the option to import a COCO file. Select the one you just created.
+Choose `Start labeling` and follow the prompts to complete labeling of all data. When you're finished, return to the "Vision Studio" tab in your browser. You should now be able to import a COCO file. Select the one you just created.
 
 ![Link AML]( ../media/customization/aml-to-vs.png)
 
@@ -162,7 +162,7 @@ Choose `Start labeling` and follow the prompts to complete labeling of all data.
 > }
 > ```
 > 
-> If you are generating your own COCO file from scratch, you need to make sure all mandatory fields are filled with the correct details. Below is a description of each field in a COCO file:
+> If you are generating your own COCO file from scratch, you need to make sure all mandatory fields are filled with the correct details. The following is a description of each field in a COCO file:
 >
 > ### "images": []
 >
@@ -194,7 +194,7 @@ Choose `Start labeling` and follow the prompts to complete labeling of all data.
 > 
 > | Key | Value (example) | Description | Mandatory |
 > |-|-|-|-|
-> | id | integer | Unique id for each category (label class). These should be present in the `annotations` section above. | Yes |
+> | id | integer | Unique id for each category (label class). These should be present in the `annotations` section. | Yes |
 > | name| string | Name of the category (label class) | Yes |
 
 
