@@ -21,6 +21,8 @@ Azure Active Directory (Azure AD) Seamless single sign-on (Seamless SSO) automat
 
 To deploy Seamless SSO for Azure AD by using Azure AD Connect, complete the steps that are described in the following sections.
 
+<a name="step-1-check-the-prerequisites"></a>
+
 ## Check the prerequisites
 
 Ensure that the following prerequisites are in place:
@@ -90,6 +92,8 @@ To verify that you have enabled Seamless SSO correctly:
 
 > [!NOTE]
 > If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, make appropriate changes to ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container.
+
+<a name="step-3-roll-out-the-feature"></a>
 
 ## Roll out the feature
 

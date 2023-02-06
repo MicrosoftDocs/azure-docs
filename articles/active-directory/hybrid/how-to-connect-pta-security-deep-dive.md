@@ -157,6 +157,8 @@ Pass-through authentication handles a user sign-in request:
 1. Azure AD STS verifies that this result correlates with the specific sign-in request on your tenant.
 1. Azure AD STS continues with the sign-in procedure as configured. For example, if the password validation was successful, the user might be challenged for MFA or redirected back to the application.
 
+<a name="operational-security-of-the-authentication-agents"></a>
+
 ## Authentication agent operational security
 
 To ensure that pass-through authentication remains operationally secure, Azure AD periodically renews authentication agents' certificates. Azure AD triggers the renewals. The renewals aren't governed by the authentication agents themselves.

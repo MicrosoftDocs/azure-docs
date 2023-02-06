@@ -18,15 +18,15 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect: Upgrade from DirSync
 
-Azure AD Connect is the successor of DirSync. In this article, learn how to upgrade from DirSync. The steps described in this article don't work for upgrading from a different release of Azure AD Connect or from Azure Active Directory (Azure AD) Sync.
+Azure AD Connect is the successor of DirSync. In this article, learn how to upgrade to Azure AD Connect from DirSync. The steps described in this article don't work for upgrading from a different release of Azure AD Connect or from Azure Active Directory (Azure AD) Sync.
 
 DirSync and Azure AD Sync aren't supported and no longer work. If you're still using DirSync or Azure AD Sync, you *must* upgrade to Azure AD Connect to resume your sync process.
 
-Before you start installing Azure AD Connect, make sure you [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the prerequisite steps described in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Pay special attention to the following information about Azure AD Connect because it's different from how DirSync works:
+Before you start installing Azure AD Connect, make sure you [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the prerequisite steps described in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Pay special attention to the following information about Azure AD Connect because it's different from DirSync:
 
-- Required versions of .NET and PowerShell: Newer versions are required to be on the server than what DirSync required.
-- Proxy server configuration: If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server that was configured for the user who installed it, but Azure AD Connect uses machine settings instead.
-- URLs required to be open in the proxy server: For basic scenarios that were also supported by DirSync, the requirements are the same. If you want to use any of the new features in Azure AD Connect, some new URLs must be opened.
+- **Required versions of .NET and PowerShell**: Newer versions are required to be on the server than what DirSync required.
+- **Proxy server configuration**: If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server that was configured for the user who installed it, but Azure AD Connect uses machine settings instead.
+- **URLs required to be open in the proxy server**: For basic scenarios that were also supported by DirSync, the requirements are the same. If you want to use any of the new features in Azure AD Connect, some new URLs must be opened.
 
 > [!WARNING]
 > After you have enabled your new Azure AD Connect server to start syncing changes to Azure AD, you must not roll back to using DirSync or Azure AD Sync. Downgrading from Azure AD Connect to legacy clients, including DirSync and Azure AD Sync, is not supported and can lead to issues like data loss in Azure AD.
