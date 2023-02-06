@@ -118,7 +118,7 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 
 ## Autovacuum metrics
 
-Autovaccum metrics can be useed to monitor and tune autovaccum performance for Azure database for postgres flexible server. Each metric is emitted at a **30 minute** frequency, and has up to **93 days** of retention. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
+Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure database for postgres flexible server. Each metric is emitted at a **30 minute** frequency, and has up to **93 days** of retention. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
 
 #### Enabling Autovacuum metrics
 * Autovacuum metrics are disabled by default
