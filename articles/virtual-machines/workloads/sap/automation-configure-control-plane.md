@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/28/2022
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ---
 
 # Configure the control plane

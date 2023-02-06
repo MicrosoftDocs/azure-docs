@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 10/20/2022
+ms.date: 1/31/2023
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -101,7 +101,7 @@ IoT Edge devices behave and can be managed differently than typical IoT devices.
 
 Install IoT Edge for Linux on Windows on your device, and configure it with the device connection string.
 
-:::image type="content" source="./media/quickstart/start-runtime.png" alt-text="Diagram that shows the step to start the IoT Edge runtime.":::
+:::image type="content" source="./media/quickstart/start-runtime.png" alt-text="Diagram that shows the step to start the I o T Edge runtime.":::
 
 Run the following PowerShell commands on the target device where you want to deploy Azure IoT Edge for Linux on Windows. To deploy to a remote target device using PowerShell, use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
@@ -155,7 +155,7 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   :::image type="content" source="./media/quickstart/successful-powershell-deployment.png" alt-text="A successful deployment will say Deployment successful at the end of the messages." lightbox="./media/quickstart/successful-powershell-deployment.png":::
+   :::image type="content" source="./media/quickstart/successful-powershell-deployment.png" alt-text="Screenshot that show that a successful deployment will say Deployment successful at the end of the messages in the console." lightbox="./media/quickstart/successful-powershell-deployment.png":::
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
@@ -189,11 +189,11 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-   :::image type="content" source="./media/quickstart/select-set-modules.png" alt-text="Screenshot that shows location of the Set Modules tab.":::
+   :::image type="content" source="./media/quickstart-linux/select-set-modules.png" alt-text="Screenshot that shows location of the Set Modules tab.":::
 
 1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
 
-   :::image type="content" source="./media/quickstart/add-marketplace-module.png" alt-text="Screenshot that shows the Add drop-down menu.":::
+   :::image type="content" source="./media/quickstart-linux/add-marketplace-module.png" alt-text="Screenshot that shows the Add drop-down menu." lightbox="./media/quickstart-linux/add-marketplace-module.png":::
 
 1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module.
 
@@ -201,7 +201,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Select **Next: Routes** to continue to the next step of the wizard.
 
-   :::image type="content" source="./media/quickstart/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows where to select the Next:Routes button.":::
+   :::image type="content" source="./media/quickstart-linux/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows where to select the Next:Routes button.":::
 
 1. On the **Routes** tab select **Next: Review + create** to continue to the next step of the wizard.
 
@@ -218,7 +218,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
-   :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart/view-deployed-modules.png":::
+   :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart-linux/view-deployed-modules.png":::
 
 ## View the generated data
 
@@ -241,7 +241,7 @@ The module that you pushed generates sample environment data that you can use fo
    sudo iotedge list
    ```
 
-   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Verify your temperature sensor, agent, and hub are running." lightbox="./media/quickstart/iotedge-list-screen.png":::
+   :::image type="content" source="./media/quickstart/iot-edge-list-screen.png" alt-text="Screenshot that shows where to verify that your temperature sensor, agent, and hub modules are running." lightbox="./media/quickstart/iot-edge-list-screen.png":::
 
 1. View the messages being sent from the temperature sensor module to the cloud using the following Linux command:
 
@@ -252,7 +252,7 @@ The module that you pushed generates sample environment data that you can use fo
    >[!IMPORTANT]
    >IoT Edge commands are case-sensitive when they refer to module names.
 
-   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot of the output logs of the Simulated Temperature Sensor module." lightbox="./media/quickstart/temperature-sensor-screen.png":::
+   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot that shows the output logs of the Simulated Temperature Sensor module when it's running." lightbox="./media/quickstart/temperature-sensor-screen.png":::
 
 You can also use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to watch messages arrive at your IoT hub.
 

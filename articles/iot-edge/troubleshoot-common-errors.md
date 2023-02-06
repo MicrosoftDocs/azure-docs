@@ -4,7 +4,7 @@ description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/17/2022
+ms.date: 1/31/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

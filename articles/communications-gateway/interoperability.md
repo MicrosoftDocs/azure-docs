@@ -44,8 +44,8 @@ Azure Communications Gateway supports the Microsoft specifications for Certified
 
 The Microsoft Phone System relies on information in SIP signaling to determine whether a call is:
 
-- To a Teams Mobile Phone subscriber.
-- From a Teams Mobile Phone subscriber or between two Teams Phone Mobile subscribers.
+- To a Teams Phone Mobile subscriber.
+- From a Teams Phone Mobile subscriber or between two Teams Phone Mobile subscribers.
 
 Your core mobile network must supply this information to Azure Communications Gateway, by using unique trunks or by correctly populating an `X-MS-FMC` header as defined by the Teams Phone Mobile SIP specifications.
 
