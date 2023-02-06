@@ -19,7 +19,7 @@ A set of built-in policies and initiatives exists to direct resource logs to Log
 
 The policies enable audit logging sending the logs to an Event Hub, Log Analytics workspace or Storage Account.
 
->>>>> include portal how to implement with screen shots.
+> include portal how to implement with screen shots.
 ## Common parameters
 
 The following table describes the common parameters for each set of policies.
