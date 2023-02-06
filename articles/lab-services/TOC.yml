@@ -310,6 +310,8 @@
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A
