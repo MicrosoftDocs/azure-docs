@@ -108,6 +108,76 @@ It will take a few minutes for the bastion host to deploy. You can proceed to th
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
+## Create a resource group
+
+An Azure resource group is a logical container where Azure resources are deployed and managed.
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+
+```azurepowershell-interactive
+$rsg = @{
+    Name = 'TutorialIPv6NATLB-rg'
+    Location = 'westus2'
+}
+New-AzResourceGroup @rsg
+```
+
+## Create virtual network
+
+Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
+
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations for the backend and bastion subnets.
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address for the bastion host.
+
+Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host.
+
+```azurepowershell-interactive
+## Configure the back-end subnet. ##
+$sub = @{
+    Name = 'myBackendSubnet'
+    AddressPrefix = '10.1.0.0/24'
+}
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @sub
+
+## Create the Azure Bastion subnet. ##
+$bsub = @{
+    Name = 'AzureBastionSubnet'
+    AddressPrefix = '10.1.1.0/26'
+}
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bsub
+
+## Create the virtual network. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+    Location = 'westus2'
+    AddressPrefix = '10.1.0.0/16'
+    Subnet = $subnetConfig, $bastsubnetConfig
+}
+$vnet = New-AzVirtualNetwork @net
+
+## Create the public IP address for the bastion host. ##
+$ip = @{
+    Name = 'myPublicIP-Bastion'
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+    Location = 'westus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    Zone = 1,2,3
+}
+$publicip = New-AzPublicIpAddress @ip
+
+## Create the bastion host. ##
+$bastion = @{
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+    Name = 'myBastion'
+    PublicIpAddress = $publicip
+    VirtualNetwork = $vnet
+}
+New-AzBastion @bastion -AsJob
+```
+
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
 ---
@@ -151,6 +221,53 @@ The NAT gateway provides the outbound connectivity for the IPv4 portion of the v
 1. Select **Create**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the IPv4 public IP address for the NAT gateway.
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to configure the NAT gateway for your virtual network subnet
+
+```azurepowershell-interactive
+## Create public IP address for NAT gateway ##
+$ip = @{
+    Name = 'myPublicIP-NAT'
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+    Location = 'westus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+}
+$publicIP = New-AzPublicIpAddress @ip
+
+## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+    Name = 'myNATgateway'
+    IdleTimeoutInMinutes = '4'
+    Sku = 'Standard'
+    Location = 'westus2'
+    PublicIpAddress = $publicIP
+}
+$natGateway = New-AzNatGateway @nat
+
+## Create the subnet configuration. ##
+$sub = @{
+    Name = 'myBackendSubnet'
+    VirtualNetwork = $vnet
+    NatGateway = $natGateway
+}
+Set-AzVirtualNetworkSubnetConfig @sub
+
+## Save the configuration to the virtual network. ##
+$vnet | Set-AzVirtualNetwork
+```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
