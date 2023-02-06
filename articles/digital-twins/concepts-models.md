@@ -146,7 +146,7 @@ The following example shows another version of the Home model, with a property f
 
 Semantic types are for expressing a value with a unit. Properties and telemetry for Azure Digital Twins can use any of the semantic types that are supported by DTDL. 
 
-In DTDL V2, semantic types are natively supported. For more information on semantic types in DTDL V2, see [Semantic types in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#semantic-types). To learn about semantic types in DTDL V3, see [the QuantitativeTypes DTDL V3 feature extension](#quantitative-types-extension).
+In DTDL V2, semantic types are natively supported. For more information on semantic types in DTDL V2, see [Semantic types in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#semantic-type). To learn about semantic types in DTDL V3, see [the QuantitativeTypes DTDL V3 feature extension](#quantitative-types-extension).
 
 The following example shows a DTDL V2 Sensor model with a semantic type telemetry for Temperature, and a semantic type property for Humidity. 
 

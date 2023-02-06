@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs in Teams meetings. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 
-| Group of features | Capability                                                                                                          | JavaScript |
+| Group of features | Capability                                                                                                          | Supported |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | 
 | Core Capabilities | Join Teams meeting                                                                                                  | ✔️        |
 |                   | Leave meeting                                                                                                       | ✔️ |
@@ -38,7 +38,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | File sharing                                                                                                        | ❌ |
 |                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
-| | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                         | ✔️* |
+|                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
+|                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
@@ -164,6 +165,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
 
 When Teams external users leave the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting. 
+
+*Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
 ## Server capabilities
 

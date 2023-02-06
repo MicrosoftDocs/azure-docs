@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -538,11 +538,11 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to the MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors.
 
 ## Next steps
 
-In this article, you learned how to configure the MedTech service device mappings. 
+In this article, you learned how to configure the MedTech service device mappings using CalculatedContentTemplate mappings. 
 
 To learn how to configure FHIR destination mappings, see
 

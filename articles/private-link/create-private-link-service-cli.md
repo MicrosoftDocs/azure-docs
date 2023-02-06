@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 01/22/2021
+ms.date: 02/03/2023
 ms.author: allensu
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -17,7 +17,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -150,6 +150,20 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
     --enable-tcp-reset true
 ```
 
+## Disable network policy
+
+Before a private link service can be created in the virtual network, the setting `privateLinkServiceNetworkPolicies` must be disabled.
+
+* Disable the network policy with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
+
+```azurecli-interactive
+az network vnet subnet update \
+    --name mySubnet \
+    --vnet-name MyVnet \
+    --resource-group CreatePrivLinkService-rg \
+    --disable-private-link-service-network-policies yes
+```
+
 ## Create a private link service
 
 In this section, create a private link service that uses the Azure Load Balancer created in the previous step.
@@ -173,7 +187,6 @@ az network private-link-service create \
 ```
 
 Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
-
 
 ## Create private endpoint
 
@@ -244,6 +257,7 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
+
 * Created a private link service
 
 To learn more about Azure Private endpoint, continue to:

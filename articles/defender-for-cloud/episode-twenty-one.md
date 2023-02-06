@@ -3,7 +3,7 @@ title: Latest updates in the regulatory compliance dashboard | Defender for Clou
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the latest updates in the regulatory compliance dashboard
 ms.topic: reference
-ms.date: 11/24/2022
+ms.date: 01/24/2023
 ---
 
 # Latest updates in the regulatory compliance dashboard| Defender for Cloud in the Field
@@ -25,7 +25,7 @@ ms.date: 11/24/2022
 
 
 ## Recommended resources
-  - [Learn more](/azure/defender-for-cloud/regulatory-compliance-dashboard) about improving your regulatory compliance.
+  - [Learn more](./regulatory-compliance-dashboard.md) about improving your regulatory compliance.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)

@@ -273,7 +273,7 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Term End Date | TermEndDate | Indicates the end date of a term for an order | TermEndDate |
 | Not available | purchaseRecordId | The identifier of the purchase record for an order purchase | purchaseRecordId |
 | Not available | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
-| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax-inclusive countries, this price includes the tax, otherwise it doesn't. | EstimatedCharges |
+| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax-inclusive countries/regions, this price includes the tax, otherwise it doesn't. | EstimatedCharges |
 | Not available | Currency | Billing currency for the order purchase | Currency |
 | Not available | HasTrial | Represents whether an offer has trial period enabled | HasTrial |
 | Is Trial | IsTrial | Represents whether an offer SKU is in trial period | IsTrial |

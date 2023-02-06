@@ -58,7 +58,7 @@ Azure Digital Twins provides a rich event system to keep your graph current, inc
 
 ## Query for environment insights
 
-Azure Digital Twins provides a powerful query API​ to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
+Azure Digital Twins provides a powerful [query API​](/rest/api/digital-twins/dataplane/query) to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
 
 ## Visualize environment in 3D Scenes Studio (preview)
 
@@ -102,7 +102,7 @@ The following diagram shows where Azure Digital Twins might lie in the context o
 
 ## Resources
 
-Here are some resources that may be useful while working with Azure Digital Twins. You can view more resources under the **Resources** header in the table of contents for this documentation set.
+This section highlights some resources that may be useful while working with Azure Digital Twins. You can view additional resources in the **Resources** section of this this documentation set (accessible through the navigation links to the left).
 
 ### Service limits
 

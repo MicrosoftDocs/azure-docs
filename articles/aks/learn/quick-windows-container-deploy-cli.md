@@ -1,7 +1,6 @@
 ---
 title: Create a Windows Server container on an AKS cluster by using Azure CLI
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
-services: container-service
 ms.topic: article
 ms.custom: event-tier1-build-2022
 ms.date: 11/01/2022
@@ -18,7 +17,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -26,6 +25,23 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account](/cli/azure/account) command.
+
+- Verify _Microsoft.OperationsManagement_ and _Microsoft.OperationalInsights_ providers are registered on your subscription. These are Azure resource providers required to support Container insights. To check the registration status, run the following commands:
+
+  ```sh
+  az provider show -n Microsoft.OperationsManagement -o table
+  az provider show -n Microsoft.OperationalInsights -o table
+  ```
+
+  If they are not registered, register _Microsoft.OperationsManagement_ and _Microsoft.OperationalInsights_ using the following commands:
+  
+  ```sh
+  az provider register --namespace Microsoft.OperationsManagement
+  az provider register --namespace Microsoft.OperationalInsights
+  ```
+  
+  > [!NOTE]
+  > Run the commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
 
 ### Limitations
 
@@ -109,11 +125,14 @@ az aks create \
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
-## Add a Windows Server 2019 node pool
+## Add a Windows node pool
+By default, an AKS cluster is created with a node pool that can run Linux containers. Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
-By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
+AKS supports Windows Server 2019 and Windows Server 2022 node pools. For Kubernetes versions "1.25.0" and higher, Windows Server 2022 is the default operating system. For earlier versions, Windows Server 2019 will be the default operating system.
 
-```azurecli-interactive
+Use the `az aks nodepool add` command to add a Windows nodepool:
+
+```azurecli
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -122,16 +141,33 @@ az aks nodepool add \
     --node-count 1
 ```
 
-The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. The OS SKU was not specified so the nodepool will be set to the default operating system based on the Kubernetes version of the cluster. 
+
+
+## Add a Windows Server 2019 node pool
+
+When creating a Windows node pool, the default operating system will be Windows Server 2019 for Kubernetes versions below "1.25.0". To use Windows Server 2019 nodes when not default, you will need to specify an OS SKU type of `Windows2019`.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2019 \ 
+    --name npwin \
+    --node-count 1
+```
+
+The above command creates a new Windows Server 2019 node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. 
 
 ## Add a Windows Server 2022 node pool
 
-When creating a Windows node pool, the default operating system will be Windows Server 2019. To use Windows Server 2022 nodes, you will need to specify an OS SKU type of `Windows2022`.
+When creating a Windows node pool, the default operating system will be Windows Server 2022 for Kubernetes versions "1.25.0" and higher. To use Windows Server 2022 nodes when not default, you will need to specify an OS SKU type of `Windows2022`.
 
 > [!NOTE]
 > Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
 
-Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
+Use the `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
 ```azurecli
 az aks nodepool add \
@@ -388,5 +424,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster

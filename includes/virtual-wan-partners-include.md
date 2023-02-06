@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 12/01/2022
+ ms.date: 01/27/2023
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -18,7 +18,7 @@ You can check the links in this section for more information about services offe
 | [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |[Check Point for the Microsoft Azure Virtual WAN Quick Start Guide](https://sc1.checkpoint.com/documents/IaaS/WebAdminGuides/EN/CP_for_Microsoft_Azure_vWAN/Content/Topics/Introduction.htm?tocpath=Introduction%7C_____0)|
 |[Cisco Meraki](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|[Azure Virtual WAN Cisco Meraki Deployment Guide](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|
 | [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
-| [Cloudgenix](https://www.cloudgenix.com/microsoft-azure/) |[CloudGenix Azure Virtual WAN CloudBlade Deployment Guide](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|
+| [CloudGenix](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|[CloudGenix Azure Virtual WAN CloudBlade Deployment Guide](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[Routing Scenario Blog](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba](https://www.arubanetworks.com/microsoft-vwan/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/articles/360054527871-Configure-NetFoundry-Network-for-Azure-Windows-Virtual-Desktop-Short-Path)|

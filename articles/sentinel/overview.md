@@ -81,8 +81,9 @@ Microsoft Sentinel's automation and orchestration solution provides a highly ext
 - HTTP requests
 - Microsoft Teams
 - Slack
-- Windows Defender ATP
-- Defender for Cloud Apps
+- Azure Active Directory
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Cloud Apps
 
 For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 
