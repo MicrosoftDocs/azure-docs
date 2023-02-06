@@ -203,7 +203,7 @@ Perf
 
 This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
 
-You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
+You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configure-performance-counters).
 
 ### Manage Windows Event Logs
 

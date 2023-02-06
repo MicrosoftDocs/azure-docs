@@ -38,7 +38,7 @@ The following versions of the Windows and Linux operating system are officially 
 * SUSE Linux Enterprise Server (SLES) 12 and 15
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
-* Oracle Linux 7
+* Oracle Linux 7 and 8
 
 > [!NOTE]
 > On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
@@ -76,9 +76,9 @@ The following Azure built-in roles are required for different aspects of managin
 
 ## Azure subscription and service limits
 
-Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
+There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
 
-Before configuring your machines with Azure Arc-enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Each Azure Arc-enabled server is associated with an Azure Active Directory object and will count against your directory quota. See [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in an Azure AD directory.
 
 ## Azure resource providers
 
