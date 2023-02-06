@@ -18,6 +18,34 @@ The latest AKS node image information can be found by visting the [AKS release t
 
 Node OS auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS.
 
+## Prerequisites
+
+- Must be using API version `11-02-preview` or later
+
+- If using Azure CLI, the `aks-preview` CLI extension version `0.5.127` or later must be installed
+
+- If using the `SecurityPatch` channel, the `NodePublicIPPreview` feature flag must be enabled on your subscription
+
+### Register the 'NodePublicIPPreview' feature flag
+
+Register the `NodePublicIPPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ## Using node OS auto-upgrade
 
 Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. By default, a cluster's node OS auto-upgrade channel is set to `Unmanaged`.
@@ -58,3 +86,6 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md
 [release-tracker]: release-tracker.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

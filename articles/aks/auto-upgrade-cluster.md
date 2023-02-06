@@ -47,6 +47,9 @@ The following upgrade channels are available:
 > [!NOTE]
 > Auto-upgrade requires the cluster's Kubernetes version to be within the [AKS support window][supported-kubernetes-versions], even if using the `node-image` channel.
 
+> [!NOTE]
+> If using the preview API `11-02-preview` or later, if you select the `node-image` cluster auto-upgrade channel the [node image auto-upgrade channel][node-image-auto-upgrade] will automatically be set to `NodeImage`.
+
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
 
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
@@ -84,6 +87,7 @@ The following best practices will help maximize your success when using auto-upg
 [upgrade-aks-cluster]: upgrade-cluster.md
 [planned-maintenance]: planned-maintenance.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
+[node-image-auto-upgrade]: auto-upgrade-node-image.md 
 
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
