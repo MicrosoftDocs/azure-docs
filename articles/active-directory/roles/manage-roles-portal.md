@@ -68,7 +68,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
-1. Select the role name to open the role to see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
+1. Select the role name to open the role and see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
 
     ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
 
