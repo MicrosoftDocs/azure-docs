@@ -3,7 +3,7 @@ title: Restrict egress traffic in an Azure Red Hat OpenShift (ARO) cluster
 description: Learn what ports and addresses are required to control egress traffic in Azure Red Hat OpenShift (ARO)
 author: joharder
 ms.author: joharder
-ms.service: azure-redhat-openshift
+ms.service: azure-redhat-openshift 
 ms.topic: article
 ms.date: 12/15/2022
 ---
@@ -179,7 +179,7 @@ az vm create --name ubuntu-jump \
              --image UbuntuLTS \
              --subnet $JUMPSUBNET \
              --public-ip-address jumphost-ip \
-             --vnet-name $AROVNET 
+             --vnet-name $AROVNET --generate-ssh-keys
 ```
 
 ## Create an Azure Red Hat OpenShift cluster
