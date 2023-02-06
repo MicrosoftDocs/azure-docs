@@ -24,14 +24,14 @@ It fails with the following error:
  
 `Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
  
-## Cause
+### Cause
 
 Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid.
 
-## Workaround
+### Workaround
 We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
 
-## Resolution
+### Resolution
 Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
