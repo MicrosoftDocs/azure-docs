@@ -6,6 +6,7 @@ ms.date: 02/06/2023
 ms.author: glenga
 ---
 
+Update *HttpExample\\function_app.py* to match the following code, add the `msg` parameter to the function definition and `msg.set(name)` under the `if name:` statement:
 
 ```python
 import azure.functions as func
