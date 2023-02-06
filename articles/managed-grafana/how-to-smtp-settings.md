@@ -17,7 +17,7 @@ In this guide, learn how to configure SMTP settings to generate email alerts in 
 > Email settings is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-It can be enabled on an existing Azure Managed Grafana instance via the Azure Portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
+SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure Portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
 
 ## Prerequisites
 
