@@ -194,7 +194,7 @@ Now that we have an Azure AD tenant, we'll create a Hybrid Identity Administrato
 1.  Under **Manage**, select **Users**.</br>
 ![Screenshot that shows the User option selected in the Manage section where you create a Hybrid Identity Administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Select **All users** and then select **+ New user**.
-3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You'll also want to change the **Directory role** to **Hybrid Identity Administrator.** You can also show the temporary password. When you're done, select **Create**.</br>
+3.  Provide a name and username for this user. This will be your Global Administrator for the tenant. You'll also want to change the **Directory role** to **Hybrid Identity Administrator.** You can also show the temporary password. When you're done, select **Create**.</br>
 ![Screenshot that shows the Create button you select when you create a Hybrid Identity Administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new Hybrid Identity Administrator account and the temporary password.
 5. Change the password for the Hybrid Identity Administrator to something that you will remember.
@@ -222,7 +222,7 @@ Now it's time to download and install Azure AD Connect.  Once it has been instal
 5. On the Install required components screen. Click **Install**.  
 6. On the User Sign-in screen, select **Pass-through authentication** and **Enable single sign-on** and click **Next**.</br>
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
-7. On the Connect to Azure AD screen, enter the username and password of the global admin we created above and click **Next**.
+7. On the Connect to Azure AD screen, enter the username and password of the Global Administrator we created above and click **Next**.
 2. On the Connect your directories screen, click **Add Directory**.  Then select **Create new AD account** and enter the contoso\Administrator username and password and click **OK**.
 3. Click **Next**.
 4. On the Azure AD sign-in configuration screen, select **Continue without matching all UPN suffixes to verified domains** and click **Next.**

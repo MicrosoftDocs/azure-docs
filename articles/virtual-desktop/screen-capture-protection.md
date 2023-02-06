@@ -1,17 +1,16 @@
 ---
-title: Azure Virtual Desktop screen capture protection
+title: Screen capture protection in Azure Virtual Desktop
 titleSuffix: Azure
-description: How to set up screen capture protection for Azure Virtual Desktop.
+description: Learn how to enable screen capture protection in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
 author: femila
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2023
 ms.author: femila
-ms.service: virtual-desktop
 ---
 
-# Screen capture protection
+# Screen capture protection in Azure Virtual Desktop
 
-Screen capture protection prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
+Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive information from being captured on client endpoints. When you enable screen capture protection, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
 
 In Windows 11, version 22H2 or later, you can enable screen capture protection on session host VMs as well as remote clients. Protection on session host VMs works just like protection for remote clients.
 

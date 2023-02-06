@@ -6,11 +6,11 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 01/30/2023
 ms.custom: kr2b-contr-experiment
 ---
 
-# Compress data with columnar tables
+# Compress data with columnar tables in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

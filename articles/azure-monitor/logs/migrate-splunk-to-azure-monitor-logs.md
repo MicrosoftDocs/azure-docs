@@ -85,7 +85,7 @@ To set up a Log Analytics workspace for data collection:
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. [Define each table's log data plan](../logs/basic-logs-configure.md). 
     
-        The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities. If youYou can 
+        The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities.  
     
     1. [Set a data retention and archiving policy for specific tables](../logs/data-retention-archive.md), if you need them to be different from the workspace-level data retention and archiving policy. 
     1. [Modify the table schema](../logs/create-custom-table.md) based on your data model.
@@ -156,7 +156,6 @@ To export your historical data from Splunk:
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - [Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
-- Learn more about roles and permissions in Sentinel [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 

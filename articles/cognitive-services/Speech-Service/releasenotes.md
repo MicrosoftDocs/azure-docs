@@ -19,6 +19,7 @@ Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to
 
 ## Recent highlights
 
+* Custom Speech-to-Text container disconnected mode was released in January 2023.
 * Speech SDK 1.25.0 was released in January 2023.
 * Text-to-speech Batch synthesis API is available in public preview.
 * Speech-to-text REST API version 3.1 is generally available.
