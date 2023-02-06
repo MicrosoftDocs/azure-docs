@@ -237,6 +237,8 @@
       displayName: Enterprise IoT sensor
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Configure OT sensor settings from the Azure portal
+    href: configure-sensor-settings-portal.md
   - name: Create and manage users
     items:
     - name: Azure portal
