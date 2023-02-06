@@ -736,7 +736,7 @@ Depending on your language and signal type, there are different ways to collect 
   
 -	OpenTelemetry API
 -	Language-specific logging/metrics libraries
--	Application Insights API
+-	Application Insights Classic API
  
 The following table represents the currently supported custom telemetry types:
 
@@ -764,7 +764,7 @@ The following table represents the currently supported custom telemetry types:
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 
 > [!NOTE]
-> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Java 2.x SDK. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
+> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Classic API. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights Classic API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Add Custom Metrics
 
@@ -793,7 +793,7 @@ The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetr
 describes the instruments and provides examples of when you might use each one.
 
 > [!TIP]
-> The histogram is the most versatile and most closely equivalent to the prior Application Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
+> The histogram is the most versatile and most closely equivalent to the Application Insights Track Metric Classic API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
 #### Histogram Example
 
@@ -1096,7 +1096,7 @@ input()
 
 Select instrumentation libraries automatically support exceptions to Application Insights.
 However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code aren't* ordinarily reported. You may wish to report them
+For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [.NET](#tab/net)
@@ -1219,7 +1219,7 @@ Coming soon.
   
 #### [Java](#tab/java)
   
-#### Use OpenTelemetry annotation
+#### Use the OpenTelemetry annotation
 
 The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
@@ -1356,9 +1356,9 @@ Coming soon.
 
 -->
   
-### Send custom telemetry using the Application Insights API
+### Send custom telemetry using the Application Insights Classic API
   
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights APIs.
+We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights Classic APIs.
   
 #### [.NET](#tab/net)
   
@@ -1645,7 +1645,7 @@ span._attributes["http.client_ip"] = "<IP Address>"
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -1658,7 +1658,6 @@ Coming soon.
 
 Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
 
-Consult applicable privacy laws before you set the Authenticated User ID.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
