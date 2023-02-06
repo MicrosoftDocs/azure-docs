@@ -127,7 +127,7 @@ The NAT gateway provides the outbound connectivity for the IPv4 portion of the v
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group |  Select **TutorialIPv6NATLB-rg**. |
+    | Resource group | Select **TutorialIPv6NATLB-rg**. |
     | **Instance details** |   |
     | NAT gateway name | Enter **myNATgateway**. |
     | Region | Select **West US 2**. |
@@ -194,7 +194,74 @@ The network configuration of the virtual machine has IPv4 and IPv6 configuration
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
+1. Select **+ Create** then **Azure virtual machine**.
+
+1. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+
+    | Setting | Value | 
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialIPv6NATLB-rg**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability options | Leave the default of **No infrastructure redundancy required**. |
+    | Security type | Leave the default of **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
+    | Size | Select a size. |
+    | **Administrator account** |  |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Confirm password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Select **None**. |
+
+1. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**.
+
+1. In the **Networking tab**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |  |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122::/64)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports | Select **None**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+Wait for the virtual machine to finish deploying before continuing on to the next steps.
+
+### Add IPv6 to virtual machine
+
+The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. Use the following example to add a IPv6 network configuration to the virtual machine.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **myVM**.
+
+1. In **Settings** select **Networking**.
+
+1. Select the name of the network interface in the **Network Interface:** field. The name of the network interface is the virtual machine name plus a random number. In this example it's **myVM202**.
+
+1. In the network interface properties, select **IP configurations** in **Settings**.
+
+1. Select **+ Add**.
+
+1. Enter or select the following information in **Add IP configuration**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **ipv6config**. |
+    | IP version | Select **IPv6**. |
+
+1. Leave the rest of the settings at the defaults and select **OK**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
@@ -202,12 +269,106 @@ The network configuration of the virtual machine has IPv4 and IPv6 configuration
 
 ---
 
-
 ## Create public load balancer
 
 The public load balancer has a front-end IPv6 address and outbound rule for the backend pool of the load balancer. The outbound rule controls the behavior of the external IPv6 connections for virtual machines in the backend pool. Use the following example to create an IPv6 public load balancer.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
+
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create load balancer**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialIPv6NATLB-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **myLoadBalancer**. |
+    | Region | Select **West US 2**. |
+    | SKU | Leave the default of **Standard**. |
+    | Type | Select **Public**. |
+
+1. Select **Next: Frontend IP configuration**.
+
+1. Select **+ Add a frontend IP configuration**. 
+
+1. Enter or select the following information in **Add frontend IP configuration**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myFrontend-IPv6**. |
+    | IP version | Select **IPv6**. |
+    | IP type | Select **IP address**. |
+    | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-IPv6**. </br> Select **OK**. |
+
+1. Select **Add**.
+
+1. Select **Next: Backend pools**.
+
+1. Select **+ Add a backend pool**.
+
+1. Enter or select the following information in **Add backend pool**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myBackendPool**. |
+    | Virtual network | Select **myVNet (TutorialIPv6NATLB-rg)**. |
+    | Backend Pool Configuration | Leave the default of **NIC**. |
+
+1. Select **Save**.
+
+1. Select **Next: Inbound rules** then **Next: Outbound rules**.
+
+1. Select **Add an outbound rule**.
+
+1. Enter or select the following information in **Add outbound rule**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myOutboundRule**. |
+    | IP Version | Select **IPv6**. |
+    | Frontend IP address | Select **myFrontend-IPv6**. |
+    | Protocol | Leave the default of **All**. |
+    | Idle timeout (minutes) | Leave the default of **4**. |
+    | TCP Reset | Leave the default of **Enabled**. |
+    | Backend pool | Select **myBackendPool**. |
+    | **Port allocation** |   |
+    | Port allocation | Select **Manually choose number of outbound ports**. |
+    | **Outbound ports** |  |
+    | Choose by | Select **Ports per instance**. |
+    | Ports per instance | Enter **20000**. |
+
+1. Select **Add**.
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+Wait for the load balancer to finish deploying before proceeding to the next steps.
+
+### Add virtual machine to load balancer
+
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+1. Select **myLoadBalancer**.
+
+1. In **Settings** select **Backend pools**.
+
+1. Select **myBackendPool**.
+
+1. In **Virtual network** select **myVNet (TutorialIPv6NATLB-rg)**.
+
+1. In **IP configurations** select **+ Add**.
+
+1. Select the checkbox for **myVM** that corresponds with the **IP configuration** of **ipv6config**. Don't select **ipconfig1**.
+
+1. Select **Add**.
+
+1. Select **Save**. 
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
@@ -217,7 +378,25 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
 
 ## Validate outbound connectivity
 
+To verify that the NAT gateway is handling IPv4 outbound traffic and the load balancer is handling IPv6, you'll connect to the virtual machine with Azure Bastion.
+
+### Obtain IPv4 and IPv6 public IP addresses
+
+Before you can validate outbound connectivity, make not of the IPv4 and IPv6 public IP addresses you created previously. Use the following example to obtain the public IP addresses.
+
 # [**Portal**](#tab/dual-stack-outbound-portal)
+
+1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+1. Select **myPublicIP-NAT**.
+
+1. Make note of the address in **IP address**. In this example it's **20.230.191.5**.
+
+1. Return to **Public IP addresses**.
+
+1. Select **myPublicIP-IPv6**.
+
+1. Make note of the address in **IP address**. In this example it's **2603:1030:c02:8::14**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
@@ -225,15 +404,54 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
 
 ---
 
-## Clean up resources
+### Test connectivity
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **myVM**.
+
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
+
+1. Enter the username and password you created when you created the virtual machine.
+
+1. Select **Connect**.
+
+1. On the desktop of **myVM**, open **Microsoft Edge**.
+
+1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+
+1. You should see the IPv4 address of **20.230.191.5** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
+
+1. In the address bar enter **http://v6.testmyipv6.com**
+
+1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
+
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
+
+1. Close the bastion connection to **myVM**.
+
+# [**PowerShell**](#tab/dual-stack-outbound-powershell)
+
+# [**CLI**](#tab/dual-stack-outbound--cli)
+
+---
+## Clean up resources
+
+When your finished with the resources created in this article, delete the resource group and all of the resources it contains.
+
+# [**Portal**](#tab/dual-stack-outbound-portal)
+
+1. In the search box at the top of the portal, enter **TutorialIPv6NATLB-rg**. Select **TutorialIPv6NATLB-rg** in the search results in **Resource groups**.
+
+1. Select **Delete resource group**.
+
+1. Enter **TutorialIPv6NATLB-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
