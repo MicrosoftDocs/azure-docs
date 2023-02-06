@@ -197,7 +197,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
     - 0 disconnected/unhealthy
     - 1 – healthy
   - This metric is available in the Enterprise, Enterprise Flash tiers, as well as Premium tier caches with geo-replication enabled.
-  - In caches on the Premium tier, This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - In caches on the Premium tier, this metric is only emitted *from the geo-secondary* cache instance. On the geo-primary instance, this metric has no value.
   - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
   - A value of 0 does not mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
