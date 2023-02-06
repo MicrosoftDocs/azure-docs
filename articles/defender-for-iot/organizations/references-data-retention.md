@@ -104,14 +104,14 @@ The retention of backup files depends on the sensor's architecture, as each hard
 
 | Hardware profile  | Allocated hard disk space  |
 |---------|---------|
-| **L60**     |  Zero       |
-| **L100**     |  Zero       |
+| **L60**     |  Backups are not supported       |
+| **L100**     |  Backups are not supported       |
 | **L500**     |  20 GB   |
 | **E1000** |   60 GB  |
 | **E1800**       |   100 GB |
 | **C5600**       |   100 GB |
 
-If the device has zero allocated hard disk space, then only the last backup will be saved on the on-premises management console.
+If the device doesn't have allocated hard disk space, then only the last backup will be saved on the on-premises management console.
 
 ### Backups on the on-premises management console
 
