@@ -12,9 +12,9 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure dual stack outbound connectivity with a NAT gateway and a public load balancer
 
-In this tutorial you will learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
+In this tutorial, you'll learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
 
-NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas Load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a Load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. However, when NAT gateway is placed on a dual stack subnet where a Load balancer with an IPv6 public IP address is configured, NAT gateway will be used for sending all IPv4 traffic and Load balancer will be used to send all IPv6 traffic outbound.
+NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic is handled by the NAT gateway, and IPv6 outbound traffic is handled by the load balancer.
 
 In this tutorial, you learn how to:
 
@@ -248,7 +248,7 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
 
 1. In **Settings** select **Networking**.
 
-1. Select the name of the network interface in the **Network Interface:** field. The name of the network interface is the virtual machine name plus a random number. In this example it's **myVM202**.
+1. Select the name of the network interface in the **Network Interface:** field. The name of the network interface is the virtual machine name plus a random number. In this example, it's **myVM202**.
 
 1. In the network interface properties, select **IP configurations** in **Settings**.
 
@@ -378,11 +378,11 @@ Wait for the load balancer to finish deploying before proceeding to the next ste
 
 ## Validate outbound connectivity
 
-To verify that the NAT gateway is handling IPv4 outbound traffic and the load balancer is handling IPv6, you'll connect to the virtual machine with Azure Bastion.
+You'll connect to the virtual machine with Azure Bastion to verify the IPv4 and IPv6 outbound traffic.
 
 ### Obtain IPv4 and IPv6 public IP addresses
 
-Before you can validate outbound connectivity, make not of the IPv4 and IPv6 public IP addresses you created previously. Use the following example to obtain the public IP addresses.
+Before you can validate outbound connectivity, make not of the IPv4, and IPv6 public IP addresses you created previously. Use the following example to obtain the public IP addresses.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
@@ -390,13 +390,13 @@ Before you can validate outbound connectivity, make not of the IPv4 and IPv6 pub
 
 1. Select **myPublicIP-NAT**.
 
-1. Make note of the address in **IP address**. In this example it's **20.230.191.5**.
+1. Make note of the address in **IP address**. In this example, it's **20.230.191.5**.
 
 1. Return to **Public IP addresses**.
 
 1. Select **myPublicIP-IPv6**.
 
-1. Make note of the address in **IP address**. In this example it's **2603:1030:c02:8::14**.
+1. Make note of the address in **IP address**. In this example, it's **2603:1030:c02:8::14**.
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
@@ -428,7 +428,7 @@ Before you can validate outbound connectivity, make not of the IPv4 and IPv6 pub
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
-1. In the address bar enter **http://v6.testmyipv6.com**
+1. In the address bar, enter **http://v6.testmyipv6.com**
 
 1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
 
