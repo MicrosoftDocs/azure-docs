@@ -268,13 +268,13 @@ You can authorize access to data in your storage account using the following ste
 
     :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
 
-   > [!TIPS]
+   > [!TIP]
    > If you are using Azure Storage in a Spring application, then rather than building the client manually, we recommend you to also consider Spring Cloud Azure as an alternative. Spring Cloud Azure and the Azure SDK can be used together, in a non-mutually exclusive pattern. With Spring Cloud Azure, you can not only continue to use the super Azure SDK api you are familiar with, but also get the following benefits on top of the Azure SDK.
    > - Health Indicator: provides an easy way to inspect the status and health of your application and internal components.
    > - Spring Boot Autoconfiguration: gives you an out-of-the-box Storage client instead of asking you to build it programmatically, which reduces the developing and maintenance cost of learning the builder pattern.
    > - Spring Resource: offers another capable API to operate the Blob Storage client.
    > 
-   > See [the Spring Cloud Azure quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json) for example.
+   > See [the Spring Cloud Azure quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage) for example.
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
@@ -327,6 +327,14 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+> [!TIP]
+> If you are using Azure Storage in a Spring application, then rather than building the client manually, we recommend you to also consider Spring Cloud Azure as an alternative. Spring Cloud Azure and the Azure SDK can be used together, in a non-mutually exclusive pattern. With Spring Cloud Azure, you can not only continue to use the super Azure SDK api you are familiar with, but also get the following benefits on top of the Azure SDK.
+> - Health Indicator: provides an easy way to inspect the status and health of your application and internal components.
+> - Spring Boot Autoconfiguration: gives you an out-of-the-box Storage client instead of asking you to build it programmatically, which reduces the developing and maintenance cost of learning the builder pattern.
+> - Spring Resource: offers another capable API to operate the Blob Storage client.
+>
+> See [the Spring Cloud Azure quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage) for example.
 
 ---
 
