@@ -3,7 +3,7 @@ title: Allocate credits to Educators
 description: This article will show IT Administrators at a University how to assign credits to Educators to use in Education Hub labs
 author: vinnieangel
 ms.author: vangellotti
-ms.service: education
+ms.service: azure-education
 ms.topic: quickstart
 ms.date: 2/6/2023
 ms.custom: template-quickstart
@@ -57,6 +57,5 @@ The chosen Educators should now receive an email inviting them to visit the Educ
 
 ## Next steps
 
-Advance to the next article to learn how to create a custom tenant and billing profile for Educators.
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-quickstart.md)
+> [Create an assignment and allocate credit](create-assignment-allocate-credit.md)
