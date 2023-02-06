@@ -4,8 +4,8 @@ description: This guide helps you to migrate your Oracle schema to Azure Databas
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 03/18/2021
 ---
 

@@ -11,6 +11,8 @@ This article describes how to manage individual sensors, such as managing activa
 
 You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
 
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
 ## View overall sensor status
 
 When you sign into your sensor, the first page shown is the **Overview** page.
@@ -132,11 +134,11 @@ Sensor Administrators may be required to update certificates that were uploaded 
     - Upload a CRT file and key file.
     - Upload a PEM file if necessary.
 
-If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+If the upload fails, contact your security or IT administrator, or review the information in [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [Verify CRL server access](how-to-deploy-certificates.md#verify-crl-server-access) for more information.
 
 1. Select **Save**.
 
@@ -246,9 +248,9 @@ You can configure the sensor's time and region so that all the users see the sam
 
 ## Set up backup and restore files
 
-System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`.
+System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`. You can automatically transfer this file to the internal network.
 
-You can automatically transfer this file to the internal network.
+For more information, see [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
 
 > [!NOTE]
 >
@@ -313,6 +315,8 @@ Sensor backup files are automatically named through the following format: `<sens
 
 You can restore a sensor from a backup file using the sensor console or the CLI.
 
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
+
 **To restore from the sensor console:**
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
@@ -347,7 +351,7 @@ You'll need an SMTP mail server configured to enable email alerts about disconne
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the [sensor's management port](/azure/defender-for-iot/organizations/best-practices/understand-network-architecture). 
+Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md). 
 
 **To configure an SMTP server on your sensor**:
 
@@ -438,7 +442,7 @@ This procedure describes how to download a diagnostics log to send to support in
 This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console
-- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -450,11 +454,11 @@ This feature is supported for the following sensor versions:
 
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support).
 
 ## Retrieve forensics data stored on the sensor
 
-Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
@@ -462,7 +466,7 @@ Use Defender for IoT data mining reports on an OT network sensor to retrieve for
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Clearing sensor data
 
@@ -481,7 +485,7 @@ Clearing data deletes all detected or learned data on the sensor. After clearing
 
 1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console." lightbox="media/how-to-manage-individual-sensors/clear-system-data.png":::
 
 A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 

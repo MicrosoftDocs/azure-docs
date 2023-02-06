@@ -4,8 +4,8 @@ description: Learn how to backup and restore a server in Azure Database for Post
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
 ms.date: 06/24/2022

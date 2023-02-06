@@ -146,7 +146,7 @@ Restore the dump file to the server created in the Azure Database for MySQL Flex
 
 1. Filtering
 
-   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server used as source and select "Server parameters" to view/edit the "Replicate_Wild_Ignore_Table" parameter. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
+   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
 
 1. Set the replica server by connecting to it and opening the MySQL shell on the replica server. From the prompt, run the following operation, which configures several MySQL replication settings at the same time:
 

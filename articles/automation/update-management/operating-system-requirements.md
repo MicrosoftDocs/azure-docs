@@ -18,7 +18,7 @@ The following table lists the supported operating systems for update assessments
 All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 > [!NOTE]
-> - Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-version-1).
+> - Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 > - Update Management does not support CIS hardened images.
 
 # [Windows operating system](#tab/os-win)
@@ -31,7 +31,7 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 # [Linux operating system](#tab/os-linux)
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-version-1).
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -86,7 +86,7 @@ By default, Windows VMs that are deployed from Azure Marketplace are set to rece
 - The Update Management feature depends on the system Hybrid Runbook Worker role, and you should confirm its [system requirements](../automation-linux-hrw-install.md#prerequisites). Because Update Management uses Automation runbooks to initiate assessment and update of your machines, review the [version of Python required](../automation-linux-hrw-install.md#supported-runbook-types) for your supported Linux distro.
 
 > [!NOTE]
-> Update assessment of Linux machines is supported in certain regions only. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-version-1).
+> Update assessment of Linux machines is supported in certain regions only. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 
 
 For hybrid machines, we recommend installing the Log Analytics agent for Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, to monitor the machines use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) instead of Azure Monitor for VMs.

@@ -25,13 +25,13 @@ The `phoneme` element is used for phonetic pronunciation in SSML documents. Alwa
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
+> For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=tts) table.
 
 Usage of the `phoneme` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
+| `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li><li>`x-sampa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md#map-x-sampa-to-ipa)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document.<br/><br/>For `ipa`, to stress one syllable by placing stress symbol before this syllable, you need to mark all syllables for the word. Or else, the syllable before this stress symbol will be stressed. For `sapi`, if you want to stress one syllable, you need to place the stress symbol after this syllable, whether or not all syllables of the word are marked.| Required |
 
 ### phoneme examples
@@ -68,12 +68,20 @@ The supported values for attributes of the `phoneme` element were [described pre
 </speak>
 ```
 
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+     <voice name="en-US-JennyNeural">
+        <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
+    </voice>
+</speak>
+```
+
 ## Custom lexicon
 
 You can define how single entities (such as company, a medical term, or an emoji) are read in SSML by using the [phoneme](#phoneme-element) and [sub](#sub-element) elements. To define how multiple entities are read, create an XML structured custom lexicon file. Then you upload the custom lexicon XML file and reference it with the SSML `lexicon` element.
 
 > [!NOTE]
-> For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
+> For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=tts) table.
 > 
 > The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
@@ -304,4 +312,4 @@ The text-to-speech output for this example is "a squared plus b squared equals c
 
 - [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)

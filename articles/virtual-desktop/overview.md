@@ -15,19 +15,15 @@ Here's what you can do when you run Azure Virtual Desktop on Azure:
 
 - Set up a multi-session Windows 11 or Windows 10 deployment that delivers a full Windows experience with scalability
 - Present Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios
-- Provide Windows 7 virtual desktops with free Extended Security Updates
 - Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 - Virtualize both desktops and apps
 - Manage desktops and apps from different Windows and Windows Server operating systems with a unified management experience
-
-> [!IMPORTANT]
-> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
 ## Introductory video
 
 Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:
 
-> [!VIDEO https://www.youtube.com/embed/NQFtI3JLtaU]
+> [!VIDEO https://www.youtube.com/embed/aPEibGMvxZw]
 
 For more videos about Azure Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 

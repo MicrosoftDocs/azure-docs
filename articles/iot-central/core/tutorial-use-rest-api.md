@@ -38,7 +38,7 @@ To complete the steps in this tutorial, you need:
 
 You use the Azure CLI to generate the bearer tokens that some of the REST APIs use for authorization.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Postman
 
@@ -48,7 +48,7 @@ The tutorial uses a predefined Postman collection that includes some scripts to 
 
 ## Import the Postman collection
 
-To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following URL: <!-- TODO: Add link here -->. Select **Continue**.
+To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central.postman_collection.json), <!-- TODO: Add link here --> Select **Continue**.
 
 Your workspace now contains the **IoT Central REST tutorial** collection. This collection includes all the APIs you use in the tutorial.
 
