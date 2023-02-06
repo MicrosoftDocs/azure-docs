@@ -87,7 +87,7 @@ Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data fr
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md).
+Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Reactivate an OT sensor
 
