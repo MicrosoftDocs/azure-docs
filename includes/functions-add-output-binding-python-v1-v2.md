@@ -13,6 +13,6 @@ ms.custom: devdivchpfy22
 
 # [v2](#tab/v2)
 
-[!INCLUDE [functions-add-output-binding-python-v2-code](./functions-add-output-binding-python-v2-code.md))]
+[!INCLUDE [functions-add-output-binding-python-v2-code](./functions-add-output-binding-python-v2-code.md)]
 
 ---
