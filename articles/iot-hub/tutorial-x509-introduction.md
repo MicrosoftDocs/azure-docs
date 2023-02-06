@@ -33,7 +33,7 @@ Before starting any of the articles in this tutorial, you should be familiar wit
 
 - For an introduction to concepts that underlie the use of X.509 certificates, see [Understand public key cryptography and X.509 public key infrastructure](iot-hub-x509-certificate-concepts.md).
 
-- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](tutorial-x509-certificates.md#certificate-fields) section of [Understand X.509 public key certificates](tutorial-x509-certificates.md).
+- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](reference-x509-certificates.md#certificate-fields) section of [Understand X.509 public key certificates](reference-x509-certificates.md).
 
 ## X.509 certificate scenario paths
 
@@ -49,7 +49,7 @@ Using a CA-signed certificate chain backed by a PKI to authenticate a device pro
 
 ## Next steps
 
-To learn more about the fields that make up an X.509 certificate, see [Understand X.509 public key certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
