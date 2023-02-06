@@ -69,50 +69,56 @@ The following table contains the list of metrics available to explore in the Azu
 
 ## Sending Diagnostic Logs
 
-Raw telemetry events are emitted to Azure Monitor. Events can be sent to a Log Analytics Workspace, archived to a customer storage account of choice, streamed to an event hub or sent to a partner solution for further analysis. Exporting of logs is done via the Diagnostic settings for the Microsoft Purview account on the Azure portal.
+Raw telemetry events are sent to Azure Monitor. Events can be sent to a Log Analytics Workspace, archived to a customer storage account of choice, streamed to an event hub, or sent to a partner solution for further analysis. Exporting of logs is done via the Diagnostic settings for the Microsoft Purview account on the Azure portal.
 
-Follow the steps to create a Diagnostic setting for your Microsoft Purview account and send to your preferred destination.
+Follow these steps to create a diagnostic setting for your Microsoft Purview account and send to your preferred destination:
 
-Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
+1. Locate your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
+1. In the menu under **Monitoring** select **Diagnostic settings**.
+1. Select **Add diagnostic setting** to create a new diagnostic setting to collect platform logs and metrics. For more information about these settings and logs, see [the Azure Monitor documentation.](../azure-monitor/essentials/diagnostic-settings.md).
 
-  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/create-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/create-diagnostic-setting.png":::
 
-You can send your logs to:
+1. You can send your logs to:
 
 - [A log analytics workspace](#destination---log-analytics-workspace)
 - [A storage account](#destination---storage-account)
 
 ### Destination - Log Analytics Workspace
 
-Select the destination to a log analytics workspace to send the event to. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then select save. The workspace doesn't have to be in the same region as the resource being monitored. Follow this article to [Create a New Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md).
+1. In the **Destination details**, select **Send to Log Analytics workspace**.
+1. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then select save. The workspace doesn't have to be in the same region as the resource being monitored. You to create a new workspace, you can follow this article: [Create a New Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md).
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning log analytics workspace to send event to." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/log-analytics-diagnostic-setting.png" alt-text="Screenshot showing assigning log analytics workspace to send event to." lightbox="./media/how-to-monitor-with-azure-monitor/log-analytics-diagnostic-setting.png":::
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-one-diagnostic-setting.png" alt-text="Screenshot showing saved diagnostic log event to log analytics workspace." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-one-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/log-analytics-select-workspace-diagnostic-setting.png" alt-text="Screenshot showing saved diagnostic log event to log analytics workspace." lightbox="./media/how-to-monitor-with-azure-monitor/log-analytics-select-workspace-diagnostic-setting.png":::
 
-Verify the changes in **Log Analytics Workspace** by performing some operations to populate data such as creating/updating/deleting policy. After which you can open the **Log Analytics Workspace**, navigate to **Logs**, enter query filter as **"purviewsecuritylogs"**, then select **"Run"** to execute the query. 
+1. Verify the changes in your Log Analytics Workspace by performing some operations to populate data. For example, creating/updating/deleting a policy. After which you can open the **Log Analytics Workspace**, navigate to **Logs**, enter query filter as **"purviewsecuritylogs"**, then select **"Run"** to execute the query.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after a query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/log-analytics-view-logs-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after a query was run." lightbox="./media/how-to-monitor-with-azure-monitor/log-analytics-view-logs-diagnostic-setting.png":::
 
 ### Destination - Storage account
 
-To log the events to a storage account; create a diagnostic setting name, select the log category, select the destination as archive to a storage account, select the right subscription and storage account then select save. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+1. In the **Destination details**, select **Archive to a storage account**.
+1. Create a diagnostic setting name, select the log category, select the destination as archive to a storage account, select the right subscription and storage account then select save. A dedicated storage account is recommended for archiving the diagnostic logs. If you need a storage account, you can follow this article: [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/storage-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/storage-diagnostic-setting.png":::
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-one-diagnostic-setting.png" alt-text="Screenshot showing saved log events to storage account." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-one-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/storage-select-diagnostic-setting.png" alt-text="Screenshot showing saved log events to storage account." lightbox="./media/how-to-monitor-with-azure-monitor/storage-select-diagnostic-setting.png":::
 
-To see logs in the **Storage Account**, create/update/delete a policy, then open the **Storage Account**, navigate to **Containers**, and select the container name
+1. To see logs in the **Storage Account**, perform a sample action (for example: create/update/delete a policy), then open the **Storage Account**, navigate to **Containers**, and select the container name.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-two-diagnostic-setting.png" alt-text="Screenshot showing container in storage account where the diagnostic logs have been sent to." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-two-diagnostic-setting.png":::
+  :::image type="content" source="./media/how-to-monitor-with-azure-monitor/storage-two-diagnostic-setting.png" alt-text="Screenshot showing container in storage account where the diagnostic logs have been sent to." lightbox="./media/how-to-monitor-with-azure-monitor/storage-two-diagnostic-setting.png":::
 
-Navigate to the file and download it to see the logs
+1. Navigate to the file and download it to see the logs.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-three-diagnostic-setting.png" alt-text="Screenshot showing folders with details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-three-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/storage-navigate-diagnostic-setting.png" alt-text="Screenshot showing folders with details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/storage-navigate-diagnostic-setting.png":::
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png" alt-text="Screenshot showing details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/storage-select-logs-diagnostic-setting.png" alt-text="Screenshot showing details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/storage-select-logs-diagnostic-setting.png":::
 
 ## Sample Log
+
+Here's a sample log you'd receive from a diagnostic setting.
 
 The event tracks the scan life cycle. A scan operation follows progress through a sequence of states, from Queued, Running and finally a terminal state of Succeeded | Failed | Canceled. An event is logged for each state transition and the schema of the event will have the following properties.
 
