@@ -303,6 +303,8 @@
   items:
   - name: OT monitoring appliances
     items:
+    - name: Data retention
+      href: references-data-retention.md
     - name: Overview
       href: appliance-catalog/index.yml
       displayName: appliance catalog
