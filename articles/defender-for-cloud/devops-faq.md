@@ -42,7 +42,9 @@ To ensure your code is scanned for secrets, make sure you've [onboarded your rep
 
 In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
 
-If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Microsoft Defender for Cloud. If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline) or no scanning is performed for at least 14 days, the resource shows as `N/A` in Defender for Cloud.
+If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
+
+If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline) or a scan isn't performed for at least 14 days, the resource will show as `N/A` in Defender for Cloud.
 
 ### I don’t see generated SARIF file in the path I chose to drop it
 
