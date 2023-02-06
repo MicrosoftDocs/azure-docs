@@ -32,17 +32,17 @@ article to improve SEO.
 -->
 
 # Troubleshoot Manifest ingestion issues using Airflow task logs
-This article helps you troubleshoot manifest ingestion issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
+This article helps you troubleshoot manifest ingestion workflow issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
 
 ## Manifest Ingestion DAG workflow types
 The Manifest ingestion workflow is of two types:
 - Single manifest
 - Batch upload
 
-### Single Manifest Flow
+### Single manifest
 One single manifest file is used to trigger the manifest ingestion workflow.
 
-|DAGTaskName  |Description  |
+|DagTaskName  |Description  |
 |---------|---------|
 |**Update_status_running_task** | Calls Workflow service and marks the status of DAG as running in the database        |
 |**Check_payload_type** | Validates whether the ingestion is of batch type or single manifest|
@@ -51,10 +51,10 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 |**Process_single_manifest_file_task** | Performs ingestion of the final obtained manifest entities from the previous step, data records will be ingested via the storage service |
 |**Update_status_finished_task** | Calls workflow service and marks the status of DAG as `finished` or `failed` in the database |
 
-### Batch manifest flow
-Multiple manifest objects are part of the same request, that is, the manifest section in the request payload is a list instead of a dictionary.
+### Batch upload
+Multiple manifest files are part of the same workflow service request, that is, the manifest section in the request payload is a list instead of a dictionary of items.
 
-|DAGTaskName  |Description  |
+|DagTaskName  |Description  |
 |---------|---------|
 |**Update_status_running_task** | Calls Workflow service and marks the status of DAG as running in the database        |
 |**Check_payload_type** | Validates whether the ingestion is of batch type or single manifest|
@@ -81,21 +81,18 @@ Following columns are exposed in Airflow Task Logs for you to debug the issue:
 |**LogLevel**     | DEBUG/INFO/WARNING/ERROR. Mostly all exception and error messages can be seen by filtering at ERROR level        |
 
 
-## Cause 1: A DAG run failed in Update_status_running_task or Update_status_finished_task
+## Cause 1: A DAG run has failed in the Update_status_running_task or Update_status_finished_task
+The workflow run has failed and the data records were not ingested.
 
 **Possible reasons**
-
-Most of the time these tasks fail if the end-user passed incorrect data partition id value or the key name in the execution context of request body, data-partition-id must be used in the payload. In very rare scenarios this task can fail if the workflow service is itself not running and throwing 5xx error
+* Provided incorrect data partition id
+* Provided incorrect key name in the execution context of the request body
+* Workflow service is not running or throwing 5xx errors
 
 **Workflow status**
+* Workflow status is marked as `failed`.
 
-For this issue workflow status will be marked as failed.
-
-**How the issue will be discovered by the end-user?** 
-
-Workflow run itself would have failed and data records won't get ingested.
-
-### Solution 1: Check the logs for task failed exception. Fix the payload and pass correct data partition id or key name
+### Solution: Check the airflow task logs for `update_status_running_task` or `update_status_finished_task`. Fix the payload (pass the correct data partition id or key name)
 
 **Sample Kusto query**
 ```kusto
@@ -106,7 +103,7 @@ Workflow run itself would have failed and data records won't get ingested.
         | where RunID == '<run_id>'
 ```
 
-**Traces**
+**Sample trace output**
 ```md
     [2023-02-05, 12:21:54 IST] {taskinstance.py:1703} ERROR - Task failed with exception
     Traceback (most recent call last):
@@ -118,6 +115,7 @@ Workflow run itself would have failed and data records won't get ingested.
 ```
 
 ## Cause 2: Schema validation failures
+Records were not ingested due to schema validation failures.
 
 **Possible reasons** 
 * Schema not found errors
@@ -126,13 +124,9 @@ Workflow run itself would have failed and data records won't get ingested.
 * Schema service throwing 5xx errors
   
 **Workflow Status**
+* Workflow status is marked as `finished`. No failure in the workflow status will be observed because the invalid entities are skipped and the ingestion is continued.
 
-For this issue workflow status will be marked as finished, that is no failure in the workflow status will be observed because invalid entities are skipped and ingestion in continued
-
-**How issue will be discovered by the end** 
-Records were not ingested
-
-### Solution 1: Check the logs for task failed exception. 
+### Solution: Check the airflow task logs for `validate_manifest_schema_task` or `process_manifest_task`. Fix the payload (pass the correct data partition id or key name)
 
 **Sample Kusto query**
 ```kusto
@@ -144,7 +138,7 @@ Records were not ingested
     | order by ['time'] asc  
 ```
 
-**Traces**
+**Sample trace output**
 ```md
     Error traces to look out for
     [2023-02-05, 14:55:37 IST] {connectionpool.py:452} DEBUG - https://it1672283875.oep.ppe.azure-int.net:443 "GET /api/schema-service/v1/schema/osdu:wks:work-product-component--WellLog:2.2.0 HTTP/1.1" 404 None
@@ -169,6 +163,7 @@ Records were not ingested
 ```
 
 ## Cause 3: Failed reference checks
+Records were not ingested due to failed reference checks.
 
 **Possible reasons** 
 * Failed to find referenced records
@@ -176,13 +171,9 @@ Records were not ingested
 * Search service throwing 5xx errors
   
 **Workflow Status**
+* Workflow status is marked as `finished`. No failure in the workflow status will be observed because the invalid entities are skipped and the ingestion is continued.
 
-For this issue workflow status will be marked as finished, that is no failure in workflow status will be observed because invalid entities are skipped and ingestion in continued
-
-**How issue will be discovered by the end** 
-Records were not ingested
-
-### Solution 1: Check the logs for task failed exception. 
+### Solution: Check the airflow task logs for `provide_manifest_integrity_task` or `process_manifest_task`.
 
 **Sample Kusto query**
 ```kusto
@@ -193,15 +184,14 @@ Records were not ingested
         | where RunID has "<run_id>"
 ```
 
-**Traces**
+**Sample trace output**
+Since there are no such error logs specifically for referential integrity tasks, you should watch out for the debug log statements to see whether all external records were actually fetched using the search service.
 
-For referential integrity task, there are no such error logs per se, clients would want to look out for the debug log statements to figure out if all external records were retrieved via search service. 
-
-For instance, below output shows records queried using search service for referential integrity 
+For instance, the below output shows records queried using the Search service for referential integrity 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:75} DEBUG - Search query "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e140838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a"
 ```
-and below output indicates records which were retrieved and present in the system, if we observe some of the records were not present and hence the corresponding manifest entity which referenced that record would get dropped and no longer be ingested
+The records that were retrieved and were in the system are shown in the output below. The related manifest object that referenced a record would be dropped and no longer be ingested if we noticed that some of the records weren't present.
 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
@@ -209,6 +199,7 @@ and below output indicates records which were retrieved and present in the syste
 In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons
 
 ## Cause 4: Invalid Legal Tags/ACLs in manifest
+Records were not ingested due to invalid legal tags or ACLs present in the manifest.
 
 **Possible reasons** 
 * Incorrect ACLs
@@ -216,13 +207,9 @@ In the coming release, we plan to enhance the logs by appropriately logging skip
 * Storage service throws 5xx errors
   
 **Workflow Status**
+* Workflow status is marked as `finished`. No failure in the workflow status will be observed.
 
-For this issue workflow status will be marked as finished, that is no failure in workflow status will be observed
-
-**How issue will be discovered by the end** 
-Records were not ingested
-
-### Solution 1: Check the logs for task failed exception. 
+### Solution: Check the airflow task logs for `process_single_manifest_file_task` or `process_manifest_task`.
 
 **Sample Kusto query**
 ```kusto
@@ -234,7 +221,7 @@ Records were not ingested
     | order by ['time'] asc 
 ```
 
-**Traces**
+**Sample trace output**
 
 ```md
     "PUT /api/storage/v2/records HTTP/1.1" 400 None
@@ -248,15 +235,16 @@ and below output indicates records which were retrieved and present in the syste
     [2023-02-05, 16:58:46 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Validation error.","message":"createOrUpdateRecords.records[0].acl: Invalid group name 'data1.default.viewers@it1672283875-dp1.dataservices.energy'"}
     [2023-02-05, 16:58:46 IST] {single_manifest_processor.py:83} WARNING - Can't process entity SRN: surrogate-key:0ef20853-f26a-456f-b874-3f2f5f35b6fb
 ```
-In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons
+
+## Known issues
+- Exception traces were not exporting with Airflow Task Logs due to a known problem in the logs; the patch has been submitted and will be included in the February release.
+- Since there are no specific error logs for referential integrity tasks, you must manually search for the debug log statements to see whether all external records were retrieved via the search service. We intend to improve the logs in the upcoming release by properly logging skipped data with justifications.
 
 
 ## Next steps
-TODO: Add your next step link(s)
-
-- Next step 1
-- Next step 2
-
+Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion
+> [!div class="nextstepaction"]
+> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
 
 ## Reference
 - [Manifest-based ingestion concepts](concepts-manifest-ingestion.md)
