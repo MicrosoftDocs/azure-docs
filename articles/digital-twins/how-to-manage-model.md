@@ -306,11 +306,11 @@ Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supporte
 1. **If needed, update CommandPayload type.** If your DTDL V2 model happened to have a value of `CommandPayload` in an optional `@type` field, this value will need to be replaced with `CommandRequest` or `CommandResponse` in V3.
     1. Value in V2: `"@type": "CommandPayload"` 
     1. Value in V3: `"@type": "CommandRequest"` or `"@type": "CommandResponse"` 
-1. **If needed, consider size limits**. V2 and V3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL V2 and V3](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md#changes-from-version-2). 
+1. **If needed, consider size limits**. V2 and V3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL V2 and V3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2). 
 
 After these changes, a former DTDL V2 model has been converted to a DTDL V3 model.
 
-You might also want to consider [new capabilities of DTDL V3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL V2 and V3, see [DTDL V3 Reference: Changes from Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md#changes-from-version-2).
+You might also want to consider [new capabilities of DTDL V3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL V2 and V3, see [DTDL V3 Reference: Changes from Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
 
 ## Next steps
 
