@@ -1,6 +1,6 @@
 ---
 title: View acquisitions report
-description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
+description: Analyze your app or add-in performance and see your funnel and acquisitions metrics.
 ms.author: siraghav
 ms.reviewer: dannyevers
 ms.topic: article
