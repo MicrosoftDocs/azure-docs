@@ -58,7 +58,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
    
      > [!NOTE]
-     > Please note that for Classic storage accounts diagnostic $logs container would be appear only in Azure Storage Explorer (Not among Portal containers or Storage Explorer preview).
+     > Please note that for classic storage accounts diagnostic $logs container would be appear only in Azure Storage Explorer (Not among portal containers or storage browser).
 
 ### [PowerShell](#tab/azure-powershell)
 
