@@ -189,7 +189,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Geo Replication Full Sync Event Started
   - Depicts the start of full synchronization between geo-replicated caches. When there are a lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
   - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
 - Geo Replication Healthy
