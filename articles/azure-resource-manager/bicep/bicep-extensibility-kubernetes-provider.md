@@ -2,7 +2,7 @@
 title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 02/06/2023
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
@@ -23,7 +23,7 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 
 ## Import Kubernetes provider
 
-Deployments of Kubernetes must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, The Kubernetes manifest in YML does not include any programmability support.
+Kubernetes deployments must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML does not include any programmability support.
 
 The following sample imports the Kubernetes provider:
 
@@ -63,6 +63,5 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- [Add module settings in Bicep config](bicep-config-modules.md)
-- [Add linter settings to Bicep config](bicep-config-linter.md)
-- Learn about the [Bicep linter](linter.md)
+- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md)
+
