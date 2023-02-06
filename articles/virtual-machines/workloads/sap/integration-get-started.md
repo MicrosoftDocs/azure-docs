@@ -1,7 +1,7 @@
 ---
 title: Get started with SAP and Azure integration scenarios
 description: Learn about the various integration points in the Microsoft ecosystem for SAP workloads.
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: conceptual
 ms.date: 12/15/2022
 author: MartinPankraz

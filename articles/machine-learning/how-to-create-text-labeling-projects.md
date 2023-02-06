@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 02/03/2023
 ms.custom: data4ml, ignite-fall-2021
 ---
 
@@ -72,39 +72,41 @@ In many cases, it's fine to just upload local files. But [Azure Storage Explorer
 
 To create a dataset from data that you've already stored in Azure Blob storage:
 
-1. Select **Create a dataset** > **From datastore**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create** .
+1. Assign a **Name** to your dataset, and optionally a description.
 1. Choose the **Dataset type**:
     * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
-1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
-1. Select the datastore.
+1. Select **From Azure storage**, then **Next**.
+1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **Create**.
+1. Now select the data asset you just created.
 
 ### Create a dataset from uploaded data
 
 To directly upload your data:
 
-1. Select **Create a dataset** > **From local files**.
-1. Assign a **Name** to your dataset.
-1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. 
+1. Select **+ Create**.
+1. Assign a **Name** to your dataset, and optionally a description.
+1. Choose the **Dataset type**:
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
-1. (Optional) Provide a description of your dataset.
-1. Select **Next**
-1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
-1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
-1. If uploading .csv or .tsv files:
-    * Confirm the settings and preview, select **Next**.
-    * Include all columns of text you'd like the labeler to see when classifying that row.  If you'll be using ML assisted labeling, adding numeric columns may degrade the ML assist model.
-    * Select **Next**.
-1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **From local files**, then select **Next**.
+1. (Optional) Select a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Next**.
+1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
+1. In the browser window, find your files or folder, then select **Open**.
+1. Continue using **Upload** until you have specified all your files/folders.
+1. Check the box **Overwrite if already exists** if you wish.  Verify the list of files/folders.
+1. Select **Next**.
+1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Now select the data asset you just created.
+
 
 
 ## Configure incremental refresh
@@ -174,15 +176,17 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
+The progress charts shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
+Below the charts is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
-The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
+You also see a distribution of labelers and how many items they've labeled.  
 
+Finally, in the middle section, there is a table showing a queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned.
 
-On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
-### Data tab
+### Data
 
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
