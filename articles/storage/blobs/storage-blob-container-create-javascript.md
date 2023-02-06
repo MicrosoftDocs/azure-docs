@@ -72,8 +72,18 @@ A root container, with the specific name `$root`, enables you to reference a blo
 
 The root container must be explicitly created or deleted. It isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
-- [Create Container operation](/rest/api/storageservices/create-container)
-- [Delete Container operation](/rest/api/storageservices/delete-container)
+To learn more about creating a container using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for creating a container use the following REST API operation:
+
+- [Create Container](/rest/api/storageservices/create-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
