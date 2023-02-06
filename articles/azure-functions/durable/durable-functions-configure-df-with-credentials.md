@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Configure Durable Functions with Azure Active Directory
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service.Using the default storage provider, Durable Functions needs to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD) is a cloud-based identity and access management service. Using the default storage provider, Durable Functions needs to authenticate against an Azure storage account. Identity-based connections allow Durable Functions to make authorized requests against Azure Active Directory (Azure AD) protected resources, like an Azure Storage account, without the need to manage secrets manually. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **Managed Identity Credentials** and **Client Secret Credentials**.
 
 
 ## Configure your app to use Managed Identity
@@ -61,7 +61,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
    **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;
    **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
-   The values for these variables can be found in the storage account blade under the Endpoints tab. 
+   The values for these variables can be found in the storage account blade the Endpoints tab. 
 
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
@@ -69,16 +69,16 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
    * If **system-assigned identity** should be used: 
    
-   Specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) take care of everything. 
+     Specify nothing else and let the [DefaultAzureCredential Class](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) take care of everything. 
 
    * If **user-assigned identity** should be used: 
    
-   Add the following value settings in configuration: 
+     Add the following value settings in configuration: 
      * **AzureWebJobsStorage__credential**: managedidentity 
 
      * **AzureWebJobsStorage__clientId**: MyUserIdentityClientId
 
-    ![user identity client id Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
+     ![user identity client id Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
 
 
 
@@ -95,13 +95,13 @@ In particular, this quickstart assumes that you have already:
 
 
 ### Register a Client Application on Azure Active Directory 
-1. Register an application under Azure Active Directory on Azure Portal according to [these instructions](../../healthcare-apis/register-application.md)
+1. Register a client application under Azure Active Directory on Azure Portal according to [these instructions](../../healthcare-apis/register-application.md).
 
-2. Create a Client Secret for your application created in the last step. In your registered application,  
+2. Create a Client Secret for your client application. In your registered application,  
 
    1. Select Certificates & Secrets and select New Client Secret.  
 
-   2. Add description and select secret valid time in Expires field.  
+   2. Add description and choose secret valid time in Expires field.  
 
    3. Copy and save the secret value carefully because it will not show up again.  
    
@@ -139,7 +139,7 @@ For run and test in Azure, specify the followings in your Azure function app’s
     **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; 
     **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
-   The values for these Uri variables can be found in the storage account blade under the **Endpoints** tab. 
+   The values for these Uri variables can be found in the storage account under the **Endpoints** tab. 
    
    ![Endpoint Sample](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
 
