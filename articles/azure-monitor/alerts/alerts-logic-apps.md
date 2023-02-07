@@ -116,8 +116,15 @@ In this example, we'll use the following steps to create a Logic App that uses t
     :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
 
     1. In the **Search** field, search for and select enter **Initialize variable**.
-        1. 
-
+        1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
+        1. In the type field, select **Array**.
+        1. In the **Value** field, select **Dynamic Content**. In the **Expression** tab, enter:
+            ```json
+            split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/') 
+            ```
+        1. Select **OK**.
+        
+         :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
 1. Send an email or post a Teams message.
 
 ## [Send an email](#tab/send-email)
