@@ -73,7 +73,7 @@ conceptualContent:
           text: Face detection
           url: concept-detecting-faces.md
         - itemType: concept
-          text: Model customization
+          text: Model customization (preview)
           url: concept-model-customization.md
         - itemType: tutorial
           text: Generate metadata for images

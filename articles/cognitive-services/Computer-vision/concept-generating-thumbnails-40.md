@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Smart-cropped thumbnails (version 4.0)
+# Smart-cropped thumbnails (version 4.0 preview)
 
 A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
 

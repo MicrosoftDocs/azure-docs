@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Image caption generation (version 4.0)
+# Image caption generation (version 4.0 preview)
 
 Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several captions based on different visual features, and each caption is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 

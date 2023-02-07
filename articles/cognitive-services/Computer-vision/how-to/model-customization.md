@@ -12,7 +12,7 @@ ms.author: pafarley
 ms.custom: 
 ---
 
-# Create a custom Image Analysis model
+# Create a custom Image Analysis model (preview)
 
 Image Analysis 4.0 allows you to train a custom model using your own training images and labels. By manually labeling your images, you can train a model to apply custom tags to images (image classification) or detect custom objects (object detection).
 

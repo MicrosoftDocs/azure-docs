@@ -12,7 +12,7 @@ ms.author: pafarley
 ms.custom: 
 ---
 
-# Migrate a Custom Vision project to Image Analysis 4.0
+# Migrate a Custom Vision project to Image Analysis 4.0 preview
 
 You can migrate an existing Azure Custom Vision project to the new Image Analysis 4.0 system. [Custom Vision](/azure/cognitive-services/custom-vision-service/overview) is a model customization service that existed before Image Analysis 4.0.
 

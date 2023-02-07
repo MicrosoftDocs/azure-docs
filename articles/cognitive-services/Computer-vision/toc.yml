@@ -104,7 +104,7 @@ items:
     href: overview-image-analysis.md
   - name: Quickstarts
     items:
-    - name: Version 4.0 quickstart
+    - name: Version 4.0 quickstart (preview)
       href: quickstarts-sdk/image-analysis-client-library-40.md
     - name: Version 3.2 quickstart
       href: quickstarts-sdk/image-analysis-client-library.md
@@ -124,7 +124,7 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Version 4.0
+    - name: Version 4.0 (preview)
       items:
       - name: Call the Image Analysis API
         href: how-to/call-analyze-image-40.md
@@ -142,7 +142,7 @@ items:
         href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
-    - name: Version 4.0
+    - name: Version 4.0 (preview)
       items:
       - name: Object detection
         href: concept-object-detection-40.md

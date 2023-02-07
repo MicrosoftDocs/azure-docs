@@ -12,7 +12,7 @@ ms.date: 01/24/2023
 ms.custom: "seodec18"
 ---
 
-# Call the Image Analysis 4.0 API
+# Call the Image Analysis 4.0 API (preview)
 
 This article demonstrates how to call the Image Analysis 4.0 API to return information about an image's visual features. It also shows you how to parse the returned information.
 
