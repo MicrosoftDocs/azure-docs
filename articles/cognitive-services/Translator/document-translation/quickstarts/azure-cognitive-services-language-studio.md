@@ -32,25 +32,20 @@ To get started, you'll need:
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) enabled with a system-assigned managed identity. For more information, *see* [**Managed identities for Document Translation**](../how-to-guides/create-use-managed-identities.md).
 
   * An Azure blob storage account and managed identity are required to use Document Translation in Language Studio**.
-  * If you are going to upload documents to your Azure blob storage account, you'll also need to create source and target containers.
+  * You'll also need to create source and target containers for your Azure blob storage account.
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
     **Complete the Translator project and instance details fields as follows:**
   
     1. **Subscription**. Select one of your available Azure subscriptions.
-
     1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
-
     1. **Resource Region**. For this project, choose a **non-global** region. We'll use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. Currently, Document Translation doesn't support managed identity in the global region.
-
     1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
-
     1. **Pricing tier**. Select Standard S1 to try the service. Document Translation isn't supported in the free tier.
-
     1. Select **Review + Create**.
 
-* At least one **source document**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
+* A **source document**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
 Now that you've completed the prerequisites, let's start translating documents!
 
