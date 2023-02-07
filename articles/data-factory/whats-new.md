@@ -41,8 +41,8 @@ Orchestyrate Synapse notebooks and Synapse spark job definitions natively [Learn
 
 ### Region expansion
 
-- Continued region expansion - China North 3 now supported [Learn more](/explore/global-infrastructure/products-by-region/?products=data-factory)
-- Continued region expansion - Switzerland West now supported [Learn more](/explore/global-infrastructure/products-by-region/?products=data-factory)
+- Continued region expansion - China North 3 now supported [Learn more](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=data-factory)
+- Continued region expansion - Switzerland West now supported [Learn more](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=data-factory)
 
 ### SQL Server Integration Services (SSIS)
 
