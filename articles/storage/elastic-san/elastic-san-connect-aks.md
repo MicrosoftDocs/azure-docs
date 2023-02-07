@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume an AK
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 02/06/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -12,7 +12,6 @@ ms.subservice: elastic-san
 # Connect Elastic SAN volumes to AKS
 
 For AKS clusters connecting to Elastic SAN, use the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) enabled on your cluster to connect Elastic SAN volumes. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
-
 
 ## About the driver
 
@@ -32,7 +31,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ### Driver installation
 
-First, we'll need to install the Kubernetes iSCSI CSI driver on your cluster.
+First, install the Kubernetes iSCSI CSI driver on your cluster.
 
 You can either perform a remote install with the following command:
 
@@ -48,7 +47,7 @@ cd csi-driver-iscsi
 ./deploy/install-driver.sh master local
 ```
 
-Afterwards, check the pods status to verify that the driver installed.
+After deployment, check the pods status to verify that the driver installed.
 
 ```bash
 kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
@@ -56,12 +55,16 @@ kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 
 ### Volume information
 
-To connect an Elastic SAN volume to an AKS cluster, you must get the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
+To connect an Elastic SAN volume to an AKS cluster, you need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
+
+You may get them with the following Azure PowerShell command:
 
 
 ```azurepowershell
 Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume 
 ```
+
+You may also get them with the following Azure CLI command:
 
 ```azurecli
 az elastic-san volume show --elastic-san-name --name --resource-group --volume-group-name
@@ -69,9 +72,9 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 ### Cluster configuration
 
-Then, you'll need to create a few yml files on your AKS cluster.
+Once you've retrieved your volumes information, you'll need to create a few yml files on your AKS cluster.
 
-First, create a storageclass.yml file, which you'll use to define the persistent volume.
+First, create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -81,7 +84,7 @@ metadata:
 provisioner: manual
 ```
 
-Then, create a pv.yml file, for the persistent volume. Use the following example to create a yml file, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier. If you need more than 1 gibibytes of storage and have it available, replace `1Gi` with the amount of storage you require.
+Then, create a pv.yml file. This file defines your persistent volume. Use the following example to create a pv.yml file, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier. If you need more than 1 gibibytes of storage and have it available, replace `1Gi` with the amount of storage you require.
 
 ```yml
 ---
@@ -174,3 +177,5 @@ Finally, create the pod.
 ```bash
 kubectl apply -f pathtoyourfile/pod.yaml
 ```
+
+You've now successfully connected an Elastic SAN volume to your AKS cluster.
