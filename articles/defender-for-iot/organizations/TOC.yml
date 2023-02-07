@@ -301,6 +301,8 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Data retention
+    href: references-data-retention.md
   - name: OT monitoring appliances
     items:
     - name: Overview
