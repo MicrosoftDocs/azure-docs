@@ -24,11 +24,11 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 - [Defender for Storage in the field](episode-thirteen.md)
 
 > [!NOTE]
-> Microsoft Defender for Storage customers can now choose to move to a new predictable pricing plan. The pricing model is per-storage account, and high-volume transactions may incur additional overage charges. This new pricing plan will also include all new security features and detections.
+> Microsoft Defender for Storage customers can now choose to move to a new predictable pricing plan. The pricing model is per-storage account, where high-volume transactions may incur additional overage charges. This new pricing plan will also include all new security features and detections.
 >
-> Customers using the legacy per-transaction pricing plan will need to proactively migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges based on the number of analyzed transactions in the storage account.
+> Customers using the legacy per-transaction pricing plan need to migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges are based on the number of analyzed transactions in the storage account.
 >
-> For further details, please refer to the [Microsoft Defender for Storage FAQ](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=per-storage-account#faq---microsoft-defender-for-storage-pricing).
+> For further details, please refer to the [Microsoft Defender for Storage FAQ](#faq---microsoft-defender-for-storage-pricing).
 
 ## Availability
 
