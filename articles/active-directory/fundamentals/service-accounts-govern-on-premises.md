@@ -1,14 +1,14 @@
 ---
-title: Govern on-premises service accounts  | Azure Active Directory
-description: Use this guide to create and run an account lifecycle process for service accounts.
+title: Govern on-premises service accounts 
+description: Learn to create and run an account lifecycle process for on-premises service accounts
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 02/07/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
