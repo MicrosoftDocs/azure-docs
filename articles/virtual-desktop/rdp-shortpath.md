@@ -5,6 +5,7 @@ author: dknappettmsft
 ms.topic: conceptual
 ms.date: 02/02/2023
 ms.author: daknappe
+ms.custom: references_regions
 ---
 # RDP Shortpath for Azure Virtual Desktop
 
