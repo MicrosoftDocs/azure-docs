@@ -57,7 +57,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 
 The following scenarios are supported for Staged Rollout. The feature works only for:
 
-- Users who are provisioned to Azure AD by using Azure AD Connect. It does not apply to cloud-only users.
+- Users that are federated via an external identity provider (IDP) such as AD FS or a similar third party IDP. It does not apply to managed authentication based users.
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use [legacy authentication](../conditional-access/block-legacy-authentication.md) will fall back to federated authentication flows. An example of legacy authentication might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
 
