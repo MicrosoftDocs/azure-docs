@@ -20,7 +20,7 @@ The following table lists the current versions available for the public and Insi
 | Public  | 1.2.3918       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.3918       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.3916
+## Updates for version 1.2.3918
 
 *Date published: February 7, 2023*
 
@@ -54,8 +54,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.3667
 
 *Date published: November 30, 2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvS), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvR), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5aCCE)
 
 In this release, we've made the following changes:
 
