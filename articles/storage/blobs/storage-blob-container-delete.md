@@ -77,9 +77,20 @@ public static async Task RestoreContainer(BlobServiceClient client, string conta
 }
 ```
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+To learn more about deleting a container using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for deleting or restoring a container use the following REST API operations:
+
+- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+- [Restore Container](/rest/api/storageservices/restore-container) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
-- [Restore Container](/en-us/rest/api/storageservices/restore-container)
