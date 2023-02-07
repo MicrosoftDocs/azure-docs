@@ -79,7 +79,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Oracle Access Manager for Oracle E-Business Suite SSO
 
-1. Sign to the Oracle Access Manager console as an Administrator
+1. Sign to the Oracle Access Manager console as an Administrator.
 1. Click the **Federation** tab at the top of the console.
 1. In the **Federation** area of the **Launch Pad** tab, click **Service Provider Management**.
 1. On the Service Provider Administration tab, click **Create Identity Provider Partner**.
@@ -107,7 +107,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     a. **Enable global logout** is selected.
 
-    b. **HTTP POST SSO** Response Binding is selected
+    b. **HTTP POST SSO** Response Binding is selected.
+
 ### Create Oracle Access Manager for Oracle E-Business Suite test user
 
 In this section, you create a user called Britta Simon at Oracle Access Manager for Oracle E-Business Suite. Work with [Oracle Access Manager for Oracle E-Business Suite support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to add the users in the Oracle Access Manager for Oracle E-Business Suite platform. Users must be created and activated before you use single sign-on.
