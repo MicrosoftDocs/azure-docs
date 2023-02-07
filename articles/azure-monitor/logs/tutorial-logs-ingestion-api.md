@@ -95,8 +95,8 @@ Use the **Tables - Update** API to create the table with the following PowerShel
                         "description": "Name of the counter"
                     },
                     {
-                        "name": "CounterName",
-                        "type": "string",
+                        "name": "CounterValue",
+                        "type": "real",
                         "description": "Value collected for the counter"
                     }
                 ]
@@ -185,7 +185,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
 ## Create a data collection rule
-The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint. It also defines the transformation that will be applied to it. The DCR also defines the destination workspace and table the transformed data will be sent to.
+The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's send to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
@@ -204,7 +204,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
     - `dataCollectionEndpointId`: Identifies the Resource ID of the data collection endpoint.
     - `streamDeclarations`: Defines the columns of the incoming data.
     - `destinations`: Specifies the destination workspace.
-    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table.
+    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
 
     ```json
     {
