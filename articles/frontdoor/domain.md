@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/01/2023
+ms.date: 02/07/2023
 ms.author: jodowns
 ---
 
@@ -95,7 +95,7 @@ Azure Front Door can automatically manage TLS certificates for subdomains and ap
 
 Azure Front Door's certificates are issued by our partner certification authority, DigiCert.
 
-The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete.
+The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
 
 #### Domain types
 
