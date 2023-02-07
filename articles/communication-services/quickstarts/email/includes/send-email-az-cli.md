@@ -118,10 +118,10 @@ Also, you can use a list of recipients with `--to`, similar to `--cc` and `--bcc
 We can keep checking the email delivery status until the status is `OutForDelivery`.
 
 ```azurecli-interactive
-az communication email status get --message-id "<messageId>"
+az communication email status get --message-id "\<messageId\>"
 ```
 
-- Replace "<messageId>" with the messageId from the response of the send request.
+- Replace "\<messageId\>" with the messageId from the response of the send request.
 
 [!INCLUDE [Email Message Status](./email-message-status.md)]
 
