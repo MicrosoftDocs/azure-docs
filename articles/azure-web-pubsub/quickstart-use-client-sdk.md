@@ -30,8 +30,6 @@ Install Node.js
 
 [Node.js](https://nodejs.org)
 
----
-
 # [C#](#tab/csharp)
 
 Install both the .NET Core SDK and dotnet runtime.
@@ -49,8 +47,6 @@ The SDK is available as an [NPM module](https://www.npmjs.com/package/@azure/web
 ```bash
 npm install @azure/web-pubsub-client
 ```
-
----
 
 # [C#](#tab/csharp)
 
@@ -85,8 +81,6 @@ const { WebPubSubClient } = require("@azure/web-pubsub-client");
 const client = new WebPubSubClient("<client-access-url>");
 ```
 
----
-
 # [C#](#tab/csharp)
 
 Edit the `Program.cs` file and add following codes:
@@ -117,7 +111,6 @@ client.start();
 // join a group to subscribe message from the group
 client.joinGroup("group1");
 ```
----
 
 # [C#](#tab/csharp)
 
@@ -147,8 +140,6 @@ Then you can send messages to the group and as the client has joined the group b
 client.sendToGroup("group1", "Hello World", "text");
 ```
 
----
-
 # [C#](#tab/csharp)
 
 ```csharp
@@ -166,8 +157,6 @@ await client.SendToGroupAsync("group1", BinaryData.FromString("Hello World"), We
 [TypeScript sample](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/samples/v1-beta/typescript)
 [Browser sample](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/samples-browser)
 [Chat app sample](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/sdk)
-
----
 
 # [C#](#tab/csharp)
 
