@@ -57,9 +57,9 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
    * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; 
 
-   **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;
+     **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;
 
-   **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
+     **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
    The values for these variables can be found in the storage account under the **Endpoints** tab. 
 
@@ -131,9 +131,9 @@ To run and test in Azure, specify the following in your Azure function app’s *
 
    * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint;
 
-    **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; 
+     **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; 
 
-    **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
+     **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
    
    The values for these Uri variables can be found in the storage account under the **Endpoints** tab. 
    
@@ -150,25 +150,3 @@ To run and test in Azure, specify the following in your Azure function app’s *
    
    ![client secret Sample](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
 
-
-## (Optional) Configure a custom non-AzureWebJobsStorage storage connection  
-
-Durable Functions supports using a separate storage account that's different from the one used by the Azure Functions host. If this configuration is desired, the steps to configure the separate storage account are as follows:
-
-1. Use the following configuration in host.json: 
-    ```json
-    {
-        "extensions":{
-           "durableTask":{
-              "hubName": "myTestHub",
-              "storageProvider":{
-               "connectionStringName": "MySeperateStorageAccount"
-              }
-           }
-        }
-    }
-    ```
-
-2. In your function’s configuration or local.settings.json, add the value  **mySeparateStorageAccount: storage account connection string**. The connection string can be found in the storage account’s **Access keys**: 
-
-   ![connection string Sample](media/durable-functions-configure-df-with-credentials/durable-functions-option-scenario-01.png)
