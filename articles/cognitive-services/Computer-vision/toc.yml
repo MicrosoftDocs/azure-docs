@@ -130,6 +130,8 @@ items:
         href: how-to/call-analyze-image-40.md
       - name: Create a custom model
         href: how-to/model-customization.md
+      - name: Migrate a Custom Vision project to Image Analysis
+        href: how-to/migrate-from-custom-vision.md
     - name: Version 3.2
       items:
       - name: Call the Image Analysis API
