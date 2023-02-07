@@ -121,7 +121,7 @@ To optimize costs, you might want to exclude specific Storage accounts associate
 
 ### Can I exclude a specific Azure Storage account from a protected subscription? 
 
-Excluding specific storage accounts from protection is only possible on the per-transaction pricing plan. To exclude a storage account, follow instructions in [Exclude a storage account from a protected subscription in the per-transaction plan](defender-for-storage-exclude.md). 
+Excluding specific storage accounts from protection is only possible on the per-transaction pricing plan. The per-storage account pricing plan will support exclusion in the future. To exclude a storage account, follow instructions in [Exclude a storage account from a protected subscription in the per-transaction plan](defender-for-storage-exclude.md).
 
 ### How do I configure automatic responses for security alerts? 
 
