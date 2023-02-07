@@ -54,6 +54,9 @@ The following additional limitations apply to Windows Server node pools:
 * The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
 
+> [!NOTE]
+> Windows Server 2019 will be retired in Kubernetes 1.31 and higher. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
 ## Create a resource group
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md)

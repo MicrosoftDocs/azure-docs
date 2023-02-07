@@ -13,11 +13,13 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters.
+AKS supports Ubuntu 22.04 as the default node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at nodepool creation. 
+
+AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools  in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation until Kubernetes 1.31. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and will be the only container runtime option in Kubernetes 1.21 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 and 2022 node pools, `containerd` is generally available and will be the only container runtime option in Kubernetes 1.21 and greater. Docker is no longer supported as of March 2023. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already uses and is built on top of `containerd`, as shown above.
 
@@ -32,7 +34,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
 >
-> `containerd` with Windows Server 2019 node pools is generally available, and is the only container runtime option in Kubernetes 1.21 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of September 2022. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> `containerd` with Windows Server 2019 and 2022 node pools is generally available, and is the only container runtime option in Kubernetes 1.21 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of March 2023. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 >
 > It is highly recommended you test your workloads on AKS node pools with `containerd` before using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -58,7 +60,7 @@ Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/
 Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs.
 Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
 
-Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
+Additionally not all VM images support Gen2, on AKS Gen2 VMs will use [AKS Ubuntu 22.04 or 18.04 image](#os-configuration) or [AKS Windows Server 2022 image](#os-configuration). These images support all Gen2 SKUs and sizes.
 
 ## Default OS disk sizing
 
