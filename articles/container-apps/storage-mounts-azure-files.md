@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 The following commands help you define  variables and ensure your Container Apps extension is up to date.
 
-1. Log in to the Azure CLI.
+1. Sign in to the Azure CLI.
 
     # [Bash](#tab/bash)
 
@@ -437,12 +437,12 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Open *app.yaml* in a code editor.
 
-1. Add a reference to the storage volumes to the `template` definition.
+1. Replace the `volumes: null` definition in the `template` section with the following reference to the storage volumes.
 
     ```yml
     template:
       volumes:
-      - name: azure-file-volume
+      - name: my-azure-file-volume
         storageName: mystoragemount
         storageType: AzureFile
     ```
@@ -464,7 +464,7 @@ Now you can update the container app configuration to support the storage mount.
       - image: nginx
         name: my-container-app
         volumeMounts:
-        - volumeName: azure-file-volume
+        - volumeName: my-azure-file-volume
           mountPath: /var/log/nginx
     ```
 
