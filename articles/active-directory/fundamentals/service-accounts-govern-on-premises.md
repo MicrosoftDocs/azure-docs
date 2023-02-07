@@ -19,34 +19,36 @@ ms.collection: M365-identity-device-management
 
 Active Directory offers four types of on-premises service accounts:
 
-* [Group managed service accounts (gMSAs)](service-accounts-group-managed.md)  
-* [Standalone managed service accounts (sMSAs)](service-accounts-standalone-managed.md)  
-* [Computer accounts](service-accounts-computer.md)  
-* [User accounts that function as service accounts](service-accounts-user-on-premises.md)
+* Group-managed service accounts (gMSAs)
+  * [Secure group managed service accounts](service-accounts-group-managed.md) 
+* Standalone managed service accounts (sMSAs)
+  * [Secure standalone managed service accounts](service-accounts-standalone-managed.md) 
+* On-premises computer accounts
+  * [Secure on-premises computer accounts with Active Directory](service-accounts-computer.md)  
+* User accounts functioning as service accounts
+  * [Secure user-based service accounts in Active Directory](service-accounts-user-on-premises.md)
 
+Part of service account governance includes:
 
-It is critical to govern service accounts closely so that you can: 
+* Protecting them, based on requirements and purpose 
+* Managing account lifecycle, and their credentials   
+* Assessing service accounts, based on risk and permissions
+* Ensuring Active Directory (AD) and Azure Active Directory (Azure AD) have no stale service accounts, with permissions
 
-* Protect them based on their use-case requirements and purpose.  
-* Manage the lifecycle of the accounts and their credentials.  
-* Assess them based on the risk they'll be exposed to and the permissions they carry.  
-* Ensure that Active Directory and Azure Active Directory have no stale service accounts with potentially far-reaching permissions.
+## New service account principles
 
-## Principles for creating a new service account
-
-When you create a service account, understand the considerations listed in the following table:
+When you create service accounts, consider the information in the following table.
 
 | Principle| Consideration | 
 | - |- | 
-| Service account mapping| Tie the service account to a single service, application, or script. |
-| Ownership| Ensure that there's an owner who requests and assumes responsibility for the account. |
-| Scope| Define the scope clearly, and anticipate usage duration for the service account. |
-| Purpose| Create service accounts for a single, specific purpose. |
-| Permissions | Apply the principle of *least permission*. To do so:<li>Never assign permissions to built-in groups, such as administrators.<li>Remove local machine permissions, where appropriate.<li>Tailor access, and use Active Directory delegation for directory access.<li>Use granular access permissions.<li>Set account expirations and location-based restrictions on user-based service accounts. |
-| Monitor and audit use| Monitor sign-in data, and ensure that it matches the intended usage. Set alerts for anomalous usage. |
-| | |
+| Service account mapping| Connect the service account to a service, application, or script |
+| Ownership| Ensure there's an owner who requests and assumes account responsibility |
+| Scope| Define the scope, and anticipate usage duration|
+| Purpose| Create service accounts for one purpose |
+| Permissions | Apply the principle of least permission. To do so:<li>Don't assign permissions to built-in groups, such as administrators<li>Remove local machine permissions, where feasible<li>Tailor access, and use AD delegation for directory access<li>Use granular access permissions<li>Set account expiration and location restrictions on user-based service accounts |
+| Monitor and audit use| Monitor sign-in data, and ensure it matches the intended usage. Set alerts for anomalous usage. |
 
-### Set restrictions for user accounts
+### User account restrictions
 
 For user accounts that are used as service accounts, apply the following settings:
 
