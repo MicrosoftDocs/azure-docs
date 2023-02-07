@@ -133,7 +133,7 @@ Create your logic apps as Azure Resource Manager templates so that you can [set 
 
 If no suitable connector is available to run the code you want, you can create and call your own code snippets from your workflow by using [Azure Functions](../azure-functions/functions-overview.md). Or, create your own [APIs](logic-apps-create-api-app.md) and [custom connectors](custom-connector-overview.md) that you can call from your workflows.
 
-### Access resources inside Azure virtual networks
+### Direct access to resources in Azure virtual networks
 
 Logic app workflows can access secured resources such as virtual machines (VMs), other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use either [Azure Logic Apps (Standard)](single-tenant-overview-compare.md) or an [*integration service environment* (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). Both Azure Logic Apps (Standard) and an ISE are dedicated instances of the Azure Logic Apps service that use dedicated resources and run separately from the global multi-tenant Azure Logic Apps service.
 
