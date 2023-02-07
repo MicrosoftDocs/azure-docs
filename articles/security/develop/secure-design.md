@@ -72,9 +72,9 @@ Ask security questions like:
 
 * Will my application be available to the public (on the internet) or internally only? If your application is available to the public, how do you protect the data that might be collected from being used in the wrong way? If your application is available internally only, consider who in your organization should have access to the application and how long they should have access.
 
-* Do you understand your identity model before you begin designing your application? How will you determine that users are who they say they're and what a user is authorized to do?
+* Do you understand your identity model before you begin designing your application? How will you determine that users are who they say they are and what a user is authorized to do?
 
-* Does my application perform sensitive or important tasks (such as transferring money, unlocking doors, or delivering medicine)? Consider how you'll validate that the user performing a sensitive task is authorized to perform the task and how you'll authenticate that the person is who they say they're. Authorization (AuthZ) is the act of granting an authenticated security principal permission to do something. Authentication (AuthN) is the act of challenging a party for legitimate credentials.
+* Does my application perform sensitive or important tasks (such as transferring money, unlocking doors, or delivering medicine)? Consider how you'll validate that the user performing a sensitive task is authorized to perform the task and how you'll authenticate that the person is who they say they are. Authorization (AuthZ) is the act of granting an authenticated security principal permission to do something. Authentication (AuthN) is the act of challenging a party for legitimate credentials.
 
 * Does my application perform any risky software activities, like allowing users to upload or download files or other data? If your application does perform risky activities, consider how your application will protect users from handling malicious files or data.
 
