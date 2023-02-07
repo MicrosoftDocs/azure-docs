@@ -97,13 +97,16 @@ In this article you learn how to secure the following training compute resources
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
-> For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
+> If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
+> * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
+>     - `AzureMachineLearning` service tag on UDP port 5831.
+>     - `BatchNodeManagement` service tag on TCP port 443.
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
 
-+ Your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
++ You must use a workspace private endpoint for the compute resource to communicate with Azure Machine Learning services from the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 + In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
 
@@ -134,6 +137,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
     - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
 
+    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](/azure/virtual-network/service-tags-overview) article.
+
 Use the following information to create a compute instance or cluster with no public IP address:
 
 # [Azure CLI](#tab/cli)
@@ -147,7 +152,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance --enable-node-public-ip false
+# create a compute cluster with no public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute --set enable_node_public_ip=False
+
+# create a compute instance with no public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance --set enable_node_public_ip=False
 ```
 
 # [Python](#tab/python)
@@ -246,7 +255,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance
+# create a compute cluster with a public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute
+
+# create a compute instance with a public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance
 ```
 
 # [Python](#tab/python)

@@ -3,7 +3,7 @@ title: Get started with Azure Native Qumulo Scalable File Service Preview
 description: In this quickstart, learn how to create an instance of Azure Native Qumulo Scalable File Service.
 
 ms.topic: quickstart 
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart
 ms.date: 01/18/2023
 
 ---

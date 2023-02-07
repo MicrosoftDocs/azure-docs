@@ -1,6 +1,6 @@
 ---
 title: Provision new SIMs - Azure portal
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -10,7 +10,7 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Provision new SIMs for Azure Private 5G Core Preview - Azure portal
+# Provision new SIMs for Azure Private 5G Core - Azure portal
 
 *SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
 
@@ -45,7 +45,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | Value | Field name in Azure portal | JSON file parameter name |
 |--|--|--|
 | SIM name. The SIM name must only contain alphanumeric characters, dashes, and underscores. | **SIM name** | `simName` |
-| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is optional and is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
+| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. The ICCID is optional and is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
 | The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. | **IMSI** | `internationalMobileSubscriberIdentity` |
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | **Ki** | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
@@ -134,7 +134,7 @@ You'll now begin the SIM provisioning process through the Azure portal.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. Select **View SIMs**.
+1. Select **Manage SIMs**.
 
     :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 

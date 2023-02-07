@@ -7,6 +7,7 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 10/06/2022
 ms.custom: template-overview #Required; leave this attribute/value as-is.
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept overview

@@ -13,7 +13,7 @@ ms.date: 12/15/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../../includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create an automated workflow using Azure Logic Apps with Azure database for MySQL Flexible Server. 
+This quickstart shows how to create an automated workflow using Azure Logic Apps with Azure database for MySQL Connector (Preview). 
 
 ## Prerequisites
 

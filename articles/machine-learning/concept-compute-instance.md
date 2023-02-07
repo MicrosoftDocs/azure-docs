@@ -86,7 +86,7 @@ You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-cre
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python samples||
 
-Python packages are all installed in the **Python 3.8 - AzureML** environment. Compute instance has Ubuntu 18.04 as the base OS.
+Python packages are all installed in the **Python 3.8 - AzureML** environment. Compute instance has Ubuntu 20.04 as the base OS.
 
 ## Accessing files
 
