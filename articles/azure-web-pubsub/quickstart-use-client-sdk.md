@@ -19,8 +19,8 @@ This quickstart guide will demonstrate how to construct a project using the Web 
 
 ## Prerequisites
 
-- A Web PubSub instance. If you haven't created one, please follow the guidance: [Create a Web PubSub instance from Azure portal](./howto-develop-create-instance.md)
-- A file editor such as VSCode.
+- A Web PubSub instance. If you haven't created one, you can follow the guidance: [Create a Web PubSub instance from Azure portal](./howto-develop-create-instance.md)
+- A file editor such as Visual Studio Code.
 
 Install the dependencies for the language you're using:
 
@@ -54,7 +54,7 @@ npm install @azure/web-pubsub-client
 
 # [C#](#tab/csharp)
 
-The SDK is available as an [Nuget packet](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Client)
+The SDK is available as an [NuGet packet](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Client)
 
 ```bash
 # Add a new .net project
@@ -68,7 +68,7 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 ## 2. Construct and Connect to Web PubSub
 
-A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure Portal shown below.
+A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
 ![get_client_url](https://learn.microsoft.com/azure/azure-web-pubsub/media/howto-websocket-connect/generate-client-url.png)
 
@@ -77,11 +77,11 @@ As shown in the diagram above, the client has the permissions to send messages t
 
 # [JavaScript](#tab/javascript)
 
-Add a file with name `index.js` and add codes as below:
+Add a file with name `index.js` and add following codes:
 
 ```javascript
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
-// Instantiates the client object. <client-access-url> is copied from Azure Portal mentioned above.
+// Instantiates the client object. <client-access-url> is copied from Azure portal mentioned above.
 const client = new WebPubSubClient("<client-access-url>");
 ```
 
@@ -89,11 +89,11 @@ const client = new WebPubSubClient("<client-access-url>");
 
 # [C#](#tab/csharp)
 
-Edit the `Program.cs` file and add codes as below:
+Edit the `Program.cs` file and add following codes:
 
 ```csharp
 using Azure.Messaging.WebPubSub.Clients;
-// Instantiates the client object. <client-access-uri> is copied from Azure Portal mentioned above.
+// Instantiates the client object. <client-access-uri> is copied from Azure portal mentioned above.
 var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 ```
 
@@ -101,7 +101,7 @@ var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 
 ## 3. Subscribe to a group
 
-To receive message from groups, you need to add to callback to handle messages you receive from the group, and you must join the group before you can receive messages from it. The following code subscribes the client to a group called `group1`.
+To receive message from groups, you need to add to call back to handle messages you receive from the group, and you must join the group before you can receive messages from it. The following code subscribes the client to a group called `group1`.
 
 # [JavaScript](#tab/javascript)
 
@@ -139,7 +139,7 @@ await client.JoinGroupAsync("group1");
 
 ## 4. Publish a message to a group
 
-Then you can send messages to the group and as the client has joined the group before, you will receive the message you've just sent.
+Then you can send messages to the group and as the client has joined the group before, you'll receive the message you've sent.
 
 # [JavaScript](#tab/javascript)
 
@@ -161,7 +161,7 @@ await client.SendToGroupAsync("group1", BinaryData.FromString("Hello World"), We
 
 [JavaScript SDK repository on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client)
 
-[Typescript sample](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/samples/v1-beta/typescript)
+[TypeScript sample](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/samples/v1-beta/typescript)
 [Browser sample](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/samples-browser)
 [Chat app sample](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/sdk)
 
