@@ -193,7 +193,8 @@ curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evalua
 {
 'evaluationParameters':{
     'testDatasetName':'<dataset-name>'
-    }
+    },
+'modelPerformance':{}
 }"
 ```
 
