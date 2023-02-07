@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 02/06/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Migrate a Custom Vision project to Image Analysis 4.0 preview
