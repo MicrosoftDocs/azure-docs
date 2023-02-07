@@ -1,79 +1,84 @@
 ---
-title: Configure common authorization providers - Azure API Management | Microsoft Docs
+title: Configure authorization providers - Azure API Management | Microsoft Docs
 description: Learn how to configure common identity providers for authorizations in Azure API Management. Example providers are Azure Active Directory and a generic OAuth 2.0 provider. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 02/07/2023
 ms.author: danlep
 ---
 
-# Configure common identity providers for API authorizations
+# Configure identity providers for API authorizations
 
-In this article, you learn how to configure common identity providers for [authorizations](authorizations-overview.md) in API Management. The following examples are shown:
+In this article, you learn about configuring identity providers for [authorizations](authorizations-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
 * Azure AD provider
 * Generic OAuth 2.0 provider
 
-For more supported providers and configuration settings, see [Authorizations reference](authorizations-reference.md).
+Use these settings when configuring in authorization provider in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
 
-## Azure AD provider
-
-Authorizations supports the Azure AD identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+* [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
 ### Prerequisites
 
-* Register an Azure AD app that will be used to manage API authorization. For steps, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+To configure any of the providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
 
-    * Set the **Redirect URI** to **Web**, and enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management service where you will configure the authorization provider
+* For the app's Redirect URL (sometimes called Authorization Callback URL or a similar name), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
 
-    * Configure required **API permissions** for your scenario
+* Depending on the provider and your scenario, you might need to configure app settings such as scopes (API permissions).
+    
+* Minimally, retrieve the following information that will be configured in API Management: the app's client ID and client secret.
 
-    * Configure a **Client secret**
+    * Depending on the provider and your scenario, you might need other settings such as authorization endpoint URLs or scopes.
 
-Learn more about [authorization code](../active-directory/develop/v2-oauth2-auth-code-flow.md) and [client credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) grant types (flows) in the Microsoft identity platform.
+    * Property names differ slightly from provider to provider.
 
-### Configure authorization provider properties
+## Azure AD provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your API Management instance.
-1. On the left menu, select **Authorizations** and then select **+ Create**.
-1. Set the properties in the following table:
+Authorizations support the Azure AD identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+
+* **Supported grant types**: authorization code, client credentials
+
+> [!NOTE]
+>  Currently, authorizations with the Azure AD provider supports only the Azure AD v1.0 endpoints.
+ 
+
+
+
+### Azure AD provider settings
     
     [!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
 
-1. Continue with the steps to authorize the identity provider and to configure an access policy.
 
 ## Generic OAuth 2.0 providers
 
-Authorizations supports two generic providers:
+Authorizations support two generic providers:
 * Generic OAuth 2.0
 * Generic OAuth 2.0 with PKCE 
 
 A generic provider allows you to use your own OAuth 2.0 identity provider based on your specific needs. 
 
 > [!NOTE]
-> We recommend using the OAuth 2.0 with PKCE provider for security purposes if your identity provider supports it.
+> We recommend using the generic OAuth 2.0 with PKCE provider for improved security if your identity provider supports it. 
 
-### Prerequisites
+* **Supported grant types**: authorization code, client credentials
 
-Configure an OAuth 2.0 app in the identity provider to manage API authorizations. Configuration steps depend on the identity provider. 
-
-### Configure authorization provider properties
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your API Management instance.
-1. On the left menu, select **Authorizations** and then select **+ Create**.
-1. Set the properties in the following table:
+### Generic authorization provider settings
 
     [!INCLUDE [api-management-authorization-generic-provider](../../includes/api-management-authorization-generic-provider.md)]
 
-1. Continue with the steps to authorize the identity provider and to configure an access policy.
+## Other identity providers
+
+API Management supports several providers for popular SaaS offerings, such as GitHub. You can select from a list of these providers in the Azure portal when you create an authorization.
+
+:::image type="content" source="media/authorizations-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
+
+**Supported grant types**: authorization code, client credentials (depends on provider)
+
+Required properties for these providers differ from provider to provider but are similar to those for the [generic OAuth 2.0 providers](#generic-oauth-20-providers). Consult the developer documentation for each provider.
 
 ## Next steps
 
-For end-to-end examples of configuring an authorization and using it to manage access to an API, see:
-
-* [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
-* [Create an authorization with the GitHub API](authorizations-how-to-github.md)
+* Learn more about [authorizations](authorizations-overview.md) in API Management.
+* Create an authorization for [Azure AD](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
