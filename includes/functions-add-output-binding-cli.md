@@ -21,6 +21,7 @@ You declare these bindings in the *function.json* file in your function folder. 
 # [v2](#tab/v2)
 
 Binding attributes are defined directly in the *function_app.json* file. From the previous quickstart, you *function_app.json* file in the *HttpExample* folder contains one decorator binding:
+
 ---
 
 ::: zone-end
@@ -46,6 +47,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 ```
+
 ---
 
 ::: zone-end
