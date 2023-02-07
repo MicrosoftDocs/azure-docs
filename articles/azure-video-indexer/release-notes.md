@@ -27,7 +27,7 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ### Pricing
 
-On January 01, 2023 we introduced the Advanced Audio and Video SKUs for Advanced presets. This was done on order to report the use of each preset, Basic, Standard & Advanced, with their own distinct meter on the Azure Billing statement. This can also be seen on Azure Cost Analysis reports.
+On January 01, 2023 we introduced the Advanced Audio and Video SKU for Advanced presets. This was done on order to report the use of each preset, Basic, Standard & Advanced, with their own distinct meter on the Azure Billing statement. This can also be seen on Azure Cost Analysis reports.
 
 Starting February 1st, we’re excited to announce a 40% price reduction on the Basic Audio Analysis, Audio Analysis and Video Analysis SKUs. We took into consideration feedback from our customers and market trends to make changes that will benefit them. By reducing prices and introducing a new Advanced SKU, we are providing competitive pricing and more options for customers to balance costs and features. Additionally, as we continue to improve and add more AI capabilities, customers will be able to take advantage of these cost savings when performing new or re-indexing operations.
 
