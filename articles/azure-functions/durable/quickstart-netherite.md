@@ -104,7 +104,7 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](../functions-create-function-app-portal.md#create-a-function-app-a-function).
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](../functions-create-function-app-portal.md).
 
 ### Set up Event Hubs
 
