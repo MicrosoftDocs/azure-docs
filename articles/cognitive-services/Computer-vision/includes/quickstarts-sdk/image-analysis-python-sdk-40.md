@@ -44,10 +44,8 @@ Use the Image Analysis client library for Python to analyze a remote image and g
     You can install the client library with:
 
     ```console
-    pip install --upgrade azure-cognitiveservices-vision-computervision
+    python -m pip install azure-ai-vision
     ```
-
-    [installation path?](tbd)
 
 1. Create a new Python application.
 
