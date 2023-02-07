@@ -12,10 +12,6 @@ ms.date: 02/07/2023
 
 # Monitor latency in a Log Analytics workspace
 
-The health of
-
-Latency refers to the time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. 
-
 [Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis within a relatively short period of time. The time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource is called latency. This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
 
 Azure Service Health monitors:
