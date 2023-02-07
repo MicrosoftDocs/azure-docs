@@ -14,16 +14,11 @@ To ensure proper functioning and performance of your security orchestration, aut
 
 Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
+This article describes how to use Microsoft Sentinel's [health monitoring features](health-audit.md) to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
 
 ## Summary
 
-Automation health monitoring in Microsoft Sentinel has two parts:
 
-| Feature | Table | Coverage | Enable from |
-| - | - | - | - |
-| **Microsoft Sentinel automation health logs** | *SentinelHealth* | - Automation rules run<br>- Playbooks triggered | Microsoft Sentinel settings > Health monitoring |
-| **Azure Logic Apps diagnostics logs** | *AzureDiagnostics* | - Playbook run started/ended<br>- Playbook actions/triggers started/ended | Logic Apps resource > [Diagnostics settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#create-diagnostic-settings) |
 
 
 - **Microsoft Sentinel automation health logs:**
@@ -175,7 +170,8 @@ Select a particular run to see the results of the actions in the playbook.
 
 ## Next steps
 
-- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- Monitor the health of your [data connectors](monitor-data-connector-health.md).
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
+- [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- [Monitor the health of your data connectors](monitor-data-connector-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
+- See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.

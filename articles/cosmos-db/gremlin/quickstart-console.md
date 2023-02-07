@@ -2,7 +2,7 @@
 title: 'Query with Azure Cosmos DB for Gremlin using TinkerPop Gremlin Console: Tutorial'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB for Gremlin.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
