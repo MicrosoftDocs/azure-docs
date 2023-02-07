@@ -76,6 +76,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ```azurecli-interactive
 az communication email send
+	--connection-string "yourConnectionString"
 	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
 	--to "<emailalias@emaildomain.com>"
 	--subject "Welcome to Azure Communication Services Email" --text "This email message is sent from Azure Communication Services Email using Azure CLI." 
@@ -83,6 +84,7 @@ az communication email send
 
 Make these replacements in the code:
 
+- Replace `<yourConnectionString>` with your connection string.
 - Replace "<emailalias@emaildomain.com>" with the email address you would like to send a message to.
 - Replace "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>" with the MailFrom address of your verified domain.
 
