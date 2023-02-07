@@ -247,9 +247,9 @@ A series of prompt will appear in the console window, and you need to paste in t
 - The key for that storage account
 - The name of the container you want to use in that storage account
 
-## Use COCO file in new project
+## Use COCO file in a new project
 
-The script generates a COCO file and uploads it to the blog storage location you specified. You can now import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section about selecting a COCO file&mdash;you can follow the guide from there to the end.
+The script generates a COCO file and uploads it to the blob storage location you specified. You can now import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section on selecting a COCO file&mdash;you can follow the guide from there to the end.
 
 ## Next steps
 
