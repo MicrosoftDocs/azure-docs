@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 02/03/2023
+ms.date: 02/07/2023
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
@@ -166,7 +166,7 @@ az aks update -g MyResourceGroup -n MyManagedCluster
 
 ## Logging
 
-Deletion image logs are stored in `eraser-aks-nodepool-xxx` pods for manually deleted images, and in `eraser-collector-xxx` pods for automatically deleted images.
+Deletion image logs are stored in `eraser-aks-nodepool-xxx` pods for manually deleted images, and in `collector-aks-nodes-xxx` pods for automatically deleted images.
 
 You can view these logs by running `kubectl logs <pod name> -n kubesystem`. However, this command may return only the most recent logs, since older logs are routinely deleted. To view all logs, follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table.
 
@@ -193,7 +193,7 @@ You can view these logs by running `kubectl logs <pod name> -n kubesystem`. Howe
 
 1. In the Azure portal, search for the workspace resource ID, then select **Logs**.
 
-1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool-xxx` (for manual mode) or `eraser-collector-xxx` (for automatic mode).
+1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool-xxx` (for manual mode) or `collector-aks-nodes-xxx` (for automatic mode).
 
    ```kusto
       let startTimestamp = ago(1h);
