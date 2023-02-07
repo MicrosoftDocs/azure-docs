@@ -54,10 +54,10 @@ To monitor the CPU usage of the dedicated cluster, you need to follow these step
 - In the metrics page of your Event Hubs Dedicated cluster, select **Add metric**.
 - Select `CPU` as the metric and use the `Max` as the aggregation. 
 
-    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png":::
+    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png" alt-text="Screenshot showing the Metrics page with the CPU metric." lightbox="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png":::
 - Then, select **Add filter**, and add a filter for the property type `Role`, use the equal operator and select all three values(`Backend`, `Gateway`) from the dropdown.  
 
-    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
+    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Screeshot showing the metrics page with CPU consumption metric and roles." lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
 
     Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.  
