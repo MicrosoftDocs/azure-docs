@@ -1,5 +1,5 @@
 ---
-title: Data residency for Azure Network Watcher | Microsoft Docs
+title: Data residency for Azure Network Watcher
 description: This article will help you understand data residency for the Azure Network Watcher service.
 services: network-watcher
 author: halkazwini

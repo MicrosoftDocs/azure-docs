@@ -190,7 +190,7 @@
       - name: C# (.NET)
         href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/
       - name: Java
         href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
