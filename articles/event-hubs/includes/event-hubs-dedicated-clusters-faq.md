@@ -23,7 +23,7 @@ The following table shows the benchmark results that we achieved during our test
 | Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
 | Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
 
-In the testing, the following criteria was used:
+In the testing, the following criteria were used:
 
 - A dedicated-tier Event Hubs cluster with 4 capacity units (CUs) was used. 
 - The event hub used for ingestion had 200 partitions. 
