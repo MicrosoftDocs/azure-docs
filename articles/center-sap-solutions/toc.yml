@@ -10,6 +10,11 @@ items:
   - name: Frequently asked questions (FAQ)
     href: faq.yml
 
+- name: Concepts
+  items:
+
+  - name: Manage with Azure RBAC
+    href: manage-with-azure-rbac.md
 
 - name: How-to guides
   items:
@@ -20,6 +25,8 @@ items:
       href: prepare-network.md
     - name: Deploy S/4HANA infrastructure
       href: deploy-s4hana.md
+    - name: Get SAP installation media
+      href: get-sap-installation-media.md
     - name: Install SAP software
       href: install-software.md
     - name: Register existing SAP system

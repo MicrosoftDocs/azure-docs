@@ -129,6 +129,10 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 [Web application firewall (WAF)](../../web-application-firewall/afds/afds-overview.md) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [Open Web Application Security Project (OWASP) core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
 
+## DDoS protection
+
+[Azure DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](../../ddos-protection/ddos-protection-overview.md) on any perimeter virtual network. 
+
 ## Monitor the performance of your applications
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your application. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.
 
