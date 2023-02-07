@@ -4,7 +4,7 @@ description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
-ms.date: 2/01/2023
+ms.date: 2/07/2023
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -66,7 +66,7 @@ HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user
        :::image type="content" source="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png" alt-text="Screenshot showing confirmation to update to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png":::
 
         >[!IMPORTANT]
-        >If you upgraded HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
+        > If you upgraded HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
 
     4. Change Compute profile after HCX upgrade to HCX Enterprise.
 
@@ -122,7 +122,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` with the `admin` credentials.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
    >[!TIP]
-   >You defined the **admin** user password during the VMware HCX Manager OVA file deployment. 
+   > You defined the **admin** user password during the VMware HCX Manager OVA file deployment. 
 
 1. In **Licensing**, enter your key for **HCX Advanced Key** and select **Activate**. 
     >[!IMPORTANT] 
@@ -139,7 +139,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
    >Typically, it's the same as your vCenter Server FQDN or IP address. 
 1. Verify that the information entered is correct and select **Restart**. 
    >[!NOTE] 
-   >You'll experience a delay after restarting before being prompted for the next step. 
+   > You'll experience a delay after restarting before being prompted for the next step. 
 
 After the services restart, you'll see vCenter Server displayed as green on the screen that appears. Both vCenter Server and SSO must have the appropriate configuration parameters, which should be the same as the previous screen. 
 
