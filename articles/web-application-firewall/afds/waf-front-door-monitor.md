@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 02/96/2023
+ms.date: 02/07/2023
 ms.author: victorh
 zone_pivot_groups: front-door-tiers
 ---
@@ -164,7 +164,7 @@ The following table shows the values logged for each request:
 
 | Property  | Description |
 | ------------- | ------------- |
-| Action |Action taken on the request. Logs include requests with all actions. Actions are:<ol> <li>**Allow** and **allow**: The request was allowed to continue processing.</li> <li>**Block** and **block**: The request matched a WAF rule configured to block the request. Alternatively, the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring) threshold was reached and the request was blocked.</li> <li>**Log** and **log**: The request matched a WAF rule configured to use the *Log* action.</li> <li>**AnomalyScoring** and **logandscore**: The request matched a WAF rule. The rule contributes to the [anomaly score](waf-front-door-drs.md#anomaly-scoring). The request might or might not be blocked depending on other rules that run on the same request.</li> </ol> |
+| Action |Action taken on the request. Logs include requests with all actions. Actions are:<ul> <li>**Allow** and **allow**: The request was allowed to continue processing.</li> <li>**Block** and **block**: The request matched a WAF rule configured to block the request. Alternatively, the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) threshold was reached and the request was blocked.</li> <li>**Log** and **log**: The request matched a WAF rule configured to use the *Log* action.</li> <li>**AnomalyScoring** and **logandscore**: The request matched a WAF rule. The rule contributes to the [anomaly score](waf-front-door-drs.md#anomaly-scoring-mode). The request might or might not be blocked depending on other rules that run on the same request.</li> </ul> |
 | ClientIP | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
 | ClientPort | The IP port of the client that made the request. |
 | Details | Additional details on the request, including any threats that were detected. <br />matchVariableName:   HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> matchVariableValue:  Values that triggered the match (up to 100 characters maximum). |
