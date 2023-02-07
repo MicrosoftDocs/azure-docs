@@ -373,10 +373,10 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 
 Setting | Details
 --- | ---
-Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredLessDiscovery true`
+Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
 `/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
-`/CredLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
+`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
 
 
 ### Linux machine
