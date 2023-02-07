@@ -15,6 +15,9 @@ ms.devlang: java
 
 Get started with the Azure Blob Storage client library for Java to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
+> [!TIP]
+> If you're working with Azure Storage resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/toc.yml) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Blob Storage, see [Upload a file to an Azure Storage Blob](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage).
+
 [API reference documentation](/java/api/overview/azure/storage-blob-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
 ## Prerequisites
@@ -268,14 +271,6 @@ You can authorize access to data in your storage account using the following ste
 
     :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
 
-   > [!TIP]
-   > If you are using Azure Storage in a Spring application, then rather than building the client manually, we recommend you to also consider Spring Cloud Azure as an alternative. Spring Cloud Azure and the Azure SDK can be used together, in a non-mutually exclusive pattern. With Spring Cloud Azure, you can not only continue to use the super Azure SDK api you are familiar with, but also get the following benefits on top of the Azure SDK.
-   > - Health Indicator: provides an easy way to inspect the status and health of your application and internal components.
-   > - Spring Boot Autoconfiguration: gives you an out-of-the-box Storage client instead of asking you to build it programmatically, which reduces the developing and maintenance cost of learning the builder pattern.
-   > - Spring Resource: offers another capable API to operate the Blob Storage client.
-   > 
-   > See [the Spring Cloud Azure quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage) for example.
-
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
     :::image type="content" source="./media/storage-quickstart-blobs-java/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
@@ -327,14 +322,6 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
-
-> [!TIP]
-> If you are using Azure Storage in a Spring application, then rather than building the client manually, we recommend you to also consider Spring Cloud Azure as an alternative. Spring Cloud Azure and the Azure SDK can be used together, in a non-mutually exclusive pattern. With Spring Cloud Azure, you can not only continue to use the super Azure SDK api you are familiar with, but also get the following benefits on top of the Azure SDK.
-> - Health Indicator: provides an easy way to inspect the status and health of your application and internal components.
-> - Spring Boot Autoconfiguration: gives you an out-of-the-box Storage client instead of asking you to build it programmatically, which reduces the developing and maintenance cost of learning the builder pattern.
-> - Spring Resource: offers another capable API to operate the Blob Storage client.
->
-> See [the Spring Cloud Azure quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage) for example.
 
 ---
 
