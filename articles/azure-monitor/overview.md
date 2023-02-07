@@ -42,10 +42,10 @@ The following diagram gives a high-level view of Azure Monitor.
 
 :::image type="content" source="media/overview/overview-02-2023.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-02-2023.png":::
 
-- **[Data sources](data-sources.md)** are at the left of the diagram. The data is collected and routed to the **data platform**.
-- **[Data platform](data-platform.md)** stores are at the center of the diagram. Azure Monitor stores these types of data: metrics, logs, traces, and changes.
-- The functions and components that consume data are at the right of the diagram. This includes functionality such as analysis, visualizations, insights, and responses.
-- Services that integrate with Azure Monitor to provide additional functionality are at the bottom of the diagram. These are integrated throughout the system.
+- The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
+- The **[data platform](data-platform.md)** are the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes.
+- The functions and components that consume data include analysis, visualizations, insights, and responses.
+- Services that integrate with Azure Monitor to provide additional functionality are integrated throughout the system.
 
 ## Data sources
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. 
