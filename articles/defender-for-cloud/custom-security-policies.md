@@ -3,7 +3,7 @@ title: Create custom Azure security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 07/20/2022
+ms.date: 01/24/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -35,18 +35,28 @@ You can view your custom initiatives organized by controls, similar to the contr
 
     :::image type="content" source="media/custom-security-policies/accessing-security-policy-page.png" alt-text="Screenshot of accessing the security policy page in Microsoft Defender for Cloud." lightbox="media/custom-security-policies/accessing-security-policy-page.png":::
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization.
+1. Review the list of custom policies already created in your organization, and select **Add** to assign a policy to your subscription.
 
-    - If you see one you want to assign to your subscription, select **Add**. 
-    - If there isn't an initiative in the list that meets your needs, create a new custom initiative:
+If there isn't an initiative in the list that meets your needs, you can create one.
 
-        1. Select **Create new**.
-        1. Enter the definition's location and name.
-        1. Select the policies to include and select **Add**.
-        1. Enter any desired parameters.
-        1. Select **Save**.
-        1. In the Add custom initiatives page, select refresh. Your new initiative will be available.
-        1. Select **Add** and assign it to your subscription.
+**To create a new custom initiative**:
+
+1. Select **Create new**.
+
+1. Enter the definition's location and custom name.
+
+    > [!NOTE]
+    > Custom initiatives shouldn't have the same name as other initiatives (custom or built-in). If you create a custom initiative with the the same name, it will cause a conflict in the information displayed in the dashboard.
+
+1. Select the policies to include and select **Add**.
+
+1. Enter any desired parameters.
+
+1. Select **Save**.
+
+1. In the Add custom initiatives page, select refresh. Your new initiative will be available.
+
+1. Select **Add** and assign it to your subscription.
 
     ![Create or add a policy.](media/custom-security-policies/create-or-add-custom-policy.png)
 
@@ -54,7 +64,7 @@ You can view your custom initiatives organized by controls, similar to the contr
     > [!NOTE]
     > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](permissions.md).
 
-    Your new initiative takes effect and you can see the impact in the following two ways:
+    Your new initiative takes effect and you can see the results in the following two ways:
 
     * From the Defender for Cloud menu, select **Regulatory compliance**. The compliance dashboard opens to show your new custom initiative alongside the built-in initiatives.
     
@@ -250,7 +260,7 @@ The metadata should be added to the policy definition for a policy that is part 
     },
 ```
 
-Below is an example of a custom policy including the metadata/securityCenter property:
+Here's another example of a custom policy including the metadata/securityCenter property:
 
   ```json
   {

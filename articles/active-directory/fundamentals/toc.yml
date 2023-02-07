@@ -87,6 +87,8 @@ items:
     items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
+    - name: What's deprecated in Azure Active Directory?
+      href: whats-deprecated-azure-ad.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
@@ -98,6 +100,10 @@ items:
     items:
     - name: Azure AD and data residency
       href: azure-ad-data-residency.md
+    - name: Data operational considerations
+      href: data-operational-considerations.md
+    - name: Data protection considerations
+      href: data-protection-considerations.md
     - name: Customer data storage and processing for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand

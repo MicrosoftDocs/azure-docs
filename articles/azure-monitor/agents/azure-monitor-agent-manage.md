@@ -4,7 +4,7 @@ description: Options for managing Azure Monitor Agent on Azure virtual machines 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/9/2022
+ms.date: 1/30/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth
 
@@ -230,12 +230,12 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
 
 - Windows
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorWindowsAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorWindowsAgent
   ```
 
 - Linux
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorLinuxAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorLinuxAgent
   ```
 
 ### Uninstall on Azure Arc-enabled servers
@@ -259,6 +259,9 @@ N/A
 ---
 
 ## Update
+
+> [!NOTE]
+> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to 5 weeks** after a new extension version is released for it to update installed extensions to the released (latest) version across all regions. Upgrades are issued in batches, so you may see some of your virtual machines, scale-sets or Arc-enabled servers get upgraded before others. If you need to upgrade an extension immediately, you may use the manual instructions below.
 
 #### [Portal](#tab/azure-portal)
 
@@ -372,9 +375,14 @@ Use the following policies and policy initiatives to automatically install the a
 
 ### Built-in policy initiatives
 
-Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).
+Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).  
 
-Policy initiatives for Windows and Linux virtual machines, scale sets consist of individual policies that:
+There are built-in policy initiatives for Windows and Linux virtual machines, scale sets that provide at-scale onboarding using Azure Monitor agents end-to-end 
+- [Deploy Windows Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0d1b56c6-6d1f-4a5d-8695-b15efbea6b49/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)
+- [Deploy Linux Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fbabf8e94-780b-4b4d-abaa-4830136a8725/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)  
+
+
+These initiatives above comprise individual policies that:
 
 - (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).
    - `Bring Your Own User-Assigned Identity`: If set to `true`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that *you must assign* to the machines beforehand.
