@@ -13,7 +13,7 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ---
 
 # Design secure applications on Azure
-In this article we present security activities and controls to consider when you design applications for the cloud. Training resources along with security questions and concepts to consider during the requirements and design phases of the Microsoft [Security Development Lifecycle
+In this article, we present security activities and controls to consider when you design applications for the cloud. Training resources along with security questions and concepts to consider during the requirements and design phases of the Microsoft [Security Development Lifecycle
 (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to design a more secure application.
 
 The following SDL phases are covered in this article:
@@ -36,15 +36,15 @@ Use the following resources during the training stage to familiarize yourself wi
 
 * [Azure DevOps Services](/azure/devops/) provides development collaboration tools. The tools include high-performance pipelines, free Git repositories, configurable Kanban boards, and extensive automated and cloud-based load testing. The [DevOps Resource Center](/azure/devops/learn/) combines our resources for learning DevOps practices, Git version control, agile methods, how we work with DevOps at Microsoft, and how you can assess your own DevOps progression.
 
-* [Top 5 security items to consider before pushing to production](/training/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) shows you how to help secure your web applications on Azure and protect your apps against the most common and dangerous web application attacks.
+* [Top five security items to consider before pushing to production](/training/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) shows you how to help secure your web applications on Azure and protect your apps against the most common and dangerous web application attacks.
 
-* [Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of scripts, tools, extensions, and automations that caters to the comprehensive Azure subscription and resource security needs of DevOps teams that use extensive automation. The Secure DevOps Kit for Azure can show you how to smoothly integrate security into your native DevOps workflows. The kit addresses tools like security verification tests (SVTs), which can help developers write secure code and test the secure configuration of their cloud applications in the coding and early development stages.
+* [Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of scripts, tools, extensions, and automations that cater to the comprehensive Azure subscription and resource security needs of DevOps teams that use extensive automation. The Secure DevOps Kit for Azure can show you how to smoothly integrate security into your native DevOps workflows. The kit addresses tools like security verification tests (SVTs), which can help developers write secure code and test the secure configuration of their cloud applications in the coding and early development stages.
 
 * [Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) provides a collection of security best practices to use as you design, deploy, and manage your cloud solutions by using Azure.
 
 ## Requirements
 
-The requirements definition phase is a crucial step in defining what your application is and what it will do when it's released. The requirements phase is also a time to think about the security controls that you will build into your application. During this phase, you also begin the steps that you will take throughout the SDL to ensure that you release and deploy a secure application.
+The requirements definition phase is a crucial step in defining what your application is and what it will do when it's released. The requirements phase is also a time to think about the security controls that you'll build into your application. During this phase, you also begin the steps that you'll take throughout the SDL to ensure that you release and deploy a secure application.
 
 ### Consider security and privacy issues
 
@@ -66,15 +66,15 @@ Ask security questions like:
 
 * Does my application collect or contain sensitive personal or customer data that can be used, either on its own or with other information, to identify, contact, or locate a single person?
 
-* Does my application collect or contain data that can be used to access an individual's medical, educational, financial, or employment information? Identifying the sensitivity of your data during the requirements phase helps you classify your data and identify the data protection method you will use for your application.
+* Does my application collect or contain data that can be used to access an individual's medical, educational, financial, or employment information? Identifying the sensitivity of your data during the requirements phase helps you classify your data and identify the data protection method you'll use for your application.
 
-* Where and how is my data stored? Consider how you will monitor the storage services that your application uses for any unexpected changes (such as slower response times). Will you be able to influence logging to collect more detailed data and analyze a problem in depth?
+* Where and how is my data stored? Consider how you'll monitor the storage services that your application uses for any unexpected changes (such as slower response times). Will you be able to influence logging to collect more detailed data and analyze a problem in depth?
 
 * Will my application be available to the public (on the internet) or internally only? If your application is available to the public, how do you protect the data that might be collected from being used in the wrong way? If your application is available internally only, consider who in your organization should have access to the application and how long they should have access.
 
-* Do you understand your identity model before you begin designing your application? How will you determine that users are who they say they are and what a user is authorized to do?
+* Do you understand your identity model before you begin designing your application? How will you determine that users are who they say they're and what a user is authorized to do?
 
-* Does my application perform sensitive or important tasks (such as transferring money, unlocking doors, or delivering medicine)? Consider how you will validate that the user performing a sensitive task is authorized to perform the task and how you will authenticate that the person is who they say they are. Authorization (AuthZ) is the act of granting an authenticated security principal permission to do something. Authentication (AuthN) is the act of challenging a party for legitimate credentials.
+* Does my application perform sensitive or important tasks (such as transferring money, unlocking doors, or delivering medicine)? Consider how you'll validate that the user performing a sensitive task is authorized to perform the task and how you'll authenticate that the person is who they say they're. Authorization (AuthZ) is the act of granting an authenticated security principal permission to do something. Authentication (AuthN) is the act of challenging a party for legitimate credentials.
 
 * Does my application perform any risky software activities, like allowing users to upload or download files or other data? If your application does perform risky activities, consider how your application will protect users from handling malicious files or data.
 
@@ -85,7 +85,7 @@ Consider reviewing the [<span class="underline">OWASP Top 10 Application Securit
 Thinking about security controls to prevent breaches is important. However, you also want to [assume a breach](/devops/operate/security-in-devops) will occur. Assuming a breach helps answer some important questions about security in advance, so they don't have to be answered in an emergency:
 
 * How will I detect an attack?
-* What will I do if there is an attack or breach?
+* What will I do if there's an attack or breach?
 * How am I going to recover from the attack like data leaking or tampering?
 
 ## Design
@@ -103,7 +103,7 @@ With this in mind, we discuss the following secure design concepts and the secur
 * Use threat modeling during application design.
 * Reduce your attack surface.
 * Adopt a policy of identity as the primary security perimeter.
-* Require re-authentication for important transactions.
+* Require reauthentication for important transactions.
 * Use a key management solution to secure keys, credentials, and other secrets.
 * Protect sensitive data.
 * Implement fail-safe measures.
@@ -121,9 +121,9 @@ against security-related design and implementation flaws.
 
 Be sure that you're using the latest version of your framework and all the security features that are available in the framework. Microsoft offers a comprehensive [set of development tools](https://azure.microsoft.com/product-categories/developer-tools/) for all developers, working on any platform or language, to deliver cloud applications. You can code with the language of your choice by choosing from various [SDKs](https://azure.microsoft.com/downloads/). You can take advantage of full-featured integrated development environments (IDEs) and editors that have advanced debugging capabilities and built-in Azure support.
 
-Microsoft offers a variety of [languages, frameworks, and tools](/azure/?panel=sdkstools-all&pivot=sdkstools&product=popular#languages-and-tools) that you can use to develop applications on Azure. An example is [Azure for .NET and .NET Core developers](/dotnet/azure/). For each language and framework that we offer, you'll find quickstarts, tutorials, and API references to help you get started fast.
+Microsoft offers various [languages, frameworks, and tools](/azure/?panel=sdkstools-all&pivot=sdkstools&product=popular#languages-and-tools) that you can use to develop applications on Azure. An example is [Azure for .NET and .NET Core developers](/dotnet/azure/). For each language and framework that we offer, you'll find quickstarts, tutorials, and API references to help you get started fast.
 
-Azure offers a variety of services you can use to host websites and web applications. These services let you develop in your favorite language, whether that's .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) is one of these services.
+Azure offers various services you can use to host websites and web applications. These services let you develop in your favorite language, whether that's .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) is one of these services.
 
 Web Apps adds the power of Microsoft Azure to your application. It
 includes security, load balancing, autoscaling, and automated
@@ -234,7 +234,7 @@ web applications:
 
 #### Enforce multi-factor authentication for users
 
-Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses that are inherent in username and password types of authentication. Access to the Azure management interfaces (Azure portal/remote PowerShell) and to customer-facing services should be designed and configured to use [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses that are inherent in username and password types of authentication. Access to the Azure management interfaces (Azure portal/remote PowerShell) and to customer-facing services should be designed and configured to use [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### Use strong authentication and authorization platforms
 
@@ -253,7 +253,7 @@ Would a software developer need domain admin rights? Would an administrative ass
 Ensure that your application enforces [least privilege](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) throughout its access patterns.
 
 > [!NOTE]
-> The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
+> The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they're given too much access. The consequences can be severe if a developer has malicious intent or is given too much access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
 
 #### Implement just-in-time access
 
@@ -263,7 +263,7 @@ to:
 * Give users the permissions they need only JIT.
 * Assign roles for a shortened duration with confidence that the privileges are revoked automatically.
 
-### Require re-authentication for important transactions
+### Require reauthentication for important transactions
 
 [Cross-site request forgery](/aspnet/core/security/anti-request-forgery) (also known as *XSRF* or *CSRF*) is an attack against web-hosted apps in which a malicious web app influences the interaction between a client browser and a web app that trusts that browser. Cross-site request forgery attacks are possible because web browsers send some types of authentication tokens automatically with every request to a website. This form of exploitation is also known as a *one-click attack* or *session riding* because the attack takes advantage of the user's previously authenticated session.
 
@@ -323,22 +323,11 @@ Protecting data should be an essential part of your security strategy. If your d
 
 #### Avoid hard-coding
 
-Some things should never be hard-coded in your software. Some examples
-are hostnames or IP addresses, URLs, email addresses, usernames,
-passwords, storage account keys, and other cryptographic keys. Consider
-implementing requirements around what can or can't be hard-coded in your
-code, including in the comment sections of your code.
+Some things should never be hard-coded in your software. Some examples are hostnames or IP addresses, URLs, email addresses, usernames, passwords, storage account keys, and other cryptographic keys. Consider implementing requirements around what can or can't be hard-coded in your code, including in the comment sections of your code.
 
-When you put comments in your code, ensure that you don't save any
-sensitive information. This includes your email address, passwords,
-connection strings, information about your application that would only
-be known by someone in your organization, and anything else that might
-give an attacker an advantage in attacking your application or
-organization.
+When you put comments in your code, ensure that you don't save any sensitive information. This includes your email address, passwords, connection strings, information about your application that would only be known by someone in your organization, and anything else that might give an attacker an advantage in attacking your application or organization.
 
-Basically, assume that everything in your development project will be
-public knowledge when it is deployed. Avoid including sensitive data of
-any kind in the project.
+Basically, assume that everything in your development project will be public knowledge when it's deployed. Avoid including sensitive data of any kind in the project.
 
 Earlier, we discussed [Azure Key Vault](../../key-vault/general/overview.md). You can use Key Vault to store secrets like keys and passwords instead of hard-coding them. When you use Key Vault in combination with managed identities for Azure resources, your Azure web app can access secret configuration values easily and securely without storing any secrets in your source control or configuration. To learn more, see [Manage secrets in your server apps with Azure Key Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
@@ -346,13 +335,7 @@ Earlier, we discussed [Azure Key Vault](../../key-vault/general/overview.md). Yo
 
 Your application must be able to handle [errors](/dotnet/standard/exceptions/) that occur during execution in a consistent manner. The application should catch all errors and either fail safe or closed.
 
-You should also ensure that errors are logged with sufficient user
-context to identify suspicious or malicious activity. Logs should be
-retained for a sufficient time to allow delayed forensic analysis. Logs
-should be in a format that can be easily consumed by a log management
-solution. Ensure that alerts for errors that are related to security are
-triggered. Insufficient logging and monitoring allows attackers to
-further attack systems and maintain persistence.
+You should also ensure that errors are logged with sufficient user context to identify suspicious or malicious activity. Logs should be retained for a sufficient time to allow delayed forensic analysis. Logs should be in a format that can be easily consumed by a log management solution. Ensure that alerts for errors that are related to security are triggered. Insufficient logging and monitoring allow attackers to further attack systems and maintain persistence.
 
 ### Take advantage of error and exception handling
 
@@ -391,6 +374,7 @@ you detect and react to potentially suspicious behavior. It also allows
 you to gather operations data, like who is accessing the application.
 
 ## Next steps
+
 In the following articles, we recommend security controls and activities that can help you develop and deploy secure applications.
 
 * [Develop secure applications](secure-develop.md)
