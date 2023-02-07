@@ -208,8 +208,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Use Uptime SLA
-          href: uptime-sla.md
+        - name: Free and Standard pricing tiers for AKS
+          href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
         - name: Use proximity placement groups
@@ -260,7 +260,7 @@
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
-        - name: Use the Mariner container host
+        - name: Use the Mariner container host (preview)
           href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks

@@ -45,7 +45,6 @@ When you enable an IP access control policy programmatically, you need to add th
 
 |Region|IP address|
 |------|----------|
-|Germany|51.4.229.218|
 |China|139.217.8.252|
 |US Gov|52.244.48.71|
 |All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|

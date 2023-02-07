@@ -29,11 +29,11 @@ This article explains how this works.
 
 ## How it works 
 
-With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has an Azure AD and an on-premises AD, you may want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.
+With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has Azure AD and on-premises AD DS, you may want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.
 
-Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
+Azure AD joined devices have no knowledge about your on-premises AD DS environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
-If you have a hybrid environment, with both Azure AD and on-premises AD, it's likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+If you have a hybrid environment, with both Azure AD and on-premises AD DS, it's likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
@@ -59,7 +59,7 @@ All apps that are configured for **Windows-Integrated authentication** seamlessl
 With SSO, on an Azure AD joined device you can: 
 
 - Access a UNC path on an AD member server
-- Access an AD member web server configured for Windows-integrated security 
+- Access an AD DS member web server configured for Windows-integrated security 
 
 If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools](https://www.microsoft.com/download/details.aspx?id=45520).
 
@@ -71,10 +71,10 @@ You can use:
 ## What you should know
 
 - You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized if you have multiple domains.
-- Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
+- Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD DS. 
 - You can't share files with other users on an Azure AD-joined device.
 - Applications running on your Azure AD joined device may authenticate users. They must use the implicit UPN or the NT4 type syntax with the domain FQDN name as the domain part, for example: user@contoso.corp.com or contoso.corp.com\user.
-   - If applications use the NETBIOS or legacy name like contoso\user, the errors the application gets would be either, NT error STATUS_BAD_VALIDATION_CLASS - 0xc00000a7, or Windows error ERROR_BAD_VALIDATION_CLASS - 1348 “The validation information class requested was invalid.” This happens even if you can resolve the legacy domain name.
+   - If applications use the NETBIOS or legacy name like contoso\user, the errors the application gets would be either, NT error STATUS_BAD_VALIDATION_CLASS - 0xc00000a7, or Windows error ERROR_BAD_VALIDATION_CLASS - 1348 “The validation information class requested was invalid.” This error happens even if you can resolve the legacy domain name.
 
 ## Next steps
 
