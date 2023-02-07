@@ -115,7 +115,7 @@ If you are using a  service principal or an Azure AD user account, evaluate the 
 
 ## Next steps
 
-* [Manage user-assigned managed identities](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) 
+* [Azure AD-managed identities for Azure resources documentation](../managed-identities-azure-resources/) 
 * [Configure managed identities for Azure resources on a VM using the Azure portal](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Service accounts**
