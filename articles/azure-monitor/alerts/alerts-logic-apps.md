@@ -110,10 +110,13 @@ In this example, we'll use the following steps to create a Logic App that uses t
     ```
 
 
-1. (Optional). You  may want to add additional customizations to the alert notification, by adding resource tags to the alert payload and then including that information in the notification.
+1. (Optional). You can customize the alert notification by extracting information about the resource using resource tags. You can then include those resource tags to the alert payload and use the information in your logical expressions for sending the notifications. In this case, we are going to create a variable for the Affected Resource IDs and split them into in an array to add to the payload. You can then use these values to customize the alert notification. 
     1. Select the **+** icon to insert a new step.
 
     :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
+
+    1. In the **Search** field, search for and select enter **Initialize variable**.
+        1. 
 
 1. Send an email or post a Teams message.
 
