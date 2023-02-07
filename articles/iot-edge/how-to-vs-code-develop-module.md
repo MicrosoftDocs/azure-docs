@@ -70,6 +70,24 @@ To build and deploy your module image, you need Docker to build the module image
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
+::: zone pivot="iotedge-dev-cli"
+
+- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running the following command in your terminal. 
+
+    ```cmd
+    pip3 install iotedgedev
+    ```
+    
+    > [!NOTE]
+    >
+    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
+    >
+    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+
+   To stay current on the testing environment for IoT Edge, see the [test-coverage](https://github.com/Azure/iotedgedev/blob/main/docs/test-coverage.md) list.
+
+::: zone-end
+
 Install prerequisites specific to the language you're developing in:
 
 # [C\# / Azure Functions](#tab/csharp+azfunctions)
@@ -240,7 +258,7 @@ There are four items within the solution:
 
 ### Set IoT Edge runtime version
 
-The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. 
 
 ::: zone pivot="iotedge-dev-ext"
 

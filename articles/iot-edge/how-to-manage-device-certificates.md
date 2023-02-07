@@ -13,17 +13,17 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. 
 
 > [!NOTE]
-> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA certificate.
+> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it's actually an intermediate CA certificate.
 
 ## Prerequisites
 
-* [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+* You should be familiar with the concepts in [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md), in particular how IoT Edge uses certificates.
 
-* An IoT Edge device.
-    If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+* An IoT Edge device.<br>
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of these quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
 
@@ -39,10 +39,10 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 > [!TIP]
 >
-> * A certificate can be encoded in a binary representation called DER, or a textual representation called PEM. The PEM format is a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by a `-----END CERTIFICATE-----` footer.
+> * A certificate can be encoded in a binary representation called DER (Distinguished Encoding Rules), or a textual representation called PEM (Privacy Enhanced Mail). The PEM format has a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by an `-----END CERTIFICATE-----` footer.
 > * Similar to the certificate, the private key can be encoded in binary DER or textual representation PEM.
-> * Because PEM is delineated, it is also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentially in the same file.
-> * Lastly, the certificate and private key can be encoded together in a binary representation called *PKCS#12*, that is encrypted with an optional password.
+> * Because PEM is delineated, it's also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentially in the same file.
+> * Lastly, the certificate and private key can be encoded together in a binary representation called *PKCS#12*, that's encrypted with an optional password.
 >
 > File extensions are arbitrary and you need to run the `file` command or view the file verify the type. In general, files use the following extension conventions:
 >
@@ -132,7 +132,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 1. Get a publicly trusted root CA certificate from a PKI provider.
 
-1. Check the certificate meets [format requirements](#format-requirements).
+1. Check that the certificate meets the [format requirements](#format-requirements).
 
 1. Copy the PEM file and give IoT Edge's certificate service access. For example, with `/var/aziot/certs` directory:
 
@@ -152,12 +152,12 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    sudo chmod 644 /var/aziot/certs/root-ca.pem
    ```
 
-1. In the IoT Edge configuration file `config.toml`, find **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
+1. In the IoT Edge configuration file `config.toml`, find the **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
 
    >[!TIP]
    >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
 
-1. Set `trust_bundle_cert` key to the certificate file location.
+1. Set the `trust_bundle_cert` key to the certificate file location.
 
    ```toml
    trust_bundle_cert = "file:///var/aziot/certs/root-ca.pem"
@@ -196,7 +196,7 @@ IoT Edge can use existing certificate and private key files to authenticate or a
 
 1. Check the certificate and private key files meet the [format requirements](#format-requirements).
 
-1. Copy the PEM file to the IoT Edge device where IoT Edge modules can have access. For example, `/var/aziot/` directory.
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules can have access. For example, the  `/var/aziot/` directory.
 
    ```bash
    # If the certificate and keys directories don't exist, create, set ownership, and set permissions
