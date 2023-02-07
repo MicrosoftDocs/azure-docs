@@ -16,7 +16,7 @@ When you deploy your application to the cloud, you choose a region in that cloud
 
 In this tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](/azure/azure-sql/database/active-geo-replication-overview) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
-The following architecture diagram shows the infrastructure you'll be creating during this tutorial. It consists of two identical App Services in separate regions, one being the active or primary region, and the other is the standby or secondary region. Azure Front Door is used to route traffic to the App Services and access restrictions are configured so that direct access to the apps from the internet is blocked. The dotted line indicates that traffic will only be sent to the standby region in the event of the active region going down. 
+The following architecture diagram shows the infrastructure you'll be creating during this tutorial. It consists of two identical App Services in separate regions, one being the active or primary region, and the other is the standby or secondary region. Azure Front Door is used to route traffic to the App Services and access restrictions are configured so that direct access to the apps from the internet is blocked. The dotted line indicates that traffic will only be sent to the standby region if the active region goes down. 
 
 Azure provides various options for load balancing and traffic routing. Azure Front Door was selected for this use case because it involves internet facing web apps hosted on Azure App Service deployed in multiple regions. To help you decide what to use for your use case if it differs from this tutorial, see the [decision tree for load balancing in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -26,7 +26,7 @@ With this architecture:
 
 - Identical App Service apps are deployed in two separate regions.
 - Public traffic directly to the App Service apps is blocked.
-- Azure Front Door is used route traffic to the primary/active region, while the secondary region has an App Service that is up and running and ready to serve traffic if needed.
+- Azure Front Door is used route traffic to the primary/active region. The secondary region has an App Service that's up and running and ready to serve traffic if needed.
 
 What you'll learn:
 
@@ -99,7 +99,7 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group myresou
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|profile-name     |myfrontdoorprofile         |Name for the Azure Front Door profile which is unique within the resource group.         |
+|profile-name     |myfrontdoorprofile         |Name for the Azure Front Door profile, which is unique within the resource group.         |
 |resource-group     |myresourcegroup         |The resource group that contains the resources from this tutorial.         |
 |sku     |Premium_AzureFrontDoor         |The pricing tier of the Azure Front Door profile.         |
 
@@ -114,7 +114,7 @@ az afd endpoint create --resource-group myresourcegroup --endpoint-name myendpoi
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|endpoint-name     |myendpoint         |Name of the endpoint under the profile which is unique globally.         |
+|endpoint-name     |myendpoint         |Name of the endpoint under the profile, which is unique globally.         |
 |enabled-state     |Enabled         |Whether to enable this endpoint.        |
 
 ### Create an origin group
@@ -149,7 +149,7 @@ az afd origin create --resource-group myresourcegroup --host-name <web-app-east-
 |host-name     |`<web-app-east-us>.azurewebsites.net`        |The hostname of the primary web app.       |
 |origin-name     |primaryapp         |Name of the origin.         |
 |origin-host-header    |`<web-app-east-us>.azurewebsites.net`         |The host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
-|priority     |1         |Set this to 1 to direct all traffic to the primary web app.        |
+|priority     |1         |Set this parameter to 1 to direct all traffic to the primary web app.        |
 |weight     |1000         |Weight of the origin in given origin group for load balancing. Must be between 1 and 1000.         |
 |enabled-state    |Enabled         |Whether to enable this origin.         |
 |http-port    |80         |The port used for HTTP requests to the origin.        |
@@ -178,7 +178,7 @@ az afd route create --resource-group myresourcegroup --profile-name myfrontdoorp
 |supported-protocols     |Http Https       |List of supported protocols for this route.       |
 |link-to-default-domain     |Enabled       |Whether this route will be linked to the default endpoint domain.       |
 
-Please allow about 15 minutes for this step to complete as it takes some time for this change to propagate globally. After this period, your Azure Front Door will be fully functional.
+Allow about 15 minutes for this step to complete as it takes some time for this change to propagate globally. After this period, your Azure Front Door will be fully functional.
 
 ### Restrict access to web apps to the Azure Front Door instance
 
@@ -386,7 +386,7 @@ To configure continuous deployment with GitHub Actions and a service principal, 
 
 #### Create the GitHub Actions workflow
 
-Now that you have a service principal that can access your App Service apps, you need to edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for the Node.js sample app that was provided.
+Now that you have a service principal that can access your App Service apps, edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for the Node.js sample app that was provided.
 
 1. Open your app's GitHub repository and go to the `<repo-name>/.github/workflows/` directory. You'll see the autogenerated workflows.
 1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit will trigger the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
@@ -484,9 +484,9 @@ After a few minutes, you can navigate to your Front Door's endpoint to validate 
 
 At this point, your apps are up and running and any changes you make to your application source code will automatically trigger an update to both of your staging slots. You can then repeat the slot swap process when you're ready to move that code into production.
 
-### How else can I leverage Azure Front Door in my multi-region deployments?
+### How else can I use Azure Front Door in my multi-region deployments?
 
-If you're concerned about potential disruptions or issues with continuity across regions, as in some customers seeing one version of your app while others see another version, or if you're making significant changes to your apps, you can temporarily remove the site that's undergoing the slot swap from your Front Door's origin group and all traffic will be directed to the other origin. Navigate to the **Update origin group** pane and **Delete** the origin that is undergoing the change. Once you've made all of your changes and are ready to serve traffic there again, you can return to the same pane and select **+ Add an origin** to readd the origin.
+If you're concerned about potential disruptions or issues with continuity across regions, as in some customers seeing one version of your app while others see another version, or if you're making significant changes to your apps, you can temporarily remove the site that's undergoing the slot swap from your Front Door's origin group. All traffic will then be directed to the other origin. Navigate to the **Update origin group** pane and **Delete** the origin that is undergoing the change. Once you've made all of your changes and are ready to serve traffic there again, you can return to the same pane and select **+ Add an origin** to readd the origin.
 
 :::image type="content" source="./media/tutorial-multi-region-app/removeorigin.png" alt-text="Screenshot showing how to remove an Azure Front Door origin.":::
 
