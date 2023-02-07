@@ -43,14 +43,14 @@ In addition to your solution domain, your engineering team should have knowledge
 
 - The application must be deployable to Linux environment.
 
-- If running the CNAB packaging tool manually, you will need docker installed on your local machine.
+- If running the CNAB packaging tool manually, you'll need docker installed on your local machine.
 
 ## Limitations
 
 - Container Marketplace supports only Linux platform-based AMD64 images.
 - Managed AKS only.
-- Single containers are not supported.
-- Linked Azure Resource Manager templates are not supported.
+- Single containers aren't supported.
+- Linked Azure Resource Manager templates aren't supported.
 
 > [!IMPORTANT]
 > The Kubernetes application-based offer experience is in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -237,11 +237,7 @@ Complete the following steps to add identifier in the *Per core*, *Per pod*, *Pe
 
     :::image type="content" source="./media/azure-container/billing-statefulsets.png" alt-text="A screenshot of a properly formatted billing identifier label in a statefulsets.yaml file. The content resembles the sample statefulsets.yaml file linked in this article":::
 
-<<<<<<< HEAD
 - Add a billing identifier label and cpu cores request to your `daemonsets.yaml` file.
-=======
-    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > Azure > billingIdentifier field.":::
->>>>>>> 6a304b1c32244784842b6bcd2f94142f6fa41f2b
 
     :::image type="content" source="./media/azure-container/billing-daemonsets.png" alt-text="A screenshot of CPU resource requests in a daemonsets.yaml file. The content resembles the sample daemonsets.yaml file linked in this article.":::
 
