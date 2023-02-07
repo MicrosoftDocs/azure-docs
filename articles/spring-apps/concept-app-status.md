@@ -57,7 +57,7 @@ The provisioning state is accessible only from the CLI.  It's reported as one of
 
 ## App instances status
 
-The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select **App Instance Name** of the app in the **Apps instance** pane to display the following results:
+The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **Apps instance** pane and then select the **App Instance Name** value for the app. The following status values will appear:
 
 * **Status**: Whether the instance is running or its current state
 * **Discovery Status**: The registered status of the app instance in the Eureka server
