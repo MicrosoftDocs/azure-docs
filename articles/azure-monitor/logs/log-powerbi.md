@@ -1,33 +1,24 @@
 ---
 title: Log Analytics integration with Power BI and Excel
-description: Learn how to send results from Log Analytics to Power BI.
-ms.topic: conceptual
+description: Learn how to send results from a query in Log Analytics to Power BI.
+ms.topic: how-to
 author: guywild
 ms.author: guywild
 ms.reviewer: roygal
 ms.date: 02/06/2023
 
 ---
-# Log Analytics integration with Power BI
+# Integrate Log Analytics with Power BI
 
-This article focuses on ways to feed data from Log Analytics into Power BI to create more visually appealing reports and dashboards.
+[Azure Monitor Logs](../logs/data-platform-logs.md) provides an end-to-end solution for ingesting logs. [Log Analytics](../data-platform.md), the user interface for querying these logs, lets you connect to [Power BI](https://powerbi.microsoft.com/), Microsoft's data visualization platform. This article explains how to feed data from Log Analytics into Power BI to produce professional, visually appealing reports and dashboards based on log data.
 
-## Background
-
-Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../data-platform.md) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md).
-
-Power BI is the Microsoft data visualization platform. For more information on how to get started, see the [Power BI home page](https://powerbi.microsoft.com/).
-
-In general, you can use free Power BI features to integrate and create visually appealing reports and dashboards.
-
-More advanced features might require purchasing a Power BI Pro or Premium account. These features include:
-
- - Sharing your work.
- - Scheduled refreshes.
- - Power BI apps.
- - Dataflows and incremental refresh.
-
-For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
+> [!NOTE]
+> You can use free Power BI features to integrate and create visually appealing reports and dashboards. More advanced features might require purchasing a Power BI Pro or Premium account. These features include:
+>  - Sharing your work.
+>  - Scheduled refreshes.
+>  - Power BI apps.
+>  - Dataflows and incremental refresh.
+> For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
 ## Create Power BI datasets and reports from Log Analytics queries
 
