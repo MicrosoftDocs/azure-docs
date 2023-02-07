@@ -30,7 +30,7 @@ To view general status of an application type, select **Apps** in the left navig
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
 * **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to enterprise tier. For more information if you're using the enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot that lists status values of the current application types highlighting their Provisioning State, Running instance, and Registration status." lightbox="media/concept-app-status/apps-ui-status.png":::
+:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal showing the Apps Settings page with the Provisioning state, Running instance, and Registration status columns highlighted." lightbox="media/concept-app-status/apps-ui-status.png":::
 
 ## Deployment status
 
@@ -57,7 +57,7 @@ The provisioning state is accessible only from the CLI.  It's reported as one of
 
 ## App instances status
 
-The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **Apps instance** pane and then select the **App Instance Name** value for the app. The following status values will appear:
+The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values will appear:
 
 * **Status**: Whether the instance is running or its current state
 * **Discovery Status**: The registered status of the app instance in the Eureka server
