@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/05/2023
+ms.date: 02/07/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,9 +24,9 @@ Updates in February include:
 
 ## The CIS 1.5.0 compliance standard for AWS is now supported 
 
-We are announcing that Defender for Cloud now supports the CIS 1.5.0 compliance standard for AWS as part of rhe multicloud recommendations.
+Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md#add-a-regulatory-standard-to-your-dashboard), and builds on MDC's existing offerings for multi-cloud recommendations and standards.
 
-This new standard includes both the existing and new recommendations that extend Defender for Cloud's coverage to new aWS services and resources.
+This new standard includes both existing and new recommendations that extend Defender for Cloud's coverage to new AWS services and resources.
 
 Learn how to [Manage AWS assessments and standards](how-to-manage-aws-assessments-standards.md).
 
