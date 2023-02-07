@@ -20,7 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: January 2023
- General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
+* General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
 * General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
 
 ## Release: December 2022
