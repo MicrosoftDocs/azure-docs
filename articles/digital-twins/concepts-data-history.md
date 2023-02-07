@@ -56,6 +56,15 @@ The command will always create a table for historized twin property events, whic
 
 For step-by-step instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
+## Updating a properties-only data history connection
+
+Prior to February 2023, the data history feature only historized twin property updates. If you have a properties-only data history connection from that time, you can update it to historize all graph updates to Azure Data Explorer (including twin properties, twin lifecycle events, and relationship lifecycle events). You can use either of the following methods:
+* Delete your existing data history connection and create a new data history connection using the updated instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+* Use the following Azure CLI command to update the existing connection to include the new data tables for twin lifecycle events and relationship lifecycle events. There are placeholders for the names of your current data history resources, and placeholders for you to enter new names for the new tables.
+    ```azurecli-interactive
+    az dt data-history connection create adx -n <Azure-Digital-Twins-instance-name> --cn <data-history-connection-name> --adx-cluster-name <Azure-Data-Explorer-cluster-name> --adx-database-name <Azure-Data-Explorer-database-name> --eventhub <event-hub-name> --eventhub-namespace <event-hub-namespace> --adx-property-events-table <twin-property-events-table-name> --adx-twin-events-table <twin-lifecycle-events-table-name> --adx-relationship-events-table <relationship-lifecycle-events-table-name> --adx-record-removals true
+    ```
+
 ### Required permissions
 
 In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
