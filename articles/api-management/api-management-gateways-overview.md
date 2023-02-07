@@ -67,16 +67,17 @@ The following table compares features available in the managed gateway versus th
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
 | [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1</sup> |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1,2</sup> |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ | ❌ |
 | [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>2</sup> |  
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
-<sup>2</sup> Requires configuration of local CA certificates.<br/>
+<sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
+<sup>3</sup> Requires configuration of local CA certificates.<br/>
 
 ### Backend APIs
 

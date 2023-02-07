@@ -6,7 +6,7 @@ author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

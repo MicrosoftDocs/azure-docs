@@ -39,6 +39,9 @@ To configure Staged Rollout, follow these steps:
 
 For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
+>[!NOTE]
+> When Staged rollout is enabled for a user, the user is considered a managed user and all authentication will happen at Azure AD. For a federated Tenant, if CBA is enabled on Staged Rollout, password authentication only works if PHS is enabled too otherwise password authentication will fail.
+
 ## Use Azure AD connect to update certificateUserIds attribute
 
 An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. For more information, see [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificate-user-ids-using-azure-ad-connect).
