@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/21/2022
+ms.date: 02/07/2023
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -64,6 +64,14 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 | Microsoft Azure ECC TLS Issuing CA 06 | Jun 27, 2024 | 0x330000001d0913c309da3f05a600000000001d<br>DFEB65E575D03D0CC59FD60066C6D39421E65483 | [PEM](https://crt.sh/?d=2616326228) |
 | Microsoft RSA TLS CA 01 | Oct 8, 2024 | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A | [PEM](https://crt.sh/?d=3124375355) |
 | Microsoft RSA TLS CA 02 | Oct 8, 2024 | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 | [PEM](https://crt.sh/?d=3124375356) |
+| Microsoft RSA TLS Issuing AOC CA 01 |330000002ffaf06f6697e2469c00000000002f<br>4697fdbed95739b457b347056f8f16a975baf8ee | [PEM](https://crt.sh/?d=4789678141) |
+| Microsoft RSA TLS Issuing AOC CA 02 |3300000030c756cc88f5c1e7eb000000000030<br>90ed2e9cb40d0cb49a20651033086b1ea2f76e0e | [PEM](https://crt.sh/?d=4814787092) |
+| Microsoft RSA TLS Issuing EOC CA 01 |33000000310c4914b18c8f339a000000000031<br>a04d3750debfccf1259d553dbec33162c6b42737 | [PEM](https://crt.sh/?d=4814787098) |
+| Microsoft RSA TLS Issuing EOC CA 02 |3300000032444d7521341496a9000000000032<br>697c6404399cc4e7bb3c0d4a8328b71dd3205563 | [PEM](https://crt.sh/?d=4814787087) |
+| Microsoft ECC TLS Issuing AOC CA 01 |33000000282bfd23e7d1add707000000000028<br>30ab5c33eb4b77d4cbff00a11ee0a7507d9dd316 | [PEM](https://crt.sh/?d=4789656467) |
+| Microsoft ECC TLS Issuing AOC CA 02 |33000000290f8a6222ef6a5695000000000029<br>3709cd92105d074349d00ea8327f7d5303d729c8 | [PEM](https://crt.sh/?d=4814787086) |
+| Microsoft ECC TLS Issuing EOC CA 01 |330000002a2d006485fdacbfeb00000000002a<br>5fa13b879b2ad1b12e69d476e6cad90d01013b46 | [PEM](https://crt.sh/?d=4814787088) |
+| Microsoft ECC TLS Issuing EOC CA 02 |330000002be6902838672b667900000000002b<br>58a1d8b1056571d32be6a7c77ed27f73081d6e7a | [PEM](https://crt.sh/?d=4814787085) |
 
 ## Client compatibility for public PKIs
 
@@ -127,6 +135,10 @@ OCSP:
 The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
 
 Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services may not finalize these updates until 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information. 
+
+### Article change log
+
+February 7, 2023: Added 8 new subordinate Certificate Authorities
 
 ## Next steps
 
