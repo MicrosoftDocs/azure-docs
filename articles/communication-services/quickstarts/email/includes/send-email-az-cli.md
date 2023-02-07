@@ -38,7 +38,7 @@ az extension add --name communication
 You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 
-### Store your connection string in an envrionment variable 
+### Store your connection string in an environment variable 
 
 You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI keys operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<connectionString>` with your actual connection string.
 
@@ -48,7 +48,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 setx AZURE_COMMUNICATION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
 
 ##### [macOS](#tab/unix)
 
@@ -62,7 +62,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 ##### [Linux](#tab/linux)
 
-Edit your **`.bash_profile`**, and add the environment vairable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_STRING="<connectionString>"
@@ -103,7 +103,7 @@ Make these replacements in the code:
 - Replace "<emailalias@emaildomain.com>" with the email address you would like to send a message to.
 - Replace "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>" with the MailFrom address of your verified domain.
 
-To track the status of the email delivery, you will need the `messageId` from the response.
+To track the status of the email delivery, you'll need the `messageId` from the response.
 
 ### Optional parameters
 
@@ -125,7 +125,7 @@ The following optional parameters are available in Azure CLI.
 
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
-Also, note that you can use a list of recipients with `--to`, similar to `--cc` and `--bcc`.
+Also, you can use a list of recipients with `--to`, similar to `--cc` and `--bcc`.
 
 
 ## Get the status of the email delivery

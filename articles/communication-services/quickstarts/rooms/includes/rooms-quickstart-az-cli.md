@@ -32,7 +32,7 @@ az extension add --name communication
 You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 
-### Store your connection string in an envrionment variable 
+### Store your connection string in an environment variable 
 
 You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI keys operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<connectionString>` with your actual connection string.
 
@@ -56,7 +56,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 ##### [Linux](#tab/linux)
 
-Edit your **`.bash_profile`**, and add the environment vairable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_STRING="<connectionString>"
