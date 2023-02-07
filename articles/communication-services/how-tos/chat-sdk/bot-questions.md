@@ -1,4 +1,4 @@
-### Send a welcome message when a new user is added to the thread
+## Send a welcome message when a new user is added to the thread
 
 The current Echo Bot logic accepts input from the user and echoes it back. If you want to add more logic, such as responding to a participant-added Communication Services event, copy the following code and paste it in the [EchoBot.cs](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Bots/EchoBot.cs) source file:
 
@@ -37,7 +37,7 @@ namespace Microsoft.BotBuilderSamples.Bots
 }
 ```
 
-### Send an adaptive card
+## Send an adaptive card
 
 You can send an adaptive card to the chat thread to increase engagement and efficiency. An adaptive card also helps you communicate with users in various ways. You can send an adaptive card from a bot by adding the card as a bot activity attachment.
 
@@ -71,7 +71,7 @@ Here's an example of a chat message that has an adaptive card attached:
 }
 ```
 
-#### Send a message from user to bot
+# Send a message from user to bot
 
 You can send a basic text message from a user to the bot the same way you send a text message to another user.
 
@@ -85,7 +85,7 @@ To send an event activity from a user to a bot, add this flag to the Communicati
 
 The following sections show sample formats for chat messages from a user to a bot.
 
-#### Simple text message
+## Simple text message
 
 ```json
 {
@@ -100,7 +100,7 @@ The following sections show sample formats for chat messages from a user to a bo
 }
 ```
 
-#### Message with an attachment
+## Message with an attachment
 
 ```json
 {
@@ -122,7 +122,7 @@ The following sections show sample formats for chat messages from a user to a bo
 }
 ```
 
-#### Message with an event activity
+## Message with an event activity
 
 An event payload includes all JSON fields in the message content except `Name`. The `Name` field contains the name of the event.
 
