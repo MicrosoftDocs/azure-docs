@@ -20,7 +20,7 @@ ms.date: 02/06/2023
 From the **Export** menu in Log Analytics, select one of the two options for creating Power BI datasets and reports from your Log Analytics queries:
  
 - **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
-- **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service, otherwise, consider exporting the query as a new dataset.
+- **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service. Otherwise, consider exporting the query as a new dataset.
 
 :::image type="content" source="media/log-powerbi/export-to-power-bi-log-analytics-option.png" alt-text="Screenshot showing Export to Power BI option in the Log Analytics Export menu." lightbox="media/log-powerbi/export-to-power-bi-log-analytics-option.png":::
 
