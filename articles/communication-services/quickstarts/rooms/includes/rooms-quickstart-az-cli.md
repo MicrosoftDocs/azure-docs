@@ -42,7 +42,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 setx AZURE_COMMUNICATION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
 
 ##### [macOS](#tab/unix)
 
@@ -82,7 +82,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 - Use `<validFrom>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<validUntil>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 
-If you have stored the connection string in environment variables as stated above, you won't need to pass them to the command.
+If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
 ```azurecli-interactive
 az communication rooms create 
@@ -93,7 +93,7 @@ az communication rooms create
 
 ### Get the rooms 
 
-The `rooms get` command returns the attributes of an exisiting room.
+The `rooms get` command returns the attributes of an existing room.
 
 ```azurecli-interactive
 az communication rooms get --room "<roomId>" 
@@ -129,8 +129,8 @@ You can update the timestamp of a room. Before calling the `room update` command
 az communication rooms update --validFrom "<validFrom>" --validUntil "<validUntil>" --room "<roomId>"
 ```
 
-- Replace `<validFrom>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with --valid-until.
-- Replace `<validUntil>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with --valid-from.
+- Replace `<validFrom>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with `--valid-until`.
+- Replace `<validUntil>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with `--valid-from`.
 - Replace `<roomId>` with your room ID. 
 
 
