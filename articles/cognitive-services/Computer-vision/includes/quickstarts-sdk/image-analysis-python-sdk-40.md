@@ -59,7 +59,7 @@ Use the Image Analysis client library for Python to analyze a remote image and g
 
 1. Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
 
-   [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-40.py?name=snippet_single)]
+   [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-4-0.py?name=snippet_single)]
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 

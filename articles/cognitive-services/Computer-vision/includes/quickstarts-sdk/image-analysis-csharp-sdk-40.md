@@ -89,7 +89,7 @@ Use the Image Analysis client library for C# to analyze an image and generate ca
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
 
-   [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single-40.cs?name=snippet_single)]
+   [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single-4-0.cs?name=snippet_single)]
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
