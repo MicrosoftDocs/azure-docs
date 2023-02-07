@@ -32,14 +32,6 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- Azure PowerShell installed locally or Azure Cloud Shell
-
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -103,78 +95,6 @@ In this section, you'll create a virtual network for the virtual machine and loa
 
 It will take a few minutes for the bastion host to deploy. You can proceed to the next steps when the virtual network is deployed.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-## Create a resource group
-
-An Azure resource group is a logical container where Azure resources are deployed and managed.
-
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
-
-```azurepowershell-interactive
-$rsg = @{
-    Name = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-}
-New-AzResourceGroup @rsg
-```
-
-## Create network
-
-Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
-
-Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations for the backend and bastion subnets.
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address for the bastion host.
-
-Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host.
-
-```azurepowershell-interactive
-## Configure the back-end subnet. ##
-$sub = @{
-    Name = 'myBackendSubnet'
-    AddressPrefix = '10.1.0.0/24'
-}
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @sub
-
-## Create the Azure Bastion subnet. ##
-$bsub = @{
-    Name = 'AzureBastionSubnet'
-    AddressPrefix = '10.1.1.0/26'
-}
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bsub
-
-## Create the virtual network. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    AddressPrefix = '10.1.0.0/16'
-    Subnet = $subnetConfig, $bastsubnetConfig
-}
-$vnet = New-AzVirtualNetwork @net
-
-## Create the public IP address for the bastion host. ##
-$ip = @{
-    Name = 'myPublicIP-Bastion'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-    Zone = 1,2,3
-}
-$publicip = New-AzPublicIpAddress @ip
-
-## Create the bastion host. ##
-$bastion = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Name = 'myBastion'
-    PublicIpAddress = $publicip
-    VirtualNetwork = $vnet
-}
-New-AzBastion @bastion -AsJob
-```
-
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
 ---
@@ -217,43 +137,6 @@ The NAT gateway provides the outbound connectivity for the IPv4 portion of the v
 
 1. Select **Create**.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the IPv4 public IP address for the NAT gateway.
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to configure the NAT gateway for your virtual network subnet
-
-```azurepowershell-interactive
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'myPublicIP-NAT'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicIP = New-AzPublicIpAddress @ip
-
-## Place the virtual network into a variable. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$vnet = Get-AzVirtualNetwork @net
-
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Name = 'myNATgateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'Standard'
-    Location = 'westus2'
-    PublicIpAddress = $publicIP
-}
-$natGateway = New-AzNatGateway @nat
-```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -285,57 +168,7 @@ The addition of IPv6 to the virtual network must be done after the NAT gateway i
 
 1. Select **Save**.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
-Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to add an IPv6 address space to the virtual network.
-
-```azurepowershell-interactive
-## Place your virtual network into a variable. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$vnet = Get-AzVirtualNetwork @net
-
-## Place address space into a variable. ##
-$IPAddressRange = '2404:f800:8000:122::/63'
-
-## Add the address space to the virtual network configuration. ##
-$vnet.AddressSpace.AddressPrefixes.Add($IPAddressRange)
-
-## Save the configuration to the virtual network. ##
-Set-AzVirtualNetwork -VirtualNetwork $vnet
-```
-
-Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to add the new IPv6 subnet to the virtual network.
-
-```azurepowershell-interactive
-## Place your virtual network into a variable. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$vnet = Get-AzVirtualNetwork @net
-
-## Place the NAT gateway into a variable. ##
-$nat = @{
-    Name = 'myNATgateway'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$natGateway = Get-AzNatGateway $nat
-
-## Create the subnet configuration. ##
-$sub = @{
-    Name = 'myBackendSubnet'
-    AddressPrefix = '10.1.0.0/24','2404:f800:8000:122::/64'
-    VirtualNetwork = $vnet
-    NatGatewayId = $natGateway.Id
-}
-Set-AzVirtualNetworkSubnetConfig @sub
-
-## Save the configuration to the virtual network. ##
-Set-AzVirtualNetwork -VirtualNetwork $vnet
-```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -416,139 +249,9 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
 
 1. Leave the rest of the settings at the defaults and select **OK**.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
-## Create NSG
 
-Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) and [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create the network security group and rules.
 
-```azurepowershell-interactive
-## Create rule for network security group and place in variable. ##
-$nsgrule1 = @{
-    Name = 'myNSGRuleRDP'
-    Description = 'Allow RDP'
-    Protocol = '*'
-    SourcePortRange = '*'
-    DestinationPortRange = '3389'
-    SourceAddressPrefix = 'Internet'
-    DestinationAddressPrefix = '*'
-    Access = 'Allow'
-    Priority = '200'
-    Direction = 'Inbound'
-}
-$rule1 = New-AzNetworkSecurityRuleConfig @nsgrule1
-
-## Create network security group ##
-$nsg = @{
-    Name = 'myNSG'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    SecurityRules = $rule1
-}
-New-AzNetworkSecurityGroup @nsg
-```
-
-## Create network interface
-
-Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzNetworkInterfaceIpConfig](/powershell/module/az.network/new-aznetworkinterfaceipconfig) to create the network interface for the virtual machine.
-
-```azurepowershell-interactive
-## Place the virtual network into a variable. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$vnet = Get-AzVirtualNetwork @net
-
-## Place the network security group into a variable. ##
-$ns = @{
-    Name = 'myNSG'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$nsg = Get-AzNetworkSecurityGroup @ns
-
-## Create IPv4 configuration for NIC. ##
-$IP4c = @{
-    Name = 'ipconfig-ipv4'
-    Subnet = $vnet.Subnets[0]
-    PrivateIpAddressVersion = 'IPv4'
-    PublicIPAddress = $pubIPv4
-}
-$IPv4Config = New-AzNetworkInterfaceIpConfig @IP4c
-
-## Create IPv6 configuration for NIC. ##
-$IP6c = @{
-    Name = 'ipconfig-ipv6'
-    Subnet = $vnet.Subnets[0]
-    PrivateIpAddressVersion = 'IPv6'
-    PublicIPAddress = $pubIPv6
-}
-$IPv6Config = New-AzNetworkInterfaceIpConfig @IP6c
-
-## Command to create network interface for VM ##
-$nic = @{
-    Name = 'myNIC'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    NetworkSecurityGroup = $nsg
-    IpConfiguration = $IPv4Config,$IPv6Config 
-}
-New-AzNetworkInterface @nic
-```
-
-## Create virtual machine
-
-Use the following commands to create the virtual machine:
-    
-* [New-AzVM](/powershell/module/az.compute/new-azvm)
-    
-* [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
-    
-* [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
-    
-* [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
-    
-* [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
-
-```azurepowershell-interactive
-## Place the username and password for the virtual machine into a variable. ##
-$cred = Get-Credential
-
-## Place network interface into a variable. ##
-$nic = @{
-    Name = 'myNIC'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$nicVM = Get-AzNetworkInterface @nic
-
-## Create a virtual machine configuration for VMs ##
-$vmsz = @{
-    VMName = 'myVM'
-    VMSize = 'Standard_DS1_v2'  
-}
-$vmos = @{
-    ComputerName = 'myVM'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2022-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-      | Set-AzVMOperatingSystem @vmos -Windows `
-      | Set-AzVMSourceImage @vmimage `
-      | Add-AzVMNetworkInterface -Id $nicVM.Id
-
-## Create the virtual machine for VMs ##
-$vm = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    VM = $vmConfig
-    }
-New-AzVM @vm -AsJob
-```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -655,102 +358,6 @@ Wait for the load balancer to finish deploying before proceeding to the next ste
 
 1. Select **Save**. 
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-## Create a public IP address
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IPv6 address.
-
-```azurepowershell-interactive
-$publicip = @{
-    Name = 'myPublicIP-IPv6'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'westus2'
-    Sku = 'Standard'
-    AllocationMethod = 'static'
-    IpAddressVersion = 'IPv6'
-    Zone = 1,2,3
-}
-New-AzPublicIpAddress @publicip
-```
-
-## Create the load balancer
-
-Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create a front-end IP with for the frontend IP pool. This IP receives the incoming traffic on the load balancer
-
-Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) to create a back-end address pool for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
-
-Use [New-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig) to create an outbound rule for the virtual machines in the backend pool. The outbound rule will enable the outbound IPv6 traffic for the virtual machines.
-
-Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) to create the public load balancer
-
-```azurepowershell-interactive
-## Place public IP created in previous steps into variable. ##
-$pip = @{
-    Name = 'myPublicIP-IPv6'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$publicIp = Get-AzPublicIpAddress @pip
-
-## Create load balancer frontend configuration and place in variable. ##
-$fip = @{
-    Name = 'myFrontEnd'
-    PublicIpAddress = $publicIp 
-}
-$feip = New-AzLoadBalancerFrontendIpConfig @fip
-
-## Create backend address pool configuration and place in variable. ##
-$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
-
-## Create the load balancer outbound rule and place in variable. ##
-$lbrule = @{
-    Name = 'myOutboundRule'
-    AllocatedOutboundPort = '20000'
-    Protocol = 'All'
-    IdleTimeoutInMinutes = '4'
-    FrontendIpConfiguration = $feip
-    BackendAddressPool = $bePool
-}
-$rule = New-AzLoadBalancerOutboundRuleConfig @lbrule -EnableTcpReset
-
-## Create the load balancer resource. ##
-$loadbalancer = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Name = 'myLoadBalancer'
-    Location = 'westus2'
-    Sku = 'Standard'
-    FrontendIpConfiguration = $feip
-    BackendAddressPool = $bePool
-    OutboundRule = $rule
-}
-New-AzLoadBalancer @loadbalancer
-```
-
-### Add virtual machine to load balancer
-
-[Set-AzNetworkInterface]() to add the virtual machine network interface to the load balancer.
-
-```azurepowershell-interactive
-## Place the network interface configuration into a variable. ##
-$nc = @{
-    Name = 'myNIC'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$nic = Get-AzNetworkInterface @nc
-
-## Place the load balancer backend pool into a variable. ##
-$lb = @{
-    Name = 'myLoadBalancer'
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-}
-$bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
-
-## Add the IPv6 IP configuration to the backend address pool. ##
-$nic.IpConfigurations[1].LoadBalancerBackendAddressPools = $bepool
-
-## Set the network interface and save the configuration. ##
-Set-AzNetworkInterface -NetworkInterface $nic
-```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -778,47 +385,6 @@ Before you can validate outbound connectivity, make not of the IPv4, and IPv6 pu
 
 1. Make note of the address in **IP address**. In this example, it's **2603:1030:c02:8::14**.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to obtain the IPv4 and IPv6 public IP addresses.
-
-### IPv4
-
-```azurepowershell-interactive
-$ip = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Name = 'myPublicIP-NAT'
-}  
-Get-AzPublicIPAddress @ip | select IpAddress
-```
-
-```azurepowershell
-PS /home/azureuser> Get-AzPublicIPAddress @ip | select IpAddress
-
-IpAddress
----------
-20.230.222.247
-```
-
-### IPv6
-
-```azurepowershell-interactive
-$ip = @{
-    ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Name = 'myPublicIP-IPv6'
-}  
-Get-AzPublicIPAddress @ip | select IpAddress
-```
-
-```azurepowershell
-PS /home/azureuser> Get-AzPublicIPAddress @ip | select IpAddress
-
-IpAddress
----------
-2603:1030:c02:9::
-```
-
-Make note of both IP addresses. You will use them later to verify the outbound connectivity for each stack.
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -856,35 +422,6 @@ Make note of both IP addresses. You will use them later to verify the outbound c
 
 1. Close the bastion connection to **myVM**.
 
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-1. Select **myVM**.
-
-1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
-
-1. Enter the username and password you created when you created the virtual machine.
-
-1. Select **Connect**.
-
-1. On the desktop of **myVM**, open **Microsoft Edge**.
-
-1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
-
-1. You should see the IPv4 address of **20.230.222.247** displayed.
-
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
-
-1. In the address bar, enter **http://v6.testmyipv6.com**
-
-1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
-
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
-
-1. Close the bastion connection to **myVM**.
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
@@ -928,14 +465,6 @@ When your finished with the resources created in this article, delete the resour
 1. Select **Delete resource group**.
 
 1. Enter **TutorialIPv6NATLB-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
-
-# [**PowerShell**](#tab/dual-stack-outbound-powershell)
-
-Use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources created.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name 'TutorialIPv6NATLB-rg'
-```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
