@@ -1,6 +1,6 @@
 ---
 title: View acquisitions report
-description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
+description: Analyze your app or add-in performance and see your funnel and acquisitions metrics.
 ms.author: siraghav
 ms.reviewer: dannyevers
 ms.topic: article
@@ -10,11 +10,8 @@ ms.date: 01/10/2022
 ---
 
 # View the Acquisitions report in the dashboard
-<!--- [
-[image](https://user-images.githubusercontent.com/62076972/134597753-6fd281d2-9cdd-4ba0-b45d-645ca18e22d1.png)
-]() --->
 
-The _Acquisitions report_ in the Partner Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing.
+The Acquisitions report in the [Partner Center dashboard](https://partner.microsoft.com/dashboard/home) lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing.
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
 
@@ -31,7 +28,7 @@ The SLA for Acquisitions data is currently 4 days.
 
     :::image type="content" source="./media/office-store-workspaces/insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center home page.":::
 
-1. In the left-menu, select **Acquistions**.
+1. In the left-menu, select **Acquisitions**.
 
 <a name="BKMK_Edit"> </a>
 ## Apply filters
@@ -83,7 +80,7 @@ In this chart, a channel refers to the method in which a customer arrived at y
 
 - Other - The customer followed an external link (without any custom campaign ID) from a website to your app's listing or the customer followed a link from a search engine to your app's listing.
 
-A page view means that a customer viewed your solutions's Microsoft AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
+A page view means that a customer viewed your solution's Microsoft AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
 
 > [!NOTE]
 > Customers can arrive at your app's listing by clicking a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first landed on Microsoft AppSource. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you might see a higher number of total conversions than the total conversions for your campaign IDs, and you might have conversions or add-on conversions that have zero page views.
