@@ -184,7 +184,7 @@ When the client connects to the service, you receive a `DownstreamMessage.System
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
 ```
 
-Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
+Find more details in [Reconnection](./howto-develop-reliable-clients.md#connection-recovery)
 
 #### Disconnected
 

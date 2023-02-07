@@ -21,12 +21,12 @@ The Web PubSub service supports two reliable subprotocols `json.reliable.webpubs
 
 ## The Easy Way - Use Client SDK
 
-The simplest way to create a reliable client is to use Client SDK. Client SDK implements [Web PubSub client specification](./reference-client-specification) and uses `json.reliable.webpubsub.azure.v1` by default. Please refer to [PubSub with client SDK](./quickstart-use-client-sdk.md) for quick start.
+The simplest way to create a reliable client is to use Client SDK. Client SDK implements [Web PubSub client specification](./reference-client-specification.md) and uses `json.reliable.webpubsub.azure.v1` by default. Please refer to [PubSub with client SDK](./quickstart-use-client-sdk.md) for quick start.
 
 
 ## The Hard Way - Implement by hand
 
-The following tutorial walks you through the important part of implementing the [Web PubSub client specification](./reference-client-specification). This guide is not for people looking for a quick start but who wants to know the principle of achieving reliability. For quick start, please use the Client SDK.
+The following tutorial walks you through the important part of implementing the [Web PubSub client specification](./reference-client-specification.md). This guide is not for people looking for a quick start but who wants to know the principle of achieving reliability. For quick start, please use the Client SDK.
 
 ### Initialization
 

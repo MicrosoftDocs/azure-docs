@@ -70,7 +70,7 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
-![get_client_url](https://learn.microsoft.com/azure/azure-web-pubsub/media/howto-websocket-connect/generate-client-url.png)
+![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
 
 As shown in the diagram above, the client has the permissions to send messages to and join a specific group named `group1`.
 
@@ -154,6 +154,8 @@ client.sendToGroup("group1", "Hello World", "text");
 ```csharp
 await client.SendToGroupAsync("group1", BinaryData.FromString("Hello World"), WebPubSubDataType.Text);
 ```
+
+---
 
 ## Repository and Samples
 
