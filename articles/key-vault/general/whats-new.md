@@ -19,6 +19,10 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## February 2023
+
+Built-in policy to drive the migration from access policies to Azure role-based access control (RBAC) is now in preview. Using the Azure Policy service, you can govern the migration to RBAC permission model across your vaults. You can create a custom policy definition to audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance]([url](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#migration-governance)) to learn how to enforce the new built-in policy.
+
 ## April 2022
 
 Automated encryption key rotation in Key Vault is now generally available.
