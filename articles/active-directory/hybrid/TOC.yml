@@ -68,11 +68,11 @@
        href: how-to-connect-fed-compatibility.md
    - name: Single sign-on
      items:
-     - name: What is Single Sign-On?
+     - name: What is single sign-on?
        href: how-to-connect-sso.md
-     - name: How Single Sign-On works
+     - name: How single sign-on works
        href: how-to-connect-sso-how-it-works.md
-     - name: Single Sign-On and user privacy
+     - name: Single sign-on and user privacy
        href: how-to-connect-sso-user-privacy.md
    - name: Azure AD Connect Sync
      items:
@@ -109,7 +109,7 @@
       href: how-to-connect-install-prerequisites.md
     - name: Choose the installation type
       href: how-to-connect-install-select-installation.md
-    - name: Install Azure AD Connect with Express settings (Password Hash Synch)
+    - name: Install Azure AD Connect with Express settings (Password Hash Sync)
       href:  how-to-connect-install-express.md
     - name: Install Azure AD Connect Federation or other Custom settings
       href:  how-to-connect-install-custom.md
@@ -151,7 +151,7 @@
       href: plan-connect-topologies.md
     - name: Factors influencing the performance of Azure AD Connect
       href: plan-connect-performance-factors.md
-    - name: How will users sign-in
+    - name: How will users sign in
       href: plan-connect-user-signin.md
     - name: Azure AD UserPrincipalName population
       href: plan-connect-userprincipalname.md
@@ -259,10 +259,10 @@
   - name: Manage single sign-on 
     items:
 
-    - name: Get started with Single Sign-On
+    - name: Get started with Seamless single sign-on
       href: how-to-connect-sso-quick-start.md
 
-    - name: Single Sign-On FAQ
+    - name: Single sign-on FAQ
       href: how-to-connect-sso-faq.yml
   - name: Manage Azure AD Connect Health
     items:
