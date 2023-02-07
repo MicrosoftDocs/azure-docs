@@ -45,7 +45,7 @@ When you create service accounts, consider the information in the following tabl
 | Ownership| Ensure there's an account owner who requests and assumes responsibility |
 | Scope| Define the scope, and anticipate usage duration|
 | Purpose| Create service accounts for one purpose |
-| Permissions | Apply the principle of least permission. To do so:<li>Don't assign permissions to built-in groups, such as administrators<li>Remove local machine permissions, where feasible<li>Tailor access, and use AD delegation for directory access<li>Use granular access permissions<li>Set account expiration and location restrictions on user-based service accounts |
+| Permissions | Apply the principle of least permission:<li>Don't assign permissions to built-in groups, such as administrators<li>Remove local machine permissions, where feasible<li>Tailor access, and use AD delegation for directory access<li>Use granular access permissions<li>Set account expiration and location restrictions on user-based service accounts |
 | Monitor and audit use| Monitor sign-in data, and ensure it matches the intended usage. Set alerts for anomalous usage. |
 
 ### User account restrictions
@@ -146,23 +146,19 @@ Consider the following restrictions, although some might not be relevant to your
 Schedule regular service account reviews, especially those classified Medium and High Risk. Reviews can include: 
 
 * Owner attestation of the need for the account, with justification of permissions and scopes
-* Privacy and security team reviews, that include upstream and downstream dependencies
+* Privacy and security team reviews that include upstream and downstream dependencies
 * Audit data review
- * Ensure it's used for its stated purpose
+ * Ensure the account is used for its stated purpose
 
 ### Deprovision service accounts
 
-In your deprovisioning process, first remove permissions and monitoring, and then remove the account, if appropriate.
+Deprovision service accounts at the following junctures:
 
-You deprovision service accounts when:
+* Retirement of the script or application for which the service account was created
+* Retirement of the script or application function, for which the service account was used
+* Replacement of the service account for another
 
-* The script or application that the service account was created for is retired.
-
-* The function within the script or application, which the service account is used for (for example, access to a specific resource), is retired.
-
-* The service account has been replaced with a different service account.
-
-After you've removed all permissions, remove the account by doing the following:
+When deprovisioning, first remove permissions and monitoring, and then remove the account, if needed. To remove the account:
 
 1. When the associated application or script is deprovisioned, monitor the sign-ins and resource access for the associated service accounts to be sure that they're not being used in another process. If you're sure it's no longer needed, go to next step.
 
