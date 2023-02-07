@@ -149,10 +149,10 @@ The `datasets/<dataset-name>` API lets you create a new dataset object that refe
 1. In the request body, set the `"annotationFileUris"` array to a single string that is the URI location of your COCO file in blob storage.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-\"annotationKind\":\"ImageClassification\",
-\"annotationFileUris\":[\"<URI>\"]
+'annotationKind':'ImageClassification',
+'annotationFileUris':['<URI>']
 }"
 ```
 
@@ -167,13 +167,13 @@ The `models/<model-name>` API lets you create a new custom model and associate i
 1. In the request body, set `"modelKind"` to either `"Generic-Classifier"` or `"Generic-Detector"`, depending on your project.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-\"trainingParameters\": {
-    \"trainingDatasetName\":\"<dataset-name>\",
-    \"timeBudgetInMinutes\":60,
-    \"modelKind\":\"Generic-Classifier\",
-    \"modelProfile\":\"balanced\"
+'trainingParameters': {
+    'trainingDatasetName':'<dataset-name>',
+    'timeBudgetInMinutes':60,
+    'modelKind':'Generic-Classifier',
+    'modelProfile':'balanced'
     }
 }"
 ```
@@ -189,10 +189,10 @@ The `models/<model-name>/evaluations/<eval-name>` API evaluates the performance 
 1. In the request body, set `"testDatasetName"` to the name of the dataset you want to use for evaluation. If you don't have a dedicated dataset, you can use the same dataset you used for training.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-\"evaluationParameters\":{
-    \"testDatasetName\":\"<dataset-name>\"
+'evaluationParameters':{
+    'testDatasetName':'<dataset-name>'
     }
 }"
 ```
@@ -210,13 +210,39 @@ The `imageanalysis:analyze` API does ordinary Image Analysis operations. By spec
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/imageanalysis:analyze?features=Tags&model-version=<model-name>&api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
-{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"
+curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?features=Tags&model-version=<model-name>&api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png'
 }"
 ```
 
 The API call returns an **ImageAnalysisResult** JSON object, which contains all the detected tags or objects in the image, with their confidence scores.
 
+```json
+{
+  "kind": "imageAnalysisResult",
+  "metadata": {
+    "height": 900,
+    "width": 1260
+  },
+  "customModelResult": {
+    "classifications": [
+      {
+        "confidence": 0.97970027,
+        "label": "hemlock"
+      },
+      {
+        "confidence": 0.020299695,
+        "label": "japanese-cherry"
+      }
+    ],
+    "objects": [],
+    "imageMetadata": {
+      "width": 1260,
+      "height": 900
+    }
+  }
+}
+```
 ---
 
 
