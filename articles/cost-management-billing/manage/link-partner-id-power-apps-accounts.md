@@ -33,7 +33,7 @@ The attribution step is critical and typically happens automatically, as the par
 
 :::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Images showing the three steps listed above."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
 
-## **Initiation** - get service account from your customer
+## Initiation - get service account from your customer
 
 Use a dedicated Service Account for work performed and delivered into production.
 
@@ -41,7 +41,7 @@ Through the normal course of business with your customer, determine ownership an
 
 [Creating a Service Account Video](https://aka.ms/ServiceAcct) 
 
-## **Registration** - link your access account to your partner ID
+## Registration - link your access account to your partner ID
 
 Perform PAL Association on this Service Account.
 
@@ -59,7 +59,7 @@ To use the Azure portal to link to a new partner ID:
     
 For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](#use-powershell-azure-cli-and-other-tools).
 
-##  **Attribution** - attribute your service account to the Power Platform & Dynamics Customer Insights resources using Solutions
+##  Attribution - attribute your service account to the resource using Solutions
 
 To count the usage of a specific resource, the partner service account needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights. 
 
@@ -76,12 +76,17 @@ The resource and attribute user logic differ for every product and are detailed 
 | Power BI | Monthly Active Users (MAU)   | Dataset | The user must be the publisher of the dataset. For more information, see [Publish datasets and reports from Power BI Desktop](/power-bi/create-reports/desktop-upload-desktop-files). In cases of multiple partners being mapped to a single dataset, the user's activity is reviewed to select the *latest* partner. |
 | Customer Insights | Unified Profiles | Instance | Any active user of an Instance is treated as the attributed user. In cases of multiple partners being mapped to a single Instance, the user's activity is reviewed to select the *latest* partner. |
 
-// add validation
+## Validation
+
+The operation of a PAL association is a Boolean operation. Once performed it can be verified visually in the Azure Portal or with a PowerShell Command. Either option will show your organization name and Partner ID to represent the account and partner ID were correctly connected. 
 
 
-## Alternate Approaches
 
-### Associate PAL with User Accounts 
+## Alternate approaches
+
+The following sections are alternate approaches that you can use to leverage PAL for Power Platform and Customer Insights. 
+
+### Associate PAL with user accounts 
 
 The Attribution step can also be completed with **user accounts**. While we are including this as an option, there are some downsides to this approach.  For partners with a large number of users, it will require management of user accounts when users are new to the team and/or resign from the team.  If you choose to associate PAL in this way, you will need to manage the users via a spreadsheet.  
 
