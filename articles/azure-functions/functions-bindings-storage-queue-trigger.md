@@ -14,9 +14,9 @@ The queue storage trigger runs a function as messages are added to Azure Queue s
 
 ::: zone pivot="programming-language-python"  
 > [!IMPORTANT]  
-> Azure Functions now lets you define your functions directly in Python code. This new programming model allows you to define triggers and bindings using decorators instead of using a separate configuration file. This article supports both programming models. 
+> Azure Functions now lets you define your functions directly in Python code. This new v2 Python programming model allows you to define triggers and bindings using decorators instead of using a separate configuration file. This article supports both programming models. 
 >  
-> The new decorator-based programming model is currently in preview.  
+> The new Python v2 programming model is currently in preview.  
    
 ::: zone-end  
 
@@ -147,7 +147,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#configuration-1) section explains these properties.
+The [configuration](#configuration) section explains these properties.
 
 > [!NOTE]
 > The name parameter reflects as `context.bindings.<name>` in the JavaScript code which contains the queue item payload. This payload is also passed as the second parameter to the function.
@@ -210,9 +210,9 @@ Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use decorators to define the function or function.json.
+The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use the v1 or v2 Python programming model.
 
-# [Decorator](#tab/python-deco)
+# [v2](#tab/python-v2)
 
 ```python
 @app.function_name(name="QueueFunc")
@@ -227,7 +227,7 @@ def test_function(msg: func.QueueMessage,
     outputQueueItem.set('hello')
 ```
 
-# [Configuration](#tab/python-json)
+# [v1](#tab/python-v1)
 
 A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
 
@@ -364,7 +364,7 @@ public class QueueTriggerDemo {
 ::: zone pivot="programming-language-python"  
 ## Decorators
 
-For Python functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
+For Python v2 functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
 
 | Property    | Description |
 |-------------|-----------------------------|
