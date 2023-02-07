@@ -22,6 +22,7 @@ This guide shows you how to create and train a custom model, noting the few diff
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
+* tbd image set
 
 #### [Vision Studio](#tab/studio)
 
@@ -94,109 +95,6 @@ You should now be able to import a COCO file. Select the one you just created.
 >
 > [!INCLUDE [coco-files](../includes/coco-files.md)]
 
-> COCO files are JSON files with specific required fields: `"images"`, `"annotations"`, `"categories"`. A sample COCO file will looks like this:
->
-> ```json
-> {
->  "images": [
->    {
->      "id": 1,
->      "width": 500,
->      "height": 828,
->      "file_name": "0.jpg",
->      "absolute_url": "https://blobstorage1.blob.core.windows.net/cpgcontainer/0.jpg"
->    },
->     {
->       "id": 2,
->       "width": 754,
->       "height": 832,
->       "file_name": "1.jpg",
->       "absolute_url": "https://blobstorage1.blob.core.windows.net/cpgcontainer/1.jpg"
->     },
-> 
->    ...
-> 
->   ],
->   "annotations": [
->     {
->       "id": 1,
->       "category_id": 7,
->       "image_id": 1,
->       "area": 0.407,
->       "bbox": [
->         0.02663142641129032,
->         0.40691584277841153,
->         0.9524163571731749,
->         0.42766634515266866
->       ]
->     },
->     {
->       "id": 2,
->       "category_id": 9,
->       "image_id": 2,
->       "area": 0.27,
->       "bbox": [
->         0.11803319477782331,
->         0.41586723392402375,
->         0.7765206955096307,
->         0.3483334397217212
->       ]
->     },
->     ...
-> 
->   ],
->   "categories": [
->     {
->       "id": 1,
->       "name": "vegall original mixed vegetables"
->     },
->     {
->       "id": 2,
->       "name": "Amy's organic soups lentil vegetable"
->     },
->     {
->       "id": 3,
->       "name": "Arrowhead 8oz"
->     },
-> 
->     ...
-> 
->   ]
-> }
-> ```
-> 
-> ### Field reference
->
-> If you're generating your own COCO file from scratch, make sure all the required fields are filled with the correct details. The following tables describe each field in a COCO file:
->
-> **"images"**
->
-> | Key | Type | Description | Required? |
-> |-|-|-|-|
-> | id | integer | Uploaded image id | Yes |
-> | width | integer | Width of the image in pixels  | Yes |
-> | height | integer | Height of the image in pixels | Yes |
-> | file name | string | a unique name for the image  | Yes |
-> | absolute_url | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. </br></br> The value for `absolute_url` can be found in your container's blob properties: ![absolute url]( ../media/customization/cpg-blob-absolute-url.png)| Yes |
-> 
-> **"annotations"**
-> 
-> | Key | Type | Description | Required? |
-> |-|-|-|-|
-> | id | integer | ID of the annotation | Yes |
-> | category_id | integer | ID of the category defined in the `categories` section | Yes |
-> | image_id  | integer | ID of the image | Yes |
-> | area | integer | Value of 'Width' x 'Height' (third and fourth values of `bbox`) | No |
-> | bbox | float | Relative coordinates of the bounding box (0 to 1), in the order of 'Left', 'Top', 'Width', 'Height'  | Yes |
-> 
-> **"categories"**
-> 
-> | Key | Type | Description | Required? |
-> |-|-|-|-|
-> | id | integer | Unique id for each category (label class). These should be present in the `annotations` section. | Yes |
-> | name| string | Name of the category (label class) | Yes |
-
-
 ## Train the custom model
 
 To start training a classifier model with your COCO file, go to the **Custom models** tab and select **Add a new model**. Enter a name for the model and select `Image classification` or `Object detection` as the model type.
@@ -231,66 +129,88 @@ The prediction results will appear in the right column.
 
 #### [REST API](#tab/rest)
 
+## Prepare training data
+
+The first thing you need to do is create a COCO file from your training data. You can get a COCO file by converting an old Custom Vision project, using the migration script. Or, you can create a COCO file using some other tool. The following info specifies the structure of a COCO file:
+
+[!INCLUDE [coco-files](../includes/coco-files.md)]
+
+Upload your COCO file to a blob storage container, ideally the same blob container that holds the training images themselves. The Computer Vision resource must have permission to read the COCO file and all of its referenced image files. This can be done by turning on System managed identities for the Computer Vision resource, then assigning the identity to a role that has permission to read from the blob container containing the annotation and image files.
+
 ## Create your training dataset
 
-datasets/name PUT registers a new dataset. the dataset JSON specifies details.
+The `datasets` API lets you create a new dataset object that references training data. Make the following changes to the cURL command below:
+
+1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<dataset-name>` with a name for your dataset.
+1. Replace `<subscription-key>` with your Computer Vision key.
+1. In the request body, set `"annotationKind"` to either `"ImageClassification"` or `"ObjectDetection"`, depending on your project.
+1. In the request body, set the `"annotationFileUris"` array to a single string that is the URI location of your COCO file in blob storage.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii ""
-```
-```json
+curl -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-"annotationKind":"ImageClassification",
-"annotationFileUris":"<URI list>",
-}
+\"annotationKind\":\"ImageClassification\",
+\"annotationFileUris\":[\"<URI>\"]
+}"
 ```
 
-## Create and train model
+## Create and train a model
+
+The `models` API lets you create a new custom model and associate it with an existing dataset. It also starts the training process. Make the following changes to the cURL command below:
+
+1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<model-name>` with a name for your model.
+1. Replace `<subscription-key>` with your Computer Vision key.
+1. In the request body, set `"trainingDatasetName"` to the name of the dataset from the previous step.
+1. In the request body, set `"modelKind"` to either `"Generic-Classifier"` or `"Generic-Detector"`, depending on your project.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii ""
-```
-```json
+curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-"trainingParameters": {
-    "trainingDatasetName":"<dataset-name>",
-    "timeBudgetInMinutes":60,
-    "modelKind":"Generic-Classifier",
-    "modelProfile":"balanced"
+\"trainingParameters\": {
+    \"trainingDatasetName\":\"<dataset-name>\",
+    \"timeBudgetInMinutes\":60,
+    \"modelKind\":\"Generic-Classifier\",
+    \"modelProfile\":\"balanced\"
     }
-}
+}"
 ```
 
+## Evaluate the model's performance
 
-models/name PUT trains the custom model. the name param names the model. the model JSON specifies the dataset (and probably the model type)
+The `models/<model-name>/evaluations` API evaluates the performance of an existing model. Make the following changes to the cURL command below:
 
-## Evaluate model
+1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<model-name>` with the name of your model.
+1. Replace `<eval-name>` with a name that can be used to uniquely identify the evaluation.
+1. Replace `<subscription-key>` with your Computer Vision key.
+1. In the request body, set `"testDatasetName"` to the name of the dataset you want to use for evaluation. If you don't have a dedicated dataset, you can use the same dataset you used for training.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii ""
-```
-```json
+curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-"evaluationParameters":{
-    "testDatasetName":"<dataset-name>"
+\"evaluationParameters\":{
+    \"testDatasetName\":\"<dataset-name>\"
     }
-}
+}"
 ```
 
-models/name/evaluations/evalName PUT evaluates an existing model. uses ModelEvaluation JSON
+## Test the custom model
 
-## Use prediction APIs
+The `imageanalysis:analyze` API does ordinary Image Analysis operations. By specifying some parameters, you can use this API to query your own custom model instead of the prebuilt Image Analysis models. Make the following changes to the cURL command below:
+
+1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Set the `features` query parameter to either `Tags` or `Objects`, depending on your project.
+1. Replace `<model-name>` with the name of your model.
+1. Replace `<subscription-key>` with your Computer Vision key.
+1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl -v -X PUT "https://<endpoint>/computervision/imageanalysis:analyze?features=Tags&&model-version=<model-name>&api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+curl -v -X PUT "https://<endpoint>/computervision/imageanalysis:analyze?features=Tags&model-version=<model-name>&api-version=2022-10-12-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"
+}"
 ```
-```json
-{
-"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
-}
-```
-
-imageanalysis/analyze POST you can specify a custom model in the _model-name_ param. Uses ImageURL JSON
 
 ---
 

@@ -95,7 +95,11 @@ If you're generating your own COCO file from scratch, make sure all the required
 | width | integer | Width of the image in pixels  | Yes |
 | height | integer | Height of the image in pixels | Yes |
 | file name | string | a unique name for the image  | Yes |
-| absolute_url | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. </br></br> The value for `absolute_url` can be found in your container's blob properties: ![absolute url]( ../media/customization/cpg-blob-absolute-url.png)| Yes |
+| absolute_url | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
+
+The value for `absolute_url` can be found in your container's blob properties: 
+
+![absolute url]( ../media/customization/cpg-blob-absolute-url.png)
 
 **"annotations"**
 
