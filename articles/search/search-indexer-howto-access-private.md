@@ -59,12 +59,15 @@ When setting up a shared private link resource, make sure the group ID value is 
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |
 | Azure Functions (preview) <sup>3</sup>  | `sites` |
+| Azure SQL Managed Instance (preview) <sup>4</sup> | `managedInstance` |
 
 <sup>1</sup> If you enabled [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) and the connection to Azure Blob Storage is through a private endpoint, make sure there is a shared private link of type `blob`.
 
 <sup>2</sup> If you're projecting data to a [knowledge store](knowledge-store-concept-intro.md) and the connection to Azure Blob Storage and Azure Table Storage is through a private endpoint, make sure there are two shared private links of type `blob` and `table`, respectively.
 
 <sup>3</sup> Azure Functions (preview) refers to Functions under a Consumption, Premium and Dedicated [App Service plan](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) are not supported at this time.
+
+<sup>4</sup> Creating a shared private link to Azure SQL Managed Instance (preview) requires using the Azure CLI.
 
 > [!TIP]
 > You can query for the list of supported resources and group IDs by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
@@ -113,6 +116,20 @@ The definition of a shared private link is provided in a JSON file. The followin
         "groupId": "blob",
         "requestMessage": "please approve"
       }
+}
+```
+
+When creating a shared private link to SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the [Fully Qualified Domain Name (FQDN)](/azure-sql/managed-instance/instance-create-quickstart#retrieve-connection-details-to-sql-managed-instance) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the `resourceRegion` should be `a1b22c333d44`.
+
+```json
+{
+    "name": "sql-mi-pe",
+    "properties": {
+        "privateLinkResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Sql/managedInstances/contoso-sql-mi",
+        "resourceRegion": "f1a3eb11c964",
+        "groupId": "managedInstance",
+        "requestMessage": "please approve",
+    }
 }
 ```
 

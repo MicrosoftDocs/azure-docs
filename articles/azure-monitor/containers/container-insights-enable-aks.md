@@ -109,7 +109,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor:
       | Log Analytics workspace | Select a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) from the dropdown list or select **Create new** to create a default Log Analytics workspace. The Log Analytics workspace must be in the same subscription as the AKS container. |
       | Enable Prometheus metrics | Select this option to collect Prometheus metrics for the cluster in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). |
       | Azure Monitor workspace | If you select **Enable Prometheus metrics**, you must select an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). The Azure Monitor workspace must be in the same subscription as the AKS container and the Log Analytics workspace. |
-      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
+      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/prometheus-metrics-enable.md#enable-prometheus-metric-collection) to the Azure Monitor workspace if it isn't already. |
     
 1. Select **Use managed identity** if you want to use [managed identity authentication with Azure Monitor Agent](container-insights-onboard.md#authentication).
 

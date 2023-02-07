@@ -2,9 +2,7 @@
 title: 'Connect to a VNet using P2S VPN & multiple authentication types: portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect to a VNet via P2S using multiple authentication types.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/29/2022
