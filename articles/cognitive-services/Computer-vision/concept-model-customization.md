@@ -15,8 +15,31 @@ ms.author: pafarley
 
 # Model customization
 
+Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
+
 ## Scenario components
 
+The main components of a model customization system are the training images, association file, dataset object, and model object.
+
+### Training images
+
+Your set of training images should include several examples of each of the labels you want to detect. The images need to be stored in an Azure Storage container in order to be accessible to the model.
+
+### Association file
+
+The association file references all of the training images and provides their labeling information. In the case of object detection, it specified the bounding box coordinates of each tag on each image. This file must be in the COCO format, which is a specific type of JSON file. The association file should be stored in the same Azure Storage container as the training images.
+
+> [!TIP]
+> [!INCLUDE [coco-files](includes/coco-files.md)]
+
+
+### Dataset object
+
+The **Dataset** object is a data structure stored by the Image Analysis service that references the association file. You need to create a **Dataset** object before you can create and train a model.
+
+### Model object
+
+The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-version` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
 
 ## Frequently asked questions
 
