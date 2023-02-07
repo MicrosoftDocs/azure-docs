@@ -4,7 +4,7 @@ description: Describes the lambda functions to use in an Azure Resource Manager 
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 02/07/2023
+ms.date: 02/06/2023
 ---
 
 # Lambda functions for ARM templates
@@ -48,7 +48,7 @@ An array.
 
 ### Examples
 
-The following examples show how to use the `filter` function.
+The following examples show how to use the filter function.
 
 ```json
 {
@@ -160,7 +160,7 @@ An array.
 
 ### Example
 
-The following example shows how to use the `map` function.
+The following example shows how to use the map function.
 
 ```json
 {
@@ -249,7 +249,7 @@ Any.
 
 ### Example
 
-The following examples show how to use the `reduce` function.
+The following examples show how to use the reduce function.
 
 ```json
 {
@@ -355,7 +355,7 @@ An array.
 
 ### Example
 
-The following example shows how to use the `sort` function.
+The following example shows how to use the sort function.
 
 ```json
 {
@@ -409,156 +409,6 @@ The output from the preceding example sorts the dog objects from the youngest to
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | dogsByAge | Array | [{"name":"Indy","age":2,"interests":["Butter"]},{"name":"Casper","age":3,"interests":["Other dogs"]},{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
-
-## toObject
-
-`toObject(inputArray, lambda expression, [lambda expression])`
-
-Converts an array to an object with a custom key function and optional custom value function.
-
-In Bicep, use the [toObject](../bicep/bicep-functions-lambda.md#toobject) function.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| inputArray |Yes |array |The array used for creating an object.|
-| lambda expression |Yes |expression |The lambda expression used to provide the key predicate.|
-| lambda expression |No |expression |The lambda expression used to provide the value predicate.|
-
-### Return value
-
-An object.
-
-### Example
-
-The following example shows how to use the `toObject` function with the two required parameters:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-    "dogs": [
-      {
-        "name": "Evie",
-        "age": 5,
-        "interests": [
-          "Ball",
-          "Frisbee"
-        ]
-      },
-      {
-        "name": "Casper",
-        "age": 3,
-        "interests": [
-          "Other dogs"
-        ]
-      },
-      {
-        "name": "Indy",
-        "age": 2,
-        "interests": [
-          "Butter"
-        ]
-      },
-      {
-        "name": "Kira",
-        "age": 8,
-        "interests": [
-          "Rubs"
-        ]
-      }
-    ]
-  },
-  "resources": {},
-  "outputs": {
-    "dogsObject": {
-      "type": "object",
-      "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name))]"
-    }
-  }
-}
-```
-
-The preceding example generates an object based on an array.
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| dogsObject | Object | {"Evie":{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},"Casper":{"name":"Casper","age":3,"interests":["Other dogs"]},"Indy":{"name":"Indy","age":2,"interests":["Butter"]},"Kira":{"name":"Kira","age":8,"interests":["Rubs"]}} |
-
-The following `toObject` function provides the same output.
-
-```json
-  "outputs": {
-    "dogsObject": {
-      "type": "object",
-      "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name), lambda('entry', lambdaVariables('entry')))]"
-    }
-  }```
-
-The following example shows how to use the `toObject` function with three parameters.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-    "dogs": [
-      {
-        "name": "Evie",
-        "properties": {
-          "age": 5,
-          "interests": [
-            "Ball",
-            "Frisbee"
-          ]
-        }
-      },
-      {
-        "name": "Casper",
-        "properties": {
-          "age": 3,
-          "interests": [
-            "Other dogs"
-          ]
-        }
-      },
-      {
-        "name": "Indy",
-        "properties": {
-          "age": 2,
-          "interests": [
-            "Butter"
-          ]
-        }
-      },
-      {
-        "name": "Kira",
-        "properties": {
-          "age": 8,
-          "interests": [
-            "Rubs"
-          ]
-        }
-      }
-    ]
-  },
-  "resources": {},
-  "outputs": {
-    "dogsObject": {
-      "type": "object",
-      "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name), lambda('entry', lambdaVariables('entry').properties))]"
-    }
-  }
-}
-```
-
-The preceding example generates an object based on an array.
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| dogsObject | Object | {"Evie":{"age":5,"interests":["Ball","Frisbee"]},"Casper":{"age":3,"interests":["Other dogs"]},"Indy":{"age":2,"interests":["Butter"]},"Kira":{"age":8,"interests":["Rubs"]}} |
 
 ## Next steps
 
