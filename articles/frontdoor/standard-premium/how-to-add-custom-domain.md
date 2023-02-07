@@ -71,7 +71,7 @@ A custom domain is configured on the **Domains** page of the Azure Front Door pr
 
     :::image type="content" source="../media/how-to-add-custom-domain/provisioned-approved-status.png" alt-text="Screenshot of provisioned and approved status.":::
 
-For more infromation about domain validation states, see [Domains in Azure Front Door](../domain.md#domain-validation).
+For more information about domain validation states, see [Domains in Azure Front Door](../domain.md#domain-validation).
 
 ## Associate the custom domain with your Azure Front Door endpoint
 

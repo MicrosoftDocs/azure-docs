@@ -63,7 +63,7 @@ You can use the Azure portal to onboard an apex domain on your Azure Front Door 
 
     - If you're using another DNS provider, manually create a new TXT record of name `_dnsauth.<your_subdomain>` with the record value as shown on the page.
 
-1. Close the *Validate the custom domain* page and return to the *Domains* page for the Front Door profile. You should see the *Validation state* change from **Pending** to **Approved**. If not, wait up to 10 minutes for changes to reflect. If your validation doesn't get approved make sure your TXT record is correct and name servers are configured correctly if you're using Azure DNS.
+1. Close the *Validate the custom domain* page and return to the *Domains* page for the Front Door profile. You should see the *Validation state* change from **Pending** to **Approved**. If not, wait up to 10 minutes for changes to reflect. If your validation doesn't get approved, make sure your TXT record is correct and name servers are configured correctly if you're using Azure DNS.
 
     :::image type="content" source="./media/front-door-apex-domain/validation-approved.png" alt-text="Screenshot of new custom domain passing validation.":::
 

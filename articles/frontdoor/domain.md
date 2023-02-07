@@ -24,9 +24,9 @@ To learn how to add a custom domain to your Azure Front Door profile, see [Confi
 
 ## DNS configuration
 
-When you add a domain to your Azure Front Door profile, you typically need to configure two records in your DNS server:
+When you add a domain to your Azure Front Door profile, you configure two records in your DNS server:
 
-* A DNS TXT record, which is usually required to validate ownership of your domain name. For more information on the DNS TXT records, see [Domain validation](#domain-validation).
+* A DNS TXT record, which is required to validate ownership of your domain name. For more information on the DNS TXT records, see [Domain validation](#domain-validation).
 * A DNS CNAME record, which controls the flow of internet traffic to Azure Front Door.
 
 > [!TIP]
@@ -47,7 +47,7 @@ All domains added to Azure Front Door must be validated. Validation helps to pro
 
 ### TXT record validation
 
-To validate a domain, you need to create a DNS TXT record. The name of the TXT record be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
+To validate a domain, you need to create a DNS TXT record. The name of the TXT record must be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
 
 For example, suppose you want to use the custom subdomain `myapplication.contoso.com` with Azure Front Door. First, you should add the domain to your Azure Front Door profile, and note the TXT record value that you need to use. Then, you should configure a DNS record with the following properties:
 
@@ -67,7 +67,7 @@ The following table lists the validation states that a domain might show.
 
 | Domain validation state | Description and actions |
 |--|--|
-| Submitting | The custom domain is being created. <br /><br /> Please wait until the domain resource is ready. |
+| Submitting | The custom domain is being created. <br /><br /> Wait until the domain resource is ready. |
 | Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /><br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
 | Pending re-validation | The managed certificate is less than 45 days from expiring. <br /><br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
 | Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. <br /> No action is required. |
@@ -161,7 +161,8 @@ For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front 
 You can change a domain between using an Azure Front Door-managed certificate and a user-managed certificate.
 
 * It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
-* If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime. When switching to a managed certificate, unless the domain ownership is re-validated and the domain state becomes *Approved*, you will continue to be served by the previous certificate.
+* If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime.
+* When switching to a managed certificate, Azure Front Door continues to use the previous certificate until the domain ownership is re-validated and the domain state becomes *Approved*.
 * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
 
 ### Certificate renewal
@@ -182,7 +183,7 @@ If one of the scenarios above applies to your custom domain, then 45 days before
 > [!NOTE]
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
 
-If your domain can't be validated, the domain validastion state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.
+If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
@@ -192,7 +193,11 @@ Azure-managed certificates are automatically rotated by the Azure service that v
 
 #### <a name="rotate-own-certificate"></a>Renew customer-managed TLS certificates
 
-In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
+When you update the certificate in your key vault, Azure Front Door can automatically detect and use the updated certificate. For this functionality to work, set the secret version to 'Latest' when you configure your certificate in Azure Front Door.
+
+If you select a specific version of your certificate, you have to reselect the new version manually when you update your certificate.
+
+It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
 
 If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
 

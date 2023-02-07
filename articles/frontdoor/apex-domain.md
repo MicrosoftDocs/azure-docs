@@ -22,7 +22,7 @@ To add a root or apex domain to your Azure Front Door profile, see [Onboard a ro
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
 
-Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
+Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. So, you can't map an apex domain to an Azure Front Door IP address.
 
 > [!WARNING]
 > Don't create an A record with the public IP address of your Azure Front Door endpoint. Your Azure Front Door endpoint's public IP address might change and we don't provide any guarantees that it will remain the same.
@@ -36,7 +36,7 @@ Mapping your apex or root domain to your Azure Front Door profile uses *CNAME fl
 
 ## TXT record validation
 
-To validate a domain, you need to create a DNS TXT record. The name of the TXT record be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
+To validate a domain, you need to create a DNS TXT record. The name of the TXT record must be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
 
 For example, suppose you want to use the apex domain `contoso.com` with Azure Front Door. First, you should add the domain to your Azure Front Door profile, and note the TXT record value that you need to use. Then, you should configure a DNS record with the following properties:
 
