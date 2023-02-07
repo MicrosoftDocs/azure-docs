@@ -7,12 +7,14 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 09/09/2022
+  ms.date: 02/07/2023
   ms.author: lajanuar
+  monikerRange: '>=form-recog-2.1.0'
+  recommendations: false
 
 title: Form Recognizer frequently asked questions
 summary: |
-
+   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 sections:
   - name: General concepts
     questions:
@@ -220,13 +222,13 @@ sections:
             - If no page range is provided, the entire document will be processed.
 
       - question: |
-            Both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
+            Both Form Recognizer Studio and the FOTT Sample Labeling tool are available. Which one should I use?
         answer:  |
            Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring Form Recognizer resource and storage services.
 
            Consider using FOTT (Form OCR Testing Tool) for the following scenarios:
 
-              - Your data must remain within a single machine. Use the [FOTT sample labeling tool]() and [Form Recognizer container]().
+              - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool]() and [Form Recognizer container]().
 
               - Your project is highly dependent on [Form Recognizer v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) and you intend to continue using the v2.1 APIs.
 
@@ -327,7 +329,7 @@ sections:
       - question: |
           How many custom models can I compose into a single custom model?
         answer: |
-           With the [Model Compose](compose-custom-models-v2-1.md#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
+           With the [Model Compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
            - When you make the Analyze request with a composed modelID, Form Recognizer classifies the submitted form, chooses the best model, and returns the results.
 
@@ -384,7 +386,7 @@ sections:
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
         answer: |
-            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government clod isn't supported.
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
 
   - name: Storage account
     questions:

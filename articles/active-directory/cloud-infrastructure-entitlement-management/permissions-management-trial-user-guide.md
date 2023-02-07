@@ -4,7 +4,8 @@ description: How to get started with your Entra Permissions free trial
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/01/2022
@@ -194,7 +195,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-user-guide/custom-alerts-3.png)
 
--   Use of break glass accounts like root in AWS, global admin in Azure AD accessing subscriptions, etc.
+-   Use of break glass accounts like root in AWS, Global Administrator in Azure AD accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 

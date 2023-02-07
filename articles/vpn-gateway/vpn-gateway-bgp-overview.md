@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 05/18/2022
 ms.author: cherylmc
 ---
-# About BGP with Azure VPN Gateway
+# About BGP and Azure VPN Gateway
 
 This article provides an overview of BGP (Border Gateway Protocol) support in Azure VPN Gateway.
 
-BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. When used in the context of Azure Virtual Networks, BGP enables the Azure VPN Gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
+BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. When used in the context of Azure Virtual Networks, BGP enables the Azure VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
 
 ## <a name="why"></a>Why use BGP?
 
@@ -48,4 +48,4 @@ The following diagram shows an example of a multi-hop topology with multiple pat
 
 ## Next steps
 
-See [Getting started with BGP on Azure VPN gateways](vpn-gateway-bgp-resource-manager-ps.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.
+See [How to configure BGP for Azure VPN Gateway](bgp-howto.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.

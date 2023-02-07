@@ -5,10 +5,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-ms.author: larryfr
-author: blackmist
-ms.date: 04/02/2021
+author: saachigopal
+ms.author: sagopal
+ms.reviewer: larryfr
+ms.date: 11/11/2022
 ms.custom: seodec18, devx-track-azurecli, cliv1
 ---
 

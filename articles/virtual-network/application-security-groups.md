@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn about the use of application security groups. 
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2020
-ms.author: mbender
+ms.author: allensu
 ms.reviewer: kumud
 ---
 

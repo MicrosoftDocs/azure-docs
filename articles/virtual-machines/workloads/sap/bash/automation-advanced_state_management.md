@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 title: advanced_state_management
 description: Updates the Terraform state file using a shell script
 ---
@@ -149,4 +149,4 @@ Licensed under the MIT license.
 
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)
+[GitHub repository: SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-automation)

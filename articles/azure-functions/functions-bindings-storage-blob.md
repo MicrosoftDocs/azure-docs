@@ -3,7 +3,7 @@ title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
 
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -29,7 +29,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -76,7 +76,7 @@ Add the extension to your project by installing the [Microsoft.Azure.Functions.W
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs--version 5.0.0
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs --version 5.0.0
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
@@ -87,7 +87,7 @@ Add the extension to your project by installing the [Microsoft.Azure.Functions.W
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 
@@ -98,8 +98,6 @@ This extension version is available from the extension bundle v3 by adding the f
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
@@ -128,8 +126,6 @@ You can add this version of the extension from the extension bundle v3 by adding
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Bundle v2.x](#tab/extensionv2)
 

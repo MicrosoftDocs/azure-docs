@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 ---
 
 # Failover for business continuity and disaster recovery
@@ -202,4 +202,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 
 ## Next steps
 
-To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](/azure/machine-learning/tutorial-create-secure-workspace-template).
+To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](./tutorial-create-secure-workspace-template.md).

@@ -4,7 +4,8 @@ description: How to create and view permission analytics triggers in the Permiss
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -60,8 +61,6 @@ This article describes how you can create and view permission analytics triggers
 
     - The **Status** column displays if the authorization system is online or offline
     - The **Controller** column displays if the controller is enabled or disabled.
-
-1. On the **Configuration** tab, to update the **Time Interval**, select **90 Days**, **60 Days**, or **30 Days** from the **Time range** dropdown.
 1. Select **Save**.
 
 ## View permission analytics alert triggers

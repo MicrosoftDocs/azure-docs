@@ -11,6 +11,8 @@ ms.custom: devx-track-js
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
@@ -355,7 +357,7 @@ To find your Azure AD tenant ID, either run the PowerShell command named [**Get-
 
 ## Create app registration for your function app
 
-After you find the object ID for your logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-enable-azure-active-directory-in-your-app-service-app).
+After you find the object ID for your logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
@@ -387,7 +389,7 @@ After you find the object ID for your logic app's managed identity and tenant ID
 
    When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now use this app registration for authentication.
 
-   For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-enable-azure-active-directory-in-your-app-service-app).
+   For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. Copy the app ID (client ID) for your function to use in the **Audience** property later in your workflow.
 

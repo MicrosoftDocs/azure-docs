@@ -85,7 +85,7 @@ The following code reads individual lines of text from the stream until a cancel
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
 var cancellationToken = new CancellationToken();
-// Create a StreamReader from the 'hybridConnectionStream`
+// Create a StreamReader from the hybridConnectionStream
 var streamReader = new StreamReader(hybridConnectionStream);
 
 while (!cancellationToken.IsCancellationRequested)

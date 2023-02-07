@@ -1,6 +1,7 @@
 ---
 title: Use blob index tags to manage and find data on Azure Blob Storage
 description: See examples of how to use blob index tags to categorize, manage, and query for blob objects.
+titleSuffix: Azure Storage
 author: normesta
 
 ms.author: normesta

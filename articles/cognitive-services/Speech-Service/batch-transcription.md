@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 09/11/2022
+ms.date: 10/21/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

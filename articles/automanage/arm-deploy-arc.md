@@ -34,7 +34,7 @@ The following ARM template will onboard your specified Azure Arc-enabled server 
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/configurationProfileAssignments",
-            "apiVersion": "2021-04-30-preview",
+            "apiVersion": "2022-05-04",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
                 "configurationProfile": "[parameters('configurationProfile')]"

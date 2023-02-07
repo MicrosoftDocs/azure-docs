@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: lagayhar
-author: lgayhardt
+author: likebupt
+ms.author: keli19
+ms.reviewer: lagayhar
 ms.date: 01/09/2020
 ms.custom: designer
 ---

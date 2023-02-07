@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/25/2022
+ms.date: 01/24/2023
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -10,7 +10,7 @@ ms.author: timwarner
 
 If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
-above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you
@@ -106,35 +106,6 @@ directory. The single hierarchy within the directory allows administrative custo
 access and policies that other customers within the directory can't bypass. Anything assigned on the
 root will apply to the entire hierarchy, which includes all management groups, subscriptions,
 resource groups, and resources within that Azure AD tenant.
-
-## Trouble seeing all subscriptions
-
-A few directories that started using management groups early in the preview before June 25, 2018
-could see an issue where not all the subscriptions were within the hierarchy. The process to have
-all subscriptions in the hierarchy was put in place after a role or policy assignment was done on
-the root management group in the directory.
-
-### How to resolve the issue
-
-There are two options you can do to resolve this issue.
-
-- Remove all role and policy assignments from the root management group
-  - By removing any policy and role assignments from the root management group, the service
-    backfills all subscriptions into the hierarchy the next overnight cycle. This process is so
-    there's no accidental access given or policy assignment to all of the tenants subscriptions.
-  - The best way to do this process without impacting your services is to apply the role or policy
-    assignments one level below the root management group. Then you can remove all assignments from
-    the root scope.
-- Call the API directly to start the backfill process
-  - Any customer in the directory can call the _TenantBackfillStatusRequest_ or
-    _StartTenantBackfillRequest_ APIs. When the StartTenantBackfillRequest API is called, it kicks
-    off the initial setup process of moving all the subscriptions into the hierarchy. This process
-    also starts the enforcement of all new subscription to be a child of the root management group.
-    This process can be done without changing any assignments on the root level. By calling the API,
-    you're saying it's okay that any policy or access assignment on the root can be applied to all
-    subscriptions.
-
-If you have questions on this backfill process, contact: `managementgroups@microsoft.com`
 
 ## Management group access
 
@@ -257,11 +228,9 @@ There are limitations that exist when using custom roles on management groups.
   restriction is in place as there's a latency issue with updating the data plane resource
   providers. This latency issue is being worked on and these actions will be disabled from the role
   definition to reduce any risks.
-- The Azure Resource Manager doesn't validate the management group's existence in the role
+- Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
-  subscription scope instead.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is

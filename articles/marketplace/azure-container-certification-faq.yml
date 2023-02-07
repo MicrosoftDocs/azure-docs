@@ -25,10 +25,18 @@ sections:
           Vulnerability failure
         answer: |
           A vulnerability is an exploitable risk and/or an unsecured entry points that can be used by malicious actors for nefarious actions.       
-          If you're planning to publish container products, we strongly recommend you to scan your product for vulnerability and fix them before publishing the container product. 
-          If your existing container products have vulnerabilities in them, you should deprecate/hide the affected offer and republish after fixing the vulnerabilities.   
+                    
+          Marketplace Container Certification uses MS Defender for cloud, which scans images in ACR for vulnerabilities based on CVSS v3 score (Common Vulnerability Scoring System). All container products with vulnerabilities with CVSS v3 score greater than or equal to 7 are blocked. There may be rare instances where specific CVE IDs with even lower scores are blocked by certification. 
+          Certification tries to provide remediation steps for each vulnerability so publishers can fix them.  
           
-          You may use **Microsoft Defender** to scan your product by copying images to your ACR or use other scanners such as **Aqua Security, Qualys Container Security, Clair, TwistLock**. 
+          You can also use MS Defender or open source/paid software such as Aqua Security, Qualys Container Security, Clair, Twist Lock for scanning your images before publishing. You must remove at least high and critical vulnerabilities to ensure high rate of passing. 
+          These tools are just examples of the tools available for scanning online. ISVs are free to choose any other tool, which is the right fit for them (even if it is not part of the list here) as long as it identifies vulnerabilities. 
+          
+          >[!NOTE]
+          >The Common Vulnerability Scoring System (CVSS) provides a way to capture the principal characteristics of a vulnerability, and produce a numerical score reflecting its severity, and a textual representation of that score. The numerical score can then be translated into a qualitative representation (such as low, medium, high, and critical) to help organizations properly assess and prioritize their vulnerability management processes.
+          
+          >[!NOTE]
+          >There are rare scenarios where products might have excessive number of vulnerabilities and we are not able to share results for all of them in certification report. We recommend you to scan such products before publishing. You can also reach out to us at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) to get details in email.
           
       - question: |
           Malware failure

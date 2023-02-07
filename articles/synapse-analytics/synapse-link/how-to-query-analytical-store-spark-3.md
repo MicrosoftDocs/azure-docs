@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 02/15/2022
 ms.author: rosouz
-ms.custom: cosmos-db, mode-other
+ms.custom: cosmos-db, mode-other, ignite-2022
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark 3 in Azure Synapse Link
@@ -40,7 +40,7 @@ On the other hand, in the case of **creating a Spark table**, the metadata of th
 Thus, you can choose between loading to Spark DataFrame and creating a Spark table based on whether you want your Spark analysis to be evaluated against a fixed snapshot of the analytical store or against the latest snapshot of the analytical store respectively.
 
 > [!NOTE]
-> To query the Azure Cosmos DB API of Mongo DB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
+> To query Azure Cosmos DB for MongoDB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
 
 > [!NOTE]
 > Please note that all `options` in the commands below are case sensitive.
@@ -122,7 +122,7 @@ df.write.format("cosmos.oltp").
 ## Load streaming DataFrame from container
 In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace. 
 > [!NOTE]
-> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Cosmos DB API for Mongo DB, you can leverage the Mongo DB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
+> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can leverage the MongoDB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
 
 ## Load streaming DataFrame from Azure Cosmos DB container
 In this example, you'll use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.

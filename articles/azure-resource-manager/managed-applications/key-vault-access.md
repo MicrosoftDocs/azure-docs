@@ -3,7 +3,7 @@ title: Use Azure Key Vault when deploying Managed Applications
 description: Shows how to access secrets in Azure Key Vault when deploying Managed Applications.
 ms.custom: subject-rbac-steps
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 10/04/2022
 ---
 
 # Access Key Vault secret when deploying Azure Managed Applications
@@ -19,19 +19,19 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
    :::image type="content" source="./media/key-vault-access/open-key-vault.png" alt-text="Screenshot of the Azure home page to open a key vault using search or by selecting key vault.":::
 
-1. Select **Access policies**.   
+1. Select **Access policies**.
 
    :::image type="content" source="./media/key-vault-access/select-access-policies.png" alt-text="Screenshot of the key vault setting to select access policies.":::
 
 1. Select **Azure Resource Manager for template deployment**. Then, select **Save**.
 
-   :::image type="content" source="./media/key-vault-access/enable-template.png" alt-text="Screenshot of the key vault's access policies to enable Azure Resource Manager for template deployment.":::
+   :::image type="content" source="./media/key-vault-access/enable-template.png" alt-text="Screenshot of the key vault's access policies that enable Azure Resource Manager for template deployment.":::
 
 ## Add service as contributor
 
-Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope.
+Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+The **Appliance Resource Provider** is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ## Reference Key Vault secret
 
@@ -105,7 +105,7 @@ To pass a secret from a Key Vault to a template in your Managed Application, you
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2021-08-01-preview",
+              "apiVersion": "2022-02-01-preview",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -150,5 +150,6 @@ To pass a secret from a Key Vault to a template in your Managed Application, you
 You've configured your Key Vault to be accessible during deployment of a Managed Application.
 
 - For information about passing a value from a Key Vault as a template parameter, see [Use Azure Key Vault to pass secure parameter value during deployment](../templates/key-vault-parameter.md).
+- To learn more about key vault security, see [Azure Key Vault security](../../key-vault/general/security-features.md) and [Authentication in Azure Key Vault](../../key-vault/general/authentication.md).
 - For managed application examples, see [Sample projects for Azure managed applications](sample-projects.md).
 - To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).

@@ -5,7 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/21/2022
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
@@ -111,7 +112,7 @@ Follow these steps to enable replication:
 
 4.	Search the source machine name to protect it. To review the selected machines, select **Selected resources**.
 
-5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the [replication appliance](#appliance-selection) and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
@@ -164,6 +165,10 @@ Follow these steps to enable replication:
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
+## Appliance selection
+
+- You can select any of the Azure Site Recovery replication appliances registered under a vault to protect a machine.
+- Same replication appliance can be used both for forward and backward protection operations, if it is in a non-critical state. It should not impact the performance of the replications.
 
 ## Next steps
 After enabling replication, run a drill to make sure everything's working as expected.

@@ -10,7 +10,7 @@ ms.topic: reference
 author: cloga
 ms.author: lochen
 ms.date: 08/15/2022
-ms.reviewer: laobri
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) schedule YAML schema
@@ -18,8 +18,6 @@ ms.reviewer: laobri
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 

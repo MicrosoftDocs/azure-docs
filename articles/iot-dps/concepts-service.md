@@ -40,7 +40,7 @@ The service-level setting that determines how Device Provisioning Service assign
 
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
 
-* **Custom (Use Azure Function)**: A [custom allocation policy](concepts-custom-allocation.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
+* **Custom (Use Azure Function)**: A [custom allocation policy](how-to-use-custom-allocation-policies.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
 ## Enrollment
 
@@ -70,6 +70,8 @@ An individual enrollment is an entry for a single device that may register. Indi
 For X.509 individual enrollments, the subject common name (CN) of the certificate becomes the registration ID, so the common name must adhere to the registration ID string format. The subject common name has a maximum length of 64 characters, so the registration ID is limited to 64 characters for X.509 enrollments.
 
 Individual enrollments may have the desired IoT hub device ID specified in the enrollment entry. If it's not specified, the registration ID becomes the device ID that's registered to IoT Hub.
+
+You can temporarily or permanently allow or block a specific device from being provisioning through the Device Provisioning Service by controlling [provisioning status of an enrollment](how-to-revoke-device-access-portal.md)
 
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
@@ -102,9 +104,9 @@ The ID scope is assigned to a Device Provisioning Service when it is created by 
 > [!NOTE]
 > Uniqueness is important for long-running deployment operations and merger and acquisition scenarios.
 
-## Registration
+## Registration Record
 
-A registration is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
+A registration record is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
 
 ## Registration ID
 

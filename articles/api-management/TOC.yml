@@ -120,7 +120,7 @@
               href: front-door-api-management.md
             - name: Enable zone redundancy
               displayName: Availability zones
-              href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+              href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
@@ -232,6 +232,9 @@
                   href: backends.md
                 - name: Automate API deployments
                   href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+                - name: Test and monitor APIs in Postman
+                  href: export-api-postman.md
+                  displayName: collection
           - name: Cache
             items:
                 - name: Add caching to improve performance
@@ -276,6 +279,8 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Defend against DDoS attacks
+              href: protect-with-ddos-protection.md
             - name: Mitigate OWASP API threats
               href: mitigate-owasp-api-threats.md
               displayName: OWASP top 10, vulnerability, vulnerabilities
@@ -331,10 +336,6 @@
                     href: developer-portal-deprecated-migration.md
                   - name: Extend portal with custom functionality
                     href: developer-portal-extend-custom-functionality.md
-                  - name: Contribute widgets
-                    href: developer-portal-widget-contribution-guidelines.md
-                  - name: Use community widgets
-                    href: developer-portal-use-community-widgets.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
                   - name: Integrate Application Insights
@@ -359,6 +360,8 @@
           href: api-management-howto-log-event-hubs.md
         - name: Log requests with Azure Application Insights
           href: api-management-howto-app-insights.md
+        - name: Visualize data using Managed Grafana
+          href: visualize-using-managed-grafana-dashboard.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
@@ -378,7 +381,7 @@
       - name: REST API SDKs
         items:
           - name: .NET
-            href: /dotnet/api/overview/azure/apimanagement
+            href: /dotnet/api/overview/azure/api-management
           - name: JavaScript
             href: /javascript/api/overview/azure/api-management
           - name: Java
@@ -397,24 +400,118 @@
         items:
             - name: Policy reference index
               href: api-management-policies.md
-            - name: Access restriction policies
-              href: api-management-access-restriction-policies.md
-            - name: Advanced policies
-              href: api-management-advanced-policies.md
-            - name: Authentication policies
-              href: api-management-authentication-policies.md
-            - name: Caching policies
-              href: api-management-caching-policies.md
-            - name: Cross-domain policies
-              href: api-management-cross-domain-policies.md
-            - name: Distributed Application Runtime (Dapr) integration policies
-              href: api-management-dapr-policies.md
-            - name: GraphQL API policies
-              href: graphql-policies.md
-            - name: Transformation policies
-              href: api-management-transformation-policies.md
-            - name: Validation policies
-              href: validation-policies.md
+            - name: authentication-basic
+              href: authentication-basic-policy.md
+            - name: authentication-certificate
+              href: authentication-certificate-policy.md
+            - name: authentication-managed-identity
+              href: authentication-managed-identity-policy.md
+            - name: cache-lookup
+              href: cache-lookup-policy.md
+            - name: cache-lookup-value
+              href: cache-lookup-value-policy.md
+            - name: cache-store
+              href: cache-store-policy.md
+            - name: cache-store-value
+              href: cache-store-value-policy.md
+            - name: cache-remove-value
+              href: cache-remove-value-policy.md
+            - name: check-header
+              href: check-header-policy.md
+            - name: choose
+              href: choose-policy.md
+            - name: cors
+              href: cors-policy.md
+            - name: cross-domain
+              href: cross-domain-policy.md
+            - name: emit-metric
+              href: emit-metric-policy.md
+            - name: find-and-replace
+              href: find-and-replace-policy.md
+            - name: forward-request
+              href: forward-request-policy.md
+            - name: get-authorization-context
+              href: get-authorization-context-policy.md
+            - name: include-fragment
+              href: include-fragment-policy.md
+            - name: invoke-dapr-binding
+              href: invoke-dapr-binding-policy.md
+            - name: ip-filter
+              href: ip-filter-policy.md
+            - name: json-to-xml
+              href: json-to-xml-policy.md
+            - name: limit-concurrency
+              href: limit-concurrency-policy.md
+            - name: log-to-eventhub
+              href: log-to-eventhub-policy.md
+            - name: mock-response
+              href: mock-response-policy.md
+            - name: proxy
+              href: proxy-policy.md
+            - name: publish-to-dapr
+              href: publish-to-dapr-policy.md
+            - name: quota
+              href: quota-policy.md
+            - name: quota-by-key
+              href: quota-by-key-policy.md
+            - name: rate-limit
+              href: rate-limit-policy.md
+            - name: rate-limit-by-key
+              href: rate-limit-by-key-policy.md
+            - name: redirect-content-urls
+              href: redirect-content-urls-policy.md
+            - name: retry
+              href: retry-policy.md
+            - name: return-response
+              href: return-response-policy.md
+            - name: rewrite-uri
+              href: rewrite-uri-policy.md
+            - name: send-one-way-request
+              href: send-one-way-request-policy.md
+            - name: send-request
+              href: send-request-policy.md
+            - name: set-backend-service
+              href: set-backend-service-policy.md
+            - name: set-backend-service (Dapr)
+              href: set-backend-service-dapr-policy.md
+            - name: set-body
+              href: set-body-policy.md
+            - name: set-graphql-resolver
+              href: set-graphql-resolver-policy.md
+            - name: set-header
+              href: set-header-policy.md
+            - name: set-method
+              href: set-method-policy.md
+            - name: set-query-parameter
+              href: set-query-parameter-policy.md
+            - name: set-status
+              href: set-status-policy.md
+            - name: set-variable
+              href: set-variable-policy.md
+            - name: trace
+              href: trace-policy.md
+            - name: validate-azure-ad-token
+              href: validate-azure-ad-token-policy.md
+            - name: validate-client-certificate
+              href: validate-client-certificate-policy.md
+            - name: validate-content
+              href: validate-content-policy.md
+            - name: validate-graphql-request
+              href: validate-graphql-request-policy.md
+            - name: validate-headers
+              href: validate-headers-policy.md
+            - name: validate-jwt
+              href: validate-jwt-policy.md
+            - name: validate-parameters
+              href: validate-parameters-policy.md
+            - name: validate-status-code
+              href: validate-status-code-policy.md
+            - name: wait
+              href: wait-policy.md
+            - name: xml-to-json
+              href: xml-to-json-policy.md
+            - name: xsl-transform
+              href: xsl-transform-policy.md
       - name: Authorizations - identity providers
         href: authorizations-reference.md
       - name: Azure Policy built-ins
@@ -428,6 +525,8 @@
         href: virtual-network-reference.md
       - name: Self-hosted gateway configuration
         href: self-hosted-gateway-settings-reference.md  
+      - name: Diagnostic logs settings
+        href: diagnostic-logs-reference.md
 - name: Resources
   items:
       - name: FAQ

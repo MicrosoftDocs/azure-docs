@@ -12,6 +12,8 @@ tags: connectors
 
 # Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 > [!IMPORTANT]
 >
 > On August 30, 2022, the connector operations for Common Data Service 2.0, also known as Microsoft Dataverse 

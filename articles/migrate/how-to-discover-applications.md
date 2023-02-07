@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 08/08/2022
+ms.custom: engagement-fy23
 ---
 
 # Discover installed software inventory, web apps, and SQL Server instances and databases
@@ -70,6 +71,8 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 
     > [!NOTE]
     > Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+[!INCLUDE [Minimal Permissions for SQL Assessment](../../includes/database-migration-service-sql-permissions.md)]
 
 Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data are captured every 30 seconds. Hence any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
 

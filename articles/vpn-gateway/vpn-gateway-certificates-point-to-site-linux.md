@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 10/18/2022
 ms.author: cherylmc
 
 ---
@@ -27,11 +27,6 @@ The following steps help you generate and export certificates using the Linux CL
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-## <a name="gui"></a>Linux GUI instructions (strongSwan)
-
-The following steps help you generate and export certificates using the Linux GUI (strongSwan).
-
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ## Next steps
 

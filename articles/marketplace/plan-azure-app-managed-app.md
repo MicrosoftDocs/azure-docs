@@ -70,7 +70,7 @@ Maximum file sizes supported are:
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
 
 > [!TIP]
-> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit#validate-templates-for-azure-marketplace) before publishing your Azure Application.
+> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before publishing your Azure Application.
 
 ## Azure regions
 

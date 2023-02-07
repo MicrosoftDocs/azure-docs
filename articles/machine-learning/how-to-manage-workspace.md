@@ -5,11 +5,12 @@ description: Learn how to manage Azure Machine Learning workspaces in the Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)
@@ -18,11 +19,11 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-ti
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](v1/how-to-manage-workspace.md)
-> * [v2 (preview)](how-to-manage-workspace.md)
+> * [v2 (current)](how-to-manage-workspace.md)
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](/python/api/overview/azure/ml/).  
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
 
-As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](how-to-manage-workspace-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
+As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -31,11 +32,11 @@ As your needs change or requirements for automation increase you can also manage
    1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
    1. Provide your subscription details
 
-      [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
+      [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
 
    1. Get a handle to the subscription.  `ml_client` will be used in all the Python code in this article.
 
-      [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
+      [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
       
         * (Optional) If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use into the `DefaultAzureCredential`. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
                 
@@ -70,15 +71,15 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
-   [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
+   [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
 
-   [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=basic_ex_workspace_name)]
+   [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_ex_workspace_name)]
 
 For more information, see [Workspace SDK reference](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace).
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 # [Portal](#tab/azure-portal)
 
@@ -132,7 +133,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
  
 This class requires an existing virtual network.
 
@@ -238,9 +239,9 @@ When running machine learning tasks using the SDK, you require a MLClient object
     ```
 * **From parameters**: There's no need to have a config.json file available if you use this approach.
     
-    [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=ws)]
+    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws)]
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 ## Find a workspace
 
@@ -252,12 +253,12 @@ You can also search for workspace inside studio.  See [Search for Azure Machine 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
 
 To get details of a specific workspace:
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb?name=ws_location)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_location)]
 
 
 # [Portal](#tab/azure-portal)
@@ -337,7 +338,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Examples
 
-Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/resources/workspace/workspace.ipynb).
+Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb).
 
 ## Next steps
 

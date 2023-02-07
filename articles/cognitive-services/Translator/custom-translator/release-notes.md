@@ -1,26 +1,76 @@
 ---
-title: "Legacy: Release notes - Custom Translator"
+title: "Release notes - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Custom Translator releases, improvements, bug fixes, and known issues.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/03/2021
+ms.date: 11/04/2022
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: cogserv-non-critical-translator
 ---
 # Custom Translator release notes
 
 This page has the latest release notes for features, improvements, bug fixes, and known issues for the Custom Translator service.
 
+## 2022-November release
+
+### November 2022 improvements and fixes
+
+#### Custom Translator stable GA v2.0 release
+
+* Custom Translator version v2.0 is generally available and ready for use in your production applications.
+
+* Upload history has been added to the workspace, next to Projects and Documents tabs.
+
+#### Language model updates
+
+* Language pairs are listed in the table below. We encourage you to retrain your models accordingly for higher quality.
+
+|Source Language|Target Language|
+|:----|:----|
+|Chinese Simplified (zh-Hans)|English (en-us)|
+|Chinese Traditional (zh-Hant)|English (en-us)|
+|Czech (cs)|English (en-us)|
+|Dutch (nl)|English (en-us)|
+|English (en-us)|Chinese Simplified (zh-Hans)|
+|English (en-us)|Chinese Traditional (zh-Hant)|
+|English (en-us)|Czech (cs)|
+|English (en-us)|Dutch (nl)|
+|English (en-us)|French (fr)|
+|English (en-us)|German (de)|
+|English (en-us)|Italian (it)|
+|English (en-us)|Polish (pl)|
+|English (en-us)|Romanian (ro)|
+|English (en-us)|Russian (ru)|
+|English (en-us)|Spanish (es)|
+|English (en-us)|Swedish (sv)|
+|German (de)|English (en-us)|
+|Italian (it)|English (en-us)|
+|Russian (ru)|English (en-us)|
+|Spanish (es)|English (en-us)|
+
+#### Security update
+
+* Custom Translator API preview REST API calls now require User Access Token to authenticate.
+
+* Visit our GitHub repo for a [C# code sample](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp).
+
+#### Fixes
+
+* Resolved document upload error that caused a blank page in the browser.
+
+* Applied functional modifications.
+
 ## 2021-May release
 
-### Improvements and Bug fixes
+### May 2021 improvements and fixes
 
-- We added new training pipeline to improve the custom model generalization and capacity to retain more customer terminology (words and phrases).
-- Refreshed Custom Translator baselines to fix word alignment bug. See list of impacted language pair*.
+* We added new training pipeline to improve the custom model generalization and capacity to retain more customer terminology (words and phrases).
+
+* Refreshed Custom Translator baselines to fix word alignment bug. See list of impacted language pair*.
 
 ### Language pair list
 

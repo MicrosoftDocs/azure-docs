@@ -48,6 +48,12 @@ Use the following example to download the specific log file for the server **myd
 ```azurecli-interactive
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
+
+To download all available logs at once.
+```azurecli-interactive
+az postgres server-logs list -g [resource-group] -s [server-name] --query '[].{Name:name}' -o tsv |xargs -I {} az postgres server-logs download -g [resource-group] -s [server-name] -n {}
+```
+
 ## Next steps
 
 - To learn more about server logs, see [Server logs in Azure Database for PostgreSQL](concepts-server-logs.md).

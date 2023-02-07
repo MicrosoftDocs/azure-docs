@@ -4,29 +4,29 @@ description: Configure Azure and on-premises DNS to resolve private DNS zones an
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 09/08/2022
 ms.author: greglin
-# Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
+#Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
 ---
 
 # Resolve Azure and on-premises domains
+
+## Hybrid DNS resolution
 
 This article provides guidance on how to configure hybrid DNS resolution by using an [Azure DNS Private Resolver](#azure-dns-private-resolver) with a [DNS forwarding ruleset](#dns-forwarding-ruleset). 
 
 *Hybrid DNS resolution* is defined here as enabling Azure resources to resolve your on-premises domains, and on-premises DNS to resolve your Azure private DNS zones.
 
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
 ## Azure DNS Private Resolver
 
-The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service that can resolve on-premises DNS queries for Azure DNS private zones. Previously, it was necessary to [deploy a VM-based custom DNS resolver](/azure/hdinsight/connect-on-premises-network), or use non-Microsoft DNS, DHCP, and IPAM (DDI) solutions to perform this function.
+The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service that can resolve on-premises DNS queries for Azure DNS private zones. Previously, it was necessary to [deploy a VM-based custom DNS resolver](../hdinsight/connect-on-premises-network.md), or use non-Microsoft DNS, DHCP, and IPAM (DDI) solutions to perform this function.
 
 Benefits of using the Azure DNS Private Resolver service vs. VM-based resolvers or DDI solutions include:
 - Zero maintenance: Unlike VM or hardware based solutions, the private resolver doesn't require software updates, vulnerability scans, or security patching. The private resolver service is fully managed.
 - Cost reduction: Azure DNS Private Resolver is a multi-tenant service and can cost a fraction of the expense that is required to use and license multiple VM-based DNS resolvers.
-- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](/azure/availability-zones/az-overview) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
+- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../availability-zones/az-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 - DevOps friendly: Traditional DNS solutions are hard to integrate with DevOps workflows as these often require manual configuration for every DNS change. Azure DNS private resolver provides a fully functional ARM interface that can be easily integrated with DevOps workflows.
 
 ## DNS forwarding ruleset

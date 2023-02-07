@@ -6,7 +6,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/13/2022
+ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun, wiassaf
 ms.custom: 
@@ -518,7 +518,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1');
 ```
 
 #### Show one or more parts of DBCC SHOW_STATISTICS()
@@ -533,7 +533,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1')
     WITH histogram, density_vector
 ```
 
@@ -645,7 +645,7 @@ Specifies a Transact-SQL statement that will return column values to be used for
 
 To create statistics on a column, provide a query that returns the column for which you need statistics.
 
-By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
+By default, if you don't specify otherwise when manually creating statistics, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
 For example, to create statistics with default options (FULLSCAN) for a population column of the dataset based on the us_population.csv file:
 
@@ -780,7 +780,7 @@ CREATE STATISTICS sState
 #### Create single-column statistics by specifying the sample size
 
 ```sql
--- following sample creates statistics with sampling 20%
+-- following sample creates statistics with sampling 5%
 CREATE STATISTICS sState
     on census_external_table (STATENAME)
     WITH SAMPLE 5 percent, NORECOMPUTE

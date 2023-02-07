@@ -18,7 +18,7 @@ ms.custom: mode-other
 Get started with Azure Communication Services by using the Communication Services Chat SDK to add real-time chat to your application. In this quickstart, we'll use the Chat SDK to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Chat with Azure CLI](./includes/chat-azcli.md)]
+[!INCLUDE [Chat with Azure CLI](./includes/chat-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

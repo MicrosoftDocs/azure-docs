@@ -13,16 +13,13 @@ ms.custom: mode-ui
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. 
+In this quickstart, you'll create a [knowledge store](knowledge-store-concept-intro.md) that serves as a repository for output created from an [AI enrichment pipeline](cognitive-search-concept-intro.md). A knowledge store makes enriched content available in Azure Storage for downstream apps and workloads, for other work besides full text search.
 
-In this quickstart, you'll set up some sample data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
-
-> [!NOTE]
-> This quickstart shows you the fastest route to a finished knowledge store in Azure Storage. For more detailed explanations of each step, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
+First, you'll set up some sample data. Then, you'll run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the data  source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 ## Prerequisites
 
-This quickstart uses the following services:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
@@ -36,13 +33,13 @@ This quickstart uses the following services:
 
   [Upload the file to a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) in Azure Storage.
 
-This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an extra Cognitive Services resource.
 
 ## Start the wizard
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create a knowledge store in four steps.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
@@ -149,7 +146,7 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
    You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
+   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that aren't collections. 
 
    + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
 
@@ -167,7 +164,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 > [!TIP]
 > If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer and the related objects to recreate them. Deleting the indexer resets the free daily transaction counter to zero.

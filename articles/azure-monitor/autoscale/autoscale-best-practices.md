@@ -1,10 +1,12 @@
 ---
 title: Best practices for autoscale
 description: Autoscale patterns in Azure for Web Apps, virtual machine scale sets, and Cloud Services
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 09/13/2022
 ms.subservice: autoscale
-ms.reviewer: riroloff
+ms.reviewer: akkumari
 ---
 # Best practices for Autoscale
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
@@ -109,6 +111,6 @@ We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absol
 
 
 ## Next Steps
-- [Autoscale flapping](/azure/azure-monitor/autoscale/autoscale-flapping)
+- [Autoscale flapping](./autoscale-flapping.md)
 - [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)

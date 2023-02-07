@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ms.date: 06/24/2022
 ---
 
@@ -19,7 +19,6 @@ With Azure, your PostgreSQL Server workloads can run in a hosted virtual machine
 When making your decision, consider the following three options in PaaS or alternatively running on Azure VMs (IaaS)
 - [Azure Database for PostgreSQL Single Server](./overview-single-server.md)
 - [Azure Database for PostgreSQL Flexible Server](../flexible-server/overview.md)
-- [Azure Database for PostgreSQL Hyperscale (Citus)](../hyperscale/index.yml)
 
 **PostgreSQL on Azure VMs** option falls into the industry category of IaaS. With this service, you can run PostgreSQL Server inside a fully managed virtual machine on the Azure cloud platform. All recent versions and editions of PostgreSQL can be installed on an IaaS virtual machine. In the most significant difference from Azure Database for PostgreSQL, PostgreSQL on Azure VMs offers control over the database engine. However, this control comes at the cost of responsibility to manage the VMs and many database administration (DBA) tasks. These tasks include maintaining and patching database servers, database recovery, and high-availability design.
 
@@ -27,16 +26,16 @@ The main differences between these options are listed in the following table:
 
 | **Attribute** | **Postgres on Azure VMs** | **PostgreSQL as PaaS** |
 | ----- | ----- | ----- |
-| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) | - [Single Server, Flexible Server, and Hyperscale (Citus) SLA](https://azure.microsoft.com/support/legal/sla/postgresql)|
-| **OS and PostgreSQL patching** | - Customer managed | - Single Server – Automatic <br> - Flexible Server – Automatic with optional customer managed window <br> - Hyperscale (Citus) – Automatic |
-| **High availability** | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc. | - Single Server:  built-in <br> - Flexible Server: built-in <br> - Hyperscale (Citus): built with standby |
-| **Zone Redundancy** | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.	| - Single Server: No <br> - Flexible Server: Yes <br> - Hyperscale (Citus): No |
-| **Hybrid Scenario** | - Customer managed |- Single Server: Read-replica <br> - Flexible Server: Not available during Preview <br> - Hyperscale (Citus): No |
-| **Backup and Restore** | - Customer Managed | - Single Server: built-in with user configuration for local and geo <br> - Flexible Server: built-in with user configuration on zone-redundant storage <br> - Hyperscale (Citus): built-in |
-| **Monitoring Database Operations** | - Customer Managed | - Single Server, Flexible Server, and Hyperscale (Citus): All offer customers the ability to set alerts on the database operation and act upon reaching thresholds. |
-| **Advanced Threat Protection** | - Customers must build this protection for themselves. |- Single Server: Yes <br> - Flexible Server: Not available during Preview <br> - Hyperscale (Citus): No |
-| **Disaster Recovery** | - Customer Managed | - Single Server: Geo redundant backup and geo read-replica <br> - Flexible Server: Not available during Preview <br> - Hyperscale (Citus): No |
-| **Intelligent Performance** | - Customer Managed | - Single Server: Yes <br> - Flexible Server: Not available during Preview <br> - Hyperscale (Citus): No |
+| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) | - [Single Server and Flexible Server](https://azure.microsoft.com/support/legal/sla/postgresql)|
+| **OS and PostgreSQL patching** | - Customer managed | - Single Server – Automatic <br> - Flexible Server – Automatic with optional customer managed window |
+| **High availability** | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc. | - Single Server:  built-in <br> - Flexible Server: built-in |
+| **Zone Redundancy** | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.	| - Single Server: No <br> - Flexible Server: Yes |
+| **Hybrid Scenario** | - Customer managed |- Single Server: Read-replica <br> - Flexible Server: Not available during Preview |
+| **Backup and Restore** | - Customer Managed | - Single Server: built-in with user configuration for local and geo <br> - Flexible Server: built-in with user configuration on zone-redundant storage |
+| **Monitoring Database Operations** | - Customer Managed | - Single Server and Flexible Server: All offer customers the ability to set alerts on the database operation and act upon reaching thresholds. |
+| **Advanced Threat Protection** | - Customers must build this protection for themselves. |- Single Server: Yes <br> - Flexible Server: Not available during Preview |
+| **Disaster Recovery** | - Customer Managed | - Single Server: Geo redundant backup and geo read-replica <br> - Flexible Server: Not available during Preview |
+| **Intelligent Performance** | - Customer Managed | - Single Server: Yes <br> - Flexible Server: Not available during Preview |
 
 ## Total cost of ownership (TCO)
 

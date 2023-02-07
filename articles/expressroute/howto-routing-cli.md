@@ -333,4 +333,4 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 After you've configured Azure private peering, you can link virtual networks to the circuit, see: 
 
 > [!div class="nextstepaction"]
-> [Link a VNet to an ExpressRoute circuit](howto-linkvnet-cli.md)
+> [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-cli.md)

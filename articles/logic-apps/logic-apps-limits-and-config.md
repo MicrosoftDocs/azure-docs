@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 07/30/2022
+ms.date: 01/23/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
 
 > For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
-This article describes the limits and configuration information for Azure Logic Apps and related resources. To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
+This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multi-tenant* Azure Logic Apps or an integration service environment (ISE). Or, create a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
 
 > [!NOTE]
 > Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist. 
 
-The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn how the *single-tenant* environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption logic app and a Standard logic app. You'll also learn how single-tenant Azure Logic Apps compares to multi-tenant Azure Logic Apps and an ISE for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -46,7 +46,7 @@ The following tables list the values for a single workflow definition:
 
 <a name="run-duration-retention-limits"></a>
 
-## Run duration and retention history limits
+## Run duration and history retention limits
 
 The following table lists the values for a single workflow run:
 
@@ -60,31 +60,25 @@ The following table lists the values for a single workflow run:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run duration and history retention in storage
+## Change run duration and history retention in storage
 
-In the designer, the same setting controls the maximum number of days that a workflow can run and for keeping run history in storage.
+If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
 
-* For the multi-tenant service, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+### [Consumption](#tab/consumption)
 
-* For the single-tenant service, you can decrease or increase the 90-day default limit. For more information, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md).
+For Consumption logic app workflows, the same setting controls the maximum number of days that a workflow can run and for keeping run history in storage.
 
-* For an integration service environment, you can decrease or increase the 90-day default limit.
+* In multi-tenant Azure Logic Apps, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+
+* In an ISE, you can decrease or increase the 90-day default limit.
 
 For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
 
-> [!IMPORTANT]
-> If the run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
-> To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
+#### Portal
 
-To change the default value or current limit for these properties, follow these steps:
+1. In the [Azure portal](https://portal.azure.com) search box, open your logic app workflow in the designer.
 
-#### [Portal (multi-tenant service)](#tab/azure-portal)
-
-1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
-
-1. Find and open your logic app in the Logic App Designer.
-
-1. On the logic app's menu, select **Workflow settings**.
+1. On the logic app menu, select **Workflow settings**.
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
@@ -92,7 +86,7 @@ To change the default value or current limit for these properties, follow these 
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
-#### [Resource Manager template](#tab/azure-resource-manager)
+#### ARM template
 
 If you use an Azure Resource Manager template, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
 
@@ -114,6 +108,29 @@ If you use an Azure Resource Manager template, this setting appears as a propert
    }
 }
 ```
+
+#### [Standard](#tab/standard)
+
+For Standard logic app workflows, you can decrease or increase the 90-day default limit, but you need to add the following settings and their values to your logic app resource or project:
+
+* An app setting named [**Workflows.RuntimeConfiguration.RetentionInDays**](edit-app-settings-host-settings.md#reference-local-settings-json)
+
+* A host setting named [**Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#run-duration-history)
+
+By default, the app setting named **Workflows.RuntimeConfiguration.RetentionInDays** is set to keep 90 days of data. The host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval** is set to check every 7 days for old data to delete. If you leave these default values, you might see data *up to* 97 days old. For example, suppose Azure Logic Apps checks on Day X and deletes data older than Day X - 90 days, and then waits for 7 days before running again. This behavior results in data that ages up to 97 days before the job runs again. However, if you set the interval to 1 day, but leave the retention days at the default value, the maximum delay to delete old data is 90+1 days.
+
+#### Portal
+
+1. [Follow these steps to add the app setting named **Workflows.RuntimeConfiguration.RetentionInDays**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), and set the value to the number days that you want to keep your workflow run history.
+
+1. [Follow these steps to add the host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#manage-host-settings-portal), and set the value to the number of days as the interval between when to check for and delete run history that you don't want to keep.
+
+#### Visual Studio Code
+
+1. [Follow these steps to add the app setting named **Workflows.RuntimeConfiguration.RetentionInDays**](edit-app-settings-host-settings.md?tabs=visual-studio-code#manage-app-settings), and set the value to the number days that you want to keep your workflow run history.
+
+1. [Follow these steps to add the host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#manage-host-settings-visual-studio-code), and set the value to the number of days as the interval between when to check for and delete run history that you don't want to keep.
+
 ---
 
 <a name="concurrency-looping-and-debatching-limits"></a>
@@ -423,7 +440,7 @@ The following tables list the values for the number of artifacts limited to each
 | Assemblies | 10 | 25 | 1,000 |
 | Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
-||||
+| RosettaNet partner interface process (PIP) | 10 | 1 | 500 |
 
 <a name="artifact-capacity-limits"></a>
 
@@ -479,11 +496,6 @@ If your workflow uses [managed connectors](../connectors/managed.md), such as th
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
-
-> [!IMPORTANT]
-> If you're using [Microsoft Azure operated by 21Vianet](/azure/china/), managed connectors and custom connectors don't have reserved or fixed IP addresses. 
-> So, you can't set up firewall rules for logic apps that use these connectors in this cloud. For the Azure Logic Apps service IPs, review the 
-> [documentation version for Azure operated by 21Vianet](https://docs.azure.cn/en-us/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration).
 
 <a name="ip-setup-considerations"></a>
 

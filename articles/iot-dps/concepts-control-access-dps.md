@@ -4,6 +4,7 @@ description: Overview on how to control access to Azure IoT Hub Device Provision
 author: jesusbar
 ms.author: jesusbar
 ms.service: iot-dps
+services: iot-dps
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]

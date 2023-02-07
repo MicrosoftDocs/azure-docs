@@ -49,7 +49,7 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 1. Select the pencil (Edit) icon to edit and test the custom connector. 
 
 > [!NOTE]
-> To call the API from the Power Apps test console, you need to add the `https://flow.microsoft.com` URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
+> To call the API from the Power Apps test console, you need to add the `https://flow.microsoft.com` URL as an origin to the [CORS policy](cors-policy.md) in your API Management instance.
 
 ## Update a custom connector
 

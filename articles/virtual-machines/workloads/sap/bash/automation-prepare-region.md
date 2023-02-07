@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 title: Prepare region
 description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---
@@ -187,4 +187,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)
++[GitHub repository: SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-automation)

@@ -12,9 +12,9 @@ ms.author: cherylmc
 
 # Azure Monitor Insights for Virtual WAN
 
-[Azure Monitor Insights](../network-watcher/network-insights-overview.md) for Azure Virtual WAN gives users and operators the ability to view the state and status of a virtual WAN, presented via an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the virtual WAN. You can navigate resources on the map via one-click access to the resource configuration pages of the Virtual WAN portal.
+[Azure Monitor Insights](../network-watcher/network-insights-overview.md) for Azure Virtual WAN gives users and operators the ability to view the state and status of a Virtual WAN, presented via an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the Virtual WAN. You can navigate resources on the map via one-click access to the resource configuration pages of the Virtual WAN portal.
 
-Virtual WAN resource-level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook. The workbook shows the metrics at virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
+Virtual WAN resource-level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook. The workbook shows the metrics at Virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
 
 > [!NOTE]
 > The **Insights** menu option is in the Virtual WAN portal under **Monitoring**. You can also access the Virtual WAN Topology and Metrics Workbook by using Azure Monitor for Networks. For more information, see [Azure Monitor for Networks](../network-watcher/network-insights-overview.md). 
@@ -22,9 +22,9 @@ Virtual WAN resource-level metrics are collected and presented via a pre-package
 
 ## Before you begin
 
-To complete the steps in this article, you need to have a virtual WAN with one or more hubs. To create a virtual WAN and a hub, follow the steps in these articles:
+To complete the steps in this article, you need to have a Virtual WAN with one or more hubs. To create a Virtual WAN and a hub, follow the steps in these articles:
 
-* [Create a virtual WAN](virtual-wan-site-to-site-portal.md#openvwan)
+* [Create a Virtual WAN](virtual-wan-site-to-site-portal.md#openvwan)
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 
 ## <a name="topology"></a>View VWAN topology
@@ -75,7 +75,7 @@ The search and filter bar in the **Dependency** view provides an easy way to sea
 
 ## <a name="detailed"></a>Detailed metrics
 
-You can select **View detailed metrics** to access the detailed **Metrics** page. The **Metrics** page is a dashboard that's preconfigured with separate tabs. These tabs provide insights into your virtual WAN resource capacity, performance, and utilization at the virtual-WAN level and hub level, and at the level of individual connections.
+You can select **View detailed metrics** to access the detailed **Metrics** page. The **Metrics** page is a dashboard that's preconfigured with separate tabs. These tabs provide insights into your Virtual WAN resource capacity, performance, and utilization at the Virtual-WAN level and hub level, and at the level of individual connections.
 
 **Figure 6: Detailed Metrics dashboard**
 

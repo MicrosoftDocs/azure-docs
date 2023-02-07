@@ -563,12 +563,4 @@ Don't clean up until you are certain the new hub is up and running and the devic
 
 You have cloned an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
 
-For more information about IoT Hub and development for the hub, see the following articles:
-
-* [IoT Hub developer's guide](iot-hub-devguide.md)
-
-* [IoT Hub routing tutorial](tutorial-routing.md)
-
-* [IoT Hub device management overview](iot-hub-device-management-overview.md)
-
 If you want to deploy the sample application, see [.NET Core application deployment](/dotnet/core/deploying/index).

@@ -22,15 +22,15 @@ Usually the telephony client handles the incoming audio stream from the SIP/RTP 
 
 For easier integration the Speech Service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming.
 
-To build this integration we recommend using the [Speech SDK](/azure/cognitive-services/speech-service/speech-sdk).
+To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
 
 
 > [!TIP]
-> For guidance on reducing Text to Speech latency check out the **[How to lower speech synthesis latency](/azure/cognitive-services/speech-service/how-to-lower-speech-synthesis-latency?pivots=programming-language-csharp)** guide.
+> For guidance on reducing Text to Speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
 > 
 > In addition, consider implementing a Text to Speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
 
 ## Next steps
 
-* [Learn about Speech SDK](/azure/cognitive-services/speech-service/speech-sdk)
-* [How to lower speech synthesis latency](/azure/cognitive-services/speech-service/how-to-lower-speech-synthesis-latency)
+* [Learn about Speech SDK](./speech-sdk.md)
+* [How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md)

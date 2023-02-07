@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 10/21/2021
+ms.author: vijetaj
+author: vijetajo
+ms.reviewer: sgilley
+ms.date: 10/19/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
@@ -20,27 +21,26 @@ A *compute target* is a designated compute resource or environment where you run
 In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
-1. Scale up to larger data, or do [distributed training](how-to-train-distributed-gpu.md) by using one of these [training compute targets](#train).
-1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#deploy).
+1. Scale up to larger data, or do [distributed training](how-to-train-distributed-gpu.md) by using one of these [training compute targets](#training-compute-targets).
+1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#compute-targets-for-inference).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
-## <a name="train"></a> Training compute targets
+## Training compute targets
 
 Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
 
-## <a name="deploy"></a> Compute targets for inference
+## Compute targets for inference
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 
-<a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes.
@@ -65,7 +65,9 @@ When created, these compute resources are automatically part of your workspace, 
 
 
 > [!NOTE]
-> When a compute *cluster* is idle, it autoscales to 0 nodes, so you don't pay when it's not in use. A compute *instance* is always on and doesn't autoscale. You should [stop the compute instance](how-to-create-manage-compute-instance.md#manage) when you aren't using it to avoid extra cost.
+> To avoid charges when the compute is idle:
+> * For compute *cluster* make sure the minimum number of nodes is set to 0.
+> * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
 
 ### Supported VM series and sizes
 
@@ -155,18 +157,19 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 
 Azure Machine Learning supports the following unmanaged compute types:
 
-* Your local computer
 * Remote virtual machines
 * Azure HDInsight
-* Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
-* Azure Container Instance
-* Kubernetes
+* [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
-For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
+    > [!TIP]
+    > Currently this requires the Azure Machine Learning SDK v1.
+* [Kubernetes](how-to-attach-kubernetes-anywhere.md)
+
+For more information, see [Manage compute resources](how-to-create-attach-compute-studio.md).
 
 ## Next steps
 
 Learn how to:
-* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)
+* [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)

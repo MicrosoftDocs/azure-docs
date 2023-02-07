@@ -17,6 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 ## Prerequisites
 
 - Complete verifiable credentials onboarding with Web as the selected trust system.

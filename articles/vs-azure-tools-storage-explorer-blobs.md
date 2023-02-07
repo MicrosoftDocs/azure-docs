@@ -230,7 +230,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 ## Next steps
 
 * View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
-* Learn how to [create applications using Azure blobs, tables, queues, and files](/azure/storage/).
+* Learn how to [create applications using Azure blobs, tables, queues, and files](./storage/index.yml).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png
