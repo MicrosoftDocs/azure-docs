@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 02/07/2023
 ms.devlang: java
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2

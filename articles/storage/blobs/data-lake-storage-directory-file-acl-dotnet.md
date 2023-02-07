@@ -49,14 +49,6 @@ using System.IO;
 
 To use the snippets in this article, you'll need to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account.
 
-### Connect by using an account key
-
-This is the easiest way to connect to an account.
-
-This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using an account key.
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
-
 ### Connect by using Azure Active Directory (Azure AD)
 
 You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Azure AD.
@@ -67,6 +59,14 @@ This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.d
 
 > [!NOTE]
 > For more examples, see the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) documentation..
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account.
+
+This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using an account key.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
 ## Create a container
 
