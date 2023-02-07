@@ -11,8 +11,17 @@ ms.date: 02/07/2023
 ---
 
 # Monitor latency in a Log Analytics workspace
-Latency refers to the amount of time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. The typical latency for log data in Azure Monitor Logs is between 20 seconds and three minutes. This article explains the factors that affect latency in Azure Monitor Logs and how to monitor latency in a Log Analytics workspace.
 
+The health of
+
+Latency refers to the time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource. 
+
+[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis within a relatively short period of time. The time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource is called latency. This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
+
+Azure Service Health monitors:
+
+- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific Log Analytics workspace. 
+- [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, including communications about outages, planned maintenance activities, and other health advisories.
 
 ## View Log Analytics workspace health and set up alerts 
 
@@ -34,7 +43,7 @@ Latency refers to the amount of time it takes for log data to become available i
 
         :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::  
 
-    1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md). 
+    1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
 
 
 ## Next steps
