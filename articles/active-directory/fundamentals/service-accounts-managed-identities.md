@@ -65,7 +65,7 @@ System-assigned managed identity:
 User-assigned managed identity
 
 * The lifecycle is independent from an Azure resource. You manage the lifecycle. 
-  * When the Azure resource is deleted, the assigned user-assigned managed identity is not automatically deleted
+  * When the Azure resource is deleted, the assigned user-assigned managed identity isn't automatically deleted
 * Assign user-assigned managed identity to zero or more Azure resources
 * Create an identity ahead of time, and then assigned it to a resource later
 
@@ -111,7 +111,7 @@ To assess managed identity security:
 
 ## Move to managed identities
 
-If you are using a  service principal or an Azure AD user account, evaluate the use of managed identities. Youi can eliminate the need to protect, rotate, and manage credentials. 
+If you're using a  service principal or an Azure AD user account, evaluate the use of managed identities. You can eliminate the need to protect, rotate, and manage credentials. 
 
 ## Next steps
 
