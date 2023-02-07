@@ -10,7 +10,9 @@ ms.date: 02/06/2023
 ---
 # Integrate Log Analytics with Power BI
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) provides an end-to-end solution for ingesting logs. [Log Analytics](../data-platform.md), the user interface for querying these logs, lets you connect to [Power BI](https://powerbi.microsoft.com/), Microsoft's data visualization platform. This article explains how to feed data from Log Analytics into Power BI to produce professional, visually appealing reports and dashboards based on log data.
+[Azure Monitor Logs](../logs/data-platform-logs.md) provides an end-to-end solution for ingesting logs. From [Log Analytics](../data-platform.md), Azure Monitor's user interface for querying logs, you can connect log data to Microsoft's [Power BI](https://powerbi.microsoft.com/) data visualization platform. 
+
+This article explains how to feed data from Log Analytics into Power BI to produce professional, visually appealing reports and dashboards based on log data.
 
 > [!NOTE]
 > You can use free Power BI features to integrate and create visually appealing reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
