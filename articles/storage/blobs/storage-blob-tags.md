@@ -123,8 +123,21 @@ public static async Task FindBlobsbyTags(BlobServiceClient serviceClient)
 
 ```
 
-## See also
+## Resources
+
+To learn more about how to use index tags to manage and find data using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing and using blob index tags use the following REST API operations:
+
+- [Get Blob Tags](/rest/api/storageservices/get-blob-tags) (REST API)
+- [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API)
+- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
-- [Get Blob Tags](/rest/api/storageservices/get-blob-tags) (REST API)
-- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
+- [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)

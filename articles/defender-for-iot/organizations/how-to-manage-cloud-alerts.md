@@ -13,7 +13,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - [Integrate with Microsoft Sentinel](iot-solution.md) to view Defender for IoT alerts in Microsoft Sentinel and manage them together with security incidents.
 
-- If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only. 
+- If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
 
     For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
@@ -115,8 +115,8 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
     In Defender for IoT in the Azure portal, select the **Alerts** page on the left, and then do one of the following:
 
-    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page for a learnable alert, in the **Take Action** tab, select **Learn**.
+  - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+  - On an alert details page for a learnable alert, in the **Take Action** tab, select **Learn**.
 
 ## Access alert PCAP data
 
@@ -144,7 +144,6 @@ You may want to export a selection of alerts to a CSV file for offline sharing a
 
 The file is generated, and you're prompted to save it locally.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -155,3 +154,6 @@ The file is generated, and you're prompted to save it locally.
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)
