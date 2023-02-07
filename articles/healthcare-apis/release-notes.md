@@ -33,17 +33,17 @@ Customers can now access the MedTech service in Qatar Central.
 
 **Added support for `ModalitiesInStudy` attribute**
 
-The DICOM service now supports`ModalitiesInStudy` as a [searchable attribute](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
+The DICOM service now supports`ModalitiesInStudy` as a [searchable attribute] (https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
 
 
 **Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
 
-Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#additional-series-tags).  
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses] (https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#additional-series-tags).  
 
 ### Toolkit and Samples Open Source
 **New sample app has been released**
 
-One new sample app has been released in the open source samples repo: Azure-Samples/azure-health-data-services-samples: Samples for using the Azure Health Data Services (github.com)
+One new sample app has been released in the open source samples repo: [Azure-Samples/azure-health-data-services-samples: Samples for using the Azure Health Data Services (github.com)](https://github.com/Azure-Samples/azure-health-data-services-samples)
 
 
 
