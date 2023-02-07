@@ -12,13 +12,13 @@ This article describes the prerequisites that you must complete in your Azure su
 
 ## Access control
 
-To set up New Relic on Azure, you must have owner access on the Azure subscription. [Confirm that you have the appropriate access](/azure/role-based-access-control/check-access) before you start the setup.
+To set up New Relic on Azure, you must have owner access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before you start the setup.
 
 ## Resource provider registration
 
 To set up New Relic on Azure, you need to register the `NewRelic.Observability` resource provider in the specific Azure subscription:
 
-- To register the resource provider in the Azure portal, follow the steps in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
+- To register the resource provider in the Azure portal, follow the steps in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - To register the resource provider in the Azure CLI, use this command:
 
@@ -30,4 +30,3 @@ To set up New Relic on Azure, you need to register the `NewRelic.Observability` 
 
 - [Quickstart: Get started with New Relic](new-relic-create.md)
 - [Troubleshoot Azure Native New Relic Service](new-relic-troubleshoot.md)
-

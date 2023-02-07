@@ -187,7 +187,7 @@ The Azure Private 5G Core deployment uses the *core* namespace. If you need to c
     ```powershell
     Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
     ```
-For more information, see [Configure cluster access via Kubernetes RBAC](/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster#configure-cluster-access-via-kubernetes-rbac).
+For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
 
 ## Set up portal access
 
@@ -323,4 +323,4 @@ If you have made an error in the Azure Stack Edge configuration, you can use the
 
 Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
 
-- [Collect the required information to deploy a private mobile network](/azure/private-5g-core/collect-required-information-for-private-mobile-network)
+- [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

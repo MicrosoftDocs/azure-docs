@@ -35,7 +35,7 @@ When it comes to defining the offer along with its pricing models, it is importa
 > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 > [!Note]
-> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies#how-we-convert-currency).
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md#how-we-convert-currency).
 ## Sample offer
 
 As an example, Contoso is a publisher with a managed application service called Contoso Analytics (CoA). CoA allows customers to analyze large amount of data for reporting and data warehousing. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish offers to Azure customers. There are two plans associated with CoA, outlined below:
@@ -119,5 +119,3 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 **Video tutorial**
 
 - [Metered Billing for Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196310)
-
-
