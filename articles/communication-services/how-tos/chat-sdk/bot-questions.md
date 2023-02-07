@@ -1,5 +1,3 @@
-Frequently asked samples for Bot implementation
-
 ### Send a welcome message when a new user is added to the thread
 
 The current Echo Bot logic accepts input from the user and echoes it back. If you want to add more logic, such as responding to a participant-added Communication Services event, copy the following code and paste it in the [EchoBot.cs](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Bots/EchoBot.cs) source file:
