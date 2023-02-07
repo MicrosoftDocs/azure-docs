@@ -56,6 +56,8 @@ To learn more about authorization, see [Authorize access to data in Azure Storag
 
 ## Create a client object
 
+Working with any Azure resource using the SDK begins with creating a client object. In this section, you learn how to create client objects to interact with the three types of resources in the storage service: storage accounts, containers, and blobs.
+
 ### Create a BlobServiceClient object
 
 An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. 
