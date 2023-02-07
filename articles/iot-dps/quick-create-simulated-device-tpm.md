@@ -220,9 +220,6 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
     ```cmd/sh
     npm install node-gyp -g
-    #for versions of Node.js <= version 10
-    npm install ffi -g
-    #for versions of Node.js > version 10
     npm install ffi-napi -g
     ```
     > [!NOTE]
