@@ -50,7 +50,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
 |**Common Event Format (CEF)**     |  [CEF via AMA data connector](connect-cef-ama.md)       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
-|**Custom logs text**     |   Collection only       |  Collection only       |
+|**Custom logs (text)**     |   Collection only       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
 
 ## Recommended migration plan
