@@ -155,6 +155,15 @@ Below is an example table of relationship lifecycle updates stored to Azure Data
 | PasteurizationMachine_A03_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7250 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A03 | SaltMachine_C1 |
 | OsloFactory_contains_Relationship0 | contains | Delete | 2022-12-15 07:16:13.1780 | dairyadtinstance.api.wcus.digitaltwins.azure.net | OsloFactory | SaltMachine_C0 |  
 
+## Deleting a data history connection
+
+You can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to delete a data history connection. The CLI command is [az dt data-history connection delete](/cli/azure/dt/data-history/connection#az-dt-data-history-connection-delete).
+
+When you use the CLI command to delete a data history connection, you'll be given the option to clean up resources associated with the data history connection. If you do this, the command will delete the event hub and Azure Data Explorer cluster used for the data history connection. The cleanup is a best-effort attempt, and requires the account running the command to have delete permission for these resources.
+
+>[!NOTE]
+> If you have multiple data history connections that share the same event hub or Azure Data Explorer cluster, using the "clean up resources" option while deleting one of these connections will disrupt your other data history connections that rely on these resources.
+
 ## Pricing
 
 Messages emitted by data history are metered under the [Message pricing dimension](https://azure.microsoft.com/pricing/details/digital-twins/#pricing).
