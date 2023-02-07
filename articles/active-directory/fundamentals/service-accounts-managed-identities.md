@@ -29,7 +29,7 @@ Benefits of using managed identities:
 
 ## Using managed identities
 
-Managed identities are best for communications among services that support Azure AD authentication. A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure virutla machine (VM), Azure Function instance, and Azure App Services instances support managed identities.
+Managed identities are best for communications among services that support Azure AD authentication. A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure virtual machine (VM), Azure Function instance, and Azure App Services instances support managed identities.
 
 Learn more in the video, [What can a managed identity be used for?](https://www.youtube.com/embed/5lqayO_oeEo)
 
@@ -49,7 +49,7 @@ Learn more:
 * [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
 * [What is Azure RBAC?](../../role-based-access-control/overview.md)
 * [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md)
-* [Azure services that can use managed identities to access other services](../managed-identities-azure-resources/managed-identities-status.md).
+* [Azure services that can use managed identities to access other services](../managed-identities-azure-resources/managed-identities-status.md)
 
 ## System-assigned and user-assigned managed identities
 
@@ -71,7 +71,7 @@ User-assigned managed identity
 
 ## Find managed identity service principals in Azure AD
 
-To find managed identities:
+To find managed identities, you can use:
 
 * Enterprise applications page in the Azure portal
 * Microsoft Graph
@@ -115,7 +115,7 @@ If you're using a  service principal or an Azure AD user account, evaluate the u
 
 ## Next steps
 
-* [Azure AD-managed identities for Azure resources documentation](../managed-identities-azure-resources/overview.md) 
+* [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md) 
 * [Configure managed identities for Azure resources on a VM using the Azure portal](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Service accounts**
