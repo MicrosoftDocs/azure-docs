@@ -22,7 +22,8 @@ This guide uses a Python script to take all of the training data from an existin
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
-  * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
+* A Custom Vision resource where an existing project is stored.
+* An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 
 ## Prepare the migration script
