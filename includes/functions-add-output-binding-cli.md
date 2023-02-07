@@ -18,7 +18,7 @@ You declare these bindings in the *function.json* file in your function folder. 
 
 ::: zone-end
 
-::: zone pivot="programming-language-python
+::: zone pivot="programming-language-python"
 
 # [v1](#tab/v1)
 
