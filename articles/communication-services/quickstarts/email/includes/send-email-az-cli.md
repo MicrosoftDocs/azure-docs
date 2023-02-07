@@ -75,9 +75,9 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 ## Send an email message
 
 ```azurecli-interactive
-az communication email send \\
-	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>" \\
-	--to "<emailalias@emaildomain.com>" \\
+az communication email send
+	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
+	--to "<emailalias@emaildomain.com>"
 	--subject "Welcome to Azure Communication Services Email" --text "This email message is sent from Azure Communication Services Email using Azure CLI." 
 ```
 
