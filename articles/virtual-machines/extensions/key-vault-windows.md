@@ -547,8 +547,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] },
          \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
-
-  ---
+---
 
 ## Troubleshoot and support
 
