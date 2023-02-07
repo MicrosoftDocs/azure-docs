@@ -36,7 +36,7 @@ You can invoke the plugin in a Kusto query with the following command. There are
 evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
 
-The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
+The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
 * The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
 
     For example, consider the below Azure Digital Twins query that is executed using the API:

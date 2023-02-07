@@ -4,7 +4,7 @@ description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure F
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 01/12/2023
 ms.author: kendownie
 ms.subservice: files
 ms.reviewer: khdownie
@@ -12,9 +12,10 @@ ms.reviewer: khdownie
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. StorSimple 8010 and 8020 virtual appliances are also covered in this migration guide. It's possible to migrate the data from either of these appliances to Azure file shares with optional Azure File Sync. Azure File Sync is the default and strategic long-term Azure service that replaces the StorSimple on-premises functionality.
+The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. StorSimple 8010 and 8020 virtual appliances are also covered in this migration guide. It's possible to migrate the data from either of these appliances to Azure file shares with optional Azure File Sync. Azure File Sync is the default and strategic long-term Azure service that replaces the StorSimple on-premises functionality. This article provides the necessary background knowledge and migration steps for a successful migration to Azure File Sync.
 
-The StorSimple 8000 series will reach its [end of life](/lifecycle/products/azure-storsimple-8000-series) in December 2022. It's important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migration steps for a successful migration to Azure File Sync.
+> [!NOTE]
+> The StorSimple Service (including the StorSimple Device Manager for 8000 and 1200 series and StorSimple Data Manager) has reached the end of support. The end of support for StorSimple was published in 2019 on the [Microsoft LifeCycle Policy](/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were sent via email and posted on the Azure portal and in the [StorSimple overview](../../storsimple/storsimple-overview.md). Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
 
 :::row:::
     :::column:::

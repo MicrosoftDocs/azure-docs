@@ -120,17 +120,9 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Configure Key Vault access using a managed identity
 
-Refer to the following configurations that are needed for API Management to access secrets and certificates from Key Vault.s
+The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
 
-### Configure Key Vault access policy
-
-To configure an access policy using the portal:
-
-1. In the Azure portal, navigate to your key vault.
-1. Select **Settings > Access policies > + Add Access Policy**.
-1. Select **Secret permissions**, then select **Get** and **List**.
-1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
-1. Select **Add**.
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 

@@ -204,9 +204,26 @@ Ensure the Helm chart adheres to the following rules:
     
     :::image type="content" source="./media/azure-container/billing-identifier.png" alt-text="A screenshot of a properly formatted values.yaml file is shown. The images are using digests. The content resembles the sample values.yaml file linked in this article.":::
 
+### Available billing models
+
+| Licensing option                | Transaction process                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Free                            | List your offer to customers for free.                                                                                                                                                                                                                                                                                                               |
+| Bring your own licensing (BYOL) | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.*                                                                                                                                                                                                                                                  |
+| Per every core in cluster       | List your Azure Container offer with pricing charged based on the total number of CPU cores in the cluster (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the total number of CPU cores in the cluster.                                                                             |
+| Per core                        | List your Azure Container offer with pricing charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the cores used by the Kubernetes application instance in the cluster.                                    |
+| Per cluster                     | List your Azure Container offer with pricing charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency). You provide the price for one instance of the Kubernetes application and we’ll increment the pricing based on the number of instances of the Kubernetes application on the cluster.    |
+| Per every node in cluster       | List your Azure Container offer with pricing charged based on total number of nodes in the cluster (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the size of hardware in the cluster.                                                                                   |
+| Per node                        | List your Azure Container offer with pricing charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of nodes on which the Kubernetes application instance runs in the cluster. |
+| Per pod                         | List your Azure Container offer with pricing charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of pods used on which the Kubernetes application instance runs in the cluster. |
+
+* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
+
 ### Make updates based on your billing model
 
 After reviewing the billing models available, select one appropriate for your use case and complete the following steps:
+
+Complete the following steps to add identifier in the *Per core* billing model:
 
 - Add a billing identifier label and cpu cores request to your `deployment.yaml` file.
 
@@ -216,7 +233,11 @@ After reviewing the billing models available, select one appropriate for your us
 
 - Add a billing identifier value for `global.azure.billingidentifier` in `values.yaml`.
 
-    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > azure > billingIdentifier field.":::
+    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > Azure > billingIdentifier field.":::
+
+Complete the following steps to add a billing identifier label in the *Per pod* and *Per node* billing model:
+
+- Add a billing identifier label `azure-extensions-usage-release-identifier` to your `deployment.yaml` file (Under **Template** > **Metadata** > **Labels**>).
 
 Note that at deployment time, the cluster extensions feature will replace the billing identifier value with the extension type name you provide while setting up plan details.
 

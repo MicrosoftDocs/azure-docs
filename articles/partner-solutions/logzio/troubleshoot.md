@@ -15,7 +15,7 @@ This article describes how to troubleshoot the Logz.io integration with Azure.
 
 ## Owner role needed to create resource
 
-To set up Logz.io, you must be assigned the [Owner role](/azure/role-based-access-control/rbac-and-directory-admin-roles) in the Azure subscription. Before you begin this integration, [check your access](/azure/role-based-access-control/check-access).
+To set up Logz.io, you must be assigned the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure subscription. Before you begin this integration, [check your access](../../role-based-access-control/check-access.md).
 
 ## Single sign-on errors
 
@@ -42,20 +42,20 @@ Use the following patterns to add new values:
 
 ### Logs not being sent to Logz.io
 
-- Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to Logz.io.  To verify whether a resource is sending logs to Logz.io:
+- Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) send logs to Logz.io.  To verify whether a resource is sending logs to Logz.io:
 
-   1. Go to [Azure diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the specific resource.
+   1. Go to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the specific resource.
    1. Verify that there's a Logz.io diagnostic setting.
 
    :::image type="content" source="media/troubleshoot/diagnostics.png" alt-text="Screenshot of the Azure monitoring diagnostic settings for Logz.io.":::
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 ## Register resource provider
 
-You must register `Microsoft.Logz` in the Azure subscription that contains the Logz.io resource, and any subscriptions with resources that send data to Logz.io. For more information about troubleshooting resource provider registration, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider).
+You must register `Microsoft.Logz` in the Azure subscription that contains the Logz.io resource, and any subscriptions with resources that send data to Logz.io. For more information about troubleshooting resource provider registration, see [Resolve errors for resource provider registration](../../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
 
 ## Limit reached in monitored resources
 
@@ -76,7 +76,7 @@ Purchase fails because a valid credit card isn't connected to the Azure subscrip
 To resolve a purchase error:
 
 - Use a different Azure subscription.
-- Add or update the subscription's credit card or payment method. For more information, see [Add or update a credit card for Azure](/azure/cost-management-billing/manage/change-credit-card).
+- Add or update the subscription's credit card or payment method. For more information, see [Add or update a credit card for Azure](../../cost-management-billing/manage/change-credit-card.md).
 
 You can view the error's output from the resource's deployment page, by selecting **Operation Details**.
 

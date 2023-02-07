@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 01/24/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -73,6 +73,7 @@ Azure Files supports reservations (also referred to as *reserved instances*), wh
 - **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the premium, hot, and cool tiers.
 - **Location**: The Azure region for the Reservation. Reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the Reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
+- **Billing frequency**: Indicates how often the account is billed for the Reservation. Options include *Monthly* or *Upfront*.
 
 Once you purchase a Reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you'll pay list price for the balance not covered by the Reservation. Transaction, bandwidth, data transfer, and metadata storage charges aren't included in the Reservation.
 

@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 11/04/2022
+ms.date: 01/23/2023
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
@@ -424,7 +424,7 @@ The extension status also returns as "Failed".
 
 The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
-The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
+You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -439,7 +439,9 @@ spec:
 
 ### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Kubelet Identity enabled
 
-When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+When working with Azure Kubernetes clusters, one of the authentication options is *kubelet identity* using a user-assigned managed identity. Using kubelet identity can reduce operational overhead and increases security when connecting to Azure resources such as Azure Container Registry.
+
+To let Flux use kubelet identity, add the parameter `--config useKubeletIdentity=true` when installing the Flux extension. This option is supported starting with version 1.6.1 of the extension.
 
 ```console
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
@@ -447,7 +449,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft.Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
 
 | Container Name | CPU limit | Memory limit |
 | -------------- | ----------- | -------- |
@@ -456,13 +458,12 @@ The controllers installed in your Kubernetes cluster with the Microsoft.Flux ext
 | fluent-bit | 20m | 150Mi |
 | helm-controller | 1000m | 1Gi |
 | source-controller | 1000m | 1Gi |
-| kustomize-controller | 1000m | 1Gi | 
+| kustomize-controller | 1000m | 1Gi |
 | notification-controller | 1000m | 1Gi |
 | image-automation-controller | 1000m | 1Gi |
 | image-reflector-controller | 1000m | 1Gi |
 
 If you have enabled a custom or built-in Azure Gatekeeper Policy, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, that limits the resources for containers on Kubernetes clusters, you will need to either ensure that the resource limits on the policy are greater than the limits shown above or the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
-
 
 ## Monitoring
 
@@ -569,7 +570,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Even though one controller was _evicted_ at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
+Even though one controller was *Evicted* at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
 
 ```bash
 kubectl logs -n arc-osm-system -l app=osm-controller
@@ -659,7 +660,7 @@ kubectl get endpoints -n arc-osm-system osm-injector
 
 If the OSM Injector is healthy, you'll see output similar to the following:
 
-```
+```output
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
@@ -714,7 +715,8 @@ kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webh
 ```
 
 A well configured **Mutating** webhook configuration will have output similar to the following:
-```
+
+```output
 {
   "name": "osm-injector",
   "namespace": "arc-osm-system",
@@ -843,20 +845,21 @@ kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
 
 The following annotation must be present:
 
-```
+```bash
 {
   "openservicemesh.io/sidecar-injection": "enabled"
 }
 ```
 
 View the labels of the namespace `bookbuyer`:
+
 ```bash
 kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
 
 The following label must be present:
 
-```
+```bash
 {
   "openservicemesh.io/monitored-by": "osm"
 }

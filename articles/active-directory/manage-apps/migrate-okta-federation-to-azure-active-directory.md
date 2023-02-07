@@ -54,7 +54,7 @@ Follow these steps to configure Azure AD Connect for password hash synchronizati
 
 1. Enter your global administrator credentials.
 
-   ![Screenshot of the Azure A D Connect app that shows where to enter global admin credentials.](media/migrate-okta-federation-to-azure-active-directory/global-admin-credentials.png)
+   ![Screenshot of the Azure A D Connect app that shows where to enter Global Administrator credentials.](media/migrate-okta-federation-to-azure-active-directory/global-admin-credentials.png)
 
 1. Currently, the server is configured for federation with Okta. Change the selection to **Password Hash Synchronization**. Then select **Enable single sign-on**.
 

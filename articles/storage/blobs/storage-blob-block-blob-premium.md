@@ -28,7 +28,7 @@ Premium block blob storage accounts are ideal for workloads that require fast an
 
 ## Cost effectiveness
 
-Premium block blob storage accounts have a higher storage cost but a lower transaction cost as compared to standard general-purpose v2 accounts. If your applications and workloads execute a large number of transactions, premium blob blob storage can be cost-effective, especially if the workload is write-heavy.
+Premium block blob storage accounts have a higher storage cost but a lower transaction cost as compared to standard general-purpose v2 accounts. If your applications and workloads execute a large number of transactions, premium block blob storage can be cost-effective, especially if the workload is write-heavy.
 
 In most cases, workloads executing more than 35 to 40 transactions per second per terabyte (TPS/TB) are good candidates for this type of account. For example, if your workload executes 500 million read operations and 100 million write operations in a month, then you can calculate the TPS/TB as follows:
 
