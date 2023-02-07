@@ -46,16 +46,16 @@ Create the subnets as part of the current virtual network in which ARO is deploy
 ### Step 2: Log into the jumphost
 
 > [!NOTE]
-> This steps is optional if you have an alternate method for logging into the ARO cluster.
+> This step is optional if you have an alternate method for logging into the ARO cluster.
 
 Use the following command to log into the jumphost:
 
-`oc login https://api.fq5v3vye.useast.aroapp.io:6443/ -u kubeadmin -p`
+`oc login $apiServer -u kubeadmin -p <kubeadmin password>`
 
 Verify the number of nodes and machine sets using the `oc get nodes` and `oc get machineSets -n openshift-mchine-api` commands, as shown in the following examples:
 
 ```
-oc get nodes
+$ oc get nodes
 NAME                                          STATUS   ROLES    AGE   VERSION
 simon-aro-st5rm-master-0                      Ready    master   66m   v1.19.0+e405995
 simon-aro-st5rm-master-1                      Ready    master   67m   v1.19.0+e405995
@@ -66,7 +66,7 @@ simon-aro-st5rm-worker-useast3-rvzpn   Ready    worker   59m   v1.19.0+e405995
 ```
 
 ```
-[root@jumphost-new simon]# oc get machineSets --all-namespaces
+# oc get machineSets --all-namespaces
 NAMESPACE               NAME                                    DESIRED   CURRENT   READY   AVAILABLE   AGE
 openshift-machine-api   simon-aro-st5rm-worker-useast1   1         1         1       1           69m
 openshift-machine-api   simon-aro-st5rm-worker-useast2   1         1         1       1           69m
@@ -152,7 +152,7 @@ spec:
 
 ### Step 5: Apply the machine set
 
-Apply the machine set created in the previous section using the `oc apply -f /<filename.yaml/>` command, as in the following example:
+Apply the machine set created in the previous section using the `oc apply -f <filename.yaml>` command, as in the following example:
 
 ```
 [root@jumphost-new ARO-cluster-Private]# oc apply -f aro-new-worker-az1.yaml
