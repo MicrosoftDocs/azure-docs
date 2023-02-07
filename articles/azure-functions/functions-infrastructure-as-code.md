@@ -1751,6 +1751,52 @@ Considerations for custom deployments:
 
 + When updating application settings using Bicep or ARM, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. 
 
+## Validate your template
+
+When you manually create your deployment template file, it's important to validate your template before deployment. All deployment methods validate your template syntax and raise a `validation failed` error message as shown in the following JSON formatted example:
+
+```json
+{"error":{"code":"InvalidTemplate","message":"Deployment template validation failed: 'The resource 'Microsoft.Web/sites/func-xyz' is not defined in the template. Please see https://aka.ms/arm-template for usage details.'.","additionalInfo":[{"type":"TemplateViolation","info":{"lineNumber":0,"linePosition":0,"path":""}}]}}
+```
+
+The following methods can be used to validate your template before deployment:
+
+# [Azure Pipelines](#tab/devops)
+
+Tbe following [Azure resource group deployment v2 task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) with `deploymentMode: 'Validation'` instructs Azure Pipelines to validate the template. 
+
+```yml
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    subscriptionId: # Required subscription ID
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: # Required resource group name
+    location: # Required when action == Create Or Update Resource Group
+    templateLocation: 'Linked artifact'
+    csmFile: # Required when  TemplateLocation == Linked Artifact
+    csmParametersFile: # Optional
+    deploymentMode: 'Validation'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+You can use the [`az deployment group validate`](/cli/azure/deployment/group#az-deployment-group-validate) command to validate your template, as shown in the following example:
+
+```azurecli-interactive
+az deployment group validate --resource-group <resource-group-name> --template-file <template-file-location> --parameters functionAppName='<function-app-name>' packageUri='<zip-package-location>'
+```
+
+# [Visual Studio Code](#tab/vs-code)
+
+On [Visual Studio Code](https://code.visualstudio.com/), install the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
+
+This extension reports syntactic errors in your templates before you try to deploy them. For some examples of errors, see the [Fix validation error](../azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment.md#fix-validation-error) section of the troubleshooting article.
+
+---
+
+You can also create a test resource group to find [preflight](../azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment.md?tabs=azure-cli#fix-preflight-error) and [deployment](../azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment.md?tabs=azure-cli#fix-deployment-error) errors.
+
 ## Deploy your template
 
 You can use any of the following ways to deploy your Bicep file and template:

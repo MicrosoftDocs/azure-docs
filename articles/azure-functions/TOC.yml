@@ -483,8 +483,11 @@
         - name: Functions in Kubernetes
           href: functions-kubernetes-keda.md
           displayName: keda, container, docker
-        - name: Automate resource deployment
-          href: functions-infrastructure-as-code.md
+        - name: Resource templates 
+          items: 
+          - name: Template-based deployments
+            href: functions-infrastructure-as-code.md
+          - name: Frequently   
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
