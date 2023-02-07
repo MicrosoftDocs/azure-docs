@@ -30,13 +30,11 @@ In this tutorial, you learn how to:
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-- An Azure account with an active subscription. [Create an account for free]
-(https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 # [**PowerShell**](#tab/dual-stack-outbound-powershell)
 
-- An Azure account with an active subscription. [Create an account for free]
-(https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
@@ -46,8 +44,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- An Azure account with an active subscription. [Create an account for free]
-(https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -261,6 +258,7 @@ $natGateway = New-AzNatGateway @nat
 $sub = @{
     Name = 'myBackendSubnet'
     VirtualNetwork = $vnet
+    AddressPrefix = '10.1.0.0/24'
     NatGateway = $natGateway
 }
 Set-AzVirtualNetworkSubnetConfig @sub
@@ -517,6 +515,7 @@ Use the following commands to create the virtual machine:
 * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ```azurepowershell-interactive
+## Place the username and password for the virtual machine into a variable. ##
 $cred = Get-Credential
 
 ## Place network interface into a variable. ##
