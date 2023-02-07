@@ -62,7 +62,7 @@ The *app instance* status represents every instance of the app. To view the stat
 * **Status**: Whether the instance is running or its current state
 * **Discovery Status**: The registered status of the app instance in the Eureka server
 
-:::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot that shows status values for the selected application instance, whether it is running or stopped and its Discovery Status." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
+:::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot of the Azure portal showing the App instance Settings page with the Status and Discovery status columns highlighted." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
 
 ### App instance status
 
