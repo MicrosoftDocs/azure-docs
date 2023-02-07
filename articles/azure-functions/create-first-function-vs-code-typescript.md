@@ -2,18 +2,20 @@
 title: Create a TypeScript function using Visual Studio Code - Azure Functions
 description: Learn how to create a TypeScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/18/2022
+ms.date: 02/06/2023
 ms.devlang: typescript
 ms.custom: mode-ui, vscode-azure-extension-update-complete
+zone_pivot_groups: node-functions-model
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
 In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+>[!NOTE]
+>The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](functions-reference-node.md).
+
+Use the selector at the top to choose the programming model of your choice for completing this quickstart. Note that completion will incur a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-typescript.md) of this article.
 
@@ -23,13 +25,24 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
+::: zone pivot="node-model-v3" 
 + [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
+::: zone-end
+::: zone pivot="node-model-v4" 
++ [Node.js 18.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
++ [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
+::: zone-end
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
+::: zone pivot="node-model-v3" 
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
+::: zone-end
+::: zone pivot="node-model-v4" 
++ [Azure Functions Core Tools v4.0.4915 or above](functions-run-local.md#install-the-azure-functions-core-tools).
+::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -42,7 +55,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
 1. Provide the following information at the prompts:
-
+::: zone pivot="node-model-v3" 
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `TypeScript`.|
@@ -52,6 +65,18 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select how you would like to open your project**|Choose `Add to workspace`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=typescript#generated-project-files).
+::: zone-end
+::: zone pivot="node-model-v4" 
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `TypeScript`.|
+    |**Select a TypeScript programming model**|Choose `Model V4 (Preview)`|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Select how you would like to open your project**|Choose `Add to workspace`|
+
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md). 
+::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
