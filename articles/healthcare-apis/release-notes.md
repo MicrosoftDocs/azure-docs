@@ -19,6 +19,34 @@ ms.custom: references_regions
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## January 2023
+
+### MedTech service
+
+**Added support for Qatar Central**
+
+Customers can now access the MedTech service in Qatar Central.
+
+
+### DICOM service
+
+**Added support for `ModalitiesInStudy` attribute**
+
+The DICOM service now supports`ModalitiesInStudy` as a [searchable attribute](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
+
+
+**Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
+
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#additional-series-tags).  
+
+### Toolkit and Samples Open Source
+**New sample app has been released**
+
+One new sample app has been released in the open source samples repo: Azure-Samples/azure-health-data-services-samples: Samples for using the Azure Health Data Services (github.com)
+
+
+
 ## December 2022
 
 ### Azure Health Data Services
