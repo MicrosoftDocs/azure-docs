@@ -30,7 +30,7 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 > [!NOTE]
 > Event Hubs for Kafka isn't supported in the **basic** tier.
 
-## Use Apache Kafka to send and receive events from Azure Event Hubs
+## Send and receive messages with Kafka in Event Hubs
 
 
 ### [Connection string](#tab/connection-string)
