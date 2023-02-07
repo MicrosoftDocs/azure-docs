@@ -15,7 +15,7 @@ ms.date: 02/06/2023
 This article explains how to feed data from Log Analytics into Power BI to produce professional, visually appealing reports and dashboards based on log data.
 
 > [!NOTE]
-> You can use free Power BI features to integrate and create visually appealing reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
+> You can use free Power BI features to integrate and create reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
 ## Create Power BI datasets and reports from Log Analytics queries
 
