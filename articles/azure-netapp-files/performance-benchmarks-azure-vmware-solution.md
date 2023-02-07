@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 02/07/2023
 ms.author: anfdocs
 ---
 # Azure NetApp Files datastore performance benchmarks for Azure VMware Solution
