@@ -1,13 +1,11 @@
 ---
-title: Introduction to Packet capture in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher packet capture's capability
+title: Introduction to packet capture in Azure Network Watcher
+description: Learn about the Network Watcher packet capture capability.
 services: network-watcher
-documentationcenter: na
 author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: conceptual
+ms.workload: infrastructure-services
 ms.date: 06/07/2022
 ms.author: halkazwini
 ms.custom: engagement-fy23
