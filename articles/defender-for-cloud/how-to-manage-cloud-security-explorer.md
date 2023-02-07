@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/31/2023
+ms.date: 02/07/2023
 ---
 
 # Cloud security explorer
@@ -17,18 +17,16 @@ With the cloud security explorer, you can query all of your security issues and 
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
-## Availability
-
-| Aspect | Details |
-|--|--|
-| Release state | General Availability (GA) |
-
 ## Prerequisites
 
-- [Enable agentless scanning](enable-vulnerability-assessment-agentless.md) 
-- [Enable Defender for CSPM](enable-enhanced-security.md) 
-- [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. Enabling Defender for Containers gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
-- Required plan: Defender Cloud Security Posture Management (CSPM) plan enabled 
+- You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
+
+- You must [enable Defender for CSPM](enable-enhanced-security.md).
+
+- You must [enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. 
+
+    When you enable Defender for Containers, you also gain the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
+
 - Required roles and permissions: 
     - Security Reader
     - Security Admin
@@ -37,18 +35,21 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
     - Owner
 
 - Clouds: 
-    -  :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) 
+    - :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) 
     - :::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) 
     - :::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Build a query with the cloud security explorer
 
-You can use the cloud security explorer to build queries that can proactively hunt for security risks in your environments. The cloud security explorer uses dynamic and efficient features including:
+The cloud security explorer allows you to build queries that can proactively hunt for security risks in your environments with dynamic and efficient features such as:
 
-- **Multi-cloud and multi-resource queries** - The entity selection control filter are grouped combined into logical control categories so you can easily build queries across cloud environments and across resources simultaneously. 
-- **Custom Search** - You can use the main dropdown to search for filters, and your query is automatically built according to your selection.
-- **Query templates** -  You can use any of the available pre-built query templates to more efficiently build your query.
-- **Share query link** - You can copy and share a link of your query with other people.
+- **Multi-cloud and multi-resource queries** - The entity selection control filters are grouped and combined into logical control categories to assist you in building queries across cloud environments and across resources simultaneously.
+
+- **Custom Search** - Use the dropdown menus to apply filters to build your query.
+
+- **Query templates** -  Use any of the available pre-built query templates to more efficiently build your query.
+
+- **Share query link** - Copy and share a link of your query with other people.
 
 **To build a query**:
 
@@ -58,41 +59,28 @@ You can use the cloud security explorer to build queries that can proactively hu
 
     :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
-1. Either use the main search box to search for a resource or select a resource from the drop-down menu. 
- 
+1. Search for and select a resource from the drop-down menu. 
+
       :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
+
+1. Select **+** to add other filters to your query.
     
-
-1. Select **+** to add other filters to your query. For each filter selected you can add more subfilters as needed.
-
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
 
-1. After you finish building your query, select **Search** to run the query. The results will populate on the bottom of the page.
+1. Add subfilters as needed.
+
+1. After your query is built, select **Search** to run the query.
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows where to select search to run the query and results populated." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
-
 ## Query templates
 
-Query templates are pre-formatted searches using commonly-used filters. You can use one of the existing query templates from the bottom of the page by selecting **Open query**.
+Query templates are pre-formatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
 You can alter any template to search for specific results by changing the query and selecting **Search**.
 
-## Query options
-
-The following information can be queried in the cloud security explorer:
-
-- **Recommendations** - All Defender for Cloud security recommendations.
-
-- **Vulnerabilities** - All vulnerabilities found by Defender for Cloud.
-
-- **Insights** - Contextual data about your cloud resources.  
-        
-- **Connections** - Connections that are identified between cloud resources in your environment.
-
-You can review the [full list of recommendations, vulnerabilities, insights and connections](attack-path-reference.md). 
 
 ## Share a query
 
