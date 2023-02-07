@@ -34,7 +34,9 @@ sections:
         answer: |
           > [!NOTE]
           > Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14th, 2021, ACI will no longer support deployments using older version numbers. 
-          
+          > [!NOTE]
+          > Confidential containers on Azure Container Instances currently does not support Windows containers. 
+
       - question: |
           Windows Server 2016 base images
         answer: |
@@ -143,6 +145,29 @@ sections:
           Does the ACI service reserve ports for service functionality?
         answer: |
           Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+
+  - name: Confidential containers on Azure Container Instances (Preview)
+    questions:
+      - question: | 
+          What is Confidential computing and how is it being applied to Azure Container Instances?
+        answer: |
+          Confidential computing is an industry term defined by the Confidential Computing Consortium (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines confidential computing as: The protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE). ACI Confidential Containers introduce hardware-based protection, code integrity, and verification of the Trusted Execution Environment (TEE). Confidential containers leverage the latest in confidential computing hardware enabling customers to deploy their existing applications without any modifications while taking advantage of the hardware-based data protection. Code integrity, and verification of the TEE are achieved through the attestation of a confidential computing enforcement policy which is attached to the container group at deployment time. If any of the properties of the container group differ from those of the confidential computing enforcement policy, the environment will fail to launch ensuring that the TEE is not compromised.
+      - question: | 
+          When should I use Confidential containers on Azure Container Instances? 
+        answer: |
+          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees such as machine learning workloads that utilize data sets that include PII or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
+      - question: | 
+          How do I generate a confidential computing enforcement policy?
+        answer: |
+          Use the AZ CLI - To be completed with link to confcom tooling.
+      - question: |
+          Are there any features that are not supported on Confidential containers on Azure Container Instances?
+        answer: | 
+          GPU based ACI container deployments, Windows containers, availability zones, and dedicated instances are not supported with confidential containers. 
+      - question: |
+          What regions are Confidential containers on Azure Container Instances available?
+        answer: |
+          Confidential containers on Azure Container Instances are only available in select regions (West Europe, North Europe, and West US) during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
 
   - name: Pricing
     questions:
