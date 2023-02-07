@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 02/07/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -146,7 +146,7 @@ New-AzVM `
    -VM $vmConfig
 
 ```
-
+---
 ## RBAC - within your organization
 
 If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
