@@ -38,7 +38,7 @@ The following sections build on this article by describing the specific data gat
 
 Azure Communications Gateway collects metrics. See [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md) for detailed information on the metrics created by Azure Communications Gateway. Azure Communications Gateway doesn't collect logs.
 
- For clarification on the different types of metrics available in Azure Monitor, see [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+ For clarification on the different types of metrics available in Azure Monitor, see [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources).
 
 ## Analyzing metrics
 
