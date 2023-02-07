@@ -3,7 +3,6 @@ title: 'Tutorial: Create a multi-region app'
 description: Learn how to build a multi-region app on Azure App Service that can be used for high availability and fault tolerance.
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
-
 ms.topic: tutorial
 ms.date: 2/6/2023
 ms.author: jordanselig
@@ -19,7 +18,7 @@ In this tutorial, you'll learn how to deploy a highly available multi-region web
 
 The following architecture diagram shows the infrastructure you'll be creating during this tutorial. It consists of two identical App Services in separate regions, one being the active or primary region, and the other is the standby or secondary region. Azure Front Door is used to route traffic to the App Services and access restrictions are configured so that direct access to the apps from the internet is blocked. The dotted line indicates that traffic will only be sent to the standby region in the event of the active region going down. 
 
-Azure provides various options for load balancing and traffic routing. Azure Front Door was selected for this use case because it involves internet facing web apps hosted on Azure App Service deployed in multiple regions. To help you decide what to use for your use case, see the [decision tree for load balancing in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+Azure provides various options for load balancing and traffic routing. Azure Front Door was selected for this use case because it involves internet facing web apps hosted on Azure App Service deployed in multiple regions. To help you decide what to use for your use case if it differs from this tutorial, see the [decision tree for load balancing in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 :::image type="content" source="./media/tutorial-multi-region-app/multi-region-app-service.png" alt-text="Architecture diagram of a multi-region App Service.":::
 
@@ -27,7 +26,7 @@ With this architecture:
 
 - Identical App Service apps are deployed in two separate regions.
 - Public traffic directly to the App Service apps is blocked.
-- Azure Front Door is used route traffic to the primary/active region, while the other region is a hot-standby.
+- Azure Front Door is used route traffic to the primary/active region, while the secondary region has an App Service that is up and running and ready to serve traffic if needed.
 
 What you'll learn:
 
@@ -83,7 +82,7 @@ az webapp show --name <web-app-name> --resource-group myresourcegroup --query "h
 
 ## Create an Azure Front Door
 
-A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps running instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect).
+A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps running instances in the secondary region, but doesn't send traffic there unless the primary region fails. Azure Front Door has a built-in feature that allows you to enable these configurations. For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect).
 
 ### Create an Azure Front Door profile
 
@@ -102,7 +101,7 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group myresou
 |---------|---------|---------|
 |profile-name     |myfrontdoorprofile         |Name for the Azure Front Door profile which is unique within the resource group.         |
 |resource-group     |myresourcegroup         |The resource group that contains the resources from this tutorial.         |
-|sku     |Premium_AzureFrontDoor         |The pricing tier of the AFD profile.         |
+|sku     |Premium_AzureFrontDoor         |The pricing tier of the Azure Front Door profile.         |
 
 
 ### Add an endpoint
@@ -149,12 +148,12 @@ az afd origin create --resource-group myresourcegroup --host-name <web-app-east-
 |---------|---------|---------|
 |host-name     |`<web-app-east-us>.azurewebsites.net`        |The hostname of the primary web app.       |
 |origin-name     |primaryapp         |Name of the origin.         |
-|origin-host-header    |`<web-app-east-us>.azurewebsites.net`         |The Host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
+|origin-host-header    |`<web-app-east-us>.azurewebsites.net`         |The host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
 |priority     |1         |Set this to 1 to direct all traffic to the primary web app.        |
 |weight     |1000         |Weight of the origin in given origin group for load balancing. Must be between 1 and 1000.         |
 |enabled-state    |Enabled         |Whether to enable this origin.         |
-|http-port    |80         |The port used for http requests to the origin.        |
-|https-port    |443         |The port used for https requests to the origin.         |
+|http-port    |80         |The port used for HTTP requests to the origin.        |
+|https-port    |443         |The port used for HTTPS requests to the origin.         |
 
 Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to "2". This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
 
@@ -183,9 +182,9 @@ Please allow about 15 minutes for this step to complete as it takes some time fo
 
 ### Restrict access to web apps to the Azure Front Door instance
 
-If you try to access your apps directly using their URLs at this point, you'll still be able to. To ensure traffic can only reach your apps through Azure Front Door, you'll set access restrictions on each of your apps. Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features. Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. By using a service tag restriction rule, you can [restrict traffic to only originate from Azure Front Door](../frontdoor/origin-security.md).
+If you try to access your apps directly using their URLs at this point, you'll still be able to. To ensure traffic can only reach your apps through Azure Front Door, you'll set access restrictions on each of your apps. Front Door's features work best when traffic only flows through Front Door. You should configure your origins to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features. Traffic from Azure Front Door to your applications originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. By using a service tag restriction rule, you can [restrict traffic to only originate from Azure Front Door](../frontdoor/origin-security.md).
 
-Before setting up the App Service access restrictions, take note of the *Front Door ID* by running the following command. This ID will be needed to ensure traffic only originates from your specific Front Door instance. This access restriction further filters the incoming requests based on the unique http header that your Azure Front Door sends.
+Before setting up the App Service access restrictions, take note of the *Front Door ID* by running the following command. This ID will be needed to ensure traffic only originates from your specific Front Door instance. The access restriction further filters the incoming requests based on the unique HTTP header that your Azure Front Door sends.
 
 ```azurecli-interactive
 az afd profile show --resource-group myresourcegroup --profile-name myfrontdoorprofile --query "frontDoorId"
@@ -273,7 +272,7 @@ To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bi
 
 In this tutorial so far, you've deployed the baseline infrastructure to enable a multi-region web app. App Service provides features that can help you ensure you're running applications following security best practices and recommendations.
 
-This section contains frequently asked questions and that can help you further secure your apps and deploy and manage your resources using recommended best practices.
+This section contains frequently asked questions that can help you further secure your apps and deploy and manage your resources using best practices.
 
 ### What is the recommended method for managing and deploying application infrastructure and Azure resources?
 
@@ -299,11 +298,11 @@ Run the following commands to create staging slots called "stage" for each of yo
 
 ```azurecli-interactive
 az webapp deployment slot create --resource-group myresourcegroup --name <web-app-east-us> --slot stage --configuration-source <web-app-east-us>
+
 az webapp deployment slot create --resource-group myresourcegroup --name <web-app-west-us> --slot stage --configuration-source <web-app-west-us>
 ```
 
-To set up continuous deployment, you should use the Azure portal. For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service
-](deploy-continuous-deployment.md).
+To set up continuous deployment, you should use the Azure portal. For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 To configure continuous deployment with GitHub Actions, complete the following steps for each of your staging slots.
 
@@ -360,9 +359,9 @@ For more information on disabling basic auth including how to test and monitor l
 
 ### How do I deploy my code using continuous deployment if I disabled basic auth?
 
-If you choose to allow basic auth on your App Service apps, you can use any of the available deployment processes on App Service, including using the publish profile that was configured in the [Use staging slots](#use-staging-slots) section.
+If you choose to allow basic auth on your App Service apps, you can use any of the available deployment methods on App Service, including using the publish profile that was configured in the [staging slots](#how-can-i-use-staging-slots-to-practice-safe-deployment-to-production) section.
 
-If you disable basic auth for your App Services, continuous deployment requires a service principal or OpenID Connect for authentication. If you use GitHub Actions as your code repository, see the [step-by-step tutorial for using a service principal or OpenID Connect to deploy to App Service using GitHub Actions](deploy-github-actions.md).
+If you disable basic auth for your App Services, continuous deployment requires a service principal or OpenID Connect for authentication. If you use GitHub Actions as your code repository, see the [step-by-step tutorial for using a service principal or OpenID Connect to deploy to App Service using GitHub Actions](deploy-github-actions.md) or complete the steps in the following section.
 
 #### Create the service principal and configure credentials with GitHub Actions
 
@@ -467,13 +466,13 @@ Now that you have a service principal that can access your App Service apps, you
               az logout
     ```
 
-### How does slot traffic routing allow me to test my app updates?
+### How does slot traffic routing allow me to test updates that I make to my apps?
 
-Traffic routing with slots allows you to direct a pre-defined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them will automatically be routed there with no changes to your Front Door instance. To learn more about slot swaps and staging environments in App Service see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
+Traffic routing with slots allows you to direct a pre-defined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them will automatically be routed to the staging slot with no changes to your Front Door instance. To learn more about slot swaps and staging environments in App Service, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
 
 ### How do I move my code from my staging slot to my production slot?
 
-Once you're done testing and validating in your staging slots, you can perform a [slot swap](deploy-staging-slots.md#swap-two-slots) from your staging slot to your production site. You'll need to do this swap for all instances of your app. During a slot swap, the App Service platform [ensures the target slot doesn't experience downtime](deploy-staging-slots.md#swap-operation-steps).
+Once you're done testing and validating in your staging slots, you can perform a [slot swap](deploy-staging-slots.md#swap-two-slots) from your staging slot to your production site. You'll need to do this swap for all instances of your app in each region. During a slot swap, the App Service platform [ensures the target slot doesn't experience downtime](deploy-staging-slots.md#swap-operation-steps).
 
 To perform the swap, run the following command for each app. Replace the placeholder for `<web-app-name>`.
 
@@ -483,11 +482,11 @@ az webapp deployment slot swap --resource-group MyResourceGroup -name <web-app-n
 
 After a few minutes, you can navigate to your Front Door's endpoint to validate the slot swap succeeded.
 
-At this point, your apps are up and running and any changes you make to your application source code will automatically trigger an update to both of your staging apps. You can then repeat the slot swap process when you're ready to move that code into production.
+At this point, your apps are up and running and any changes you make to your application source code will automatically trigger an update to both of your staging slots. You can then repeat the slot swap process when you're ready to move that code into production.
 
-### How else can I leverage Azure Front Door in my multi-region deployment?
+### How else can I leverage Azure Front Door in my multi-region deployments?
 
-If you're concerned about potential disruptions or issues with continuity across regions, as in some customers seeing one version of your app while others see another, or if you're making significant changes to your apps, you can temporarily remove the site that's undergoing the slot swap from your Front Door's origin group and all traffic will be directed to the other origin. Navigate to the **Update origin group** pane and **Delete** the origin that is undergoing the change. Once you've made all of your changes and are ready to serve traffic there again, you can return to the same pane and select **+ Add an origin** to readd the origin.
+If you're concerned about potential disruptions or issues with continuity across regions, as in some customers seeing one version of your app while others see another version, or if you're making significant changes to your apps, you can temporarily remove the site that's undergoing the slot swap from your Front Door's origin group and all traffic will be directed to the other origin. Navigate to the **Update origin group** pane and **Delete** the origin that is undergoing the change. Once you've made all of your changes and are ready to serve traffic there again, you can return to the same pane and select **+ Add an origin** to readd the origin.
 
 :::image type="content" source="./media/tutorial-multi-region-app/removeorigin.png" alt-text="Screenshot showing how to remove an Azure Front Door origin.":::
 
