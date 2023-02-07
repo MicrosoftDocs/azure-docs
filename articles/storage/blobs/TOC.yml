@@ -582,7 +582,7 @@ items:
           items:
           - name: Get started
             href: storage-blob-dotnet-get-started.md
-          - name: Authorize access to data
+          - name: Authorize access from your application
             items:
             - name: Azure Active Directory
               items:

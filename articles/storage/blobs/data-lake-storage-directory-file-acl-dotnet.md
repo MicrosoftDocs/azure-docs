@@ -59,14 +59,14 @@ This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.d
 
 ### Connect by using Azure Active Directory (Azure AD)
 
-You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
+You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Azure AD.
 
 This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
 > [!NOTE]
-> For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation..
+> For more examples, see the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) documentation..
 
 ## Create a container
 

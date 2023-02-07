@@ -5,7 +5,7 @@ description: Use .NET to manage access control lists (ACL) in storage accounts t
 author: pauljewellmsft
 
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 02/07/2023
 ms.author: pauljewell
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -71,7 +71,7 @@ To use the snippets in this article, you'll need to create a [DataLakeServiceCli
 > [!NOTE]
 > If you're using Azure Active Directory (Azure AD) to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
 
-You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
+You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Azure AD.
 
 After you install the package, add this using statement to the top of your code file.
 
@@ -79,29 +79,26 @@ After you install the package, add this using statement to the top of your code 
 using Azure.Identity;
 ```
 
-First, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal.
+First, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal:
 
 |Role|ACL setting capability|
 |--|--|
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-Next, get the values for client ID, client secret, and tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
-
-This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using a client ID, a client secret, and a tenant ID.
+Next, create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
-> [!NOTE]
-> For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation..
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication#defaultazurecredential).
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account.
-
-This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using an account key.
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
+
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Set ACLs
 
@@ -215,7 +212,7 @@ This example sets ACL entries recursively. If this code encounters a permission 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ContinueOnFailure":::
 
-[!INCLUDE [updated-for-az](../../../includes/recursive-acl-best-practices.md)]
+[!INCLUDE [recursive-acl-best-practices](../../../includes/recursive-acl-best-practices.md)]
 
 ## See also
 

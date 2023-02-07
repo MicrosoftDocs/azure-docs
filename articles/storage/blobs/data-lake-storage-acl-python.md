@@ -66,31 +66,26 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal.
+First, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal:
 
 |Role|ACL setting capability|
 |--|--|
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.
+Next, create an [azure.storage.filedatalake.DataLakeServiceClient class](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
-> [!NOTE]
-> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [Overview: Authenticate Python apps to Azure using the Azure SDK](/azure/developer/python/sdk/authentication-overview).
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account.
-
-This example creates a **DataLakeServiceClient** instance by using an account key.
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithKey":::
 
-- Replace the `storage_account_name` placeholder value with the name of your storage account.
-
-- Replace the `storage_account_key` placeholder value with your storage account access key.
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Set ACLs
 

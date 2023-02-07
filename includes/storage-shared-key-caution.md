@@ -1,0 +1,16 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 02/07/2023
+ms.author: tamram
+ms.custom: include file
+---
+
+> [!CAUTION]
+> Authorization with Shared Key is not recommended as it may be less secure. For optimal security, disable authorization via Shared Key for your storage account, as described in [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
+>
+> Microsoft recommends that clients use either Azure AD or a shared access signature (SAS) to authorize access to data in Azure Storage. For more information, see [Authorize operations for data access](../common/authorize-data-access?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
