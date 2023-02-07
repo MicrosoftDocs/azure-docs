@@ -29,7 +29,7 @@ Analyzed transactions of Azure Blob Storage include operation types such as `G
 >
 > Customers using the legacy per-transaction pricing plan will need to proactively migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges based on the number of analyzed transactions in the storage account.
 >
-> For further details, please refer to the [Microsoft Defender for Storage FAQ](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=per-storage-account#faq---microsoft-defender-for-storage-pricing).
+> For further details, please refer to the [Microsoft Defender for Storage FAQ](#faq---microsoft-defender-for-storage-pricing).
 
 Learn more about the [benefits, features, and limitations of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md). You can also learn more about Defender for Storage in the [Defender for Storage episode](../../defender-for-cloud/episode-thirteen.md) of the Defender for Cloud in the Field video series.
 
