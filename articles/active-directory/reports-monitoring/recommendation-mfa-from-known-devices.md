@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/31/2022
+ms.date: 02/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -20,8 +20,7 @@ ms.collection: M365-identity-device-management
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 
-This article covers the recommendation to convert minimize multi-factor authentication (MFA) prompts from known devices. 
-
+This article covers the recommendation to minimize multi-factor authentication (MFA) prompts from known devices. This recommendation is called `tenantMFA` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
@@ -32,8 +31,6 @@ MFA enables you to enhance the security posture of your tenant. While enabling M
 The remember multi-factor authentication feature sets a persistent cookie on the browser when a user selects the Don't ask again for X days option at sign-in. The user isn't prompted again for MFA from that browser until the cookie expires. If the user opens a different browser on the same device or clears the cookies, they're prompted again to verify.
 
 ![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices\remember-mfa-on-trusted-devices.png)
-
-
 
 For more information, see [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
 
