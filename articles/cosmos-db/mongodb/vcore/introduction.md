@@ -3,7 +3,7 @@ title: What is vCore-based?
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
 description: Explore the vCore-based option for Azure Cosmos DB for MongoDB and determine if it's a good fit for your workload.
 ms.service: cosmos-db
-ms.subservice: mongodb-vcore
+ms.subservice: mongodb
 ms.topic: overview
 author: gahl-levy
 ms.author: gahllevy
