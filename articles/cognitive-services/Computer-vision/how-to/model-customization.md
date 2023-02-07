@@ -82,7 +82,7 @@ Choose **Start labeling** and follow the prompts to label all of your images. Wh
 
 ![Link AML]( ../media/customization/aml-to-vs.png)
 
-You should now be able to import a COCO file. Select the one you just created.
+The COCO file you just created is now stored in the Azure Storage container that you linked to this project. You can now import it into the model customization workflow. Select it from the drop-down list.
 
 > [!NOTE]
 > ## Import COCO files from elsewhere
@@ -90,8 +90,6 @@ You should now be able to import a COCO file. Select the one you just created.
 > To import a COCO file, go to the dataset tab and click `Add COCO files to this datset`. You can choose to add a specific COCO file from a Blob storage account or to import from the COCO file from the AML labeling project that you used to label the images in the dataset. Once the COCO file is imported into the dataset, the dataset can be used for training a model.
 >
 > ![Choose COCO]( ../media/customization/vision-studio-import-coco-file.png)
->
-> ### About COCO files
 >
 > [!INCLUDE [coco-files](../includes/coco-files.md)]
 
@@ -131,7 +129,7 @@ The prediction results will appear in the right column.
 
 ## Prepare training data
 
-The first thing you need to do is create a COCO file from your training data. You can get a COCO file by converting an old Custom Vision project, using the migration script. Or, you can create a COCO file using some other tool. The following info specifies the structure of a COCO file:
+The first thing you need to do is create a COCO file from your training data. You can get a COCO file by converting an old Custom Vision project, using the [migration script](migrate-from-custom-vision.md). Or, you can create a COCO file using some other tool. The following info specifies the structure of a COCO file:
 
 [!INCLUDE [coco-files](../includes/coco-files.md)]
 
@@ -196,6 +194,8 @@ curl -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluation
 }"
 ```
 
+The API call returns a **ModelPerformance** JSON object, which lists the model's score in several categories of measurement. See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for descriptions of the different performance metrics.
+
 ## Test the custom model
 
 The `imageanalysis:analyze` API does ordinary Image Analysis operations. By specifying some parameters, you can use this API to query your own custom model instead of the prebuilt Image Analysis models. Make the following changes to the cURL command below:
@@ -212,6 +212,8 @@ curl -v -X PUT "https://<endpoint>/computervision/imageanalysis:analyze?features
 }"
 ```
 
+The API call returns an **ImageAnalysisResult** JSON object, which contains all the detected tags or objects in the image, with their confidence scores.
+
 ---
 
 
@@ -220,4 +222,4 @@ curl -v -X PUT "https://<endpoint>/computervision/imageanalysis:analyze?features
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze API, so you can query your custom model from an application.
 
 * [Call the Analyze Image API](./call-analyze-image-40.md)
-* See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of the feature and a list of frequently asked questions.
+* See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.

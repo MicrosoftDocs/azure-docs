@@ -12,6 +12,8 @@ ms.date: 02/06/2023
 ms.author: pafarley
 ---
 
+### About COCO files
+
 COCO files are JSON files with specific required fields: `"images"`, `"annotations"`, `"categories"`. A sample COCO file will looks like this:
 
 ```json
@@ -83,7 +85,7 @@ COCO files are JSON files with specific required fields: `"images"`, `"annotatio
 }
 ```
 
-### Field reference
+### COCO file field reference
 
 If you're generating your own COCO file from scratch, make sure all the required fields are filled with the correct details. The following tables describe each field in a COCO file:
 
