@@ -29,7 +29,10 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) enabled with a system-assigned managed identity. For more information, *see* [**Managed identities for Document Translation**](../how-to-guides/create-use-managed-identities.md). **An Azure blob storage account and managed identity are required to use Document Translation in Language Studio**.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) enabled with a system-assigned managed identity. For more information, *see* [**Managed identities for Document Translation**](../how-to-guides/create-use-managed-identities.md).
+
+  * An Azure blob storage account and managed identity are required to use Document Translation in Language Studio**.
+  * If you are going to upload documents to your Azure blob storage account, you'll also need to create source and target containers.
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
