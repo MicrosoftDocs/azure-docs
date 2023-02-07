@@ -176,7 +176,7 @@ When Conditional Access policy or group membership changes need to be applied to
 Modern networks often optimize connectivity and network paths for applications differently. This optimization frequently causes variations of the routing and source IP addresses of connections, as seen by your identity provider and resource providers. You may observe this split path or IP address variation in multiple network topologies, including, but not limited to: 
 
 - On-premises and cloud-based proxies.
-- Virtual private network (VPN) implementations, like [split tunneling](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel?view=o365-worldwide).
+- Virtual private network (VPN) implementations, like [split tunneling](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel).
 - Software defined wide area network (SD-WAN) deployments.
 - Load balanced or redundant network egress network topologies, like those using [SNAT](https://wikipedia.org/wiki/Network_address_translation#SNAT). 
 - Branch office deployments that allow direct internet connectivity for specific applications.
