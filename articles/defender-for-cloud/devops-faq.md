@@ -20,7 +20,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 ### I don’t see Recommendations for findings
 
-Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
 You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
 
@@ -28,13 +28,13 @@ You must have more than a [stakeholder license](https://azure.microsoft.com/pric
 
 Only TfsGit is supported on Azure DevOps service.
 
-Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. If the user for the connector is wrong, you need to delete the connector that was created, sign in with the correct user account and re-create the connector.
+Ensure that you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. If the user for the connector is wrong, you need to delete the connector that was created, sign in with the correct user account and re-create the connector.
 
 ### Secret scan didn't run on my code
 
-To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
-In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
+In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](./azure-devops-extension.md?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
 
 If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Microsoft Defender for Cloud. If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline), the resource shows as `N/A` in Defender for Cloud.
 

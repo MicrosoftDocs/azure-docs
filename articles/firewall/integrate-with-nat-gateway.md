@@ -25,7 +25,7 @@ There’s no double NAT with this architecture. Azure Firewall instances send th
 > [!NOTE]
 > Using Azure Virtual Network NAT is currently incompatible with Azure Firewall if you have deployed your [Azure Firewall across multiple availability zones](deploy-availability-zone-powershell.md).
 >
-> In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures. You must deploy using a hub virtual network architecture. For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture refer to the [NAT gateway and Azure Firewall integration tutorial](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
+> In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures. You must deploy using a hub virtual network architecture. For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
 
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure PowerShell
 
@@ -68,4 +68,4 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 ## Next steps
 
 - [Design virtual networks with NAT gateway](../virtual-network/nat-gateway/nat-gateway-resource.md)
-- [Integrate NAT gateway with Azure Firewall in a hub and spoke network](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall)
+- [Integrate NAT gateway with Azure Firewall in a hub and spoke network](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md)

@@ -543,7 +543,7 @@ In some use cases, two bots need to be added to the same chat thread to provide 
 
 You can verify the Communication Services user identity of a message sender in the activity's `From.Id` property. Check to see whether it belongs to another bot. Then, take the required action to prevent a bot-to-bot communication flow. If this type of scenario results in high call volumes, the Communication Services Chat channel throttles the requests and a bot can't send and receive messages.
 
-Learn more about [throttle limits](/azure/communication-services/concepts/service-limits#chat).
+Learn more about [throttle limits](../../concepts/service-limits.md#chat).
 
 ## Troubleshoot
 

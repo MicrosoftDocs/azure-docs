@@ -107,7 +107,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ## Azure Communications Gateway limits
 
-Some of the following default limits and quotas can be increased. To request a change, create a [change request](/azure/communications-gateway/request-changes.md) stating the limit you want to change.
+Some of the following default limits and quotas can be increased. To request a change, create a [change request](../../communications-gateway/request-changes.md) stating the limit you want to change.
 
 [!INCLUDE [communications-gateway-general-restrictions](../../communications-gateway/includes/communications-gateway-general-restrictions.md)]
 

@@ -67,9 +67,9 @@ Navigate to the [Operator Connect homepage](https://operatorconnect.microsoft.co
 Your Azure Communications Gateway will require a custom domain name inside your Active Directory tenant. Follow this step to set up the custom domain name that Teams will use to recognize an Azure Communications Gateway that belongs to you.
 
 1. Navigate to your Azure Communications Gateway resource and select **Properties**. You'll see a field named **Domain name**. This name is your custom domain name.
-1. Complete the following procedure: [Add your custom domain name to Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+1. Complete the following procedure: [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
-1. Complete the following procedure: [Verify your custom domain name](/azure/active-directory/fundamentals/add-custom-domain).
+1. Complete the following procedure: [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md).
 
 ## Next steps
 
