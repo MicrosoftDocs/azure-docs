@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 02/20/2023
 ms.custom: references_regions 
 ms.reviewer: geg
 ms.service: backup
@@ -49,7 +49,7 @@ Back up monthly or yearly| Not supported when you're backing up with the Azure V
 Automatically adjust the clock | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time when you're backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Disable security features for hybrid backup](./backup-azure-security-feature.md) |Not supported.
 Back up a VM whose machine time is changed | Not supported.<br/><br/> If you change the machine time to a future date/time after enabling backup for that VM, even if the time change is reverted, successful backup isn't guaranteed.
-Do multiple backups per day    |  Supported through **Enhanced policy** (in preview). <br><br>   For hourly backup, the minimum recovery point objective (RPO) is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours, respectively. [Learn how to back up an Azure VM by using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Do multiple backups per day    |  Supported through **Enhanced policy**. <br><br>   For hourly backup, the minimum recovery point objective (RPO) is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours, respectively. <br><br> Note that the maximum limit of instant recovery point retention range depends on the number of snapshots you take per day. If the snapshot count is more (for example, every *4 hours* frequency in *24 hours* duration - *6* scheduled snapshots), then the maximum allowed days for retention reduces. However, if you choose lower RPO of *12* hours, the snapshot retention is increased to *30 days*. <br><br> Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 Back up a VM with a deprecated plan when the publisher has removed it from Azure Marketplace | Not supported. <br><br> Backup is possible. However, restore will fail. <br><br> If you've already configured backup for a VM with a deprecated virtual machine offer and encounter a restore error, see [Troubleshoot backup errors with Azure VMs](backup-azure-vms-troubleshoot.md#usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present).
 
 ## Operating system support (Windows)
