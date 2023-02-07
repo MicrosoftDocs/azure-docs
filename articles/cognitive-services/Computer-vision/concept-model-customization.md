@@ -23,7 +23,23 @@ The main components of a model customization system are the training images, ass
 
 ### Training images
 
-Your set of training images should include several examples of each of the labels you want to detect. The images need to be stored in an Azure Storage container in order to be accessible to the model.
+Your set of training images should include several examples of each of the labels you want to detect. You'll also want to collect a few extra images to test your model with once it's trained. The images need to be stored in an Azure Storage container in order to be accessible to the model.
+
+In order to train your model effectively, use images with visual variety. Select images that vary by:
+
+- camera angle
+- lighting
+- background
+- visual style
+- individual/grouped subject(s)
+- size
+- type
+
+Additionally, make sure all of your training images meet the following criteria:
+
+- _.jpg_ or _.png_ format
+- no greater than 6MB in size (4MB for prediction images)
+- no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the service
 
 ### Association file
 
