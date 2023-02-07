@@ -86,6 +86,6 @@ To install DCR Config Generator:
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
-	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
+	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
 
-1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template) to associate the generated data collection rules with virtual machines running the new agent.
+1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md) to associate the generated data collection rules with virtual machines running the new agent.
