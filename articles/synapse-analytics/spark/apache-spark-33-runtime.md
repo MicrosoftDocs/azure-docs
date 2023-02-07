@@ -17,7 +17,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > [!IMPORTANT]
 > Azure Synapse Runtime for Apache Spark 3.3 is currently in Public Preview.
 > We are actively rolling out the final changes to all production regions with the goal of ensuring a seamless implementation. As we monitor the stability of these updates, we tentatively anticipate a general availability date of February 23rd. Please note that this is subject to change and we will provide updates as they become available.
-> The .NET Core 3.1 library has reached end of support and therefore has been removed from the Azure Synapse Runtime for Apache Spark 3.3, meaning users will no longer be able to access Spark APIs through C# and F# and execute C# code in notebooks and through jobs. For more information about Azure Synapse Runtime for Apache Spark 3.3 and its components, please refer to the Release Notes. Additionally, for more information about the guidelines for the availability of support throughout the life of a product which applies to Azure Synapse Analytics, please refer to the Modern Lifecycle Policy.
+> The .NET Core 3.1 library has reached end of support and therefore has been removed from the Azure Synapse Runtime for Apache Spark 3.3, meaning users will no longer be able to access Spark APIs through C# and F# and execute C# code in notebooks and through jobs. For more information about Azure Synapse Runtime for Apache Spark 3.3 and its components, please refer to the Release Notes. Additionally, for more information about the guidelines for the availability of support throughout the life of a product which applies to Azure Synapse Analytics, please refer to the Lifecycle Policy.
  
 ## Component versions
 
