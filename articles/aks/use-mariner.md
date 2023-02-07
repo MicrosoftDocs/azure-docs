@@ -54,8 +54,6 @@ Mariner currently has the following limitations:
 * Mariner can't yet be deployed through the Azure portal.
 * Qualys, Trivy, and Microsoft Defender for Containers are the only vulnerability scanning tools that support Mariner today.
 * The Mariner container host is a Gen 2 image. Mariner doesn't plan to offer a Gen 1 SKU.
-* [Node configurations](custom-node-configuration.md) aren't yet supported.
-* Mariner isn't yet a supported runner in GitHub Actions. 
 * Mariner doesn't support AppArmor. Support for SELinux can be manually configured.
 * Some addons, extensions, and open-source integrations may not be supported yet on Mariner. Azure Monitor, Grafana, Helm, Key Vault, and Container Insights are supported.
 
