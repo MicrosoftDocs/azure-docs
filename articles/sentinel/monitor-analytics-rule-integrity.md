@@ -65,33 +65,33 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
 
 - **Failure**: These are the possible descriptions for rule failure, and what you can do about them.
 
-    | Description                                                          | Remediation                                                                          |
-    | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-    | An internal server error occurred while running the query.           |                                                                                      |
-    | The query execution timed out.                                       |                                                                                      |
-    | A table referenced in the query was not found.                       | Verify that the relevant data source is connected.                                   |
-    | A semantic error occurred while running the query.                 | Try resetting the alert rule by editing and saving it (without changing any settings). |
-    | A function called by the query is named with a reserved word.        | Remove or rename the function.                                                       |
-    | A syntax error occurred while running the query.                   | Try resetting the alert rule by editing and saving it (without changing any settings). |
-    | The workspace does not exist.                                        |                                                                                      |
-    | This query was found to use too many system resources and was prevented from running. |                                                                     |
-    | A function called by the query was not found.                        | Verify the existence in your workspace of all functions called by the query.         |
-    | The workspace used in the query was not found.                       | Verify that all workspaces in the query exist.                                       |
-    | You don't have permissions to run this query.                      | Try resetting the alert rule by editing and saving it (without changing any settings). |
-    | You don't have access permissions to one or more of the resources in the query.       |                                                                     |
-    | The query referred to a storage path that was not found.             |                                                                                      |
-    | The query was denied access to a storage path.                       |                                                                                      |
+    | Description  | Remediation  |
+    | ------------ | ------------ |
+    | An internal server error occurred while running the query.   |   |
+    | The query execution timed out.   |   |
+    | A table referenced in the query was not found.   | Verify that the relevant data source is connected.   |
+    | A semantic error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | A function called by the query is named with a reserved word.   | Remove or rename the function.   |
+    | A syntax error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | The workspace does not exist.   |   |
+    | This query was found to use too many system resources and was prevented from running.   |   |
+    | A function called by the query was not found.   | Verify the existence in your workspace of all functions called by the query.   |
+    | The workspace used in the query was not found.   | Verify that all workspaces in the query exist.   |
+    | You don't have permissions to run this query.   | Try resetting the alert rule by editing and saving it (without changing any settings).   |
+    | You don't have access permissions to one or more of the resources in the query.   |   |
+    | The query referred to a storage path that was not found.   |   |
+    | The query was denied access to a storage path.   |   |
     | Multiple functions with the same name are defined in this workspace. | Remove or rename the redundant function and reset the rule by editing and saving it. |
-    | This query did not return any result.                                |                                                                                      |
-    | Multiple result sets in this query are not allowed.                  |                                                                                      |
-    | Query results contain inconsistent number of fields per row.         |                                                                                      |
-    | The rule's running was delayed due to long data ingestion times.     |                                                                                      |
-    | The rule's running was delayed due to temporary issues.              |                                                                                      |
-    | The alert was not enriched due to temporary issues.                  |                                                                                      |
-    | The alert was not enriched due to entity mapping issues.             |                                                                                      |
-    | \<number> entities were dropped in alert \<name> due to the 32 KB alert size limit.   |                                                                     |
-    | \<number> entities were dropped in alert \<name> due to entity mapping issues.        |                                                                     |
-    | The query resulted in `n` events, which exceeds the maximum of 150 results allowed for rules with alert-per-row events-grouping configuration. Alert-per-row was generated for first {3} events and an additional aggregated alert was generated to account for all events.
+    | This query did not return any result.   |   |
+    | Multiple result sets in this query are not allowed.   |   |
+    | Query results contain inconsistent number of fields per row.   |   |
+    | The rule's running was delayed due to long data ingestion times.   |   |
+    | The rule's running was delayed due to temporary issues.   |   |
+    | The alert was not enriched due to temporary issues.   |   |
+    | The alert was not enriched due to entity mapping issues.   |   |
+    | \<*number*> entities were dropped in alert \<*name*> due to the 32 KB alert size limit.   |   |
+    | \<*number*> entities were dropped in alert \<*name*> due to entity mapping issues.   |   |
+    | The query resulted in \<*number*> events, which exceeds the maximum of \<*limit*> results allowed for \<*rule type*> rules with alert-per-row event-grouping configuration. Alert-per-row was generated for first \<*limit*-1> events and an additional aggregated alert was generated to account for all events.<br>- \<*number*> = number of events returned by the query<br>- \<*limit*> = currently 150 alerts for scheduled rules, 30 for NRT rules<br>- \<*rule type*> = Scheduled or NRT
 
 
 ## Next steps
