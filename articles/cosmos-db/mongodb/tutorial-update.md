@@ -67,7 +67,7 @@ db.customers.updateMany(
 
 In the above example, db.customers is the collection name, { city: "New York" } is the filter which matches all the documents that have city field equal to "New York" and { $set: { name: "Jane Smith" } } is the update operation which sets the name field of all the matched documents to "Jane Smith".
 
-You can also use other update operators like $inc, $mul, $rename, $unset etc. to update the data.
+You can also use other update operators like $inc, $mul, $rename, $unset, etc. to update the data.
 
 ## Next steps
 
