@@ -479,3 +479,4 @@ Unfortunately, there's no way to track the time at which the policy will be exec
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)
