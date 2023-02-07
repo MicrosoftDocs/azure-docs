@@ -46,4 +46,6 @@ def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> fu
                 )
 ```
 
+The `msg` parameter is an instance of the [`azure.functions.Out class`](/python/api/azure-functions/azure.functions.out). The `set` method writes a string message to the queue. In this case, it's the name passed to the function in the URL query string.
+
 ---
