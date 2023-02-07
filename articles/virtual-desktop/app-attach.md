@@ -170,16 +170,16 @@ Your MSIX package is now ready to be registered.
 
 To register your MSIX package, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
 
+The `$msixPackageFullName` parameter should be the full name of the package from the previous section, but the format should be similar to the following example: `Publisher.Application_version_Platform__HashCode`.
+
+If you didn't retrieve the parameter after staging your app, you can also find it as the folder name for the app itself in **C:\Program Files\WindowsApps**.
+
 ```powershell
 $msixPackageFullName = "<package full name>"
 
 $manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path $msixPackageFullName AppxManifest.xml)
 Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
 ```
-
-The `$msixPackageFullName` parameter should be the full name of the package from the previous section, but the format should be similar to the following example: `Publisher.Application_version_Platform__HashCode`.
-
-If you didn't retrieve the parameter after staging your app, you can also find it as the folder name for the app itself in **C:\Program Files\WindowsApps**.
 
 Now that your MSIX package is registered, your application should be available for use in your session. You can now open the application for testing and troubleshooting.
 
