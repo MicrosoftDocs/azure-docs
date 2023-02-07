@@ -301,7 +301,6 @@ The current limits for queries are:
 
 - No more than 15 items in the `SELECT` clause list.
 - No more than 10 logical operations in the `WHERE` clause.
-- Queries return a maximum of 10,000 records.
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
 - Telemetry-based queries can retrieve up to 10,000 records.
