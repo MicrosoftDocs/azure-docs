@@ -112,7 +112,7 @@ It may take some time for the training to complete. After training has completed
 
 By default, performance is estimated based on data in the training dataset. You can optionally create evaluation datasets (using the same process as above) to use at this step for further model evaluation.
 
-![performance result](https://user-images.githubusercontent.com/101659194/174334772-7b548e87-6667-4681-80eb-58928405cb6d.png)
+:::image type="content" source="../media/customization/evaluation.png" alt-text="Screenshot of evaluation.":::
 
 ## Use custom model to generate predictions
 
