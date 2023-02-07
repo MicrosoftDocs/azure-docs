@@ -3,7 +3,7 @@ title: Test and troubleshoot MSIX packages with app attach - Azure
 description: Learn how to use MSIX app attach to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/07/2023
 ms.author: helohr
 manager: femila
 ---
@@ -19,7 +19,7 @@ Before you can use MSIX app attach to follow the directions in this article, you
 
 - A Windows 10 or 11 client.
 - An application you've expanded from MSIX format into app attach format. To learn how to expand an MSIX application, see [Using the MSIXMGR tool](app-attach-msixmgr.md).
-- If you're using a cimFS image, you'll need to install the following module before you can get started:
+- If you're using a CimFS image, you'll need to install the following module before you can get started:
   
    ```powershell
    Install-Module CimDiskImage
@@ -29,7 +29,7 @@ Before you can use MSIX app attach to follow the directions in this article, you
 These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
 
 >[!NOTE]
->Microsoft Support doesn't currently support the PowerShell scripts in this article, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
+>Microsoft Support doesn't currently support this CimFS disk image module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ## Phases of MSIX app attach
 
