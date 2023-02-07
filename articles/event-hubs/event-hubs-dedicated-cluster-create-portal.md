@@ -71,7 +71,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png" alt-text="Image showing the Create namespace in the cluster page.":::
 3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub) as you would normally create one within a namespace. 
 
-## Scale an existing cluster
+## Scale Event Hubs dedicated cluster
 
 For clusters created with the **Support Scaling** option set, use the following steps to scale out or scale in your cluster. 
 
