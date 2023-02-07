@@ -22,6 +22,24 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | February 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
+### Deprecation of selected alerts in Defender for ARM bundle
+**Estimated date for change: March 2023**
+
+In the process of improving our alerts quality, we are going to deprecate three alerts that are currently a part of Defender for ARM plan:
+1. Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)
+2. Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)
+3. Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)
+
+You can view more details about the alerts in the [alerts reference list](https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-resourcemanager)
+
+Notice the scenario of activity from a suspicious IP is detected by a different alert within Defender for ARM bundle - "Azure Resource Manager operation from suspicious IP address".
+
+### Deprecation of alerts' automatic export to Log Analytics workspace
+**Estimated date for change: March 2023**
+Up until now, Defender for Cloud security alerts were automatically exported to a default Log Analytics workspace on the resource level which was causing undeterministic behavior. Therefore, this feature is being deprecated.
+The existing way to export your security alerts into a dedicated Log Analytics workspace is by using [Continuous Export feature](https://learn.microsoft.com/en-us/azure/defender-for-cloud/continuous-export?tabs=azure-portal#set-up-a-continuous-export). 
+If you already have continuous export of your alerts to Log Analytics enabled, no further action is required.
+
 ### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
 **Estimated date for change: February 2023**
