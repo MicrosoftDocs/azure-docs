@@ -243,9 +243,11 @@ For forecasting experiments, the forecast horizon chart plots the relationship b
 
 You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 20 different time series identifiers to visualize the chart for your various time series.  
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > This chart is available in the training run for models generated from training and validation data as well as in the test run based on training data and test data. We allow up to 20 data points before and up to 80 data points after the forecast origin.
-> For DNN models, this chart in the training run shows data from the last epoch i.e. after the model has been trained completely.> This chart in the test run can have gap before the horizon line if validation data was explicitly provided during the training run. This is becasue training data and test data is used in the test run leaving out the validation data which results in gap.
+> For DNN models, this chart in the training run shows data from the last epoch i.e. after the model has been trained completely.
+> This chart in the test run can have gap before the horizon line if validation data was explicitly provided during the training run. 
+>This is becasue training data and test data is used in the test run leaving out the validation data which results in gap.
 
 ![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
