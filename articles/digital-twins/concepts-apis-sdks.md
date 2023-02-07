@@ -50,7 +50,7 @@ The data plane APIs are the Azure Digital Twins APIs used to manage the elements
 * `DigitalTwins` - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * `Query` - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * `Event Routes` - The Event Routes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
-* `Jobs` - The Jobs API lets you manage jobs to [import models, twins, and relationships in bulk](#bulk-import-with-the-jobs-api).
+* `Jobs` - The Jobs API lets you manage long running, asynchronous actions on your Azure Digital Twins instance, such as [importing models, twins, and relationships in bulk](#bulk-import-with-the-jobs-api).
 
 To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
 
