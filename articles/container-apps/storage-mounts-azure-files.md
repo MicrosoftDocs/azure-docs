@@ -442,7 +442,7 @@ Now you can update the container app configuration to support the storage mount.
     ```yml
     template:
       volumes:
-      - name: my-azure-file-volume
+      - name: azure-file-volume
         storageName: mystoragemount
         storageType: AzureFile
     ```
@@ -464,7 +464,7 @@ Now you can update the container app configuration to support the storage mount.
       - image: nginx
         name: my-container-app
         volumeMounts:
-        - volumeName: my-azure-file-volume
+        - volumeName: azure-file-volume
           mountPath: /var/log/nginx
     ```
 
