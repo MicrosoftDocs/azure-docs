@@ -37,7 +37,7 @@ This change will be implemented automatically, and customers who already have Az
 |----------------------- | ------------------------ | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
 | Per input minute       | $0.0126                  | $0.024                      | $0.04                       | $0.09                       | $0.15                       |
 
-## Network Service Tag
+### Network Service Tag
 
 Video Indexer supports the use of Network Security Tag to allow network traffic from Video Indexer IPs into your network. Starting 22 January, we renamed our Network Security Service tag from `AzureVideoAnalyzerForMedia` to `VideoIndexer`. This change will require you to update your deployment scripts and/or existing configuration. See our [Network Security Documentation](network-security.md) for more info.
 
