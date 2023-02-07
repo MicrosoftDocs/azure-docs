@@ -669,7 +669,7 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 $publicip = @{
     Name = 'myPublicIP-IPv6'
     ResourceGroupName = 'TutorialIPv6NATLB-rg'
-    Location = 'eastus'
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'static'
     IpAddressVersion = 'IPv6'
@@ -710,7 +710,7 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 $lbrule = @{
     Name = 'myOutboundRule'
     AllocatedOutboundPort = '20000'
-    Protocol = '*'
+    Protocol = 'All'
     IdleTimeoutInMinutes = '4'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
@@ -725,8 +725,7 @@ $loadbalancer = @{
     Sku = 'Standard'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
-    LoadBalancingRule = $rule
-    Probe = $healthprobe
+    OutboundRule = $rule
 }
 New-AzLoadBalancer @loadbalancer
 ```
@@ -754,7 +753,7 @@ $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 $nic.IpConfigurations[1].LoadBalancerBackendAddressPools = $bepool
 
 ## Set the network interface and save the configuration. ##
-$nic = Set-AzNetworkInterface
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
