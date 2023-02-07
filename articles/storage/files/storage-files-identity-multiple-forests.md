@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/07/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -121,6 +121,9 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 1. Select **Properties** and then **Name Suffix Routing**.
 1. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
 1. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
+
+> [!NOTE]
+> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 ## Validate that the trust is working
 
