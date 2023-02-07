@@ -20,6 +20,21 @@ Azure Machine Learning checks and validates any machine learning packages that m
 
 Main updates provided with each image version are described in the below sections.
 
+## January 19, 2023
+Version: `23.01.19`
+
+Main changes:
+
+- Added new conda environment `jupyter-env`
+- Moved jupyter service to new `jupyter-env` conda environment
+- `Azure Machine Learning SDK` to version `1.48.0`
+ 
+Main environment specific updates:
+
+- Added `azureml-fsspec` package to `Azureml_py310_sdkv2`
+- `CUDA` support resolved for `azureml_py38CUDA` 
+- `CUDA` support resolved for `azureml_py38_PT_TF`
+
 ## September 22, 2022 
 Version `22.09.22`
 

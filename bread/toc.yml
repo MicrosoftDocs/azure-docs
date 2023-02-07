@@ -491,6 +491,9 @@
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
+  - name: Communications Gateway
+    tocHref: /azure/communications-gateway/
+    topicHref: /azure/communications-gateway/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
