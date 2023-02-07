@@ -15,7 +15,7 @@ By using the cloud security explorer, you can proactively identify security risk
 
 With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and across multiple clouds (Azure and AWS EC2).
 
-Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
+Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
 ## Prerequisites
 
