@@ -189,6 +189,8 @@
       items:
       - name: C# (.NET)
         href: https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples
+      - name: C
+        href: https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples
       - name: Node.js
         href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
