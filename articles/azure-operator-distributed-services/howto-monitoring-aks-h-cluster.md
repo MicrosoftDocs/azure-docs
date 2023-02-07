@@ -41,7 +41,7 @@ Documentation pertaining to the Azure CLI, for example, how to install it across
 
 ## Monitoring AKS-Hybrid – VM Layer
 
-This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers.md) the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](../azure-monitor/agents/agents-overview.md). The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
+This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers) the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](../azure-monitor/agents/agents-overview.md). The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
 To support these steps, the following resources are provided:
 
