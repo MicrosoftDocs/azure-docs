@@ -29,33 +29,35 @@ The following table lists requirements for using Azure AD Connect Health:
 
 | Requirement | Description |
 | --- | --- |
-| You have an Azure Active Directory (Azure AD) Premium (P1 or P2) Subscription.  |Azure AD Connect Health is a feature of Azure AD Premium (P1 or P2). For more information, see [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| You're a Hybrid Identity Administrator in Azure AD. |By default, only Hybrid Identity Administrator or Global Administrator accounts can install and configure health agents, access the portal, and do any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account to install the agents. For more information, see [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md). |
-| The Azure AD Connect Health agent is installed on each targeted server. | Health agents must be installed and configured on targeted servers so that they can receive data and provide monitoring and analytics capabilities. <br /><br />For example, to get data from your Active Directory Federation Services (AD FS) infrastructure, you must install the agent on the AD FS server and on the Web Application Proxy server. Similarly, to get data from your on-premises Azure Active Directory Domain Services (Azure AD DS) infrastructure, you must install the agent on the domain controllers.  |
-| The Azure service endpoints have outbound connectivity. | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, add the [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) to an allowlist. |
+| You have an Azure Active Directory (Azure AD) Premium (P1 or P2) Subscription. |Azure AD Connect Health is a feature of Azure AD Premium (P1 or P2). For more information, see [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
+| You're a hybrid identity administrator in Azure AD. |By default, only Hybrid Identity Administrator and Global Administrator accounts can install and configure health agents, access the portal, and do any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account to install the agents. For more information, see [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md). |
+| The Azure AD Connect Health agent is installed on each targeted server. | Health agents must be installed and configured on targeted servers so that they can receive data and provide monitoring and analytics capabilities. <br /><br />For example, to get data from your Active Directory Federation Services (AD FS) infrastructure, you must install the agent on the AD FS server and on the Web Application Proxy server. Similarly, to get data from your on-premises Azure Active Directory Domain Services (Azure AD DS) infrastructure, you must install the agent on the domain controllers. |
+| The Azure service endpoints have outbound connectivity. | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, add the [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-azure-service-endpoints) to an allowlist. |
 |Outbound connectivity is based on IP addresses. | For information about firewall filtering based on IP addresses, see [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).|
 | TLS inspection for outbound traffic is filtered or disabled. | The agent registration step or data upload operations might fail if there's TLS inspection or termination for outbound traffic at the network layer. For more information, see [Set up TLS inspection](/previous-versions/tn-archive/ee796230(v=technet.10)). |
-| Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br />- TCP port 443 <br />- TCP port 5671 <br /><br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Hybrid identity required ports and protocols](./reference-connect-ports.md).  |
-| If Internet Explorer enhanced security is enabled, allow specified websites.  |If Internet Explorer enhanced security is enabled, allow the following websites on the server where you install the agent:<br />- `https://login.microsoftonline.com` <br />- `https://secure.aadcdn.microsoftonline-p.com` <br />- `https://login.windows.net` <br />- `https://aadcdn.msftauth.net` <br />- The federation server for your organization that's trusted by Azure AD (for example, `https://sts.contoso.com`). <br /><br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, see the note that appears at the end of this table.|
+| Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br />- TCP port 443 <br />- TCP port 5671 <br /><br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Hybrid identity required ports and protocols](./reference-connect-ports.md). |
+| If Internet Explorer enhanced security is enabled, allow specified websites. |If Internet Explorer enhanced security is enabled, allow the following websites on the server where you install the agent:<br />- `https://login.microsoftonline.com` <br />- `https://secure.aadcdn.microsoftonline-p.com` <br />- `https://login.windows.net` <br />- `https://aadcdn.msftauth.net` <br />- The federation server for your organization that's trusted by Azure AD (for example, `https://sts.contoso.com`). <br /><br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, see the note that appears at the end of this table.|
 | PowerShell version 5.0 or later is installed. | Windows Server 2016 includes PowerShell version 5.0. |
 
 > [!IMPORTANT]
 > Windows Server Core doesn't support installing the Azure AD Connect Health agent.
 
 > [!NOTE]
-> If you have a highly locked-down and restricted environment, you need to add more URLs than the URLs the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
+> If you have a highly locked-down and restricted environment, you need to add more URLs than the URLs the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.
 
 ### New versions of the agent and auto upgrade
 
 If a new version of the health agent is released, any existing, installed agents are automatically updated.
 
+<a name="outbound-connectivity-to-the-azure-service-endpoints"></a>
+
 ### Outbound connectivity to Azure service endpoints
 
-During installation and runtime, the agent needs connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, make sure that the URLs in the following  table aren't blocked by default.
+During installation and runtime, the agent needs connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, make sure that the URLs in the following table aren't blocked by default.
 
 Don't disable security monitoring or inspection of these URLs. Instead, allow them as you would allow other internet traffic.
 
-These URLs allow communication with Azure AD Connect Health service endpoints. Later in this article, you'll learn how to [check outbound connectivity](#test-connectivity-to-azure-ad-connect-health-service) by using `Test-AzureADConnectHealthConnectivity`.
+These URLs allow communication with Azure AD Connect Health service endpoints. Later in this article, you'll learn how to [check outbound connectivity](#test-connectivity-to-the-azure-ad-connect-health-service) by using `Test-AzureADConnectHealthConnectivity`.
 
 | Domain environment | Required Azure service endpoints |
 | --- | --- |
@@ -266,7 +268,7 @@ When you finish, you can remove access for the local account by completing one o
 - Remove the role assignment for the local account for Azure AD Connect Health.
 - Rotate the password for the local account.
 - Disable the Azure AD local account.
-- Delete the Azure AD local account.  
+- Delete the Azure AD local account.
 
 ## Register the agent by using PowerShell
 
@@ -368,6 +370,7 @@ You can read the current proxy settings by running the following command:
 ```powershell
 Get-AzureAdConnectHealthProxySettings
 ```
+<a name="test-connectivity-to-azure-ad-connect-health-service"></a>
 
 ## Test connectivity to the Azure AD Connect Health service
 
