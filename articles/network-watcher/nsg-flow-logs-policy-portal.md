@@ -5,7 +5,7 @@ description: This article explains how to use the built-in policies to manage th
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
-ms.topic: article
+ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 02/09/2022
 ms.author: halkazwini
