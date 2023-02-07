@@ -1,4 +1,4 @@
-The next sections show some samples to illustrate these features.
+Frequently asked samples for Bot implementation
 
 ### Send a welcome message when a new user is added to the thread
 
