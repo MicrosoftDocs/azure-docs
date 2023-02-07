@@ -14,7 +14,7 @@ ms.date: 11/05/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL
 
 ## Release: February 2023
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server
