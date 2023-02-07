@@ -12,7 +12,7 @@ ms.date: 02/07/2023
 
 # What is RU-based and vCore-based Azure Cosmos DB for MongoDB?
 
-[TODO: Paragraphs of text and H2 sub-headers]
+[TODO: Paragraphs of text and H2 subheaders]
 
 ## Next steps
 

@@ -20,23 +20,23 @@ ms.date: 02/07/2023
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - Azure Cosmos DB for MongoDB (vCore) account. [Create an API for MongoDB (vCore) account](how-to-create-account.md).
-- {TODO: Any additional prerequisites}
+- {TODO: Any extra prerequisites}
 
 ## {TODO: First task}
 
-{TODO: Provide a brief description of what will happen in this task. Keep it to less than 200 words.}
+{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
 
 1. {TODO: Add prescriptive steps for task}
 
 ## {TODO: Second task}
 
-{TODO: Provide a brief description of what will happen in this task. Keep it to less than 200 words.}
+{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
 
 1. {TODO: Add prescriptive steps for task}
 
 ## {TODO: Third task}
 
-{TODO: Provide a brief description of what will happen in this task. Keep it to less than 200 words.}
+{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
 
 1. {TODO: Add prescriptive steps for task}
 
