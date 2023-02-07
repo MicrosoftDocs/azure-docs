@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/01/2023
+ms.date: 02/07/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -73,7 +73,7 @@ The policy [`Vulnerability Assessment settings for SQL server should contain an 
 
 The Defender for SQL vulnerability assessment email report is still available and existing email configurations haven't changed.
 
-## Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
+### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
 
 The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated. 
 
