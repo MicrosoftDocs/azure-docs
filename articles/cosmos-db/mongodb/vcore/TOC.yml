@@ -1,0 +1,24 @@
+- name: vCore-based MongoDB documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is vCore-based Azure Cosmos DB for MongoDB?
+      href: introduction.md
+- name: Concepts
+  items:
+    - name: MongoDB feature support
+      href: compatibility.md
+    - name: High availability
+      href: high-availability.md
+    - name: Migration options
+      href: migration-options.md
+- name: How to
+  items:
+    - name: Create account
+      href: how-to-create-account.md
+    - name: Scale cluster
+      href: how-to-scale-cluster.md
+    - name: Restore cluster
+      href: how-to-restore-cluster.md
+    - name: Migrate data
+      href: how-to-migrate-data.md
