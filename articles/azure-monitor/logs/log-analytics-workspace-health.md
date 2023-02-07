@@ -34,7 +34,7 @@ Latency refers to the amount of time it takes for log data to become available i
 
         :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::  
 
-    1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md). 
+    1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md). 
 
 
 ## Next steps
