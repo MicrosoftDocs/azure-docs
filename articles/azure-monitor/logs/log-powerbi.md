@@ -13,11 +13,12 @@ ms.date: 02/06/2023
 [Azure Monitor Logs](../logs/data-platform-logs.md) provides an end-to-end solution for ingesting logs. [Log Analytics](../data-platform.md), the user interface for querying these logs, lets you connect to [Power BI](https://powerbi.microsoft.com/), Microsoft's data visualization platform. This article explains how to feed data from Log Analytics into Power BI to produce professional, visually appealing reports and dashboards based on log data.
 
 > [!NOTE]
-> You can use free Power BI features to integrate and create visually appealing reports and dashboards. More advanced features, such as sharing your work and scheduled refreshes might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
+> You can use free Power BI features to integrate and create visually appealing reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
 ## Create Power BI datasets and reports from Log Analytics queries
 
-You can create Power BI datasets and reports from your Log Analytics queries. Two options are available under the **Export** menu in Log Analytics:
+Under the **Export** menu in Log Analytics, you have two options for creating Power BI datasets and reports from your Log Analytics queries:
+ 
 - **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
 - **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service, otherwise, consider exporting the query as a new dataset.
 
