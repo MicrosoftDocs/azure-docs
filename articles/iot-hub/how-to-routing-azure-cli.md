@@ -138,7 +138,7 @@ To create a Service Bus queue endpoint, use the authorization rule that you crea
    | parameter | value |
    | --------- | ----- |
    | *queue_group* | Resource group of the Service Bus queue. |
-   | *queue_namespace* | Name of the Servce Bus queue namespace. |
+   | *queue_namespace* | Name of the Service Bus queue namespace. |
    | *queue_name* | Name of the queue. |
    | *rule_name* | The name of the authorization rule for the queue. If you copied the example in the prerequisites, this name is `my-auth-rule`. |
 
