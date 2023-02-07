@@ -334,4 +334,4 @@ To learn more about using the Azure Storage client libraries to work with data r
 - [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Get started with Azure Blob Storage and Java](storage-blob-java-get-started.md)
 - [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
-- [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md)
