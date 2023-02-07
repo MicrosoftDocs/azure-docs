@@ -107,7 +107,7 @@ You've now created your share. The recipients of your share will receive an invi
 When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
-   > Shares created using the SDK and without registering the storage account with Microsoft Purview will not be ingested into the catalog. 
+   > Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update a sent share
 

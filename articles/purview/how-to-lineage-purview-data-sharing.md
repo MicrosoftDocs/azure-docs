@@ -66,6 +66,22 @@ To see the data sharing lineage for your sent share or received share asset, do 
 >[!Important]
 >For Data Share assets to show in Microsoft Purview, the ADLS Gen2 or Blob Storage account that the shares (sent share or received share) belong to should be registered with Microsoft Purview. A user can see such assets in a collection that they have a minimum of Data Reader permissions.
 
+## Troubleshoot
+
+Here are some common issues when viewing data sharing lineage.
+
+### Can't see the recipient AAD tenant on the sent share lineage
+
+If you're unable to see the recipient AAD tenant on the sent share lineage, it means the recipient has not attached the share yet.
+
+### Can't find a sent share or received share asset in the Catalog
+
+Sent shares or received shares are ingested into the collection to which the storage accounts they belong to are registered. 
+* If the storage accounts the share assets belong to are not registered, the share assets will not be discoverable. I
+* If the storage accounts the share assets belong to are registered to a collection which you don't have a minimum of Data Reader permission to, the share assets are not discoverable.
+
+
+
 ## Next steps
 
 * [Data sharing quickstart](quickstart-data-share.md)
