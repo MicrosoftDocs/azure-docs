@@ -33,7 +33,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |
-|**Custom logs text**     |   Collection only       |    Collection only     |
+|**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
