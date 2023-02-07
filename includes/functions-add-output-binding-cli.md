@@ -20,7 +20,7 @@ You declare these bindings in the *function.json* file in your function folder. 
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.json* file. From the previous quickstart, you *function_app.json* file in the *HttpExample* folder contains one decorator binding:
+Binding attributes are defined directly in the *function_app.py* file. From the previous quickstart, your *function_app.py* file, which contains one decorator-based binding, is in the *HttpExample* folder:
 
 ---
 
