@@ -72,23 +72,6 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ---
 
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
-
-| Name | Description |
-| ---- |-------------|
-| EmailAddress | This interface contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
-| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailClientOptions | This interface can be added to the EmailClient instantiation to target a specific API version. |
-| EmailContent | This interface contains the subject, plaintext, and html of the email message. |
-| EmailCustomHeader | This interface allows for the addition of a name and value pair for a custom header. |
-| EmailMessage | This interface combines the sender, content, and recipients. Custom headers, importance, attachments, and reply-to email addresses can optionally be added as well. |
-| EmailRecipients | This interface holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
-| SendStatusResult | This interface holds the messageId and status of the email message delivery. |
-
-
 ## Send an email message
 
 ```azurecli-interactive
