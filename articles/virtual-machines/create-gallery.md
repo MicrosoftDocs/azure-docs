@@ -37,9 +37,6 @@ Allowed characters for gallery name are uppercase or lowercase letters, digits, 
 ## Create a private gallery
 
 
-
-
-
 ### [Portal](#tab/portal)
 
 
@@ -240,7 +237,7 @@ The output of this command will give you the public name for your community gall
 To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
 ### [REST](#tab/rest2)
-To create gallery, submit a PUT request: 
+To create gallery, submit a PUT request:
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01
@@ -309,7 +306,7 @@ To start sharing the gallery to all Azure users, see [Share images using a commu
 ## Next steps
 
 - Create an [image definition and an image version](image-version.md).
-
+- Create a VM from a [generalized](vm-generalized-image-version.md#direct-shared-gallery) or [specialized](vm-specialized-image-version.md#direct-shared-gallery) image in a gallery.
 - [Create a VM application](vm-applications-how-to.md) in your gallery.
 
 
