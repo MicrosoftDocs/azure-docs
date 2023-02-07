@@ -53,7 +53,7 @@ db.myCollection.insertMany([
 ], {ordered: false});
 ```
 
-This tells MongoDB to insert the documents in an unordered fashion, meaning that if one document fails to be inserted, it will continue with the next one.This is recommended for write performance in Cosmos DB for MongoDB
+This tells MongoDB to insert the documents in an unordered fashion, meaning that if one document fails to be inserted, it will continue with the next one. This is recommended for write performance in Cosmos DB for MongoDB
 
 ## Next steps
 

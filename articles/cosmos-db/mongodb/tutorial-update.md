@@ -40,7 +40,7 @@ db.customers.updateOne(
 
 In the above example, db.customers is the collection name, { _id: 1 } is the filter which matches the first document that has _id equal to 1 and { $set: { name: "Jane Smith" } } is the update operation which sets the name field of the matched document to "Jane Smith".
 
-You can also use other update operators like $inc, $mul, $rename, $unset etc to update the data.
+You can also use other update operators like $inc, $mul, $rename, $unset etc. to update the data.
 
 ## updateMany() Method
 
@@ -65,9 +65,9 @@ db.customers.updateMany(
 )
 ```
 
-In the above example, db.customers is the collection name, { city: "New York" } is the filter which matches all the documents that has city field equal to "New York" and { $set: { name: "Jane Smith" } } is the update operation which sets the name field of all the matched documents to "Jane Smith".
+In the above example, db.customers is the collection name, { city: "New York" } is the filter which matches all the documents that have city field equal to "New York" and { $set: { name: "Jane Smith" } } is the update operation which sets the name field of all the matched documents to "Jane Smith".
 
-You can also use other update operators like $inc, $mul, $rename, $unset etc to update the data.
+You can also use other update operators like $inc, $mul, $rename, $unset etc. to update the data.
 
 ## Next steps
 
