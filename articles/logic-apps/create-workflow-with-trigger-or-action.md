@@ -28,9 +28,9 @@ This guide shows the steps for Consumption and Standard logic app workflows.
 
 The following steps use the Azure portal, but you can also use the following tools to create a logic app and workflow:
 
-  - Consumption workflows: Visual Studio or Visual Studio Code
+  - Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
-  - Standard workflows: Visual Studio Code
+  - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 ## Add a trigger to start your workflow
 
@@ -40,11 +40,13 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, under the search box, select **All** so that you can search all the connectors and triggers by name.
 
-   The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. So, the **Triggers** list shows all available triggers, based on the previously described order:
-
+   The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. The **Triggers** list shows all available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
+ 
    :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-triggers-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with blank workflow designer, and built-in triggers gallery.":::
 
-   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
+   To show more connectors in the gallery, below the connectors row, select the down arrow.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with workflow designer, and down arrow selected to show more connectors.":::
 
 1. In the search box, enter the name for the connector or trigger that you want to find.
 
@@ -69,7 +71,13 @@ The following steps use the Azure portal, but you can also use the following too
    | **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
    | **Azure** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
 
-   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+   The following example shows the designer for a blank Standard logic app workflow with the **Built-in** group selected. The **Triggers** list shows all available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+ 
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-triggers-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with blank workflow designer, and built-in triggers gallery.":::
+
+   To show more connectors in the gallery, below the connectors row, select the down arrow.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with workflow designer, and down arrow selected to show more connectors.":::
 
 1. To filter the list, in the search box, enter the name for the connector or trigger. From the triggers list, select the trigger that you want.
 
