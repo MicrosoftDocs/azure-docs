@@ -35,8 +35,8 @@ sections:
           Microsoft Defender for Cloud monitors the following Azure resources:
           
           * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-          * Virtual machine scale sets
-          * [The many Azure PaaS services listed in the product overview](features-paas.md)
+          * Virtual Machine Scale Sets
+          * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#features-supported-in-different-azure-cloud-environments)
           
           
       - question: |
@@ -93,3 +93,15 @@ sections:
           The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
           
           Defender for Cloud is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
+
+
+      - question: |
+          How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?
+        answer: |
+          Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
+
+          :::image type="content" source="media/faq-general/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event.":::
+
+          If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
+
+          :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer.":::
