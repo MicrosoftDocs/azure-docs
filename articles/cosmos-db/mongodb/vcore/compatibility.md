@@ -1,7 +1,7 @@
 ---
 title: Compatibility and feature support
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
-description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results.
+description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results5.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
