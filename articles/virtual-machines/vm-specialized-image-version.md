@@ -19,9 +19,11 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
 
 This article shows how to create a VM from a specialized image:
-- [In your own gallery](#create-a-vm-from-your-gallery) 
-- Shared to a [community gallery](#create-a-vm-from-a-community-gallery-image)
-- [Directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant)
+- [In your own gallery](#create-a-vm-from-your-gallery)
+- [Shared within your organization using RBAC](#rbac---within-your-organization)
+- [Shared across tenants using RBAC](#rbac---from-another-tenant-or-organization)
+- [Shared to everyone in a community gallery](#community-gallery)
+- [Directly shared to your subscription or tenant](#direct-shared-gallery)
 
 > [!IMPORTANT]
 > 
