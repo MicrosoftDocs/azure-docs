@@ -200,8 +200,8 @@ To determine all SAP hostnames associated with the SID, Sign in to the SAP syste
 
    ```Command to find list of instances associated to given instance
     /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
-   ```
-    
+   ``` 
+   
 ### Common errors and possible solutions 
 
 #### Methods incorrectly unprotected in RZ10
@@ -246,7 +246,8 @@ Possible Causes: The operation failed with error: 'Unable to reach the hostname:
 Recommended Action: 'check the input hostname, instance number, and host file entries. '.
 (Code: ProviderInstanceValidationOperationFailed) 
     
-
+#### Batch job metrics are not fetched
+Apply the OSS Note – 2469926 in your SAP System to resolve the issues with batch jobs metrics.
 
 ## Configure NetWeaver for Azure Monitor for SAP solutions (classic)
 
