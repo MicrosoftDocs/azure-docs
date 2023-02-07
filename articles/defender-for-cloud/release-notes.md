@@ -20,9 +20,9 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in February include:
 
-- [The CIS 1.5.0 compliance standard for AWS is now supported](#the-cis-150-compliance-standard-for-aws-is-now-supported)
+- [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
 
-## The CIS 1.5.0 compliance standard for AWS is now supported 
+## Announcing support for the AWS CIS 1.5.0 compliance standard
 
 Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md#add-a-regulatory-standard-to-your-dashboard), and builds on MDC's existing offerings for multi-cloud recommendations and standards.
 
