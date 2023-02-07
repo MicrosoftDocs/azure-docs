@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview.
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core.
 
 - You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 - Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
@@ -33,6 +33,16 @@ Collect all of the following values for the mobile network resource that will re
    |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
+
+### Collect the required information for a network slice
+
+Collect all of the following values to provision a network slice in the private mobile network. You'll be able to create additional slices after you deploy the mobile network resource.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   | The name for the slice. | **Slice configuration: Slice name** |
+   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice configuration: Slice Service Type (SST)** |
+   | The slice differentiator (SD) value. This optional setting is a string of six hexadecimal digits, and can be used to differentiate between multiple network slices that have the same SST value. | **Slice configuration: Slice Differentiator (SD)** |
 
 ## Collect SIM and SIM group values
 
