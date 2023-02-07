@@ -72,7 +72,7 @@ To build and deploy your module image, you need Docker to build the module image
 
 ::: zone pivot="iotedge-dev-cli"
 
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running the following command in your terminal. 
+- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already, install [Python (3.6/3.7)](https://www.python.org/downloads/) and Pip3 and then install the IoT Edge Dev Tool (iotedgedev) with the following command in your terminal. 
 
     ```cmd
     pip3 install iotedgedev
