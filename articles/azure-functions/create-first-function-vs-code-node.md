@@ -46,7 +46,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Provide the following information at the prompts:
 ::: zone pivot="node-model-v3" 
-    |Prompt|Selection|
+|Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `JavaScript`.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
@@ -57,7 +57,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
 ::: zone-end
 ::: zone pivot="node-model-v4" 
-    |Prompt|Selection|
+|Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `JavaScript`.|
     |**Select a JavaScript programming model**|Choose `Model V4 (Preview)`|
