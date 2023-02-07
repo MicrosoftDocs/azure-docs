@@ -31,7 +31,7 @@ You can use a managed identity to authenticate to any [service that supports Azu
 
 ### Availability zone support
 
-Availability Zones are physically separate locations within an Azure region made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones provide in-region High Availability and protection against local disasters. Microsoft Energy Data Services Preview supports zone-redundant instance by default and there's no setup required by the Customer. [Learn more.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all))
+Availability Zones are physically separate locations within an Azure region made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones provide in-region High Availability and protection against local disasters. Microsoft Energy Data Services Preview supports zone-redundant instance by default and there's no setup required by the Customer. [Learn more.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all)
 
 <hr width=100%>
 
