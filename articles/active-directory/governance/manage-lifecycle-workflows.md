@@ -1,9 +1,9 @@
 ---
-title: Manage lifecycle with Lifecycle workflows - Azure Active Directory
+title: Manage lifecycle with Lifecycle workflows
 description: Learn how to manage user lifecycles with Lifecycle Workflows
 services: active-directory
 documentationcenter: ''
-author: owinfrey
+author: owinfreyATL
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory

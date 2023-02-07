@@ -53,8 +53,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
 	if err != nil {
@@ -117,8 +117,8 @@ import (
 )
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
     file := "path/to/file.wav"
 
 	audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)

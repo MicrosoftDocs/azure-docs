@@ -9,7 +9,7 @@ ms.reviewer: yutlin
 ms.custom: seodec18
 ---
 
-# Secure connections by adding and managing TLS/SSL certificates in Azure App Service
+# Add and manage TLS/SSL certificates in Azure App Service
 
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
@@ -83,7 +83,7 @@ The free certificate comes with the following limitations:
 - Must meet all the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
-- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net`. Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
 - Must meet all the above for successful certificate issuance and renewals.
 
 ---
@@ -281,6 +281,11 @@ If your certificate authority gives you multiple certificates in the certificate
 ### Export merged private certificate to PFX
 
 Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request using OpenSSL, then you created a private key file.
+
+> [!NOTE]
+> OpenSSL v3 creates certificate serials with 20 octets (40 chars) as the X.509 specification allows. Currently only 10 octets (20 chars) is supported when uploading certificate PFX files.
+> OpenSSL v3 also changed default cipher from 3DES to AES256, but this can be overridden on the command line.
+> OpenSSL v1 uses 3DES as default and only uses 8 octets (16 chars) in the serial, so the PFX files generated are supported without any special modifications.
 
 1. To export your certificate to a PFX file, run the following command, but replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 

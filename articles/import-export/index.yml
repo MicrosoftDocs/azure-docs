@@ -63,7 +63,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Export data offline with Import/Export
-            url: /learn/modules/export-data-with-azure-import-export/
+            url: /training/modules/export-data-with-azure-import-export/
 
 
   # Card

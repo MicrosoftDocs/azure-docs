@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 **Applies to:** Azure Database for PostgreSQL - Flexible Server versions 11 and later.
 

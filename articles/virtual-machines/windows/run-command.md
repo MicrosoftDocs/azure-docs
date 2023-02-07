@@ -20,7 +20,7 @@ The Run Command feature uses the virtual machine (VM) agent to run PowerShell sc
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machine-run-commands), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines/run-command), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -149,6 +149,8 @@ If needing to remove your action run command Windows extension, refer to the bel
 ```azurecli-interactive
 az vm run-command invoke  --command-id RemoveRunCommandWindowsExtension --name vmname -g rgname
 ```
+> [!NOTE]
+> When you apply a Run Command again, the extension will get installed automatically. You can use the extension removal command to troubleshoot any issues related to the extension.
 
 ## Next steps
 

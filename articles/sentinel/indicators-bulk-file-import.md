@@ -72,7 +72,7 @@ Monitor your imports and view error reports for partially imported or failed imp
 
     :::image type="content" source="media/indicators-bulk-file-import/manage-file-imports.png" alt-text="Screenshot of the menu option to manage file imports.":::
 
-1. Review the status of imported files and the number of invalid indicator entries.
+1. Review the status of imported files and the number of invalid indicator entries.The valid/invalid indicator count is updated once the file is processed. Please wait for the import to complete to get the updated count of valid/invalid indicators.  
 
     :::image type="content" source="media/indicators-bulk-file-import/manage-file-imports-pane.png" alt-text="Screenshot of the manage file imports pane with example ingestion data. The columns show sorted by imported number with various sources.":::
 

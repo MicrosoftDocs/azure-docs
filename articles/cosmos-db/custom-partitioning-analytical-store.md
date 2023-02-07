@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
@@ -124,7 +124,7 @@ You could use one or more partition keys for your analytical data. If you are us
 
 * Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. Selecting custom storage accounts is not supported at this point.
 
-* Custom partitioning is only available for SQL API in Cosmos DB. API for Mongo DB, Gremlin and Cassandra are not supported at this time. 
+* Custom partitioning is only available for API for NoSQL in Azure Cosmos DB. API for MongoDB, Gremlin and Cassandra are not supported at this time. 
 
 ## Pricing
 

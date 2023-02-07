@@ -6,8 +6,8 @@ ms.subservice: spark
 ms.topic: tutorial
 ms.reviewer: sngun, garye
 ms.date: 11/02/2021
-author: JasonWHowell
-ms.author: jasonh
+author: juluczni
+ms.author: juluczni
 ms.custom: ignite-fall-2021
 ---
 

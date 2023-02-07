@@ -2,19 +2,14 @@
 title: Azure Active Directory recommendation - Migrate apps from ADFS to Azure AD in Azure AD | Microsoft Docs
 description: Learn why you should migrate apps from ADFS to Azure AD in Azure AD
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management
@@ -25,7 +20,7 @@ ms.collection: M365-identity-device-management
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 
-This article covers the recommendation to migrate apps from ADFS to Azure AD. 
+This article covers the recommendation to migrate apps from ADFS to Azure Active Directory (Azure AD). 
 
 
 ## Description

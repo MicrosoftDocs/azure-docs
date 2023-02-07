@@ -9,9 +9,11 @@ ms.author: sumuth
 ms.date: 06/20/2022
 ---
 
-# Best practices for server operations on Azure Database for MySQL -Single server
+# Best practices for server operations on Azure Database for MySQL - Single server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Learn about the best practices for working with Azure Database for MySQL. As we add new capabilities to the platform, we will continue to focus on refining the best practices detailed in this section.
 

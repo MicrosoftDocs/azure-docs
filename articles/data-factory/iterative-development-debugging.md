@@ -20,7 +20,7 @@ Azure Data Factory and Synapse Analytics supports iterative development and debu
 
 For an eight-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## Debugging a pipeline
 

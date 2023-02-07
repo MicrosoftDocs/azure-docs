@@ -103,7 +103,7 @@ Key Features:
 ## Additional resources
 
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
-- [Build great solutions with the Microsoft Azure Well-Architected Framework](/learn/paths/azure-well-architected-framework/)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework](/training/paths/azure-well-architected-framework/)
 - [Azure Top Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)
 - [Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
 - [Microsoft Azure Resource Center](https://azure.microsoft.com/resources/)

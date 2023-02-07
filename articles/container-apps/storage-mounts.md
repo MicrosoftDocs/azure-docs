@@ -247,7 +247,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 
     ```azure-cli
     az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> \
-        --yaml my-app.yaml
+        --yaml app.yaml
     ```
 
 ::: zone-end

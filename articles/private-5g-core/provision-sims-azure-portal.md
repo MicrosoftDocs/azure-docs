@@ -1,6 +1,6 @@
 ---
 title: Provision new SIMs - Azure portal
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -10,7 +10,7 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Provision new SIMs for Azure Private 5G Core Preview - Azure portal
+# Provision new SIMs for Azure Private 5G Core - Azure portal
 
 *SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
 
@@ -36,7 +36,7 @@ ms.custom: template-how-to
 
   - If you're manually entering provisioning values, you'll need the name of the SIM policy.
 
-  - If you're using a JSON file, you'll need the full resource ID of the SIM policy.
+  - If you're using a JSON file, you'll need the full resource ID of the SIM policy. You can collect this by navigating to the SIM Policy resource, selecting **JSON View** and copying the contents of the **Resource ID** field.
 
 ## Collect the required information for your SIMs
 
@@ -45,18 +45,38 @@ To begin, collect the values in the following table for each SIM you want to pro
 | Value | Field name in Azure portal | JSON file parameter name |
 |--|--|--|
 | SIM name. The SIM name must only contain alphanumeric characters, dashes, and underscores. | **SIM name** | `simName` |
-| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
+| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. The ICCID is optional and is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
 | The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. | **IMSI** | `internationalMobileSubscriberIdentity` |
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | **Ki** | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network. | **Device type** | `deviceType` |
-| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | **SIM policy** | `simPolicyId` |
+| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. You'll need to assign a SIM policy if you want to set static IP addresses to the SIM during provisioning. | **SIM policy** | `simPolicyId` |
+
+### Collect the required information for assigning static IP addresses
+
+You only need to complete this step if all of the following apply:
+
+- You're using a JSON file to provision your SIMs.
+- You've configured static IP address allocation for your packet core instance(s).
+- You want to assign static IP addresses to the SIMs during SIM provisioning.
+
+Collect the values in the following table for each SIM you want to provision. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to this SIM, collect the values for each IP address.
+
+Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant data network, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools).
+
+| Value | Field name in Azure portal | JSON file parameter name |
+|--|--|--|
+| The data network that the SIM will use. | Not applicable. | `staticIpConfiguration.attachedDataNetworkId` |
+| The network slice that the SIM will use. | Not applicable. | `staticIpConfiguration.sliceId` |
+| The static IP address to assign to the SIM.  | Not applicable. | `staticIpConfiguration.staticIpAddress` |
 
 ## Create the JSON file
 
 Only carry out this step if you decided in [Prerequisites](#prerequisites) to use a JSON file to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
-Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). This example file shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`). If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicyId` parameter for that SIM.
+Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`).
+
+If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
 ```json
 [
@@ -67,7 +87,19 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
   "authenticationKey": "00112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88737d",
   "deviceType": "Cellphone",
-  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
+  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1",
+  "staticIpConfiguration" :[
+	{
+	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn1",
+	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
+	  "staticIpAddress": "10.132.124.54"
+	},
+    {
+	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn2",
+	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
+	  "staticIpAddress": "10.132.124.55"
+	}
+   ]
  },
  {
   "simName": "SIM2",
@@ -76,7 +108,19 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
   "authenticationKey": "11112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
   "deviceType": "Sensor",
-  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
+  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2",
+  "staticIpConfiguration" :[
+	{
+	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn1",
+	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
+	  "staticIpAddress": "10.132.124.54"
+	},
+	{
+	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn2",
+	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
+	  "staticIpAddress": "10.132.124.55"
+	}
+   ]
  }
 ]
 ```
@@ -85,12 +129,12 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
 
 You'll now begin the SIM provisioning process through the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. Select **View SIMs**.
+1. Select **Manage SIMs**.
 
     :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 
@@ -136,4 +180,4 @@ In this step, you'll provision SIMs using a JSON file.
 
 ## Next steps
 
-If you've configured static IP address allocation for your packet core instance(s), you may want to [assign static IP addresses to the SIMs you've provisioned](manage-existing-sims.md#assign-static-ip-addresses).
+If you've configured static IP address allocation for your packet core instance(s) and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).

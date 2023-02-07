@@ -1,10 +1,10 @@
 ---
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 08/26/2022
-ms.custom: devdivchpfy22
+ms.date: 10/24/2022
+ms.custom: devdivchpfy22, engagement-fy23
 ---
 
 1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com).

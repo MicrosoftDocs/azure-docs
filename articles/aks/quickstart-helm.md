@@ -299,7 +299,7 @@ For more information about using Helm, see the Helm documentation.
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

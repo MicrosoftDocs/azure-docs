@@ -5,12 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 04/29/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -37,8 +36,8 @@ To run the troubleshooting task in the wizard, perform the following steps:
 The following input parameters are needed by the troubleshooting task:
 1.	**Object Distinguished Name** – This is the distinguished name of the object that needs troubleshooting
 2.	**AD Connector Name** – This is the name of the AD forest where the above object resides.
-3.	Azure AD tenant global administrator credentials
-![global administrator credentials](media/tshoot-connect-objectsync/objsynch1.png)
+3.	Azure AD tenant Hybrid Identity Administrator credentials
+![Hybrid Identity Administratoristrator credentials](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### Understand the results of the troubleshooting task
 The troubleshooting task performs the following checks:

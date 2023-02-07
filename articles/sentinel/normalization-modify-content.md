@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, out-of-the-box content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing, custom content to use normalized data.

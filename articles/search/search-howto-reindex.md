@@ -79,7 +79,7 @@ If indexing workloads introduce unacceptable levels of query latency, conduct [p
 
 You can begin querying an index as soon as the first document is loaded. If you know a document's ID, the [Lookup Document REST API](/rest/api/searchservice/lookup-document) returns the specific document. For broader testing, you should wait until the index is fully loaded, and then use queries to verify the context you expect to see.
 
-You can use [Search Explorer](search-explorer.md) or a Web testing tool like [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to check for updated content.
+You can use [Search Explorer](search-explorer.md) or a Web testing tool like [Postman](search-get-started-rest.md) to check for updated content.
 
 If you added or renamed a field, use [$select](search-query-odata-select.md) to return that field: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

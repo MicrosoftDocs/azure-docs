@@ -89,7 +89,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
 Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
@@ -120,6 +120,8 @@ If needing to remove your action run command Linux extension, refer to the below
 ```azurecli-interactive
 az vm run-command invoke  --command-id RemoveRunCommandLinuxExtension --name vmname -g rgname
 ```
+> [!NOTE]
+> When you apply a Run Command again, the extension will get installed automatically. You can use the extension removal command to troubleshoot any issues related to the extension.
 
 ## Next steps
 

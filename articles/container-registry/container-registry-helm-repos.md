@@ -2,7 +2,9 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 10/20/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -153,7 +155,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \

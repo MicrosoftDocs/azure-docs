@@ -78,7 +78,7 @@ You can remove KEDA from your cluster in one of the following ways:
 KEDA has support for the following Azure Function triggers:
 
 * [Azure Storage Queues](functions-bindings-storage-queue.md)
-* [Azure Service Bus Queues](functions-bindings-service-bus.md)
+* [Azure Service Bus](functions-bindings-service-bus.md)
 * [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
 * [RabbitMQ Queue](https://github.com/azure/azure-functions-rabbitmq-extension)

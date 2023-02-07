@@ -16,7 +16,7 @@
   - name: Create notification hub - Bicep
     displayName: ARM, Resource Manager, Template
     href: create-notification-hub-bicep.md
-  - name: Create notification hub - ARM template
+  - name: Create notification hub - Template
     displayName: Resource Manager
     href: create-notification-hub-template.md
   - name: Configure a notification hub
@@ -95,6 +95,10 @@
   items:
   - name: Availability zones
     href: availability-zones.md
+  - name: EU Data Boundary
+    href: eu-data-boundary.md
+  - name: Cross-region disaster recovery
+    href: cross-region-recovery.md
   - name: Data encryption at rest
     href: encrypt-at-rest.md
   - name: Transport Layer Security (TLS)

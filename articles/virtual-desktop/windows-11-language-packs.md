@@ -22,9 +22,15 @@ The second option is more efficient in terms of resources and cost, but requires
 
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
--   An Azure VM with Windows 11 Enterprise installed
--   A Language and Optional Features (LoF) ISO. You can download the ISO at [Windows 11 Language and Optional Features LoF ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
--   An Azure Files share or a file share on a Windows File Server VM
+- An Azure VM with Windows 11 Enterprise installed
+- A Language and Optional Features ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
+  - Language and Optional Features ISO:
+    - [Windows 11, version 21H2 Language and Optional Features ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+    - [Windows 11, version 22H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+  - Inbox Apps ISO:
+    - [Windows 11, version 21H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/22000.194.210911-1543.co_release_svc_prod1_amd64fre_InboxApps.iso)
+    - [Windows 11, version 22H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_InboxApps.iso)
+- An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]
 >The file share repository must be accessible from the Azure VM that you're going to use to create the custom image.
@@ -79,7 +85,7 @@ You can create a custom image by following these steps:
 
    ##Set Path of CSV File##
    $CSVFile = "Windows-10-1809-FOD-to-LP-Mapping-Table.csv"
-   $filePath = (Get-Location).Path + "/$CSVFile"
+   $filePath = (Get-Location).Path + "\$CSVFile"
 
    ##Import Necesarry CSV File##
    $FODList = Import-Csv -Path $filePath -Delimiter ";"

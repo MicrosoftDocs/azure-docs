@@ -1,21 +1,21 @@
 ---
-title: Create an Azure Cosmos DB Table API account and table with autoscale
-description: Use Azure CLI to create a Table API account and table with autoscale for Azure Cosmos DB.
+title: Create an Azure Cosmos DB for Table account and table with autoscale
+description: Use Azure CLI to create a API for Table account and table with autoscale for Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: sample
 ms.date: 06/22/2022
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
-# Use Azure CLI to create an Azure Cosmos DB Table API account and table with autoscale
+# Use Azure CLI to create an Azure Cosmos DB for Table account and table with autoscale
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-The script in this article creates an Azure Cosmos DB Table API account and table with autoscale.
+The script in this article creates an Azure Cosmos DB for Table account and table with autoscale.
 
 ## Prerequisites
 
@@ -41,15 +41,15 @@ The script in this article creates an Azure Cosmos DB Table API account and tabl
 
 ## Sample script
 
-Run the following script to create an Azure resource group, an Azure Cosmos DB Table API account, and Table API table with autoscale capability. The resources might take a while to create.
+Run the following script to create an Azure resource group, an Azure Cosmos DB for Table account, and API for Table table with autoscale capability. The resources might take a while to create.
 
  :::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" id="FullScript":::
 
 This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
-- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with `--capabilities EnableTable` creates an Azure Cosmos DB account for Table API.
-- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) with `--max-throughput 1000` creates an Azure Cosmos DB Table API table with autoscale capabilities.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with `--capabilities EnableTable` creates an Azure Cosmos DB account for API for Table.
+- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) with `--max-throughput 1000` creates an Azure Cosmos DB for Table table with autoscale capabilities.
 
 ## Clean up resources
 
@@ -62,4 +62,4 @@ az group delete --name $resourceGroup
 ## Next steps
 
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
-- [Throughput (RU/s) operations with Azure CLI for a table for Azure Cosmos DB Table API](throughput.md)
+- [Throughput (RU/s) operations with Azure CLI for a table for Azure Cosmos DB for Table](throughput.md)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 09/14/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ Cloud apps, actions, and authentication context are key signals in a Conditional
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices**, allowing Conditional Access to enforce controls around those actions.
-- Administrators can use [authentication context](#authentication-context-preview) to provide an extra layer of security in applications. 
+- Administrators can use [authentication context](#authentication-context) to provide an extra layer of security in applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -79,9 +79,9 @@ The Office 365 suite makes it possible to target these services all at once. We 
 
 Targeting this group of applications helps to avoid issues that may arise because of inconsistent policies and dependencies. For example: The Exchange Online app is tied to traditional Exchange Online data like mail, calendar, and contact information. Related metadata may be exposed through different resources like search. To ensure that all metadata is protected by as intended, administrators should assign policies to the Office 365 app.
 
-Administrators can exclude the entire Office 365 suite or specific Office 365 client apps from the Conditional Access policy.
+Administrators can exclude the entire Office 365 suite or specific Office 365 cloud apps from the Conditional Access policy.
 
-The following key applications are included in the Office 365 client app:
+The following key applications are affected by the Office 365 cloud app:
 
 - Exchange Online
 - Microsoft 365 Search Service
@@ -133,6 +133,7 @@ Because the policy is applied to the Azure management portal and API, services, 
 - SQL Managed Instance 
 - Azure Synapse 
 - Visual Studio subscriptions administrator portal 
+- [Microsoft IoT Central](https://apps.azureiotcentral.com/)
 
 > [!NOTE]
 > The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
@@ -184,7 +185,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
    - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
    - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
 
-## Authentication context (Preview)
+## Authentication context
 
 Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Defender for Cloud Apps. 
 
@@ -196,11 +197,7 @@ Authentication contexts are managed in the Azure portal under **Azure Active Dir
 
 ![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
 
-> [!WARNING]
-> * Deleting authentication context definitions is not possible during the preview. 
-> * The preview is limited to a total of 25 authentication context definitions in the Azure portal.
-
-Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Configure the following attributes:
+Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
 
 - **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
 - **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.
@@ -212,6 +209,12 @@ Create new authentication context definitions by selecting **New authentication 
 Administrators can select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** and selecting **Authentication context** from the **Select what this policy applies to** menu.
 
 :::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Adding a Conditional Access authentication context to a policy":::
+
+#### Delete an authentication context 
+
+When you delete an authentication context, make sure no applications are still using it. Otherwise access to app data will no longer be protected. You can confirm this prerequisite by checking sign-in logs for cases when the authentication context Conditional Access policies are being applied. 
+
+To delete an authentication context, it must have no assigned Conditional Access policies and must not be published to apps. This requirement helps prevent the accidental deletion of an authentication context that is still in use. 
 
 ### Tag resources with authentication contexts 
 

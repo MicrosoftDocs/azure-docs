@@ -4,7 +4,7 @@ description: Operations guide for SAP HANA systems that are deployed on Azure vi
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/30/2022
@@ -321,7 +321,7 @@ Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The se
 For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux Enterprise Server or Red Hat, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information listed in the 'next steps' section.
+If you're running SUSE Linux Enterprise Server or Red Hat, you can establish a Pacemaker cluster with fencing devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information listed in the 'next steps' section.
 
 ## Next Steps
 Get familiar with the articles as listed

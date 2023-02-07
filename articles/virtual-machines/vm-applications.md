@@ -6,8 +6,8 @@ ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
-author: nikhilpatel909
-ms.author: erd
+author: ericd-mst-github
+ms.author: nikhilpatel
 ms.reviewer: erd
 ms.custom: 
 
@@ -17,13 +17,13 @@ ms.custom:
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
-> [!IMPORTANT]
-> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
 
 Application packages provide benefits over other deployment and packaging methods:
+
+- VM Applications have support for [Azure Policies](/azure/governance/policy/overview)
 
 - Grouping and versioning of your packages
 
@@ -108,7 +108,7 @@ VM application versions are the deployable resource. Versions are defined with t
 The download location of the application package and the configuration files are:
   
 - Linux: `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> `
-- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.4\Downloads\<appname>\<app version> `
+- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.9\Downloads\<appname>\<app version> `
 
 
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
