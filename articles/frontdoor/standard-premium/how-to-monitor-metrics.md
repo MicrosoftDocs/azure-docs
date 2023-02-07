@@ -20,7 +20,7 @@ You can also configure alerts for each metric such as a threshold for 4XXErrorRa
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door Standard/Premium profile.
 
-1. Under **Monitoring**, select **Metrics**:
+1. Under **Monitoring**, select **Metrics**.
 
 1. In **Metrics**, select the metric to add:
 
@@ -38,7 +38,9 @@ You can also configure alerts for each metric such as a threshold for 4XXErrorRa
 
 ## Configure alerts in the Azure portal
 
-1. Set up alerts on Azure Front Door Standard/Premium (Preview) by selecting **Monitoring** >> **Alerts**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door Standard/Premium profile.
+
+1. Under **Monitoring**, select **Alerts**.
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
