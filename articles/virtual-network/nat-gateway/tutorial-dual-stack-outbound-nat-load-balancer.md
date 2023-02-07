@@ -253,18 +253,6 @@ $nat = @{
     PublicIpAddress = $publicIP
 }
 $natGateway = New-AzNatGateway @nat
-
-## Create the subnet configuration. ##
-$sub = @{
-    Name = 'myBackendSubnet'
-    VirtualNetwork = $vnet
-    AddressPrefix = '10.1.0.0/24'
-    NatGateway = $natGateway
-}
-Set-AzVirtualNetworkSubnetConfig @sub
-
-## Save the configuration to the virtual network. ##
-$vnet | Set-AzVirtualNetwork
 ```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
@@ -329,11 +317,19 @@ $net = @{
 }
 $vnet = Get-AzVirtualNetwork @net
 
+## Place the NAT gateway into a variable. ##
+$nat = @{
+    Name = 'myNATgateway'
+    ResourceGroupName = 'TutorialIPv6NATLB-rg'
+}
+$natGateway = Get-AzNatGateway $nat
+
 ## Create the subnet configuration. ##
 $sub = @{
     Name = 'myBackendSubnet'
     AddressPrefix = '10.1.0.0/24','2404:f800:8000:122::/64'
     VirtualNetwork = $vnet
+    NatGatewayId = $natGateway.Id
 }
 Set-AzVirtualNetworkSubnetConfig @sub
 
@@ -551,7 +547,7 @@ $vm = @{
     Location = 'westus2'
     VM = $vmConfig
     }
-New-AzVM @vm
+New-AzVM @vm -AsJob
 ```
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
@@ -796,6 +792,14 @@ $ip = @{
 Get-AzPublicIPAddress @ip | select IpAddress
 ```
 
+```azurepowershell
+PS /home/azureuser> Get-AzPublicIPAddress @ip | select IpAddress
+
+IpAddress
+---------
+20.230.222.247
+```
+
 ### IPv6
 
 ```azurepowershell-interactive
@@ -804,6 +808,14 @@ $ip = @{
     Name = 'myPublicIP-IPv6'
 }  
 Get-AzPublicIPAddress @ip | select IpAddress
+```
+
+```azurepowershell
+PS /home/azureuser> Get-AzPublicIPAddress @ip | select IpAddress
+
+IpAddress
+---------
+2603:1030:c02:9::
 ```
 
 Make note of both IP addresses. You will use them later to verify the outbound connectivity for each stack.
@@ -832,13 +844,13 @@ Make note of both IP addresses. You will use them later to verify the outbound c
 
 1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
 
-1. You should see the IPv4 address of **20.230.191.5** displayed.
+1. You should see the IPv4 address displayed. In this example the IP of **20.230.191.5** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar, enter **http://v6.testmyipv6.com**
 
-1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
+1. You should see the IPv6 address displayed. In this example the IP of **2603:1030:c02:9::** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
@@ -862,7 +874,7 @@ Make note of both IP addresses. You will use them later to verify the outbound c
 
 1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
 
-1. You should see the IPv4 address of **20.230.191.5** displayed.
+1. You should see the IPv4 address of **20.230.222.247** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
