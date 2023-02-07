@@ -12,13 +12,13 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Set up HTTPS or TCP ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
+Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Ingress is a feature that works on a set of configurable rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
 
 >[!NOTE] Add diagram here
 
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
-## <a name="ingress-scenarios"></a>Ingress Scenarios
+## <a name="scenarios"></a>Ingress Scenarios
 
 ### Public Container Apps environment
 
@@ -26,7 +26,7 @@ Each container app can be configured with different ingress settings. For exampl
 
 ## Ingress types
 
-Azure Container Apps supports two types of ingress: HTTPS and TCP.
+Container Apps supports two types of ingress: HTTPS and TCP.
 
 ### HTTPS
 
@@ -41,7 +41,7 @@ With HTTPS ingress enabled, your container app features the following characteri
 - The container app is accessed via its fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
 
-### <a name="tcp"></a>TCP (preview)
+### <a name="tcp"></a>TCP (preview) 
 
 TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS.
 
@@ -54,6 +54,9 @@ With TCP ingress enabled, your container app features the following characterist
 - Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 
 ## Fully qualified domain name
+
+>[!NOTE]
+> should we mention that there is an FQDN for each revision?
 
 With ingress enabled, your application is assigned a fully qualified domain name (FQDN). The domain name takes the following forms:
 
@@ -109,6 +112,7 @@ The following settings are available when configuring ingress:
 
 ## How to configure ingress
 
+
 >[!NOTE] Need information about the flags that are available in the CLI and the portal.
 
 >[!NOTE] How far do we want to go with this?  Do we want to show how to configure ingress in the portal?  In the CLI? In the ARM template?
@@ -132,3 +136,10 @@ The header is a contains is added to an HTTP request or response using a *name: 
 
 > [!div class="nextstepaction"]
 > [IP restrictions](ip-restirctions.md)
+
+## Next steps
+
+- [Network policies](network-policies.md)
+- [DNS](dns.md)
+- [VNET integration](vnet-integration.md)
+- [Custom VNET](vnet-custom.md)

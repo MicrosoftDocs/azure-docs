@@ -96,8 +96,12 @@
         href: managed-identity-image-pull.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS or TCP ingress
-      href: ingress.md
+    - name: ingress
+      items:
+      - name: Set up HTTPS or TCP ingress
+        href: ingress.md
+      - name: IP restrictions
+        href: ip-restrictions.md
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain
