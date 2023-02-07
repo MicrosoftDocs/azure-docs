@@ -16,7 +16,7 @@ ms.custom:
 
 You can migrate an existing Azure Custom Vision project to the new Image Analysis 4.0 system. [Custom Vision](/azure/cognitive-services/custom-vision-service/overview) is a model customization service that existed before Image Analysis 4.0.
 
-This guide uses a Python script to take all of the training data from an existing Custom Vision project (images and their label data) and convert it to a COCO file. You can then import the COCO file into Vision Studio to train a custom model. See [Create and train a custom model](model-customization.md) and go to the section about selecting a COCO file&mdash;you can follow the guide from there to the end.
+This guide uses a Python script to take all of the training data from an existing Custom Vision project (images and their label data) and convert it to a COCO file. You can then import the COCO file into Vision Studio to train a custom model. See [Create and train a custom model](model-customization.md) and go to the section on importing a COCO file&mdash;you can follow the guide from there to the end.
 
 ## Prerequisites
 
@@ -27,19 +27,7 @@ This guide uses a Python script to take all of the training data from an existin
 
 ## Prepare the migration script
 
-Create a 
-
-Follow the prompts...
-
-custom_vision_project_id'
-custom_vision_training_key'
-custom_vision_endpoint'
-
-azure_storage_account_name'
-azure_storage_account_key'
-azure_storage_container_name
-
-    parser.add_argument('--n_process', '-n', type=int, required=False, default=8, help='Number of processes used in exporting data.')
+Create a new Python file&mdash;_migration.py_, for example. Then open it in a text editor and paste in the following contents.
 
 ```python
 from typing import List, Union
@@ -241,4 +229,27 @@ if __name__ == '__main__':
     main()
 ```
 
-You now have COCO file. See [Create and train a custom model](model-customization.md) and go to the section about selecting a COCO file&mdash;you can follow the guide from there to the end.
+## Run the script
+
+Run the script using the `python` command.
+
+```console
+python migration.py
+```
+
+A series of prompt will appear in the console window, and you need to paste in the correct values. You need the following information:
+
+- The project ID of your Custom Vision project
+- Your Custom Vision training key
+- Your Custom Vision endpoint URL
+- The name of the Azure Storage account you want to use with your new custom model project
+- The key for that storage account
+- The name of the container you want to use in that storage account
+
+## Use COCO file in new project
+
+The script generates a COCO file and uploads it to the blog storage location you specified. You can now import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section about selecting a COCO file&mdash;you can follow the guide from there to the end.
+
+## Next steps
+
+* [Create and train a custom model](model-customization.md)
