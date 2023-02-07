@@ -46,6 +46,8 @@ items:
     href: limits.md
 - name: Resources
   items:
+  - name: Azure Communications Gateway product page
+    href: https://azure.microsoft.com/products/communications-gateway
   - name: Overview of Operator Connect
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
   - name: Overview of Teams Phone Mobile
