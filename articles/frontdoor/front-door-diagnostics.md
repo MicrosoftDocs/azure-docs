@@ -48,7 +48,7 @@ The metrics listed in the following table are recorded and stored free of charge
 
 ## Logs
 
-Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed.
+Logs track all requests that pass through Azure Front Door. It can take a few minutes for logs to be processed and stored.
 
 There are multiple Front Door logs, which you can use for different purposes:
 
