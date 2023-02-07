@@ -14,7 +14,7 @@ ms.author: pafarley
 
 ### About COCO files
 
-COCO files are JSON files with specific required fields: `"images"`, `"annotations"`, `"categories"`. A sample COCO file will looks like this:
+COCO files are JSON files with specific required fields: `"images"`, `"annotations"`, and `"categories"`. A sample COCO file will look like this:
 
 ```json
 {
@@ -93,13 +93,13 @@ If you're generating your own COCO file from scratch, make sure all the required
 
 | Key | Type | Description | Required? |
 |-|-|-|-|
-| id | integer | Uploaded image id | Yes |
-| width | integer | Width of the image in pixels  | Yes |
-| height | integer | Height of the image in pixels | Yes |
-| file name | string | a unique name for the image  | Yes |
-| absolute_url | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
+| `id` | integer | Uploaded image ID | Yes |
+| `width` | integer | Width of the image in pixels  | Yes |
+| `height` | integer | Height of the image in pixels | Yes |
+| `file_name`| string | A unique name for the image  | Yes |
+| `absolute_url` | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
 
-The value for `absolute_url` can be found in your container's blob properties: 
+The value for `absolute_url` can be found in your blob container's properties: 
 
 ![absolute url]( ../media/customization/cpg-blob-absolute-url.png)
 
@@ -107,15 +107,15 @@ The value for `absolute_url` can be found in your container's blob properties:
 
 | Key | Type | Description | Required? |
 |-|-|-|-|
-| id | integer | ID of the annotation | Yes |
-| category_id | integer | ID of the category defined in the `categories` section | Yes |
-| image_id  | integer | ID of the image | Yes |
-| area | integer | Value of 'Width' x 'Height' (third and fourth values of `bbox`) | No |
-| bbox | float | Relative coordinates of the bounding box (0 to 1), in the order of 'Left', 'Top', 'Width', 'Height'  | Yes |
+| `id` | integer | ID of the annotation | Yes |
+| `category_id` | integer | ID of the category defined in the `categories` section | Yes |
+| `image_id`  | integer | ID of the image | Yes |
+| `area` | integer | Value of 'Width' x 'Height' (third and fourth values of `bbox`) | No |
+| `bbox` | float | Relative coordinates of the bounding box (0 to 1), in the order of 'Left', 'Top', 'Width', 'Height'  | Yes |
 
 **"categories"**
 
 | Key | Type | Description | Required? |
 |-|-|-|-|
-| id | integer | Unique id for each category (label class). These should be present in the `annotations` section. | Yes |
-| name| string | Name of the category (label class) | Yes |
+| `id` | integer | Unique ID for each category (label class). These should be present in the `annotations` section. | Yes |
+| `name`| string | Name of the category (label class) | Yes |
