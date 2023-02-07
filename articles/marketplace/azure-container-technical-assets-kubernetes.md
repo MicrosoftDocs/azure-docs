@@ -395,7 +395,7 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 - [Create your Kubernetes offer](azure-container-offer-setup.md)
 
 <!-- LINKS -->
-[available billing models]: https://learn.microsoft.com/azure/marketplace/azure-container-technical-assets-kubernetes?tabs=linux#available-billing-models
+[available billing models]: https://learn.microsoft.com/azure/marketplace/azure-container-technical-assets-kubernetes#available-billing-models
 [workload]:https://kubernetes.io/docs/concepts/workloads/
 [CPU Request]:https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/#specify-a-cpu-request-and-a-cpu-limit
 [cnab]: https://cnab.io/
