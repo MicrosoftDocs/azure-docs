@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 02/03/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
@@ -42,7 +42,7 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-1. To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.
+1. To create a project, select **Add project**. Give the project an appropriate name. The project name can't be reused, even if the project is deleted in future.
 
 1. Select **Image** to create an image labeling project.
 
@@ -72,32 +72,39 @@ In many cases, it's fine to just upload local files. But [Azure Storage Explorer
 
 To create a dataset from data that you've already stored in Azure Blob storage:
 
-1. Select **Create a dataset** > **From datastore**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create** .
+1. Assign a **Name** to your dataset, and optionally a description.
 1. **Dataset type** is set to file, only file dataset types are supported for images.
-1. Select the datastore.
+1. Select **Next**.
+1. Select **From Azure storage**, then **Next**.
+1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. (Optional) Provide a description for your dataset.
-1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Select **Create**.
+1. Now select the data asset you just created.
 
 ### Create a dataset from uploaded data
 
 To directly upload your data:
 
-1. Select **Create a dataset** > **From local files**.
-1. Assign a **Name** to your dataset.
+1. Select **+ Create**.
+1. Assign a **Name** to your dataset, and optionally a description.
 1. **Dataset type** is set to file, only file dataset types are supported for images.
-1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
-1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
-1. Select **Browse** to select the local files or folder(s) to upload.
+1. Select **From local files**, then select **Next**.
+1. (Optional) Select a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Next**.
+1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
+1. In the browser window, find your files or folder, then select **Open**.
+1. Continue using **Upload** until you have specified all your files/folders.
+1. Check the box **Overwrite if already exists** if you wish.  Verify the list of files/folders.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. Now select the data asset you just created.
 
-## <a name="incremental-refresh"> </a> Configure incremental refresh
+
+## Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
@@ -117,8 +124,8 @@ For bounding boxes, important questions include:
 * What should the labelers do if the object is tiny? Should it be labeled as an object or should it be ignored as background?
 * How to label the object that is partially shown in the image? 
 * How to label the object that partially covered by other object?
-* How to label the object if there is no clear boundary of the object?
-* How to label the object which is not object class of interest but visually similar to an interested object type?
+* How to label the object if there's no clear boundary of the object?
+* How to label the object that isn't the object class of interest but visually similar to an interested object type?
 
 > [!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
@@ -132,7 +139,7 @@ For bounding boxes, important questions include:
 
 ## Use ML-assisted data labeling
 
-The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. Medical images (".dcm") are not included in assisted labeling.
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. Medical images (".dcm") aren't included in assisted labeling.
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class.
 
@@ -143,7 +150,7 @@ ML-assisted labeling consists of two phases:
 * Clustering
 * Prelabeling
 
-The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 items have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled items. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
+The exact number of labeled data necessary to start assisted labeling isn't a fixed number.  This number can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 items have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled items. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
 
 When you're using consensus labeling, the consensus label is used for training.
 
@@ -154,11 +161,11 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 ### Clustering
 
-After a certain number of labels are submitted, the machine learning model for classification starts to group together similar items.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.
+After some labels are submitted, the machine learning model for classification starts to group together similar items.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.
 
-Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
+Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This process embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
 
-The clustering phase does not appear for object detection models, or for text classification.
+The clustering phase doesn't appear for object detection models, or for text classification.
 
 ### Prelabeling
 
@@ -180,21 +187,24 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
+The progress charts shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
-The middle section shows the queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned. When ML assisted labeling is on, this will also show:
+Below the charts is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+
+You also see a distribution of labelers and how many items they've labeled.  
+
+Finally, in the middle section, there is a table showing a queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned. When ML assisted labeling is on, this section will also show:
 
 * Tasks containing clustered items in the queue
 * Tasks containing prelabeled items in the queue
 
-Additionally, when ML assisted labeling is enabled, a small progress bar shows when the next training run will occur.  The Experiments sections give links for each of the machine learning runs.
+Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
 * Validation - determines whether this model's prediction will be used for pre-labeling the items 
 * Inference - prediction run for new items
 * Featurization - clusters items (only for image classification projects)
 
-On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
 ### Data tab
 
@@ -208,7 +218,7 @@ If your project uses consensus labeling, you'll also want to review those images
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot: select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
 
-1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus was not achieved among the labelers.
+1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus wasn't achieved among the labelers.
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
 
@@ -227,7 +237,8 @@ View and change details of your project.  In this tab you can:
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
-* Edit details of ML assisted labeling, including enable/disable
+* Change settings for ML assisted labeling, and kick off a labeling task
+
 
 ### Access for labelers
 
@@ -237,19 +248,23 @@ View and change details of your project.  In this tab you can:
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
+## Start an ML assisted labeling task
+
+[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
+
 ## Export the labels
 
 Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time.
 
 * Image labels can be exported as:
-    * [COCO format](http://cocodataset.org/#format-data).The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/coco*. 
+    * [COCO format](http://cocodataset.org/#format-data). The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/coco*. 
     * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 
 Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md)
+Once you've exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md)
 
 ## Troubleshooting
 

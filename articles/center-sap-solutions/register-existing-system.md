@@ -1,9 +1,10 @@
 ---
 title: Register existing SAP system (preview)
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through the Azure portal. You can visualize, manage, and monitor your existing SAP system through Azure Center for SAP solutions.
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
@@ -12,6 +13,8 @@ author: lauradolan
 # Register existing SAP system (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
@@ -55,6 +58,9 @@ The following SAP system configurations aren't supported in Azure Center for SAP
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
 - Systems using IPv6 addresses
+- SAP system with multiple Application Server Instances on a single Virtual Machine
+- SAP system with [clustered Application Server architecture](../virtual-machines/workloads/sap/high-availability-guide-rhel-with-dialog-instance.md)
+- Multiple SIDs running on same set of Virtual Machines. For example, two or more SIDs sharing a single VM for ASCS instance. 
 
 ## Enable resource permissions
 

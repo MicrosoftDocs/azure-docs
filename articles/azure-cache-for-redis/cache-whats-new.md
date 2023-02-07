@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/2/2022
+ms.date: 02/06/2023
 
 ---
 
@@ -39,9 +39,9 @@ Several enhancements have been made to the passive geo-replication functionality
   - Geo Replication Full Sync Event Finished (preview)
   - Geo Replication Full Sync Event Started (preview)
 
-- Customers can now initiate a failover between geo-primary and geo-replica caches with a single selection or CLI command, eliminating the hassle of manually unlinking and relinking caches. For more information, see [Initiate a failover from geo-primary to geo-secondary (preview)](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+- Customers can now initiate a failover between geo-primary and geo-replica caches with a single selection or CLI command, eliminating the hassle of manually unlinking and relinking caches. For more information, see [Initiate a failover from geo-primary to geo-secondary](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary).
 
-- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URLs (preview)](cache-how-to-geo-replication.md#geo-primary-urls-preview).
+- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URL](cache-how-to-geo-replication.md#geo-primary-url).
 
 ## September 2022
 
