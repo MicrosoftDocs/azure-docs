@@ -20,16 +20,18 @@ Microsoft verified partners can help you onboard Microsoft Entra Permissions Man
 
 * **Product Expertise**
 
-    Our partners will help you navigate Permissions Management, letting you in on best practices and guidance to enhance your     security strategy.
+    Our partners will help you navigate Permissions Management, letting you in on best 
+    practices and guidance to enhance your security strategy.
 
 * **Risk Assessment**
 
-    Partners will guide you through the Entra Permissions Management risk assessment and help you identify top permission risks 
-    across your multicloud infrastructure.
+    Partners will guide you through the Entra Permissions Management risk assessment and 
+    help you identify top permission risks across your multicloud infrastructure.
 
 * **Onboarding and Deployment Support**
 
-    Partners can guide you through the entire onboarding and deployment process for Permissions Management across AWS, Azure, and GCP.
+    Partners can guide you through the entire onboarding and deployment process for 
+    ermissions Management across AWS, Azure, and GCP.
 
 
 ## Partner list
