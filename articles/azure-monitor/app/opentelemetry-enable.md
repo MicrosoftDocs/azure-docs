@@ -38,6 +38,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - An Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - An Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
+<!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
+
 ### [.NET](#tab/net)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
@@ -335,7 +337,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value.
+You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node.
 
 ### [.NET](#tab/net)
 
@@ -734,7 +736,7 @@ Depending on your language and signal type, there are different ways to collect 
   
 -	OpenTelemetry API
 -	Language-specific logging/metrics libraries
--	Application Insights API
+-	Application Insights Classic API
  
 The following table represents the currently supported custom telemetry types:
 
@@ -762,7 +764,7 @@ The following table represents the currently supported custom telemetry types:
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 
 > [!NOTE]
-> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Java 2.x SDK. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
+> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Classic API. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights Classic API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Add Custom Metrics
 
@@ -791,7 +793,7 @@ The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetr
 describes the instruments and provides examples of when you might use each one.
 
 > [!TIP]
-> The histogram is the most versatile and most closely equivalent to the prior Application Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
+> The histogram is the most versatile and most closely equivalent to the Application Insights Track Metric Classic API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
 #### Histogram Example
 
@@ -1092,9 +1094,9 @@ input()
 
 ### Add Custom Exceptions
 
-Select instrumentation libraries automatically support exceptions to Application Insights.
+Select instrumentation libraries automatically report exceptions to Application Insights.
 However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code aren't* ordinarily reported. You may wish to report them
+For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [.NET](#tab/net)
@@ -1125,7 +1127,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1219,7 +1221,7 @@ Coming soon.
   
 #### [Java](#tab/java)
   
-#### Use OpenTelemetry annotation
+#### Use the OpenTelemetry annotation
 
 The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
@@ -1232,7 +1234,7 @@ Spans populate the `requests` and `dependencies` tables in Application Insights.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
      <version>1.21.0</version>
    </dependency>
@@ -1266,7 +1268,7 @@ you can add your spans by using the OpenTelemetry API.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1330,7 +1332,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1356,9 +1358,9 @@ Coming soon.
 
 -->
   
-### Send custom telemetry using the Application Insights API
+### Send custom telemetry using the Application Insights Classic API
   
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights APIs.
+We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights Classic APIs.
   
 #### [.NET](#tab/net)
   
@@ -1503,7 +1505,7 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 
 ##### [Java](#tab/java)
 
-You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+You can use `opentelemetry-api` to add attributes to spans.
 
 Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
 
@@ -1514,7 +1516,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1614,7 +1616,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 ##### [Java](#tab/java)
 
-Java automatically sets the user IP.
+Java automatically populates this field.
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1645,7 +1647,7 @@ span._attributes["http.client_ip"] = "<IP Address>"
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -1658,7 +1660,6 @@ Coming soon.
 
 Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
 
-Consult applicable privacy laws before you set the Authenticated User ID.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -1667,7 +1668,7 @@ Consult applicable privacy laws before you set the Authenticated User ID.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1910,7 +1911,7 @@ Coming soon.
 
 #### [Java](#tab/java)
 
-You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
+You can use `opentelemetry-api` to get the trace ID or span ID.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -1919,7 +1920,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry</groupId>
+     <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -2033,7 +2034,7 @@ Coming soon.
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
