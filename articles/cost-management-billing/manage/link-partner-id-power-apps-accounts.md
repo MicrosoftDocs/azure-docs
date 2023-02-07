@@ -45,7 +45,7 @@ Through the normal course of business with your customer, determine ownership an
 
 Perform PAL Association on this Service Account.
 
-[PAL Association Via Azure Portal Video](https://aka.ms/PALAssocAzurePortal)
+[PAL Association Via Azure portal Video](https://aka.ms/PALAssocAzurePortal)
 
 To use the Azure portal to link to a new partner ID:
 
@@ -78,7 +78,7 @@ The resource and attribute user logic differ for every product and are detailed 
 
 ## Validation
 
-The operation of a PAL association is a Boolean operation. Once performed it can be verified visually in the Azure Portal or with a PowerShell Command. Either option will show your organization name and Partner ID to represent the account and partner ID were correctly connected. 
+The operation of a PAL association is a Boolean operation. Once performed it can be verified visually in the Azure portal or with a PowerShell Command. Either option will show your organization name and Partner ID to represent the account and partner ID were correctly connected. 
 
 
 
