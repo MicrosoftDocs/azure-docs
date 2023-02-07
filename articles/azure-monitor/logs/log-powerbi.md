@@ -49,5 +49,5 @@ For more information, see [Create and share your first Power BI report](/trainin
 ## Next steps
 
 Learn how to:
-- Get started with [Log Analytics queries](./log-query-overview.md).
+- [Get started with Log Analytics queries](./log-query-overview.md).
 - [Integrate Log Analytics and Excel](log-excel.md).
