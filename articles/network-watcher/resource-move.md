@@ -4,7 +4,7 @@ description: Move Azure Network Watcher resources across regions
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
-ms.topic: conecptual
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/10/2021
 ms.author: halkazwini

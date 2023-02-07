@@ -1,11 +1,11 @@
 ---
-title: Introduction to next hop in Azure Network Watcher | Microsoft Docs
+title: Introduction to next hop in Azure Network Watcher
 description: This article provides an overview of the Network Watcher next hop capability.
 services: network-watcher
 author: halkazwini
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
-ms.topic: conecptual
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/29/2020
 ms.author: halkazwini
