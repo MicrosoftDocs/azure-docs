@@ -77,105 +77,105 @@ In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a 
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. First, use [`Install-Module`](/powershell/module/powershellget/install-module) to install the [Az.CosmosDB](/powershell/module/az.cosmosdb/) module with pre-release features enabled.
+Use [`Install-Module`](/powershell/module/powershellget/install-module) to install the [Az.CosmosDB](/powershell/module/az.cosmosdb/) module with pre-release features enabled.
 
-    ```azurepowershell-interactive
-    $parameters = @{
-        Name = "Az.CosmosDB"
-        AllowPrerelease = $true
-        Force = $true
-    }
-    Install-Module @parameters
-    ```
-
-##### [API for NoSQL](#tab/azure-powershell/nosql)
-
-1. Next, use `Invoke-AzCosmosDBSqlContainerMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = "<resource-group-name>"
-        AccountName = "<cosmos-account-name>"
-        DatabaseName = "<cosmos-database-name>"
-        Name = "<cosmos-container-name>"
-        WhatIf = $true
-    }
-    Invoke-AzCosmosDBSqlContainerMerge @parameters
-    ```
-
-1. Finally, start the merge by running the same command without the `-WhatIf` parameter.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = "<resource-group-name>"
-        AccountName = "<cosmos-account-name>"
-        DatabaseName = "<cosmos-database-name>"
-        Name = "<cosmos-container-name>"
-    }
-    Invoke-AzCosmosDBSqlContainerMerge @parameters
-    ```
-
-##### [API for MongoDB](#tab/azure-powershell/mongodb)
-
-1. Next, use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = "<resource-group-name>"
-        AccountName = "<cosmos-account-name>"
-        DatabaseName = "<cosmos-database-name>"
-        Name = "<cosmos-container-name>"
-        WhatIf = $true
-    }
-    Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
-    ```
-
-1. Finally, start the merge by running the same command without the `-WhatIf` parameter.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = "<resource-group-name>"
-        AccountName = "<cosmos-account-name>"
-        DatabaseName = "<cosmos-database-name>"
-        Name = "<cosmos-container-name>"
-    }
-    Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
-    ```
-
----
+```azurepowershell-interactive
+$parameters = @{
+    Name = "Az.CosmosDB"
+    AllowPrerelease = $true
+    Force = $true
+}
+Install-Module @parameters
+```
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. First, use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
+Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
-    ```azurecli-interactive
-    az extension add \
-        --name cosmosdb-preview
-    ```
+```azurecli-interactive
+az extension add \
+    --name cosmosdb-preview
+```
 
-##### [API for NoSQL](#tab/azure-cli/nosql)
+---
 
-1. Now, start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
+#### [API for NoSQL](#tab/nosql/azure-powershell)
 
-    ```azurecli-interactive
-    az cosmosdb sql container merge \
-        --resource-group '<resource-group-name>' \
-        --account-name '<cosmos-account-name>' \
-        --database-name '<cosmos-database-name>' \
-        --name '<cosmos-container-name>'
-    ```
+Use `Invoke-AzCosmosDBSqlContainerMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
 
-##### [API for MongoDB](#tab/azure-cli/mongodb)
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+    WhatIf = $true
+}
+Invoke-AzCosmosDBSqlContainerMerge @parameters
+```
 
-1. Now, start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+Start the merge by running the same command without the `-WhatIf` parameter.
 
-    ```azurecli-interactive
-    az cosmosdb mongodb collection merge \
-        --resource-group '<resource-group-name>' \
-        --account-name '<cosmos-account-name>' \
-        --database-name '<cosmos-database-name>' \
-        --name '<cosmos-collection-name>'
-    ```
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+}
+Invoke-AzCosmosDBSqlContainerMerge @parameters
+```
+
+#### [API for NoSQL](#tab/nosql/azure-cli)
+
+Start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
+
+```azurecli-interactive
+az cosmosdb sql container merge \
+    --resource-group '<resource-group-name>' \
+    --account-name '<cosmos-account-name>' \
+    --database-name '<cosmos-database-name>' \
+    --name '<cosmos-container-name>'
+```
+
+#### [API for MongoDB](#tab/mongodb/azure-powershell)
+
+Use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+    WhatIf = $true
+}
+Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
+```
+
+Start the merge by running the same command without the `-WhatIf` parameter.
+
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+}
+Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
+```
+
+#### [API for MongoDB](#tab/mongodb/azure-cli)
+
+Start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+
+```azurecli-interactive
+az cosmosdb mongodb collection merge \
+    --resource-group '<resource-group-name>' \
+    --account-name '<cosmos-account-name>' \
+    --database-name '<cosmos-database-name>' \
+    --name '<cosmos-collection-name>'
+```
 
 ---
 
