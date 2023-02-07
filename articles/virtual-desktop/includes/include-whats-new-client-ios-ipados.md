@@ -9,10 +9,10 @@ ms.date: 01/03/2023
 
 The following table lists the current versions available for the public and beta releases:
 
-| Release | Latest version |
-|---------|----------------|
-| Public  | 10.4.5         |
-| Beta    | 10.4.6         |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 10.4.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.4.6         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
 
 ## Updates for version 10.4.5
 

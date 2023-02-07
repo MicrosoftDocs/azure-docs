@@ -1,8 +1,11 @@
 ---
 title: API Server VNet Integration in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with API Server VNet Integration
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 09/09/2022
 ms.custom: references_regions
 
@@ -20,9 +23,7 @@ API Server VNet Integration is supported for public or private clusters, and pub
 
 ## Region availability
 
-API Server VNet Integration is available in all global Azure regions except the following:
-
-- Southcentralus
+API Server VNet Integration is available in all global Azure regions.
 
 ## Prerequisites
 

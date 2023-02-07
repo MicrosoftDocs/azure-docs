@@ -5,6 +5,7 @@ description: Explains how to use MLflow for managing models in Azure Machine Lea
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
