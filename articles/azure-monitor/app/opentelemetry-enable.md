@@ -1607,7 +1607,7 @@ You can populate the _client_IP_ field for requests by setting the `http.client_
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
 // only applicable in case of activity.Kind == Server
@@ -1620,7 +1620,7 @@ Java automatically populates this field.
 
 ##### [Node.js](#tab/nodejs)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
 ```javascript
 ...
@@ -1637,7 +1637,7 @@ class SpanEnrichingProcessor {
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code in `SpanEnrichingProcessor.py`:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
 span._attributes["http.client_ip"] = "<IP Address>"
@@ -1684,7 +1684,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
 #### [Node.js](#tab/nodejs)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
 ```typescript
 ...
@@ -1701,7 +1701,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
 ```python
 span._attributes["enduser.id"] = "<User ID>"
@@ -1824,7 +1824,7 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
     ```
 
 2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
     ```javascript
     const { SpanKind, TraceFlags } = require("@opentelemetry/api");
