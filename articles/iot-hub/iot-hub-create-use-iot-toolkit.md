@@ -13,7 +13,7 @@ ms.author: junhan
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
+This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -21,7 +21,9 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed for Visual Studio Code.
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) installed for Visual Studio Code
+
+- An Azure resource group: [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) in the Azure portal
 
 ## Create an IoT hub without an IoT Project
 
@@ -93,6 +95,9 @@ This method allows you to provision in VS Code without leaving your development 
 1. Now you have an Azure IoT Hub provisioned and a device created in it. The device connection string will be saved in VS Code.
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT Hub details in the output window in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
+
+> [!TIP]
+> To delete a device from your IoT hub, use the `Azure IoT Hub: Delete Device` option from the Command Palette. There is no option to delete your IoT hub in Visual Studio Code, however you can [delete your hub in the Azure portal](iot-hub-create-through-portal.md#delete-the-iot-hub).
 
 ## Next steps
 

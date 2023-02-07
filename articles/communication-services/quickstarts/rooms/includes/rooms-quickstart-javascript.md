@@ -7,10 +7,10 @@ manager: mariusu
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 01/26/2022
+ms.date: 09/08/2022
 ms.topic: include
 ms.custom: include file
-ms.author: radubulboaca
+ms.author: antonsamson
 ---
 
 ## Prerequisites
@@ -41,12 +41,13 @@ npm init -y
 
 ### Install the packages
 
+You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-rooms) or above. 
+
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
-npm install @azure/communication-common --save
+npm install @azure/communication-rooms --save
 npm install @azure/communication-identity --save
-npm install @azure/communication-signaling --save
 ```
 
 ### Initialize a room client
@@ -71,12 +72,25 @@ const roomsClient = new RoomsClient(connectionString);
 Create a new `room` with default properties using the code snippet below:
 
 ```javascript
+// options payload to create a room
+const createRoomOptions = {
+  validFrom: validFrom,
+  validUntil: validUntil,
+  roomJoinPolicy: "InviteOnly",
+  participants: [
+    {
+      id: user1.user,
+      role: "Attendee",
+    },
+  ]
+};
+  
 // create a room with the request payload
-const createRoom = await roomsClient.createRoom(createRoomRequest);
+const createRoom = await roomsClient.createRoom(createRoomOptions);
 const roomId = createRoom.id;
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
+Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
 ### Get properties of an existing room
 
@@ -85,49 +99,43 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 ```javascript
 // retrieves the room with corresponding ID
 const getRoom = await roomsClient.getRoom(roomId);
-console.log(`Retrieved Room with ID ${roomId}`);
 ```
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
 ```javascript
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
 
 // request payload to update a room
-const updateRoomRequest = {
-validFrom: validFrom,
-validUntil: validUntil,
-roomJoinPolicy: "CommunicationServiceUsers",
-participants: [
-    new RoomParticipant(user1.user, "Consumer"),
-    new RoomParticipant(user2.user, "Presenter"),
-],
+const updateRoomOptions = {
+  validFrom: validFrom,
+  validUntil: validUntil
 };
 
 // updates the specified room with the request payload
-const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
-``` 
+const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
+```
 
-### Add new participants 
+### Add new participants
 
 To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
 ```javascript
   // request payload to add participants
-  const addParticipantsRequest = {
+  const addParticipantsList = {
     participants: [
       {
-        id: user1.user,
+        id: user2.user,
         role: "Consumer",
       },
     ],
   };
 
   // add user2 to the room with the request payload
-  const addParticipants = await roomsClient.addParticipants(roomId, addParticipantsRequest);
+  const addParticipants = await roomsClient.addParticipants(roomId, addParticipantsList);
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -146,12 +154,12 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 
 ```javascript
   // request payload to delete both users from the room
-  const removeParticipantsRequest = {
+  const removeParticipantsList = {
     participants: [user1.user, user2.user],
   };
 
   // remove both users from the room with the request payload
-  await roomsClient.removeParticipants(roomId, removeParticipantsRequest);
+  await roomsClient.removeParticipants(roomId, removeParticipantsList);
 ```
 
 ### Delete room

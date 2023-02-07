@@ -18,6 +18,7 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 
 - A working Azure profile that can access the Azure portal.
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+- Azure Virtual Desktop session hosts that supported the nested virtualization capability. To check if a specific VM size supports nested virtualization, navigate to the description page matching your VM size from [Sizes for virtual machines in Azure](../virtual-machines/sizes-general.md).
 
 ## Prepare the VHD image for Azure
 
@@ -65,7 +66,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 1. Connect to Azure using one of the following methods:
   
    - Open a PowerShell prompt on your local device. Run the `Connect-AzAccount` cmdlet to sign in to your Azure account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-   - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cloud-shell/overview.md) with PowerShell as the shell type.
+   - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 
 2. Run the following cmdlet to get a list of all the Azure tenants your account has access to:
   

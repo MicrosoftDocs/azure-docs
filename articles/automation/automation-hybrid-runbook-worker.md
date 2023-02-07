@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/11/2021
+ms.date: 11/09/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
  
 | Platform | Description |
 |---|---|
@@ -21,21 +21,18 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of hybrid worker group showing platform field." lightbox="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-expanded.png":::
 
-Here's a list of benefits available with the extension-based Hybrid Runbook Worker role:
-
-| Benefit | Description |
-|---|---|
-|Seamless onboarding| Removes dependency on a Log Analytics solution for onboarding Hybrid Runbook Workers, which is a multi-step process, is time consuming, and error-prone. |
-|Unified onboarding experience| Installation is managed using the same supported methods for Azure and non-Azure machines. |
-|Ease of Manageability| Native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates. |
-|Azure AD-based authentication| Uses VM system assigned-identities provided by Azure AD. This centralizes control and management of identities and resource credentials.|
-
 For Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers is the same. The purpose of the extension-based approach is to simplify the installation and management of the Hybrid Runbook Worker role and remove the complexity working with the agent-based version. The new extension-based installation doesn't affect the installation or management of an agent-based Hybrid Runbook Worker role. Both Hybrid Runbook Worker types can co-exist on the same machine.
 
 The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type, and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
 
->[!NOTE]
-> PowerShell support to install the extension-based Hybrid Runbook Worker is not supported at this time.
+## Benefits of extension-based User Hybrid Workers
+The extension-based approach greatly simplifies the installation and management of the User Hybrid Runbook Worker, removing the complexity of working with the agent-based approach. Here are some key benefits:
+- **Seamless onboarding** – The Agent-based approach for onboarding Hybrid Runbook worker is dependent on the Log Analytics agent, which is a multi-step, time-consuming, and error-prone process. The extension-based approach is no longer dependent on the Log Analytics agent. 
+- **Ease of Manageability** – It offers native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
+- **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials.
+- **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines.
+- **Multiple onboarding channels** – You can choose to onboard and manage extension-based workers through the Azure portal, PowerShell cmdlets, Bicep, ARM templates, REST API and Azure CLI. You can also install the extension on an existing Azure VM or Arc-enabled server within the Azure portal experience of that machine through the Extensions blade.
+- **Default Automatic upgrade** – It offers Automatic upgrade of minor versions by default, significantly reducing the manageability of staying updated on the latest version. We recommend enabling Automatic upgrades to take advantage of any security or feature updates without the manual overhead. You can also opt out of automatic upgrades at any time. Any major version upgrades are currently not supported and should be managed manually.
 
 ## Runbook Worker types
 
@@ -74,6 +71,15 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 A Hybrid Runbook Worker doesn't have many of the [Azure sandbox](automation-runbook-execution.md#runbook-execution-environment) resource [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources, and they aren't constrained by the [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes have.
 
 To control the distribution of runbooks on Hybrid Runbook Workers and when or how the jobs are triggered, you can register the hybrid worker against different Hybrid Runbook Worker groups within your Automation account. Target the jobs against the specific group or groups in order to support your execution arrangement.
+
+## Common Scenarios for User Hybrid Runbook Workers
+
+- To execute Azure Automation runbooks for in-guest VM management directly on an existing Azure virtual machine (VM) and off-Azure server registered as Azure Arc-enabled server or Azure Arc-enabled VMware VM (preview). Azure Arc-enabled servers can be Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud providers. 
+- To overcome the Azure Automation sandbox limitation - the common scenarios include executing long-running operations beyond three-hour limit for cloud jobs, performing resource-intensive automation operations, interacting with local services running on-premises or in hybrid environment, run scripts that require elevated permissions.
+- To overcome organization restrictions to keep data in Azure for governance and security reasons - as you cannot execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a User Hybrid Runbook Worker.
+- To automate operations on multiple —Off-Azure resources running on-premises or multicloud environments. You can onboard one of those machines as a User Hybrid Runbook Worker and target automation on the remaining machines in the local environment.
+- To access other services privately from the Azure Virtual Network (VNet) without opening an outbound internet connection, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
+
 
 ## Hybrid Runbook Worker installation
 

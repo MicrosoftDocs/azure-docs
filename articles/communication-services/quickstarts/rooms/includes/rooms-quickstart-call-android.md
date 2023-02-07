@@ -55,7 +55,7 @@ call.addOnStateChangedListener { args: PropertyChangedEvent? ->
 }
 ```
 
-To display the role of the local call participant or remote call participants, subscribe to the handler below. Learn more about roles and permissions for room call participants [here](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+To display the role of the local or remote call participants, subscribe to the handler below.
 
 ```java
 // Get your role in the call
@@ -78,3 +78,7 @@ remoteParticipant.addOnRoleChangedListener(isRoleChanged);
 // Get role of the remote participant
 remoteParticipant.getRole();
 ```
+
+The ability to join a room call and display the roles of call participants is available in the Android Mobile Calling SDK version [2.4.0-beta.1](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/2.4.0-beta.1/aar) and above.
+
+You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

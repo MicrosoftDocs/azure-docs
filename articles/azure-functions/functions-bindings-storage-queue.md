@@ -2,7 +2,7 @@
 title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -26,7 +26,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -88,7 +88,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support the isolated worker process.
 
 # [Extension 5.x+](#tab/extensionv5/csharp-script)
 
@@ -99,8 +99,6 @@ This extension version is available from the extension bundle v3 by adding the f
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
@@ -129,8 +127,6 @@ You can add this version of the extension from the preview extension bundle v3 b
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Bundle v2.x](#tab/extensionv2)
 
@@ -174,7 +170,7 @@ Functions 1.x apps automatically have a reference to the extension.
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency as long as your function app runs only on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
 |newBatchThreshold|N*batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.<br><br>`N` represents the number of vCPUs available when running on App Service or Premium Plans. Its value is `1` for the Consumption Plan.|
-|messageEncoding|base64| This setting is only available in [extension version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
+|messageEncoding|base64| This setting is only available in [extension bundle version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
 
 ## Next steps
 

@@ -9,11 +9,11 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -557,8 +557,6 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 [dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
-
-[ha-guide]:sap-high-availability-guide.md
 
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md

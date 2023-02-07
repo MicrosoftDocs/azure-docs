@@ -10,6 +10,11 @@ items:
   - name: Frequently asked questions (FAQ)
     href: faq.yml
 
+- name: Concepts
+  items:
+
+  - name: Manage with Azure RBAC
+    href: manage-with-azure-rbac.md
 
 - name: How-to guides
   items:
@@ -20,6 +25,8 @@ items:
       href: prepare-network.md
     - name: Deploy S/4HANA infrastructure
       href: deploy-s4hana.md
+    - name: Get SAP installation media
+      href: get-sap-installation-media.md
     - name: Install SAP software
       href: install-software.md
     - name: Register existing SAP system
@@ -33,6 +40,8 @@ items:
       href: start-stop-sap-systems.md
     - name: Get quality checks and insights
       href: get-quality-checks-insights.md
+    - name: View cost analysis for SAP system
+      href: view-cost-analysis.md
 
   - name: Monitoring
     items:
@@ -43,10 +52,13 @@ items:
   items:
   - name: REST API
     href: /rest/api/workloads/
+  - name: Azure CLI guide
+    href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+   
 
 - name: Resources
   items:
-  - name: SAP deployment automation framework
+  - name: SAP on Azure Deployment Automation Framework
     href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
   - name: Azure Monitor for SAP solutions
     href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md

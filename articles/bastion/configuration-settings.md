@@ -2,11 +2,10 @@
 title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
 author: cherylmc
+ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.author: cherylmc
-
+ms.date: 08/15/2022
 ---
 
 # About Bastion configuration settings
@@ -92,7 +91,7 @@ You can configure this setting using the following methods:
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**.
 
-Each instance can support 25 concurrent RDP connections and 50 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit (instance) is required.
+Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit (instance) is required.
 
 Instances are created in the AzureBastionSubnet. To allow for host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
@@ -108,6 +107,16 @@ You can configure this setting using the following methods:
 You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, specify that value when you connect to the VM.
 
 Custom port values are supported for the Standard SKU only.
+
+## Shareable link (Preview)
+
+The Bastion **Shareable Link** feature lets users connect to a target resource using Azure Bastion without accessing the Azure portal.
+
+When a user without Azure credentials clicks a shareable link, a webpage will open that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
+
+| Method | Value | Links | Requires Standard SKU |
+| --- | --- | --- | --- |
+| Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
 ## Next steps
 

@@ -14,6 +14,9 @@ ms.date: 09/27/2019
 ---
 
 # Phone number prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The `phonenumber` entity extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances to the application. The `phonenumber` entity is supported in `en-us` culture only.
 
 ## Types of a phone number

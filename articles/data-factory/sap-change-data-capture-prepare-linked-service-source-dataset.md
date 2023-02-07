@@ -1,150 +1,84 @@
 ---
-title: SAP change data capture solution (Preview) - Prepare linked service and dataset
+title: Set up a linked service and dataset for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: This article introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
+description: Learn how to set up a linked service and source dataset to use with the SAP CDC (change data capture) connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Prepare the SAP ODP linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
+# Set up a linked service and source dataset for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
+Learn how to set up the linked service and source dataset for the SAP CDC connector in Azure Data Factory.
 
-## Prepare the SAP ODP linked service
+## Set up a linked service
 
-To prepare SAP ODP linked service, complete the following steps:
+To set up an SAP CDC linked service:
 
-1.	On ADF Studio, go to the **Linked services** section of **Manage** hub and select the **New** button to create a new linked service.
+1. In Azure Data Factory Studio, go to the Manage hub of your data factory. In the menu under **Connections**, select **Linked services**. Select **New** to create a new linked service.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-linked-service.png" alt-text="Screenshot of the manage hub in Azure Data Factory with the New Linked Service button highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-linked-service.png" alt-text="Screenshot of the Manage hub in Azure Data Factory Studio, with the New linked service button highlighted.":::
 
-1.	Search for _SAP_ and select _SAP CDC (Preview)_.
+1. In **New linked service**, search for **SAP**. Select **SAP CDC**, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection with SAP CDC (Preview) selected.":::
+   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection, with SAP CDC selected.":::
 
-1.	Set SAP ODP linked service properties, many of them are similar to SAP Table linked service properties, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
-    1.	For the **Connect via integration runtime** property, select your SHIR.
-    1.	For the **Server name** property, enter the mapped server name for your SAP system.
-    1.	For the **Subscriber name** property, enter a unique name to register and identify this ADF connection as a subscriber that consumes data packages produced in ODQ by your SAP system.  For example, you can name it <_your ADF name_>_<_your linked service name_>.
+1. Set the linked service properties. Many of the properties are similar to SAP Table linked service properties. For more information, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
 
-    When using extraction mode "Delta", the combination of Subscriber name (maintained in the linked service) and Subscriber process has to be unique for every copy activity reading from the same ODP source object to ensure that the ODP framework can distinguish these copy activities and provide the correct chances.
+   1. In **Name**, enter a unique name for the linked service.
+   1. In **Connect via integration runtime**, select your self-hosted integration runtime.
+   1. In **Server name**, enter the mapped server name for your SAP system.
+   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<your data factory -name>_<your linked service name>`. Make sure to only use upper case letters.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-configuration.png" alt-text="Screenshot of the SAP ODP linked service configuration.":::
+    Make sure you assign a unique subscriber name to every linked service connecting to the same SAP system. This will make monitoring and trouble shooting on SAP side much easier.
 
-1.	Test the connection and create your new SAP ODP linked service.
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-configuration.png" alt-text="Screenshot of the SAP CDC linked service configuration.":::
 
-## Prepare the SAP ODP source dataset
+1. Select **Test connection**, and then select **Create**.
 
-To prepare an ADF copy activity with an SAP ODP data source, complete the following steps:
+## Set up the source dataset
 
-1.	On ADF Studio, go to the **Pipeline** section of the **Author** hub, select the **…** button to drop down the **Pipeline Actions** menu, and select the **New pipeline** item.
-1.	Drag & drop the **Copy data** activity onto the canvas of new pipeline, go to the **Source** tab of ADF copy activity, and select the **New** button to create a new source dataset.
+1. In Azure Data Factory Studio, go to the Author hub of your data factory. In **Factory Resources**, under **Datasets** > **Dataset Actions**, select **New dataset**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-configuration.png" alt-text="Screenshot of the Copy data activity's Source configuration.":::
+   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-dataset.png" alt-text="Screenshot that shows creating a new pipeline in the Data Factory Studio Author hub.":::  
 
-1.	Search for _SAP_ and select _SAP CDC (Preview)_.
+1. In **New dataset**, search for **SAP**. Select **SAP CDC**, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP CDC (Preview) dataset type on the New dataset dialog.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP CDC dataset type in the New dataset dialog.":::
 
-1.	Select your new SAP ODP linked service for the new source dataset and set the rest of its properties.
-    1.	For the **Connect via integration runtime** property, select your SHIR.
-    1.	For the **Context** property, select the context of data extraction via ODP, such as: 
-        - _ABAP_CDS_ for extracting ABAP CDS views from S/4HANA
-        - _BW_ for extracting InfoProviders or InfoObjects from SAP BW or BW/4HANA
-        - _SAPI_ for extracting SAP extractors from SAP ECC
-        - _SLT~_<_your queue alias_> for extracting SAP application tables from SAP source systems via SLT replication server as a proxy
+1. In **Set properties**, enter a name for the SAP CDC linked service data source. In **Linked service**, select the dropdown and select **New**.
 
-        If you want to extract SAP application tables, but don’t want to use SLT replication server as a proxy, you can create SAP extractors via RSO2 transaction code/CDS views on top of those tables and extract them directly from your SAP source systems in _SAPI/ABAP_CDS_ context, respectively.
-    1.	For the **Object name** property, select the name of data source object to extract under the selected data extraction context.  If you connect to your SAP source system via SLT replication server as a proxy, the **Preview data** feature isn't supported for now.
-    1.	Check the **Edit** check boxes, if loading the dropdown menu selections takes too long and you want to type them yourself.
-    
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP CDC (Preview) dataset configuration page.":::
+1. Select your SAP CDC linked service for the new source dataset and set the rest of the properties for the linked service:
 
-1.	Select the **OK** button to create your new SAP ODP source dataset.
-1.	For the **Extraction** mode property of ADF copy activity, select one of the following modes:
-    - _Full_ for always extracting the current snapshot of selected data source object w/o registering ADF copy activity as its “delta” subscriber that consumes data changes produced in ODQ by your SAP system
-    - _Delta_ for initially extracting the current snapshot of selected data source object, registering ADF copy activity as its “delta” subscriber, and subsequently extracting new data changes produced in ODQ by your SAP system since the last extraction
-    - _Recovery_ for repeating the last extraction that was part of a failed pipeline run
+   1. In **Connect via integration runtime**, select your self-hosted integration runtime.
 
-1.	For the **Subscriber process** property of ADF copy activity, enter a unique name to register and identify this ADF copy activity as a “delta” subscriber of the selected data source object, so your SAP system can manage its subscription state to keep track of data changes produced in ODQ and consumed in consecutive extractions, eliminating the need for watermarking them yourself.  For example, you can name it <_your pipeline name_>_<_your copy activity name_>.
+   1. In **ODP context**, select the context of the ODP data extraction. Here are some examples:
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-configuration.png" alt-text="Screenshot of the SAP CDC (Preview) source configuration in a Copy activity.":::
+       - To extract ABAP CDS views from S/4HANA, select **ABAP_CDS**.
+       - To extract InfoProviders or InfoObjects from SAP BW or BW/4HANA, select **BW**.
+       - To extract SAP extractors from SAP ECC, select **SAPI**.
+       - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT_\<your queue alias\>**.
 
-1.	If you want to extract only data from some columns/rows, you can use the column projection/row selection features:
-    1. For the **Projection** property of ADF copy activity, select the **Refresh** button to load the dropdown menu selections w/ column names of the selected data source object.  
+       If you want to extract SAP application tables, but you don’t want to use SAP Landscape Transformation Replication Server (SLT) as a proxy, you can create SAP extractors by using the RSO2 transaction code or Core Data Services (CDS) views with the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
 
-       If you have many columns and you want to include only a few in your data extraction, select the check boxes for those columns.  If you have many columns and you want to exclude only a few in your data extraction, select the **Select all** check box first and then unselect the check boxes for those columns.  If no column is selected, all will be extracted by default.  
+   1. For **ODP name**, under the selected data extraction context, select the name of the data source object to extract. If you connect to your SAP source system by using SLT as a proxy, the **Preview data** feature currently isn't supported.
 
-       Check the **Edit** check box, if loading the dropdown menu selections takes too long and you want to add/type them yourself.
+      To enter the selections directly, select the **Edit** checkbox.
+  
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP CDC dataset configuration page.":::
 
-       :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-projection-configuration.png" alt-text="Screenshot of the SAP CDC (Preview) source configuration with the Projection, Selection, and Additional columns sections highlighted.":::
+1. Select **OK** to create your new SAP CDC source dataset.
 
-    1.	For the **Selection** property of ADF copy activity, select the **New** button to add a new row selection condition containing **Field name/Sign/Option/Low/High** arguments. 
-        1.	For the **Field name** argument, select the **Refresh** button to load the dropdown menu selections w/ column names of the selected data source object.  if loading the dropdown menu selections takes too long, you can type it yourself.  
-        1.	For the **Sign** argument, select _Inclusive/Exclusive_ to respectively include/exclude only rows that meet the selection condition in your data extraction.  
-        1.	For the **Option** argument, select _EQ/CP/BT_ to respectively apply the following row selection conditions: 
-           - “True if the value in **Field name** column is equal to the value of **Low** argument”
-           - ”True if the value in **Field name** column contains a pattern specified in the value of **Low** argument”
-           - ”True if the value in **Field name** column is between the values of **Low** and **High** arguments”
+## Set up a mapping data flow using the SAP CDC dataset as a source
 
-        Please consult SAP docs/support notes to ensure that your row selection conditions can be applied to the selected data source object.  For example, here are some row selection conditions and their respective arguments:
-
-
-        |**Row selection condition**  |**Field name**  |**Sign**  |**Option**  |**Low**  |**High**  |
-        |---------|---------|---------|---------|---------|---------|
-        |Include only rows where the value in _COUNTRY_ column is _CHINA_     |_COUNTRY_         |_Inclusive_         |_EQ_         |_CHINA_         |         |
-        |Exclude only rows where the value in _COUNTRY_ column is _CHINA_     |_COUNTRY_         |_Exclusive_         |_EQ_         |_CHINA_         |         |
-        |Include only rows where the value in _FIRSTNAME_ column contains _JO*_ pattern     |_FIRSTNAME_         |_Inclusive_         |_CP_         |_JO*_         |         |
-        |Include only rows where the value in _CUSTOMERID_ column is between _1_ and _999999_     |_CUSTOMERID_         |_Inclusive_         |_BT_         |_1_         |_999999_         |
-        
-        :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-selection-additional-columns.png" alt-text="Screenshot of the SAP CDC (Preview) source configuration for a Copy activity with the Selection and Additional columns sections highlighted."::: 
-        
-        Row selections are especially useful to divide large data sets into multiple partitions, where each partition can be extracted using a single copy activity, so you can perform full extractions using multiple copy activities running in parallel.  These copy activities will in turn invoke parallel processes on your SAP system to produce data packages in ODQ that can also be consumed by parallel processes in each copy activity, thus increasing throughput significantly.
-        
-1.	Go to the **Sink** tab of ADF copy activity and select an existing sink dataset or create a new one for any data store, such as Azure Blob Storage/ADLS Gen2.
-
-    To increase throughput, you can enable ADF copy activity to concurrently extract data packages produced in ODQ by your SAP system and enforce all extraction processes to immediately write them into the sink in parallel.  For example, if you use ADLS Gen2 as sink, leave the **File name** field in **File path** property of sink dataset empty, so all extracted data packages will be written as separate files.
-
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-staging-dataset.png" alt-text="Screenshot of the staging dataset configuration for the solution.":::
-
-1.	Go to the **Settings** tab of ADF copy activity and increase throughput by setting the **Degree of copy parallelism** property to concurrently extract data packages produced in ODQ by your SAP system.
-
-    If you use Azure Blob Storage/ADLS Gen2 as sink, the maximum number of effective parallel extractions is four/five per SHIR machine, but you can install SHIR as a cluster of up to four machines, see [High availability and scalability](create-self-hosted-integration-runtime.md?tabs=data-factory#high-availability-and-scalability).
-
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-settings-parallelism.png" alt-text="Screenshot of a Copy activity with the Degree of parallelism setting highlighted.":::
-
-1.	Adjust the maximum size of data packages produced in ODQ to fine-tune parallel extractions.  The default size is 50 MB, so 3 GB of SAP table/object will be extracted into 60 files of raw SAP data in ADLS Gen2.  Lowering it to 15 MB could increase throughput, but will produce more (200) files.  To do so, select the **Code** button of ADF pipeline to edit the **maxPackageSize** property of ADF copy activity.
-
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-configuration.png" alt-text="Screenshot of a pipeline with the Code configuration button highlighted.":::
-
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-1.png" alt-text="Screenshot of the code configuration for a pipeline with the maxPackageSize setting highlighted.":::
-
-1.	If you set the **Extraction mode** property of ADF copy activity to _Delta_, your initial/subsequent extractions will respectively consume full data/new data changes produced in ODQ by your SAP system since the last extraction.  
-
-    For each extraction, you can skip the actual data production/consumption/transfer and simply initialize/advance your “delta” subscription state.  This is especially useful when you want to perform full and delta extractions using separate copy activities w/ different partitions.  To do so, select the **Code** button of ADF pipeline to add the **deltaExtensionNoData** property of ADF copy activity and set it to _true_.  Remove that property when you want to resume extracting data.
-
-     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-2.png" alt-text="Screenshot of the code configuration for a pipeline with the deltaExtensionNoData property highlighted.":::    
-
-1.	Select the **Save all** and **Debug** buttons to run your new pipeline containing ADF copy activity w/ SAP ODP source dataset.
-
-To illustrate the results of full and delta extractions from consecutively running your new pipeline, let’s use the following simple/small custom table in SAP ECC as an example of data source object to extract.
-
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-simple-custom-table.png" alt-text="Screenshot of a simple custom table in SAP.":::
-
-Here’s the raw SAP data from initial/full extraction as CSV file in ADLS Gen2.  It contains system columns/fields (ODQ_CHANGEMODE/ODQ_ENTITYCNTR/_SEQUENCENUMBER) that can be used by ADF data flow activity to merge data changes when replicating SAP data.  The ODQ_CHANGEMODE column marks the type of change for each row/record: (C)reated, (U)pdated, or (D)eleted.  The initial run of your pipeline w/ _Delta_ extraction mode always induces a full load that marks all rows as (C)reated.
-
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-sample-data.png" alt-text="Shows sample CDC data from SAP loaded into ADF.":::
-
-After creating, updating, and deleting three rows of the custom table in SAP ECC, here’s the raw SAP data from subsequent/delta extraction as CSV file in ADLS Gen2.
-
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-sample-data-after-deletions.png" alt-text="Shows sample CDC data from SAP loaded into ADF after deletions were made.":::
+To set up a mapping data flow using the SAP CDC dataset as a source, follow [Transform data with the SAP CDC connector](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
 
 ## Next steps
 
-[Debug ADF copy activity issues by sending SHIR logs](sap-change-data-capture-debug-shir-logs.md)
+[Debug the SAP CDC connector by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md)

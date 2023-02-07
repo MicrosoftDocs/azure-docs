@@ -12,6 +12,8 @@ ms.date: 08/20/2022
 
 # DevOps deployment for single-tenant Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 With the trend towards distributed and native cloud apps, organizations are dealing with more distributed components across more environments. To maintain control and consistency, you can automate your environments and deploy more components faster and more confidently by using DevOps tools and processes.
 
 This article provides an introduction and overview about the current continuous integration and continuous deployment (CI/CD) experience for single-tenant Azure Logic Apps.

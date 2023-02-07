@@ -2,28 +2,27 @@
 title: OT sensor cloud connection methods - Microsoft Defender for IoT
 description: Learn about the architecture models available for connecting your sensors to Microsoft Defender for IoT.
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 09/11/2022
 ---
 
 # OT sensor cloud connection methods
 
-This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud.
+This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the Azure portal in the cloud.
+OT network sensors connect to Azure to provide data about detected devices, alerts, and sensor health, to access threat intelligence packages, and more. For example, connected Azure services include IoT Hub, Blob Storage, Event Hubs, Aria, the Microsoft Download Center.
 
-All supported cloud connection methods provide:
+The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
 
-- **Simple deployment**, requiring no extra installations in your private Azure environment, such as for an IoT Hub
+- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](how-to-set-up-your-network.md#sensor-access-to-azure-portal), without the need for any wildcards.
 
-- **Improved security**, without needing to configure or lock down any resource security settings in the Azure VNET
+- **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 
 - **Scalability** for new features supported only in the cloud
 
-- **Flexible connectivity** using any of the connection methods described in this article
-
-For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
+For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method) and [Download endpoint details](how-to-manage-sensors-on-the-cloud.md#endpoint).
 
 
 > [!IMPORTANT]
-> To ensure that your network is ready, we recommend that you first run the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
+> To ensure that your network is ready, we recommend that you first run your connections in a lab or testing environment so that you can safely validate your Azure service configurations.
 >
 
 ## Proxy connections with an Azure proxy
@@ -58,13 +57,13 @@ The following image shows how you can connect your sensors to the Defender for I
 
 With direct connections
 
-- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides *always-on* communication between the sensor and Azure resources.
+- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
 
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
 For more information, see [Connect directly](connect-sensors.md#connect-directly).
 
-## Multi-cloud connections
+## Multicloud connections
 
 You can connect your sensors to the Defender for IoT portal in Azure from other public clouds for OT/IoT management process monitoring.
 
@@ -76,7 +75,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 - A site-to-site VPN over the internet.
 
-For more information, see [Connect via multi-cloud vendors](connect-sensors.md#connect-via-multi-cloud-vendors).
+For more information, see [Connect via multicloud vendors](connect-sensors.md#connect-via-multicloud-vendors).
 
 ## Working with a mixture of sensor software versions
 

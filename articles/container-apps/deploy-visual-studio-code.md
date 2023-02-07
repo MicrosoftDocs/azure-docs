@@ -10,7 +10,7 @@ ms.date: 09/01/2022
 ms.custom: vscode-azure-extension-update-completed
 ---
 
-# Tutorial: Deploy to Azure Container Apps using Visual Studio Code
+# Quickstart: Deploy to Azure Container Apps using Visual Studio Code
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
@@ -27,7 +27,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Clone the project
 
-1. Begin by cloning the [sample repository]((https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
+1. Begin by cloning the [sample repository](https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
 
     ```bash
     git clone https://github.com/Azure-Samples/containerapps-albumapi-javascript.git

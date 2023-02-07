@@ -1,12 +1,12 @@
 ---
 title: DICOM access request reference guide - Azure Health Data Services
 description: This reference guide provides information about to create an Azure support ticket to request DICOMcast access.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # DICOMcast access request

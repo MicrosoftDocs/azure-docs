@@ -153,15 +153,15 @@ In NFSv4.1, sessions define the relationship between the client and the server. 
 
 Although Linux clients default to 64 maximum requests per session, the value of `max_session_slots` is tunable.  A reboot is required for changes to take effect.  Use the `systool -v -m nfs` command to see the current maximum in use by the client.  For the command to work, at least one NFSv4.1 mount must be in place:
 
-```
+```shell
 $ systool -v -m nfs
 {
 Module = "nfs"
-…
+...
   Parameters:
-…
-    max_session_slots   = "64"   
-…
+...
+    max_session_slots   = "64"
+...
 }
 ```
 

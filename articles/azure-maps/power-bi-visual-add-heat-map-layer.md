@@ -16,7 +16,7 @@ In this article, you will learn how to add a heat map layer to an Azure Maps Pow
 
 :::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in an Azure Maps Power BI visual.":::
 
-Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data “hot spots” on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map will result in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
+Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map will result in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
 
 A heat map is useful when users want to visualize vast comparative data:
 
@@ -52,7 +52,7 @@ The following table shows the primary settings that are available in the **Heat 
 | Setting              | Description      |
 |----------------------|------------------|
 | Radius | The radius of each data point in the heat map.<br /><br />Valid values when Unit = ‘pixels’: 1 - 200. Default: **20**<br />Valid values when Unit = ‘meters’: 1 - 4,000,000|
-| Units  | The distance units of the radius. Possible values are:<br /><br />**pixels**. When set to pixels the size of each data point will always be the same, regardless of zoom level.<br />**meters**. When set to meters, the size of the data points will scale based on zoom level, ensuring the radius is spatially accurate.<br /><br /> Default: **pixels**  |
+| Units  | The distance units of the radius. Possible values are:<br /><br />**pixels**. When set to pixels the size of each data point will always be the same, regardless of zoom level.<br />**meters**. When set to meters, the size of the data points will scale based on zoom level based on the equivalent pixel distance at the equator, providing better relativity between neighboring points. However, due to the Mercator projection, the actual radius of coverage in meters at a given latitude will be smaller than this specified radius.<br /><br /> Default: **pixels**  |
 | Transparency | Sets the Transparency of the heat map layer. Default: **1**<br/>Value should be from 0% to 100%. |
 | Intensity | The intensity of each heat point. Intensity is a decimal value between 0 and 1, used to specify how "hot" a single data point should be. Default: **0.5** |
 | Use size as weight | A boolean value that determines if the size field value should be used as the weight of each data point. If on, this causes the layer to render as a weighted heat map. Default: **Off** |

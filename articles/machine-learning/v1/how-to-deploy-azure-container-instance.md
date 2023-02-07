@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: deploy, cliv1, sdkv1
-ms.author: larryfr
-author: blackmist
+ms.author: bozhlin
+author: bozhong68
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 ---
 
 # Deploy a model to Azure Container Instances with CLI (v1)
@@ -36,6 +36,8 @@ For information on quota and region availability for ACI, see [Quotas and region
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 

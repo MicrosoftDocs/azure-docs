@@ -11,6 +11,9 @@ ms.date: 07/19/2022
 ---
 # Sign in to the LUIS portal and create an app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Use this article to get started with the LUIS portal, and create an authoring resource. After completing the steps in this article, you will be able to create and publish LUIS apps.
 
 ## Access the portal

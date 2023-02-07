@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: likebupt
 ms.author: keli19
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer, devx-track-python

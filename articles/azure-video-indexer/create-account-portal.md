@@ -60,6 +60,9 @@ You can use the Azure portal to validate the Azure Video Indexer account and oth
 
 This tab enables you to view details about your account.
 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/create-account-portal/avi-overview.png" alt-text="Screenshot showing the Overview tab.":::
+
 Select **Explore Azure Video Indexer's portal** to view your new account on the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 
 ### Essential details

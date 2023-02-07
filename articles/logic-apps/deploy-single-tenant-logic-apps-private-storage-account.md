@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.custom: engagement-fy23
+ms.date: 10/18/2022
 
 # As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
@@ -27,7 +28,12 @@ For more information, review the following documentation:
 
 ## Deploy using Azure portal or Visual Studio Code
 
-This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section.
+This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
+
+> [!NOTE]
+> An exception to the previous rule is that you can use the Azure portal to deploy your logic app to an App Service Environment, 
+> even if the storage account is protected with a private endpoint. However, you'll need connectivity between the 
+> subnet used by the App Service Environment and the subnet used by the storage account's private endpoint. 
 
 1. Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 

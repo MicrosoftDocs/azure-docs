@@ -1,19 +1,23 @@
 ---
 title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
+titleSuffix: Azure Kubernetes Service
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters use [kubenet][kubenet], and a virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
-This article shows you how to use *Azure CNI* networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
+This article shows you how to use Azure CNI networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
 ## Prerequisites
 
@@ -77,7 +81,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service. You can not set a maxPods value lower than the minimum shown as doing so can prevent the cluster from starting.
 
-* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [`az aks create`][az-aks-create] command. The maximum value is 250.
 * **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
 * **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
 
@@ -89,7 +93,7 @@ The maxPod per node setting can be defined when you create a new node pool. If y
 
 When you create an AKS cluster, the following parameters are configurable for Azure CNI networking:
 
-**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. If you want to select an existing virtual network, make sure it is in the same location and Azure subscription as your Kubernetes cluster. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
 
@@ -123,7 +127,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
+Use the [`az aks create`][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
 
 ```azurecli-interactive
 az aks create \
@@ -143,157 +147,79 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 :::image type="content" source="../aks/media/networking-overview/portal-01-networking-advanced.png" alt-text="Screenshot from the Azure portal showing an example of configuring these settings during AKS cluster creation.":::
 
-## Dynamic allocation of IPs and enhanced subnet support
+## Monitor IP subnet usage
 
-A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster. It offers the following benefits:
+Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
 
-* **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.  
+### Get the YAML file
 
-* **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
+1. Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
+2. Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`.
+3. Save the file.
 
-* **High performance**: Since pod are assigned VNet IPs, they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
+### Get the AKS credentials
 
-* **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using a VNet Network NAT, and using NSGs to filter traffic between node pools.  
+Set the variables for subscription, resource group and cluster. Consider the following as examples:
 
-* **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this new solution.  
+```azurepowershell
 
-### Additional prerequisites
+    $s="subscriptionId"
 
-> [!NOTE]
-> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service is not supported.
+    $rg="resourceGroup"
 
-The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
+    $c="ClusterName"
 
-* Only linux node clusters and node pools are supported.
-* AKS Engine and DIY clusters are not supported.
-* Azure CLI version `2.37.0` or later.
+    az account set -s $s
 
-### Planning IP addressing
+    az aks get-credentials -n $c -g $rg
 
-When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
-
-The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
-
-### Maximum pods per node in a cluster with dynamic allocation of IPs and enhanced subnet support
-
-The pods per node values when using Azure CNI with dynamic allocation of IPs have changed slightly from the traditional CNI behavior:
-
-|CNI|Default|Configurable at deployment|
-|--| :--: |--|
-|Traditional Azure CNI|30|Yes (up to 250)|
-|Azure CNI with dynamic allocation of IPs|250|Yes (up to 250)|
-
-All other guidance related to configuring the maximum nodes per pod remains the same.
-
-### Additional deployment parameters
-
-The deployment parameters described above are all still valid, with one exception:
-
-* The **subnet** parameter now refers to the subnet related to the cluster's nodes.
-* An additional parameter **pod subnet** is used to specify the subnet whose IP addresses will be dynamically allocated to pods.
-
-### Configure networking - CLI with dynamic allocation of IPs and enhanced subnet support
-
-Using dynamic allocation of IPs and enhanced subnet support in your cluster is similar to the default method for configuring a cluster Azure CNI. The following example walks through creating a new virtual network with a subnet for nodes and a subnet for pods, and creating a cluster that uses Azure CNI with dynamic allocation of IPs and enhanced subnet support. Be sure to replace variables such as `$subscription` with your own values:
-
-First, create the virtual network with two subnets:
-
-```azurecli-interactive
-resourceGroup="myResourceGroup"
-vnet="myVirtualNetwork"
-location="westcentralus"
-
-# Create the resource group
-az group create --name $resourceGroup --location $location
-
-# Create our two subnet network 
-az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
 ```
 
-Then, create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`:
+### Apply the config
 
-```azurecli-interactive
-clusterName="myAKSCluster"
-subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+1.	Open terminal in the folder the downloaded container-azm-ms-agentconfig.yaml file is saved.
+2.	First, apply the config using the command: `kubectl apply -f container-azm-ms-agentconfig.yaml`
+3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
+4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
 
-az aks create -n $clusterName -g $resourceGroup -l $location \
-  --max-pods 250 \
-  --node-count 2 \
-  --network-plugin azure \
-  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
-  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
-```
-
-#### Adding node pool
-
-When adding node pool, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets that are then referenced in the creation of a new node pool:
-
-```azurecli-interactive
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
-
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
-  --max-pods 250 \
-  --node-count 2 \
-  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
-  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
-  --no-wait 
-```
+  :::image type="content" source="media/Azure-cni/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::    
 
 ## Frequently asked questions
 
-The following questions and answers apply to the **Azure CNI** networking configuration.
-
-* *Can I deploy VMs in my cluster subnet?*
+* **Can I deploy VMs in my cluster subnet?**
 
   Yes.
 
-* *What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?*
+* **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
 
-* *Can I configure per-pod network policies?*
+* **Can I configure per-pod network policies?**
 
   Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
 
-* *Is the maximum number of pods deployable to a node configurable?*
+* **Is the maximum number of pods deployable to a node configurable?**
 
   Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node](#maximum-pods-per-node).
 
   You can't change the maximum number of pods per node on an existing cluster.
 
-* *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
+* **How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.**
 
   The complete list of properties for the virtual network and subnets that you create during AKS cluster creation can be configured in the standard virtual network configuration page in the Azure portal.
 
-* *Can I use a different subnet within my cluster virtual network for the* **Kubernetes service address range**?
+* **Can I use a different subnet within my cluster virtual network for the *Kubernetes service address range*?**
 
   It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to internal services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
 
-### Dynamic allocation of IP addresses and enhanced subnet support FAQs
-
-The following questions and answers apply to the **Azure CNI network configuration when using Dynamic allocation of IP addresses and enhanced subnet support**.
-
-* *Can I assign multiple pod subnets to a cluster/node pool?*
-
-  Only one subnet can be assigned to a cluster or node pool. However, multiple clusters or node pools can share a single subnet.
-
-* *Can I assign Pod subnets from a different VNet altogether?*
-
-  No, the pod subnet should be from the same VNet as the cluster.  
-
-* *Can some node pools in a cluster use the traditional CNI while others use the new CNI?*
-
-  The entire cluster should use only one type of CNI.
-
 ## Next steps
+
+To configure Azure CNI networking with dynamic IP allocation and enhanced subnet support, see [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS](/configure-azure-cni-dynamic-ip-allocation.md).
 
 Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
-* [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 * [Enable the HTTP application routing add-on][aks-http-app-routing]
@@ -309,7 +235,7 @@ Learn more about networking in AKS in the following articles:
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
-
+[github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create

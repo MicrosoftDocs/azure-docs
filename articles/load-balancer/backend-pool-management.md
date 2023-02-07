@@ -6,9 +6,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 2/17/2022
+ms.date: 02/03/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
 ---
 # Backend pool management
 
@@ -20,7 +20,7 @@ There are two ways of configuring a backend pool:
 
 * IP address
 
-To preallocate a backend pool with an IP address range that later will contain virtual machines and virtual machine scale sets, configure the pool by IP address and virtual network ID.
+To preallocate a backend pool with an IP address range that later will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
 
 ## Configure backend pool by IP address and virtual network
@@ -83,7 +83,7 @@ $net = @{
     Name = 'myNic'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus'
-    PrivateIpAddress = '10.0.0.4'
+    PrivateIpAddress = '10.0.0.5'
     Subnet = $virtualNetwork.Subnets[0]
 }
 $nic = New-AzNetworkInterface @net
@@ -214,13 +214,14 @@ az vm create \
 
 ### Limitations
   * IP based backends can only be used for Standard Load Balancers
-  * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
+  * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
   * ACI containers aren't currently supported by IP based LBs
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+  * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously 
 
 >[!Important]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.

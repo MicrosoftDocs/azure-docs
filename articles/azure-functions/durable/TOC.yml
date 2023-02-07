@@ -10,12 +10,19 @@
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
     href: durable-functions-versions.md
+  - name: Durable Functions for .NET isolated
+    href: durable-functions-dotnet-isolated-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create durable function - C#
-    href: durable-functions-create-first-csharp.md
-    displayName: get started, chaining
+    items: 
+      - name: In-process
+        href: durable-functions-create-first-csharp.md
+        displayName: get started, chaining
+      - name: Isolated worker process
+        href: durable-functions-isolated-create-first-csharp.md
+        displayName: get started, chaining
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
@@ -28,6 +35,10 @@
   - name: Create durable function - Java
     displayName: get started, chaining
     href: quickstart-java.md
+  - name: Configure storage provider - Netherite
+    href: quickstart-netherite.md
+  - name: Configure storage provider - MSSQL
+    href: quickstart-mssql.md
 - name: Tutorials
   items:
   - name: Function chaining
@@ -138,8 +149,8 @@
       href: durable-functions-billing.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-functions
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

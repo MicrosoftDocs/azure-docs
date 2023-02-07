@@ -2,14 +2,15 @@
 title: Prevent sign-in auto-acceleration using Home Realm Discovery policy
 description: Learn how to prevent domain_hint auto-acceleration to federated IDPs.
 services: active-directory
-author: nickludwig
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.author: ludwignick
+ms.author: jomondi
+ms.reviewer: ludwignick
 zone_pivot_groups: home-realm-discovery
 
 #customer intent: As an admin, I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
@@ -76,7 +77,7 @@ Admins of federated domains should set up this section of the HRD policy in a fo
 ::: zone pivot="powershell-hrd"
 
 ```powershell 
-New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
@@ -97,7 +98,7 @@ New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForD
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
@@ -118,7 +119,7 @@ New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForD
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 ::: zone-end
@@ -141,7 +142,7 @@ New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForD
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 ::: zone-end

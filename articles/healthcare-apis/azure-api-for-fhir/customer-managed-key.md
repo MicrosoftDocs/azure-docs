@@ -1,14 +1,14 @@
 ---
 title: Configure customer-managed keys for Azure API for FHIR
-description: Bring your own key feature supported in Azure API for FHIR through Cosmos DB
+description: Bring your own key feature supported in Azure API for FHIR via Azure Cosmos DB
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 06/03/2022
-ms.author: ginle 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: kesheth
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 When you create a new Azure API for FHIR account, your data is encrypted using Microsoft-managed keys by default. Now, you can add a second layer of encryption for the data using your own key that you choose and manage yourself.
 
-In Azure, this is typically accomplished using an encryption key in the customer's Azure Key Vault. Azure SQL, Azure Storage, and Cosmos DB are some examples that provide this capability today. Azure API for FHIR leverages this support from Cosmos DB. When you create an account, you'll have the option to specify an Azure Key Vault key URI. This key will be passed on to Cosmos DB when the DB account is provisioned. When a Fast Healthcare Interoperability Resources (FHIR&#174;) request is made, Cosmos DB fetches your key and uses it to encrypt/decrypt the data. 
+In Azure, this is typically accomplished using an encryption key in the customer's Azure Key Vault. Azure SQL, Azure Storage, and Azure Cosmos DB are some examples that provide this capability today. Azure API for FHIR leverages this support from Azure Cosmos DB. When you create an account, you'll have the option to specify an Azure Key Vault key URI. This key will be passed on to Azure Cosmos DB when the DB account is provisioned. When a Fast Healthcare Interoperability Resources (FHIR&#174;) request is made, Azure Cosmos DB fetches your key and uses it to encrypt/decrypt the data. 
 
 To get started, refer to the following links:
 
@@ -146,6 +146,6 @@ New-AzResourceGroupDeployment `
 In this article, you learned how to configure customer-managed keys at rest using the Azure portal, PowerShell, CLI, and Resource Manager Template. You can refer to the Azure Cosmos DB FAQ section for more information. 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: how to setup CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
+>[Azure Cosmos DB: how to setup CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

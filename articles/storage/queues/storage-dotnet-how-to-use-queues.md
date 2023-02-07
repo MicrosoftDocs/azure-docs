@@ -1,5 +1,6 @@
 ---
-title: Get started with Azure Queue Storage using .NET - Azure Storage
+title: Get started with Azure Queue Storage using .NET
+titleSuffix: Azure Storage
 description: Azure Queue Storage provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 author: normesta
 ms.author: normesta
@@ -29,7 +30,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Prerequisites
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- An [Azure Storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- An [Azure Storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

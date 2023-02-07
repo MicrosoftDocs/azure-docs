@@ -17,6 +17,8 @@ ms.custom:  [amqp, mqtt]
 
 [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, it allows for isolated configuration and conditions for each component.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 At the end of this article, you have two C apps:
 
 * **CreateIdentities**: creates a device identity, a module identity and associated security key to connect your device and module clients.

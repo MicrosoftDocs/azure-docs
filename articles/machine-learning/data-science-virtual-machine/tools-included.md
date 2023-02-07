@@ -10,8 +10,7 @@ author: jesscioffi
 ms.author: jcioffi
 ms.topic: reference
 ms.date: 06/23/2022
-ms.custom: contperf-fy20q4
-
+ms.custom: contperf-fy20q4, ignite-2022
 ---
 
 # What tools are included on the Azure Data Science Virtual Machine?
@@ -20,9 +19,14 @@ The Data Science Virtual Machine is an easy way to explore data and do machine l
 
 The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. 
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Build deep learning and machine learning solutions
 
-| Tool | Windows Server 2019 DSVM | Ubuntu 18.04 DSVM | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Ubuntu 20.04 DSVM | Azure DSVM for PyTorch (preview) | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [CUDA, cuDNN, NVIDIA Driver on the DSVM](./dsvm-tools-deep-learning-frameworks.md#cuda-cudnn-nvidia-driver) |
 | [Horovod](https://github.com/horovod/horovod) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | [Horovod on the DSVM](./dsvm-tools-deep-learning-frameworks.md#horovod) |
@@ -48,7 +52,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 ## Store, retrieve, and manipulate data
 
-| Tool | Windows Server 2019 DSVM | Ubuntu 18.04 DSVM | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Ubuntu 20.04 DSVM | Azure DSVM for PyTorch (preview) | Usage notes |
 |--|-:|:-:|:-:|:-:|
 | Relational databases | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server on the DSVM](./dsvm-tools-data-platforms.md#sql-server-developer-edition) |
 | Database tools | SQL Server Management Studio<br/> SQL Server Integration Services<br/> [bcp, sqlcmd](/sql/tools/command-prompt-utility-reference-database-engine) | [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (querying tool), <br /> bcp, sqlcmd <br /> ODBC/JDBC drivers | [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (querying tool), <br /> bcp, sqlcmd <br /> ODBC/JDBC drivers | |
@@ -56,13 +60,13 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Azure CLI](/cli/azure) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | |
 | [AzCopy](../../storage/common/storage-use-azcopy-v10.md) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | [AzCopy on the DSVM](./dsvm-tools-ingestion.md#azcopy) |
 | [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span></br> | <span class='red-x'>&#10060;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
-| [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | [Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
+| [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | [Azure Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
 | Unix/Linux command-line tools | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
 | Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | |
 
 ## Program in Python, R, Julia, and Node.js
 
-| Tool | Windows Server 2019 DSVM | Ubuntu 18.04 DSVM | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Ubuntu 20.04 DSVM | Azure DSVM for PyTorch (preview) | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [CRAN-R](https://cran.r-project.org/) with popular packages pre-installed | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
 | [Anaconda Python](https://www.continuum.io/) with popular packages pre-installed | <span class='green-check'>&#9989;</span><br/> (Miniconda) | <span class='green-check'>&#9989;</span></br> (Miniconda) | <span class='green-check'>&#9989;</span></br> (Miniconda) | |
@@ -76,7 +80,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; Julia |  |  |  | [Julia Jupyter Samples](./dsvm-samples-and-walkthroughs.md#julia-language) |
 | &nbsp;&nbsp;&nbsp;&nbsp; PySpark |  |  |  | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml) |
 
-**Ubuntu 18.04 DSVM, 20.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
+**Ubuntu 20.04 DSVM, Azure DSVM for PyTorch (preview) and Windows Server 2019 DSVM** have the following Jupyter Kernels:-</br> 
 * Python3.8-default</br>
 * Python3.8-Tensorflow-Pytorch</br>
 * Python3.8-AzureML</br>
@@ -87,14 +91,14 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 * Scala Spark – HDInsight</br>
 * Python 3 Spark – HDInsight</br>
 
-**Ubuntu 18.04 DSVM, 20.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
+**Ubuntu 20.04 DSVM, Azure DSVM for PyTorch (preview) and Windows Server 2019 DSVM** have the following conda environments:-</br> 
 * Python3.8-default  </br>
 * Python3.8-Tensorflow-Pytorch </br> 
 * Python3.8-AzureML  </br>
 
 ## Use your preferred editor or IDE
 
-| Tool | Windows Server 2019 DSVM | Ubuntu 18.04 DSVM | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Ubuntu 20.04 DSVM | Azure DSVM for PyTorch (preview) | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [Notepad++](https://notepad-plus-plus.org/) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span></br> | <span class='red-x'>&#10060;</span></br> | |
 | [Nano](https://www.nano-editor.org/) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span></br> | <span class='red-x'>&#10060;</span></br> | |
@@ -111,7 +115,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 ## Organize & present results
 
-| Tool | Windows Server 2019 DSVM | Ubuntu 18.04 DSVM | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Ubuntu 20.04 DSVM | Azure DSVM for PyTorch (preview) | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [Microsoft 365](https://www.microsoft.com/microsoft-365) (Word, Excel, PowerPoint) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> |  |
 | [Microsoft Teams](https://www.microsoft.com/microsoft-teams) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | |

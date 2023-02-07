@@ -75,7 +75,7 @@ If you've already created a host pool and session host VMs using the Azure porta
       - Under **Application source**, select **Start menu** from the drop-down menu. Next, under **Application**, choose the application from the drop-down menu.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the add application screen with the Start menu selected.](media/add-app-start.png)
+     > ![A screenshot of the add application screen. The user has selected the Character Map as the application source and entered Character Map in the display name field.](media/add-app-start.png)
 
       - In **Display name**, enter the name for the application that will be shown to the user on their client.
 
@@ -92,7 +92,7 @@ If you've already created a host pool and session host VMs using the Azure porta
       - Select **Save**.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the add application page with file path selected.](media/add-app-file.png)
+     > ![A screenshot of the add application page. The user has entered the file path to the 7-Zip File Manager app.](media/add-app-file.png)
 
 14.  Repeat this process for every application you want to add to the application group.
 

@@ -151,6 +151,20 @@ To begin the migration in either Online or Offline mode, you can get started wit
 
    Assign [contributor roles](./how-to-set-up-azure-ad-app-portal.md#add-contributor-privileges-to-an-azure-resource) to source server, target server and the migration resource group. In case of private access for source/target server, add Contributor privileges to the corresponding VNet as well.
 
+#### Verify replication privileges for Single server's admin user
+
+   Please run the following query to check if single server's admin user has replication privileges.
+
+```
+   SELECT usename, userepl FROM pg_catalog.pg_user;
+```
+
+   Verify that the **userpl** column for the single server's admin user has the value **true**. If it is set to **false**, please grant the replication privileges to the admin user by running the following query on the single server.
+
+ ```
+   ALTER ROLE <adminusername> WITH REPLICATION;
+```
+
 #### Allow-list required extensions
 
    If you are using any PostgreSQL extensions on the Single Server, it has to be allow-listed on the Flexible Server before initiating the migration using the steps below:

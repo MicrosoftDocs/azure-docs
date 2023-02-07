@@ -3,13 +3,13 @@ title: How to detect Personally Identifiable Information (PII)
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to extract PII and health information (PHI) from text and detect identifiable information.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 07/27/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
@@ -17,6 +17,11 @@ ms.custom: language-service-pii, ignite-fall-2021
 # How to detect and redact Personally Identifying Information (PII)
 
 The PII feature can evaluate unstructured text, extract and redact sensitive information (PII) and health information (PHI) in text across several [pre-defined categories](concepts/entity-categories.md).
+
+
+## Development options
+
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 

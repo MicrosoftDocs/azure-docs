@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 09/28/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -136,9 +136,12 @@ Here's an example of what an Resource Manager parameter configuration might look
         }
     },
     "Microsoft.DataFactory/factories/datasets": {
-        "properties": {
-            "typeProperties": {
-                "*": "="
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
             }
         }
     },
@@ -248,8 +251,7 @@ Below is the current default parameterization template. If you need to add only 
                     "parameters": {
                         "*": "="
                     }
-                },  
-                "pipelineReference.referenceName"
+                }
             ],
             "pipeline": {
                 "parameters": {
@@ -381,8 +383,7 @@ The following example shows how to add a single value to the default parameteriz
                     "parameters": {
                         "*": "="
                     }
-                },  
-                "pipelineReference.referenceName"
+                }
             ],
             "pipeline": {
                 "parameters": {

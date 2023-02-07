@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ms.topic: conceptual
 ms.date: 09/05/2022
 author: chez-charlie
@@ -27,7 +27,7 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported linked service types
 
@@ -39,7 +39,7 @@ All the linked service types are supported for parameterization.
 - Amazon S3
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
-- Azure Cosmos DB (SQL API)
+- Azure Cosmos DB for NoSQL
 - Azure Data Explorer
 - Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2

@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS zone and reco
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/18/2022
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -15,7 +15,7 @@ ms.custom: mode-ui
 
 This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
+A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its IP address, or is deleted.
 
 ## Prerequisites
 
