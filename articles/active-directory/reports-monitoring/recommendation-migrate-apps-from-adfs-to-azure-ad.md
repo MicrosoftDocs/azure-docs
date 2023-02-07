@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/02/2023
+ms.date: 02/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/31/2023
+ms.date: 02/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to switch per-user Multi-factor authentication (MFA) accounts to Conditional Access (CA) MFA accounts. This recommendation is called `turnOffPerUserMFA` in the recommendations API in Microsoft Graph.
+This article covers the recommendation to switch per-user Multi-factor authentication (MFA) accounts to Conditional Access (CA) MFA accounts. This recommendation is called `switchFromPerUserMFA` in the recommendations API in Microsoft Graph.
 
 ## Description
 

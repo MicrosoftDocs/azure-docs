@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/02/2023
+ms.date: 02/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure Active Directory (Azure AD) recommendations feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
 
-The Azure AD recommendations feature provides you personalized insights with actionable guidance to:
+The Azure AD recommendations feature provides you with personalized insights with actionable guidance to:
 
 - Help you identify opportunities to implement best practices for Azure AD-related features.
 - Improve the state of your Azure AD tenant.

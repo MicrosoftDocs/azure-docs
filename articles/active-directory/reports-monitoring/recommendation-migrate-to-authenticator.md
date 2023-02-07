@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/02/2023
+ms.date: 02/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -29,11 +29,11 @@ One possibility to accomplish this goal is to migrate users using SMS or voice c
 
 ## Logic 
 
-If Azure AD detects that your tenant has users authenticating using SMS or voice in the past week instead of the Microsoft Authenticator app, this recommendation shows up.
+This recommendation appears if Azure AD detects that your tenant has users authenticating using SMS or voice instead of the Microsoft Authenticator app in the past week.
 
 ## Value 
 
-Push notifications through the Microsoft Authenticator app provide the least intrusive MFA experience for users. This is the most reliable and secure option because it relies on a data connection rather than telephony.
+Push notifications through the Microsoft Authenticator app provide the least intrusive MFA experience for users. This method is the most reliable and secure option because it relies on a data connection rather than telephony.
 
 The verification code option enables MFA even in isolated environments without data or cellular signals, where SMS and Voice calls may not work.
 
