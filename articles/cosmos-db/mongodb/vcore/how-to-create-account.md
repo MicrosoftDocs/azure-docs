@@ -59,4 +59,4 @@ Create a single Azure Cosmos DB account using the API for MongoDB (vCore).
 In this guide, you learned how to create an Azure Cosmos DB for MongoDB (vCore) account. You can now migrate data to your account.
 
 > [!div class="nextstepaction"]
-> [Migrate data to Azure Cosmos DB for MongoDB (vCore)](migrate-data.md)
+> [Migrate data to Azure Cosmos DB for MongoDB (vCore)](how-to-migrate-data.md)

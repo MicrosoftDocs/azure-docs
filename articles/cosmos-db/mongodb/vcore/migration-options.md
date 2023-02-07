@@ -25,4 +25,4 @@ ms.date: 02/07/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate data to Azure Cosmos DB for MongoDB (vCore)](migrate-data.md)
+> [Migrate data to Azure Cosmos DB for MongoDB (vCore)](how-to-migrate-data.md)
