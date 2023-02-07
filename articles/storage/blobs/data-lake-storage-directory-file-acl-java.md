@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 02/07/2023
 ms.devlang: java
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -60,24 +60,23 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
-### Connect by using an account key
-
-This is the easiest way to connect to an account.
-
-This example creates a **DataLakeServiceClient** instance by using an account key.
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
-
 ### Connect by using Azure Active Directory (Azure AD)
 
 You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+Create a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) class.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
-> [!NOTE]
-> For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
+
+### Connect by using an account key
+
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
+
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Create a container
 

@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 02/07/2023
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
@@ -53,20 +53,19 @@ To use the snippets in this article, you'll need to create a [DataLakeServiceCli
 
 You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Azure AD.
 
-This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+Create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
-> [!NOTE]
-> For more examples, see the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) documentation..
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication#defaultazurecredential).
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account.
-
-This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using an account key.
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
+
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Create a container
 

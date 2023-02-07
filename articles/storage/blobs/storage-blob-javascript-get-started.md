@@ -67,10 +67,10 @@ To authorize passwordless access with Azure AD, you'll need to use an Azure cred
 
 |Environment|Method|
 |--|--|
-|Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
-|Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
-|Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
-|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=/azure/storage/blobs/toc.json)|
+|Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|Developer environment|[Service principal](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|Azure-hosted apps|[Azure-hosted apps setup](/azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|On-premises|[On-premises app setup](/azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
 
 ### Set up storage account roles
 

@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 03/19/2021
+ms.date: 02/07/2023
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
@@ -52,11 +52,28 @@ StorageSharedKeyCredential
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
+### Connect by using Azure Active Directory (Azure AD)
+
+You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
+
+Create a [DataLakeServiceClient](/javascript/api/@azure/storage-file-datalake/datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) class.
+
+```javascript
+function GetDataLakeServiceClientAD(accountName) {
+
+  const dataLakeServiceClient = new DataLakeServiceClient(
+      `https://${accountName}.dfs.core.windows.net`,
+      new DefaultAzureCredential());
+
+  return dataLakeServiceClient;
+}
+```
+
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [Overview: Authenticate JavaScript apps to Azure using the Azure SDK](/azure/developer/javascript/sdk/authentication/overview).
+
 ### Connect by using an account key
 
-This is the easiest way to connect to an account.
-
-This example creates a **DataLakeServiceClient** instance by using an account key.
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/javascript/api/@azure/storage-file-datalake/datalakeserviceclient) instance that is authorized with the account key.
 
 ```javascript
 
@@ -65,37 +82,17 @@ function GetDataLakeServiceClient(accountName, accountKey) {
   const sharedKeyCredential =
      new StorageSharedKeyCredential(accountName, accountKey);
 
-  const datalakeServiceClient = new DataLakeServiceClient(
+  const dataLakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, sharedKeyCredential);
 
-  return datalakeServiceClient;
+  return dataLakeServiceClient;
 }
 
 ```
 
-> [!NOTE]
-> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (Azure AD).
+This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (Azure AD).
 
-### Connect by using Azure Active Directory (Azure AD)
-
-You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
-
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
-
-```javascript
-function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
-
-  const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
-
-  const datalakeServiceClient = new DataLakeServiceClient(
-      `https://${accountName}.dfs.core.windows.net`, credential);
-
-  return datalakeServiceClient;
-}
-```
-
-> [!NOTE]
-> For more examples, see the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) documentation.
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Create a container
 
@@ -104,11 +101,11 @@ A container acts as a file system for your files. You can create one by getting 
 This example creates a container named `my-file-system`.
 
 ```javascript
-async function CreateFileSystem(datalakeServiceClient) {
+async function CreateFileSystem(dataLakeServiceClient) {
 
   const fileSystemName = "my-file-system";
 
-  const fileSystemClient = datalakeServiceClient.getFileSystemClient(fileSystemName);
+  const fileSystemClient = dataLakeServiceClient.getFileSystemClient(fileSystemName);
 
   const createResponse = await fileSystemClient.create();
 

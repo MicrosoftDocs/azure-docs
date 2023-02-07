@@ -181,7 +181,7 @@ Add the following code snippet to create a block blob. Remember to replace value
 # [.NET v12 SDK](#tab/dotnet)
 
 ```csharp
-private static async Task<string> CreateBlob(TokenAcquisitionTokenCredential tokenCredential)
+private static async Task<string> CreateBlob(TokenCredential tokenCredential)
 {
     Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
     BlobClient blobClient = new BlobClient(blobUri, tokenCredential);

@@ -92,8 +92,6 @@ To learn more about using **DefaultAzureCredential** to authorize access to data
 
 You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/javascript/api/@azure/storage-file-datalake/datalakeserviceclient) instance that is authorized with the account key.
 
-This example creates a **DataLakeServiceClient** instance by using an account key.
-
 ```javascript
 
 function GetDataLakeServiceClient(accountName, accountKey) {
