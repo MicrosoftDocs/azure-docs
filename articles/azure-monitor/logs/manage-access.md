@@ -351,7 +351,7 @@ Grant access to all tables except the _SecurityAlert_ table:
 > [!NOTE]
 > Tables created by the [Logs ingestion API](../essentials/../logs/logs-ingestion-api-overview.md) don't yet support table-level RBAC.
 
- You can't grant access to individual custom log tables, but you can grant access to all custom logs. To create a role with access to all custom log tables, create a custom role by using the following actions:
+ You can't grant access to individual custom log table level, but you can grant access to all custom log tables. To create a role with access to all custom log tables, create a custom role by using the following actions:
 
 ```
 "Actions":  [
