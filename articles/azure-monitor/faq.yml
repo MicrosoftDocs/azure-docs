@@ -901,7 +901,7 @@ sections:
           | Autopopulation of User ID, Authenticated User ID, and User IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
           | Manually override/set Operation Name, User ID or Authenticated User ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Adaptive Sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :warning: |
           | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :x:                |
           
           **Key**

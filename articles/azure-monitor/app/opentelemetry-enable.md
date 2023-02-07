@@ -339,7 +339,7 @@ You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-r
 
 ### [.NET](#tab/net)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
 ```csharp
 // Setting role name and role instance
@@ -369,7 +369,7 @@ To set the cloud role instance, see [cloud role instance](java-standalone-config
 
 ### [Node.js](#tab/nodejs)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
 ```javascript
 ...
@@ -401,7 +401,7 @@ const meterProvider = new MeterProvider({
 
 ### [Python](#tab/python)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes.
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
 ```python
 ...
@@ -1210,6 +1210,8 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 ---
 
 ### Add Custom Spans
+
+You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
   
 #### [.NET](#tab/net)
   
@@ -1445,9 +1447,9 @@ This section explains how to modify telemetry.
 
 These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights schema, like Client IP.
 
-#### Add a custom property to a Trace
+#### Add a custom property to a Span
 
-Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
+Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
 
 ##### [.NET](#tab/net)
 
@@ -1779,7 +1781,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 #### [Java](#tab/java)
 
-See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [Telemetry processors](java-standalone-telemetry-processors.md).
+See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [telemetry processors](java-standalone-telemetry-processors.md).
 
 #### [Node.js](#tab/nodejs)
 
@@ -1900,7 +1902,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
 
 ### Get the trace ID or span ID
     
-You might want to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+You might want to get the trace ID or span ID. If you have logs that are sent to a different destination besides Application Insights, you might want to add the trace ID or span ID to enable better correlation when you debug and diagnose issues.
 
 #### [.NET](#tab/net)
 
@@ -2061,21 +2063,9 @@ To disable this feature, you should set `AzureMonitorExporterOptions.DisableOffl
 
 #### [Java](#tab/java)
 
-In the *applicationinsights.json* file, you can configure these settings:
+Configuring Offline Storage and Automatic Retries is not available in Java.
 
-* Cloud role name
-* Cloud role instance
-* Sampling
-* JMX metrics
-* Custom dimensions
-* Telemetry processors (preview)
-* Autocollected logging
-* Autocollected Micrometer metrics, including Spring Boot Actuator metrics
-* Heartbeat
-* HTTP proxy
-* Self-diagnostics
-
-For more information, see [Configuration options](./java-standalone-config.md).
+For a full list of available configurations, see [Configuration options](./java-standalone-config.md).
 
 #### [Node.js](#tab/nodejs)
 
@@ -2140,11 +2130,7 @@ The Azure Monitor Exporter uses EventSource for its own internal logging. The ex
 
 #### [Java](#tab/java)
 
-* See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
-
-    [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
-
-* See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
+Diagnostic logging is enabled by default. For more information, see the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
 
 #### [Node.js](#tab/nodejs)
 
@@ -2265,6 +2251,7 @@ To provide feedback:
 - To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
+- See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
 ### [Node.js](#tab/nodejs)
 
