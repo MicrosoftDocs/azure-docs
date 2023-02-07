@@ -225,9 +225,6 @@
             - name: X.509 certificate concepts
               displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
               href: iot-hub-x509-certificate-concepts.md
-            - name: Certificate fields
-              displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
-              href: tutorial-x509-certificates.md
             - name: X.509 CA certificate security concepts
               displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
               href: iot-hub-x509ca-concept.md
@@ -567,6 +564,9 @@
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
       href: ./policy-reference.md
+    - name: X.509 certificates
+      displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS 
+      href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
