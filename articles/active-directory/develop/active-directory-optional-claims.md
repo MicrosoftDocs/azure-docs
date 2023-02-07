@@ -239,6 +239,9 @@ This section covers the configuration options under optional claims for changing
 > [!IMPORTANT]
 > Azure AD limits the number of groups emitted in a token to 150 for SAML assertions and 200 for JWT, including nested groups.  For more information on group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
+> [!IMPORTANT]
+> Group optional claims are only emitted in the JWT for user principals. Service principals will not have group optional claims emitted in the JWT.
+
 **Configuring groups optional claims through the UI:**
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
