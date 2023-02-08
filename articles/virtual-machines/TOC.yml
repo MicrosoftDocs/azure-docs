@@ -142,7 +142,7 @@
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
-    href: ./workloads/sap/get-started.md
+    href: ../sap/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
@@ -880,9 +880,9 @@
       href: ./linux/run-command.md
     - name: Action Run Commands for Windows
       href: ./windows/run-command.md
-    - name: Managed Run Commands for Linux (preview)
+    - name: Managed Run Commands for Linux
       href: ./linux/run-command-managed.md
-    - name: Managed Run Commands for Windows (preview)
+    - name: Managed Run Commands for Windows
       href: ./windows/run-command-managed.md
   - name: Extensions
     items:
