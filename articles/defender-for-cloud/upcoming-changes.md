@@ -21,7 +21,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | February 2023 |
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | February 2023 |
 | [Three alerts in Defender for ARM plan are set to be deprecated](#three-alerts-in-fefender-for-arm-plan-is-set-to-be-deprecated) | March 2023 |
-| [The alert automatic export to Log Analytics workspace is set to be deprecated](#the-alert-automatic-export-to-log-analytics-workspace-is-set-to-be-deprecated) | March 2023 |
+| [Alerts automatic export to Log Analytics workspace is set to be deprecated](#alerts-automatic-export-to-log-analytics-workspace-is-set-to-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
 ### Alerts in Defender for ARM bundle are set to be deprecated
