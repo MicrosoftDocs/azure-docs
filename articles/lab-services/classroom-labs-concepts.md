@@ -84,42 +84,7 @@ When a lab user starts their lab VM, quota hours for the lab start counting. If 
 
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
-## User profiles
-
-Azure Lab Services was designed with three major personas in mind: administrators, educators, and students.  You'll see these three roles mentioned throughout Azure Lab Services documentation.  This section describes each persona and the tasks they're typically responsible for.
-
-### Administrator
-
-An IT administrator for organization is typically the lab plan owner.  The lab plan owner is often the one owns the Azure subscription and does the following tasks:
-
-- Creates and organizes resource groups to contain lab plans and labs.
-- Creates lab plans for your organization.
-- Manages and configures policies across all labs.
-- Gives permissions to educators in the organization to create a lab using the lab plan.
-
-### Educator
-
-Educators, often a teacher or an online trainer, creates labs using a pre-created lab plan. An educator does the following tasks:
-
-- Creates a lab.
-- Installs the appropriate software on virtual machines template.
-- Publishes the lab to create VMs for the students.
-- Specifies which students can access the lab.
-- Sends registration link to the lab to students, if necessary.
-- Use the lab to teach their course.
-
-Some organizations may opt to have their administrators complete the previous tasks to create and manage labs on behalf of the educators.
-
-### Student
-
-A student does the following tasks:
-
-- Registers for the lab, if needed.
-- Connects to a VM in the lab and uses it for completing assigned work.
-
 ## Next steps
 
-The first action to take to use Azure Lab Services is to create a lab plan.  Labs can be created only after a lab plan is created.
-
-- [As an admin, create a lab plan](tutorial-setup-lab-plan.md)
-- [As an educator, create a lab](tutorial-setup-lab.md)
+- [Get started and create a lab](./quick-create-lab-plan-portal.md).
+- [Set up a lab for classroom training](./tutorial-setup-lab-plan.md).
