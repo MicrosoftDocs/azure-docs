@@ -66,10 +66,10 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    ```python
    from pyspark.sql.types import StructType, StructField, IntegerType, StringType
    import pyspark.sql.functions as F  
-      storage_account_name = "StorageAccountName"
-      storage_account_key = "StorageAccountKey"
-      container = "ContainerName"
-      blob_inventory_file = "blob_inventory_file_name" 
+      storage_account_name = "<storage-account-name>"
+      storage_account_key = "<storage-account-key>"
+      container = "<container-name>"
+      blob_inventory_file = "<blob-inventory-file-name>" 
       hierarchial_namespace_enabled = False
 
    if hierarchial_namespace_enabled == False:
