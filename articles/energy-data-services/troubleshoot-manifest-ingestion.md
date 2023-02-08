@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot manifest ingestion in Microsoft Energy Data Services Preview #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
+title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energy Preview #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
 description: Find out how to troubleshoot manifest ingestion using Airflow task logs #Required; this article description is displayed in search results.
 author: bharathim #Required; your GitHub user alias — correct capitalization is needed.
 ms.author: bselvaraj #Required; Microsoft alias of the author.
@@ -9,7 +9,7 @@ ms.date: 02/06/2023
 ---
 
 # Troubleshoot manifest ingestion issues using Airflow task logs
-This article helps you troubleshoot manifest ingestion workflow issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
+This article helps you troubleshoot manifest ingestion workflow issues in Azure Data Manager for Energy Preview instance using the Airflow task logs.
 
 ## Manifest ingestion DAG workflow types
 The Manifest ingestion workflow is of two types:
