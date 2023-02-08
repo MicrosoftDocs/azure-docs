@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 10/06/2022
+ms.date: 02/07/2023
 ms.custom: template-overview #Required; leave this attribute/value as-is.
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept overview
