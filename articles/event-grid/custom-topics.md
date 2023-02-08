@@ -6,7 +6,7 @@ ms.date: 02/23/2022
 ---
 
 # Custom topics in Azure Event Grid
-An event grid topic provides an endpoint where the source sends events. The publisher creates the event grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
+An Event Grid topic provides an endpoint where the source sends events. The publisher creates the Event Grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
 
 **Custom topics** are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription. 
 
