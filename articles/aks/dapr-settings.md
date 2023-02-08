@@ -160,7 +160,7 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
 
 ## Using Mariner-based images
 
-As of Dapr version 1.10, you can use Mariner images using the Dapr extension. To use, set the following `--set global.tag` flag:
+As of Dapr version 1.8.0, you can use Mariner images using the Dapr extension. To use, set the following `--set global.tag` flag:
 
 ```azurecli
 az k8s-extension upgrade --cluster-type managedClusters \
@@ -171,7 +171,9 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --set global.tag=1.10.0-mariner
 ```
 
-[Learn more about using Mariner-based images with Dapr.][dapr-mariner]
+- [Learn more about using Mariner-based images with Dapr.][dapr-mariner]
+- [Learn more about deploying Mariner on AKS.][aks-mariner]
+
 
 ## Disable automatic CRD updates
 
@@ -215,6 +217,8 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [install-cli]: /cli/azure/install-azure-cli
 [dapr-migration]: ./dapr-migration.md
 [dapr-settings]: ./dapr-settings.md
+[aks-mariner]: ./cluster-configuration.md#mariner-os
+
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
