@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/08/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: csharp, java, javascript, python
@@ -70,7 +70,7 @@ The following examples show how to create a `BlobServiceClient` object:
 
 ## [.NET](#tab/dotnet)
 
-Add the following using statements:
+Add the following `using` directives:
 
 ```csharp
 using Azure.Identity;
@@ -80,10 +80,10 @@ using Azure.Storage.Blobs;
 Add the following code to create the client object:
 
 ```csharp
-BlobServiceClient GetBlobServiceClient(string accountName)
+public BlobServiceClient GetBlobServiceClient(string accountName)
 {
-    BlobServiceClient client = new (
-        new Uri("https://{accountName}.blob.core.windows.net"),
+    BlobServiceClient client = new(
+        new Uri($"https://{accountName}.blob.core.windows.net"),
         new DefaultAzureCredential());
 
     return client;
@@ -92,7 +92,7 @@ BlobServiceClient GetBlobServiceClient(string accountName)
 
 ## [Java](#tab/java)
 
-Add the following import directives:
+Add the following `import` directives:
 
 ```java
 import com.azure.identity.*;
@@ -102,7 +102,7 @@ import com.azure.storage.blob.*;
 Add the following code to create the client object:
 
 ```java
-public static BlobServiceClient GetBlobServiceClient(String accountName) {
+public BlobServiceClient GetBlobServiceClient(String accountName) {
     String endpointString = String.format("https://%s.blob.core.windows.net", accountName);
     BlobServiceClient client = new BlobServiceClientBuilder()
             .endpoint(endpointString)
@@ -115,7 +115,7 @@ public static BlobServiceClient GetBlobServiceClient(String accountName) {
 
 ## [JavaScript](#tab/javascript)
 
-Add the following require statements:
+Add the following `require` statements:
 
 ```javascript
 const { BlobServiceClient } = require('@azure/storage-blob');
@@ -135,7 +135,7 @@ const blobServiceClient = new BlobServiceClient(
 
 ## [Python](#tab/python)
 
-Add the following import statements:
+Add the following `import` statements:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -166,7 +166,9 @@ The following examples show how to create a container client from a `BlobService
 ## [.NET](#tab/dotnet)
 
 ```csharp
-BlobContainerClient GetBlobContainerClient(BlobServiceClient blobServiceClient, string containerName)
+public BlobContainerClient GetBlobContainerClient(
+    BlobServiceClient blobServiceClient,
+    string containerName)
 {
     // Create the container client using the service client object
     BlobContainerClient client = blobServiceClient.GetBlobContainerClient(containerName);
@@ -177,7 +179,9 @@ BlobContainerClient GetBlobContainerClient(BlobServiceClient blobServiceClient, 
 ## [Java](#tab/java)
 
 ```java
-public BlobContainerClient getBlobContainerClient(BlobServiceClient blobServiceClient, String containerName) {
+public BlobContainerClient getBlobContainerClient(
+        BlobServiceClient blobServiceClient,
+        String containerName) {
     // Create the container client using the service client object
     BlobContainerClient client = blobServiceClient.getBlobContainerClient(containerName);
     return client;
@@ -208,11 +212,14 @@ The following examples show how to create a container client directly *without* 
 ## [.NET](#tab/dotnet)
 
 ```csharp
-BlobContainerClient GetBlobContainerClient(string containerName, BlobClientOptions clientOptions)
+public BlobContainerClient GetBlobContainerClient(
+    string accountName,
+    string containerName,
+    BlobClientOptions clientOptions)
 {
-    // Append the container name to the URI
+    // Append the container name to the end of the URI
     BlobContainerClient client = new(
-        new Uri("https://{accountName}.blob.core.windows.net/{containerName}"),
+        new Uri($"https://{accountName}.blob.core.windows.net/{containerName}"),
         new DefaultAzureCredential(),
         clientOptions);
 
@@ -223,15 +230,18 @@ BlobContainerClient GetBlobContainerClient(string containerName, BlobClientOptio
 ## [Java](#tab/java)
 
 ```java
-public BlobContainerClient getBlobContainerClient(String accountName, String containerName) {
+public BlobContainerClient getBlobContainerClient(
+        String accountName,
+        String containerName) {
     // Append the container name to the URI
-    String endpointString = String.format("https://%s.blob.core.windows.net/%s", accountName, containerName);
+    String endpointString = String.format("https://%s.blob.core.windows.net/%s",
+            accountName, containerName);
 
     BlobContainerClient client = new BlobContainerClientBuilder()
             .endpoint(endpointString)
             .credential(new DefaultAzureCredentialBuilder().build())
             .buildClient();
-        
+
     return client;
 }
 ```
@@ -273,10 +283,13 @@ The following examples show how to create a blob client to interact with a speci
 ## [.NET](#tab/dotnet)
 
 ```csharp
-BlobClient GetBlobClient(BlobServiceClient blobServiceClient, string containerName, string blobName)
+BlobClient GetBlobClient(
+    BlobServiceClient blobServiceClient,
+    string containerName,
+    string blobName)
 {
-    // Create a blob client using the service client object
-    BlobClient client = blobServiceClient.GetBlobContainerClient(containerName).GetBlobClient(blobName);
+    BlobClient client =
+        blobServiceClient.GetBlobContainerClient(containerName).GetBlobClient(blobName);
     return client;
 }
 ```
@@ -284,7 +297,10 @@ BlobClient GetBlobClient(BlobServiceClient blobServiceClient, string containerNa
 ## [Java](#tab/java)
 
 ```java
-public BlobClient getBlobClient(BlobServiceClient blobServiceClient, String containerName, String blobName) {
+public BlobClient getBlobClient(
+        BlobServiceClient blobServiceClient,
+        String containerName,
+        String blobName) {
     // Create a blob client using the service client object
     BlobClient client = blobServiceClient.getBlobContainerClient(containerName).getBlobClient(blobName);
     return client;
