@@ -75,7 +75,7 @@ To publish complex distributed app through Application Proxy with application se
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](https://learn.microsoft.com/en-us/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta)
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](https://learn.microsoft.com/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta)
 
 7. Select Create.
 
@@ -93,8 +93,8 @@ When using custom domains, you need to create a DNS entry with a CNAME record fo
 
 Alternatively, a DNS entry with a CNAME record for every individual application segment can be created as follows:
 
-> `'External URL of application segment'>'<External URL without domain>-<tenantname>.msapproxy.net'` <br>
-for this instance  >`'home.contoso.ashcorp.us'` points to > `home-ashcorp1.msappproxy.net`
+> `'External URL of application segment'` > `'<External URL without domain>-<tenantname>.msapproxy.net'` <br>
+for example in above instance  >`'home.contoso.ashcorp.us'` points to > `home-ashcorp1.msappproxy.net`
 
 
 For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
