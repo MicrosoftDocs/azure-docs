@@ -25,11 +25,11 @@ Flexible Server Postgres has now introduced in-place major version upgrade featu
 
 Here are some of the important considerations with in-place major version upgrade. 
 
-1. During the in-place major version upgrade process, the Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
+1. During in-place major version upgrade process,  Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
 
 2. If the pre-check is successful, then Flexible Server automatically takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there is an upgrade error. 
 
-3. Flexible Server uses the **pg_upgrade** utility to perform in-place major version upgrades and provides the flexibility to skip versions and upgrade directly to higher versions. 
+3. Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and provides the flexibility to skip versions and upgrade directly to higher versions. 
 
 4. During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
 
@@ -52,7 +52,7 @@ It is recommended to perform a dry run of the in-place major version upgrade in 
 
 **Steps**
 
-1. You can perform in-place major version upgrade using Azure portal or CLI (command-line interfaces).  Click the **Upgrade** button in Overview blade.
+1. You can perform in-place major version upgrade using Azure portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
 
 
 
@@ -62,7 +62,7 @@ It is recommended to perform a dry run of the in-place major version upgrade in 
 
 
 
-2. You see an option to select the major version of your choice, you also have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
+2. You'll see an option to select the major version of your choice, you also have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
 
 
 
@@ -72,7 +72,7 @@ It is recommended to perform a dry run of the in-place major version upgrade in 
 
 
 
-3. During upgrade, users have to wait for the process to be completed. You can resume accessing the server once the server is back online. 
+3. During upgrade, users have to wait for the process to complete. You can resume accessing the server once the server is back online. 
 
 
 
@@ -84,7 +84,7 @@ It is recommended to perform a dry run of the in-place major version upgrade in 
 
 
 
-4. Once the upgrade is successful you see the message below, and you can expand the **Deployment details** tab and click **Operation details** to get more information about upgrade process like duration, provisioning state etc. 
+4. Once the upgrade is successful you'll see the message below, and you can expand the **Deployment details** tab and click **Operation details** to get more information about upgrade process like duration, provisioning state etc. 
 
 
 
@@ -97,7 +97,7 @@ It is recommended to perform a dry run of the in-place major version upgrade in 
 
 
 
-5. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remains unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
+5. You can click on the **Go to resource** tab to validate your upgrade. You'll notice that server name remains unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
 
 
 
