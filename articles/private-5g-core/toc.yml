@@ -152,6 +152,8 @@ items:
      href: region-code-names.md
    - name: ASE VM sizing
      href: azure-stack-edge-virtual-machine-sizing.md
+   - name: 5QI to DSCP mapping
+     href: differentiated-services-codepoint-5qi-mapping.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

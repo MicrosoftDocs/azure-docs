@@ -70,8 +70,6 @@ You may want to export a selection of alerts to a CSV file for offline sharing a
 
 The CSV file is generated, and you're prompted to save it locally.
 
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -88,3 +86,6 @@ The CSV file is generated, and you're prompted to save it locally.
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

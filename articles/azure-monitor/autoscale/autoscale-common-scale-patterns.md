@@ -52,8 +52,12 @@ For example, you have a Virtual Machine Scale Set and want to:
 In this example:
 + The weekend profile starts at 00:01, Saturday morning and ends at 04:00 on Monday morning.
 + The end times are left blank. The weekday profile will end when the weekend profile starts and vice-versa.
-+ There's no need for a default profile as there's no time that isn't covered by the other profiles.
++ The default profile is irrelevant as there's no time that isn't covered by the other profiles.
 
+>[!Note]
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates. For more information on creating recurring profiles with ARM templates, see [Add a recurring profile using ARM templates](./autoscale-multiprofile.md?tabs=templates#add-a-recurring-profile-using-arm-templates).
+> If the end-time is not included in the CLI command, a default end-time of 23:59 will be implemented by creating a copy of the default profile with the naming convention `"name": {\"name\": \"Auto created default scale condition\", \"for\": \"<non-default profile name>\"}`
+ 
 :::image type="content" source="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png" alt-text="A screenshot showing two autoscale profiles, one default and one for weekends." lightbox="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png":::
 
 ## Scale differently during specific events
