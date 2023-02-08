@@ -38,7 +38,7 @@ Changes will always be processed in the order that their changes were made, with
 2. Changes are "batched" together for a row - if multiple changes are made to a row between each iteration of the loop than only a single change entry will exist for that row that shows the difference between the last processed state and the current state
 3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows then the half that wasn't changed a second time will be processed first. This is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
 
-See [Work with change tracking](https://learn.microsoft.com/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it is used by applications such as Azure SQL triggers.
+See [Work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it is used by applications such as Azure SQL triggers.
 
 ## Example usage
 
@@ -106,16 +106,6 @@ Isolated worker process isn't currently supported.
 
 -->
 ---
-
-
-::: zone-end
-
-::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
-
-> [!NOTE]
-> In the current preview, Azure SQL triggers are only supported by [C# class library functions](functions-dotnet-class-library.md)
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -190,5 +180,12 @@ Optionally, your functions can scale automatically based on the amount of change
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
+
+> [!NOTE]
+> In the current preview, Azure SQL triggers are only supported by [C# class library functions](functions-dotnet-class-library.md)
 
 ::: zone-end
