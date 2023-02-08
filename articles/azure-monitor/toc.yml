@@ -1191,9 +1191,7 @@ items:
      - name: Upgrading Log Analytics Dashboards
        href: logs/dashboard-upgrade.md
   - name: Power BI
-    items:
-      - name: Export log data
-        href: logs/log-powerbi.md
+    href: logs/log-powerbi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
