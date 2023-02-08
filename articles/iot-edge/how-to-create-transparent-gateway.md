@@ -120,7 +120,7 @@ If you don't have your own certificate authority and want to use demo certificat
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
 
-[PowerShell functions reference](reference-iot-edge-for-linux-on-windows-functions.md)
+For more information on the following commands, see [PowerShell functions for IoT Edge](reference-iot-edge-for-linux-on-windows-functions.md).
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
