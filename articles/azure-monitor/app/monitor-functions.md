@@ -48,32 +48,35 @@ APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ### Troubleshooting
 
 Your Java Functions may have slow startup times if you adopted this feature before Feb 2023. Follow the steps to fix the issue.
-    #### Windows
-    1. Check to see if the following settings exist and remove them.
 
-        ```
-        XDT_MicrosoftApplicationInsights_Java -> 1
-        ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
-        ```
-    
-    2. Enable the latest version by adding this setting.
+#### Windows
 
-        ```
-        APPLICATIONINSIGHTS_ENABLE_AGENT: true
-        ```
-    
-    #### Linux Dedicated/Premium
-    1. Check to see if the following settings exist and remove it.
-    
-        ```
-        ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
-        ```
-    
-    2. Enable the latest version by adding this setting.
+1. Check to see if the following settings exist and remove them.
 
-        ```
-        APPLICATIONINSIGHTS_ENABLE_AGENT: true
-        ```
+```
+XDT_MicrosoftApplicationInsights_Java -> 1
+ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
+```
+
+2. Enable the latest version by adding this setting.
+
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
+```
+
+#### Linux Dedicated/Premium
+
+1. Check to see if the following settings exist and remove it.
+
+```
+ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+2. Enable the latest version by adding this setting.
+
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
+```
 
 * Sometimes the latest version of the Application Insights Java agent isn't available in Azure Function - it takes a few months for the latest versions to roll out to all regions. In case you need the latest version of Java agent to monitor your app in Azure Function to use a specific version of Application Insights Java Auto-instrumentation Agent, you can upload the agent manually:
 
