@@ -7,7 +7,7 @@ ms.date: 02/02/2023
 ms.custom: devdivchpfy22
 ---
 
-# Labs concepts
+# Key concepts for Azure Lab Services
 
 This article describes key Azure Lab Services concepts and definitions.
 
