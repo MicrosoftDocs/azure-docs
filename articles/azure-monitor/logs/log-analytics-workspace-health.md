@@ -22,8 +22,10 @@ Azure Service Health monitors:
 ## View Log Analytics workspace health and set up health status alerts 
 
 When Azure Service Health detects typical latency in your Log Analytics workspace, the workspace resource health status is **Available**.
+
+To view your Log Analytics workspace health and set up health status alerts:
  
-1. To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
+1. Select **Resource health** from the Log Analytics workspace menu.
 
     The **Resource health** screen shows:
 
@@ -35,7 +37,7 @@ When Azure Service Health detects typical latency in your Log Analytics workspac
    
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
     
-1. To get notification about Log Analytics workspace latency issues, create an alert:
+1. To set up health status alerts:
     1. Select **Add resource health alert**.
     
         The **Create alert rule** wizard opens, with the **Scope** and **Condition** panes pre-populated. By default, the rule triggers alerts all status changes in all Log Analytics workspaces in the subscription. If necessary, you can edit and modify the scope and condition at this stage. 
