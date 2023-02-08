@@ -56,6 +56,80 @@ The following types of analytics rule audit events are logged in the *SentinelAu
 
     For more information, see [SentinelAudit table columns schema](audit-table-reference.md#sentinelaudit-table-columns-schema).
 
+### Run queries to detect health and integrity issues
+
+For best results, you should build your queries on the **pre-built functions** on these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions ensure the maintenance of your queries' backward compatibility in the event of changes being made to the schema of the tables themselves.
+
+As a first step, your queries should filter the tables for data related to analytics rules. Use the `SentinelResourceType` parameter.
+
+```kusto
+_SentinelHealth()
+| where SentinelResourceType == "Analytics Rule"
+```
+
+If you want, you can further filter the list for a particular kind of analytics rule. Use the `SentinelResourceKind` parameter for this.
+
+```kusto
+| where SentinelResourceKind == "Scheduled"
+
+# OR
+
+| where SentinelResourceKind == "NRT"
+```
+
+Here are some sample queries to help you get started:
+
+- Find rules that didn't run successfully:
+
+    ```kusto
+    _SentinelHealth()
+    | where SentinelResourceType == "Analytics Rule"
+    | where Status != "Success"
+    ``` 
+
+- Find rules that have been "[auto-disabled](detect-threats-custom.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
+
+    ```kusto
+    _SentinelHealth()
+    | where SentinelResourceType == "Analytics Rule"
+    | where Reason == "The analytics rule is disabled and was not executed."
+    ``` 
+
+- Count the rules and runnings that succeeded or failed, by reason:
+
+    ```kusto
+    _SentinelHealth()
+    | where SentinelResourceType == "Analytics Rule"
+    | summarize Occurrence=count(), Unique_rule=dcount(SentinelResourceId) by Status, Reason
+    ``` 
+ 
+- Find rule deletion activity:
+
+    ```kusto
+    _SentinelAudit()
+    | where SentinelResourceType =="Analytic Rule"
+    | where Description =="Analytics rule deleted"
+    ```
+
+- Find activity on rules, by rule name and activity name:
+
+    ```kusto
+    _SentinelAudit()
+    | where SentinelResourceType =="Analytic Rule"
+    | summarize Count= count() by RuleName=SentinelResourceName, Activity=Description
+    ```
+
+- Find activity on rules, by caller name (the identity that performed the activity):
+
+    ```kusto
+    _SentinelAudit()
+    | where SentinelResourceType =="Analytic Rule"
+    | extend Caller= tostring(ExtendedProperties.CallerName)
+    | summarize Count = count() by Caller, Activity=Description
+    ```
+
+ 
+
 ### Statuses, errors and suggested steps
 
 For either **Scheduled analytics rule run** or **NRT analytics rule run**, you may see any of the following statuses and descriptions:
