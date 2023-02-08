@@ -23,9 +23,11 @@ A lab plan can contain zero or more [labs](#lab). Each lab uses the configuratio
 
 ## Lab
 
-A lab contains the configuration and settings for creating and running [lab virtual machines](#lab-virtual-machine). In the lab, you specify the base VM image for the lab VMs. Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine). All lab VMs for a lab share the same configuration and are identical.
+A lab contains the configuration and settings for creating and running [lab virtual machines](#lab-virtual-machine). For example, you specify the base VM image for the lab VMs by selecting an image from the Azure Marketplace or an [Azure compute gallery](#azure-compute-gallery). Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine).
 
 You can further configure the lab behavior by creating [lab schedules](#schedules) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
+
+When you publish a lab, Azure Lab Services provisions the lab VMs. All lab VMs for a lab share the same configuration and are identical.
 
 To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure AD role or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
