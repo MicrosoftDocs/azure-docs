@@ -84,7 +84,9 @@ If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used
 
 ### Supported regions
 
-Arc resource bridge currently supports the following Azure regions:
+In order to use Arc resource bridge in a region, Arc resource bridge and the private cloud product must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and Azure Stack HCI must be supported in East US. Please check with the private cloud product for their region availability - it is typically called out in their deployment instructions of Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where private cloud support is not yet available.
+
+Arc resource bridge supports the following Azure regions:
 
 * East US
 * West Europe
