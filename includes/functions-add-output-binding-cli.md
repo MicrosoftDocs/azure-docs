@@ -22,6 +22,8 @@ You declare these bindings in the *function.json* file in your function folder. 
 
 # [v1](#tab/v1)
 
+You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:
+
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json" range="2-18":::
 
 Each binding has at least a type, a direction, and a name. In the above example, the first binding is of type `httpTrigger` with the direction `in`. For the `in` direction, `name` specifies the name of an input parameter that's sent to the function when invoked by the trigger.
@@ -31,8 +33,6 @@ The second binding in the collection is of type `http` with the direction `out`,
 To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
-
-
 
 # [v2](#tab/v2)
 
