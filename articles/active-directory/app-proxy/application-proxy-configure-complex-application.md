@@ -39,22 +39,22 @@ This solution that allows user to:
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
-### Characteristics of application segment(s) for complex application. 
+## Characteristics of application segment(s) for complex application. 
 1. Application segments can be configured only for a wildcard application.
 2. External and alternate URL should match the wildcard external and alternate URL domain of the application respectively.
-3. Application segment URL’s (internal and external) need to maintain uniqueness across complex applications.
+3. Application segment URLs (internal and external) need to maintain uniqueness across complex applications.
 4. CORS Rules (optional) can be configured per application segment.
 5. Access will only be granted to defined application segments for a complex application.
     - Note - If all application segments are deleted, a complex application will behave as a wildcard application opening access to all valid URL by specified domain. 
 6. You can have an internal URL defined both as an application segment and a regular application.
     - Note - Regular application will always take precedence over a complex app (wildcard application).
 
-### Pre-requisites
+## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
 - You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
-### Configure application segment(s) for complex application. 
+## Configure application segment(s) for complex application. 
 
 > [!NOTE]
 > Two application segment per complex distributed application are supported for [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory). License requirement for more than two application segments per complex application to be announced soon.
@@ -65,11 +65,11 @@ To publish complex distributed app through Application Proxy with application se
 
 1. On the Application Proxy Basic settings page, select "Add application segments".
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/Add Application Segments.png" alt-text="Add application segment.":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segments.png" alt-text="Add application segment.":::
 
 3. On the Manage and configure application segments page, select "+ Add app segment"
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/Add Application Segment-1.png" alt-text="Add and manage application segment.":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Add and manage application segment.":::
 
 4. In the Internal Url field, enter the internal URL for your app.
 
@@ -79,13 +79,13 @@ To publish complex distributed app through Application Proxy with application se
 
 7. Select Create.
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/Create app segment.png" alt-text="Create application segment":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/create-app-segment.png" alt-text="create application segment":::
 
 Your application is now set up to use the configured application segments. Be sure to assign users to your application before you test or release it.
 
 To edit/update an application segment, select respective application segment from the list in Manage and configure application segments page. Upload a certificate for the updated domain, if necessary, and update the DNS record. 
 
-### DNS updates
+## DNS updates
 
 When using custom domains, you need to create a DNS entry with a CNAME record for the external URL (for example,  `*.adventure-works.com`) pointing to the external URL of the application proxy endpoint. For wildcard applications, the CNAME record needs to point to the relevant external URL:
 
