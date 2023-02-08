@@ -83,20 +83,79 @@ Now let's switch to working with code. Let's clone a API for NoSQL app from GitH
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
+### [Passwordless (Recommended)](#tab/passwordless)
+
 ```bash
-git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started.git
+git clone https://github.com/Azure-Samples/azure-spring-boot-samples.git
 ```
+
+### [Password](#tab/password)
+
+```bash
+git clone git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started.git
+```
+
+---
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
-](#run-the-app). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to **Run the app**. 
 
-### Application configuration file
+### [Passwordless (Recommended)](#tab/passwordless)
+
+#### Application configuration file
+
+Configure the Azure Database for MySQL credentials in the `application.yml` configuration file in the `cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample` directory. Replace the values of `${AZURE_COSMOS_ENDPOINT}` and `${COSMOS_DATABASE}`.
+
+```yaml
+spring:
+  cloud:
+    azure:
+      cosmos:
+        endpoint: ${AZURE_COSMOS_ENDPOINT}
+        database: ${COSMOS_DATABASE}
+```
+
+After creating the Azure Cosmos DB account, database and container, Spring Boot/Spring Data will connect to the database and container for `delete`, `add` and `find` operations.
+
+#### Java source
+
+The sample code has already been added, you don't need to add any code.
+
+#### Run the app
+
+Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
+
+1. In the git terminal window, `cd` to the sample code folder.
+
+    ```bash
+    cd azure-spring-boot-samples/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample
+    ```
+
+2. In the git terminal window, use the following command to install the required Spring Datan Azure Cosmos DB packages.
+
+    ```bash
+    mvn clean package
+    ```
+
+3. In the git terminal window, use the following command to start the Spring Datan Azure Cosmos DB application:
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+4. The app loads **application.yml** and connects the resources in your Azure Cosmos DB account.
+5. The app will perform point CRUD operations described above.
+6. The app will perform a derived query.
+7. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
+
+### [Password](#tab/password)
+
+#### Application configuration file
 
 Here we showcase how Spring Boot and Spring Data enhance user experience - the process of establishing an Azure Cosmos DB client and connecting to Azure Cosmos DB resources is now config rather than code. At application startup Spring Boot handles all of this boilerplate using the settings in **application.properties**:
 
-```xml
+```properties
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
 cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
@@ -108,7 +167,7 @@ cosmos.queryMetricsEnabled=true
 
 Once you create an Azure Cosmos DB account, database, and container, just fill-in-the-blanks in the config file and Spring Boot/Spring Data will automatically do the following: (1) create an underlying Java SDK `CosmosClient` instance with the URI and key, and (2) connect to the database and container. You're all set - **no more resource management code!**
 
-### Java source
+#### Java source
 
 The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Datan Azure Cosmos DB.
 
@@ -128,7 +187,7 @@ The Spring Data value-add also comes from its simple, clean, standardized and pl
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
-## Run the app
+#### Run the app
 
 Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
 
@@ -154,6 +213,8 @@ Now go back to the Azure portal to get your connection string information and la
 5. The app will perform point CRUD operations described above.
 6. The app will perform a derived query.
 7. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
+
+---
 
 ## Review SLAs in the Azure portal
 
