@@ -36,7 +36,7 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.py* file as decorators. From the previous quickstart, your *function_app.py* file, which contains one decorator-based binding:
+Binding attributes are defined directly in the *function_app.py* file as decorators. From the previous quickstart, your *function_app.py* file already contains one decorator-based binding:
 
 ```python
 import azure.functions as func
