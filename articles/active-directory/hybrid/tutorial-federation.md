@@ -227,7 +227,7 @@ Now, create an Azure AD tenant, so you can sync your users in Azure:
 1. Enter a name for the organization and an initial domain name. Then select **Create** to create your directory.
 1. To manage the directory, select the **here** link.
 
-## Create a Hybrid Identity Administrator in Azure AD
+## Create a Hybrid Identity Administrator account in Azure AD
 
 The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure AD Connect installation. The Azure AD Connector account is used to write information to Azure AD.
 

@@ -56,7 +56,7 @@ That's it!  You're done. Password hash sync will now occur, and it can be used a
 >
 > - Before you switch to password hash sync, create a backup of your AD FS environment. You can create a backup by using the [AD FS Rapid Restore Tool](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 >
-> - It takes some time for the password hashes to sync to Azure AD.  It might be up to 3 hours before the sync finishes and you can start authenticating by using the password hashes.
+> - It takes some time for the password hashes to sync to Azure AD.  It might be up to three hours before the sync finishes and you can start authenticating by using the password hashes.
 
 Next, switch over to password hash synchronization. Before you start, consider in which conditions you should make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users.
 
