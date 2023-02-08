@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Kallidus supports **IDP** initiated SSO.
+* Kallidus *does not* support IdP initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
