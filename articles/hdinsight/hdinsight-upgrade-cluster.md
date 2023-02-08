@@ -5,14 +5,14 @@ description: Learn guidelines to migrate your Azure HDInsight cluster to a newer
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 10/25/2022
+ms.date: 02/08/2023
 ---
 # Migrate HDInsight cluster to a newer version
 
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be regularly migrated to latest version. HDInsight doesn't support in-place upgrades where an existing cluster is upgraded to a newer component version. You must create a new cluster with the desired component and platform version and then migrate your applications to use the new cluster. Follow the below guidelines to migrate your HDInsight cluster versions.
 
 > [!NOTE]  
-> For information on supported versions of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> If you are creating a Hive cluster with a primary storage container, copy it from an existing HDInsight cluster. Do not copy the complete content. Copy only the data folders which are configured.
 
 ## Migration tasks
 
