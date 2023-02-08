@@ -114,7 +114,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | SKUs supported  | All SKUs | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with Virtual Machine Scale Sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute Virtual Machine Scale Sets Write, Compute VM Write, Network | Compute Virtual Machine Scale Sets Write  | N/A |
-| Cross tenant shared image gallery | No | Yes | Yes |
+| Cross tenant shared image gallery | Yes | Yes | Yes |
 | Accelerated networking  | Yes  | Yes  | Yes |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
@@ -122,7 +122,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
 | Write Accelerator   | Yes  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
-| Azure Dedicated Hosts   | No  | Yes  | Yes |
+| Azure Dedicated Hosts   | Yes  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
@@ -148,7 +148,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
-| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) | Yes | No |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Yes | Yes | No |
 
 ### High availability 
 
@@ -188,18 +188,17 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 ### Unsupported parameters
 
 The following Virtual Machine Scale Set parameters aren't currently supported with Virtual Machine Scale Sets in Flexible orchestration mode:
-- Single placement group - you must choose `singlePlacementGroup=False`
+- Single placement group - this can be set to `null` and the platform will select the correct value
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
 - Virtual Machine Scale Set Overprovisioning
 - Image-based Automatic OS Upgrades
 - Application health via SLB health probe - use Application Health Extension on instances
 - Virtual Machine Scale Set upgrade policy - must be null or empty
-- Deployment onto Azure Dedicated Host
 - Unmanaged disks
 - Virtual Machine Scale Set Scale in Policy
 - Virtual Machine Scale Set Instance Protection
 - Basic Load Balancer
-- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules to specific instances
+- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules
 
 
 ## Get started with Flexible orchestration mode
