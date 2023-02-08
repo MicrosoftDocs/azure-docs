@@ -65,7 +65,8 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 ## Supported Apache Airflow versions
 
 * 1.10.14
-* 2.2.4
+* 2.2.2
+* 2.4.3
 
 ## Integrations
 
