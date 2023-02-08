@@ -41,20 +41,20 @@ Here are some of the important considerations with in-place major version upgrad
 
 8. Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time. 
 
-9. If in-place major version upgrade fail for any reason, then the service always restores the server to previous state using backup taken as part of step 2.
+9. If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of step 2.
 
 10. Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous 
 version of the database instance. 
 
 ## Limitations:  
 
-During preview, if in-place major version upgrade pre-check operation fail then it aborts with a detailed error message for all the below limitations.
+During preview, if in-place major version upgrade pre-check operations fail then it aborts with a detailed error message for all the below limitations.
 
 In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
 
-In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions Timescaledb, pgaudit, dblink, and postgres_fdw are unsupported for all PostgreSQL versions during preview. 
+In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, and **postgres_fdw** are unsupported for all PostgreSQL versions during preview. 
 
-Upgrading the PostGIS extension is currently unsupported from PostgreSQL 12, while upgrading the orafce extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
+Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
 During preview, in-place major version upgrade is currently available in the following regions.  
 
