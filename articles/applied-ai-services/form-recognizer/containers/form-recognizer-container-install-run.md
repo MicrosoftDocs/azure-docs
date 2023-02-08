@@ -15,11 +15,11 @@ recommendations: false
 # Install and run Form Recognizer v2.1 containers
 
 ::: moniker range="form-recog-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 ::: moniker-end
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
