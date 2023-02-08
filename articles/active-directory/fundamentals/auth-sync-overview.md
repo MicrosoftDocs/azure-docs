@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory integrations with authentication protocols
 
-Microsoft Azure Active Directory (Azure AD) enables integration with many authentication. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods.
+Microsoft Azure Active Directory (Azure AD) enables integration with many authentication protocols. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods.
 
 ## Legacy authentication protocols
 
