@@ -86,7 +86,13 @@ Depending on the type of class, there are ways to manage costs to reduce instanc
 
 ### Automatic shutdown settings for cost control
 
-Automatic shutdown features enable you to prevent wasted VM usage hours in the labs. To configure automatic shutdown for a lab plan, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).  You can configure these settings at both the lab plan/lab account level and the lab level.
+Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
+
+- Disconnect idle virtual machines.
+- Shut down virtual machines when students disconnect from the virtual machine.
+- Shut down virtual machines when students don't connect a recently started virtual machine.
+
+For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). You can configure these settings at both the lab plan/lab account level and the lab level.
 
 ### Scheduled time and quota time
 

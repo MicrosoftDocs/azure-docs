@@ -84,16 +84,6 @@ When a lab user starts their lab VM, quota hours for the lab start counting. If 
 
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
-## Automatic shut-down
-
-Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
-
-- Disconnect idle virtual machines.
-- Shut down virtual machines when students disconnect from the virtual machine.
-- Shut down virtual machines when students don't connect a recently started virtual machine.
-
-For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
-
 ## User profiles
 
 Azure Lab Services was designed with three major personas in mind: administrators, educators, and students.  You'll see these three roles mentioned throughout Azure Lab Services documentation.  This section describes each persona and the tasks they're typically responsible for.
