@@ -50,15 +50,15 @@ version of the database instance.
 
 During preview, if in-place major version upgrade pre-check operations fail then it aborts with a detailed error message for all the below limitations.
 
-In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
+1. In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
 
-In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, and **postgres_fdw** are unsupported for all PostgreSQL versions during preview. 
+2. In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, and **postgres_fdw** are unsupported for all PostgreSQL versions during preview. 
 
-Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
+3. Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
-During preview, in-place major version upgrade is currently available in the following regions.  
+4. During preview, in-place major version upgrade is currently available in the following regions.  
 
-Servers configured with logical replication slots aren't supported. 
+5. Servers configured with logical replication slots aren't supported. 
 
 ## How to Perform in-place major version upgrade: 
 
