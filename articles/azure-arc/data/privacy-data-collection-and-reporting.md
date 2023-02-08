@@ -78,7 +78,7 @@ The collected inventory data is represented by several Azure resource types.  Th
 ### SQL Server - Azure Arc
 
 | Description | Property name | Property type|
-|--|--|--|
+|:--|:--|:--|
 | Computer name | name | string |
 | SQL Server instance name| instanceName | string  |
 | SQL Server Version | version | string  |
@@ -125,7 +125,7 @@ The following JSON document is an example of the SQL Server - Azure Arc resource
 ### SQL Server database - Azure Arc
 
 | Description | Property name | Property type|
-|--|--|--|
+|:--|:--|:--|
 | Database name | name | string |
 | Collation | collationName | string |
 | Database creation date | databaseCreationDate | System.DateTime |
@@ -173,7 +173,7 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 ### Azure Arc data controller
 
 | Description | Property name | Property type|
-|--|--|--|
+|:--|:--|:--|
 | Location information | OnPremiseProperty | public: OnPremiseProperty |
 | The raw Kubernetes information (`kubectl get datacontroller`) | K8sRaw | object | 
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime | 
@@ -182,7 +182,7 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 ### PostgreSQL server - Azure Arc
 
 | Description | Property name | Property type|
-|--|--|--|
+|:--|:--|:--|
 | The data controller ID | DataControllerId | string |
 | The instance admin name | Admin | string |
 | Username and password for basic authentication | BasicLoginInformation | public: BasicLoginInformation | 
@@ -193,7 +193,7 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 ### SQL managed instance - Azure Arc
 
 | Description | Property name | Property type|
-|--|--|--|
+|:--|:--|:--|
 | The managed instance ID | DataControllerId | string |  
 | The instance admin username | Admin | string | 
 | The instance start time | StartTime | string |
@@ -305,7 +305,7 @@ Billing data captures a snapshot of the SQL Server instance properties as well a
 In support situations, you may be asked to provide database instance logs, Kubernetes logs, and other diagnostic logs. The support team will provide a secure location for you to upload to. Dynamic management views (DMVs) may also provide diagnostic data. The DMVs or queries used could contain database schema metadata details but typically not customer data. Diagnostic data does not contain any passwords, cluster IPs or individually identifiable data. These are cleaned and the logs are made anonymous for storage when possible. They are not transmitted automatically and administrator has to manually upload them. 
 
 |Field name  |Notes  |
-|---------|---------|
+|:--|:--|
 |Error logs |Log files capturing errors may contain customer or personal data (see below) are restricted and shared by user |
 |DMVs      |Dynamic management views can contain query and query plans but are restricted and shared by user     |
 |Views    |Views can contain customer data but are restricted and shared only by user     |
