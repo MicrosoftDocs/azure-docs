@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern
 
 # Measure Azure Cosmos DB for NoSQL performance with a benchmarking framework
 
-There are more choices, now than ever, on the type of database to use with your data workload. One of the key factors to picking a database is the performance of the database or service, but benchmarking performance can be cumbersome and error-prone. The [benchmarking framework for Azure Databases](https://github.com/Azure/azure-db-benchmarking) simplifies the process of measuring performance by using popular open-source benchmarking frameworks with low-friction recipes that implement common best practices. In Azure Cosmos DB for NoSQL, the framework implements [best practices for the Java SDK](performance-tips-java-sdk-v4.md) and uses the open-source [YCSB](https://ycsb.site) tool. In this guide, you'll use this benchmarking framework to implement a common "read recipe" benchmark.
+There are more choices, now than ever, on the type of database to use with your data workload. One of the key factors to picking a database is the performance of the database or service, but benchmarking performance can be cumbersome and error-prone. The [benchmarking framework for Azure Databases](https://github.com/Azure/azure-db-benchmarking) simplifies the process of measuring performance by using popular open-source benchmarking frameworks with low-friction recipes that implement common best practices. In Azure Cosmos DB for NoSQL, the framework implements [best practices for the Java SDK](performance-tips-java-sdk-v4.md) and uses the open-source [YCSB](https://ycsb.site) tool. In this guide, you use this benchmarking framework to implement a common "read recipe" benchmark.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ There are more choices, now than ever, on the type of database to use with your 
 
 ## Configure and create Azure resources
 
-First, you'll create a database and container in the existing API for NoSQL account. Then, you'll create an Azure Storage account and an empty resource group. The resource group will be used as the target of the benchmarking framework deployment.
+First, you create a database and container in the existing API for NoSQL account. Then, you create an Azure Storage account and an empty resource group. The resource group is used as the target of the benchmarking framework deployment.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -127,7 +127,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     :::image type="content" source="media/benchmarking-framework/resource-menu-keys.png" lightbox="media/benchmarking-framework/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
 
-1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values will be used throughout the tutorial.
+1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values are used throughout the tutorial.
 
     :::image type="content" source="media/benchmarking-framework/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String fields highlighted.":::
 
@@ -153,7 +153,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 ## Deploy benchmarking framework to Azure
 
-Now, you'll use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to deploy the benchmarking framework to Azure with the default read recipe. Prior to deploying this template, you'll need to create a prerequisite storage account to store the benchmarking results. After the template is deployed and the benchmarking is finished, you'll observe the results. The results of the read recipe are stored in a CSV file within the storage account.
+Now, you use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to deploy the benchmarking framework to Azure with the default read recipe. Prior to deploying this template, you need to create a prerequisite storage account to store the benchmarking results. After the template is deployed and the benchmarking is finished, you'll observe the results. The results of the read recipe are stored in a CSV file within the storage account.
 
 ### [Azure CLI](#tab/azure-cli)
 
