@@ -144,7 +144,7 @@ In addition to the required ConnectionStringSetting [application setting](./func
 
 | App Setting | Description|
 |---------|---------|
-|**Sql_Trigger_MaxBatchSize** |This controls the maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
+|**Sql_Trigger_BatchSize** |This controls the maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|This controls the delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
 |**Sql_Trigger_MaxChangesPerWorker**|This controls the upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
