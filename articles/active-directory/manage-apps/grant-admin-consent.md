@@ -73,13 +73,13 @@ When granting tenant-wide admin consent using either method described above, a w
 The tenant-wide admin consent URL follows the following format:
 
 ```http
-https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-id}
 ```
 
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{tenant-id}` is your organization's tenant ID or any verified domain name.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 
