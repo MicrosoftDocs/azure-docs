@@ -39,7 +39,7 @@ Your first step in setting up your backup for federation is to turn on password 
 1. In **Additional tasks**, select **Customize synchronization options**, and then select **Next**.
 
       :::image type="content" source="media/tutorial-phs-backup/backup2.png" alt-text="Screenshot that shows the Additional tasks pane, with Customize synchronization options selected.":::
-1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-account-in-azure-ad) in the tutorial to set up federation.
 1. In **Connect your directories**, select **Next**.
 1. In **Domain and OU filtering**, select **Next**.
 1. In **Optional features**, select **Password hash synchronization**, and then select **Next**.
@@ -64,7 +64,7 @@ If you decide to make the switch because fixing the problem will take too long, 
 
 1. In Azure AD Connect, select **Configure**.
 1. Select **Change user sign-in**, and then select **Next**.
-1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the tutorial to set up federation.
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-account-in-azure-ad) in the tutorial to set up federation.
 1. In **User sign-in**, select **Password hash synchronization**, and then select the **Do not convert user accounts** checkbox.  
 1. Leave the default **Enable single sign-on** selected and select **Next**.
 1. In **Enable single sign-on**, select **Next**.
