@@ -33,7 +33,7 @@ As we continue to improve the quality of our alerts, the following three alerts 
 1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
 1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
 
-You can learn more details about each of these alerts from the [alerts reference list](https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-resourcemanager).
+You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
 
 In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for ARM plan alert `Azure Resource Manager operation from suspicious IP address` or ' Azure Resource Manager operation from suspicious proxy IP address' will be presented.
 
