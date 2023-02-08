@@ -41,13 +41,10 @@ Azure Service Health monitors:
 
     1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
 
-## Investigate resource health issues related to a Log Analytics workspace
+## Next steps
 
 To investigate resource health issues related to a Log Analytics workspace:
 
-- 
-
-## Next steps
-
-- 
+- Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
+- Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 
