@@ -33,7 +33,7 @@ Part of service account governance includes:
 * Protecting them, based on requirements and purpose 
 * Managing account lifecycle, and their credentials   
 * Assessing service accounts, based on risk and permissions
-* Ensuring Active Directory (AD) and Azure Active Directory (Azure AD) have no stale service accounts, with permissions
+* Ensuring Active Directory (AD) and Azure Active Directory (Azure AD) have no unused service accounts, with permissions
 
 ## New service account principles
 
@@ -158,24 +158,24 @@ Deprovision service accounts at the following junctures:
 * Retirement of the script or application function, for which the service account was used
 * Replacement of the service account for another
 
-When deprovisioning, first remove permissions and monitoring, and then remove the account, if needed. To remove the account:
+To deprovision:
+ 
+1. Remove permissions and monitoring.
+2. Examine sign-ins and resource access of related service accounts to ensure no potential effect on them.
+3. Prevent account sign-in.
+4. Ensure the account is no longer needed (there's no complaint).
+5. Create a business policy that determines the amount of time accounts are disabled.
+6. Delete the service account.
 
-1. When the associated application or script is deprovisioned, monitor the sign-ins and resource access for the associated service accounts to be sure that they're not being used in another process. If you're sure it's no longer needed, go to next step.
-
-1. Disable the service account to prevent sign-in, and ensure that it's no longer needed. Create a business policy for the time during which accounts should remain disabled.
-
-1. After the remain-disabled policy is fulfilled, delete the service account. 
-
-   * **For MSAs**: [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) by using PowerShell, or delete it manually from the managed service account container.
-
-   * **For computer or user accounts**: Manually delete the account from within Active Directory.
+  * **MSAs** - See, [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). Use PowerShell, or delete it manually from the managed service account container.
+  * **Computer or user accounts** - Manually delete the account from Active Directory.
 
 ## Next steps
 
 To learn more about securing service accounts, see the following articles:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
+* [Securing on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Secure computer accounts](service-accounts-computer.md)  
-* [Secure user accounts](service-accounts-user-on-premises.md)
+* [Secure on-premises computer accounts with AD](service-accounts-computer.md)  
+* [Secure user-based service accounts in AD](service-accounts-user-on-premises.md)
