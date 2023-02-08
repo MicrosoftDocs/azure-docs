@@ -293,4 +293,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Microsoft identity platform](../../active-directory/develop/index.yml)
 - [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
-- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

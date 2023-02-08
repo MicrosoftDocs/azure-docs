@@ -1097,16 +1097,17 @@ items:
         items:
         - name: Authorize with Azure AD
           items:
-          - name: Authorize with Azure roles
+          - name: Authorize with Azure AD and Azure RBAC
             href: authorize-access-azure-active-directory.md
-          - name: Authorize with conditions
+          - name: Authorize with Azure AD and Azure ABAC
             href: storage-auth-abac.md
-          - name: Actions and attributes for conditions
-            href: storage-auth-abac-attributes.md
-          - name: Security for conditions
-            href: storage-auth-abac-security.md
-          - name: Example conditions
-            href: storage-auth-abac-examples.md
+            items:
+            - name: Actions and attributes for conditions
+              href: storage-auth-abac-attributes.md
+            - name: Security for conditions
+              href: storage-auth-abac-security.md
+            - name: Example conditions
+              href: storage-auth-abac-examples.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration

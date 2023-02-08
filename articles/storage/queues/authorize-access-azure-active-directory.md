@@ -24,11 +24,13 @@ Authorization with Azure AD is available for all general-purpose storage account
 
 When a security principal (a user, group, or application) attempts to access a queue resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Queue service and used by the service to authorize access to the specified resource.
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access queues. To learn how to authorize requests made by a managed identity, see [Authorize access to queue data with managed identities for Azure resources](authorize-managed-identity.md).
+The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access queues.
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for queue data. The roles that are assigned to a security principal determine the permissions that that principal will have. To learn more about assigning Azure roles for queue access, see [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md).
 
-Native applications and web applications that make requests to the Azure Queue service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
+[!INCLUDE [storage-auth-language-table](../../../includes/storage-auth-language-table.md)]
+
+Authorizing queue data operations with Azure AD is supported only for REST API versions 2017-11-09 and later. For more information, see [Versioning for the Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 ## Assign Azure roles for access rights
 

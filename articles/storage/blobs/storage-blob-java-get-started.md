@@ -26,7 +26,6 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org/download.cgi) is used for project management in this example
 
-
 ## Set up your project
 
 Use Maven to create a new console app, or open an existing project. Open the `pom.xml` file in your text editor.
