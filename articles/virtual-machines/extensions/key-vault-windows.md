@@ -377,7 +377,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-* Deploy the extension on a Virtual Machine Scale Set :
+* Deploy the extension on a Virtual Machine Scale Set:
 
     ```powershell
     
@@ -428,7 +428,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-* Deploy the extension on a Virtual Machine Scale Set :
+* Deploy the extension on a Virtual Machine Scale Set:
 
     ```powershell
     
@@ -510,7 +510,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --settings "@settings.json"
     ```
 
-* Deploy the extension on a Virtual Machine Scale Set :
+* Deploy the extension on a Virtual Machine Scale Set:
 
    ```azurecli
         # Start the deployment
@@ -537,7 +537,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
     ```
 
-* Deploy the extension on a Virtual Machine Scale Set :
+* Deploy the extension on a Virtual Machine Scale Set:
 
    ```azurecli
         # Start the deployment
