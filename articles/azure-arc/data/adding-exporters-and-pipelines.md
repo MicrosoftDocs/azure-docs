@@ -19,7 +19,7 @@ ms.custom: template-how-to
 
 ## What are Exporters and Pipelines?
 
-Exporters and Pipelines are two of the main components of the telemetry router. Exporters describe how to send data to a destination system such as Kafka. When creating an exporter, you'll associate it with a pipeline in order to route that type of telemetry data to that destination. You can have multiple exporters for each telemetry type.
+Exporters and Pipelines are two of the main components of the telemetry router. Exporters describe how to send data to a destination system such as Kafka. When creating an exporter, you associate it with a pipeline in order to route that type of telemetry data to that destination. You can have multiple exporters for each telemetry type.
 
 This article provides examples of how you can set up your own exporters and pipelines to route monitoring telemetry data to your own supported exporter.
 
@@ -32,13 +32,13 @@ This article provides examples of how you can set up your own exporters and pipe
 
 ## Example 1: Adding a Kafka exporter for a metrics pipeline
 
-You can test creating a Kafka exporter for a metrics pipeline that can send metrics data to your own instance of Kafka. You'll need to prefix the name of your metrics pipeline with `kafka/`. Note that you can have 1 unnamed instance for each telemetry type. For example, "kafka" is a valid name for a metrics pipeline.
+You can test creating a Kafka exporter for a metrics pipeline that can send metrics data to your own instance of Kafka. You need to prefix the name of your metrics pipeline with `kafka/`. You can have one unnamed instance for each telemetry type. For example, "kafka" is a valid name for a metrics pipeline.
   
 1. Provide your client and CA certificates in the `credentials` section through Kubernetes secrets
 2. Declare the new Exporter in the `exporters` section with the needed settings - name, certificates, broker, and index. Be sure to list the new exporter under the applicable type ("kakfa:")
 3. Add your new metrics pipeline to the exporters list in the `pipelines` section of the spec. Be sure to use the same exporter name from the previous step and prepend the type of exporter to the front of the exporter name. For example, `kafka/myMetrics`
 
-In this example, we've added a metrics pipeline (`kafka/myMetrics`) that will route to your instance of Kafka.
+In this example, we've added a metrics pipeline (`kafka/myMetrics`) that routes to your instance of Kafka.
 
 **arc-telemetry-router.yaml**
 
@@ -91,17 +91,17 @@ spec:
 kubectl apply -f arc-telemetry-router.yaml -n <namespace>
 ```
 
-You've added a metrics pipeline that will export to your instance of Kafka. After you've applied the changes to the yaml file, the TelemetryRouter custom resource will go into an updating state, and the collector service will restart.
+You've added a metrics pipeline that exports to your instance of Kafka. After you've applied the changes to the yaml file, the TelemetryRouter custom resource will go into an updating state, and the collector service will restart.
 
 ## Example 2: Adding an Elasticsearch exporter for a logs pipeline
 
-Your telemetry router deployment can export to multiple destinations by configuring additional exporters. Multiple types of exporters are supported on a given telemetry router deployment. This example demonstrates adding an Elasticsearch exporter as a second exporter. We'll activate this second exporter by adding it to a logs pipeline.
+Your telemetry router deployment can export to multiple destinations by configuring more exporters. Multiple types of exporters are supported on a given telemetry router deployment. This example demonstrates adding an Elasticsearch exporter as a second exporter. We activate this second exporter by adding it to a logs pipeline.
 
 1. Provide your client and CA certificates in the `credentials` section through Kubernetes secrets
 2. Declare the new Exporter beneath the `exporters` section with the needed settings - name, certificates, endpoint, and index. Be sure to list the new exporter under the applicable type ("Elasticsearch:").
 3. Add your new metrics pipeline to the exporters list in the `pipelines` section of the spec. Be sure to use the same exporter name from the previous step and prepend the exporter type. For example, `elasticsearch/myLogs`
 
-This example builds on the previous example by adding an Elasticsearch exporter to a logs pipeline (`elasticsearch/myLogs`). At the end of the example, we'll have two exporters with each exporter added to a different pipeline.
+This example builds on the previous example by adding an Elasticsearch exporter to a logs pipeline (`elasticsearch/myLogs`). At the end of the example, we have two exporters with each exporter added to a different pipeline.
 
 **arc-telemetry-router.yaml**
 
@@ -174,4 +174,4 @@ spec:
 kubectl apply -f arc-telemetry-router.yaml -n <namespace>
 ```
 
-You now have Kafka and Elasticsearch exporters, added to metrics and logs pipelines. After applying the changes to the yaml file, the TelemetryRouter custom resource will go into an updating state, and the collector service will restart.
+You now have Kafka and Elasticsearch exporters, added to metrics and logs pipelines. After you apply the changes to the yaml file, the TelemetryRouter custom resource will go into an updating state, and the collector service will restart.

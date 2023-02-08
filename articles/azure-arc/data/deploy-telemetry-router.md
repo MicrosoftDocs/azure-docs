@@ -29,7 +29,7 @@ Deploy and connect to an [Arc-enabled Kubernetes cluster in indirectly connected
 
 ## Configurations
 
-All configurations are specified through the telemetry router's custom resource specification and supports the configuration of exporters and pipelines.
+All configurations are specified through the telemetry router's custom resource specification and support the configuration of exporters and pipelines.
 
 ### Exporters
 
@@ -65,7 +65,7 @@ The following properties are currently configurable during the Public Preview:
 
 ### Pipelines
 
-The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  All pipelines must be prefixed with the type of exporter that will be used. For example, `elasticsearch/mylogs`
+The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  All pipelines must be prefixed with the type of exporter being used. For example, `elasticsearch/mylogs`
 
 #### Pipeline Settings
 
@@ -119,7 +119,7 @@ spec:
 
 ### Create a Custom Configuration Profile
 
-After setting up your Kubernetes cluster, you'll need to [create a custom configuration profile](create-custom-configuration-template.md) and enable a temporary feature flag that will deploy the telemetry router during data controller creation.
+After setting up your Kubernetes cluster, you'll need to [create a custom configuration profile](create-custom-configuration-template.md). Next, enable a temporary feature flag that deploys the telemetry router during data controller creation.
 
 ### Turn on the Feature Flag
 
@@ -130,7 +130,7 @@ az arcdata dc config add --path ./control.json --json-values ".spec.monitoring={
 az arcdata dc config add --path ./control.json --json-values ".spec.monitoring.enableOpenTelemetry=true"
 ```
 
-To confirm the flag was set correctly, open the control.json file and confirm the `monitoring` object was added to the `spec` object and `enableOpenTelemetry` is set to `true`, as shown below.
+To confirm the flag was set correctly, open the control.json file and confirm the `monitoring` object was added to the `spec` object and `enableOpenTelemetry` is set to `true`.
 
 ```yaml
 spec:
@@ -138,7 +138,7 @@ spec:
         enableOpenTelemetry: true
 ```
 
-Note that this feature flag requirement will be removed on a future release.
+This feature flag requirement will be removed on a future release.
 
 ### Create the Data Controller
 
@@ -146,7 +146,7 @@ After creating the custom configuration profile and setting the feature flag, yo
 
 ### Verify Telemetry Router Deployment
 
-When the data controller is created, a TelemetryRouter custom resource is also created. Data controller deployment will only be marked ready when both custom resources have finished deploying. After the data controller finishes deployment, you can use the following command to verify that the TelemetryRouter exists:
+When the data controller is created, a TelemetryRouter custom resource is also created. Data controller deployment is marked ready when both custom resources have finished deploying. After the data controller finishes deployment, you can use the following command to verify that the TelemetryRouter exists:
 
 ```bash
 kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
@@ -177,7 +177,7 @@ apiVersion: arcdata.microsoft.com/v1beta4
 
 ```
 
-For the public preview, the pipeline and exporter are have a default pre-configuration to Microsoft's deployment of Elasticsearch. This default deployment gives you an example of how the parameters for credentials, exporters, and pipelines are setup within the spec. You can follow this example to export to your own monitoring solutions. See [adding exporters and pipelines](adding-exporters-and-pipelines.md) for additional examples. This example deployment will be removed at the conclusion of the public preview.
+For the public preview, the pipeline and exporter have a default pre-configuration to Microsoft's deployment of Elasticsearch. This default deployment gives you an example of how the parameters for credentials, exporters, and pipelines are set up within the spec. You can follow this example to export to your own monitoring solutions. See [adding exporters and pipelines](adding-exporters-and-pipelines.md) for more examples. This example deployment will be removed at the conclusion of the public preview.
 
 When you deploy the telemetry router, two TelemetryCollector custom resources are also created. You can run the following commands to see detailed configuration of the wrapped TelemetryCollector resources and their deployment status:
 
@@ -348,7 +348,7 @@ Events:             <none>
 
 ```
 
-After deploying the TelemetryRouter, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported. If you look at the pods, you should see the following:
+After the TelemetryRouter is deployed, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported. If you look at the pods, you should see the following types of pods:
 
 - Two telemetry collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`
 - A kakfa broker pod - `arck-arc-router-kafka-broker-0`
