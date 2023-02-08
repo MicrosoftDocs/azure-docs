@@ -72,6 +72,10 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select how you would like to open your project**| Choose `Add to workspace`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
+
+### Note: If your code requires any packages to be installed, it is required to add them in requirements.txt file, present at the root of your folder so that during deployment these packages will get installed. You can save all the packages installed in your virtual environment into requirements.txt by running the command 'pip freeze > requirements.txt'
+
+
 ::: zone-end
 ::: zone pivot="python-mode-decorators"  
 3. Provide the following information at the prompts:
@@ -167,6 +171,7 @@ In this section, you create a function app and related resources in your Azure s
     ::: zone pivot="python-mode-decorators" 
     In the current v2 programming model preview, choose a region from one of the following locations: France Central, West Central US, North Europe, China East, East US, or North Central US.
     ::: zone-end
+
 
     The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
 
