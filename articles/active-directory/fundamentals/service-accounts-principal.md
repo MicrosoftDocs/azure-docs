@@ -101,30 +101,34 @@ To assess the security, evaluate privileges and credential storage. Use the foll
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
-## Move from a user account to a service principal​  
+## Move from a user account to a service principal 
 
-If you're using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](../../app-service/overview-managed-identity.md?tabs=dotnet) or a service principal. If you can't use a managed identity, provision a service principal with enough permissions and scope to run the required tasks. You can create a service principal by [registering an application](../develop/howto-create-service-principal-portal.md), or with [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
+If you're using an Azure user account as a service principal, evaluate if you can move to a managed identity or a service principal. If you can't use a managed identity, provision a service principal with enough permissions and scope to run the required tasks. You can create a service principal by registering an appliction, or with PowerShell.
 
-When using Microsoft Graph, check the API documentation. See, [Create an Azure service principal](/powershell/azure/create-azure-service-principal-azureps). Ensure the permission type for application is supported.
+When using Microsoft Graph, check the API documentation. Ensure the permission type for application is supported. </br>See, [Create servicePrincipal](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http&preserve-view=true)
+
+Learn more:
+
+* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md?tabs=dotnet)
+* [Create an Azure AD application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
+* [Use Azure PowerShell to create a service principal with a certificate](../develop/howto-authenticate-service-principal-powershell.md)
 
 ## Next steps
 
 Learn more about service principals:
 
-[Create a service principal](../develop/howto-create-service-principal-portal.md)
+* [Create an Azure AD application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
+* [Sign-in logs in Azure AD](../reports-monitoring/concept-sign-ins.md)
 
-[Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md)
+Secure service accounts:
 
-Learn more about securing service accounts:
-
-[Introduction to Azure service accounts](service-accounts-introduction-azure.md)
-
-[Securing managed identities](service-accounts-managed-identities.md)
-
-[Governing Azure service accounts](service-accounts-governing-azure.md)
-
-[Introduction to on-premises service accounts](service-accounts-on-premises.md)
+* [Securing cloud-based service accounts](service-accounts-introduction-azure.md)
+* [Securing managed identities in Azure AD](service-accounts-managed-identities.md)
+* [Governing Azure AD service accounts](service-accounts-governing-azure.md)
+* [Securing on-premises service accounts](service-accounts-on-premises.md)
 
 Conditional Access:
 
-Use Conditional Access to block service principals from untrusted locations. See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy).
+Use Conditional Access to block service principals from untrusted locations. 
+
+[Conditional Access for workload identities](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy).
