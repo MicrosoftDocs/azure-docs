@@ -68,6 +68,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
     ` https://<SUBDOMAIN>.oraclecloud.com/`
+    
+    >[!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your Oracle Access Manager for Oracle Retail Merchandising application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Oracle Access Manager for Oracle Retail Merchandising expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
