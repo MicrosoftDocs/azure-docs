@@ -3,7 +3,8 @@ title: Getting started
 description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
-ms.date: 07/01/2021
+ms.custom: engagement-fy23
+ms.date: 10/13/2022
 ---
 
 # Getting started with Nutanix Cloud Clusters on Azure

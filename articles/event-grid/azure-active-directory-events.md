@@ -14,45 +14,16 @@ These events are triggered when a [User](/graph/api/resources/user) or [Group](/
 
  | Event name | Description |
  | ---------- | ----------- |
- | **Microsoft.Graph.UserCreated** | Triggered when a user in Azure AD is created. |
- | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is updated. |
- | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is deleted. |
- | **Microsoft.Graph.GroupCreated** | Triggered when a group in Azure AD is created. |
- | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is updated. |
- | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is deleted.  |
+ | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is created or updated. |
+ | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is permanently deleted. |
+ | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is created or updated. |
+ | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is permanently deleted.  |
+
+> [!NOTE]
+> By default, deleting a user or a group is only a soft delete operation, which means that the user or group is marked as deleted but the user or group object still exists. Microsoft Graph sends an updated event when users are soft deleted. To permanently delete a user, navigate to the **Delete users** page in the Azure portal and select **Delete permanently**. Steps to permanently delete a group are similar.  
 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Azure AD event.
-
-### Microsoft.Graph.UserCreated event
-
-```json
-[{
-  "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
-  "type": "Microsoft.Graph.UserCreated",
-  "source": "/tenants/<tenant-id>/applications/<application-id>",
-  "subject": "Users/<user-id>",
-  "time": "2022-05-24T22:24:31.3062901Z",
-  "datacontenttype": "application/json",
-  "specversion": "1.0",
-  "data": {
-    "changeType": "created",
-    "clientState": "<guid>",
-    "resource": "Users/<user-id>",
-    "resourceData": {
-      "@odata.type": "#Microsoft.Graph.User",
-      "@odata.id": "Users/<user-id>",
-      "id": "<user-id>",
-      "organizationId": "<tenant-id>",
-      "eventTime": "2022-05-24T22:24:31.3062901Z",
-      "sequenceNumber": <sequence-number>
-    },
-    "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
-    "subscriptionId": "<microsoft-graph-subscription-id>",
-    "tenantId": "<tenant-id>
-  }
-}]
-```
 
 ### Microsoft.Graph.UserUpdated event
 
@@ -112,35 +83,7 @@ When an event is triggered, the Event Grid service sends data about that event t
   }
 }]
 ```
-### Microsoft.Graph.GroupCreated event
 
-```json
-[{
-  "id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
-  "type": "Microsoft.Graph.GroupCreated",
-  "source": "/tenants/<tenant-id>/applications/<application-id>",
-  "subject": "Groups/<group-id>",
-  "time": "2022-05-24T22:24:31.3062901Z",
-  "datacontenttype": "application/json",
-  "specversion": "1.0",
-  "data": {
-    "changeType": "created",
-    "clientState": "<guid>",
-    "resource": "Groups/<group-id>",
-    "resourceData": {
-      "@odata.type": "#Microsoft.Graph.Group",
-      "@odata.id": "Groups/<group-id>",
-      "id": "<group-id>",
-      "organizationId": "<tenant-id>",
-      "eventTime": "2022-05-24T22:24:31.3062901Z",
-      "sequenceNumber": <sequence-number>
-    },
-    "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
-    "subscriptionId": "<microsoft-graph-subscription-id>",
-    "tenantId": "<tenant-id>
-  }
-}]
-```
 ### Microsoft.Graph.GroupUpdated event
 
 ```json

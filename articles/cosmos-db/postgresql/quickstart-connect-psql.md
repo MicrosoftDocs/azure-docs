@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 09/28/2022
+ms.date: 01/30/2023
 ---
 
-# Connect to a cluster with psql
+# Connect to a cluster with psql - Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This quickstart shows you how to use the [psql](https://www.postgresql.org/docs/current/app-psql.html) connection string in [Azure Cloud Shell](/azure/cloud-shell/overview) to connect to an Azure Cosmos DB for PostgreSQL cluster.
+This quickstart shows you how to use the [psql](https://www.postgresql.org/docs/current/app-psql.html) connection string in [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to an Azure Cosmos DB for PostgreSQL cluster.
 
 ## Prerequisites
 

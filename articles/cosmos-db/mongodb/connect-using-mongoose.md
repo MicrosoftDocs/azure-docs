@@ -56,12 +56,12 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 3. Install the necessary packages using one of the ```npm install``` options:
 
-   * Mongoose: ```npm install mongoose@5 --save```
+   * **Mongoose**: ```npm install mongoose@5.13.15 --save```
 
-     > [!Note]
-     > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions.
+     > [!IMPORTANT]
+     > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions. Azure Cosmos DB for MongoDB is compatible with up to version `5.13.15` of Mongoose. For more information, please see the [issue discussion](https://github.com/Automattic/mongoose/issues/11072) in the Mongoose GitHub repository.
     
-   * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
+   * **Dotenv** *(if you'd like to load your secrets from an .env file)*: ```npm install dotenv --save```
 
      >[!Note]
      > The ```--save``` flag adds the dependency to the package.json file.

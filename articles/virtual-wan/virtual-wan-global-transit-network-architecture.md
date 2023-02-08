@@ -97,7 +97,7 @@ This option lets enterprises leverage the Azure backbone to connect branches. Ho
 
 > [!NOTE]
 > Disabling Branch-to-Branch Connectivity in Virtual WAN -
-> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuation will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propogation and connectivity. To configure this setting using Azure Portal: Under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch - Disabled. 
+> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuration will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propagation and connectivity. To configure this setting using Azure Portal: Under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch - Disabled. 
 
 ### Remote User-to-VNet (c)
 
@@ -112,9 +112,9 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub isn't necessary.
 
 
-## <a name="DefaultRoute"></a>Force tunneling and default route
+## <a name="DefaultRoute"></a>Forced tunneling and default route
 
-Force Tunneling can be enabled by configuring the enable default route on a VPN, ExpressRoute, or Virtual Network connection in Virtual WAN.
+Forced Tunneling can be enabled by configuring the enable default route on a VPN, ExpressRoute, or Virtual Network connection in Virtual WAN.
 
 A virtual hub propagates a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if enable default flag is 'Enabled' on the connection. 
 

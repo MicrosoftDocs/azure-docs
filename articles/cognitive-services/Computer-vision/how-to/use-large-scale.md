@@ -3,14 +3,14 @@ title: "Example: Use the Large-Scale feature - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
-author: SteveMSFT
+author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
 ms.date: 05/01/2019
-ms.author: sbowles
+ms.author: nitinme
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

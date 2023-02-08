@@ -1,11 +1,12 @@
 ---
 title: Azure Percept security recommendations
 description: Learn more about Azure Percept firewall configuration and security recommendations
-author: yvonne-dq
-ms.author: ngt
+author: Yvonne-dQ
+ms.author: v-mdequadros
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 02/07/2023
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept security recommendations

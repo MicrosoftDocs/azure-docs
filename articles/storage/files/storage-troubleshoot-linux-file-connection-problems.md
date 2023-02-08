@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure Files problems in Linux (SMB) | Microsoft Docs
+title: Troubleshoot Azure Files problems in Linux (SMB)
 description: Troubleshooting Azure Files problems in Linux. See common issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.date: 01/10/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -30,11 +30,11 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 
 Common causes for this problem are:
 
-- You're using an Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
-- SMB utilities (cifs-utils) are not installed on the client.
-- The minimum SMB version, 2.1, is not available on the client.
-- SMB 3.x encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
-- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
+- You're using a Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
+- SMB utilities (cifs-utils) aren't installed on the client.
+- The minimum SMB version, 2.1, isn't available on the client.
+- SMB 3.x encryption isn't supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
+- You're trying to connect to an Azure file share from an Azure VM, and the VM isn't in the same region as the storage account.
 - If the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.x with encryption.
 
 ### Solution
@@ -68,6 +68,44 @@ If virtual network (VNET) and firewall rules are configured on the storage accou
 
 Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
+<a id="mounterror22"></a>
+## "Mount error(22): Invalid argument" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the `snapshot` option for the `mount` command isn't passed in a recognized format, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as **cifs: Bad value for 'snapshot'**.
+
+### Solution
+
+Make sure you're passing the `snapshot` option for the `mount` command in the correct format. Refer to the mount.cifs manual page (e.g. `man mount.cifs`). A common error is passing the GMT timestamp in the wrong format, such as using hyphens or colons in place of periods. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="badsnapshottoken"></a>
+## "Bad snapshot token" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot `mount` option is passed starting with @GMT, but the format is still wrong (such as using hyphens and colons instead of periods), the `mount` command can fail with this error.
+
+### Solution
+
+Make sure you're passing the GMT timestamp in the correct format, which is **@GMT-year.month.day-hour.minutes.seconds**. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="mounterror2"></a>
+## "Mount error(2): No such file or directory" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot that you're attempting to mount doesn't exist, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as:
+
+```bash
+[Mon Dec 12 10:34:09 2022] CIFS: Attempting to mount \\snapshottestlinux.file.core.windows.net\snapshot-test-share1
+[Mon Dec 12 10:34:09 2022] CIFS: VFS: cifs_mount failed w/return code = -2
+```
+
+### Solution
+
+Make sure the snapshot you're attempting to mount exists. For more information on how to list the available snapshots for a given Azure file share, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
 
@@ -97,7 +135,7 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 
 - If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 - Use the right copy method:
-    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
+    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
     - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
     - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`

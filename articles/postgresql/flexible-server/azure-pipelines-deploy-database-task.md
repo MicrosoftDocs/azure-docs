@@ -67,7 +67,7 @@ The following example illustrates how to run an inline SQL script using ```execu
       az login --allow-no-subscription 
       az postgres flexible-server execute --name $(SERVERNAME) --admin-user $(DBUSER) \
       --admin-password '$(DBPASSWORD)'  --database-name $(DBNAME) \
-      --query-text "UPDATE items SET items.retail = items.retail * 0.9 WHERE items.id =100;" 
+      --querytext "UPDATE items SET items.retail = items.retail * 0.9 WHERE items.id =100;" 
 ```
 
 ## Task inputs

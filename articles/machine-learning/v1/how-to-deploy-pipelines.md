@@ -5,8 +5,9 @@ description: Run machine learning workflows with machine learning pipelines and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: larryfr
-author: blackmist
+author: xiaoharper
+ms.author: zhanxia
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022

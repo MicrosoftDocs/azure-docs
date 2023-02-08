@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ---
 
@@ -33,11 +33,17 @@ You can learn more about Azure Compute Galleries and how to create them here:
         - Hyper-V v2
         - Windows OS
         - Generalized image
+        - Single Session VM images (multi-session isn’t supported).
+        - No recovery partition.
+        - Default 64-GB OS disk size. The OS disk size will be automatically adjusted to the size specified in SKU description of the Windows 365 license.
 
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot showing the Windows 365 image requirement settings.":::
 
 > [!IMPORTANT]
 > If you have existing images that do not meet the Windows 365 image requirements, those images will not be listed for image creation.
+
+> [!NOTE]
+> Microsoft Dev Box Preview doesn't support community galleries. 
 
 ## Provide permissions for services to access the gallery
 When using an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it  meets the requirements to be provisioned for a dev box. In addition, the Dev Box service replicates the image to the regions specified in the attached network connections so the images are present in the region required for dev box creation.
@@ -45,7 +51,7 @@ When using an Azure Compute Gallery image to create a dev box definition, the Wi
 To allow the services to perform these actions, you must provide permissions to your gallery as follows:
 
 ### Add a user assigned identity to dev center
-1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
+1. Use these steps to [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, type *Dev box* and select **Dev centers** from the list.
 1. Open your DevCenter and select **Identity** from the left menu.
@@ -81,7 +87,7 @@ Follow these steps to manually assign each role:
 1. On the Review + assign tab, select **Review + assign**.
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
 
 1. Select **Access Control (IAM)** from the left menu.
 

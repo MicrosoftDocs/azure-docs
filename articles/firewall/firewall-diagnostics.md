@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 11/15/2022
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -44,6 +44,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 8. Select your subscription.
 9. Select **Save**.
 
+     :::image type="content" source=".\media\tutorial-diagnostics\firewall-diagnostic-settings.png" alt-text="Screenshot of Firewall Diagnostic setting.":::
 ## Enable diagnostic logging by using PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
@@ -69,9 +70,8 @@ To enable diagnostic logging with PowerShell, use the following steps:
       Name = 'toLogAnalytics'
       ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
-      Enabled = $true
       }
-   Set-AzDiagnosticSetting  @diagSettings 
+   New-AzDiagnosticSetting  @diagSettings 
    ```
 
 ## Enable diagnostic logging by using the Azure CLI
@@ -98,8 +98,8 @@ To enable diagnostic logging with Azure CLI, use the following steps:
       az monitor diagnostic-settings create -n 'toLogAnalytics'
       --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
-      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
-      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
+      --logs "[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]" 
+      --metrics "[{\"category\": \"AllMetrics\",\"enabled\": true}]"
    ```
 
 ## View and analyze the activity log

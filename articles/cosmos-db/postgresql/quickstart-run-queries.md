@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Run queries
+# Run queries in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -84,7 +84,7 @@ SELECT date_trunc('hour', created_at) AS hour,
        sum((payload->>'distinct_size')::int) AS num_commits
 FROM   github_events
 WHERE  event_type = 'PushEvent' AND
-       payload @> '{"ref":"refs/heads/main"}'
+       payload @> '{"ref":"refs/heads/master"}'
 GROUP BY hour
 ORDER BY hour;
 ```

@@ -3,10 +3,10 @@ title: Azure Backup Architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: conceptual
 ms.date: 09/07/2022
-author: v-amallick
 ms.service: backup
 ms.custom: ignite-2022
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -102,7 +102,7 @@ In the following sections you'll learn about different SAP HANA setups and their
 
 ### Backup architecture for database with HANA System Replication (preview)
 
-The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-pre-registration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
+The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
 
 After configuration, Azure Backup accepts backup requests from the primary node. On failover,  when the new primary node starts generating log backup requests, Azure Backup compares the new log backups with the existing chain from the older primary node.
 

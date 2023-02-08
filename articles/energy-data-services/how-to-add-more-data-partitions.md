@@ -13,29 +13,29 @@ ms.custom: template-how-to, ignite-2022
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-The article describes how you can add data partitions to an existing Microsoft Energy Data Services (MEDS) instance. The concept of "data partitions" in MEDS is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. 
+In this article, you'll learn how to add data partitions to an existing Microsoft Energy Data Services instance. The concept of "data partitions" is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. 
 
 Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partition's life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&trade;)
 
-> [!NOTE]
-> You can create maximum five data partitions in one MEDS instance. Currently, in line with the data partition capabilities that are available in OSDU&trade;, you can only create data partitions but can't delete or rename data existing data partitions. 
+
+You can create maximum five data partitions in one MEDS instance. Currently, in line with the data partition capabilities that are available in OSDU&trade;, you can only create data partitions but can't delete or rename data existing data partitions. 
 
 
 ## Create a data partition
 
-1. **Open the "Data Partitions" menu-item from left-panel of MEDS overview page.**
+1. Open the "Data Partitions" menu-item from left-panel of MEDS overview page.
 
     [![Screenshot for dynamic data partitions feature discovery from MEDS overview page. Find it under the 'advanced' section in menu-items.](media/how-to-add-more-data-partitions/dynamic-data-partitions-discovery-meds-overview-page.png)](media/how-to-add-more-data-partitions/dynamic-data-partitions-discovery-meds-overview-page.png#lightbox)
 
-2. **Select "Create"**
+2. Select "Create".
 
-    The page shows a table of all data partitions in your MEDS instance with the status of the data partition next to it. Clicking "Create" option on the top opens a right-pane for next steps.
+    The page shows a table of all data partitions in your MEDS instance with the status of the data partition next to it. Clicking the "Create" option on the top opens a right-pane for next steps.
 
     [![Screenshot to help you locate the create button on the data partitions page. The 'create' button to add a new data partition is highlighted.](media/how-to-add-more-data-partitions/start-create-data-partition.png)](media/how-to-add-more-data-partitions/start-create-data-partition.png#lightbox)
 
-3. **Choose a name for your data partition**
+3. Choose a name for your data partition.
 
-    Each data partition name needs to be - "1-10 characters long and be a combination of lowercase letters, numbers and hyphens only" The data partition name will be prepended with the name of the MEDS instance. Choose a name for your data partition and hit create. Soon as you hit create, the deployment of the underlying data partition resources such as Azure Cosmos DB and Azure Storage accounts is started.
+    Each data partition name needs to be 1-10 characters long and be a combination of lowercase letters, numbers and hyphens only. The data partition name will be prepended with the name of the MEDS instance. Choose a name for your data partition and hit create. As soon as you hit create, the deployment of the underlying data partition resources such as Azure Cosmos DB and Azure Storage accounts is started.
 
     >[!NOTE]
     >It generally takes 15-20 minutes to create a data partition.
@@ -48,7 +48,7 @@ Each partition provides the highest level of data isolation within a single depl
 
 ## Delete a failed data partition
 
-The data-partition deployment triggered in the previous process might fail in some cases due to issues - quota limits reached, ARM template deployment transient issues, data seeding failures, and failure in connecting to underlying AKS clusters. 
+The data-partition deployment triggered in the previous process might fail in some cases due to various issues. These issues include quota limits reached, ARM template deployment transient issues, data seeding failures, and failure in connecting to underlying AKS clusters. 
 
 The status of such data partitions shows as "Creation Failed". You can delete these deployments using the "delete" button that shows next to all failed data partition deployments. This deletion will clean up any records created in the backend. You can retry creating the data partitions later. 
 

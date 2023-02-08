@@ -90,7 +90,7 @@ The SQS didn't successfully read the S3 data.
     SentinelHealth 
     | take 20
     ```
-1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
+1. If the health feature isn’t enabled, [enable it](enable-monitoring.md).
 
 ## Data from the AWS S3 connector (or one of its data types) is seen in Microsoft Sentinel with a delay of more than 30 minutes  
 
@@ -144,7 +144,7 @@ There might be errors in the health logs, or the health feature might not be ena
     | take 20
     ```
 
-1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
+1. If the health feature isn’t enabled, [enable it](enable-monitoring.md).
 
 ## Next steps
 

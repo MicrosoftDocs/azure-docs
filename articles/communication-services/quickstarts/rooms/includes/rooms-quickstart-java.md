@@ -37,6 +37,8 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 
 ### Include the package
 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+
 #### Include the BOM file
 
 Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
@@ -74,7 +76,7 @@ If you want to take dependency on a particular version of the library that isn't
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-rooms</artifactId>
-  <version>1.0.0-alpha.1</version>
+  <version>1.0.0-beta.1</version>
 </dependency>
 ```
 

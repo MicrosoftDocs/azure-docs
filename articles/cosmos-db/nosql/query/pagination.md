@@ -44,7 +44,7 @@ Here are some examples for processing results from queries with multiple pages:
 
 ## Continuation tokens
 
-In the .NET SDK and Java SDK you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. For the Python SDK and Node.js SDK, it's supported for single partition queries, and the PK must be specified in the options object because it's not sufficient to have it in the query itself.
+In the .NET SDK and Java SDK you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. For the Python SDK, continuation tokens are only supported for single partition queries. The partition key must be specified in the options object because it's not sufficient to have it in the query itself.
 
 Here are some example for using continuation tokens:
 

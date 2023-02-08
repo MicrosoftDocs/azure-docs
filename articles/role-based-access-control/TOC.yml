@@ -41,7 +41,7 @@
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
-  - name: Conditions
+  - name: ABAC conditions
     items:
     - name: Condition format
       href: conditions-format.md
@@ -95,7 +95,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Add or edit conditions
+  - name: Add or edit ABAC conditions
     items:
     - name: Portal
       href: conditions-role-assignments-portal.md

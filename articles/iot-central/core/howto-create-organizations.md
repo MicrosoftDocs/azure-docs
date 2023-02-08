@@ -57,7 +57,7 @@ After you define your organization hierarchy, assign your devices to organizatio
 
 When you create a new device in your application, assign it to an organization in your hierarchy:
 
-:::image type="content" source="media/howto-create-organization/assign-device.png" alt-text="Screenshot that shows how to assign a device to an organization.":::
+:::image type="content" source="media/howto-create-organization/assign-device.png" alt-text="Screenshot that shows how to assign a device to an organization." lightbox="media/howto-create-organization/assign-device.png":::
 
 To assign or reassign an existing device to an organization, select the device in the device list and then select **Organization**:
 
@@ -86,7 +86,7 @@ You assign gateway and downstream devices to organizations. You don't have to as
 
 When you create the first organization in your application, IoT Central adds three new roles in your application: **Org Administrator**, **Org Operator**, and **Org Viewer**. These roles are necessary because an organization user can't access certain application-wide capabilities such as pricing plans, branding and colors, API tokens, and application-wide enrollment group information.
 
-:::image type="content" source="media/howto-create-organization/organization-roles.png" alt-text="Screenshot that shows the three organization roles.":::
+:::image type="content" source="media/howto-create-organization/organization-roles.png" alt-text="Screenshot that shows the three organization roles." lightbox="media/howto-create-organization/organization-roles.png":::
 
 You can use these roles when you invite users to an organization in your application.
 
@@ -94,11 +94,9 @@ You can use these roles when you invite users to an organization in your applica
 
 To create a custom role for your organization users, create a new role and choose the **Organization** role type:
 
-:::image type="content" source="media/howto-create-organization/custom-organization-role.png" alt-text="Screenshot that shows how to create a custom organization role.":::
+:::image type="content" source="media/howto-create-organization/custom-organization-role.png" alt-text="Screenshot that shows how to create a custom organization role." lightbox="media/howto-create-organization/custom-organization-role.png":::
 
-Then select the permissions for the role:
-
-:::image type="content" source="media/howto-create-organization/organization-role-permissions.png" alt-text="Screenshot that shows how to select custom permissions for an organizational role.":::
+Then select the permissions for the role.
 
 ## Invite users
 
@@ -106,7 +104,7 @@ After you've created your organization hierarchy and assigned devices to organiz
 
 To invite a user, navigate to **Permissions > Users**. Enter their email address, the organization they're assigned to, and the role or roles the user is a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
 
-:::image type="content" source="media/howto-create-organization/assign-user-organization.png" alt-text="Screenshot that shows how to assign a user to an organization and role.":::
+:::image type="content" source="media/howto-create-organization/assign-user-organization.png" alt-text="Screenshot that shows how to assign a user to an organization and role." lightbox="media/howto-create-organization/assign-user-organization.png":::
 
 You can assign the same user to multiple organizations. The user can have a different role in each organization they're assigned to:
 
@@ -125,6 +123,7 @@ After you've created your organization hierarchy you can use organizations in ar
 
 - [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
 - [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
+- [IoT Edge deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests) for deployment manifests associated with specific organizations.
 - [Analytics](howto-create-analytics.md) for devices in specific organizations.
 - [Jobs](howto-manage-devices-in-bulk.md#create-and-run-a-job) that bulk manage devices in specific organizations.
 
@@ -138,7 +137,6 @@ You can set an organization as the default organization to use in your applicati
 To set the default organization, select **Settings** on the top menu bar:
 
 :::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png":::
-
 
 ## Add organizations to an existing application
 
@@ -156,7 +154,6 @@ The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
 - The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
-
 
 ## Next steps
 

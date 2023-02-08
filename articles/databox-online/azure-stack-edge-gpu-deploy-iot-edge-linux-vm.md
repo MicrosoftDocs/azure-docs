@@ -303,4 +303,4 @@ To deploy and run an IoT Edge module on your Ubuntu VM, see the steps in [Deploy
 
 To deploy Nvidia’s DeepStream module, see [Deploy the Nvidia DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU](azure-stack-edge-deploy-nvidia-deepstream-module.md).
 
-To deploy NVIDIA DIGITS, see [Enable a GPU in a prefabricated NVIDIA module](/azure/iot-edge/configure-connect-verify-gpu?view=iotedge-2020-11&preserve-view=true#enable-a-gpu-in-a-prefabricated-nvidia-module).
+To deploy NVIDIA DIGITS, see [Enable a GPU in a prefabricated NVIDIA module](../iot-edge/configure-connect-verify-gpu.md?preserve-view=true&view=iotedge-2020-11#enable-a-gpu-in-a-prefabricated-nvidia-module).

@@ -10,7 +10,7 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services Preview?
 
-Microsoft Energy Data Services Preview is a secure, reliable, hyperscale, fully managed cloud-based data platform solution for the energy industry. It is an enterprise-grade data platform that brings together the capabilities of OSDU&trade; Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise. It allows customers to free data from silos, provides strong data management, storage, and federation strategy. Microsoft Energy Data Services ensures compatibility with evolving community standards like OSDU&trade; and enables value addition through interoperability with both first-party and third-party solutions.
+Microsoft Energy Data Services Preview is a secure, reliable, hyperscale, fully managed cloud-based data platform solution for the energy industry. It is an enterprise-grade data platform that brings together the capabilities of OSDU&trade; Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise. It allows customers to free data from silos, provides strong data management, storage, and federation strategy. Microsoft Energy Data Services ensures compatibility with evolving community standards like OSDU&trade; and enables value addition through interoperability with both first-party and third-party solutions.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -26,7 +26,7 @@ Furthermore, Microsoft Energy Data Services Preview provides security capabiliti
 
 Microsoft Energy Data Services Preview also supports multiple data partitions for every platform instance. More data partitions can also be created after creating an instance, as needed.
 
-As an Azure-based service, it also provides elasticity with auto-scaling to handle dynamically varying workload requirements. The service provides out-of-the-box compatibility and built-in integration with industry-leading applications from Schlumberger, including Petrel to provide quick time to value.
+As an Azure-based service, it also provides elasticity with auto-scaling to handle dynamically varying workload requirements. The service provides out-of-the-box compatibility and built-in integration with industry-leading applications from SLB, including Petrel to provide quick time to value.
 
 Microsoft will provide support for the platform to enable our customers' use cases.
 

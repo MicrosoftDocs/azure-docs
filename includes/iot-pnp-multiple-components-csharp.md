@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# and is included in the Azure IoT device SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
@@ -22,9 +22,9 @@ In this tutorial, you:
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this tutorial on Windows, install the following software on your local Windows environment:
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
+* The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
 * [Git](https://git-scm.com/download/).
 
 ### Clone the SDK repository with the sample code
@@ -37,26 +37,24 @@ Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a co
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
-## Run the sample device
+## Build the code
 
-In this quickstart, you use a sample temperature controller device that's written in C# as the IoT Plug and Play device. To run the sample device:
+You can now build the sample and run it. Run the following commands to build the sample:
 
-1. Open the *azure-iot-sdk-csharp\iothub\deivce\samples\solutions\PnpDeviceSamples\TemperatureController\TemperatureController.csproj* project file in Visual Studio 2019.
+```cmd/sh
+cd azure-iot-sdk-csharp/iothub/device/samples/solutions/PnpDeviceSamples/TemperatureController
+dotnet build
+```
 
-1. In Visual Studio, navigate to **Project > TemperatureController Properties > Debug**. Then add the following environment variables to the project:
+## Run the device sample
 
-    | Name | Value |
-    | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
-    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
-    | IOTHUB_DEVICE_DPS_ID_SCOPE | The value you made a note of when you completed [Set up your environment](../articles/iot-develop/set-up-environment.md) |
-    | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
-    | IOTHUB_DEVICE_DPS_DEVICE_KEY | The value you made a note of when you completed [Set up your environment](../articles/iot-develop/set-up-environment.md) |
+To run the sample, run the following command:
 
+```cmd/sh
+dotnet run
+```
 
-1. You can now build the sample in Visual Studio and run it in debug mode.
-
-1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this instance of Visual Studio, you need it to confirm the service sample is working.
+The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Use Azure IoT explorer to validate the code
 

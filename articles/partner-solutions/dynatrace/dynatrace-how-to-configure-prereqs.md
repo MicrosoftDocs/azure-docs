@@ -1,10 +1,9 @@
 ---
-title: Configure pre-deployment to use Dynatrace with Azure - Azure partner solutions
+title: Configure pre-deployment to use Azure Native Dynatrace Service
 description: This article describes how to complete the prerequisites for Dynatrace on the Azure portal. 
 ms.topic: conceptual
-author: flang-msft
-ms.author: franlanglois
-ms.date: 10/12/2022
+
+ms.date: 02/02/2023
 
 ---
 
@@ -14,7 +13,7 @@ This article describes the prerequisites that must be completed in your Azure su
 
 ## Access control
 
-To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](/azure/role-based-access-control/check-access) before starting the setup.
+To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 
 ## Add enterprise application
 

@@ -53,8 +53,6 @@ items:
           href: ./hdinsight-50-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
-        - name: HDInsight version 3.6
-          href: ./hdinsight-36-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
@@ -108,6 +106,10 @@ items:
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
+      - name: Subscribe to HDInsight release notes GitHub repo
+        href: ./subscribe-to-hdi-release-notes-repo.md
+      - name: View the image version of Azure HDInsight cluster
+        href: ./view-hindsight-cluster-image-version.md  
       - name: Cluster creation errors
         href: ./create-cluster-error-dictionary.md
         title: 
@@ -181,6 +183,8 @@ items:
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
+      - name: Disable auto logout from Ambari Web UI
+        href: ./ambari-web-ui-auto-logout.md   
       - name: Optimize with Apache Ambari
         items:
         - name: Optimize clusters
@@ -311,8 +315,6 @@ items:
     items:
     - name: Releases
       items:
-      - name: Ubuntu 18.04 update
-        href: ./hdinsight-ubuntu-1804-qa.md
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes
@@ -387,10 +389,6 @@ items:
           href: ./spark/optimize-memory-usage.md
         - name: Optimize cluster configuration
           href: ./spark/optimize-cluster-configuration.md
-      - name: Migrate to Spark 2.3 or 2.4
-        href: ./spark/migrate-versions.md
-      - name: Update .NET for Apache Spark to 1.0
-        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools
@@ -701,6 +699,8 @@ items:
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
+      - name: Secure Spark and Kafka streaming integration scenario
+        href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
       - name: Kafka MirrorMaker 2.0 guide

@@ -43,7 +43,7 @@ The same request body to each of those different URLs serves the exact same resp
 
 ## Validations and requirements
 
-Assigning deployment resources requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. In the Language Studio, you can automatically [enable Azure AD authentication](https://aka.ms/rbac-language) by assigning yourself the _Cognitive Services Language Owner_ role to your original resource. To programmatically use Azure AD authentication, learn more from the [Cognitive Services documentation](/azure/cognitive-services/authentication?tabs=powershell&tryIt=true&source=docs#authenticate-with-azure-active-directory).
+Assigning deployment resources requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. In the Language Studio, you can automatically [enable Azure AD authentication](https://aka.ms/rbac-language) by assigning yourself the _Cognitive Services Language Owner_ role to your original resource. To programmatically use Azure AD authentication, learn more from the [Cognitive Services documentation](../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
 
 Your project name and resource are used as its main identifiers. Therefore, a Language resource can only have a specific project name in each resource. Any other projects with the same name will not be deployable to that resource. 
 

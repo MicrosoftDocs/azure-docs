@@ -31,7 +31,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## Examples
   
-  The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. .  
+  The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. 
   
 ```sql
 SELECT f.id

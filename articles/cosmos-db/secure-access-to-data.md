@@ -41,7 +41,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -49,7 +49,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 # [If your application is currently using the secondary key](#tab/using-secondary-key)
 
@@ -57,7 +57,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -65,7 +65,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 ---
 
@@ -100,7 +100,7 @@ Azure Cosmos DB RBAC is the ideal access control method in situations where:
 
 See [Configure role-based access control for your Azure Cosmos DB account](how-to-setup-rbac.md) to learn more about Azure Cosmos DB RBAC.
 
-For information and sample code to configure RBAC for the Azure Cosmso DB for MongoDB, see [Configure role-based access control for your Azure Cosmso DB for MongoDB](mongodb/how-to-setup-rbac.md).
+For information and sample code to configure RBAC for the Azure Cosmos DB for MongoDB, see [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md).
 
 ## <a id="resource-tokens"></a> Resource tokens
 
@@ -110,7 +110,7 @@ Resource tokens provide access to the application resources within a database. R
 - Are created when a [user](#users) is granted [permissions](#permissions) to a specific resource.
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
-- Are time bound with a customizable validity period. The default valid time span is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
+- Are time bound with a customizable validity period. The default valid time span is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of 24 hours.
 - Provide a safe alternative to giving out the primary key.
 - Enable clients to read, write, and delete resources in the Azure Cosmos DB account according to the permissions they've been granted.
 
@@ -232,4 +232,4 @@ As a database service, Azure Cosmos DB enables you to search, select, modify and
 - To learn more about Azure Cosmos DB database security, see [Azure Cosmos DB Database security](database-security.md).
 - To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
 - For user management samples with users and permissions, see [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
-- For information and sample code to configure RBAC for the Azure Cosmso DB for MongoDB, see [Configure role-based access control for your Azure Cosmso DB for MongoDB](mongodb/how-to-setup-rbac.md)
+- For information and sample code to configure RBAC for the Azure Cosmos DB for MongoDB, see [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md)

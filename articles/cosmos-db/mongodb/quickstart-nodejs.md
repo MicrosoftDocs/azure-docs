@@ -1,18 +1,17 @@
 ---
-title: Quickstart - Azure Cosmos DB for MongoDB for JavaScript with MongoDB drier
-description: Learn how to build a JavaScript app to manage Azure Cosmos DB for MongoDB account resources in this quickstart.
-author: diberry
-ms.author: diberry
-ms.reviewer: sidandrews
+title: Quickstart - Azure Cosmos DB for MongoDB driver for MongoDB
+description: Learn how to build a Node.js app to manage Azure Cosmos DB for MongoDB account resources and data in this quickstart.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
-# Quickstart: Azure Cosmos DB for MongoDB for JavaScript with MongoDB driver
+# Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
@@ -25,14 +24,14 @@ Get started with the MongoDB npm package to create databases, collections, and d
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [Node.js LTS](https://nodejs.org/en/download/)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- [Node.js LTS](https://nodejs.org/en/download/)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ### Prerequisite check
 
-* In a terminal or command window, run ``node --version`` to check that Node.js is one of the LTS versions.
-* Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+- In a terminal or command window, run ``node --version`` to check that Node.js is one of the LTS versions.
+- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
 
@@ -102,20 +101,20 @@ Before you start building the application, let's look into the hierarchy of reso
 
 You'll use the following MongoDB classes to interact with these resources:
 
-* [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html) - This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.
-* [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-* [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
+- [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html) - This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
 
 ## Code examples
 
-* [Authenticate the client](#authenticate-the-client)
-* [Get database instance](#get-database-instance)
-* [Get collection instance](#get-collection-instance)
-* [Chained instances](#chained-instances)
-* [Create an index](#create-an-index)
-* [Create a doc](#create-a-doc)
-* [Get an doc](#get-a-doc)
-* [Query docs](#query-docs)
+- [Authenticate the client](#authenticate-the-client)
+- [Get database instance](#get-database-instance)
+- [Get collection instance](#get-collection-instance)
+- [Chained instances](#chained-instances)
+- [Create an index](#create-an-index)
+- [Create a doc](#create-a-doc)
+- [Get an doc](#get-a-doc)
+- [Query docs](#query-docs)
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
@@ -189,15 +188,15 @@ Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-nati
 
 Create a doc with the *product* properties for the `adventureworks` database:
 
-* An _id property for the unique identifier of the product.
-* A *category* property. This property can be used as the logical partition key.
-* A *name* property.
-* An inventory *quantity* property.
-* A *sale* property, indicating whether the product is on sale.
+- An _id property for the unique identifier of the product.
+- A *category* property. This property can be used as the logical partition key.
+- A *name* property.
+- An inventory *quantity* property.
+- A *sale* property, indicating whether the product is on sale.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 
-Create an doc in the collect by calling [``Collection.UpdateOne``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#updateOne). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
+Create an doc in the collection by calling [``Collection.UpdateOne``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#updateOne). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
 
 ### Get a doc
 
@@ -213,11 +212,11 @@ After you insert a doc, you can run a query to get all docs that match a specifi
 
 Troubleshooting:
 
-* If you get an error such as `The index path corresponding to the specified order-by item is excluded.`, make sure you [created the index](#create-an-index).
+- If you get an error such as `The index path corresponding to the specified order-by item is excluded.`, make sure you [created the index](#create-an-index).
 
 ## Run the code
 
-This app creates a API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
+This app creates an API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
@@ -231,7 +230,7 @@ The output of the app should be similar to this example:
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB for NoSQL account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB for MongoDB account, you can delete the corresponding resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 

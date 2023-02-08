@@ -2,9 +2,12 @@
 title: Defender for Cloud Planning multicloud security determine ownership requirements security functions team alignment best practices guidance
 description: Learn about determining ownership requirements when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
+author: bmansheim
+ms.author: benmansheim
 ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
+
 # Determine ownership requirements
 
 This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
@@ -51,7 +54,7 @@ Security leadership, most commonly under the CISO, should specify who’s accoun
 - Although multicloud security might be divided across different areas of the business, teams should manage security across the multicloud estate. This is better than having different teams secure different cloud environments. For example where one team manages Azure and another team manages AWS. Teams working across multicloud environments helps to prevent sprawl within the organization. It also helps to ensure that security policies and compliance requirements are applied in every environment.
 - Often, teams that manage Defender for Cloud don’t have privileges to remediate recommendations in workloads. For example, the Defender for Cloud team might not be able to remediate vulnerabilities in an AWS EC2 instance. The security team might be responsible for improving the security posture, but unable to fix the resulting security recommendations. To address this issue:
   - It’s imperative to involve the AWS workload owners.
-    - [Assigning owners with due dates](/azure/defender-for-cloud/governance-rules) and [defining governance rules](/azure/defender-for-cloud/governance-rules) creates accountability and transparency, as you drive processes to improve security posture.
+    - [Assigning owners with due dates](./governance-rules.md) and [defining governance rules](./governance-rules.md) creates accountability and transparency, as you drive processes to improve security posture.
 - Depending on organizational models, we commonly see these options for central security teams operating with workload owners:
   - **Option 1: Centralized model.** Security controls are defined, deployed, and monitored by a central team.
 

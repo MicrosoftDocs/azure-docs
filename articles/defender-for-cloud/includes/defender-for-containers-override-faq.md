@@ -1,6 +1,6 @@
 ---
-author: ElazarK
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include

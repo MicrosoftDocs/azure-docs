@@ -101,11 +101,13 @@ Azure Cosmos DB interprets coordinates as represented per the WGS-84 reference s
 **LineStrings in GeoJSON**
 
 ```json
+{
     "type":"LineString",
-    "coordinates":[ [
+    "coordinates":[
         [ 31.8, -5 ],
         [ 31.8, -4.7 ]
-    ] ]
+    ]
+}
 ```
 
 ### Polygons

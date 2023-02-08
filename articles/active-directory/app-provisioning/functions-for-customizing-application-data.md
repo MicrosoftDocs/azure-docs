@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/13/2022
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -294,7 +294,7 @@ The **interval** string must have one of the following values:
 | Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
 | Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
 | Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
-| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 2 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
 ---
 ### DateDiff
@@ -737,7 +737,7 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **value** |Required | String | Date time string in the supported format. For supported formats, see https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Required | String | Date time string in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. If the date variable is in a different format, use [FormatDateTime](#formatdatetime) function to convert the date to ISO 8601 format. |
 
 **Example:**
 * Workday example 
