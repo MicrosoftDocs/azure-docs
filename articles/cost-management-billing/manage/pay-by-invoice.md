@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 02/08/2023
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -15,6 +15,8 @@ ms.custom: contperf-fy21q2
 # Pay for your Azure subscription by check or wire transfer
 
 This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for a Microsoft Online Services Program account also called pay-as-you-go account). If you signed up for Azure through a Microsoft representative, then your default payment method is already be set to *check or wire transfer*.
+
+[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 If you switch to pay by check or wire transfer, that means you pay your bill within 30 days of the invoice date by check/wire transfer. 
 
