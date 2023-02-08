@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure dual stack outbound connectivity with a NAT gateway and a public load balancer
 
-In this tutorial, you'll learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
+In this tutorial, learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
 
 NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic is handled by the NAT gateway, and IPv6 outbound traffic is handled by the load balancer.
 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 ## Create virtual network
 
-In this section, you'll create a virtual network for the virtual machine and load balancer.
+In this section, create a virtual network for the virtual machine and load balancer.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
@@ -162,7 +162,7 @@ az network bastion create \
 
 ---
 
-It will take a few minutes for the bastion host to deploy. You can proceed to the next steps when the virtual network is deployed.
+It takes a few minutes for the bastion host to deploy. You can proceed to the next steps when the virtual network is deployed.
 
 ## Create NAT gateway
 
@@ -287,7 +287,7 @@ az network vnet subnet update \
 
 ## Create dual-stack virtual machine
 
-The network configuration of the virtual machine has IPv4 and IPv6 configurations. You'll create the virtual machine with an internal IPv4 address. You'll then add the IPv6 configuration to the network interface of the virtual machine.
+The network configuration of the virtual machine has IPv4 and IPv6 configurations. Create the virtual machine with an internal IPv4 address. Then add the IPv6 configuration to the network interface of the virtual machine.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
@@ -590,7 +590,7 @@ az network nic ip-config address-pool add \
 
 ## Validate outbound connectivity
 
-You'll connect to the virtual machine with Azure Bastion to verify the IPv4 and IPv6 outbound traffic.
+Connect to the virtual machine with Azure Bastion to verify the IPv4 and IPv6 outbound traffic.
 
 ### Obtain IPv4 and IPv6 public IP addresses
 
@@ -646,9 +646,7 @@ az network public-ip show \
 
 ---
 
-Make note of both IP addresses. You will use them later to verify the outbound connectivity for each stack.
-
-
+Make note of both IP addresses. Use the IPs to verify the outbound connectivity for each stack.
 
 ### Test connectivity
 
@@ -670,13 +668,13 @@ Make note of both IP addresses. You will use them later to verify the outbound c
 
 1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
 
-1. You should see the IPv4 address displayed. In this example the IP of **20.230.191.5** displayed.
+1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar, enter **http://v6.testmyipv6.com**
 
-1. You should see the IPv6 address displayed. In this example the IP of **2603:1030:c02:9::** displayed.
+1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:9::** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
