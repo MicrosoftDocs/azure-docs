@@ -142,7 +142,7 @@ Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monit
 
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
-| VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
+| VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the [Azure Video Indexer website](https://www.videoindexer.ai/) and the REST API. |
 | IndexingLogs | Indexing Logs | Azure Video Indexer indexing logs to monitor all files uploads, indexing and reindexing jobs. |
 
 <!-- --------------**END Examples** ------------- -->

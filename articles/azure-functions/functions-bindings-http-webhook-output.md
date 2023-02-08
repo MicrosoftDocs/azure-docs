@@ -18,7 +18,7 @@ The default return value for an HTTP-triggered function is:
 ::: zone pivot="programming-language-csharp"
 ## Attribute
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script uses a function.json configuration file. 
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script uses a function.json configuration file. 
 
 # [In-process](#tab/in-process)
 

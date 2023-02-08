@@ -39,7 +39,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 
 ## Azure Machine Learning compute (managed)
 
@@ -65,7 +65,9 @@ When created, these compute resources are automatically part of your workspace, 
 
 
 > [!NOTE]
-> When a compute *cluster* is idle, it autoscales to 0 nodes, so you don't pay when it's not in use. A compute *instance* is always on and doesn't autoscale. You should [stop the compute instance](how-to-create-manage-compute-instance.md#manage) when you aren't using it to avoid extra cost.
+> To avoid charges when the compute is idle:
+> * For compute *cluster* make sure the minimum number of nodes is set to 0.
+> * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
 
 ### Supported VM series and sizes
 
@@ -155,18 +157,19 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 
 Azure Machine Learning supports the following unmanaged compute types:
 
-* Your local computer
 * Remote virtual machines
 * Azure HDInsight
-* Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
-* Azure Container Instance
-* Kubernetes
+* [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
-For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
+    > [!TIP]
+    > Currently this requires the Azure Machine Learning SDK v1.
+* [Kubernetes](how-to-attach-kubernetes-anywhere.md)
+
+For more information, see [Manage compute resources](how-to-create-attach-compute-studio.md).
 
 ## Next steps
 
 Learn how to:
-* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)
+* [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)

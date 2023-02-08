@@ -56,9 +56,9 @@ The next step is to define an input source for the job to read data using the ev
 
 4. Fill out the input form with the following values created through [TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json):
 
-    1. For **Input alias**, provide a friendly name to identify your input.
-    2. For **Subscription**, select your Azure subscription.
-    3. For **Resource group**, select the same resource that you used earlier in the TollApp deployment.
+    1. For **Input alias**, enter **entrystream**.
+    2. Choose **Select Event Hub from your subscriptions**.
+    3. For **Subscription**, select your Azure subscription.
     4. For **Event Hub namespace**, select the event hub namespace you created in the previous section.
     5. Use default options on the remaining settings and select **Save**.
 
@@ -73,8 +73,8 @@ The next step is to define an output sink where the job can write data to. In th
 
 3. Fill the output form with the following details and select **Save**:
     1. For **Output alias**, enter **DeltaOutput**.
-    2. For **Subscription**, select your Azure subscription.
-    3. For **Resource group**, select the same resource under which you created the ADLS Gen2 account in prerequisites.
+    2. Choose **Select Blob storage/ADLS Gen2 from your subscriptions**.
+    3. For **Subscription**, select your Azure subscription.
     4. For **Storage account**, choose the ADLS Gen2 account you created.
     5. For **container**, provide a unique container name.
     6. For **Event Serialization Format**, select **Delta Lake**. Although Delta lake is listed as one of the options here, it isn't a data format. Delta Lake uses versioned Parquet files to store your data. To learn more about [Delta lake](write-to-delta-lake.md).

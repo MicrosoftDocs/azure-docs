@@ -1,12 +1,12 @@
 ---
 title: Configure a Deployer Web Application for SAP on Azure Deployment Automation Framework
 description: Configure a web app as a part of the control plane to help creating and deploying SAP workload zones and systems on Azure.
-author: wsheehan
-ms.author: wsheehan
+author: akashdubey-ms
+ms.author: akashdubey
 ms.reviewer: wsheehan
 ms.date: 10/19/2022
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ---
 
 # Configure the Control Plane Web Application

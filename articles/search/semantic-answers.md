@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 01/16/2023
 ---
 
 # Return a semantic answer in Azure Cognitive Search
@@ -40,15 +40,15 @@ Answers are returned as an independent, top-level object in the query response p
 
 <a name="query-params"></a>
 
-## Formulate a query rest for "answers"
+## Formulate a REST query for "answers"
 
-The approach for listing fields in priority order has changed, with "semanticConfiguration" replacing "searchFields". If you're currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
+The approach for listing fields in priority order has changed, with "semanticConfiguration" replacing "searchFields". If you're currently using "searchFields", update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
 
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameters. Specifying these parameters doesn't guarantee an answer, but the request must include them for answer processing to occur.
 
-The "semanticConfiguration" parameter is crucial to returning a high-quality answer. 
+The "semanticConfiguration" parameter is required. It's defined in a search index, and then referenced in a query, as shown below. 
 
 ```json
 {
@@ -68,7 +68,7 @@ The "semanticConfiguration" parameter is crucial to returning a high-quality ans
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Configure semantic ranking](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details. 
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details. 
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -166,7 +166,7 @@ For best results, return semantic answers on a document corpus having the follow
 
 + The "semanticConfiguration" must include fields that offer sufficient text in which an answer is likely to be found. Fields more likely to contain answers should be listed first in "prioritizedContentFields". Only verbatim text from a document can appear as an answer.
 
-+ Query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string doesn't appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
++ Query strings must not be null (search=`*`) and the string should have the characteristics of a question, such as "what is" or "how to", as opposed to a keyword search consisting of terms or phrases in arbitrary order. If the query string doesn't appear to be a question, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
 + Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, try to break up the content into smaller documents first.
 

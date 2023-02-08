@@ -260,7 +260,8 @@ No. Virtual WAN doesn't require ExpressRoute from each site. Your sites may be c
 
 ### Is there a network throughput or connection limit when using Azure Virtual WAN?
 
-Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. 
+Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 200 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub.
+
 
 To secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed, you can set the minimum capacity or modify as needed. See [About virtual hub settings - hub capacity](hub-settings.md#capacity). For cost implications, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
@@ -303,12 +304,31 @@ Yes. Customers can now create more than one hub in the same region for the same 
 ### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs?
 
 If a virtual hub learns the same route from multiple remote hubs, the order in which it decides is as follows:
+1.	Select routes with Longest Prefix Match (LPM).
+2.	Prefer static routes learned from the virtual hub route table over BGP routes.
+3.	Select best path based on the [Virtual hub routing preference](https://learn.microsoft.com/azure/virtual-wan/about-virtual-hub-routing-preference) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
 
-1. Longest prefix match.
-1. Local routes over interhub.
-1. Static routes over BGP: This is in context to the decision being made by the virtual hub router. However, if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
-1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios. However, you can [configure virtual hub routing preference](howto-virtual-hub-routing-preference.md) to change the default preference.
-1. AS path length (Virtual hubs prepend routes with the AS path 65520-65520 when advertising routes to each other).
+    * **ExpressRoute** (This is the default setting)
+        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        2. If there are Routes from both ExpressRoute and Site-to-site VPN connections:
+              * If all the routes are local to the virtual hub, the routes learned from ExpressRoute connections will be chosen because Virtual hub routing preference is set to ExpressRoute.
+              * If all the routes are through remote hubs, Site-to-site VPN will be preferred over ExpressRoute. 
+        3.	Prefer routes with the shortest BGP AS-Path length.
+
+    * **VPN**
+        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        2.	If there are routes from both ExpressRoute and Site-to-site VPN connections, the Site-to-site VPN routes will be chosen.
+        3.	Prefer routes with the shortest BGP AS-Path length.
+
+    * **AS Path**
+        1.	Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. 
+         Note: In vWANs with multiple remote virtual hubs, If there is a tie between remote routes and remote site-to-site VPN routes. Remote site-to-site VPN will be preferred.
+
+        2.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        3.	If there are routes from both ExpressRoute and Site-to-site VPN connections:
+            *	If all the routes are local to the virtual hub, the routes from ExpressRoute connections will be chosen.
+            * If all the routes are through remote virtual hubs, the routes from Site-to-site VPN connections will be chosen.
+
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
@@ -334,7 +354,7 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 * Configure multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
-* Contact the product team to take part in the gated public preview. In this preview, traffic between the 2 hubs traverses through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers/MSEE). To use this feature during preview, email **previewpreferh2h@microsoft.com** with the Virtual WAN IDs, Subscription ID, and the Azure region. Expect a response within 48 business hours (Monday-Friday) with confirmation that the feature is enabled.
+* Configure AS-Path as the Hub Routing Preference for your Virtual Hub. This ensures traffic between the 2 hubs traverses through the Virtual hub router in each hub and uses the hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers). For more information, see  [Configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
 ### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a non Virtual WAN VNet, what is the path for the non Virtual WAN VNet to reach the Virtual WAN hub? 
 

@@ -43,6 +43,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 To make all your certificates accessible, set the value to `*`.
 
+> [!NOTE]
+> If your are using `*` for the App Setting, you will need to restart your web app after adding a new certificate to your web app to ensure that new certificate becomes accessible to your app.
+
 ## Load certificate in Windows apps
 
 The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).

@@ -20,7 +20,7 @@ ms.date: 08/31/2022
 
 With AzureML CLI/Python SDK v2, AzureML introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubernetes compute target in AzureML, and use it to train or deploy models. 
 
-:::image type="content" source="./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure ML connects to Kubernetes." lightbox="./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png":::
+:::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure ML connects to Kubernetes." lightbox="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png":::
  
 In this article, you learn about:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 
 ## KubernetesCompute and legacy AksCompute
 
-With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it differently. Following table shows key differences.
+With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it differently. The following table shows their key differences:
 
 |Capabilities  |AKS integration with AksCompute (legacy)  |AKS integration with KubernetesCompute|
 |--|--|--|
@@ -84,7 +84,7 @@ With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute ta
 |Batch inference | No | Yes |
 |Real-time inference new features | No new features development | Active roadmap |
 
-With these key differences and overall AzureML evolves to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
+With these key differences and overall AzureML evolution to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
 
 ## Next steps
 

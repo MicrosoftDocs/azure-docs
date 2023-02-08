@@ -3,16 +3,13 @@ title: Introduction to flow logging for NSGs
 titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: harsha-cs
-
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/04/2021
-ms.author: harshacs
-
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 10/06/2022
+ms.custom: engagement-fy23
+ms.author: halkazwini
 ---
 
 # Introduction to flow logging for network security groups
@@ -329,7 +326,7 @@ To update parameters via command-line tools, use the same command used to enable
 
 - [Download &amp; view Flow Logs from the portal](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
 - [Read Flow logs using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
-- [Export NSG Flow Logs to Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
+- [Export NSG Flow Logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 While flow logs target NSGs, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and follow the logging path shown in the following example:
 
@@ -399,7 +396,7 @@ $virtualNetwork |  Set-AzVirtualNetwork
 
 Few common scenarios:
 1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
-1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC and subnet level is platform dependent and varies from case to case. Traffic flows will be logged against the NSG which is processed last. 
+1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC and subnet level is platform dependent and varies from case to case. Traffic flows will be logged against the NSG which is processed last. The processing order is changed by the platform state. You have to check both of the flow logs.
 1. **AKS Cluster Subnet**: AKS adds a default NSG at the cluster subnet. As explained in the above point, flow logging must be enabled on this default NSG.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.

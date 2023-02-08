@@ -40,7 +40,7 @@ Audio streams can be used in many ways, below are some examples of how developer
 ## Supported formats
 
 ### Mixed format
-Contains mixed audio of all participants on the call.
+Contains mixed audio of all participants on the call. As this is mixed audio, the participantRawID will be null.
 	
 ### Unmixed
 Contains audio per participant per channel, with support for up to four channels for four dominant speakers. You will also get a participantRawID that you can use to determine the speaker. 

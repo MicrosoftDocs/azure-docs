@@ -9,6 +9,8 @@
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: Service limits
+      href: service-limits.md
     - name: FAQ
       href: faq.yml
 - name: Quickstarts
@@ -27,6 +29,8 @@
   items:
     - name: Univariate Anomaly Detection
       items:
+      - name: REST API with Postman
+        href: how-to/postman.md
       - name: Identify anomalies in your data 
         href: how-to/identify-anomalies.md
       - name: Deploy Anomaly Detector (univariate)
@@ -68,6 +72,8 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
+    - name: Azure Data Explorer integration
+      href: tutorials/azure-data-explorer.md
     - name: Visualize anomalies as a batch using Power BI (univariate)
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Azure Synapse with Multivariate Anomaly Detection
@@ -80,7 +86,9 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: REST API (preview) 
+    - name: REST API (v1.1) 
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1/operations/CreateMultivariateModel
+    - name: REST API (v1.1-preview-1) 
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
     - name: .NET (preview)
       href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview&preserve-view=true
@@ -116,14 +124,14 @@
           href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: Learn modules
-      href: /training/modules/identify-abnormal-time-series-data-anomaly-detector/
+    - name: Training modules
+      href: /training/modules/intro-to-anomaly-detector/
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture (univariate)
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
     - name: Azure updates
-      href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+      href: https://azure.microsoft.com/updates/?product=cognitive-services
     - name: Error codes (multivariate)
       href: concepts/troubleshoot.md
     - name: Technical articles

@@ -1,9 +1,12 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 11/12/2019
+ms.date: 12/28/2022
+ms.service: site-recovery
 ms.topic: conceptual
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 # Common questions - Hyper-V to Azure disaster recovery
 
@@ -171,7 +174,9 @@ Yes, you can exclude disks from replication.
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
+### Can I enable Site Recovery along with other backup or disaster recovery tools?
 
+No, enabling Site Recovery along with other backup or disaster recovery resources on the same host machine is not supported. The other tools may create a lock on the resources required for Site Recovery to funtion smoothly. This may cause ongoing replication to break. 
 
 ## Security
 

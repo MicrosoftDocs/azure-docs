@@ -12,7 +12,7 @@ services: iot-edge
 
 # Configure IoT Edge module build options
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The *module.json* file controls how modules are built and deployed. IoT Edge module Visual Studio
 and Visual Studio Code projects include the *module.json* file. The file contains IoT Edge module

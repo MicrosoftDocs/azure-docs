@@ -125,7 +125,7 @@ In this article, we've provided the training script *train_iris.py*. In practice
 > - downloads and extracts the training data using `iris = datasets.load_iris()`; and
 > - trains a model, then saves and registers it.
 
-To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
+To use and access your own data, see [how to read and write data in a job](how-to-read-write-data-v2.md) to make data available during training.
 
 To use the training script, first create a directory where you will store the file.
 
@@ -164,7 +164,7 @@ It's now time to submit the job to run in AzureML. This time you'll use `create_
 Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in AzureML studio.
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory.
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
 
 ### What happens during job execution
 As the job is executed, it goes through the following stages:

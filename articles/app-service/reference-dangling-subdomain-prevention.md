@@ -18,7 +18,7 @@ The risks of subdomain takeover include:
 - Phishing campaigns
 - Further risks of classic attacks such as XSS, CSRF, CORS bypass
 
-Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover).
+Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 Azure App Service provides [Name Reservation Service](#how-app-service-prevents-subdomain-takeovers) and [domain verification tokens](#how-you-can-prevent-subdomain-takeovers) to prevent subdomain takeovers.
 ## How App Service prevents subdomain takeovers
@@ -42,4 +42,4 @@ These records prevent the creation of another App Service app using the same nam
 
 DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation.
 
-To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
+To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md)

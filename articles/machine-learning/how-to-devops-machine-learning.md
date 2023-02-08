@@ -7,7 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
-ms.date: 09/28/2022
+ms.reviewer: larryfr
+ms.date: 11/11/2022
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy
 ---
@@ -25,7 +26,7 @@ You can use an [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the
 
 This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). You'll train a scikit-learn linear regression model on the Diabetes dataset.
 
-This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/installv2) and [Azure CLI ML extension v2](/cli/azure/ml). 
+This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ai-ml-readme) and [Azure CLI ML extension v2](/cli/azure/ml). 
 
 ## Prerequisites
 
@@ -109,11 +110,11 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.8'
-- script: pip install -r sdk/dev-requirements.txt
+- script: pip install -r sdk/python/dev-requirements.txt
   displayName: 'pip install notebook reqs'
 - task: Bash@3
   inputs:
-    filePath: 'sdk/setup.sh'
+    filePath: 'sdk/python/setup.sh'
   displayName: 'set up sdk'
 
 - task: Bash@3
@@ -132,7 +133,7 @@ steps:
            sed -i -e "s/<AML_WORKSPACE_NAME>/$(AZUREML_WORKSPACE_NAME)/g" sklearn-diabetes.ipynb
            sed -i -e "s/DefaultAzureCredential/AzureCliCredential/g" sklearn-diabetes.ipynb
            papermill -k python sklearn-diabetes.ipynb sklearn-diabetes.output.ipynb
-    workingDirectory: 'sdk/jobs/single-step/scikit-learn/diabetes'
+    workingDirectory: 'sdk/python/jobs/single-step/scikit-learn/diabetes'
 ```
 
 

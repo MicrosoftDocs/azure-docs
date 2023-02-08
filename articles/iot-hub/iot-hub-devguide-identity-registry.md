@@ -1,6 +1,6 @@
 ---
 title: Understand the Azure IoT Hub identity registry
-description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
+description: This article provides a description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -86,7 +86,7 @@ Device identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . % _ * ? ! ( ) , : = @ $ '`. The special characters: `+ #` are not supported.  |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/devices/get-identity#authenticationmechanism) in the REST API documentation. |

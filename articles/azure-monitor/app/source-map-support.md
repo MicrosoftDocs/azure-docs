@@ -57,7 +57,7 @@ If you would like to configure or change the storage account or Blob container t
 4. Select `Apply`.
 
 > [!div class="mx-imgBorder"]
-> ![Reconfigure your selected Azure Blob Container by navigating to the Properties Blade](./media/source-map-support/reconfigure.png)
+> ![Reconfigure your selected Azure Blob Container by navigating to the Properties pane](./media/source-map-support/reconfigure.png)
 
 ## Troubleshooting
 

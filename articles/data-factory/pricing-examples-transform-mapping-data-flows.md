@@ -34,11 +34,11 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 2 Activity runs **per execution** (1 for trigger run, 1 for activity runs) = 480 activity runs, rounded up since the calculator only allows increments of 1000. |
-| Data Flow Assumptions: General purpose 16 vCore hours **per execution** = 10 min + 10 min TTL | 20 min \ 60 min |
+| Data Flow Assumptions: General purpose 16 vCore hours **per execution** = 10 min | 10 min \ 60 min |
 
 ## Pricing calculator example
 
-**Total scenario pricing for 30 days: $350.76**
+**Total scenario pricing for 30 days: $175.88**
 
 :::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4a-pricing-calculator.png":::
 

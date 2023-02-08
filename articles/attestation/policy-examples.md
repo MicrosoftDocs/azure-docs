@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 
@@ -39,11 +39,14 @@ Issuance rules section isn't mandatory. This section can be used by the users to
 ## Default policy for an SGX enclave
 
 ```
-version= 1.0;
-authorizationrules {
+version= 1.1;
+configurationrules{
+	=> issueproperty(type="x-ms-sgx-tcbidentifier", value="azuredefault");
+};
+authorizationrules{
 	=> permit();
 };
-issuancerules {
+issuancerules{
 	c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
 	c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
 	c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);

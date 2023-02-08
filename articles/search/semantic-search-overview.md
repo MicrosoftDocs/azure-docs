@@ -81,11 +81,11 @@ Although semantic search is not beneficial in every scenario, certain content ca
 Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilities](#enable-semantic-search) on your search service.
 
 | Feature | Tier | Region | Sign up | Pricing |
-|---------|------|--------|---------------------|-------------------|
+|---------|------|--------|---------|---------|
 | Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
 | Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
-<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
+<sup>1</sup> On the pricing page, scroll down to view additional features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
 
 <sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
