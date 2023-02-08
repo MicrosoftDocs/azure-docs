@@ -373,7 +373,7 @@ az acr token list --registry myregistry --output table
 
 ### Regenerate token passwords
 
-If you didn't generate a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command.Regenerating new passwords for tokens will take 60 seconds to replicate and be available. 
+If you didn't generate a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command. Regenerating new passwords for tokens will take 60 seconds to replicate and be available. 
 
 The following example generates a new value for password1 for the *MyToken* token, with an expiration period of 30 days. It stores the password in the environment variable `TOKEN_PWD`. This example is formatted for the bash shell.
 
