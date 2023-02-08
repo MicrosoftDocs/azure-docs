@@ -88,10 +88,16 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### [Azure CLI](#tab/azure-cli)
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them. 
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
+    
+    In case of a permissions error, one possible solution might be specifying the subscription associated with your resource group and cluster. For example:
+    
+    ```azurecli
+    az aks get-credentials --subscription "mySubscription" --resource-group myResourceGroup --name myAKSCluster
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
