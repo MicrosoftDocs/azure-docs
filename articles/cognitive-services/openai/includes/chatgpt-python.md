@@ -7,6 +7,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 02/07/2023
 keywords: 
 ---
