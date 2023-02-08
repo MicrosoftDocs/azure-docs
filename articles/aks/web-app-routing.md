@@ -223,6 +223,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld  
+  namespace: hello-web-app-routing
 spec:
   replicas: 1
   selector:
@@ -252,6 +253,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   type: ClusterIP
   ports:
