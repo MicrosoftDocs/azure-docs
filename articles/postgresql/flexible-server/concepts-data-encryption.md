@@ -259,8 +259,6 @@ The following are current limitations for configuring the customer-managed key i
 
 - Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via restore of the server to non-CMK server.
 
-- CMK encryption isn't available on Burstable SKU.
-
 - No support for Geo backup enabled servers
 
 - No support for Azure HSM Key Vault 

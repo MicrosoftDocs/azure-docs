@@ -1,10 +1,8 @@
 ---
 title: 'Configure forced tunneling for Site-to-Site connections'
 description: Learn how to redirect (force) all Internet-bound traffic back to your on-premises location.
-services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/22/2021
@@ -89,7 +87,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 4. Set Route Table Configuration.
    
    ```powershell 
-   New-AzRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
    ```
 5. Assign Route Table to the subnets
 

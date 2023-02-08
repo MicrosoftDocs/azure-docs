@@ -36,22 +36,21 @@ You must provide the networking connection between Azure Communications Gateway 
 
 ### Compliance with Certified SBC specifications
 
-Azure Communications Gateway supports the Microsoft specifications for Certified SBCs for Operator Connect and Teams Phone Mobile. For more information about certification and these specifications, see [Session Border Controllers certified for Direct Routing](/microsoftteams/direct-routing-border-controllers) and
- the Operator Connect or Teams Phone Mobile documentation provided by your Microsoft representative.
+Azure Communications Gateway supports the Microsoft specifications for Certified SBCs for Operator Connect and Teams Phone Mobile. For more information about certification and these specifications, see [Session Border Controllers certified for Direct Routing](/microsoftteams/direct-routing-border-controllers) and the Operator Connect or Teams Phone Mobile documentation provided by your Microsoft representative.
 
 ### Call control integration for Teams Phone Mobile
 [Teams Phone Mobile](/microsoftteams/operator-connect-mobile-plan) allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
 
 The Microsoft Phone System relies on information in SIP signaling to determine whether a call is:
 
-- To a Teams Mobile Phone subscriber.
-- From a Teams Mobile Phone subscriber or between two Teams Phone Mobile subscribers.
+- To a Teams Phone Mobile subscriber.
+- From a Teams Phone Mobile subscriber or between two Teams Phone Mobile subscribers.
 
-Your core mobile network must supply this information to Azure Communications Gateway, by using unique trunks or by correctly populating an `X-MS-FMC` header as defined by the Teams Phone Mobile SIP specifications.
+Your core mobile network must supply this information to Azure Communications Gateway, by using unique trunks or by correctly populating an `X-MS-FMC` header as defined by the Teams Phone Mobile SIP specifications. If you don't have access to these specifications, contact your Microsoft representative or your onboarding team.
 
 Your core mobile network must also be able to anchor and divert calls into the Microsoft Phone System. You can choose from the following options.
 
-- Deploying Metaswitch Mobile Control Point (MCP). MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway.
+- Deploying Metaswitch Mobile Control Point (MCP). MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway. For more information, see the [Metaswitch description of Mobile Control Point](https://www.metaswitch.com/products/mobile-control-point).
 - Using other routing capabilities in your core network to detect Teams Phone Mobile subscribers and route INVITEs to or from these subscribers into the Microsoft Phone System through Azure Communications Gateway.
 
 > [!IMPORTANT]
@@ -66,7 +65,7 @@ Azure Communications Gateway includes SIP trunks to your own network and can int
 - Strict rules on a= attribute lines in SDP bodies
 - Strict rules on call transfer handling
 
-SIP trunks between your network and Azure Communications Gateway are multi-tenant, meaning that traffic from all your customers share the same trunk. By default, traffic sent from the Azure Communications Gateway contains an X-MSTenantID header which uniquely identifies from which enterprise the traffic is originating and can be used by your billing systems.
+SIP trunks between your network and Azure Communications Gateway are multi-tenant, meaning that traffic from all your customers share the same trunk. By default, traffic sent from the Azure Communications Gateway contains an X-MSTenantID header. This header identifies the enterprise that is sending the traffic and can be used by your billing systems.
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
@@ -74,7 +73,7 @@ You can arrange more interworking function as part of your initial network desig
 - Support for reliable provisional messages (100rel)
 - Interworking between early and late media
 - Interworking away from inband DTMF tones
-- Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in tgrp parameters
+- Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters
 
 ## RTP and SRTP media
 

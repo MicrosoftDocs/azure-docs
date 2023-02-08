@@ -51,7 +51,10 @@ The following table summarizes the support matrix for VM restore points.
 **VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes
 **VMs with ADE (Azure Disk Encryption)** | Yes
 **VMs using Accelerated Networking** | Yes
-**Frequency supported** | Three hours for app consistent restore points. One hour for [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview))
+**Frequency at which App consistent restore point can be taken** | Three hours
+**Frequency at which [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview) can be taken** | One hour
+> [!Note]
+ > Restore Points (App or crash consistent) can be taken at the above mentioned frequency. Taking restore points at a frequency lower than mentioned would result in failure. 
 
 ## Operating system support
 
