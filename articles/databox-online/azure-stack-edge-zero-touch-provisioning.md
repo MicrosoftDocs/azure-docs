@@ -415,15 +415,15 @@ Use the following steps to fetch and then enable or disable proactive logging fo
 
 1.	Sign in to the device.
 
-   ```azurepowershell
-   Set-Login "https://<IP address>" "Password"
-   ```
+    ```azurepowershell
+    Set-Login "https://<IP address>" "Password"
+    ```
 
 1.	Fetch the device configuration.
 
-   ```azurepowershell
-   Get-DeviceConfiguration | To-json
-   ```
+    ```azurepowershell
+    Get-DeviceConfiguration | To-json
+    ```
 
 1.	Fetch the device log consent configuration.
 	
