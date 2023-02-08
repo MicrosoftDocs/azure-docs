@@ -5,7 +5,7 @@ items:
   expanded: true
   items:
   - name: What is Entra Network Access?
-    href: what-is-network-access.md
+    href: overview-what-is-network-access.md
 - name: Quickstarts
   expanded: true
   items:
@@ -32,17 +32,17 @@ items:
   expanded: true
   items:
   - name: Getting Started with Entra Network Access
-    href: get-started-with-network-access.md
+    href: how-toget-started-with-network-access.md
 - name: Reference
   expanded: false
   items:
   - name: Entra Network Access FAQ
-    href: network-access-faq.md
+    href: reference-network-access-faq.md
   - name: Troubleshoot
     expanded: false
     items:
     - name: Troubleshoot Entra Network Access
-      href: troubleshoot-network-access.md
+      href: reference-troubleshoot-network-access.md
 - name: Resources
   expanded: false
   items:
@@ -50,4 +50,4 @@ items:
     expanded: false
     items:
     - name: Get started with Entra Network Access training videos
-      href: network-access-training-videos.md
+      href: resource-network-access-training-videos.md
