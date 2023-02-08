@@ -42,18 +42,18 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 
 |Cmdlet|Description|
 |---------|---------|
-|Set-Login|First-time sign in, set or change sign in credentials to access the device.|
-|Get-DeviceConfiguration|Fetch the current device configuration.|
-|Set-DeviceConfiguration|Change the device configuration.|
-|New-Package|Prepare a device setup configuration package to apply to one or more devices.|
-|Get-DeviceConfigurationStatus|Fetch the status of in-progress configuration changes being applied to the device to determine whether the operation succeeded, failed, or is still in progress.|
-|Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
-|Start-DeviceDiagnostic|Start a new diagnostic run to verify status after a device setup configuration package has been applied.|
-|To-json|A utility command that formats the cmdlet response in a JSON file.|
-|Get-DeviceLogConsent   |Fetch the proactive log consent setting for the device.|
-|Set-DeviceLogConsent   |Set the proactive log consent setting for the device.|
-|Get-DeviceVip   |Fetch the VIP settings on an ACS or NFS multi-node cluster. |
-|Set-DeviceVip   |Set the VIP settings on an ACS or NFS multi-node cluster. |
+|*Set-Login* |First-time sign in, set or change sign in credentials to access the device. |
+|*Get-DeviceConfiguration* |Fetch the current device configuration. |
+|*Set-DeviceConfiguration* |Change the device configuration. |
+|*New-Package* |Prepare a device setup configuration package to apply to one or more devices. |
+|*Get-DeviceConfigurationStatus* |Fetch the status of in-progress configuration changes being applied to the device to determine whether the operation succeeded, failed, or is still in progress. |
+|*Get-DeviceDiagnostic* |Fetch diagnostic status of the device. |
+|*Start-DeviceDiagnostic* |Start a new diagnostic run to verify status after a device setup configuration package has been applied. |
+|*To-json* |A utility command that formats the cmdlet response in a JSON file. |
+|*Get-DeviceLogConsent* |Fetch the proactive log consent setting for the device. |
+|*Set-DeviceLogConsent* |Set the proactive log consent setting for the device. |
+|*Get-DeviceVip* |Fetch the VIP settings on an ACS or NFS multi-node cluster. |
+|*Set-DeviceVip* |Set the VIP settings on an ACS or NFS multi-node cluster. |
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ Use the following steps to import the PowerShell module and sign in to the devic
    Import-Module "<Local path to PowerShell module>"\ZtpRestHelpers.psm1
    ```
 
-1. Sign in to the device using the ```Set-Login``` cmdlet. First-time sign-in requires a password reset using `NewPassword`.
+1. Sign in to the device using the `Set-Login` cmdlet. First-time sign-in requires a password reset using `NewPassword`.
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" "<NewPassword>"
@@ -109,19 +109,19 @@ Run the following cmdlets in PowerShell:
     Set-Login "https://<IP address>" "<Password>"
     ```
 
-1. Set the time object property.
+1. Set the `time` object property.
 
    ```azurepowershell
    $time = New-Object PSObject -Property @{ TimeZone = "Hawaiian Standard Time" }
    ```
 
-1. Set the update object property.
+1. Set the `update` object property.
 
    ```azurepowershell
    $update = New-Object PSObject -Property @{ ServerType = "MicrosoftUpdate" }
    ```
 
-1. Create a package with the new time and update settings.
+1. Create a package with the new `time` and `update` settings.
 
    ```azurepowershell
    $pkg = New-Package -Time $time -Update $update
@@ -196,18 +196,18 @@ Run the following cmdlets in PowerShell:
    Set-Login "https://<IP address>" "<Password>"
    ```
 
-1. Before you run the device configuration operation, ensure that the JSON file uses the node.name of the device to be changed. 
+1. Before you run the device configuration operation, ensure that the JSON file uses the `node.name` of the device to be changed. 
 
    > [!NOTE]
-   > Each device has a unique node.name. To change device configuration settings, the node.name in the JSON file must match the node.name of the device to be changed.
+   > Each device has a unique `node.name`. To change device configuration settings, the `node.name` in the JSON file must match the `node.name` of the device to be changed.
 
-   Fetch the node.name from the device with the following command in PowerShell:
+   Fetch the `node.name` from the device with the following command in PowerShell:
 
    ```azurepowershell
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing node.name for the device:
+   Here's an example of output showing `node.name` for the device:
 
    ```output
 
@@ -256,7 +256,7 @@ Run the following cmdlets in PowerShell:
 
 Use the following steps to activate an Azure Stack Edge device. Note that activation can't be undone, and a device activation key can't be reused or applied to a different device.
 
-1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
+1. Retrieve the `ActivationKey` for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
 
 1. Sign in to the device.
 
@@ -264,18 +264,18 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    Set-Login "https://<IP address>" "Password"
    ```
 
-1. Set the ActivationKey property.
+1. Set the `ActivationKey` property.
 
    ```azurepowershell
    $ActivationKey = "<Activation key>"
    ```
-1. Create an activation object and set the ActivationKey property.
+1. Create an activation object and set the `ActivationKey` property.
 
    ```azurepowershell
    $activation = New-Object PsObject -Property @{ActivationKey=$ActivationKey; ServiceEncryptionKey=""}
    ```
 
-1. Create a package with the activation object and activation key.
+1. Create a package with the activation object and `ActivationKey`.
 
    ```azurepowershell
    $p = New-Package -Activation $activation
@@ -322,7 +322,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign in to the device, fetch the status of the webProxy properties, set the webProxy property to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
+Use the following steps to sign in to the device, fetch the status of the `WebProxy` properties, set the `WebProxy` property to “isEnabled = true” and set the `WebProxy` URI, and then fetch the status of the changed `WebProxy` properties. After running the package, verify the new device configuration.
 
 1. Sign in to the device.
 
@@ -336,7 +336,7 @@ Use the following steps to sign in to the device, fetch the status of the webPro
    $p = Get-DeviceConfiguration
    ```
 
-1. Fetch the status of the webProxy properties.
+1. Fetch the status of the `WebProxy` properties.
 
    ```azurepowershell
    $p.device.webproxy
@@ -354,20 +354,20 @@ Use the following steps to sign in to the device, fetch the status of the webPro
    password       :
    ```
 
-1. Set the webProxy property to “isEnabled = true” and set the webProxy URI.
+1. Set the `WebProxy` property to “isEnabled = true” and set the `WebProxy` URI.
 
    ```azurepowershell
    $p.device.webproxy.isEnabled = $true
    $p.device.webproxy.connectionURI = "<specify a URI depending on the geographic location of the device>"
    ```
 
-1. Fetch the status of the updated webProxy properties.
+1. Fetch the status of the updated `WebProxy` properties.
 
    ```azurepowershell
    $p.device.webproxy
    ```
    
-   Here's a sample output showing the updated properties:
+   Here's a sample output:
 
    ```output
    PS C:\> $p.device.webproxy
@@ -379,7 +379,7 @@ Use the following steps to sign in to the device, fetch the status of the webPro
    password       :
    ```
 
-1. Run the package with updated webProxy properties.
+1. Run the package with updated `WebProxy` properties.
 
    ```azurepowershell
    $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
@@ -397,7 +397,7 @@ Use the following steps to sign in to the device, fetch the status of the webPro
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing the updated webProxy properties:
+   Here's an example of output:
 
    ```output
      "webProxy":  {
@@ -409,7 +409,9 @@ Use the following steps to sign in to the device, fetch the status of the webPro
                   }
    ```
 
-## Log 
+## Enable proactive log consent
+
+Use the following steps to fetch and then enable or disable proactive logging for your device. 
 
 1.	Sign in to the device.
 
@@ -459,7 +461,7 @@ Use the following steps to sign in to the device and run device diagnostics to v
    Get-DeviceDiagnostic | To-json
    ```
    
-   Here's an example of output showing device diagnostics:
+   Here's an example output:
 
    ```output
           PS C:\> Get-DeviceDiagnostic | To-json
@@ -602,7 +604,7 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
     ```
 
-   Here is a sample output:
+   Here is sample output:
 
 
 1.	Create a VIP object with the VIP properties and DHCP configuration.
