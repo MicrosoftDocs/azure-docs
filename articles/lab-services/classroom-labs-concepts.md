@@ -25,7 +25,7 @@ A lab plan can contain zero or more [labs](#lab). Each lab uses the configuratio
 
 A lab contains the configuration and settings for creating and running [lab virtual machines](#lab-virtual-machine). For example, you specify the base VM image for the lab VMs by selecting an image from the Azure Marketplace or an [Azure compute gallery](#azure-compute-gallery). Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine).
 
-You can further configure the lab behavior by creating [lab schedules](#schedules) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
+You can further configure the lab behavior by creating [lab schedules](#schedule) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
 
 When you publish a lab, Azure Lab Services provisions the lab VMs. All lab VMs for a lab share the same configuration and are identical.
 
@@ -61,20 +61,20 @@ In Azure Lab Services, lab VMs are managed virtual machines that get their confi
 
 After provisioning the lab VMs, lab users can connect to their VM through remote desktop (RDP) or secure shell (SSH). Before they can connect to the lab VM, lab users have to first [register for the lab](./how-to-use-lab.md) by using a registration link. Azure Lab Services then assigns the user to a specific lab VM.
 
-In the lab settings, you can [configure one or more schedules](./how-to-create-schedules.md) to automatically start and stop the lab VMs. For example, for a course, you might create a schedule that matches the course start and end time. Depending on their [user quota](./how-to-configure-student-usage.md#set-quotas-for-users), lab users can manually start their lab VM outside the scheduled events.
+In the lab settings, you can configure one or more [schedules](#schedule) to automatically start and stop the lab VMs. Depending on their [user quota](#quota), lab users can also manually start their lab VM outside the scheduled events.
 
-## Schedules
+## Schedule
 
-Schedules are the time slots that an educator creates so the lab VMs are available for class time.  Schedules can be one-time or recurring.  Any scheduled time doesn't count against extra time students may be given to complete homework. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
+Schedules are the time slots that a lab creator defines so the lab VMs are available for class time.  Schedules can be one-time or recurring.  Any scheduled time doesn't count against extra time that lab users have. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
 
-Scheduled time is commonly used when students are following the educator's directions during class hours. For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
+A common scenario for scheduled time is where students are following the educator's directions during class hours. For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
 
-All the student VMs are started with schedules.  (Unclaimed VMs aren't started when schedules run.)  VMs are started even if a student doesn't sign into a VM.  To help reduce likelihood of accruing costs when a VM isn't being used, see [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md).
+All the lab VMs are started with schedules, except for lab VMs that are not assigned yet. A lab VM is started, regardless if a user sign into the VM or not.  To help reduce the cost of running VMs that are unused, see you can [configure automatic shutdown of lab VMs](how-to-enable-shutdown-disconnect.md).
 
 There are two types of schedules.
 
-- **Standard**.  This schedule will start all student VMs at the specified start time and shut down all lab VMs at the specified stop time.
-- **Stop only**.  This schedule will stop all lab VMs at the specified time, even if the VM was manually started by an educator or student.
+- **Standard**. This schedule starts all lab VMs at the specified start time and shuts down all lab VMs at the specified stop time.
+- **Stop only**. This schedule stops all lab VMs at the specified time, even if the VM was manually started by the lab creator or the lab user.
 
 ## Quota
 
@@ -82,7 +82,7 @@ Quota is the limit of time a student may use their VM outside of class.  Allowin
 
 Quota hours are counted when the student starts the lab VM themselves.  If an educator manually starts the lab VM for a student, quota hours aren't used for that student.
 
-A lab can use either quota time, [scheduled time](#schedules), or a combination of both.
+A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
 ## Automatic shut-down
 

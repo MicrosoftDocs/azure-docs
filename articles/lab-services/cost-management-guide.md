@@ -14,7 +14,7 @@ For Azure Lab Services, cost management can be broken down into two distinct are
 
 ## Estimate the lab costs
 
-Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedules), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-configure-student-usage.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#set-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-configure-student-usage.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#set-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
 
 This estimate might not show all the possible costs. A few resources aren't included:
 
@@ -90,7 +90,7 @@ Automatic shutdown features enable you to prevent wasted VM usage hours in the l
 
 ### Scheduled time and quota time
 
-[Schedules](classroom-labs-concepts.md#schedules) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
+[Schedules](classroom-labs-concepts.md#schedule) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
 
 In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
 
