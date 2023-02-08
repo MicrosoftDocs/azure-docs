@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/07/2023
+ms.date: 02/08/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,14 +21,24 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in February include:
 
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
+- [Microsoft Defender for DevOps (preview) is now available in additional regions](#microsoft-defender-for-devops-preview-is-now-available-in-additional-regions)
 
-## Announcing support for the AWS CIS 1.5.0 compliance standard
+### Announcing support for the AWS CIS 1.5.0 compliance standard
 
 Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md#add-a-regulatory-standard-to-your-dashboard), and builds on MDC's existing offerings for multicloud recommendations and standards.
 
 This new standard includes both existing and new recommendations that extend Defender for Cloud's coverage to new AWS services and resources.
 
 Learn how to [Manage AWS assessments and standards](how-to-manage-aws-assessments-standards.md).
+
+
+### Microsoft Defender for DevOps (preview) is now available in additional regions
+
+Microsoft Defender for DevOps has expanded it’s preview and is now available in the West Europe and East Australia regions.  
+
+You’re now able to create your connectors in these regions when you onboard to connector your Azure DevOps and GitHub resources.  
+
+Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
 
 ## January 2023
 
