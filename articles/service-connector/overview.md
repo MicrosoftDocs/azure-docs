@@ -1,71 +1,70 @@
 ---
 title: What is Service Connector?
-description: Better understand what typical use case scenarios to use Service Connector, and learn the key benefits of Service Connector.
-author: shizn
-ms.author: xshi
+description: Understand typical use case scenarios for Service Connector, and learn the key benefits of Service Connector.
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
-ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.date: 06/14/2022
 ---
 
 # What is Service Connector?
 
-The Service Connector service helps you connect Azure compute service to other backing services easily. This service configures the network settings and connection information (for example, generating environment variables) between compute service and target backing service in management plane. Developers just use preferred SDK or library that consumes the connection information to do data plane operations against target backing service.
+Service Connector helps you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
 
-This article provides an overview of Service Connector service.
+This article provides an overview of Service Connector.
 
 ## What is Service Connector used for?
 
-Any application that runs on Azure compute services and requires a backing service, can use Service Connector. We list some examples that can use Service Connector to simplify service-to-service connection experience.
+Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
-* **WebApp + DB:** Use Service Connector to connect PostgreSQL, MySQL, or Cosmos DB to your App Service.  
-* **WebApp + Storage:** Use Service Connector to connect to Azure Storage Accounts and use your preferred storage products easily in your App Service.
-* **Spring Cloud + Database:** Use Service Connector to connect PostgreSQL, MySQL, SQL DB or Cosmos DB to your Spring Cloud application.
-* **Spring Cloud + Apache Kafka:** Service Connector can help you connect your Spring Cloud application to Apache Kafka on Confluent Cloud.
+* **WebApp/Container Apps/Spring Apps + Database:** Use Service Connector to connect PostgreSQL, MySQL, or Azure Cosmos DB to your App Service/Container Apps/Spring Apps.
+* **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
+* **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
-See [What services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
+See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
 
-## What are the benefits using Service Connector?
+## What are the benefits to using Service Connector?
 
-**Connect to target backing service with just single command or a few clicks:**
+**Connect to a target backing service with just a single command or a few clicks:**
 
-Service Connector is designed for your ease of use. It asks three required parameters including target service instance, authentication type between compute service and target service and your application client type to create a connection. Developers can use Azure Connection CLI or guided Azure portal experience to create connections easily.
+Service Connector is designed for your ease of use. To create a connection, you'll need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
 
 **Use Connection Status to monitor or identify connection issue:**
 
-Once a service connection is created. Developers can validate and check connection health status. Service Connector can suggest actions to fix broken connections.
+Once a service connection is created, developers can validate and check the health status of their connections. Service Connector can suggest some actions to take to fix broken connections.
 
 ## What services are supported in Service Connector?
 
-> [!NOTE]
-> Service Connector is in Public Preview. The product team is actively adding more supported service types in the list.
-
-**Compute Service:**
+**Compute Services:**
 
 * Azure App Service
-* Azure Spring Cloud
+* Azure Spring Apps
+* Azure Container Apps
 
-**Target Service:**
+**Target Services:**
 
+* Apache Kafka on Confluent Cloud
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
-* Azure Cosmos DB (Core, MangoDB, Gremlin, Cassandra, Table)
+* Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Event Hubs
 * Azure Key Vault
 * Azure Service Bus
+* Azure SQL Database
 * Azure SignalR Service
 * Azure Storage (Blob, Queue, File and Table storage)
-* Apache Kafka on Confluent Cloud
+* Azure Web PubSub
 
 ## How to use Service Connector?
 
 There are two major ways to use Service Connector for your Azure application:
 
-* **Azure Connection CLI:** Create, list, validate and delete service-to-service connections with connection command group in Azure CLI.
-* **Service Connector experience on Azure portal:** Use guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
+* **Azure CLI:** Create, list, validate and delete service-to-service connections with connection commands in the Azure CLI.
+* **Azure portal:** Use the guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
 
 ## Next steps
 

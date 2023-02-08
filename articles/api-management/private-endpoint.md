@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 03/31/2022
 
 ---
 
@@ -19,6 +19,8 @@ You can configure a [private endpoint](../private-link/private-endpoint-overview
 
 * Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
+:::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure connection to API Management using private endpoint.":::
+
 With a private endpoint and Private Link, you can:
 
 - Create multiple Private Link connections to an API Management instance. 
@@ -29,10 +31,8 @@ With a private endpoint and Private Link, you can:
 
 - Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
-> [!IMPORTANT]
-> * API Management support for private endpoints is currently in **preview**.
-> * To enable private endpoints, the API Management instance can't already be configured with an external or internal [virtual network](virtual-network-concepts.md).  
-> * A private endpoint connection supports only incoming traffic to the API Management instance. 
+[!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
+
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -45,7 +45,7 @@ With a private endpoint and Private Link, you can:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
-    - The API Management instance must be hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](zone-redundancy.md). 
+    - The API Management instance must be hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](../reliability/migrate-api-mgt.md). 
     - Do not deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
 - A virtual network and subnet to host the private endpoint. The subnet may contain other Azure resources.
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.

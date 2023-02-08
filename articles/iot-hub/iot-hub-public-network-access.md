@@ -11,6 +11,9 @@ ms.date: 07/07/2021
 
 # Managing public network access for your IoT hub
 
+> [!IMPORTANT]
+> Disabling Public Network Access will prevent you from using Device Update for IoT Hub.
+
 To restrict access to only [a private endpoint for an IoT hub in your VNet](virtual-network-support.md), disable public network access. To do so, use the Azure portal or the `publicNetworkAccess` API. You can also allow public access by using the portal or the `publicNetworkAccess` API.
 
 ## Turn off public network access using the Azure portal
@@ -39,9 +42,9 @@ Disabling public network access is enforced on a specific IoT hub resource, ensu
 
 If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
-### Bug fix with built-in Event Hub compatible endpoint
+### Bug fix with built-in Event Hubs compatible endpoint
 
-There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hub endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
+There is a bug with IoT Hub where the [built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hubs endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
 
 ## Turn on network access using Azure portal
 

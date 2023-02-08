@@ -4,9 +4,9 @@ description: Learn how to use Salesforce to configure leads for Microsoft AppSou
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: durior1
+author: urimsft
 ms.author: uridor
-ms.date: 12/03/2021
+ms.date: 12/07/2022
 ---
 
 # Configure lead management for Salesforce

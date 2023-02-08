@@ -3,7 +3,7 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/17/2022
 ---
 # Use reference data for lookups in Stream Analytics
 
@@ -78,7 +78,7 @@ At start time, the job looks for the most recent blob produced before the job st
 
 When a reference dataset is refreshed, a diagnostic log is generated: `Loaded new reference data from <blob path>`. For many reasons, a job might need to reload a previous reference dataset. Most often, the reason is to reprocess past data. The same diagnostic log is generated at that time. This action doesn't imply that current stream data will use past reference data.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions.
+[Azure Data Factory](../data-factory/index.yml) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions.
 
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md). It can move data easily on a regular schedule that you specify.
 
@@ -145,7 +145,7 @@ Support for compression isn't available for reference data. For reference datase
 
 ## Join multiple reference datasets in a job
 
-You can join only one stream input with one reference data input in a single step of your query. To join multiple reference datasets, break down your query into multiple steps. Here's an example:
+You can only join a reference data input to a streaming input. So to join multiple reference datasets, break down your query into multiple steps. Here's an example:
 
 ```SQL  
 With Step1 as (

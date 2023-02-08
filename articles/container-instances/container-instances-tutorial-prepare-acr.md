@@ -2,7 +2,11 @@
 title: Tutorial - Prepare container registry to deploy image
 description: Azure Container Instances tutorial part 2 of 3 - Prepare an Azure container registry and push an image
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 ---
 

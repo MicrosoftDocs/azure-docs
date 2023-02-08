@@ -3,9 +3,9 @@ title: NC-series retirement
 description: NC-series retirement by August 31, 2023
 author: sherrywangms
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 12/20/2022
 ms.author: sherrywang
 ---
 # Migrate your NC and NC_Promo series virtual machines by August 31, 2023

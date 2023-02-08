@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 09/13/2022
 ---
 
 # Semantic ranking in Azure Cognitive Search
@@ -28,7 +28,7 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
    Whatever the document count, whether one or 50, the initial result set establishes the first iteration of the document corpus for semantic ranking.
 
-1. Next, across the corpus, the contents of each field in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration) are extracted and combined into a long string. 
+1. Next, across the corpus, the contents of each field in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) are extracted and combined into a long string. 
 
 1. After string consolidation, any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
@@ -39,10 +39,10 @@ Each document is now represented by a single long string.
 > [!NOTE]
 > In the 2020-06-30-preview, the "searchFields" parameter is used rather than the semantic configuration to determine which fields to use. We recommend upgrading to the 2021-04-30-preview API version for best results.
 
-The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens is roughly equivalent to a string that is 128 words in length. 
+The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens are roughly equivalent to a string that is 128 words in length. 
 
 > [!NOTE]
->Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+> Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Extraction
 
@@ -60,13 +60,13 @@ A [semantic answer](semantic-answers.md) will also be returned if you specified 
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-1. The @search.rerankerScore is assigned to each document based on the semantic relevance of the caption.
+1. The @search.rerankerScore is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
 
-1. After all documents are scored, they are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+1. After all documents are scored, they're listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
 
 ## Next steps
 
-Semantic ranking is offered on Standard tiers, in specific regions. For more information about availability and sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Create a semantic query](semantic-how-to-query-request.md).
+Semantic ranking is offered on Standard tiers, in specific regions. For more information about availability and sign-up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md).
 
 Alternatively, review the following articles about default ranking. Semantic ranking depends on the similarity ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
 

@@ -1,17 +1,18 @@
 ---
 title: Scalability of Service Fabric services 
 description: Learn about scaling in Azure Service Fabric and the various techniques used to scale applications.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Scaling in Service Fabric
 Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. This Channel 9 video describes how you can build scalable microservices applications:
 
-> [!VIDEO https://docs.microsoft.com/Events/Connect/2017/T116/player]
+> [!VIDEO https://learn.microsoft.com/Events/Connect/2017/T116/player]
 
 Scaling in Service Fabric is accomplished several different ways:
 

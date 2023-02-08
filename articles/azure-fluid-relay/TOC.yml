@@ -16,8 +16,12 @@
     href: concepts/container-management.md
   - name: 'Distributed data structures'
     href: concepts/data-structures.md
+  - name: Data storage in Azure Fluid Relay
+    href: concepts/data-storage.md
   - name: Data encryption in Azure Fluid Relay
     href: concepts/data-encryption.md
+  - name: Customer-managed keys for Azure Fluid Relay encryption
+    href: concepts/customer-managed-keys.md
   - name: 'Authentication and authorization in your app'
     href: concepts/authentication-authorization.md
   - name: Version compatibility
@@ -42,11 +46,22 @@
       href: how-tos/container-deletion.md
     - name: 'How to: Validate a User Created a Document'
       href: how-tos/validate-document-creator.md
+    - name: 'How to: Recover Container data'
+      href: how-tos/container-recovery.md
+    - name: 'How to: Use audience features in the Fluid Framework'
+      href: how-tos/use-audience-in-fluid.md
 - name: Reference
   items:
+    - name: Service limits
+      href: reference/service-limits.md
     - name: API documentation
       href: https://fluidframework.com/docs/apis/
 - name: Resources
   items:
   - name: Fluid Framework home page
     href: https://fluidframework.com
+  - name: FAQ
+    href: resources/faq.md
+  - name: Support
+    href: resources/support.md
+    

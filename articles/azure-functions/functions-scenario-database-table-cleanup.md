@@ -4,7 +4,7 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/04/2021
+ms.date: 01/30/2023
 ms.devlang: csharp
 ---
 
@@ -60,13 +60,13 @@ You must have previously published your app to Azure. If you haven't already don
 
 You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to SQL Database.
 
-1. Open your local function app project in Visual Studio 2019.
+1. Open your local function app project in Visual Studio 2022.
 
 1. In Solution Explorer, right-click the function app project and choose **Manage NuGet Packages**.
 
-1. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
+1. On the **Browse** tab, search for ```Microsoft.Data.SqlClient``` and, when found, select it.
 
-1. In the **System.Data.SqlClient** page, select version `4.5.1` and then click **Install**.
+1. In the **Microsoft.Data.SqlClient** page, select version `5.1.0` and then click **Install**.
 
 1. When the install completes, review the changes and then click **OK** to close the **Preview** window.
 
@@ -80,12 +80,12 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 1. With the **Azure Functions** template selected, name the new item something like `DatabaseCleanup.cs` and select **Add**.
 
-1. In the **New Azure function** dialog box, choose **Timer trigger** and then **OK**. This dialog creates a code file for the timer triggered function.
+1. In the **New Azure function** dialog box, choose **Timer trigger** and then **Add**. This dialog creates a code file for the timer triggered function.
 
 1. Open the new code file and add the following using statements at the top of the file:
 
     ```cs
-    using System.Data.SqlClient;
+    using Microsoft.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
@@ -123,7 +123,10 @@ Now, you can add the C# function code that connects to your SQL Database.
 
     On the first execution, you should update 32 rows of data. Following runs update no data rows, unless you make changes to the SalesOrderHeader table data so that more rows are selected by the `UPDATE` statement.
 
-If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds.
+If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds. You also need to make sure that your function app can access the Azure SQL Database or Azure SQL Managed Instance. For more information, see one of the following links based on your type of Azure SQL: 
+
++ [Azure SQL Database](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure.)
++ [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance#connect-azure-app-service)
 
 ## Next steps
 

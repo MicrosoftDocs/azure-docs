@@ -11,7 +11,7 @@ This tutorial will help you learn how to explore the information available in ea
 
 Timely analysis and mitigation of recommendations by Defender for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate new recommendations
@@ -31,9 +31,9 @@ In this tutorial you will learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md)
 
 - You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
 

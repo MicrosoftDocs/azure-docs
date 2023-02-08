@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 01/24/2022
-ms.author: shisriva 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -60,7 +60,6 @@ Make sure you have the following information from your Global Sign account:
 - E-mail of Administrator
 - Phone Number of Administrator
 
-
 ## Add the certificate authority in Key Vault 
 After you gather the preceding information from your DigiCert CertCentral account, you can add DigiCert to the certificate authority list in the key vault.
 
@@ -85,7 +84,7 @@ DigicertCA is now in the certificate authority list.
 
 ### Azure portal (GlobalSign)
 
-1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
+1.	To add GlobalSign certificate authority, go to the key vault you want to add it to. 
 2.	On the Key Vault property page, select **Certificates**.
 3.	Select the **Certificate Authorities** tab:
 :::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::
@@ -170,26 +169,7 @@ Merge the CSR signed by the certificate authority to complete the request. For i
 
 For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update access policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 
-## Frequently asked questions
-
-- **Can I generate a DigiCert wildcard certificate by using Key Vault?** 
-   
-  Yes, though it depends on how you configured your DigiCert account.
-- **How can I create an OV SSL or EV SSL certificate with DigiCert?**
- 
-   Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
-   
-   You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
-
-  For example, 
-      `SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
-   
-- **Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?**
-   
-   No. When you create a certificate, the verification process might take time. DigiCert controls that process.
-
-
 ## Next steps
-
+- [Frequently asked questions: Integrate Key Vault with Integrated Certificate Authorities](faq.yml)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

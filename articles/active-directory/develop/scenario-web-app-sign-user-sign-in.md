@@ -1,9 +1,8 @@
 ---
-title: Write a web app that signs in/out users | Azure
-titleSuffix: Microsoft identity platform
+title: Write a web app that signs in/out users
 description: Learn how to build a web app that signs in/out users
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
@@ -55,7 +55,7 @@ In ASP.NET Core, for Microsoft identity platform applications, the **Sign in** b
 
 # [ASP.NET](#tab/aspnet)
 
-In ASP.NET MVC, the sign-out button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when there's an authenticated account. That is, it's displayed when the user has previously signed in.
+In ASP.NET MVC, the **Sign in** button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when the user isn't authenticated. That is, it's displayed when the user hasn't yet signed in or has signed out.
 
 ```html
 @if (Request.IsAuthenticated)
@@ -72,7 +72,7 @@ else
 
 # [Java](#tab/java)
 
-In our Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
+In the Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
 
 ```html
 <!DOCTYPE html>
@@ -94,13 +94,13 @@ In our Java quickstart, the sign-in button is located in the [main/resources/tem
 
 # [Node.js](#tab/nodejs)
 
-In the Node.js quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app.
+In the Node.js quickstart, the code for the sign-in button is located in *index.hbs* template file.
 
-```javascript
-app.get('/', (req, res) => {
-    // authentication logic
-});
-```
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="10-11":::
+
+This template is served via the main (index) route of the app:
+
+:::code language="js" source="~/ms-identity-node/App/routes/index.js" range="6-15":::
 
 # [Python](#tab/python)
 
@@ -126,7 +126,7 @@ This controller also handles the Azure AD B2C applications.
 
 # [ASP.NET](#tab/aspnet)
 
-In ASP.NET, signing out is triggered from the `SignOut()` method on a controller (for instance, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core). It sends an OpenID sign-in challenge after proposing a redirect URI.
+In ASP.NET, Sign in is triggered from the `SignIn()` method on a controller (for instance, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core). It sends an OpenID sign-in challenge after proposing a redirect URI.
 
 ```csharp
 public void SignIn()
@@ -169,40 +169,9 @@ public class AuthPageController {
 
 # [Node.js](#tab/nodejs)
 
-Unlike other platforms, here the MSAL Node takes care of letting the user sign in from the login page.
+When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Microsoft identity platform. 
 
-```javascript
-
-// 1st leg of auth code flow: acquire a code
-app.get('/', (req, res) => {
-    const authCodeUrlParameters = {
-        scopes: ["user.read"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    // get url to sign user in and consent to scopes needed for application
-    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-        res.redirect(response);
-    }).catch((error) => console.log(JSON.stringify(error)));
-});
-
-// 2nd leg of auth code flow: exchange code for token
-app.get('/redirect', (req, res) => {
-    const tokenRequest = {
-        code: req.query.code,
-        scopes: ["user.read"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("\nResponse: \n:", response);
-        res.sendStatus(200);
-    }).catch((error) => {
-        console.log(error);
-        res.status(500).send(error);
-    });
-});
-```
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="27-107, 135-161":::
 
 # [Python](#tab/python)
 
@@ -355,7 +324,7 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="2, 8":::
 
 # [Python](#tab/python)
 
@@ -431,7 +400,9 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
+
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="163-174":::
 
 # [Python](#tab/python)
 
@@ -479,7 +450,7 @@ In the Java quickstart, the post-logout redirect URI just displays the index.htm
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+In the Node quickstart, the post-logout redirect URI is used to redirect the browser back to sample home page after the user completes the logout process with the Microsoft identity platform.
 
 # [Python](#tab/python)
 

@@ -5,7 +5,6 @@ author: v-shmck
 ms.author: rymend
 ms.topic: how-to
 ms.service: azure-education
-ms.subservice: education-hub
 ms.date: 06/30/2020
 ---
 
@@ -20,7 +19,7 @@ Your main landing page in the Azure Education Hub is the Overview page. This pag
 1. **Labs** shows the total number of active labs that have been passed out to students.
 1. **Action needed** lists any actions you need to complete, such as accepting a Lab invitation.
 1. **Software** lists free software available to download as an Educator.
-1. **Learning** links to free Azure learning pathways available through Microsoft Learn.
+1. **Learning** links to free Azure learning paths and modules.
 1. **Quickstart Templates** includes Azure templates to help speed up and simplify deployment for common tasks.
 
 ## Next steps

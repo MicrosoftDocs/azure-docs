@@ -2,14 +2,14 @@
 title: Azure Quickstart - Create an Azure key vault and a secret using Bicep | Microsoft Docs
 description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults using Bicep.
 services: key-vault
-author: schaffererin
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/08/2022
-ms.author: v-eschaffer
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -66,14 +66,14 @@ Two Azure resources are defined in the Bicep file:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters keyVaultName=<vault-name> objectID=<object-id>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters keyVaultName=<vault-name> objectId=<object-id>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectID "<object-id>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectId "<object-id>"
     ```
 
     ---

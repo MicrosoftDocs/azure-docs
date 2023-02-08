@@ -3,12 +3,12 @@ title: Problem configuring user provisioning to an Azure Active Directory Galler
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure Active Directory Application Gallery
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: asteen, arvinh
 ---

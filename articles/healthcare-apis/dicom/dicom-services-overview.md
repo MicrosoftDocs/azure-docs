@@ -1,12 +1,12 @@
 ---
 title:  Overview of the DICOM service - Azure Health Data Services
 description: In this article, you'll learn concepts of DICOM and the DICOM service.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/22/2022
-ms.author: aersoy
+ms.date: 07/11/2022
+ms.author: mmitrik
 ---
 
 # Overview of the DICOM service
@@ -50,13 +50,17 @@ FHIR&trade; is becoming an important standard for clinical data and provides ext
 
 DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. For each instance of DICOM service, we create a combination of isolated and multi-tenant resource.
 
+## DICOM server
+
+The Medical Imaging Server for DICOM (hereby known as DICOM server) is an open source DICOM server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb™ enabled systems, and injects DICOM metadata into a FHIR server to create a holistic view of patient data. See [DICOM server](https://github.com/microsoft/dicom-server).
+
 ## Summary
 
 This conceptual article provided you with an overview of DICOM and the DICOM service.
  
 ## Next steps
 
-To get started using the DICOM service, see:
+To get started using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
@@ -65,3 +69,5 @@ For more information about  how to use the DICOMweb&trade; Standard APIs with th
 
 >[!div class="nextstepaction"]
 >[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

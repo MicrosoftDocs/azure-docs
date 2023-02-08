@@ -3,7 +3,7 @@ title: Create an Azure SQL managed instance on Azure Arc
 description: Create an Azure SQL managed instance on Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -26,7 +26,7 @@ az sql mi-arc create --help
 To create a SQL Managed Instance, use `az sql mi-arc create`. See the following examples for different connectivity modes:
 
 > [!NOTE]
->  Starting with the February release, a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+>  A ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
 If no storage class is specified for backups, the default storage class in Kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed.
 
 
@@ -46,13 +46,13 @@ az sql mi-arc create -n sqldemo --storage-class-backups mybackups --k8s-namespac
 ### [Directly connected mode](#tab/directly)
 
 ```azurecli
-az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
+az sql mi-arc create --name <name> --resource-group <group> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --storage-class-backups mybackups
+az sql mi-arc create --name sqldemo --resource-group rg -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --storage-class-backups mybackups
 ```
 
 ---
@@ -60,7 +60,7 @@ az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–
 
 
 > [!NOTE]
->  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
+>  Names must be less than 60 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#rfc-1035-label-names). 
 >
 >  When specifying memory allocation and vCore allocation use this formula to ensure your performance is acceptable: for each 1 vCore you should have at least 4GB of RAM of capacity available on the Kubernetes node where the SQL managed instance pod will run.
 >

@@ -100,7 +100,7 @@ In this task you must configure some external endpoints for the database listene
    az network public-ip show ^
        --resource-group rg-oracle ^
        --name vmoracle19cPublicIP ^
-       --query [ipAddress] ^
+       --query "ipAddress" ^
        --output tsv
    ```
 

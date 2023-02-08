@@ -1,0 +1,49 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for MongoDB documentation
+summary: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
+
+metadata:
+  title: Azure Cosmos DB for MongoDB documentation
+  description: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: mongodb
+  ms.custom: ignite-2022
+  ms.topic: landing-page
+  ms.collection: collection
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.date: 05/24/2022
+landingContent:
+  - title: Use Azure Cosmos DB for MongoDB
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cosmos DB for MongoDB?
+            url: introduction.md
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET app
+            url: create-mongodb-dotnet.md
+          - text: Manage your data using a GoLang app
+            url: quickstart-go.md  
+      - linkListType: concept
+        links:  
+          - text: Wire protocol compatibility with MongoDB
+            url: feature-support-40.md    
+          - text: MongoDB extension commands
+            url: custom-commands.md
+          - text: Change streams
+            url: change-streams.md                       
+      - linkListType: tutorial
+        links:
+          - text: Query data with MongoDB shell
+            url: tutorial-query.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage data indexing
+            url: indexing.md
+          - text: Connect with Robo 3T
+            url: connect-using-robomongo.md

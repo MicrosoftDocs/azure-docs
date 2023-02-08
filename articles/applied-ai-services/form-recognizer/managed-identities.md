@@ -7,12 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Managed identities for Form Recognizer
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
@@ -121,7 +124,6 @@ You need to grant Form Recognizer access to your storage account before it can c
 
  That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Form Recognizer specific access rights to your storage resource without having to manage credentials such as SAS tokens.
 
-## Learn more about  managed identity
-
+## Next steps
 > [!div class="nextstepaction"]
-> [Access Azure Storage form a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)
+> [Configure secure access with managed identities and private endpoints](managed-identities-secured-access.md)

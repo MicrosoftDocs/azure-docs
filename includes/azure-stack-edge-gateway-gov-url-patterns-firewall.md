@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 12/06/2022
 ms.author: alkohli
 ---
 
@@ -17,4 +17,4 @@ ms.author: alkohli
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Support package                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetry service in Windows, see the update   for customer experience and diagnostic telemetry      |
 |                                                                                                                                                                                                                                                                                                                                                            https://(vault-name).vault.usgovcloudapi.net:443                                                                                                         |  Key Vault
-
+|https://azstrpffprod.usgovtrafficmanager.net/*   |Remote Management   |

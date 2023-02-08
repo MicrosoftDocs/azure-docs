@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 09/16/2022
 ---
 
 # Object functions for ARM templates
@@ -13,6 +13,7 @@ Resource Manager provides several functions for working with objects in your Azu
 * [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
+* [items](#items)
 * [json](#json)
 * [length](#length)
 * [null](#null)
@@ -301,7 +302,7 @@ The example returns:
 }
 ```
 
-The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 <a id="json"></a>
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Cost Management for partners
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
 author: bandersmsft
 ms.author: banders
@@ -75,7 +75,7 @@ Partners also filter costs in a specific billing currency across customers in th
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
-Use the [amortized cost view](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
+Use the [amortized cost view](customize-cost-analysis-views.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
 ### Billing profile scope
 
@@ -155,7 +155,7 @@ To view or change policies:
 
 1. In the Azure portal, navigate to **Cost Management** (not Cost Management + Billing).
 1. In the left menu under **Settings**, select **Configuration**.
-1. The billing profile configuration is shown. Polices are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
+1. The billing profile configuration is shown. Policies are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
     :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="Screenshot showing the billing profile configuration page where you can view and edit policy settings." lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
 1. If needed, change the policy settings, and then select **Save**.
 
@@ -198,7 +198,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer's subscription. | Customer Azure Active Directory tenant domain. |
 | **PartnerTenantID** | Identifier for the partner's Azure Active Directory tenant. | Partner Azure Active Directory Tenant ID called as Partner ID, in GUID format. |
 | **PartnerName** | Name of the partner Azure Active Directory tenant. | Partner name. |
-| **ResellerMPNID** | MPNID for the reseller associated with the subscription. | MPN ID of the reseller on record for the subscription. Not available for current activity. |
+| **ResellerMPNID** | ID for the reseller associated with the subscription. | ID of the reseller on record for the subscription. Not available for current activity. |
 | costCenter | Cost center associated to the subscription. | N/A |
 | billingPeriodStartDate | Billing period start date, as shown on the invoice. | N/A |
 | billingPeriodEndDate | Billing period end date, as shown on the invoice. | N/A |
@@ -303,134 +303,9 @@ To verify data in the export list, select the storage account name. On the stora
 
 ## Cost Management REST APIs
 
-Partners and customers can use Cost Management APIs described in the following sections for common tasks.
-
-### Cost Management APIs - Direct and indirect providers
-
-Partners with access to billing scopes in a partner tenant can use the following APIs to view invoiced costs.
-
-APIs at the subscription scope can be called by a partner regardless of the cost policy if they have access to the subscription. Other users with access to the subscription, like the customer or reseller, can call the APIs only after the partner enables the cost policy for the customer tenant.
-
-
-#### To get a list of billing accounts
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
-```
-
-#### To get a list of customers
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
-```
-
-#### To get a list of subscriptions
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
-```
-
-#### To get a list of invoices for a period of time
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
-```
-
-The API call returns an array of invoices that has elements similar to the following JSON code.
-
-```
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
-      "name": "{InvoiceID}",
-      "properties": {
-        "amountDue": {
-          "currency": "USD",
-          "value": x.xx
-        },
-        ...
-    }
-```
-
-Use the preceding returned ID field value and replace it in the following example as the scope to query for usage details.
-
-```
-GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
-```
-
-The example returns the usage records associated with the specific invoice.
-
-
-#### To get the policy for customers to view costs
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
-```
-
-#### To set the policy for customers to view costs
-
-```
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
-```
-
-#### To get Azure service usage for a billing account
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
-```
-
-#### To download a customer's Azure service usage
-
-The following get call is an asynchronous operation.
-
-```
-GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
-```
-
-Call the `Location` URI returned in the response to check the operation status. When the status is *Completed*, the `downloadUrl` property contains a link that you can use to download the generated report.
-
-
-#### To get or download the price sheet for consumed Azure services
-
-First, use the following post.
-
-```
-POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
-```
-
-Then, call the asynchronous operation property value. For example:
-
-```
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
-```
-The preceding get call returns the download link containing the price sheet.
-
-
-#### To get aggregated costs
-
-```
-POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01
-```
-
-#### Create a budget for a partner
-
-```
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
-```
-
-#### Create a budget for a customer
-
-```
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
-```
-
-#### Delete a budget
-
-```
-DELETE
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
-```
-
+Partners and their customers can use Cost Management APIs for common tasks. For more information, see [Automation for partners](../automate/partner-automation.md).
 
 ## Next steps
+
 - [Start analyzing costs](quick-acm-cost-analysis.md) in Cost Management
 - [Create and manage budgets](tutorial-acm-create-budgets.md) in Cost Management

@@ -32,91 +32,12 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-# [Service principal](#tab/userlevel)
+[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
-
-Create a resource group if you do not already have one.
-
-```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
-```
-
-Replace the placeholder `myApp` with the name of your application.
-
-```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
-```
-
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
-
-```output
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the resource group.
-
-# [OpenID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings**.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
----
 ## Configure the GitHub secrets
 
-# [Service principal](#tab/userlevel)
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
-You need to create secrets for your Azure credentials, resource group, and subscriptions.
-
-1. In [GitHub](https://github.com/), browse your repository.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
-
-1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (example: `myResourceGroup`).
-
-1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
-
-# [OpenID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings**.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
----
 ## Add Resource Manager template
 
 Add a Resource Manager template to your GitHub repository. This template creates a storage account.
@@ -239,4 +160,4 @@ When your resource group and repository are no longer needed, clean up the resou
 > [Create your first ARM template](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)
+> [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/training/modules/deploy-templates-command-line-github-actions/)

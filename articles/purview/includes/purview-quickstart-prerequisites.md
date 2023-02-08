@@ -7,7 +7,7 @@ ms.author: whhender
 ms.service: purview
 ms.topic: include
 ms.custom: include file
-ms.date: 04/05/2022
+ms.date: 12/09/2022
 ---
 
 ## Prerequisites
@@ -23,7 +23,7 @@ ms.date: 04/05/2022
   1. Then select **My permissions**. 
   1. If you have access to multiple subscriptions, select the appropriate subscription.
 
-* No [Azure Policies](../../governance/policy/overview.md) preventing creation of **Storage accounts** or **Event Hub namespaces**. Microsoft Purview will deploy a managed Storage account and Event Hubs when it is created. If a blocking policy exists and needs to remain in place, please follow our [Microsoft Purview exception tag guide](../create-azure-purview-portal-faq.md) and follow the steps to create an exception for Microsoft Purview accounts.
+* No [Azure Policies](../../governance/policy/overview.md) preventing the creation or update of **Storage accounts**. Microsoft Purview will deploy a managed Storage account when it is created. If a blocking policy exists and needs to remain in place, please follow our [Microsoft Purview exception tag guide](../create-azure-purview-portal-faq.md) and follow the steps to create an exception for Microsoft Purview accounts.
 
 ## Sign in to Azure
 

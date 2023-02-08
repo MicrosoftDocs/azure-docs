@@ -10,7 +10,7 @@ ms.date: 11/30/2021
 ---
 # Usage scenarios for Query Store - Flexible Server
 
-**Applies to:** Azure Database for PostgreSQL - Single Server versions 11, 12
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You can use Query Store in a wide variety of scenarios in which tracking and maintaining predictable workload performance is critical. Consider the following examples: 
 - Identifying and tuning top expensive queries 

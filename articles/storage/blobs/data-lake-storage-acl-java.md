@@ -1,15 +1,17 @@
 ---
 title: Use Java to manage ACLs in Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Use Azure Storage libraries for Java to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
-author: normesta
+author: pauljewellmsft
+
+ms.author: pauljewell
 ms.service: storage
 ms.date: 02/17/2021
 ms.devlang: java
-ms.custom: devx-track-java
-ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-java
 ---
 
 # Use Java to manage ACLs in Azure Data Lake Storage Gen2

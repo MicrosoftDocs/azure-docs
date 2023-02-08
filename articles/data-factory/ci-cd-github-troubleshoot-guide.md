@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/18/2022
+ms.date: 09/19/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -39,7 +39,7 @@ The token was obtained from the original tenant, but the service is in guest ten
 
 You should use the token issued from guest tenant. For example, you have to assign the same Azure Active Directory to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
 
-### Template parameters in the parameters file are not valid
+### Template parameters in the parameters file aren't  valid
 
 #### Issue
 
@@ -69,7 +69,7 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8771655Z ##[error]Details:
 2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
-2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://learn.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
 ```
 
@@ -164,7 +164,7 @@ You can't  deploy because you hit Azure Resource Manager limit of 4-MB total tem
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice or more instea
 
 #### Cause
  
-Azure DevOps has the 20 MB Rest API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
@@ -243,17 +243,7 @@ Following section is not valid because package.json folder is not valid.
   displayName: 'Validate'
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
-
-### Git Repository or Microsoft Purview connection disconnected
-
-#### Issue
-When deploying a service instance, the git repository or purview connection is disconnected.
-
-#### Cause
-If you have **Include in ARM template** selected for deploying global parameters, your service instance is included in the ARM template. As a result, other properties will be removed upon deployment.
-
-#### Resolution
-Unselect **Include in ARM template** and deploy global parameters with PowerShell as described in Global parameters in CI/CD. 
+ 
  
 ### Extra  left "[" displayed in published JSON file
 
@@ -303,7 +293,7 @@ After some amount of time, new pipeline runs begin to succeed without any user a
 
 #### Cause
 
-There are several scenarios which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
+There are several scenarios, which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
 
 #### Resolution
 
@@ -315,7 +305,7 @@ New runs of the parent pipeline will automatically begin succeeding, so typicall
 Need to parameterize linked service integration run time
 
 #### Cause
-This feature is not supported. 
+This feature isn't  supported. 
 
 #### Resolution
 You have to select manually and set an integration runtime. You can use PowerShell API to change as well.  This change can have downstream implications. 
@@ -326,7 +316,7 @@ You have to select manually and set an integration runtime. You can use PowerShe
 Changing Integration runtime name during CI/CD deployment.  
  
 #### Cause
-Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) is not supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
+Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) isn't  supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
  
 #### Resolution
 Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
@@ -334,10 +324,10 @@ Data Factory requires you to have the same name and type of integration runtime 
 ### ARM template deployment failing with error DataFactoryPropertyUpdateNotSupported
 
 ##### Issue
-ARM template deployment fails with an error such as DataFactoryPropertyUpdateNotSupported: Updating property type is not supported. 
+ARM template deployment fails with an error such as DataFactoryPropertyUpdateNotSupported: Updating property type isn't  supported. 
 
 ##### Cause
-The ARM template deployment is attempting to change the type of an existing integration runtime. This is not allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
+The ARM template deployment is attempting to change the type of an existing integration runtime. This isn't  allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
 
 ##### Resolution
 If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
@@ -345,13 +335,37 @@ If you want to share integration runtimes across all stages, consider using a te
 ### GIT publish may fail because of PartialTempTemplates files
 
 #### Issue
-When you have 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+When you've 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
 
 #### Cause
 On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
 
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
+ 
+###  Include global parameters in ARM template option does not work
+
+#### Issue
+If you are using old default parameterization template, new way to include global paramaters from **Manage Hub** will not work.
+
+#### Cause
+Default parameterization template should include all values from global parameter list.
+
+#### Resolution
+* Use updated  [default parameterization template.](./continuous-integration-delivery-resource-manager-custom-parameters.md#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
+* Update the template parameter names in CI/CD pipeline if you are already overriding the template parameters (for global parameters).
+ 
+### Error code: InvalidTemplate
+	
+#### Issue
+Message says *Unable to parse expression.* The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
+
+#### Cause
+Dynamic content is not written as per expression language requirements. 
+
+#### Resolution 
+* For debug run, check expressions in pipeline within current git branch.
+* For Triggered run, check expressions in pipeline within *Live* mode .
  
 ## Next steps
 

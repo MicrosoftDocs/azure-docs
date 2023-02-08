@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
-ms.date: 09/02/2021
+ms.date: 08/09/2022
 ---
 
 # Access a secured Microsoft Purview account from Azure Data Factory

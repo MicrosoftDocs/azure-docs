@@ -3,6 +3,7 @@ title: Build Real-time app - Azure Functions & Azure SignalR Service
 description: Learn how to develop real-time serverless web application with Azure SignalR Service by following example.
 author: vicancy
 ms.service: signalr
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: lianwei
@@ -12,7 +13,7 @@ ms.author: lianwei
 Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
 
 > [!NOTE]
-> Learn to use SignalR and Azure Functions together in the interactive tutorial [Enable automatic updates in a web application using Azure Functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Learn to use SignalR and Azure Functions together in the interactive tutorial [Enable automatic updates in a web application using Azure Functions and SignalR Service](/training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## Integrate real-time communications with Azure services
 
@@ -24,7 +25,7 @@ Azure Functions allow you to write code in [several languages](../azure-function
     - Event Grid
     - Event Hubs
     - Service Bus
-    - Cosmos DB change feed
+    - Azure Cosmos DB change feed
     - Storage - blobs and queues
     - Logic Apps connectors such as Salesforce and SQL Server
 
@@ -33,7 +34,7 @@ By using Azure Functions to integrate these events with Azure SignalR Service, y
 Some common scenarios for real-time serverless messaging that you can implement with Azure Functions and SignalR Service include:
 
 * Visualize IoT device telemetry on a real-time dashboard or map
-* Update data in an application when documents update in Cosmos DB
+* Update data in an application when documents update in Azure Cosmos DB
 * Send in-app notifications when new orders are created in Salesforce
 
 ## SignalR Service bindings for Azure Functions
@@ -42,13 +43,13 @@ The SignalR Service bindings for Azure Functions allow an Azure Function app to 
 
 ### An example scenario
 
-An example of how to use the SignalR Service bindings is using Azure Functions to integrate with Azure Cosmos DB and SignalR Service to send real-time messages when new events appear on a Cosmos DB change feed.
+An example of how to use the SignalR Service bindings is using Azure Functions to integrate with Azure Cosmos DB and SignalR Service to send real-time messages when new events appear on an Azure Cosmos DB change feed.
 
-![Cosmos DB, Azure Functions, SignalR Service](media/signalr-concept-azure-functions/signalr-cosmosdb-functions.png)
+![Azure Cosmos DB, Azure Functions, SignalR Service](media/signalr-concept-azure-functions/signalr-cosmosdb-functions.png)
 
-1. A change is made in a Cosmos DB collection
-2. The change event is propagated to the Cosmos DB change feed
-3. An Azure Functions is triggered by the change event using the Cosmos DB trigger
+1. A change is made in an Azure Cosmos DB collection
+2. The change event is propagated to the Azure Cosmos DB change feed
+3. An Azure Functions is triggered by the change event using the Azure Cosmos DB trigger
 4. The SignalR Service output binding publishes a message to SignalR Service
 5. SignalR Service publishes the message to all connected clients
 
@@ -63,7 +64,7 @@ In this article, you got an overview of how to use Azure Functions with SignalR 
 For full details on how to use Azure Functions and SignalR Service together visit the following resources:
 
 * [Azure Functions development and configuration with SignalR Service](signalr-concept-serverless-development-config.md)
-* [Enable automatic updates in a web application using Azure Functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Enable automatic updates in a web application using Azure Functions and SignalR Service](/training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Follow one of these quickstarts to learn more.
 

@@ -1,16 +1,16 @@
 ---
-title: Revisions in Azure Container Apps Preview
-description: Learn about revisions in Azure Container Apps
+title: Revisions in Azure Container Apps
+description: Learn how revisions are created in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Revisions in Azure Container Apps Preview
+# Revisions in Azure Container Apps
 
 Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
 
@@ -53,7 +53,7 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 The format of a revision name is:
 
 ```text
-<container app name>--<revision suffix>
+<CONTAINER_APP_NAME>--<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
@@ -105,7 +105,7 @@ The revision mode controls whether only a single revision or multiple revisions 
 
 ### Single revision mode
 
-By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created, the latest revision replaces the active revision.
+By default, a container app is in *single revision mode*. In this mode, when a new revision is created, the latest revision replaces the active revision. For more information, see [Zero downtime deployment](./application-lifecycle-management.md#zero-downtime-deployment).
 
 ### Multiple revision mode
 
@@ -153,4 +153,3 @@ You aren't charged for the inactive revisions. You can have a maximum of 100 rev
 
 > [!div class="nextstepaction"]
 > [Application lifecycle management](application-lifecycle-management.md)
-

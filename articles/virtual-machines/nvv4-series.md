@@ -3,7 +3,7 @@ title: NVv4-series
 description: Specifications for the NVv4-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
@@ -29,12 +29,12 @@ The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 / 1000 |
-| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 / 2000 |
-| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 / 4000 |
-| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 / 8000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs / Expected network bandwidth (MBps) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 6400 / 96 | 2 / 1000 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 12800 / 192 | 4 / 2000 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 25600 / 384 | 8 / 4000 |
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 51200 / 768 |8 / 8000 |
 
 <sup>1</sup> NVv4-series VMs feature AMD Simultaneous multithreading Technology
 

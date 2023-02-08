@@ -1,4 +1,4 @@
-- name: Azure Storage validated partner solutions
+- name: Azure Storage partner solutions
   href: ./index.yml
 - name: Analytics and big data partners
   items:

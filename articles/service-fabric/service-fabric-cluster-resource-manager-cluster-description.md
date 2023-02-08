@@ -1,12 +1,12 @@
 ---
 title: Describe a cluster by using Cluster Resource Manager 
 description: Describe a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities for Cluster Resource Manager.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Describe a Service Fabric cluster by using Cluster Resource Manager
@@ -74,7 +74,7 @@ The following diagram shows three upgrade domains striped across three fault dom
 
 There are pros and cons to having large numbers of upgrade domains. More upgrade domains mean each step of the upgrade is more granular and affects a smaller number of nodes or services. Fewer services have to move at a time, introducing less churn into the system. This tends to improve reliability, because less of the service is affected by any issue introduced during the upgrade. More upgrade domains also mean that you need less available buffer on other nodes to handle the impact of the upgrade.
 
-For example, if you have five upgrade domains, the nodes in each are handling roughly 20 percent of your traffic. If you need to take down that upgrade domain for an upgrade, that load usually needs to go somewhere. Because you have four remaining upgrade domains, each must have room for about 25 percent of the total traffic. More upgrade domains mean that you need less buffer on the nodes in the cluster.
+For example, if you have five upgrade domains, the nodes in each are handling roughly 20 percent of your traffic. If you need to take down that upgrade domain for an upgrade, the load usually needs to go somewhere. Because you have four remaining upgrade domains, each must have room for about 25 percent of the total traffic. More upgrade domains mean that you need less buffer on the nodes in the cluster.
 
 Consider if you had 10 upgrade domains instead. In that case, each upgrade domain would be handling only about 10 percent of the total traffic. When an upgrade steps through the cluster, each domain would need to have room for only about 11 percent of the total traffic. More upgrade domains generally allow you to run your nodes at higher utilization, because you need less reserved capacity. The same is true for fault domains.  
 
@@ -345,7 +345,7 @@ Service Fabric expects that in some cases, particular workloads might need to ru
 * A workload must be run on specific hardware for performance, scale, or security isolation reasons.
 * A workload should be isolated from other workloads for policy or resource consumption reasons.
 
-To support these sorts of configurations, Service Fabric includes tags that you can apply to nodes. These tags are called *node properties*. *Placement constraints* are the statements attached to individual services that you select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible. Any key/value pair can work. Starting with Service Fabric 8.1, node properties can be updated dynamically, with no disruption to running workloads.
+To support these sorts of configurations, Service Fabric includes tags that you can apply to nodes. These tags are called *node properties*. *Placement constraints* are the statements attached to individual services that you select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible. Any key/value pair can work.
 
 ![Different workloads for a cluster layout][Image5]
 
@@ -469,7 +469,7 @@ Just like for placement constraints and node properties, Service Fabric Cluster 
 
 ## Capacity
 
-If you turned off all resource *balancing*, Service Fabric Cluster Resource Manager would still ensure that no node goes over its capacity. Managing capacity overruns is possible unless the cluster is too full or the workload is larger than any node. Capacity is another *constraint* that Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Starting with Service Fabric 8.1, node capacities can be updated dynamically, with no disruption to running workloads.
+If you turned off all resource *balancing*, Service Fabric Cluster Resource Manager would still ensure that no node goes over its capacity. Managing capacity overruns is possible unless the cluster is too full or the workload is larger than any node. Capacity is another *constraint* that Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole.
 
 Both the capacity and the consumption at the service level are expressed in terms of metrics. For example, the metric might be "ClientConnections" and a node might have a capacity for "ClientConnections" of 32,768. Other nodes can have other limits. A service running on that node can say it's currently consuming 32,256 of the metric "ClientConnections."
 

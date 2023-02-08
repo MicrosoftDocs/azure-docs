@@ -55,6 +55,7 @@
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
+| WAF custom regex rules per policy | 5 | 5 |
 | WAF IP address ranges per match conditions | 600 | 600 |
 | WAF string match values per match condition | 10 | 10 |
 | WAF string match value length | 256 | 256 |
@@ -91,6 +92,6 @@
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
-* Maximum endhpoint name for Standard and Premium: 46 characters.
+* Maximum endpoint name for Standard and Premium: 46 characters.
 
 For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

@@ -37,7 +37,7 @@ Speaker verification can be either text-dependent or text-independent. *Text-dep
 
 For text-dependent verification, the speaker's voice is enrolled by saying a passphrase from a set of predefined phrases. Voice features are extracted from the audio recording to form a unique voice signature, and the chosen passphrase is also recognized. Together, the voice signature and the passphrase are used to verify the speaker. 
 
-Text-independent verification has no restrictions on what the speaker says during enrollment, besides the initial activation phrase to activate the enrollment. It doesn't have any restrictions on the audio sample to be verified, because it only extracts voice features to score similarity. 
+Text-independent verification has no restrictions on what the speaker says during enrollment, besides the initial activation phrase when active enrollment is enabled. It doesn't have any restrictions on the audio sample to be verified, because it only extracts voice features to score similarity. 
 
 The APIs aren't intended to determine whether the audio is from a live person, or from an imitation or recording of an enrolled speaker. 
 
@@ -50,7 +50,7 @@ Speaker identification helps you determine an unknown speaker’s identity withi
 
 ### How does speaker identification work?
 
-Enrollment for speaker identification is text-independent. There are no restrictions on what the speaker says in the audio, besides the initial activation phrase to activate the enrollment. Similar to speaker verification, the speaker's voice is recorded in the enrollment phase, and the voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request).
+Enrollment for speaker identification is text-independent. There are no restrictions on what the speaker says in the audio, besides the initial activation phrase when active enrollment is enabled. Similar to speaker verification, the speaker's voice is recorded in the enrollment phase, and the voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request).
 
 ## Data security and privacy
 
@@ -66,8 +66,8 @@ As with all of the Cognitive Services resources, developers who use the speaker 
 |---------|----------|
 | What situations am I most likely to use speaker recognition? | Good examples include call center customer verification, voice-based patient check-in, meeting transcription, and multi-user device personalization.|
 | What's the difference between identification and verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, *enrolled* voice.|
-| What languages are supported? | See [Speaker recognition language support](language-support.md#speaker-recognition). |
-| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speaker-recognition).|
+| What languages are supported? | See [Speaker recognition language support](language-support.md?tabs=speaker-recognition). |
+| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speech-service).|
 | What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
 | What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#delete-voice-profile-enrollments). Recognition audio samples aren't retained or stored. |

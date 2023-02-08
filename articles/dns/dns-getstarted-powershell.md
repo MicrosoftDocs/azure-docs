@@ -3,9 +3,9 @@ title: 'Quickstart: Create an Azure DNS zone and record - Azure PowerShell'
 titleSuffix: Azure DNS
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step quickstart to create and manage your first DNS zone and record using Azure PowerShell.
 services: dns
-author: rohinkoul
-ms.author: rohink
-ms.date: 04/23/2021
+author: greg-lindsay
+ms.author: greglin
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api

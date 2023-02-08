@@ -3,11 +3,11 @@ title: 'Use the expression builder with Azure AD Connect cloud sync'
 description: This article describes how to use the expression builder with cloud sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

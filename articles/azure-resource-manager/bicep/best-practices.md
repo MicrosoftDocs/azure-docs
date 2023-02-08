@@ -4,15 +4,15 @@ description: Describes practices to follow when creating your Bicep files so the
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 ---
 # Best practices for Bicep
 
 This article recommends practices to follow when developing your Bicep files. These practices make your Bicep file easier to understand and use.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/learn/modules/structure-bicep-code-collaboration/) on **Microsoft Learn**.
+If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/training/modules/structure-bicep-code-collaboration/).
 
 ## Parameters
 
@@ -26,7 +26,7 @@ If you would rather learn about Bicep best practices through step-by-step guidan
 
 * It's a good practice to provide descriptions for your parameters. Try to make the descriptions helpful, and provide any important information about what the template needs the parameter values to be.
 
-  You can also use `//` comments for some information.
+  You can also use `//` comments to add notes within your Bicep files.
 
 * You can put parameter declarations anywhere in the template file, although it's usually a good idea to put them at the top of the file so your Bicep code is easy to read.
 

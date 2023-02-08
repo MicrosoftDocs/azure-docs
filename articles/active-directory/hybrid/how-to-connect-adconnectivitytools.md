@@ -3,11 +3,11 @@ title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module | Mic
 description: This document introduces the new ADConnectivity PowerShell module and how it can be used to help troubleshoot.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -18,28 +18,28 @@ ms.collection: M365-identity-device-management
 
 The ADConnectivity tool is a PowerShell module that is used in one of the following:
 
-- During installation when a network connectivity problem prevents the successful validation of the Active Directory credentials the user provided in the Wizard.
+- During installation, when a network connectivity problem prevents the successful validation of the Active Directory credentials.
 - Post installation by a user who calls the functions from a PowerShell session.
 
 The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
 
 ## ADConnectivityTool during installation
 
-On the **Connect your directories** page, in the Azure AD Connect Wizard, if a network issue occurs, the ADConnectivityTool will automatically use one of its functions to determine what is going on.  Any of the following can be considered network issues:
+On the **Connect your directories** page, in the Azure AD Connect Wizard, if a network issue occurs, the ADConnectivityTool will automatically use one of its functions to determine what is going on.  The  following items can be considered network issues:
 
 - The name of the Forest the user provided was typed wrongly, or said Forest doesn’t exist 
 - UDP port 389 is closed in the Domain Controllers associated with the Forest the user provided
 - The credentials provided in the ‘AD forest account’ window doesn’t have privileges to retrieve the Domain Controllers associated with the target Forest
 - Any of the TCP ports 53, 88 or 389 are closed in the Domain Controllers associated with the Forest the user provided 
 - Both UDP 389 and a TCP port (or ports) are closed
-- DNS could not be resolved for the provided Forest and\or its associated Domain Controllers
+- DNS couldn't be resolved for the provided Forest and\or its associated Domain Controllers
 
 Whenever any of these issues are found, a related error message is displayed in the AADConnect Wizard:
 
 
 ![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
-For example, when we are attempting to add a directory on the **Connect your directories** screen, Azure AD Connect needs to verify this and expects to be able to communicate with a domain controller over port 389.  If it cannot, we will see the error that is shown in the screenshot above.  
+For example, when we're attempting to add a directory on the **Connect your directories** screen, Azure AD Connect needs to verify this and expects to be able to communicate with a domain controller over port 389.  If it can't, we'll see the error that is shown in the screenshot.  
 
 What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is called when the validation of credentials fails due to a network connectivity issue.
 
@@ -52,7 +52,7 @@ You can find reference information on the functions in the [ADConnectivityTools 
 
 ### Start-ConnectivityValidation
 
-We are going to call out this function because it can **only** be called manually once the ADConnectivityTool.psm1 has been imported into PowerShell. 
+We're going to call out this function because it can **only** be called manually once the ADConnectivityTool.psm1 has been imported into PowerShell. 
 
 This function executes the same logic that the  Azure AD Connect Wizard runs to validate the provided AD Credentials.  However it provides a much more verbose explanation about the problem and a suggested solution. 
 
@@ -65,7 +65,7 @@ The connectivity validation consists of the following steps:
 
 The user will be able to add a Directory if all these actions were executed successfully.
 
-If the user runs this function after a problem is solved (or if no problem exists at all) the output will indicate for the user to go back to the Azure AD Connect Wizard and try inserting the credentials again.
+If the user runs this function, after a problem is solved (or if no problem exists at all), the output will indicate for the user to go back to the Azure AD Connect Wizard and try inserting the credentials again.
 
 
 

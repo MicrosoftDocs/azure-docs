@@ -227,7 +227,7 @@
     - name: Service FAQ
       href: cloud/faq.yml     
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/video-analyzer/
+    href: https://azure.microsoft.com/pricing/
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: Terraform resource
@@ -235,4 +235,4 @@
   - name: Video Analyzer edge
     href: https://aka.ms/ava-marketplace
   - name: Video Analyzer service
-    href: https://aka.ms/ava-service
+    href: https://azuremarketplace.microsoft.com/marketplace/apps/azure-appliedai-services.azure-video-analyzer

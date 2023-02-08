@@ -11,9 +11,9 @@ ms.date: 04/12/2022
 ms.topic: how-to
 ---
 
-# Move an Azure Load Testing Preview resource to another region
+# Move an Azure Load Testing resource to another region
 
-This article describes how to move your Azure Load Testing Preview resource to another Azure region. You might want to move your resource for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+This article describes how to move your Azure Load Testing resource to another Azure region. You might want to move your resource for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 Azure Load Testing resources are region-specific and can't be moved across regions automatically. You can use an Azure Resource Manager template (ARM template) to export the existing configuration of your Load Testing resource instead. Then, stage the resource in another region and create the tests in the new resource.
 
@@ -86,7 +86,7 @@ Load and modify the template so you can create a new Azure Load Testing resource
 
 ### Create tests
 
-Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](./quickstart-create-and-run-load-test.md#create_test).
+Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](how-to-create-and-run-load-test-with-jmeter-script.md#create-a-load-test).
 
 1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
 

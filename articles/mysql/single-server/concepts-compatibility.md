@@ -1,16 +1,19 @@
 ---
 title: Driver and tools compatibility - Azure Database for MySQL
 description: This article describes the MySQL drivers and management tools that are compatible with Azure Database for MySQL. 
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 11/4/2021
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
+
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
 

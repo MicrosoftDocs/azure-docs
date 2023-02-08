@@ -2,7 +2,7 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 03/13/2022
+ms.date: 08/24/2022
 ms.author: memildin
 ms.custom: generated
 ---
@@ -19,7 +19,6 @@ ms.custom: generated
 - Container images should be deployed from trusted registries only
 - Container with privilege escalation should be avoided
 - Containers sharing sensitive host namespaces should be avoided
-- Containers should listen on allowed ports only
 - Containers should only use allowed AppArmor profiles
 - Immutable (read-only) root filesystem should be enforced for containers
 - Key Vault keys should have an expiration date

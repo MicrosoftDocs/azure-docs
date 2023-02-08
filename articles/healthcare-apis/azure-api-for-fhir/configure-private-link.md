@@ -2,12 +2,12 @@
 title: Private link for Azure API for FHIR
 description: This article describes how to set up a private endpoint for Azure API for FHIR services
 services: healthcare-apis
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: dseven
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Configure private link
@@ -159,4 +159,6 @@ Based on your private link setup and for more information about registering your
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

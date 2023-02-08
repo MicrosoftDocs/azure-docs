@@ -1,14 +1,17 @@
 ---
 title: Azure Percept DK Container release notes
 description: Information of changes and fixes for Azure Percept DK Container releases.
-author: nkhuyent
+author: yvonne-dq
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 02/07/2023
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept DK Container release notes
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 This page provides information of changes and fixes for Azure Percept DK Container releases.
 

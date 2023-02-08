@@ -12,10 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 08/19/2022
 ms.author: manuaery
 ---
 # Use the service summary blade for StorSimple Device Manager connected to StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ## Overview
 The service summary blade for the StorSimple Device Manager provides a summary view of the StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or virtual devices) that are connected to your service, highlighting those that need a system administrator's attention. This tutorial introduces the service summary blade, explains the content and function, and describes the tasks that you can perform from this blade.
 

@@ -3,14 +3,14 @@ title: Batch process messages as a group
 description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/21/2022
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To send and process messages together in a specific way as groups, you can create a batching solution. This solution collects messages into a *batch* and waits until your specified criteria are met before releasing and processing the batched messages. Batching can reduce how often your logic app processes messages.
 
@@ -20,9 +20,9 @@ This article shows how to build a batching solution by creating two logic apps w
 
 1. One or more ["batch sender"](#batch-sender) logic apps, which send the messages to the previously created batch receiver.
 
-   You can also specify a unique key, such as a customer number, that *partitions* or divides the target batch into logical subsets based on that key. That way, the receiver app can collect all items with the same key and process them together.
+   The batch sender can specify a unique key that *partitions* or divides the target batch into logical subsets, based on that key. For example, a customer number is a unique key. That way, the receiver app can collect all items with the same key and process them together.
 
-Your batch receiver and batch sender needs to share the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+Your batch receiver and batch sender need to share the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
 
 ## Prerequisites
 
@@ -199,7 +199,7 @@ Now create one or more batch sender logic apps that send messages to the batch r
 
       ![Set up a partition for your target batch](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 
-      This **rand** function generates a number between one and five. So you are dividing this batch into five numbered partitions, which this expression dynamically sets.
+      This **rand** function generates a number between one and five. So, you're dividing this batch into five numbered partitions, which this expression dynamically sets.
 
 1. Save your logic app. Your sender logic app now looks similar to this example:
 
@@ -209,7 +209,7 @@ Now create one or more batch sender logic apps that send messages to the batch r
 
 To test your batching solution, leave your logic apps running for a few minutes. Soon, you start getting emails in groups of five, all with the same partition key.
 
-Your batch sender logic app runs every minute, generates a random number between one and five, and uses this generated number as the partition key for the target batch where messages are sent. Each time the batch has five items with the same partition key, your batch receiver logic app fires and sends mail for each message.
+Your batch sender logic app runs every minute and generates a random number between one and five. The batch sender uses this random number as the partition key for the target batch where you send the messages. Each time the batch has five items with the same partition key, your batch receiver logic app fires and sends mail for each message.
 
 > [!IMPORTANT]
 > When you're done testing, make sure that you disable the `BatchSender` logic app to stop sending messages and avoid overloading your inbox.
@@ -217,5 +217,3 @@ Your batch sender logic app runs every minute, generates a random number between
 ## Next steps
 
 * [Batch and send EDI messages](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
-* [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Exception handling and error logging for logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

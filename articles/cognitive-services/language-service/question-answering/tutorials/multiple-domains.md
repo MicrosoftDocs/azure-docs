@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: jboback
 ms.author: jboback
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering, ignite-fall-2021, cogserv-non-critical-language
 ---
 
 # Add multiple categories to your FAQ bot

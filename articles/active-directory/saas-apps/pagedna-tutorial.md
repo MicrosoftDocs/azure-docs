@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PageDNA | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with PageDNA'
 description: Learn how to configure single sign-on between Azure Active Directory and PageDNA.
 services: active-directory
 author: jeevansd
@@ -9,21 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory integration with PageDNA
+# Tutorial: Azure AD SSO integration with PageDNA
 
-In this tutorial, you learn how to integrate PageDNA with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate PageDNA with Azure Active Directory (Azure AD). When you integrate PageDNA with Azure AD, you can:
 
-Integrating PageDNA with Azure AD provides you with the following benefits:
-
-* In Azure AD, you can control who has access to PageDNA.
-* You can enable your users to be automatically signed in to PageDNA (single sign-on) with their Azure AD accounts.
-* You can manage your accounts in one central location: the Azure portal.
-
-For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to PageDNA.
+* Enable your users to be automatically signed-in to PageDNA with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -31,6 +27,7 @@ To configure Azure AD integration with PageDNA, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * A PageDNA subscription with single sign-on enabled.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD. For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -44,159 +41,111 @@ PageDNA supports the following features:
 
 ## Add PageDNA from the Azure Marketplace
 
-To configure the integration of PageDNA into Azure AD, you need to add PageDNA from the Azure Marketplace to your list of managed SaaS apps:
+To configure the integration of PageDNA into Azure AD, you need to add PageDNA from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. In the left pane, select **Azure Active Directory**.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **PageDNA** in the search box.
+1. Select **PageDNA** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-    ![The Azure Active Directory option](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. Go to **Enterprise Applications**, and then select **All Applications**.
+## Configure and test Azure AD SSO for PageDNA
 
-    ![The Enterprise applications pane](common/enterprise-applications.png)
+Configure and test Azure AD SSO with PageDNA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in PageDNA.
 
-1. To add a new application, select **+ New application** at the top of the pane.
+To configure and test Azure AD SSO with PageDNA, perform the following steps:
 
-    ![The New application option](common/add-new-app.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure PageDNA SSO](#configure-pagedna-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create PageDNA test user](#create-pagedna-test-user)** - to have a counterpart of B.Simon in PageDNA that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, enter **PageDNA**. In the search results, select **PageDNA**, and then select **Add** to add the application.
+## Configure Azure AD SSO
 
-    ![PageDNA in the results list](common/search-new-app.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-## Configure and test Azure AD single sign-on
+1. In the Azure portal, on the **PageDNA** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-In this section, you configure and test Azure AD single sign-on with PageDNA based on a test user named **Britta Simon**. For single sign-on to work, you must establish a link between an Azure AD user and the related user in PageDNA.
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-To configure and test Azure AD single sign-on with PageDNA, you need to complete the following building blocks:
+1. In the **Basic SAML Configuration** section, perform the following steps:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-1. **[Configure PageDNA single sign-on](#configure-pagedna-single-sign-on)** to configure the single sign-on settings on the application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create a PageDNA test user](#create-a-pagedna-test-user)** so that there's a user named Britta Simon in PageDNA who's linked to the Azure AD user named Britta Simon.
-1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+    1. In the **Identifier (Entity ID)** box, type a URL by using one of the following patterns:
 
-### Configure Azure AD single sign-on
+        | **Identifier** |
+        |------|
+        |`https://stores.pagedna.com/<your site>/saml2ep.cgi`|
+        |`https://www.nationsprint.com/<your site>/saml2ep.cgi`|
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    1. In the **Sign on URL** box, type a URL by using one of the following patterns:
 
-To configure Azure AD single sign-on with PageDNA, take the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **PageDNA** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on option](common/select-sso.png)
-
-1. In the **Select a single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-1. On the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
-
-    ![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. In the **Basic SAML Configuration** pane, take the following steps:
-
-    ![PageDNA domain and URLs single sign-on information](common/sp-identifier.png)
-
-    1. In the **Sign on URL** box, enter a URL by using one of the following patterns:
-
-        ```https
-        https://stores.pagedna.com/<your site>
-        https://<your domain>
-        https://<your domain>/<your site>
-        https://www.nationsprint.com/<your site>
-        ```
-
-    1. In the **Identifier (Entity ID)** box, enter a URL by using one of the following patterns:
-
-        ```https
-        https://stores.pagedna.com/<your site>/saml2ep.cgi
-        https://www.nationsprint.com/<your site>/saml2ep.cgi
-        ```
+        | **Sign on URL** |
+        |---------|
+        |`https://stores.pagedna.com/<your site>`|
+        |`https://<your domain>`|
+        |`https://<your domain>/<your site>` |
+        |`https://www.nationsprint.com/<your site>`|
 
     > [!NOTE]
-    > These values aren't real. Update these values with the actual sign-on URL and identifier. To get these values, contact the [PageDNA support team](mailto:success@pagedna.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
+    > These values aren't real. Update these values with the actual Identifier and Sign on URL. To get these values, contact the [PageDNA support team](mailto:success@pagedna.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
 
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download **Certificate (Raw)** from the given options and save it on your computer.
 
-    ![The Certificate (Raw) download option](common/certificateraw.png)
+    ![Screenshot shows the Certificate (Raw) download option.](common/certificateraw.png "Certificate")
 
 1. In the **Set up PageDNA** section, copy the URL or URLs that you need:
 
-   * **Login URL**
-   * **Azure AD Identifier**
-   * **Logout URL**
-
-    ![Copy the configuration URLs](common/copy-configuration-urls.png)
-
-### Configure PageDNA single sign-on
-
-To configure single sign-on on the PageDNA side, send the downloaded Certificate (Raw) and the appropriate copied URLs from the Azure portal to the [PageDNA support team](mailto:success@pagedna.com). The PageDNA team will make sure the SAML SSO connection is set properly on both sides.
+    ![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal named Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**   > **Users** > **All users**.
-
-    ![The Users and "All users" options](common/users.png)
-
-1. At the top of the screen, select **+ New user**.
-
-    ![New user option](common/new-user.png)
-
-1. In the **User** pane, do the following steps:
-
-    ![The User pane](common/user-properties.png)
-
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **BrittaSimon\@\<yourcompanydomain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
-
-    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable the user Britta Simon to use Azure single sign-on by granting the user access to PageDNA.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to PageDNA.
 
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **PageDNA**.
-
-    ![Enterprise applications pane](common/enterprise-applications.png)
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **PageDNA**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![PageDNA in the applications list](common/all-applications.png)
+## Configure PageDNA SSO
 
-1. In the left pane, under **MANAGE**, select **Users and groups**.
+To configure single sign-on on the PageDNA side, send the downloaded Certificate (Raw) and the appropriate copied URLs from the Azure portal to the [PageDNA support team](mailto:success@pagedna.com). The PageDNA team will make sure the SAML SSO connection is set properly on both sides.
 
-    ![The "Users and groups" option](common/users-groups-blade.png)
-
-1. Select **+ Add user**, and then select **Users and groups** in the **Add Assignment** pane.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-1. In the **Users and groups** pane, select **Britta Simon** in the **Users** list, and then choose **Select** at the bottom of the pane.
-
-1. If you're expecting a role value in the SAML assertion, then in the **Select Role** pane, select the appropriate role for the user from the list. At the bottom of the pane, choose **Select**.
-
-1. In the **Add Assignment** pane, select **Assign**.
-
-### Create a PageDNA test user
+### Create PageDNA test user
 
 A user named Britta Simon is now created in PageDNA. You don't have to do anything to create this user. PageDNA supports just-in-time user provisioning, which is enabled by default. If a user named Britta Simon doesn't already exist in PageDNA, a new one is created after authentication.
 
-### Test single sign-on
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select **PageDNA** in the My Apps portal, you should be automatically signed in to the PageDNA subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on **Test this application** in Azure portal. This will redirect to PageDNA Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to PageDNA Sign-on URL directly and initiate the login flow from there.
 
-* [List of tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the PageDNA tile in the My Apps, this will redirect to PageDNA Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-* [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-* [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+Once you configure PageDNA you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

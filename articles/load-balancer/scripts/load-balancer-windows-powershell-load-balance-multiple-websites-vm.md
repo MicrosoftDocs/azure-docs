@@ -2,13 +2,13 @@
 title: Load balance multiple websites - Azure PowerShell - Azure Load Balancer
 description: This Azure PowerShell script example hows how to load balance multiple websites to the same virtual machine
 documentationcenter: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: allensu 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 ---
 

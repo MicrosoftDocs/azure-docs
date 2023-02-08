@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 11/29/2022
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -17,12 +17,17 @@ This article outlines how to use Copy Activity in Azure Data Factory and Azure S
 
 ## Supported capabilities
 
-This SharePoint Online List connector is supported for the following activities:
+This SharePoint Online List connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from SharePoint Online List to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources or sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
+
 
 Specifically, this SharePoint List Online connector uses service principal authentication and retrieves data via OData protocol.
 
@@ -39,28 +44,14 @@ The SharePoint List Online connector uses service principal authentication to co
     - Application key
     - Tenant ID
 
-2. Grant SharePoint Online site permission to your registered application: 
+2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
-        - App Domain: `localhost.com`
-        - Redirect URL: `https://www.localhost.com`
-        - Permission Request XML   
-            For the site owner role, the Permission Request XML is:  
-
-            ```xml
-            <AppPermissionRequests>
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```           
-            
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site owner role.":::
-
-            > [!NOTE]
-            > You can find the site owner by going to the site home page -> select **Settings** in the top right corner -> select **Site permissions** and check who has the site owner role.   
-
-            For the site admin role, the Permission Request XML is:  
+        - App Domain: `contoso.com`
+        - Redirect URL: `https://www.contoso.com`
+        - Permission Request XML:  
 
             ```xml
             <AppPermissionRequests AllowAppOnlyPolicy="true">
@@ -69,6 +60,9 @@ The SharePoint List Online connector uses service principal authentication to co
             ```
 
             :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+            
+        > [!NOTE]
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Azure Active Directory (AAD) to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
     3. Click "Trust It" for this app.
 
@@ -110,10 +104,11 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
-| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites), earlier in this article. If not specified, the default Azure Integration Runtime is used. | No           |
+| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
+
 
 **Example:**
 

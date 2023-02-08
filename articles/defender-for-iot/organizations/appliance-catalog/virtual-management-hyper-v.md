@@ -20,11 +20,11 @@ This article describes an on-premises management console deployment on a virtual
 
 Before you begin the installation, make sure you have the following items:
 
-- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal)
+- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal).
 
 Make sure the hypervisor is running.
 
@@ -50,7 +50,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
 1. Enter a name for the virtual machine and select **Next**.
 
-1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 1** or **Generation 2**, and then select **Next**.
 
 1. Specify the [memory allocation for your organization's needs](../ot-appliance-sizing.md), and then select **Next**.
 
@@ -78,7 +78,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-on-premises-management-console-software).
+1. Continue with the [generic procedure for installing on-premises management console software](../ot-deploy/install-software-on-premises-management-console.md).
 
 ## Next steps
 
@@ -86,6 +86,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Install Microsoft Defender for IoT on-premises management console software](../ot-deploy/install-software-on-premises-management-console.md)

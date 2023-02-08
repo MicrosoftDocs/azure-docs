@@ -4,7 +4,7 @@ description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics
 author: veyalla
 
 ms.author: veyalla
-ms.date: 08/11/2021
+ms.date: 03/18/2022
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
@@ -13,7 +13,7 @@ services: iot-edge
 
 # Collect and transport metrics
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
 
@@ -277,7 +277,7 @@ This option does require [extra setup](how-to-collect-and-transport-metrics.md#s
 
 ### Sample cloud workflow
 
-A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
+A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/CloudWorkflow.md). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
 
 # [IoT Central](#tab/iotcentral)
 

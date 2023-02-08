@@ -3,7 +3,7 @@ title: Complex applications for Azure Active Directory Application Proxy
 description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -50,7 +50,7 @@ This article provides you with the information you need to configure wildcard ap
     - Note - Regular application will always take precedence over a complex app (wildcard application).
 
 ## Pre-requisites
-Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
+Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
 - You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
@@ -59,7 +59,7 @@ Before you get started with single sign-on for header-based authentication apps,
 To configure (and update) Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
 
 > [!NOTE]
-> One application segment is supported in preview. Support for multiple application segment to be announced soon.
+> 2 application segment per complex application are supported for [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory). Licence requirement for more than 2 application segments per complex application to be announced soon.
 
 If successful, this method returns a `204 No Content` response code and does not return anything in the response body.
 ## Example
@@ -67,9 +67,8 @@ If successful, this method returns a `204 No Content` response code and does not
 ##### Request
 Here is an example of the request.
 
-
 ```http
-PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app}
+PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app-under-APP-Registrations}
 Content-type: application/json
 
 {

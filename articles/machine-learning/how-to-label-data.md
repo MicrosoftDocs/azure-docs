@@ -2,8 +2,9 @@
 title: Labeling images and text documents
 title.suffix: Azure Machine Learning
 description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
-author: sdgilley
-ms.author: sgilley
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
@@ -143,7 +144,7 @@ To delete *all* bounding boxes in the current image, select the **Delete all reg
 
 After you create the bounding boxes for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## Tag images and specify polygons for image segmentation 
+## Tag images and specify polygons for image segmentation
 
 If your project is of type "Instance Segmentation (Polygon)," you'll specify one or more polygons in the image and apply a tag to each polygon. Images can have multiple bounding polygons, each with a single tag. Use **View detailed instructions** to determine if multiple bounding polygons are used in your project.
 
@@ -165,7 +166,7 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## <a name="label-text"></a>Label text
+## Label text
 
 When tagging text, use the toolbar to:
 
@@ -181,16 +182,12 @@ There are three text project types:
 |---------|---------|
 | Classification Multi-Class | Assign a single tag to the entire text entry.  You can only select one tag for each text item.  Select a tag and then select **Submit** to move to the next entry.  |
 | Classification Multi-Label     | Assign one *or more* tags to each text entry.  You can select multiple tags for each text item.   Select all the tags that apply and then select **Submit** to move to the next entry.    |
-| Named entity recognition (preview) | Tag different words or phrases in each text entry.  See directions in the section below.
+| Named entity recognition | Tag different words or phrases in each text entry.  See directions in the section below.
 
-> [!IMPORTANT]
-> Named entity recognition is in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
 
-### Tag words and phrases (preview)
+### Tag words and phrases 
 
 If your project is set up for named entity recognition, you tag different words or phrases in each text item. To label text:
 
@@ -213,7 +210,7 @@ When you've tagged all the items in an entry, select **Submit** to move to the n
 
 When you submit a page of tagged data, Azure assigns new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
 
-When you're done labeling, select your name in the upper-right corner of the labeling portal and then select **sign-out**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
+When you're done labeling, select your image inside a circle in the upper-right corner of the studio and then select **sign-out**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
 
 ## Next steps
 

@@ -1,47 +1,18 @@
 ---
 title: Examine the Azure Video Indexer output
-description: This topic examines the Azure Video Indexer (formerly Azure Video Analyzer for Media) output produced by the Get Video Index API.
-services: azure-video-analyzer
+description: This topic examines the Azure Video Indexer output produced by the Get Video Index API.
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 05/19/2022
 ms.author: juliako
 ---
 
 # Examine the Azure Video Indexer output
 
-When a video is indexed, Azure Video Indexer (formerly Azure Video Analyzer for Media) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
-
-You can also use the Get Video Index API. If the response status is `OK`, you get a detailed JSON output as the response content.
-
-![Screenshot of the Insights tab in Azure Video Indexer.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-insights).
-
-> [!NOTE]
-> All the access tokens in Azure Video Indexer expire in one hour.
-
-## Get the insights
-
-To get insights produced on the website or the Azure portal:
-
-1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
-1. Find a video whose output you want to examine.
-1. Press **Play**.
-1. Select the **Insights** tab to get summarized insights. Or select the **Timeline** tab to filter the relevant insights.
-1. Download artifacts and what's in them.
-
-For more information, see [View and edit video insights](video-indexer-view-edit.md).
-
-To get insights produced by the API:
-
-- To retrieve the JSON file, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
-- If you're interested in specific artifacts, call the [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
-
-  In the API call, specify the requested artifact type (for example, OCR, face, or keyframe).
+For information, see [Azure Video Indexer insights](insights-overview.md).
 
 ## Root elements of the insights
 
@@ -59,12 +30,13 @@ To get insights produced by the API:
 |`isEditable`|Indicates whether the current user is authorized to edit the playlist.|
 |`isBase`|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |`durationInSeconds`|The total duration of the playlist.|
-|`summarizedInsights`|Contains one [summarized insight](#summarizedinsights).
+|`summarizedInsights`|The produced JSON output contains `Insights` and `SummarizedInsights` elements. We recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).|
 |`videos`|A list of [videos](#videos) that construct the playlist.<br/>If this playlist is constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
 {
-  "accountId": "bca61527-1221-bca6-1527-a90000002000",
+  ...
+  "accountId": "00000000-0000-0000-0000-000000000000",
   "id": "abc3454321",
   "name": "My first video",
   "description": "I am trying VI",
@@ -76,14 +48,19 @@ To get insights produced by the API:
   "isEditable": false,
   "isBase": false,
   "durationInSeconds": 120, 
-  "summarizedInsights" : { . . . }
+  "summarizedInsights" : null,
   "videos": [{ . . . }]
 }
 ```
 
-## summarizedInsights
+> [!TIP]
+> The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
+
+
+## Summary of the insights
 
 This section shows a summary of the insights.
+
 
 |Attribute | Description|
 |---|---|
@@ -91,7 +68,7 @@ This section shows a summary of the insights.
 |`id`|The ID of the video. For example: `63c6d532ff`.|
 |`privacyMode`|Your breakdown can have one of the following modes: A `Public` video is visible to everyone in your account and anyone who has a link to the video. A `Private` video is visible to everyone in your account.|
 |`duration`|The time when an insight occurred, in seconds.|
-|`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.
+|`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.|
 |`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it `thumbnailVideoId` and `thumbnailId`.|
 |`faces/animatedCharacters`|Contains zero or more faces. For more information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |`keywords`|Contains zero or more keywords. For more information, see [keywords](#keywords).|
@@ -168,7 +145,7 @@ A face might have an ID, a name, a thumbnail, other metadata, and a list of its 
 |`transcript`|The [transcript](#transcript) insight.|
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
-|`blocks`|Might contain one or more [blocks](#blocks).|
+|`transcripts`|Might contain one or more [transcript](#transcript).|
 |`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
@@ -201,13 +178,6 @@ Example:
   "textualContentModeration": ...
 }
 ```
-
-#### blocks
-
-Attribute | Description
----|---
-`id`|The ID of the block.|
-`instances`|A list of time ranges for this block.|
 
 #### transcript
 
@@ -664,7 +634,7 @@ Sentiments are aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 #### visualContentModeration
 
-The `visualContentModeration` block contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
+The `visualContentModeration` transcript contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
 Videos that contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
 
@@ -879,12 +849,12 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
      }
   ]
 },
-` ` `
+
 ```
 
 ## Next steps
 
-Explore the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai).
+Explore the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai).
 
 For information about how to embed widgets in your application, see [Embed Azure Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

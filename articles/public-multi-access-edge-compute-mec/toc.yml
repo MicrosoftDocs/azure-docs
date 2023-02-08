@@ -13,6 +13,8 @@ items:
     href: key-concepts.md
   - name: Considerations for deployment
     href: considerations-for-deployment.md
+  - name: Partner Solutions
+    href: partner-solutions.md
 - name: Quickstarts
   expanded: true
   items:

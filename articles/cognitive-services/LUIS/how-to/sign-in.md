@@ -7,9 +7,12 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 07/19/2022
 ---
 # Sign in to the LUIS portal and create an app
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 
 Use this article to get started with the LUIS portal, and create an authoring resource. After completing the steps in this article, you will be able to create and publish LUIS apps.
 

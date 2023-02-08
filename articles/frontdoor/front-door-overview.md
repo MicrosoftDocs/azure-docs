@@ -15,7 +15,7 @@ ms.author: duau
 
 Whether you’re delivering content and files or building global apps and APIs, Azure Front Door can help you deliver higher availability, lower latency, greater scale, and more secure experiences to your users wherever they are.  
 
-Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your content using the Microsoft’s global edge network with hundreds of [global and local POPs](edge-locations-by-region.md) distributed around the world close to both your enterprise and consumer end users.
+Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your content using the Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](edge-locations-by-region.md) distributed around the world close to both your enterprise and consumer end users.
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
@@ -89,6 +89,10 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 For a comparison of supported features in Azure Front Door, see [Tier comparison](standard-premium/tier-comparison.md).
 
+## Where is the service available?
+
+Azure Front Door Classic/Standard/Premium SKUs are available in Microsoft Azure (Commercial) and Azure Front Door Classic SKU is available in Microsoft Azure Government (US).
+
 ## Pricing
 
 For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For information about service-level agreements, See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
@@ -101,4 +105,4 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 * Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md)
 * Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
-* [Learn module: Introduction to Azure Front Door](/learn/modules/intro-to-azure-front-door/).
+* [Learn module: Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door/).

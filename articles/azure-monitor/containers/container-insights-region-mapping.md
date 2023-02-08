@@ -2,8 +2,9 @@
 title: Container insights region mappings
 description: Describes the region mappings supported between Container insights, Log Analytics Workspace, and custom metrics.
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 05/27/2022
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # Region mappings supported by Container insights
@@ -11,7 +12,6 @@ ms.custom: references_regions
  When enabling Container insights, only certain regions are supported for linking a Log Analytics workspace and an AKS cluster, and collecting custom metrics submitted to Azure Monitor.
 
 ## Log Analytics workspace supported mappings
-
 Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The Log Analytics workspace must be in the same region except for the regions listed in the following table. Watch [AKS release notes](https://github.com/Azure/AKS/releases) for updates.
 
 
@@ -37,10 +37,9 @@ Supported AKS regions are listed in [Products available by region](https://azure
 |**Korea** | |
 |KoreaSouth |KoreaCentral |
 |**US** | |
-|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|WestCentralUS<sup>1</sup>|EastUS |
 
 
-<sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. This includes a Log Analytics workspace. However, preexisting linked resources in the region should continue to work.
 
 ## Custom metrics supported regions
 

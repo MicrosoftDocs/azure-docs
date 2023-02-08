@@ -2,12 +2,12 @@
 title: Get access token using Azure CLI or Azure PowerShell
 description: This article explains how to obtain an access token for Azure Health Data Services using the Azure CLI or Azure PowerShell.
 services: healthcare-apis
-author: dougseven
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/21/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: mikaelw
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -65,7 +65,9 @@ In this article, you learned how to obtain an access token for the FHIR service 
 >[Access FHIR service using Postman](./fhir/use-postman.md)
 
 >[!div class="nextstepaction"]
->[Access FHIR service using Rest Client](./fhir/using-rest-client.md)
+>[Access FHIR service using REST Client](./fhir/using-rest-client.md)
 
 >[!div class="nextstepaction"]
 >[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

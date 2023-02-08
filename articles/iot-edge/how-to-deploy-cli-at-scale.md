@@ -13,9 +13,9 @@ services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale by using the Azure CLI
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure CLI to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure CLI to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 In this article, you set up the Azure CLI and the IoT extension. You then learn how to deploy modules to a set of IoT Edge devices and monitor the progress by using the available CLI commands.
 
@@ -228,6 +228,9 @@ The create command for deployment takes the following parameters:
 * **--metrics**. Metrics that query the `edgeHub` reported properties to track the status of a deployment. Metrics take JSON input or a file path. For example: `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
 To monitor a deployment by using the Azure CLI, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli).
+
+> [!NOTE]
+> When a new IoT Edge deployment is created, sometimes it can take up to 5 minutes for the IoT Hub to process the new configuration and propagate the new desired properties to the targeted devices.
 
 ## Modify a deployment
 

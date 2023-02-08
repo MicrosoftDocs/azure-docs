@@ -1,15 +1,15 @@
 ---
-author: rothja
+author: greg-lindsay
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/05/2020    
-ms.author: rohink
+ms.date: 12/16/2022    
+ms.author: greglin
 ---
 **Public DNS zones**
 
 | Resource | Limit |
 | --- | --- |
-| Public DNS Zones per subscription |250 <sup>1</sup> |
+| Public DNS zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
 | Records per record set in public DNS zone |20 |
 | Number of Alias records for a single Azure resource |20|
@@ -31,3 +31,19 @@ ms.author: rohink
 | Maximum number of DNS queries queued (pending response) per virtual machine |200 <sup>1</sup> |
 
 <sup>1</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped.
+
+**DNS private resolver**<sup>1</sup>
+
+| Resource | Limit |
+| --- | --- |
+| DNS private resolvers per subscription |15|
+| Inbound endpoints per DNS private resolver |5|
+| Outbound endpoints per DNS private resolver |5|
+| Forwarding rules per DNS forwarding ruleset |1000|
+| Virtual network links per DNS forwarding ruleset |500|
+| Outbound endpoints per DNS forwarding ruleset |2|
+| DNS forwarding rulesets per outbound endpoint |2|
+| Target DNS servers per forwarding rule |6|
+| QPS per endpoint |10,000|
+
+<sup>1</sup>Different limits might be enforced by the Azure portal until the portal is updated. Use PowerShell to provision elements up to the most current limits.

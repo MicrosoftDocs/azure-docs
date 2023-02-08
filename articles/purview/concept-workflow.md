@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/09/2022
+ms.date: 10/17/2022
 ms.custom: template-concept
 ---
 
 # Workflows in Microsoft Purview
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Workflows are automated, repeatable business processes that users can create within Microsoft Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
 
@@ -42,17 +42,7 @@ Templates are available to launch the workflow authoring experience. However, a 
 
 ## Workflow connectors
 
-Workflow connectors are a common set of actions applicable across all workflows. They can be used in any workflow in Microsoft Purview to create processes customized to your organization. Currently, the available connectors are: 
-
-- **Approval connector** – Generates approval requests and assign the requests to individual users or Microsoft Azure Active Directory groups. 
-
-    Microsoft Purview workflow approval connector currently supports two types of approval types: 
-    * First to Respond – This implies that the first approver’s outcome (Approve/Reject) is considered final. 
-    * Everyone must approve – This implies everyone identified as an approver must approve the request for the request to be considered approved. If one approver rejects the request, regardless of other approvers, the request is rejected.
-
-- **Task Connector** - Creates, assigns, and tracks a task to a user or Azure AD group as part of a workflow.  
-
-- **Send Email** – Sends emails as part of a workflow.
+Workflow connectors are a common set of actions applicable across some workflows. They can be used in any workflow in Microsoft Purview to create processes customized to your organization. To view the list of existing workflow connectors in Microsoft Purview, see [Workflow connectors](how-to-use-workflow-connectors.md).
 
 ## Workflow scope
 
