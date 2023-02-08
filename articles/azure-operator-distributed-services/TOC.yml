@@ -2,14 +2,12 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is AODS?
-    href: introduction.md
-# - name: Precertification 
-#   href: precertification.md
+  - name: What is Azure Operator Distributed Services?
+    href: overview.md
 - name: Concepts
   items:
-#  - name: Resource Types
-#    href: concepts-resource-types.md
+  - name: Resource Types
+    href: concepts-resource-types.md
   - name: Observability
     href: concepts-observability.md
 - name: Quickstarts
@@ -28,6 +26,8 @@
 #    href: bare-metal-functions.md
 #  - name: Workbooks and Alerts
 #    href: workbooks-alerts.md
+ - name: Pre-certification 
+   href: howto-precertification.md
 - name: Sample Deployment
 #  items:
 #  - name: VNF Deployment

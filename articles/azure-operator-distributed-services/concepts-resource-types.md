@@ -13,77 +13,76 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 This article introduces you to the Azure Operator Distributed Services (AODS) components represented as Azure resources in Azure Resource Manager.
 
-:::image type="content" source="media/AODS Resource Model 02012023.png" alt-text="AODS Resource model":::
+:::image type="content" source="media/AODS-Resource-Types.png" alt-text="AODS Resource Types":::
 Figure: AODS Resource model
 
 ## Platform components
 
-Your AODS instance platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
+Your AODS Cluster (or simply instance) platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
 
 ### Network Fabric Controller
 
-The Network Fabric Controller (NFC) resource is created in the Resource group specified by you in your Azure subscription.
-It automates the life cycle management of all network devices deployed in an AODS instance.
+The Network Fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an AODS instance.
+The NFC resource is created in the Resource group specified by you in your Azure subscription.
 NFC is hosted in a [Microsoft Azure Virtual Network](../virtual-network/virtual-networks-overview.md) in an Azure region.
 The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 An NFC can manage the network fabric of up to 32 AODS instances.
-And you can create many Network Fabric Controllers in your subscription. (See limits)
 
 ### Network Fabric
 
-Each AODS instance has one Network Fabric. The Network Fabric resource models a physical network fabric. The network fabric is a collection of network devices,  compute servers, and storage appliances, and their interconnections. The Network Fabric Controller (NFC) performs the lifecycle management of the network fabric. The NFC
-configures and bootstraps to bring up the network fabric. The network fabric activities also include the networking required for your Network Functions (or tenant workloads).
+The Network Fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each AODS instance has one Network Fabric.
 
-### Network Manifest
-
-Your intentions for the hardware in a rack are represented in the network manifest resource. The Network Fabric Controller is responsible for the network manifest lifecycle.
+The Network Fabric Controller (NFC) performs the lifecycle management of the network fabric.
+It configures and bootstraps the network fabric resources. 
 
 ### Cluster Manager
 
-A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters. Like NFC, a CM can manage multiple AODS instances. For a given AODS instance, the CM and the NFC are hosted in the same Azure VNet.
+A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters. Like NFC, a CM can manage multiple AODS instances. For a given AODS instance, the CM and the NFC are hosted in the same Azure Virtual Network.
 
 ### Azure Operator Distributed Services Cluster
 
-An AODS cluster models a collection of racks, bare metal machines, and storage appliance. Each AODS cluster (sometimes also referred as AODS instance) is mapped to one Network Fabric. An AODS cluster provides a holistic view of the deployed capacity. AODS cluster capacity examples include the number of CPU cores, the amount of memory, and the amount of storage space. An AODS cluster is also the basic unit for compute and storage upgrades.
+An AODS cluster models a collection of racks, bare metal machines, storage and workload networking. Each AODS cluster (sometimes also referred as AODS instance) is mapped to the on-premises Network Fabric. An AODS cluster provides a holistic view of the deployed capacity. AODS cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. An AODS cluster is also the basic unit for compute and storage upgrades.
 
-### Rack SKU
+### Network Rack
 
-The Rack SKU resource describes the AODS compute-related hardware on a rack. The SKU supports both aggregator and compute racks. The Rack SKU resource is read-only, and the APIs are subscription based, not resource group based.
+The Network rack consists of Consumer Edge (CE) routers, Top of Rack switches (ToRs), storage appliance, Network Packet Broker (NPB), and the Terminal Server.
+The rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other racks.
 
 ### Rack
 
-The Rack resource represents a physical rack. It's created, updated or deleted as part of the Cluster lifecycle management.
+The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switch and ToRs. The Rack is created, updated or deleted as part of the Cluster lifecycle management.
 
 ### Storage Appliance
 
-Storage Appliances represent storage arrays in the on-premises data centers. There are no user-facing scenarios for configuring storage appliances, however administrative access to configure the storage appliance is necessary. The appliance will be opaquely represented behind predefined storage classes.
+Storage Appliances represent storage arrays used for persistent data storage in the AODS instance. All user and consumer data is stored in these appliances local to your premises. This local storage complies with some of the most stringent local data storage requirements.
 
 ### Bare Metal Machine
 
-Bare Metal Machines represent the physical machines in a rack. They're the building block of a Cluster, supporting the bare metal Kubernetes cluster. They're not created, updated or deleted directly. Instead, they're part of the Cluster lifecycle management. For example, they're onboarded when a Cluster is created.
+Bare Metal Machines represent the physical servers in a rack. They're lifecycle managed by the Cluster Manager.
+Bare Metal Machines are used by workloads to host Virtual Machines and AKS-Hybrid clusters.
 
-## Tenant components
+## Workload components
 
-Tenant components are resources that you use in running and managing your workloads.
+Workload components are resources that you use in hosting your workloads.
 
 ### Network resources
 
-The Network resources tie network fabric with your (tenant) VMs or AKS-Hybrid clusters.
-Your AKS-Hybrid cluster or VM can use many network resources, where each network resource represents a network attachment to an underlying isolation domain. There are five Network resource types.
+The Network resources represent the virtual networking in support of your workloads hosted on  VMs or AKS-Hybrid clusters. 
+There are five Network resource types that represent a network attachment to an underlying isolation domain. 
 
-- **Cloud Services Network Resource**: this network resource provides VMs/AKS-Hybrid clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network in each of your AODS instances. Each Cloud Service Network can be reused by many VMs and/or AKS-Hybrid clusters.
+- **Cloud Services Network Resource**: provides VMs/AKS-Hybrid clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network in each of your AODS instances. Each Cloud Service Network can be reused by many VMs and/or AKS-Hybrid clusters.
 
-- **Default CNI Network Resource**: this network resource provides the Container Network Interface support for the AKS--Hybrid clusters.
+- **Default CNI Network Resource**: supports configuring of the AKS-Hybrid cluster network resources.
 
-- **Layer 2 Network Resource**: this network resource provides access to a layer 2 network. You can configure a layer 2 network for "East-West" communication between VMs or AKS-Hybrid clusters.
+- **Layer 2 Network Resource**: enables "East-West" communication between VMs or AKS-Hybrid clusters.
 
-- **Layer 3 Network Resource**: this network resource provides access to a layer 3 network. You can configure a layer 3 network to facilitate "North-South" communication between your VMs/AKS-Hybrid clusters and the external network. You can configure another layer 3 network for communication between VMs/AKS-Hybrid clusters in different layer 2 networks.
+- **Layer 3 Network Resource**: facilitate "North-South" communication between your VMs/AKS-Hybrid clusters and the external network.
 
-- **Trunked Network Resource**: this network resource provides a VM or an AKS-Hybrid cluster access to multiple layer 3 networks and/or multiple layer 2 networks.
+- **Trunked Network Resource**: provides a VM or an AKS-Hybrid cluster access to multiple layer 3 networks and/or multiple layer 2 networks.
 
 ### Virtual Machine
 
-You create and manage Virtual Machines (VM) resources. You can use VMs to host your Virtualized Network Function (VNF) workloads.
+You can use VMs to host your Virtualized Network Function (VNF) workloads.
 
 ### AKS-Hybrid cluster
 
