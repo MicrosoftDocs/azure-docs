@@ -204,4 +204,4 @@ Go to the **Storage accounts** menu in the Azure portal and select your storage 
 
 - Learn more about [log queries in Azure Monitor](./log-query-overview.md).
 - Learn more about [Logic Apps](../../logic-apps/index.yml).
-- Learn more about [Power Automate](https://flow.microsoft.com).
+- Learn more about [Power Automate](https://make.powerautomate.com).
