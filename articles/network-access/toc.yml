@@ -77,7 +77,7 @@ items:
   - name: Entra Network Access FAQ
     href: reference-network-access-faq.md
   - name: Troubleshoot Entra Network Access
-    href: https://learn.microsoft.com/troubleshoot/
+    href: /troubleshoot
 - name: Resources
   expanded: false
   items:
