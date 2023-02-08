@@ -168,11 +168,11 @@ Use the command in this section to create a data history connection and the tabl
 
 The command below uses local variables that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session) and has several parameters, including...
 * The names of the relationship lifecycle and twin lifecycle tables in Azure Data Explorer (these parameters are optional if you don't want to historize these event types, but required if you do want to historize these event types)
-* An optional parameter for the name of the twin property event table (if this value is not provided, this table will be named *AdtPropertyEvents*) 
-* An optional parameter to turn on historization for twin property deletions (events that remove properties entirely)
+* An optional parameter to specify the name of the twin property event table (if this value is not provided, this table will be named *AdtPropertyEvents* by default) 
+* The optional parameter `--adx-record-removals` to turn on historization for twin property deletions (events that remove properties entirely)
 
 ```azurecli-interactive
-az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
+az dt data-history connection create adx --dt-name $dtname --cn $connectionname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace --adx-property-events-table $twinpropertytablename --adx-twin-events-table $twinlifecycletablename --adx-relationship-events-table $relationshiplifecycletablename --adx-record-removals true
 ```
 
 When executing the above command, you'll be given the option of assigning the necessary permissions required for setting up your data history connection on your behalf (if you've already assigned the necessary permissions, you can skip these prompts). These permissions are granted to the managed identity of your Azure Digital Twins instance. The minimum required roles are:

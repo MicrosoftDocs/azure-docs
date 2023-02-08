@@ -58,12 +58,13 @@ For step-by-step instructions on how to set up a data history connection, see [U
 
 ## Updating a properties-only data history connection
 
-Prior to February 2023, the data history feature only historized twin property updates. If you have a properties-only data history connection from that time, you can update it to historize all graph updates to Azure Data Explorer (including twin properties, twin lifecycle events, and relationship lifecycle events). You can use either of the following methods:
-* Delete your existing data history connection and create a new data history connection using the updated instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md).
-* Use the following Azure CLI command to update the existing connection to include the new data tables for twin lifecycle events and relationship lifecycle events. There are placeholders for the names of your current data history resources, and placeholders for you to enter new names for the new tables.
-    ```azurecli-interactive
-    az dt data-history connection create adx -n <Azure-Digital-Twins-instance-name> --cn <data-history-connection-name> --adx-cluster-name <Azure-Data-Explorer-cluster-name> --adx-database-name <Azure-Data-Explorer-database-name> --eventhub <event-hub-name> --eventhub-namespace <event-hub-namespace> --adx-property-events-table <twin-property-events-table-name> --adx-twin-events-table <twin-lifecycle-events-table-name> --adx-relationship-events-table <relationship-lifecycle-events-table-name> --adx-record-removals true
-    ```
+Prior to February 2023, the data history feature only historized twin property updates. If you have a properties-only data history connection from that time, you can update it to historize all graph updates to Azure Data Explorer (including twin properties, twin lifecycle events, and relationship lifecycle events). 
+
+This will require creating new tables in your Azure Data Explorer cluster for the new types of historized updates (twin lifecycle events and relationship lifecycle events). For twin property events, you can decide whether you want the new connection to continue using the same table from your original data history connection to store twin property updates going forward, or if you want the new connection to use an entirely new set of tables. Then, follow the instructions below for your preference.
+
+**If you want to continue using your existing table for twin property updates:** Use the instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
+
+**If you want to use all new tables:** First, [delete your original data history connection](#deleting-a-data-history-connection). Then, use the instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
 
 ### Required permissions
 
@@ -166,12 +167,14 @@ Below is an example table of relationship lifecycle updates stored to Azure Data
 
 ## Deleting a data history connection
 
-You can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to delete a data history connection. The CLI command is [az dt data-history connection delete](/cli/azure/dt/data-history/connection#az-dt-data-history-connection-delete).
+You can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) to delete a data history connection. The CLI command is [az dt data-history connection delete](/cli/azure/dt/data-history/connection#az-dt-data-history-connection-delete).
 
-When you use the CLI command to delete a data history connection, you'll be given the option to clean up resources associated with the data history connection. If you do this, the command will delete the event hub and Azure Data Explorer cluster used for the data history connection. The cleanup is a best-effort attempt, and requires the account running the command to have delete permission for these resources.
+Deleting a connection also gives the option to clean up resources associated with the data history connection (for the CLI command, the optional parameter to add is `--clean true`). If you use this option, the command will delete the resources within Azure Data Explorer that are used to link your cluster to your event hub, including data connections for the database and the ingestion mappings associated with your table. The "clean up resources" option will **not** delete the actual event hub and Azure Data Explorer cluster used for the data history connection.
+
+The cleanup is a best-effort attempt, and requires the account running the command to have delete permission for these resources.
 
 >[!NOTE]
-> If you have multiple data history connections that share the same event hub or Azure Data Explorer cluster, using the "clean up resources" option while deleting one of these connections will disrupt your other data history connections that rely on these resources.
+> If you have multiple data history connections that share the same event hub or Azure Data Explorer cluster, using the "clean up resources" option while deleting one of these connections may disrupt your other data history connections that rely on these resources.
 
 ## Pricing
 
