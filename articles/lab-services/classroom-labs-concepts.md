@@ -78,9 +78,9 @@ There are two types of schedules.
 
 ## Quota
 
-Quota is the limit of time a student may use their VM outside of class.  Allowing time for homework is done by using quota hours.  If no quota is assigned, students can only use their VM during scheduled time or if the educator starts the VM for them.  
+A Quota is the limit of time a lab user can use their VM outside of scheduled lab events.  For example, you can assign quota hours to allow students to complete their homework. If no quota is assigned, lab users can only use their VM during scheduled time, or if the lab creator manually starts a lab VM for them.
 
-Quota hours are counted when the student starts the lab VM themselves.  If an educator manually starts the lab VM for a student, quota hours aren't used for that student.
+When a lab user starts their lab VM, quota hours for the lab start counting. If a lab creator manually starts the lab VM for a user, quota hours aren't used for that student.
 
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
