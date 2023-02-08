@@ -504,7 +504,7 @@ items:
           - name: Monitor Log Analytics workspace health
             displayName: latency
             href: logs/log-analytics-workspace-health.md
-          - name: Monitor logged operational issues
+          - name: Monitor operational issues
             href: logs/monitor-workspace.md     
           - name: Log data ingestion time
             displayName: latency
