@@ -769,8 +769,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
           "-i",
           "filtermodule",
           "sh",
-         
- "-c"
+          "-c"
         ],
         "debuggerPath": "~/vsdbg/vsdbg",
         "pipeCwd": "${workspaceFolder}",

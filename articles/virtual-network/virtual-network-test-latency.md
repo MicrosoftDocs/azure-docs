@@ -150,7 +150,8 @@ Run the following commands:
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
     sudo apt-get install -y libtool
-    sudo yum update
+    sudo apt update
+    sudo apt upgrade
 ```
 
 #### For all distros
