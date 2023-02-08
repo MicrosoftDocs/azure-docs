@@ -33,7 +33,7 @@ Azure Machine Learning has [several required inbound and outbound configurations
 
 In this architecture, you have hub and spoke network architecture. Your spoke vnet has resources for Azure Machine Learning. Hub vnet has a firewall control internet outbound from your virtual networks. In this case, your firewall must allow outbound to required resources and your compute resources in spoke vnet must be able to reach your firewall.
 
-If you use Compute instance with public IP, you need to allow inbound from Azure Machine Learning service tag using Network Security Group (NSG). Azure Machine Learning is owned by Microsoft. We recommend using no public IP option to remove this inbound requirement.
+If you use Compute instance with public IP, you need to allow inbound from Azure Machine Learning service tag using Network Security Group (NSG) with user defined routing to skip your firewall. Azure Machine Learning is owned by Microsoft. We recommend using no public IP option to remove this inbound requirement.
 
 ### DNS resolution of private link resources and application on Compute Instance
 
