@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/26/2023
 ms.author: mbaldwin
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
 ---
@@ -35,7 +35,9 @@ When a managed HSM is created, the requestor also provides a list of data plane 
 Permission model for both planes uses the same syntax, but they're enforced at different levels and role assignments use different scopes. Management plane Azure RBAC is enforced by Azure Resource Manager while data plane Managed HSM local RBAC is enforced by managed HSM itself.
 
 > [!IMPORTANT]
-> Granting a security principal management plane access to an managed HSM does not grant them any access to data plane to access keys or data plane role assignments Managed HSM local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
+> Granting management-plane access to a security principal does **not** grant the security principal data plane access; for instance, a security principal with management-plane access will not automatically have access to keys or data-plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges effecting access to keys stored in Managed HSM. 
+> 
+> There is one exception: members of the Azure Active Directory Global Administrator role are implicitly part of the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM administrator accounts. Please follow [Azure Active Directory best practices for securing the Global Adminstrator role](../../active-directory/roles/best-practices.md#5-limit-the-number-of-global-administrators-to-less-than-5).
 
 For example, a subscription administrator (since they have "Contributor" permission to all resources in the subscription) can delete an managed HSM in their subscription, but if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignment in the managed HSM to grant themselves or others access to data plane.
 

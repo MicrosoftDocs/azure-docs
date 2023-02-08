@@ -12,13 +12,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 04/08/2019
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Upgrade from a previous version to the latest
+
+[!INCLUDE [Choose cloud sync](../../../includes/choose-cloud-sync.md)]
+
 This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release. Microsoft recommends using the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change or upgrade from older 1.x versions.
 
 >[!NOTE]

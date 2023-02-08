@@ -124,7 +124,7 @@ Create a connection using the following values:
 
 ### <a name="configure-connect"></a>To configure additional connection settings (optional)
 
-You can configure additional settings for your connection, if necessary. Otherwise, skip this section and leave the defaults in place.
+You can configure additional settings for your connection, if necessary. Otherwise, skip this section and leave the defaults in place. For more information, see [Configure custom IPsec/IKE connection policies](ipsec-ike-policy-howto.md).
 
 [!INCLUDE [Configure additional connection settings with screenshot](../../includes/vpn-gateway-connection-settings-portal-include.md)]
 

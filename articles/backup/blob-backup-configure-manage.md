@@ -3,7 +3,8 @@ title: Configure operational backup for Azure Blobs
 description: Learn how to configure and manage operational backup for Azure Blobs.
 ms.topic: conceptual
 ms.date: 09/28/2021
-
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Configure operational backup for Azure Blobs
