@@ -10,6 +10,8 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
+  - name: Schedule updates for groups
+    href: quickstart-dynamic-grouping.md
 - name: Concepts
   items:
   - name: Update and maintenance options
