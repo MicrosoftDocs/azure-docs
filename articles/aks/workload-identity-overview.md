@@ -90,14 +90,14 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ### Pod labels
 
+> [!NOTE]
+> For applications using Workload Identity it is now required to add the label 'azure.workload.identity/use: "true"' pod label in order for AKS to move Workload Identity to a "Fail Close" scenario before GA to provide a consistent and reliable behavior for pods that need to use workload identity. 
+
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
 |`azure.workload.identity/use` | Represents the pod is to be used for workload identity. |true |Yes |
 
 ### Pod annotations
-
-> [!NOTE]
-> For applications using Workload Identity it is now required to add the label 'azure.workload.identity/use: "true"' in the pod labels in order for AKS to move Workload Identity to a "Fail Close" scenario before GA to provide a consistent and reliable behavior for pods that need to use workload identity.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|

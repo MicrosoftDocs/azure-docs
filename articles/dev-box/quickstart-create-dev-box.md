@@ -27,7 +27,7 @@ In this quickstart, you will:
 
 ## Prerequisites
 
-- Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+- Permissions as a [Dev Box User](./quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 

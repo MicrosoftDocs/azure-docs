@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
-services: container-service
 ms.topic: tutorial
 ms.date: 01/11/2023
 ---

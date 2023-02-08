@@ -44,7 +44,7 @@ Custom locations and cluster extension are both Azure resources, which are linke
 
 Some resources are unique to the infrastructure. For example, vCenter has a resource pool, network, and template resources. During VM creation, these resources need to be specified. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
 
-To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources. For example, if the Arc resource bridge (preview) has been deleted by accident, all the resources hosted in the Arc resource bridge (preview) are impacted. That is, the custom locations and cluster extensions are deleted as a result. The actual VMs are not impacted, as they are running on vCenter, but the management path to those VMs is interrupted, and you won't be able to start or stop the VM from Azure. It is not recommended to manage or modify the Arc resource bridge (preview) using any on-premises applications directly.
+To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources that are projected in Azure. For example, if the resource bridge is deleted by accident, all the resources projected in Azure by the resource bridge are impacted. The on-premises VMs in your on-premises private cloud are not impacted, as they are running on vCenter but you won't be able to start or stop the VMs from Azure. It is not recommended to directly manage or modify the resource bridge using any on-premises applications.
 
 ## Benefits of Azure Arc resource bridge (preview)
 
@@ -84,7 +84,9 @@ If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used
 
 ### Supported regions
 
-Azure Arc resource bridge currently supports the following Azure regions:
+In order to use Arc resource bridge in a region, Arc resource bridge and the private cloud product must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and Azure Stack HCI must be supported in East US. Please check with the private cloud product for their region availability - it is typically called out in their deployment instructions of Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where private cloud support is not yet available.
+
+Arc resource bridge supports the following Azure regions:
 
 * East US
 * West Europe
@@ -99,19 +101,20 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 ### Private cloud environments
 
-The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
+The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7
+* VMware vSphere version 6.7, 7.0
 * Azure Stack HCI
+* SCVMM
 
 ### Required Azure permissions
 
-* To onboard the Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
-* To read, modify, and delete the Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
+* To onboard Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
+* To read, modify, and delete Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
 
 ### Networking
 
-The Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
 
 You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server.
 

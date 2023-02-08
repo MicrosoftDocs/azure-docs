@@ -80,7 +80,8 @@ To disconnect the Azure Information Protection connector:
 1. In the **Data connectors** blade, in the search bar, type *Azure Information Protection*. 
 1. Select **Azure Information Protection**.
 1. Below the connector description, select **Open connector page**.
-1. Under **Configuration**, select **Disconnect**.
+1. Under **Configuration**, select **Connect Azure Information Protection logs**.
+1. Clear the selection for the workspace from which you want to disconnect the connector, and select **OK**.
 
 ## Known issues and limitations
 

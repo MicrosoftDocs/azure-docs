@@ -7,9 +7,9 @@ metadata:
   title: Azure App Service documentation
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
   ms.topic: landing-page
-  ms.author: msangapu
+  ms.author: app-svc-docs
   ms.service: app-service
-  ms.date: 01/14/2022
+  ms.date: 01/31/2023
 
 landingContent:
   - title: About App Service
@@ -54,10 +54,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Map a custom DNS name
-            url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom DNS name with a TLS/SSL binding
-            url: configure-ssl-bindings.md
+          - text: Secure with custom domain and certificate
+            url: tutorial-secure-domain-certificate.md
           - text: Set up staging environments
             url: deploy-staging-slots.md
       - linkListType: how-to-guide

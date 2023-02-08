@@ -454,6 +454,8 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
 
+If all your data source and sink and self-hosted integration runtime are in on-premises environment, then the copied data will not go to cloud but strictly remain within on-premises.
+
 ## Credentials store
 There are two ways to store the credentials when using self-hosted integration runtime:
 1. Use Azure Key Vault.

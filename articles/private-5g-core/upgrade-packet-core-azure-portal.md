@@ -1,6 +1,6 @@
 ---
 title: Upgrade a packet core instance
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Upgrade the packet core instance in a site - Azure portal
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
+Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
 If your deployment contains multiple sites, we recommend upgrading the packet core in a single site first and ensuring the upgrade is successful before upgrading the packet cores in the remaining sites.
 
@@ -20,6 +20,7 @@ If your deployment contains multiple sites, we recommend upgrading the packet co
 
 - You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## View the current packet core version
 
@@ -61,8 +62,10 @@ In addition, consider the following points for pre- and post-upgrade steps you m
 
 The following list contains the data that will be lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
 
-1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
-1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
+    - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
+    - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
+1. All traces are deleted during upgrade and cannot be retrieved. If you want to retain any traces, [export and save](distributed-tracing-share-traces.md#export-trace-from-the-distributed-tracing-web-gui) them securely before continuing.
 1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
 1. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
@@ -93,8 +96,11 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
 
 Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
-1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
-1. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
+1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
+    
+    - If you use Azure AD, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
+    - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
+
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
 1. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
 
