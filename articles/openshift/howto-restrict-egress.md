@@ -174,7 +174,7 @@ VMUSERNAME=aroadmin
 
 az vm create --name ubuntu-jump \
              --resource-group $RESOURCEGROUP \
-             --ssh-key-values ~/.ssh/id_rsa.pub \
+             --generate-ssh-keys \
              --admin-username $VMUSERNAME \
              --image UbuntuLTS \
              --subnet $JUMPSUBNET \
