@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 02/20/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -15,7 +15,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
-
+- February 2023
+   - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
@@ -49,6 +50,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Multiple backups per day for Azure VMs is now generally available
+
+Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines. For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 
 ## Multi-user authorization using Resource Guard for Backup vault (in preview)
 
