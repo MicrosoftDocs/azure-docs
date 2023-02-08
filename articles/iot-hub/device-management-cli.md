@@ -171,7 +171,7 @@ In this section, you use the second CLI session to invoke a direct method and pr
 
 ## Next steps
 
-To learn how to use Azure CLI to extend your IoT solution and schedule method invocations on devices, see [Schedule and broadcast jobs](cli-cli-schedule-jobs.md).
+To learn how to use Azure CLI to extend your IoT solution and schedule method invocations on devices, see [Schedule and broadcast jobs](schedule-jobs-cli.md).
 
 To continue getting started with IoT Hub and device management patterns, such as end-to-end image-based update, see [Device Update for Azure IoT Hub article using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
 
