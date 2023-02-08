@@ -24,7 +24,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [The alert automatic export to Log Analytics workspace is set to be deprecated](#the-alert-automatic-export-to-log-analytics-workspace-is-set-to-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
-### Deprecation of selected alerts in Defender for ARM bundle
+### Alerts in Defender for ARM bundle are set to be deprecated
+
 **Estimated date for change: March 2023**
 
 In the process of improving our alerts quality, we are going to deprecate three alerts that are currently a part of Defender for ARM plan:
