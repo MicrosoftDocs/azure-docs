@@ -52,13 +52,10 @@
       href: how-to-attribute-mapping.md 
     - name: Use Single Sign-On
       href: how-to-sso.md
-<<<<<<< HEAD
-    - name: Migrate from Azure AD Connect
-      href: migrate-aadc-to-cloud-sync.md
-=======
     - name: Directory extensions and custom attributes
       href: custom-attribute-mapping.md
->>>>>>> cb867207a84b606ccd94441bcca02993c87d488d
+    - name: Migrate from Azure AD Connect
+      href: migrate-aadc-to-cloud-sync.md
   - name: Plan and design
     items:
     - name: Topologies and scenarios for Azure AD Connect cloud sync
