@@ -33,7 +33,7 @@ Here are some of the important considerations with in-place major version upgrad
 
 4. During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
 
-5. Most extensions are automatically upgraded to higher versions during an in-place major version upgrade, with some exceptions. Refer limitations section for more details. 
+5. Most extensions are automatically upgraded to higher versions during an in-place major version upgrade, with some exceptions. Refer **limitations** section for more details. 
 
 6. In-place major version upgrade process for Flexible server automatically deploys the latest supported minor version. 
 
@@ -48,17 +48,17 @@ version of the database instance.
 
 ## Limitations:  
 
-During preview, if in-place major version upgrade pre-check operations fails then it aborts with a detailed error message for all the below limitations.
+During preview, if in-place major version upgrade pre-check operation fail then it aborts with a detailed error message for all the below limitations.
 
-In-place major version upgrade currently does not support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
+In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
 
-In-place major version upgrade does not support certain extensions and there are some limitations to upgrading certain extensions. The extensions Timescaledb, pgaudit, dblink, and postgres_fdw are unsupported for all PostgreSQL versions during preview. 
+In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions Timescaledb, pgaudit, dblink, and postgres_fdw are unsupported for all PostgreSQL versions during preview. 
 
 Upgrading the PostGIS extension is currently unsupported from PostgreSQL 12, while upgrading the orafce extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
 During preview, in-place major version upgrade is currently available in the following regions.  
 
-Servers configured with logical replication slots are not supported. 
+Servers configured with logical replication slots aren't supported. 
 
 ## How to Perform in-place major version upgrade: 
 
@@ -76,7 +76,7 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 
 
-2. You'll see an option to select the major version of your choice, you also have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
+2. You'll see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
 
 
 
@@ -98,7 +98,7 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 
 
-4. Once the upgrade is successful, you'll see the message below. You can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
+4. Once the upgrade is successful,you can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
 
 
 
