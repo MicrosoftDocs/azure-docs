@@ -268,7 +268,6 @@ In this walkthrough, you will learn how to modify the OS image for a node type u
 4) Select the `Node type name` you want to modify
 
 5) Adjust the `OS Image` to the new value you want and select `Apply` at the bottom. 
-![Sample showing changing the OS image][change-os-image]
 
 6) The `Provisioning state` will now show a status of `Updating` and will proceed one upgrade domain at a time. When complete, it will show `Succeeded` again.
 ![Sample showing a node type updating][node-type-updating]
