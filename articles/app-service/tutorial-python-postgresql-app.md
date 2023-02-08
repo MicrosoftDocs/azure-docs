@@ -15,14 +15,14 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 **To complete this tutorial, you'll need:**
 
-* An Azure account with an active subscription exists. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
 
 ## Sample application
 
 Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
 
-To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) install locally. Then, download or clone the app:
+To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app:
 
 ### [Flask](#tab/flask)
 
@@ -38,9 +38,11 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 -----
 
-Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance. The `FLASK_DEBUG` environment variable is optional
+and used to enable debug mode in Flask.
 
 ```
+FLASK_DEBUG=True
 DBNAME=<database name>
 DBHOST=<database-hostname>
 DBUSER=<db-user-name>
@@ -115,8 +117,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack* &rarr; **Python 3.9**.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name is also set by default to appropriate values.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **PostgreSQL - Flexible Server** is selected by default as the database engine. 
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -216,6 +218,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-flask-postgresql-sample-app**.
         1. In **Branch**, select **main**.
+        1. Keep the default option selected to **Add a workflow**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
     :::column-end:::
     :::column:::
@@ -321,7 +324,7 @@ Having issues? Refer first to the [Troubleshooting guide](configure-language-pyt
 
 ### [Flask](#tab/flask)
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run Run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
 
 :::row:::
     :::column span="2":::
@@ -384,7 +387,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Add a few tasks to the list.
+        **Step 2.** Add a few restaurants to the list.
         Congratulations, you're running a secure data-driven Flask app in Azure App Service, with connectivity to Azure Database for PostgreSQL.
     :::column-end:::
     :::column:::
@@ -413,6 +416,7 @@ Azure App Service captures all messages output to the console to help you diagno
         **Step 1.** In the App Service page:
         1. From the left menu, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
+        1. In the top menu, select **Save**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png":::
@@ -475,7 +479,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 #### How much does this setup cost?
 
-Pricing for the create resources is as follows:
+Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The PostgreSQL flexible server is create in the lowest burstable tier **Standard_B1ms**, with the minimum storage size, which can be scaled up or down. See [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
@@ -490,7 +494,7 @@ Pricing for the create resources is as follows:
 
 #### How does local app development work with GitHub Actions?
 
-Take the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates push it to GitHub. For example:
+Using the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates and push to GitHub. For example:
 
 ```terminal
 git add .
