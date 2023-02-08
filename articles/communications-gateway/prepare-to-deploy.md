@@ -10,16 +10,16 @@ ms.date: 01/10/2022
 
 # Prepare to deploy Azure Communications Gateway
 
-This article will guide you through each of the tasks you need to complete before you can deploy Azure Communications Gateway. In order to be successfully deployed, the Azure Communications Gateway has dependencies on the state of your Operator Connect or Teams Phone Mobile environments.
-The following sections describe the information you'll need to collect and the decisions you'll need to make prior to deploying Azure Communications Gateway.
+This article guides you through each of the tasks you need to complete before you can start to deploy Azure Communications Gateway. In order to be successfully deployed, the Azure Communications Gateway has dependencies on the state of your Operator Connect or Teams Phone Mobile environments.
+The following sections describe the information you need to collect and the decisions you need to make prior to deploying Azure Communications Gateway.
 
 ## Prerequisites
 
 You must have signed an Operator Connect agreement with Microsoft. For more information, see [Operator Connect](https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect).
 
-You'll need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you'll need to arrange an onboarding partner yourself.
+You need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
 
-You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
+You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team needs these numbers to configure test lines.
 
 We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
@@ -136,11 +136,11 @@ We recommend you rotate your secrets at least every 70 days for security. For in
 To enable the Azure Communications Gateway service to access the Key Vault, you must grant Admin Consent to the App registration.
 
 1. Request the Admin Consent URL from your onboarding team.
-1. Follow the link. A pop-up window will appear which contains the **Application Name** of the Registered Application. Note down this name.
+1. Follow the link. A pop-up window displays the **Application Name** of the Registered Application. Note down this name.
 
 ### 4.4 Grant your application Key Vault Access
 
-This step must be performed on your Tenant. It will give the Azure Communications Gateway the ability to read the Operator Connect secrets from your tenant.
+This step must be performed on your tenant. It gives Azure Communications Gateway the ability to read the Operator Connect secrets from your tenant.
 
 1. Navigate to the Key Vault in the Azure portal. If you can't locate it, search for Key Vault in the search bar, select **Key vaults** from the results, and select your Key Vault.
 1. Select **Access Policies** on the left hand side menu.
@@ -154,7 +154,7 @@ This step must be performed on your Tenant. It will give the Azure Communication
 
 ## 5. Create a network design
 
-Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You must have two Azure Regions with cross-connect functionality. For more details on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
+Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* that you've been issued. You must have two Azure Regions with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
 To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-communications-services-partner).
     :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
@@ -181,7 +181,7 @@ To configure MAPS, follow the instructions in [Azure Internet peering for Commun
 
 ## 7. Collect Service Regions configuration values
 
-Collect all of the values in the following table for both service regions in which Azure Communications Gateway will run.
+Collect all of the values in the following table for both service regions in which you want to deploy Azure Communications Gateway.
 
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
