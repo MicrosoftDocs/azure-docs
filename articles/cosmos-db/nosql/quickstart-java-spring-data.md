@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Use Spring Datan Azure Cosmos DB v3 to create a document database using Azure Cosmos DB
-description: This quickstart presents a Spring Datan Azure Cosmos DB v3 code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
+title: Quickstart - Use Spring Data Azure Cosmos DB v3 to create a document database using Azure Cosmos DB
+description: This quickstart presents a Spring Data Azure Cosmos DB v3 code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
 ---
 
-# Quickstart: Build a Spring Datan Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data
+# Quickstart: Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
@@ -26,12 +26,12 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and by using a Spring Datan Azure Cosmos DB v3 app cloned from GitHub. First, you create an Azure Cosmos DB for NoSQL account using the Azure portal or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Spring Boot app using the Spring Datan Azure Cosmos DB v3 connector, and then add resources to your Azure Cosmos DB account by using the Spring Boot application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and by using a Spring Data Azure Cosmos DB v3 app cloned from GitHub. First, you create an Azure Cosmos DB for NoSQL account using the Azure portal or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Spring Boot app using the Spring Data Azure Cosmos DB v3 connector, and then add resources to your Azure Cosmos DB account by using the Spring Boot application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 > [!IMPORTANT]  
-> These release notes are for version 3 of Spring Datan Azure Cosmos DB. You can find [release notes for version 2 here](sdk-java-spring-data-v2.md). 
+> These release notes are for version 3 of Spring Data Azure Cosmos DB. You can find [release notes for version 2 here](sdk-java-spring-data-v2.md). 
 >
-> Spring Datan Azure Cosmos DB supports only the API for NoSQL.
+> Spring Data Azure Cosmos DB supports only the API for NoSQL.
 >
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
@@ -56,11 +56,11 @@ You may read more about databases, containers and items [here.](../account-datab
 
 The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. You may read more about throughput provisioning [here.](../set-throughput.md)
 
-As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you are advised to choose a partition key which is relatively random or evenly-distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
+As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you're advised to choose a partition key which is relatively random or evenly distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
 
 ## Create a database account
 
-Before you can create a document database, you need to create a API for NoSQL account with Azure Cosmos DB.
+Before you can create a document database, you need to create an API for NoSQL account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -79,7 +79,7 @@ Before you can create a document database, you need to create a API for NoSQL ac
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it's to work with data programmatically. 
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
@@ -132,13 +132,13 @@ Now go back to the Azure portal to get your connection string information and la
     cd azure-spring-boot-samples/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample
     ```
 
-2. In the git terminal window, use the following command to install the required Spring Datan Azure Cosmos DB packages.
+2. In the git terminal window, use the following command to install the required Spring Data Azure Cosmos DB packages.
 
     ```bash
     mvn clean package
     ```
 
-3. In the git terminal window, use the following command to start the Spring Datan Azure Cosmos DB application:
+3. In the git terminal window, use the following command to start the Spring Data Azure Cosmos DB application:
 
     ```bash
     mvn spring-boot:run
@@ -169,7 +169,7 @@ Once you create an Azure Cosmos DB account, database, and container, just fill-i
 
 #### Java source
 
-The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Datan Azure Cosmos DB.
+The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Data Azure Cosmos DB.
 
 * Item creation and updates by using the `save` method.
 
@@ -183,7 +183,7 @@ The Spring Data value-add also comes from its simple, clean, standardized and pl
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
 
-* Derived query based on repository method name. Spring Data implements the `UserRepository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
+* Derived query based on repository method name. Spring Data implements the `UserRepository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query couldn't be implemented as a point-read):
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
@@ -197,13 +197,13 @@ Now go back to the Azure portal to get your connection string information and la
     cd azure-spring-data-cosmos-java-sql-api-getting-started/azure-spring-data-cosmos-java-getting-started/
     ```
 
-2. In the git terminal window, use the following command to install the required Spring Datan Azure Cosmos DB packages.
+2. In the git terminal window, use the following command to install the required Spring Data Azure Cosmos DB packages.
 
     ```bash
     mvn clean package
     ```
 
-3. In the git terminal window, use the following command to start the Spring Datan Azure Cosmos DB application:
+3. In the git terminal window, use the following command to start the Spring Data Azure Cosmos DB application:
 
     ```bash
     mvn spring-boot:run
@@ -226,8 +226,8 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB for NoSQL account, create a document database and container using the Data Explorer, and run a Spring Data app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB for NoSQL account, create a document database and container using the Data Explorer, and run a Spring Data app to do the same thing programmatically. You can now import more data into your Azure Cosmos DB account. 
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If all you know is the number of scores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
