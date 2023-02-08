@@ -16,7 +16,7 @@ In this article, you learn about configuring identity providers for [authorizati
 * Azure AD provider
 * Generic OAuth 2.0 provider
 
-Use these settings when configuring in authorization provider in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
+You use identity provider settings when configuring in authorization in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
 
 * [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
@@ -26,11 +26,11 @@ To configure any of the providers in API Management, first configure an OAuth 2.
 
 * For the app's Redirect URL (sometimes called Authorization Callback URL or a similar name), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
 
-* Depending on the provider and your scenario, you might need to configure app settings such as scopes (API permissions).
+* Depending on the provider and your scenario, configure app settings such as scopes (API permissions).
     
-* Minimally, retrieve the following information that will be configured in API Management: the app's client ID and client secret.
+* Minimally, retrieve the following information that will be configured in API Management: the app's **client ID** and **client secret**.
 
-    * Depending on the provider and your scenario, you might need other settings such as authorization endpoint URLs or scopes.
+    * Depending on the provider and your scenario, you might need to configure other settings such as authorization endpoint URLs or scopes.
 
     * Property names differ slightly from provider to provider.
 
@@ -41,14 +41,12 @@ Authorizations support the Azure AD identity provider, which is the identity ser
 * **Supported grant types**: authorization code, client credentials
 
 > [!NOTE]
->  Currently, authorizations with the Azure AD provider supports only the Azure AD v1.0 endpoints.
+>  Currently, the Azure AD authorization provider supports only the Azure AD v1.0 endpoints.
  
-
-
 
 ### Azure AD provider settings
     
-    [!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
+[!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
 
 
 ## Generic OAuth 2.0 providers
@@ -66,7 +64,7 @@ A generic provider allows you to use your own OAuth 2.0 identity provider based 
 
 ### Generic authorization provider settings
 
-    [!INCLUDE [api-management-authorization-generic-provider](../../includes/api-management-authorization-generic-provider.md)]
+[!INCLUDE [api-management-authorization-generic-provider](../../includes/api-management-authorization-generic-provider.md)]
 
 ## Other identity providers
 
