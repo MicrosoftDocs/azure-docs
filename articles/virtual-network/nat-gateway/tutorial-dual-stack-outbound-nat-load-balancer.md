@@ -93,11 +93,77 @@ In this section, you'll create a virtual network for the virtual machine and loa
 
 1. Select **Create**.
 
-It will take a few minutes for the bastion host to deploy. You can proceed to the next steps when the virtual network is deployed.
-
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+### Create a resource group
+
+An Azure resource group is a logical container where Azure resources are deployed and managed.
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create).
+
+```azurecli-interactive
+az group create \
+    --name TutorialIPv6NATLB-rg \
+    --location westus2
+```
+
+### Create network and subnets
+
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --location westus2 \
+    --name myVNet \
+    --address-prefixes '10.1.0.0/16'
+```
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the IPv4 subnet for the virtual network and the Azure Bastion subnet. 
+
+```azurecli-interactive
+az network vnet subnet create \
+    --name myBackendSubnet \
+    --resource-group TutorialIPv6NATLB-rg \
+    --vnet-name myVNet \
+    --address-prefixes '10.1.0.0/24'
+```
+
+```azurecli-interactive
+az network vnet subnet create \
+    --name myBackendSubnet \
+    --resource-group TutorialIPv6NATLB-rg \
+    --vnet-name myVNet \
+    --address-prefixes '10.1.1.0/26'
+```
+
+### Create bastion host
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the bastion host.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-Bastion \
+    --sku standard \
+    --zone 1 2 3
+```
+
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myBastion \
+    --public-ip-address myPublicIP-Bastion \
+    --vnet-name myVNet \
+    --location westus2
+```
+
 ---
+
+It will take a few minutes for the bastion host to deploy. You can proceed to the next steps when the virtual network is deployed.
+
 ## Create NAT gateway
 
 The NAT gateway provides the outbound connectivity for the IPv4 portion of the virtual network. Use the following example to create a NAT gateway.
@@ -140,6 +206,36 @@ The NAT gateway provides the outbound connectivity for the IPv4 portion of the v
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IPv4 address for the NAT gateway.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-NAT \
+    --sku standard \
+    --zone 1 2 3
+```
+
+Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create the NAT gateway.
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myNATgateway \
+    --public-ip-addresses myPublicIP-NAT \
+    --idle-timeout 4
+```
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the NAT gateway with **myBackendSubnet**.
+
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group TutorialIPv6NATLB-rg \
+    --vnet-name myVNet \
+    --name myBackendSubnet \
+    --nat-gateway myNATgateway
+```
+
 ---
 
 ## Add IPv6 to virtual network
@@ -168,10 +264,25 @@ The addition of IPv6 to the virtual network must be done after the NAT gateway i
 
 1. Select **Save**.
 
-
-
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to add the IPv6 address space to the virtual network.
+
+```azurecli-interactive
+az network vnet update \
+    --address-prefixes '2404:f800:8000:122::/63' \
+    --name myVNet \
+    --resource-group TutorialIPv6NATLB-rg
+```
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to add the IPv6 subnet to the virtual network.
+
+```azurecli-interactive
+az network vnet subnet update \
+    --address-prefixes '2404:f800:8000:122::/64' \
+    --name myBackendSubnet \
+    --resource-group TutorialIPv6NATLB-rg
+```
 ---
 
 ## Create dual-stack virtual machine
@@ -249,12 +360,77 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
 
 1. Leave the rest of the settings at the defaults and select **OK**.
 
-
-
-
-
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+### Create NSG
+
+Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create a network security group for the virtual machine.
+
+```azurecli-interactive
+az network nsg create \
+    --name myNSG \
+    --resource-group TutorialIPv6NATLB-rg
+```
+
+Use [az network nsg rule create](/azure/network/nsg/rule#az-network-nsg-rule-create) to create a rule for RDP connectivity to the virtual machine.
+
+```azurecli-interactive
+az network nsg rule create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRuleRDP \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 3389 \
+    --access allow \
+    --priority 200
+```
+
+### Create network interface
+
+Use [az network nic create](/azure/network/nic#az_network_nic_create) to create the network interface for the virtual machine.
+
+```azurecli-interactive
+az network nic create \
+    --name 'myNIC' \
+    --resource-group TutorialIPv6NATLB-rg \
+    --subnet myBackendSubnet \
+    --private-ip-address-version IPv4 
+```
+
+### Add IPv6 to network interface
+
+The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](/azure/virtual-network/ip-services/ipv6-overview).
+
+Use [az network nic ip-config create](/azure/network/nic/ip-config#az_network_nic_ip_config_create) to add the IPv6 configuration to the network interface.
+
+```azurecli-interactive
+az network nic ip-config create \
+    --name ipconfig-IPv6 \
+    --nic-name myNIC \
+    --resource-group TutorialIPv6NATLB-rg \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --private-ip-address-version IPv6
+```
+
+### Create the virtual machine
+
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
+
+```azurecli-interactive
+az vm create \
+    --name myVM \
+    --resource-group TutorialIPv6NATLB-rg \
+    --admin-username azureuser \
+    --image Win2022Datacenter \
+    --nics myNIC \
+    --public-ip-address "" \
+    --vnet-name myVNet
+```
 ---
 
 ## Create public load balancer
@@ -361,6 +537,55 @@ Wait for the load balancer to finish deploying before proceeding to the next ste
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IPv6 address for the frontend IP address of the load balancer.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-IPv6 \
+    --sku standard \
+    --zone 1 2 3
+```
+
+Use [az network lb create](/cli/azure/network/lb#az-network-lb-create) to create the load balancer.
+
+```azurecli-interactive
+az network lb create \
+    --name myLoadBalancer \
+    --resource-group TutorialIPv6NATLB-rg \
+    --backend-pool-name myBackendPool \
+    --frontend-ip-name myFrontend-IPv6 \
+    --location westus2 \
+    --public-ip-address myPublicIP-IPv6 \
+    --sku Standard
+```
+
+Use [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-create) to create the outbound rule for the backend pool of the load balancer.  The outbound rule enables outbound connectivity for virtual machines in the backend pool of the load balancer.
+
+```azurecli-interactive
+az network lb-outbound-rule create \
+    --address-pool myBackendPool \
+    --lb-name myLoadBalancer \
+    --name myOutBoundRule \
+    --protocol All \
+    --resource-group TutorialIPv6NATLB-rg \
+    --allocated-outbound-ports 20000 \
+    --enable-tcp-reset true
+```
+
+### Add virtual machine to load balancer
+
+Use [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add) to add the network interface of the virtual machine to the backend pool of the load balancer.
+
+```azurecli-interactive
+az network nic ip-config address-pool add \
+    --address-pool myBackendPool \
+    --ip-config-name ipconfig-IPv6 \
+    --nic-name myNIC \
+    --resource-group TutorialIPv6NATLB-rg \
+    --lb-name myLoadBalancer
+```
+
 ---
 
 ## Validate outbound connectivity
@@ -388,7 +613,42 @@ Before you can validate outbound connectivity, make not of the IPv4, and IPv6 pu
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
 
+Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to obtain the IPv4 and IPv6 public IP addresses.
+
+### IPv4
+
+```azurecli-interactive
+az network public-ip show \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-NAT \
+    --query ipAddress \
+    --output tsv
+```
+
+```output
+
+```
+
+### IPv6
+
+```azurecli-interactive
+az network public-ip show \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-IPv6 \
+    --query ipAddress \
+    --output tsv
+```
+
+```output
+
+```
+
+
 ---
+
+Make note of both IP addresses. You will use them later to verify the outbound connectivity for each stack.
+
+
 
 ### Test connectivity
 
@@ -443,13 +703,13 @@ Before you can validate outbound connectivity, make not of the IPv4, and IPv6 pu
 
 1. You should see the IPv4 address of **20.230.191.5** displayed.
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/powershell-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar, enter **http://v6.testmyipv6.com**
 
 1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/powershell-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
+    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
 1. Close the bastion connection to **myVM**.
 
@@ -467,6 +727,13 @@ When your finished with the resources created in this article, delete the resour
 1. Enter **TutorialIPv6NATLB-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 # [**CLI**](#tab/dual-stack-outbound--cli)
+
+Use [az group delete](/cli/azure/group#az-group-delete) to delete the resource group and the resources it contains.
+
+```azurecli-interactive
+az group delete \
+    --name TutorialIPv6NATLB-rg
+```
 
 ---
 
