@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: keithke
 ms.service: azure-percept
 ms.topic: troubleshooting
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Troubleshoot the Azure Percept DK setup experience
