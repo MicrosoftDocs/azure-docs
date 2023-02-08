@@ -213,7 +213,7 @@ The following is an example of the most restrictive set of inbound rules, denyin
  ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png)
 
 > [!Note]
-> Application Gateway will provide an error asking to ensure the allow LoadBalanceRule is specified if a DenyAll rule inadvertently restricts access to health probes.
+> Application Gateway will display an alert asking to ensure the **Allow LoadBalanceRule** is specified if a **DenyAll** rule inadvertently restricts access to health probes.
 
 
 ## Route Table Control
