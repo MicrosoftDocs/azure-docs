@@ -232,7 +232,7 @@ To test instant global failover:
 
 1. Refresh your browser. This time, you should see an error message.
 
-    :::image type="content" source="../frontdoor/media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
+    :::image type="content" source="../frontdoor/media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped.":::
 
 1. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and you should see the app again.
 
@@ -488,13 +488,13 @@ At this point, your apps are up and running and any changes you make to your app
 
 If you're concerned about potential disruptions or issues with continuity across regions, as in some customers seeing one version of your app while others see another version, or if you're making significant changes to your apps, you can temporarily remove the site that's undergoing the slot swap from your Front Door's origin group. All traffic will then be directed to the other origin. Navigate to the **Update origin group** pane and **Delete** the origin that is undergoing the change. Once you've made all of your changes and are ready to serve traffic there again, you can return to the same pane and select **+ Add an origin** to readd the origin.
 
-:::image type="content" source="./media/tutorial-multi-region-app/removeorigin.png" alt-text="Screenshot showing how to remove an Azure Front Door origin.":::
+:::image type="content" source="./media/tutorial-multi-region-app/remove-origin.png" alt-text="Screenshot showing how to remove an Azure Front Door origin.":::
 
 If you'd prefer to not delete and then readd origins, you can create extra origin groups for your Front Door instance. You can then associate the route to the origin group pointing to the intended origin. For example, you can create two new origin groups, one for your primary region, and one for your secondary region. When your primary region is undergoing a change, associate the route with your secondary region and vice versa when your secondary region is undergoing a change. When all changes are complete, you can associate the route with your original origin group that contains both regions. This method works because a route can only be associated with one origin group at a time.
 
 To demonstrate working with multiple origins, in the following screenshot, there are three origin groups. "MyOriginGroup" consists of both web apps, and the other two origin groups each consist of the web app in their respective region. In the example, the app in the primary region is undergoing a change. Before that change was started, the route was associated with "MySecondaryRegion" so all traffic would be sent to the app in the secondary region during the change period. You can update the route by selecting "Unassociated", which will bring up the **Associate routes** pane.
 
-:::image type="content" source="./media/tutorial-multi-region-app/associateroutes.png" alt-text="Screenshot showing how to associate routes with Azure Front Door.":::
+:::image type="content" source="./media/tutorial-multi-region-app/associate-routes.png" alt-text="Screenshot showing how to associate routes with Azure Front Door.":::
 
 ### How do I restrict access to the advanced tools site?
 
