@@ -42,8 +42,6 @@ This article shows you how to create two Azure CLI sessions:
 
 * An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
-
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
@@ -158,7 +156,7 @@ In this section, you use the second CLI session to invoke a direct method and pr
     *{MethodName}*. The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command.
     
     ```azurecli
-    az iot hub invoke-device-method --device-id {DeviceName} -hub-name {HubName} \
+    az iot hub invoke-device-method --device-id {DeviceName} --hub-name {HubName} \
                                     --method-name {MethodName} \
                                     --method-payload '{ "SamplePayload": "PayloadValue" }'
     ```
