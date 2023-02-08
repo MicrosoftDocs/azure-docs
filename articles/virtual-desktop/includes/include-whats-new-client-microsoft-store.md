@@ -5,6 +5,14 @@ ms.topic: include
 ms.date: 01/03/2023
 ---
 
+## Latest client versions
+
+The following table lists the current version available for the public release:
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 10.2.1810      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+
 ## Updates for version 10.2.1810
 
 *Date published: March 29, 2021*

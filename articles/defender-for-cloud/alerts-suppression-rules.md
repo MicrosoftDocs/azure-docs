@@ -36,7 +36,7 @@ Some examples of how to use suppression rule are:
 
 You can apply suppression rules to management groups or to subscriptions.
 
-- To suppress alerts for a management group, use [Azure Policy](/azure/governance/policy/overview).
+- To suppress alerts for a management group, use [Azure Policy](../governance/policy/overview.md).
 - To suppress alerts for subscriptions, use the Azure portal or the [REST API](#create-and-manage-suppression-rules-with-the-api).
 
 Alert types that were never triggered on a subscription or management group before the rule was created won't be suppressed.

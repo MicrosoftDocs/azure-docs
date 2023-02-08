@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 9/15/2022
+ms.date: 1/11/2023
 ms.author: austinmc
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to optimize my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
@@ -36,7 +36,7 @@ For more information, see [Validate your content](ci-cd-custom-content.md#valida
 
 ## Customize the workflow or pipeline
 
-The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -158,13 +158,13 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, you can [use a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). You can then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
  
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-1. Is there a mapping in the sentinel-deployment.config? [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration) to learn more.
-1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with .parameters-<WorkspaceID>.json
-1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with .parameters.json
+1. Is there a mapping in the *sentinel-deployment.config*? [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration) to learn more.
+1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
+1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with *.parameters.json*
      
 It is encouraged to map your parameter files through through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
 
@@ -172,7 +172,7 @@ It is encouraged to map your parameter files through through the configuration f
 > Once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file will also trigger a deployment of the paired content file(s) along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<WorkspaceID\>.json* file or *.parameters.json* file will also trigger a deployment of the paired content file(s) along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 ## Customize your connection configuration
 

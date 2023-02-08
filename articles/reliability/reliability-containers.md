@@ -221,7 +221,4 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 > [Azure Cache for Redis Premium service tiers](../container-instances/availability-zones.md#next-steps)
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/overview)
-
-
-
+> [Reliability in Azure](./overview.md)

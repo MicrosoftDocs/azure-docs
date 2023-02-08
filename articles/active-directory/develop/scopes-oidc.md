@@ -4,7 +4,6 @@ description: Learn about openID connect scopes and permissions in the Microsoft 
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity

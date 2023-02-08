@@ -38,7 +38,7 @@ Select your instance from the results to see these details in the Overview for y
 
 Follow the instructions below if you intend to use the Azure CLI while following this guide.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create an endpoint for Azure Digital Twins
 

@@ -2,9 +2,7 @@
 title: 'Configure BGP for VPN Gateway: CLI'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for VPN gateways using CLI.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/09/2023
@@ -27,7 +25,7 @@ Each part of this article helps you form a basic building block for enabling BGP
 
 You can combine these sections to build a more complex multihop transit network that meets your needs.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## <a name ="enablebgp"></a>Enable BGP for the VPN gateway
 

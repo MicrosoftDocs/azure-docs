@@ -120,9 +120,15 @@ sections:
           The browser caches the certificate after the certificate picker appears. If the user retries, the cached certificate is used automatically. The user should close the browser, and reopen a new session to try CBA again.          
 
       - question: |
-          Why can't single-factor certificates be used to complete MFA?
+          Why does not proof up for registering other auth methods come up when I use single factor certificates?
         answer: |
-          There's no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
+          A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods and should have MFA via another method to register other available auth methods.
+          
+      - question: |
+          How can I use single-factor certificates to complete MFA?
+        answer: |
+          We have support for single factor CBA to get MFA. CBA SF + PSI (passwordless phone sign in) and CBA SF + FIDO2 are the two supported combinations to get MFA using single factor certificates.
+          [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?

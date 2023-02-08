@@ -4,9 +4,9 @@ description: Restore an Azure virtual machine from a recovery point by using the
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 12/06/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # How to restore Azure VM data in Azure portal
 

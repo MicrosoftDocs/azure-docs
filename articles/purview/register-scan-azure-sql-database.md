@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 01/10/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -464,6 +464,10 @@ You can [browse through the data catalog](how-to-browse-catalog.md) or [search t
 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows lineage details from stored procedures.":::
+
+    When applicable, you can further drill down to see the lineage at SQL statement level within a stored procedure, along with column level lineage. When using Self-hosted Integration Runtime for scan, retrieving the lineage drilldown information during scan is supported since version 5.25.8374.1.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-drilldown.png" alt-text="Screenshot that shows stored procedure lineage drilldown.":::
 
     For information about supported Azure SQL Database lineage scenarios, refer to the [Supported capabilities](#supported-capabilities) section of this article. For more information about lineage in general, see [Data lineage in Microsoft Purview](concept-data-lineage.md) and [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md).
 

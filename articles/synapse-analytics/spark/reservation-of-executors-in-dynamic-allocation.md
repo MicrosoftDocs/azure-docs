@@ -72,7 +72,7 @@ In scenarios where multiple users try to run multiple spark jobs in a given Syna
 ---
 
 ## Next steps
-- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal)
-- [What is Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
-- [Automatically scale Azure Synapse Analytics Apache Spark pools](/azure/synapse-analytics/spark/apache-spark-autoscale)
-- [Azure Synapse Analytics](/azure/synapse-analytics)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-create-apache-spark-pool-portal.md)
+- [What is Apache Spark in Azure Synapse Analytics](./apache-spark-overview.md)
+- [Automatically scale Azure Synapse Analytics Apache Spark pools](./apache-spark-autoscale.md)
+- [Azure Synapse Analytics](../index.yml)
