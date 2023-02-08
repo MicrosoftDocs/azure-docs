@@ -37,7 +37,7 @@ You can learn more details about each of these alerts from the [alerts reference
 
 In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for ARM plan alert `Azure Resource Manager operation from suspicious IP address` or ' Azure Resource Manager operation from suspicious proxy IP address' will be presented.
 
-### The alert automatic export to Log Analytics workspace is set to be deprecated
+### Alerts automatic export to Log Analytics workspace is set to be deprecated
 
 **Estimated date for change: March 2023**
 
