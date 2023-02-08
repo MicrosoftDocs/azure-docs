@@ -46,6 +46,20 @@ Here are some of the important considerations with in-place major version upgrad
 10. Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous 
 version of the database instance. 
 
+## Limitations:  
+
+During preview, if in-place major version upgrade pre-check operations fails then it aborts with a detailed error message for all the below limitations.
+
+In-place major version upgrade currently does not support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
+
+In-place major version upgrade does not support certain extensions and there are some limitations to upgrading certain extensions. The extensions Timescaledb, pgaudit, dblink, and postgres_fdw are unsupported for all PostgreSQL versions during preview. 
+
+Upgrading the PostGIS extension is currently unsupported from PostgreSQL 12, while upgrading the orafce extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
+
+During preview, in-place major version upgrade is currently available in the following regions.  
+
+Servers configured with logical replication slots are not supported. 
+
 ## How to Perform in-place major version upgrade: 
 
 It's recommended to perform a dry run of the in-place major version upgrade in a non-production environment before upgrading the production server. It allows you to identify any application incompatibilities and validate that the upgrade completes successfully before upgrading the production environment. You can perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment. Addressing these issues before the production upgrade minimizes downtime and ensures a smooth upgrade process. 
