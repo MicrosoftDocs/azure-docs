@@ -212,6 +212,6 @@ The Sample log for an event instance is shown in the below section.
 }
 ```
 
-## Next steps
+## Next steps 
 
 [Elastic data map in Microsoft Purview](concept-elastic-data-map.md)
