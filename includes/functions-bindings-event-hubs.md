@@ -122,7 +122,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
     "extensions": {
         "eventHubs": {
             "maxEventBatchSize" : 10,
-            "batchCheckpointFrequency" : 5,
+            "batchCheckpointFrequency" : 1,
             "prefetchCount" : 300,
             "transportType" : "amqpWebSockets",
             "webProxy" : "https://proxyserver:8080",
@@ -170,7 +170,7 @@ For a reference of host.json in Azure Functions 2.x and beyond, see [host.json r
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "batchCheckpointFrequency": 5,
+            "batchCheckpointFrequency": 1,
             "eventProcessorOptions": {
                 "maxBatchSize": 256,
                 "prefetchCount": 512
