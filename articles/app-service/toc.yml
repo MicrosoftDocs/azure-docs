@@ -42,7 +42,7 @@
   items:
     - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
-    - name: Create multi-region app
+    - name: Multi-region app
       href: tutorial-multi-region-app.md
     - name: App with DB
       items:
