@@ -3,7 +3,7 @@ title: Azure Large Instances high availability for SAP on RHEL
 description: Learn how to automate an SAP HANA database failover using a Pacemaker cluster in Red Hat Enterprise Linux.
 author: jaawasth
 ms.author: jaawasth
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: how-to
 ms.date: 04/19/2021
 ---
