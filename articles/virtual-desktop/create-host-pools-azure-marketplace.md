@@ -79,14 +79,18 @@ To start creating your new host pool:
    >[!NOTE]
    > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-dont-see-the-azure-region-i-want-to-use-when-selecting-the-location-for-my-service-objects) troubleshooting article.
 
-8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
+8. Select **no** under **Validation environment** as this is not required for this step, we will explore this option in a later tutorial. 
+
+9. Select **Desktop** in the drop-down list for **Preferred app group type**
+
+10. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
     - If you choose **Personal**, then select either **Automatic** or **Direct** in the Assignment Type field.
 
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the assignment type field drop-down menu. The user has selected Automatic.](media/assignment-type-field.png)
 
-9.  If you choose **Pooled**, enter the following information:
+11.  If you choose **Pooled**, enter the following information:
 
      - For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host.
      - For **Load balancing algorithm**, choose either breadth-first or depth-first, based on your usage pattern. Learn more about what each of these options means at [Host pool load-balancing methods](host-pool-load-balancing.md).
@@ -94,11 +98,11 @@ To start creating your new host pool:
        > [!div class="mx-imgBorder"]
        > ![A screenshot of the assignment type field with "Pooled" selected. The User is hovering their cursor over Breadth-first on the load balancing drop-down menu.](media/pooled-assignment-type.png)
 
-10. Select **Next: Virtual Machines >**.
+12. Select **Next: Virtual Machines >**.
 
-11. If you've already created virtual machines and want to use them with the new host pool, select **No**, select **Next: Workspace >** and jump to the [Workspace information](#workspace-information) section. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
+13. If you've already created virtual machines and want to use them with the new host pool, select **No**, select **Next: Workspace >** and jump to the [Workspace information](#workspace-information) section. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
  
-12. Once you create your host pool, you can get the host pool's registration key by going to the host pool's **Overview** page and selecting **Registration key**. Use this key when adding virtual machines created outside of Azure Virtual Desktop to your host pool.
+14. Once you create your host pool, you can get the host pool's registration key by going to the host pool's **Overview** page and selecting **Registration key**. Use this key when adding virtual machines created outside of Azure Virtual Desktop to your host pool.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot showing the registration key option in the host pool overview blade, highlighted with a red border.](media/registration-key-host-pool-page.png)
