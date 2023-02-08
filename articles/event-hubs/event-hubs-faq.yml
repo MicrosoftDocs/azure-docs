@@ -23,9 +23,9 @@ sections:
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           
-          - You need an Event Hub associated with a new region.
-          - You need an Event Hub associated with a different subscription.
-          - You need an Event Hub with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
+          - You need an Event Hubs associated with a new region.
+          - You need an Event Hubs associated with a different subscription.
+          - You need an Event Hubs with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
           
       - question: |
           What is the difference between Event Hubs Basic and Standard tiers?
