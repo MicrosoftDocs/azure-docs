@@ -59,7 +59,7 @@ landingContent:
           - text: Find then open device
             url: find-then-open-device.md
           - text: Retrieve image data
-            url: about-sensor-sdk.md
+            url: retrieve-images.md
           - text: Access microphone
             url: access-mics.md
           - text: Record and playback
