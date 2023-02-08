@@ -32,7 +32,7 @@ Customers can now access the MedTech service in Qatar Central.
 
 **Added support for `ModalitiesInStudy` attribute**
 
-The DICOM service now supports`ModalitiesInStudy` as a [searchable attribute] (https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
+The DICOM service now supports `ModalitiesInStudy` as a [searchable attribute](dicom/dicom-services-conformance-statement.md#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
 
 
 **Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
