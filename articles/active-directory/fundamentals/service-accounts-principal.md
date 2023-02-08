@@ -95,7 +95,7 @@ To assess the security, evaluate privileges and credential storage. Use the foll
 
 |Challenge | Mitigation|
 | - | - |
-| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | - Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`</br> - Disable user consent <li>Allow user consent from verified publishers, for selected permissions (recommended) </br> - Configure them in the user context </br> - Use their tokens to trigger the service principal|
+| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | - Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`</br> - Disable user consent </br> - Allow user consent from verified publishers, for selected permissions (recommended) </br> - Configure them in the user context </br> - Use their tokens to trigger the service principal|
 |Use of a hard-coded shared secret in a script using a service principal|Use a certificate|
 |Tracking who uses the certificate or the secret| Monitor the service principal sign-ins using the Azure AD sign-in logs|
 |Can't manage service principal sign-in with Conditional Access| Monitor the sign-ins using the Azure AD sign-in logs
