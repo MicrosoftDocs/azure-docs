@@ -209,31 +209,18 @@ The following JSON document is an example of the SQL managed instance - Azure Ar
 { 
 
         "customObjectName": "<resource type>-2020-29-5-23-13-17-164711", 
-
         "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373", 
-
         "instanceName": "sqlInstance001", 
-
         "instanceNamespace": "arc", 
-
         "instanceType": "<resource>", 
-
         "location": "eastus", 
-
         "resourceGroupName": "production-resources", 
-
         "subscriptionId": "<subscription_id>", 
-
         "isDeleted": false, 
-
         "externalEndpoint": "32.191.39.83:1433", 
-
         "vCores": "2", 
-
         "createTimestamp": "05/29/2020 23:13:17", 
-
         "updateTimestamp": "05/29/2020 23:13:17" 
-
     } 
 ```
 
@@ -247,50 +234,71 @@ Billing data captures the start time (“created”) and end time (“deleted”
 
 ```json
 { 
-
-          "requestType": "usageUpload", 
-
-          "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d", 
-
-          "name": "DataControllerTestName", 
-
-          "subscriptionId": "<subscription_id>", 
-
-          "resourceGroup": "production-resources", 
-
-          "location": "eastus", 
-
-          "uploadRequest": { 
-
-            "exportType": "usages", 
-
-            "dataTimestamp": "2020-06-17T22:32:24Z", 
-
-            "data": "[{\"name\":\"sqlInstance001\", 
-
-                       \"namespace\":\"arc\", 
-
-                       \"type\":\"<resource type>\", 
-
-                       \"eventSequence\":1,  
-
-                       \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\", 
-
-                       \"startTime\":\"2020-06-17T19:11:47.7533333\", 
-
-                       \"endTime\":\"2020-06-17T19:59:00\", 
-
-                       \"quantity\":1, 
-
-                       \"id\":\"<subscription_id>\"}]", 
-
-           "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK" 
-
+    "requestType": "usageUpload", 
+    "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d", 
+    "name": "DataControllerTestName", 
+    "subscriptionId": "<subscription_id>", 
+    "resourceGroup": "production-resources", 
+    "location": "eastus", 
+    "uploadRequest": { 
+    "exportType": "usages", 
+    "dataTimestamp": "2020-06-17T22:32:24Z", 
+    "data": 
+        "[{\"name\":\"sqlInstance001\", 
+        \"namespace\":\"arc\", 
+        \"type\":\"<resource type>\", 
+        \"eventSequence\":1,  
+        \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\", 
+        \"startTime\":\"2020-06-17T19:11:47.7533333\", 
+        \"endTime\":\"2020-06-17T19:59:00\", 
+        \"quantity\":1, 
+        \"id\":\"<subscription_id>\"}]", 
+        "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK" 
 ```
 
 ### Arc-enabled SQL Server
 
-Billing data captures the start time (“created”) and end time (“deleted”) of a given connected SQL Server instance, as well as any start and time whenever a change in the number of cores available to a given instance on a virtrual or physical machine. 
+Billing data captures a snapshot of the SQL Server instance properties as well as the machine properties every hour and compose the usage upload payload to report usage. There is a snapshot time in the payload for each SQL Server  instance. 
+
+```json
+{
+    "hostType": "Unknown",
+    "osType": "Windows",
+    "manufacturer": "Microsoft",
+    "model": "Hyper-V",
+    "isVirtualMachine": true,
+    "serverName": "TestArcServer",
+    "serverId": "<server id>",
+    "location": "eastus",
+    "timestamp": "2021-07-08T01:42:15.0388467Z",
+    "uploadRequest": {
+        "exportType": "usages",
+        "dataTimestamp": "2020-06-17T22:32:24Z",
+        "data": 
+            "[{\"hostType\":\"VirtualMachine\",
+            \"numberOfCores\":4,
+            \"numberOfProcessors\":1,
+            \"numberOfLogicalProcessors\":4,
+            \"subscriptionId\":\"<subscription id>\",\"resourceGroup\":\"ArceeBillingPipelineStorage_Test\",
+            \"location\":\"eastus2euap\",
+            \"version\":\"Sql2019\",
+            \"edition\":\"Enterprise\",
+            \"editionOriginalString\":\"Enterprise Edition: Core based licensing\",
+            \"coreInfoOriginalString\":\"using 16 logical processors based on SQL Server licensing\",
+            \"vCore\":4,
+            \"instanceName\":\"INSTANCE01\",
+            \"licenseType\":\"LicenseOnly\",
+            \"hostLicenseType\":\"Paid\",
+            \"instanceLicenseType\":\"Paid\",
+            \"serverName\":\"TestArcServer\",
+            \"isRunning\":false,
+            \"eventId\":\"00000000-0000-0000-0000-000000000000\",
+            \"snapshotTime\":\"2020-06-17T19:59:00\",
+            \"isAzureBilled\":\"Enabled\",
+            \"hasSoftwareAssurance\":\"Undefined\"}]"
+    }
+}
+```
 
 ## Diagnostic data
 
