@@ -88,7 +88,7 @@ Use the Docker documentation to install on your development machine:
 
 * [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
 
-  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. This decision can be changed at any time using an easy switch. For this tutorial, we use Linux containers because our modules are targeting Linux devices. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. This decision can be changed at any time. For this tutorial, we use Linux containers because our modules are targeting Linux devices. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
 
