@@ -27,7 +27,7 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/inde
 
 ## Install extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app: 
+The extension NuGet package you install depends on the C# mode you're using in your function app:
 
 # [In-process](#tab/in-process)
 
@@ -59,15 +59,15 @@ You can install this version of the extension in your function app by registerin
 
 ---
 
-::: zone-end 
+::: zone-end
 
 
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 
-## Install bundle    
+## Install bundle
 
-The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
 
 
 # [Preview Bundle v4.x](#tab/extensionv4)
@@ -93,7 +93,7 @@ Azure SQL bindings for Azure Functions aren't available for the v3 version of th
 ::: zone-end
 
 
-::: zone pivot="programming-language-python"  
+::: zone pivot="programming-language-python"
 
 ## Functions runtime
 
@@ -103,7 +103,7 @@ Azure SQL bindings for Azure Functions aren't available for the v3 version of th
 
 ## Install bundle
 
-The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
@@ -145,12 +145,12 @@ Support for Python durable functions with SQL bindings isn't yet available.
 ::: zone-end
 
 
-::: zone pivot="programming-language-java"  
+::: zone pivot="programming-language-java"
 
 
 ## Install bundle
 
-The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
@@ -188,7 +188,7 @@ Add the Java library for SQL bindings to your functions project with an update t
 
 ## SQL connection string
 
-Azure SQL bindings for Azure Functions have a required property for connection string on both [input](./functions-bindings-azure-sql-input.md) and [output](./functions-bindings-azure-sql-output.md) bindings. SQL bindings passes the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  Notable keywords include:
+Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  Notable keywords include:
 
 - `Authentication` allows a function to connect to Azure SQL with Azure Active Directory, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
 - `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)

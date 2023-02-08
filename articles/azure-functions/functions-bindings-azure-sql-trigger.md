@@ -9,6 +9,8 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
+::: zone pivot="programming-language-csharp"
+
 # Azure SQL trigger for Functions (preview)
 
 > [!NOTE]
@@ -18,10 +20,27 @@ The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track
 
 For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
-## Example usage
-<a id="example"></a>
+## Functionality Overview
 
-::: zone pivot="programming-language-csharp"
+The Azure SQL Trigger binding uses a polling loop to check for changes, triggering the user function when changes are detected. At a high level the loop looks like this :
+
+```
+while (true) {
+    1. Get list of changes on table - up to a maximum number controlled by the Sql_Trigger_MaxBatchSize setting
+    2. Trigger function with list of changes
+    3. Wait for delay controlled by Sql_Trigger_PollingIntervalMs setting
+}
+```
+
+Changes will always be processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about this :
+
+1. If changes to multiple rows are made at once the exact order that they'll be sent to the function is based on the order returned by the CHANGETABLE function
+2. Changes are "batched" together for a row - if multiple changes are made to a row between each iteration of the loop than only a single change entry will exist for that row that shows the difference between the last processed state and the current state
+3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows then the half that wasn't changed a second time will be processed first. This is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
+
+See [Work with change tracking](https://learn.microsoft.com/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it is used by applications such as Azure SQL triggers.
+
+## Example usage
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
@@ -98,24 +117,21 @@ Isolated worker process isn't currently supported.
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-csharp"
-## Attributes 
+
+## Attributes
 
 The [C# library](functions-dotnet-class-library.md) uses the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute to declare the SQL trigger on the function, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | Required. The name of the table being monitored by the trigger.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.| 
-
-
-::: zone-end
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.|
 
 ## Configuration
 
 <!-- ### for another day ###
-::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"  
+::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
 
 
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -124,12 +140,11 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end -->
 
-
 In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
 
 | App Setting | Description|
 |---------|---------|
-|**Sql_Trigger_BatchSize** |This controls the number of changes processed at once before being sent to the triggered function. The default value is 100.|
+|**Sql_Trigger_MaxBatchSize** |This controls the maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|This controls the delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
 |**Sql_Trigger_MaxChangesPerWorker**|This controls the upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
@@ -175,3 +190,5 @@ Optionally, your functions can scale automatically based on the amount of change
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+
+::: zone-end
