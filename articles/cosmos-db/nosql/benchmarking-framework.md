@@ -221,6 +221,9 @@ Now, you use an [Azure Resource Manager template](../../azure-resource-manager/t
 
 1. Wait for the deployment to complete.
 
+    > [!TIP]
+    > The deployment can take 5-10 minutes to complete.
+
 ### [Azure portal](#tab/azure-portal)
 
 1. TODO
@@ -229,7 +232,7 @@ Now, you use an [Azure Resource Manager template](../../azure-resource-manager/t
 
 ## View results of the benchmark
 
-TODO: <!-- A short sentence or two. -->
+Now, you can use the Azure Storage account you created earlier to check the status of the benchmark job and view the aggregated results. The status is stored using a storage table and the results are aggregated into a storage blob using the CSV format.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -244,12 +247,12 @@ TODO: <!-- A short sentence or two. -->
 
 1. Observe the results of this query. The results should return a single job with `JobStartTime`, `JobStatus`, and `JobFinishTime` properties. Initially, the status of the job is `Started` and it includes a timestamp in the `JobStartTime` property but not the `JobFinishTime` property.
 
-    ```json
+    ```output
     {
       "items": [
         {
           "JobFinishTime": "",
-          "JobStartTime": "2023-02-08T13:59:42Z",
+          "JobStartTime": "2023-02-02T13:59:42Z",
           "JobStatus": "Started",
           "NoOfClientsCompleted": "0",
           "NoOfClientsStarted": {
@@ -266,8 +269,18 @@ TODO: <!-- A short sentence or two. -->
 
 1. If necessary, run `az storage entity query` multiple times until the job has a status of `Finished` and includes a timestamp in the `JobFinishTime` property.
 
-    ```json
-    
+    ```output
+    {
+      "items": [
+        {
+          "JobFinishTime": "2023-02-02T14:21:12Z",
+          "JobStartTime": "2023-02-02T13:59:42Z",
+          "JobStatus": "Finished",
+          ...
+        }
+      ],
+      ...
+    }
     ```
 
     > [!TIP]
@@ -308,8 +321,9 @@ TODO: <!-- A short sentence or two. -->
 
 1. Observe the results of this query. You should now have a CSV dataset with aggregated results from all the benchmark clients.
 
-    ```json
-    
+    ```output
+    Operation,Count,Throughput,Min(microsecond),Max(microsecond),Avg(microsecond),P9S(microsecond),P99(microsecond)
+    READ,180000,299,706,448255,1079,1159,2867
     ```
 
 ### [Azure portal](#tab/azure-portal)
