@@ -34,7 +34,7 @@ This article describes how to debug API Management policies using the [Azure API
 
 * This feature uses the built-in (service-level) all-access subscription for debugging. The [**Allow tracing**](api-management-howto-api-inspector.md#verify-allow-tracing-setting) setting must be enabled in this subscription.
 
-[!INCLUDE api-management-tracing-alert]
+[!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
 ## Initiate a debugging session
 
