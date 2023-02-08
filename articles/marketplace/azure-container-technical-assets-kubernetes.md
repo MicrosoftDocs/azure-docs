@@ -229,19 +229,19 @@ Complete the following steps to add identifier in the *Per core*, *Per pod*, *Pe
     - If the workload is specified as Deployments or Replicasets or Statefulsets or Daemonsets specs, add this label under **.spec.template.metadata.labels**.
     - If the workload is specified directly as Pod specs, add this label under **.metadata.labels**.
 
-- Add a billing identifier label and cpu cores request to your `deployment.yaml` file.
+
 
     :::image type="content" source="./media/azure-container/billing-depoyment.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article":::
 
-- Add a billing identifier label and cpu cores request to your `statefulsets.yaml` file.
+
 
     :::image type="content" source="./media/azure-container/billing-statefulsets.png" alt-text="A screenshot of a properly formatted billing identifier label in a statefulsets.yaml file. The content resembles the sample statefulsets.yaml file linked in this article":::
 
-- Add a billing identifier label and cpu cores request to your `daemonsets.yaml` file.
+
 
     :::image type="content" source="./media/azure-container/billing-daemonsets.png" alt-text="A screenshot of CPU resource requests in a daemonsets.yaml file. The content resembles the sample daemonsets.yaml file linked in this article.":::
 
-- Add a billing identifier label and cpu cores request to your `pods.yaml` file.
+
 
     :::image type="content" source="./media/azure-container/billing-pods.png" alt-text="A screenshot of CPU resource requests in a pods.yaml file. The content resembles the sample pods.yaml file linked in this article."::: 
 
