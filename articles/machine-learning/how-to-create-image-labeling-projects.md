@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/07/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
@@ -162,7 +162,7 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 After submission of some labels, the classification machine learning model starts to group together similar items. These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler views a grid of four, six, or nine images.
 
-Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This process embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
+Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This process embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks.
 
 The clustering phase doesn't appear for object detection models, or for text classification.
 

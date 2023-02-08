@@ -108,7 +108,7 @@ To add users to your workspace, you must be an owner of the workspace.
 
 ## For your labelers
 
-Now, your labelers can begin labeling in your project. However, they still need information from you to access the project. 
+Now, your labelers can begin labeling in your project. However, they still need information from you to access the project.
 
 Be sure to create your labeling project before you contact your labelers.
 
@@ -120,7 +120,7 @@ Send the following information to your labelers, after you fill in your workspac
 1. Accept the invite from **Microsoft Invitations (invites@microsoft.com)**.
 1. Follow the steps on the web page after you accept. Don't worry if, at the end, you find yourself on a page that says you don't have any apps.
 1. Open [Azure Machine Learning studio](https://ml.azure.com).
-1. Use the dropdown to select the workspace **\<workspace-name\>**. 
+1. Use the dropdown to select the workspace **\<workspace-name\>**.
 1. Select the **Label data** tool for **\<project-name\>**.
     :::image type="content" source="media/how-to-add-users/label-data.png" alt-text="Screenshot showing the label data tool.":::
 1. For more information about how to label data, see [Labeling images and text documents](how-to-label-data.md).
