@@ -47,7 +47,7 @@ Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-
 
 ## Template virtual machine
 
-You can choose to create a customizable lab, which enables you to modify the base image for the lab VMs. For example, to install additional software components are modify operating system settings. In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize.
+You can choose to create a customizable lab, which enables you to modify the base image for the [lab VMs](#lab-virtual-machine). For example, to install additional software components are modify operating system settings. In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize.
 
 When you [publish the lab](./tutorial-setup-lab-plan.md#publish-lab), Azure Lab Services creates the lab VMs, based on the the template VM image. If you modify the template VM at a later stage, the lab VMs will be updated to match the new template.
 
@@ -57,12 +57,11 @@ Learn how to [create and manage a template in Azure Lab Services](./how-to-creat
 
 ## Lab virtual machine
 
+In Azure Lab Services, lab VMs are managed virtual machines that get their configuration from the [lab](#lab). All VMs for a lab are identical. Azure Lab Services provisions the lab VMs when you publish the lab.
 
-Share configuration from lab
+After provisioning the lab VMs, lab users can connect to their VM through remote desktop (RDP) or secure shell (SSH). Before they can connect to the lab VM, lab users have to first [register for the lab](./how-to-use-lab.md) by using a registration link. Azure Lab Services then assigns the user to a specific lab VM.
 
-
-Lab users can then register for the lab and connect to their VM through remote desktop (RDP) or secure shell (SSH).
-
+In the lab settings, you can [configure one or more schedules](./how-to-create-schedules.md) to automatically start and stop the lab VMs. For example, for a course, you might create a schedule that matches the course start and end time. Depending on their [user quota](./how-to-configure-student-usage.md#set-quotas-for-users), lab users can manually start their lab VM outside the scheduled events.
 
 ## Schedules
 
