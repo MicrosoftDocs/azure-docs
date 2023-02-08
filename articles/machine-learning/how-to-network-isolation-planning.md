@@ -13,9 +13,9 @@ ms.topic: how-to
 ms.custom: 
 ---
 
-In this article, you learn how to plan your network isolation for Azure Machine Learning and our recommendations. This is a document for IT administrators who want to design network architecutre.
+In this article, you learn how to plan your network isolation for Azure Machine Learning and our recommendations. This is a document for IT administrators who want to design network architecture.
 
-## Demistify key considrations
+## Demystify key considerations
 
 ### Azure Machine Learning has both IaaS and PaaS resources
 
@@ -23,17 +23,17 @@ Azure Machine Learning's network isolation involves both Platform as a Service (
 
 ![vnet and private endpoints](media/how-to-network-isolation-planning/network1.png)
 
-In this architecture, Compute Instances, Compute Clusters, and AKS Clusters are located within your virtual network. They can access the Azure Machine Learning workspace or storage using a private endpoint. You can use service endpoint only for Storage and Key Vault because others do not support service endpoint.
+In this architecture, Compute Instances, Compute Clusters, and AKS Clusters are located within your virtual network. They can access the Azure Machine Learning workspace or storage using a private endpoint. You can use the service endpoint only for Storage and Key Vault because others do not support service endpoint.
 
 ### Required inbound and outbound configurations
 
-Azure Machine Learning has [several required inbound and outbound configurations](https://learn.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall) with your virtual network. If you have a standalone virtual network, configuration is straightforward with your network security group. However, most likely you have hub-spoke or mesh network architecture, firewall, network virtual appliance, proxy and user defined routing. Make sure to allow inbound and outbound with your network security components.
+Azure Machine Learning has [several required inbound and outbound configurations](https://learn.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall) with your virtual network. If you have a standalone virtual network, configuration is straightforward with your network security group. However, most likely you have hub-spoke or mesh network architecture, firewall, network virtual appliance, proxy, and user defined routing. Make sure to allow inbound and outbound with your network security components.
 
 ![simple network with inbound and outbound](media/how-to-network-isolation-planning/network2.png)
 
-In this architecture, you have hub and spoke network architecture. Your spoke vnet has resources for Azure Machine Learning. Hub vnet has a firewall control internet outbound from your virtual networks. In this case, your firewall must allow outbound to required resources and your compute resources in spoke vnet must be able to reach your firewall.
+In this architecture, you have hub and spoke network architecture. Your spoke vnet has resources for Azure Machine Learning. Hub vnet has a firewall that control internet outbound from your virtual networks. In this case, your firewall must allow outbound to required resources and your compute resources in spoke vnet must be able to reach your firewall.
 
-If you use Compute instance with public IP, you need to allow inbound from Azure Machine Learning service tag using Network Security Group (NSG) with user defined routing to skip your firewall. Azure Machine Learning is owned by Microsoft. We recommend using no public IP option to remove this inbound requirement.
+If you use Compute instance with public IP, you need to allow inbound from Azure Machine Learning service tag using Network Security Group (NSG) and user defined routing to skip your firewall. Azure Machine Learning is owned by Microsoft. We recommend using no public IP option to remove this inbound requirement.
 
 ### DNS resolution of private link resources and application on Compute Instance
 
@@ -45,7 +45,7 @@ We have two types of outbound; read only and read/write. Read only outbound cann
 
 ![simple network with data exfiltration prevention](media/how-to-network-isolation-planning/network3.png)
 
-Compute instance and cluster need to access Azure Machine Learning managed storage accounts to get set-up scripts. Instead of opening the outbound to storage, you can use service endpoint poilicy with Azrue Machine Learning alias to allow the storage access only to Azure Machine Learning storage accounts.
+Compute instance and cluster need to access Azure Machine Learning managed storage accounts to get set-up scripts. Instead of opening the outbound to storage, you can use service endpoint policy with Azure Machine Learning alias to allow the storage access only to Azure Machine Learning storage accounts.
 
 ### Managed Online Endpoint
 
@@ -53,10 +53,9 @@ Managed Online Endpoint has built-in network isolation without your Vnet. If you
 
 ![](https://learn.microsoft.com/en-us/azure/machine-learning/media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png)
 
-
 ### Private IP address shortage in your main network
 
-Azure Machine Learning requries private IPs; one IP per compute instance, compute cluster node, private endpoint. You need material number of IPs if you use AKS. Your hub-spoke network connected with your on-premises might not have enough private IP address spaces. You can have isolated, not-peered VNet for your Azure Machine Learning resources.
+Azure Machine Learning requires private IPs; one IP per compute instance, compute cluster node, private endpoint. You need material number of IPs if you use AKS. Your hub-spoke network connected with your on-premises might not have enough private IP address spaces. You can have isolated, not-peered VNet for your Azure Machine Learning resources.
 
 ![two vnet attached to workspace](media/how-to-network-isolation-planning/network4.png)
 
@@ -66,7 +65,7 @@ With this architecture, your main VNet requires the IPs for private endpoints. Y
 
 ## Recommended Architecture
 
-This is an recommended architecture to make all resources private but allow outbound internet access from your Vnet. This is the option to balance your network security and your ML engineers' productivity.
+This is a recommended architecture to make all resources private but allow outbound internet access from your Vnet. This is the option to balance your network security and your ML engineers' productivity.
 
 ![private recommended architecture](media/how-to-network-isolation-planning/network5.png)
 
@@ -80,14 +79,16 @@ If you want to remove a firewall requirement, you can use NSG and [Azure virtual
 
 ### Using public workspace
 
-You can use public Azure Machine Learning workspace if you are fine only with Azure AD authentication and authrication with conditional access. Note that workspace has some features to show data in your private storage account and we recommend using private workspace.
+You can use public Azure Machine Learning workspace if you are fine only with Azure AD authentication and authrication with conditional access. Note that the workspace has some features to show data in your private storage account and we recommend using private workspace.
 
 ## Recommended Architecture with Data Exfiltration Prevention
 
-This is an recommende architecture to make all resources private and control outbound destinations to prevent data exfiltration. This is the option to use Azure Machine Learning with your sensitive data in production.
+This is a recommende architecture to make all resources private and control outbound destinations to prevent data exfiltration. This is the option to use Azure Machine Learning with your sensitive data in production.
 
 ![recommended with dep](media/how-to-network-isolation-planning/network6.png)
 
 ### Using public workspace
 
-You can use public Azure Machine Learning workspace if you are fine only with Azure AD authentication and authrication with conditional access. Note that workspace has some features to show data in your private storage account and we recommend using private workspace.
+You can use the public Azure Machine Learning workspace if you are fine only with Azure AD authentication and authorization with conditional access. Note that the workspace has some features to show data in your private storage account and we recommend using private workspace.
+
+
