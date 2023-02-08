@@ -16,23 +16,21 @@ In this article, you learn about configuring identity providers for [authorizati
 * Azure AD provider
 * Generic OAuth 2.0 provider
 
-You use identity provider settings when configuring in authorization in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
+You add identity provider settings when configuring an authorization in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
 
 * [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
 ### Prerequisites
 
-To configure any of the providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
+To configure any of the supported providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
 
-* For the app's Redirect URL (sometimes called Authorization Callback URL or a similar name), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
+* If you're creating an authorization that uses the authorization code grant type, configure a **Redirect URL** (sometimes called Authorization Callback URL or a similar name) in the app. For the value, enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
 
-* Depending on the provider and your scenario, configure app settings such as scopes (API permissions).
+* Depending on your scenario, configure app settings such as scopes (API permissions).
     
-* Minimally, retrieve the following information that will be configured in API Management: the app's **client ID** and **client secret**.
+* Minimally, retrieve the following app credentials that will be configured in API Management: the app's **client id** and **client secret**.
 
-    * Depending on the provider and your scenario, you might need to configure other settings such as authorization endpoint URLs or scopes.
-
-    * Property names differ slightly from provider to provider.
+* Depending on the provider and your scenario, you might need to retrieve other settings such as authorization endpoint URLs or scopes.
 
 ## Azure AD provider
 
@@ -74,7 +72,7 @@ API Management supports several providers for popular SaaS offerings, such as Gi
 
 **Supported grant types**: authorization code, client credentials (depends on provider)
 
-Required properties for these providers differ from provider to provider but are similar to those for the [generic OAuth 2.0 providers](#generic-oauth-20-providers). Consult the developer documentation for each provider.
+Required settings for these providers differ from provider to provider but are similar to those for the [generic OAuth 2.0 providers](#generic-oauth-20-providers). Consult the developer documentation for each provider.
 
 ## Next steps
 
