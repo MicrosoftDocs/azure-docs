@@ -43,8 +43,7 @@ Azure AD Connect cloud sync is the future for accomplishing your hybrid identity
 |Verify everything is good|After a period of time, verify that everything is good.|
 |Decommission the Azure AD Connect server|Once you've verified everything is good you can use the steps below to take the Azure AD Connect server offline.|
 
-## Decommissioning your Azure AD Connect server
-The following section provides the recommended steps for decommissioning your Azure AD Connect server, once you've verified the cloud sync migration.
+
 
 
 
