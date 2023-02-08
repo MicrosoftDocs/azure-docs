@@ -66,7 +66,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 ## Prepare two CLI sessions
 
-Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, you'll run these sessions in separate Cloud Shell tabs. If using a local CLI client, you'll run separate CLI instances. Use the separate CLI sessions for the following tasks:
+Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, you run these sessions in separate Cloud Shell tabs. If using a local CLI client, you run separate CLI instances. Use the separate CLI sessions for the following tasks:
 - The first session simulates an IoT device that communicates with your IoT hub. 
 - The second session schedules jobs for your simulated device with your IoT hub. 
 
