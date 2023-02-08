@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Data history (with Azure Data Explorer)
 titleSuffix: Azure Digital Twins
-description: Understand data history for Azure Digital Twins.
+description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 01/11/2023
@@ -46,7 +46,7 @@ If you'd like, you can have multiple Azure Digital Twins instances historize upd
 
 Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
 * **a separate set of tables** in the Azure Data Explorer cluster.
-* **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
+* **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-create-data-history-connection.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
 
 ## Creating a data history connection
 
@@ -54,7 +54,7 @@ Once all the [resources](#resources-and-data-flow) and [permissions](#required-p
 
 The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. If you provide table names for relationship lifecycle events and twin lifecycle events, the command will also create tables to historize these event types.
 
-For step-by-step instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+For step-by-step instructions on how to set up a data history connection, see [Create a data history connection](how-to-create-data-history-connection.md).
 
 ## Updating a properties-only data history connection
 
@@ -62,9 +62,9 @@ Prior to February 2023, the data history feature only historized twin property u
 
 This will require creating new tables in your Azure Data Explorer cluster for the new types of historized updates (twin lifecycle events and relationship lifecycle events). For twin property events, you can decide whether you want the new connection to continue using the same table from your original data history connection to store twin property updates going forward, or if you want the new connection to use an entirely new set of tables. Then, follow the instructions below for your preference.
 
-**If you want to continue using your existing table for twin property updates:** Use the instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
+**If you want to continue using your existing table for twin property updates:** Use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
 
-**If you want to use all new tables:** First, [delete your original data history connection](#deleting-a-data-history-connection). Then, use the instructions in [Use data history with Azure Data Explorer](how-to-use-data-history.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
+**If you want to use all new tables:** First, [delete your original data history connection](#deleting-a-data-history-connection). Then, use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
 
 ### Required permissions
 
@@ -223,4 +223,4 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).
 
-Or, dive deeper into data history with an example scenario in this how-to: [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+Or, dive deeper into data history with creation instructions and an example scenario: [Create a data history connection](how-to-create-data-history-connection.md).

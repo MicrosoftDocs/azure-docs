@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Use data history with Azure Data Explorer
+title: Create a data history connection
 titleSuffix: Azure Digital Twins
-description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
+description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/10/2023
+ms.date: 02/08/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -16,7 +16,7 @@ ms.custom: event-tier1-build-2022
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins data history
+# Create a data history connection for Azure Digital Twins
 
 [Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing graph updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
@@ -192,37 +192,37 @@ For regular data plane operation, these roles can be reduced to a single Azure E
 Start by navigating to your Azure Digital Twins instance in the Azure portal (you can find the instance by entering its name into the portal search bar). Then complete the following steps.
 
 1. Select **Data history** from the Connect Outputs section of the instance's menu.
-    :::image type="content"  source="media/how-to-use-data-history/select-data-history.png" alt-text="Screenshot of the Azure portal showing the data history option in the menu for an Azure Digital Twins instance." lightbox="media/how-to-use-data-history/select-data-history.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/select-data-history.png" alt-text="Screenshot of the Azure portal showing the data history option in the menu for an Azure Digital Twins instance." lightbox="media/how-to-create-data-history-connection/select-data-history.png":::
 
     Select **Create a connection**. Doing so will begin the process of creating a data history connection.
 
 2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
 
-    :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-create-data-history-connection/authentication.png":::
 
     If you **do** already have a managed identity enabled, your setup will **skip this step** and you'll see the next page immediately.
 
 3. On the **Send** page, enter the details of the [Event Hubs resources](#create-an-event-hubs-namespace-and-event-hub) that you created earlier.
-    :::image type="content"  source="media/how-to-use-data-history/send.png" alt-text="Screenshot of the Azure portal showing the Send step in the data history connection setup." lightbox="media/how-to-use-data-history/send.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/send.png" alt-text="Screenshot of the Azure portal showing the Send step in the data history connection setup." lightbox="media/how-to-create-data-history-connection/send.png":::
 
     Select **Next**.
 
 4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose a custom name for the table that will store twin property updates, or leave it blank to use the default table name of *AdtPropertyEvents*, and you can choose whether twin property deletions (events that remove properties entirely) should be included with the historized data. If you want to historize twin lifecycle and relationship lifecycle events, enter custom names for these tables. 
-    :::image type="content"  source="media/how-to-use-data-history/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-use-data-history/store.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-create-data-history-connection/store.png":::
 
     Select **Next**.
 
 5. On the **Permission** page, select all of the checkboxes to give your Azure Digital Twins instance permission to connect to the Event Hubs and Azure Data Explorer resources. If you already have equal or higher permissions in place, you can skip this step.
-    :::image type="content"  source="media/how-to-use-data-history/permission.png" alt-text="Screenshot of the Azure portal showing the Permission step in the data history connection setup." lightbox="media/how-to-use-data-history/permission.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/permission.png" alt-text="Screenshot of the Azure portal showing the Permission step in the data history connection setup." lightbox="media/how-to-create-data-history-connection/permission.png":::
 
     Select **Next**. 
 
 6. On the **Review + create** page, review the details of your resources and select **Create connection**.
-    :::image type="content"  source="media/how-to-use-data-history/review-create.png" alt-text="Screenshot of the Azure portal showing the Review and Create step in the data history connection setup." lightbox="media/how-to-use-data-history/review-create.png":::
+    :::image type="content"  source="media/how-to-create-data-history-connection/review-create.png" alt-text="Screenshot of the Azure portal showing the Review and Create step in the data history connection setup." lightbox="media/how-to-create-data-history-connection/review-create.png":::
 
 When the connection is finished creating, you'll be taken back to the **Data history** page for the Azure Digital Twins instance, which now shows details of the data history connection you've created.
 
-:::image type="content"  source="media/how-to-use-data-history/data-history-details.png" alt-text="Screenshot of the Azure portal showing the Data History Details page after setting up a connection." lightbox="media/how-to-use-data-history/data-history-details.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-history-details.png" alt-text="Screenshot of the Azure portal showing the Data History Details page after setting up a connection." lightbox="media/how-to-create-data-history-connection/data-history-details.png":::
 
 ---
 
@@ -251,7 +251,7 @@ Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digit
 
 Select **Generate Environment**.
 
-:::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator.":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator.":::
 
 You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. This will also generate twin and relationship creation events, which will be historized to Azure Data Explorer as twin and relationship lifecycle events, respectively.
 
@@ -259,7 +259,7 @@ When the simulation is ready, the **Start simulation** button will become enable
 
 To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer. The image below shows what these charts might look like after an hour of running the simulator (but you should start to see some data after only a few minutes).
 
-:::image type="content"  source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-use-data-history/simulated-environment-portal.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-create-data-history-connection/simulated-environment-portal.png":::
 
 ### View the historized updates in Azure Data Explorer
 
@@ -267,11 +267,11 @@ In this section, you'll view all three types of historized updates that were gen
 
 Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure Data Explorer cluster you created earlier. Choose the **Databases** pane from the left menu to open the database view. Find the database you created for this article and select the checkbox next to it, then select **Query**.
 
-:::image type="content"  source="media/how-to-use-data-history/azure-data-explorer-database.png" alt-text="Screenshot of the Azure portal showing a database in an Azure Data Explorer cluster.":::
+:::image type="content"  source="media/how-to-create-data-history-connection/azure-data-explorer-database.png" alt-text="Screenshot of the Azure portal showing a database in an Azure Data Explorer cluster.":::
 
 Next, expand the cluster and database in the left pane to see the name of the data history tables. There should be three: one for relationship lifecycle events, one for twin lifecycle events, and one for twin property update events. You'll use these table names to run queries on the table to verify and view the historized data.
 
-:::image type="content"  source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the data history table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the data history table is highlighted." lightbox="media/how-to-create-data-history-connection/data-history-table.png":::
 
 #### Verify relationship and twin lifecycle updates
 
@@ -283,7 +283,7 @@ To verify that relationship and twin lifecycle events are being historized to th
 
 Paste the command into the query window, replacing the placeholder with the name of your relationship events table. Select the **Run** button to run the command.
 
-:::image type="content"  source="media/how-to-use-data-history/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query-1.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-create-data-history-connection/data-history-run-query-1.png":::
 
 Repeat the process with the following command to update the ingestion mode of the twin lifecycle events table.
 
@@ -356,7 +356,7 @@ evaluate azure_digital_twins_query_request(ADTendpoint, ADTquery)
 
 The results should show the outflow numbers changing over time.
 
-:::image type="content"  source="media/how-to-use-data-history/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-use-data-history/data-history-run-query-2.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-create-data-history-connection/data-history-run-query-2.png":::
 
 ## Next steps 
 
