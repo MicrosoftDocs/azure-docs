@@ -71,7 +71,7 @@ There are multiple methods to create transformations depending on the data colle
 | Type | Reference |
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates](../logs/tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 
 ## Cost for transformations
 There is no direct cost for transformations, but you may incur charges for the following:
