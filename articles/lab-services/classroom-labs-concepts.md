@@ -41,7 +41,9 @@ Get started by [creating a lab using the Azure portal](quick-create-lab-plan-por
 
 When you create a lab, you select the base VM image for the lab VMs. You can use an [Azure compute gallery](/azure/virtual-machines/azure-compute-gallery) to store and share custom VM images. By using a compute gallery, you avoid having to repeatedly apply the same customizations when you create a new lab. If you have customized a lab with a template VM, you can [export the template VM to your compute gallery](./approaches-for-custom-image-creation.md).
 
-To use VM images from a compute gallery, you attach the Azure compute gallery to your lab plan. You can attach zero or more Azure compute galleries to a lab plan. Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-shared-image-gallery.md). After attaching a compute gallery, you can further enable or disable specific images.
+To use VM images from a compute gallery, you attach the Azure compute gallery to your lab plan. You can attach zero or more Azure compute galleries to a lab plan. After attaching a compute gallery, you can further enable or disable specific images.
+
+Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-shared-image-gallery.md).
 
 ## Template virtual machine
 
