@@ -36,34 +36,23 @@ To get started, you need:
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-    **Complete the Translator project and instance details fields as follows:**
-  
-    1. **Subscription**. Select one of your available Azure subscriptions.
-    1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
-    1. **Resource Region**. For this project, choose a **non-global** region. We use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. For Document Translation, managed identity isn't supported in the global region.
-    1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
-    1. **Pricing tier**. Select Standard S1 to try the service. Document Translation isn't supported in the free tier.
-    1. Select **Review + Create**.
+  * **Resource Region**. For this project, choose a **non-global** region. We use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. For Document Translation, managed identity isn't supported in the global region.
+  * **Pricing tier**. Select Standard S1 to try the service. Document Translation isn't supported in the free tier.
 
 * A **source document**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
-Now that you've completed the prerequisites, let's start translating documents!
+Now that you've completed the prerequisites, let's translate documents!
 
 ## Get started
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If you're using the Language Studio for the first time, you need to complete these sections:
-
-    * **Choose a language resource** or create a new language resource in the Azure portal.
-
-    * **Select your Azure Blob storage account**.
+1. If you're using the Language Studio for the first time, select your Azure directory, Azure subscription, and Translator resource:
 
    :::image type="content" source="../media/language-studio/choose-language-resource.png" alt-text="Screenshot of the language studio choose your resource dialog window.":::
 
     > [!TIP]
     > You can update your selected directory and resource by selecting the Translator settings icon located in the left navigation section.
-    > :::image type="content" source="../media/language-studio/translator-settings.png" alt-text="Screenshot of Translator settings.":::
 
 1. Navigate to Language Studio and select the **Document translation** tile:
 
