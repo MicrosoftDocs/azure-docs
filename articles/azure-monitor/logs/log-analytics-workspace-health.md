@@ -1,5 +1,5 @@
 ---
-title: Monitor latency in a Log Analytics workspace
+title: Monitor Log Analytics workspace health
 description: This article how to monitor the health of a Log Analytics workspace and set up alerts about latency issues specific to the Log Analytics workspace or related to known Azure service issues.
 ms.topic: how-to
 author: guywi-ms
