@@ -14,7 +14,9 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
-If you're experiencing issues with your deployment, reinstalling the packet core may help return it to a good state. In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal.
+In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal. If you're experiencing issues with your deployment, reinstalling the packet core may help return it to a good state.
+
+Reinstalling the packet core deletes the packet core instance and redeploys it with the existing site configuration. Site-dependent resources such as the **Packet Core Control Plane**, **Packet Core Data Plane** and **Attached Data Network** are not affected.
 
 ## Prerequisites
 
@@ -24,7 +26,7 @@ If you're experiencing issues with your deployment, reinstalling the packet core
 
 ## View the packet core instance's installation status
 
-Before reinstalling, follow this step to check the packet core instance's installation status.
+Follow this step to check the packet core instance's installation status and to ensure no other processes are running before you attempt a reinstall.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
@@ -35,7 +37,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-1. Under the **Essentials** heading, check the current packet core state under the **Packet core installation state** field. If the status under this field indicates the packet core instance is already running a process, wait for it to finish before attempting another reinstall.
+1. Under the **Essentials** heading, check the current packet core state under the **Packet core installation state** field. If the status under this field indicates the packet core instance is already running a process, such as an upgrade or another reinstall, wait for it to finish before attempting the reinstall.
 
 ## Back up deployment information
 
@@ -63,7 +65,9 @@ To reinstall your packet core instance:
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-confirmation.png" alt-text="Screenshot of the Azure portal showing the Reinstall packet core screen.":::
 
 1. Select **Reinstall**.
-1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. You can check the progress of the reinstall by selecting the notifications icon and then **More events in the activity log**.
+1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. You can check the status of the reinstall by selecting **Refresh** and looking at the **Packet core installation state** field. Once the process is complete, you'll receive a notification with information on whether the reinstall was successful.
+    
+    If the packet core reinstall failed, you can find more details about the reason for the failure by selecting the notifications icon and then **More events in the activity log**.
 
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-status.png" alt-text="Screenshot of the Azure portal showing the reinstall packet core status in the Notifications screen.":::
 
