@@ -137,7 +137,7 @@ Follow these steps to create a diagnostic setting for your Microsoft Purview acc
 
   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-four-one-diagnostic-setting.png" alt-text="Screenshot showing saved log events to event hub." lightbox="./media/how-to-monitor-with-azure-monitor/step-four-one-diagnostic-setting.png":::
 
-3. To see logs in the **Event Hubs Namespace**, Go to the [Azure portal](https://portal.azure.com), and search for the name of the event hubs namespace you created earlier, go the Event Hubs Namespace and click on overview. To find our more about capturing and reading captured audit events in the event hubs namespace, you can follow this article: [Audit Logs & diagnostics](../purview/tutorial-purview-audit-logs-diagnostics#connect-a-microsoft-purview-account-to-diagnostics-event-hubs.md)
+3. To see logs in the **Event Hubs Namespace**, Go to the [Azure portal](https://portal.azure.com), and search for the name of the event hubs namespace you created earlier, go the Event Hubs Namespace and click on overview. To find our more about capturing and reading captured audit events in the event hubs namespace, you can follow this article: [Audit Logs & diagnostics](../purview/tutorial-purview-audit-logs-diagnostics.md)
 
   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-four-one-diagnostic-setting.png" alt-text="Screenshot showing activities in the event hub." lightbox="./media/how-to-monitor-with-azure-monitor/step-four-one-diagnostic-setting.png":::
 
