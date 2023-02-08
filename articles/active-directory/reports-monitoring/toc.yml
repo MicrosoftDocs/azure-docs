@@ -139,7 +139,7 @@ items:
       - name: Multifactor authentication gaps 
         href: workbook-mfa-gaps.md
 
-- name: Recommendations
+- name: Azure AD Recommendations
   items:
     - name: Convert to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md
@@ -151,11 +151,11 @@ items:
       href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
     - name: Minimize MFA prompts from known devices
       href: recommendation-mfa-from-known-devices.md
-    - name: Remove unused apps
+    - name: Remove unused apps (preview)
       href: recommendation-remove-unused-apps.md
-    - name: Remove unused credentials from apps
+    - name: Remove unused credentials from apps (preview)
       href: recommendation-remove-unused-credential-from-apps.md
-    - name: Renew expiring application credentials
+    - name: Renew expiring application credentials (preview)
       href: recommendation-renew-expiring-application-credential.md
-    - name: Renew expiring service principal credentials
+    - name: Renew expiring service principal credentials (preview)
       href: recommendation-renew-expiring-service-principal-credential.md

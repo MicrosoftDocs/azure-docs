@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Remove unused apps | Microsoft Docs
+title: Azure Active Directory recommendation - Remove unused apps (preview) | Microsoft Docs
 description: Learn why you should remove unused apps.
 services: active-directory
 author: shlipsey3
@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ---
-# Azure AD recommendation: Remove unused applications
+# Azure AD recommendation: Remove unused applications (preview)
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 This article covers the recommendation to remove unused applications.
@@ -37,7 +37,7 @@ Removing unused applications improves the security posture and promotes good app
 
 ## Known limitations
 
-The time frame application usage that triggers this recommendation cannot be customized.
+The time frame for application usage that triggers this recommendation cannot be customized.
 
 ## Next steps
 

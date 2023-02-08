@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Renew expiring application credentials | Microsoft Docs
+title: Azure Active Directory recommendation - Renew expiring application credentials (preview) | Microsoft Docs
 description: Learn why you should renew expiring application credentials.
 services: active-directory
 author: shlipsey3
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/09/2023
+ms.date: 02/08/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ---
-# Azure AD recommendation: Renew expiring application credentials
+# Azure AD recommendation: Renew expiring application credentials (preview)
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 This article covers the recommendation to renew expiring application credentials.
@@ -40,7 +40,7 @@ Renewing the app credential(s) before its expiration ensures the application con
  
 ## Known limitations
 
-Only show the app name, don't have the ability to show the resource ID
+When looking for the application with the credential that needs to be rotated, only the app name is used. The services doesn't have the ability to show the resource ID for the app.
 
 ## Next steps
 
