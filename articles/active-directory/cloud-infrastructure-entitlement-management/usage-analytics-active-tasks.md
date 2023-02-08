@@ -51,7 +51,7 @@ The **Active Tasks** table displays the results of your query.
     - To view details about the task, select the down arrow next to the task in the table.
 
         - An icon (![Image of task icon](media/usage-analytics-active-tasks/normal-task.png)) displays to the left of the task name if the task is  **Normal Task** (that is, not risky).
-        - A highlighted icon (![Image of task icon](media/usage-analytics-active-tasks/high-risk-deleted-task.png)) displays to the left of the task name if the task involved deleting data &mdash; a **High-Delete Task** &mdash; or if the task is a **High-Risk Task**.
+        - A highlighted icon (![Image of highlighted task icon](media/usage-analytics-active-tasks/high-risk-deleted-task.png)) displays to the left of the task name if the task involved deleting data &mdash; a **High-Delete Task** &mdash; or if the task is a **High-Risk Task**.
 
 - **Performed on (resources)**: The number of resources on which the task was used.
 
