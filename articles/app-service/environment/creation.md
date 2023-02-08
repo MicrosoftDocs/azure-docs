@@ -64,7 +64,7 @@ Here's how:
 
 If you're creating an App Service Environment with an external VIP, you can select public IP address using **Manual** option for **Inbound IP address**.
 
-![Screenshot that shows App Service Environment networking (ASE Internal) selections.](./media/creation/creation-networking-external.png)
+![Screenshot that shows App Service Environment networking (ASE External) selections.](./media/creation/creation-networking-external.png)
 
 5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
 
