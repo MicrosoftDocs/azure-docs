@@ -11,24 +11,29 @@ ms.custom: devdivchpfy22
 
 This article describes key Azure Lab Services concepts and definitions.
 
+The following conceptual diagram shows how the different Azure Lab Services components are related.
+
 :::image type="content" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services." lightbox="./media/classroom-labs-concepts/lab-services-key-concepts.png":::
 
-## Lab plans
+## Lab plan
 
-Lab plans are an Azure resource and contain settings used when creating new labs.  Lab plans control the networking setup, which VM images are available and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab.  To create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
+In Azure Lab Services, a lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes, and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab. Learn more about [planning your lab plan settings](./lab-plan-setup-guide.md#plan-your-lab-plan-settings).
 
-In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
-
+A lab plan can contain zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure AD roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). 
 
 ## Lab
 
-A lab contains the configuration and settings for creating and running lab virtual machines. In the lab, you specify the base VM image for the lab VMs. Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine). All lab VMs for a lab share the same configuration and are identical.
+A lab contains the configuration and settings for creating and running [lab virtual machines](#lab-virtual-machine). In the lab, you specify the base VM image for the lab VMs. Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine). All lab VMs for a lab share the same configuration and are identical.
+
+You can further configure the lab behavior by creating [lab schedules](#schedules) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
 
 To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure AD role or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
-To grant access to the lab VMs, you [configure the list of lab users](./how-to-configure-student-usage.md). Lab users can then register for the lab and connect to their VM through remote desktop (RDP) or secure shell (SSH).
+You use the Azure Lab Services website (https://labs.azure.com) to create labs for a lab plan. Alternately, you can also [configure Microsoft Teams integration](./how-to-configure-teams-for-lab-plans.md) or [Canvas integration](./how-to-configure-canvas-for-lab-plans.md) with Azure Lab Services to create labs directly in Microsoft Teams or Canvas.
 
-You can further configure the lab behavior by creating [lab schedules](#schedules) or configuring [automatic shutdown settings](#automatic-shut-down) to optimize cost.
+By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-configure-student-usage.md) that have access to the lab.
+
+Get started by [creating a lab using the Azure portal](quick-create-lab-plan-portal.md).
 
 ## Azure Compute Gallery
 
@@ -39,6 +44,10 @@ A template VM in a lab is a base image from which all students' VMs are created.
 Labs can be created without needing a template VM, if using the [August 2022 Update](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
 
 ## Lab virtual machine
+
+
+Lab users can then register for the lab and connect to their VM through remote desktop (RDP) or secure shell (SSH).
+
 
 ## Schedules
 
