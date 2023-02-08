@@ -74,7 +74,7 @@ $spApplicationPermissions = Get-AzureADServicePrincipalAppRoleAssignedTo -Object
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
-    Remove-AzureADServicePrincipalAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
 ```
 
