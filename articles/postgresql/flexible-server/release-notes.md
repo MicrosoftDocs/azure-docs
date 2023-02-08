@@ -16,6 +16,13 @@ ms.date: 11/05/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: January 2023
+
+* Support for [extension](concepts-extensions.md) semver with new servers<sup>$</sup> 
+* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in all public Azure regions
+* General availability of [AAD authentication](./concepts-azure-ad-authentication.md) with Azure Database for PostgreSQL - Flexible Server in all public Azure regions
+
+
 ## Release: December 2022
 
 * Support for [extensions](concepts-extensions.md) pg_hint_plan with new servers<sup>$</sup> 
