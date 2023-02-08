@@ -7,22 +7,22 @@ items:
   - name: What is Entra Network Access?
     href: overview-what-is-network-access.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Install the Network Access Connector
     href: quickstart-install-connector.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: Configure Internet access for edge devices
     href: tutorial-configure-internet-access.md
 - name: Samples
-  expanded: true
+  expanded: false
   items:
   - name: Configure tenant for Entra Network Access
     href: sample-configure-tenant.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
   - name: Understand Secure Access Service Edge (SASE)
     href: concept-understand-sase.md
@@ -34,7 +34,7 @@ items:
   - name: Get Started with Entra Network Access
     href: how-to-get-started-with-network-access.md
   - name: Connect
-    expanded: true
+    expanded: false
     items:
     - name: Define quick access ranges
       href: how-to-get-started-with-network-access.md
@@ -47,21 +47,21 @@ items:
     - name: Configure branch Office locations
       href: how-to-get-started-with-network-access.md
   - name: Create
-    expanded: true
+    expanded: false
     items:
     - name: Create applications
       href: how-to-get-started-with-network-access.md
     - name: Create conditional access policies
       href: how-to-get-started-with-network-access.md
   - name: Secure
-    expanded: true
+    expanded: false
     items:
     - name: Session management policies
       href: how-to-get-started-with-network-access.md
     - name: Create web gateway policies 
       href: how-to-get-started-with-network-access.md
   - name: Monitor
-    expanded: true
+    expanded: false
     items:
     - name: App segment discovery
       href: how-to-get-started-with-network-access.md
