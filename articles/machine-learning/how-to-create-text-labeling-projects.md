@@ -14,7 +14,7 @@ ms.custom: data4ml, ignite-fall-2021
 
 # Create a text labeling project and export labels
 
-In Azure Machine Learning, learn how to create and run data labeling projects to label text data. Specify either a single label or multiple labels to apply to each text item.
+In Azure Machine Learning, learn how to create and run data labeling projects to label text data. Specify either a single label or multiple labels, to apply to each text item.
 
 You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
 
