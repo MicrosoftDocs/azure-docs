@@ -27,13 +27,13 @@ The first step of customizing your model is to prepare a high quality dataset. T
 
 ## Best practices
 
-Customization performs better with high-quality examples and the more you have, generally the better the model will perform. We recommend that you provide at least a few hundred high-quality examples to achieve a model that will perform better than using well-designed prompts with a base model. From there, performance tends to linearly increase with every doubling of the number of examples. Increasing the number of examples is usually the best and most reliable way of improving performance.
+Customization performs better with high-quality examples and the more you have, generally the better the model performs. We recommend that you provide at least a few hundred high-quality examples to achieve a model that performs better than using well-designed prompts with a base model. From there, performance tends to linearly increase with every doubling of the number of examples. Increasing the number of examples is usually the best and most reliable way of improving performance.
 
 If you're fine-tuning on a pre-existing dataset rather than writing prompts from scratch, be sure to manually review your data for offensive or inaccurate content if possible, or review as many random samples of the dataset as possible if it's large.
 
 ## Specific guidelines
 
-Fine-tuning can solve a variety of problems, and the optimal way to use it may depend on your specific use case. Below, we've listed the most common use cases for fine-tuning and corresponding guidelines.
+Fine-tuning can solve various problems, and the optimal way to use it may depend on your specific use case. Below, we've listed the most common use cases for fine-tuning and corresponding guidelines.
 
 ### Classification
 
@@ -59,7 +59,7 @@ The dataset might look something like the following:
 
 In the example above, we used a structured input containing the name of the company, the product, and the associated ad. As a separator we used `\nSupported:` which clearly separated the prompt from the completion. With a sufficient number of examples, the separator you choose doesn't make much of a difference (usually less than 0.4%) as long as it doesn't appear within the prompt or the completion.
 
-For this use case we fine-tuned an ada model since it will be faster and cheaper, and the performance will be comparable to larger models because it's a classification task.
+For this use case we fine-tuned an ada model since it is faster and cheaper, and the performance is comparable to larger models because it's a classification task.
 
 Now we can query our model by making a Completion request.
 
@@ -136,7 +136,7 @@ Which will return:
 
 #### Case study: Categorization for Email triage
 
-Let's say you'd like to categorize incoming email into one of a large number of predefined categories. For classification into a large number of categories, we recommend you convert those categories into numbers, which will work well up to ~500 categories. We've observed that adding a space before the number sometimes slightly helps the performance, due to tokenization. You may want to structure your training data as follows:
+Let's say you'd like to categorize incoming email into one of a large number of predefined categories. For classification into a large number of categories, we recommend you convert those categories into numbers, which will work well with up to approximately 500 categories. We've observed that adding a space before the number sometimes slightly helps the performance, due to tokenization. You may want to structure your training data as follows:
 
 ```json
 {
@@ -165,7 +165,7 @@ Conditional generation is a problem where the content needs to be generated give
 - Aim for at least ~500 examples.
 - Ensure that the prompt + completion doesn't exceed 2048 tokens, including the separator.
 - Ensure the examples are of high quality and follow the same desired format.
-- Ensure that the dataset used for fine-tuning is very similar in structure and type of task as what the model will be used for.
+- Ensure that the dataset used for fine-tuning is similar in structure and type of task as what the model will be used for.
 - Using Lower learning rate and only 1-2 epochs tends to work better for these use cases.
 
 #### Case study: Write an engaging ad based on a Wikipedia article
@@ -192,7 +192,7 @@ Here we used a multiline separator, as Wikipedia articles contain multiple parag
 
 #### Case study: Entity extraction
 
-This is similar to a language transformation task. To improve the performance, it's best to either sort different extracted entities alphabetically or in the same order as they appear in the original text. This will help the model to keep track of all the entities which need to be generated in order. The dataset could look as follows:
+This is similar to a language transformation task. To improve the performance, it's best to either sort different extracted entities alphabetically or in the same order as they appear in the original text. This helps the model to keep track of all the entities which need to be generated in order. The dataset could look as follows:
 
 ```json
 {
@@ -214,7 +214,7 @@ A multi-line separator works best, as the text will likely contain multiple line
 
 #### Case study: Customer support chatbot
 
-A chatbot will normally contain relevant context about the conversation (order details), summary of the conversation so far as well as most recent messages. For this use case the same past conversation can generate multiple rows in the dataset, each time with a slightly different context, for every agent generation as a completion. This use case will require a few thousand examples, as it will likely deal with different types of requests, and customer issues. To ensure the performance is of high quality we recommend vetting the conversation samples to ensure the quality of agent messages. The summary can be generated with a separate text transformation fine tuned model. The dataset could look as follows:
+A chatbot will normally contain relevant context about the conversation (order details), summary of the conversation so far, and most recent messages. For this use case the same past conversation can generate multiple rows in the dataset, each time with a slightly different context, for every agent generation as a completion. This use case requires a few thousand examples, as it likely deals with different types of requests, and customer issues. To ensure the performance is of high quality, we recommend vetting the conversation samples to ensure the quality of agent messages. The summary can be generated with a separate text transformation fine tuned model. The dataset could look as follows:
 
 ```json
 {"prompt":"Summary: <summary of the interaction so far>\n\nSpecific information:<for example order details in natural language>\n\n###\n\nCustomer: <message1>\nAgent: <response1>\nCustomer: <message2>\nAgent:", "completion":" <response2>\n"}
@@ -251,12 +251,12 @@ For this type of problem we recommend:
 
 - Leave the prompt empty.
 - No need for any separators.
-- You'll normally want a very large number of examples, at least a few thousand.
+- You'll normally want a large number of examples, at least a few thousand.
 - Ensure the examples cover the intended domain or the desired tone of voice.
 
 #### Case study: Maintaining company voice
 
-Many companies will have a large amount of high quality content generated in a specific voice. Ideally all generations from our API should follow that voice for the different use cases. Here we can use the trick of leaving the prompt empty, and feeding in all the documents which are good examples of the company voice. A fine-tuned model can be used to solve a number of different use cases with similar prompts to the ones used for base models, but the outputs are going to follow the company voice much more closely than previously.
+Many companies have a large amount of high quality content generated in a specific voice. Ideally all generations from our API should follow that voice for the different use cases. Here we can use the trick of leaving the prompt empty, and feeding in all the documents which are good examples of the company voice. A fine-tuned model can be used to solve many different use cases with similar prompts to the ones used for base models, but the outputs are going to follow the company voice much more closely than previously.
 
 ```json
 {"prompt":"", "completion":" <company voice textual content>"}
@@ -265,7 +265,7 @@ Many companies will have a large amount of high quality content generated in a s
 
 A similar technique could be used for creating a virtual character with a particular personality, style of speech and topics the character talks about.
 
-Generative tasks have a potential to leak training data when requesting completions from the model, so additional care needs to be taken that this is addressed appropriately. For example personal or sensitive company information should be replaced by generic information or not be included into fine-tuning in the first place.
+Generative tasks have a potential to leak training data when requesting completions from the model, so extra care needs to be taken that this is addressed appropriately. For example personal or sensitive company information should be replaced by generic information or not be included into fine-tuning in the first place.
 
 ## Next steps
 
