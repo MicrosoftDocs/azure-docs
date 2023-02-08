@@ -50,6 +50,11 @@ Save a copy of [bootstrapper-unified.yaml](https://raw.githubusercontent.com/mic
 Run the following command to create the namespace and bootstrapper service with the edited file.
 
 ```console
+export DOCKER_REGISTRY=mcr.microsoft.com
+export DOCKER_REPOSITORY=arcdata
+export DOCKER_IMAGE_TAG=v1.16.0_2023-02-14
+export DOCKER_IMAGE_POLICY=Always
+
 kubectl apply --namespace arc -f bootstrapper-unified.yaml
 ```
 
