@@ -10,20 +10,20 @@ ms.author: msangapu
 ---
 # Routine (planned) maintenance for App Service
 
-Routine maintenance is a term which covers changes in the platform behind the scenes. It can be various performance fixes, improvements,
-new features, or security updates. Since App Service is a managed platform and consists of multiple layers of the stack, all those said changes can be in both service itself (Azure App Service) and the underlying OS (both Windows and Linux) of individual machines which are used to run the service.
+Routine maintenance is a term which covers behind the scenes changes in the platform. Types of maintenance can be performance improvements, bug fixes, 
+new features, or security updates. Since App Service is a managed platform and consists of multiple layers of the stack, all those said changes can be in both service itself (Azure App Service) and the underlying OS (both Windows and Linux) of individual machines used to run the service.
 
-Unless communicated clearly upfront, a breaking change or deprecation of functionality is not a part of such maintenance (see [Modern Lifecycle Policy - Microsoft Lifecycle | Microsoft Learn](https://learn.microsoft.com/lifecycle/policies/modern) for deprecation topic for details).
+>[IMPORTANT!]
+>A breaking change or deprecation of functionality is not a part of routine maintenance (see [Modern Lifecycle Policy - Microsoft Lifecycle | Microsoft Learn](/lifecycle/policies/modern) for deprecation topic for details).
+>
 
-Our service quality and uptime guarantees continue to apply, even during maintenance periods. The reason maintenance periods are mentioned is from explicit feedback from customers to get more visibility into any changes of the platform regardless of whether those are impactful or not.
+Our service quality and uptime guarantees continue to apply during maintenance periods. Maintenance periods are mentioned to help customers to get visibility into platform changes.
 
 ## What to expect
 
-Like any security updates which are seen with personal computers, tablets, phones, and other devices, even machines in the cloud need the latest updates. Unlike with physical devices, cloud solutions like Azure App Service provide waysto overcome these routines with more ease. there is no need to “stop working” for certain period and wait until patches are installed. Any workload can be just shifted to a different underlying hardware in a matter of seconds and continue working while updates can be installed where needed.
+Like security updates on personal computers, mobile phones and other devices, even machines in the cloud need the latest updates. Unlike physical devices, cloud solutions like Azure App Service provide ways to overcome these routines with more ease. There's no need to "stop working" for a certain period and wait until patches are installed. Any workload can be just shifted to a different underlying hardware in a matter of seconds and while updates are installed. The updates are made monthly, but can vary on the needs and other factors.
 
-The frequency of these updates is monthly, but it can vary based on the current needs, criticality of changes, and multiple other factors.
-
-Since a typical cloud solution consists of multiple applications, database, storage accounts, functions, and other resources, various parts of your solutions can be undergoing maintenance at different times. Some of this coordination is related to placements (geographies, regions, datacenters, availability zones) and some of this is due to a pure scale of the cloud where not everything is touched at the same time.
+Since a typical cloud solution consists of multiple applications, databases, storage accounts, functions, and other resources, various parts of your solutions can be undergoing maintenance at different times. Some of this coordination is related to placements (geographies, regions, data centers, availability zones) and some of this is due to a pure scale of the cloud where not everything is touched simultaneously.
 
 [Safe deployment practices - Azure DevOps | Microsoft Learn](/devops/operate/safe-deployment-practices)
 
@@ -38,21 +38,19 @@ In order from top to bottom we see:
 
 ### Why is the maintenance taking so long?
 
-The maintenance fundamentally represents delivering latest updates to the platform and the service. Given the logistics of the update, it is complex to predict with certainty ahead of time when individual apps will be affected down to a specific time, so more generic notifications are sent out. The time ranges in those notifications do not reflect the individual experience at the app level, but the overall operation across all resources. Apps which undergo maintenance just instantly restart on freshly updated machines and continue working. There is not a time window when requests/traffic would not be served.
+The maintenance fundamentally represents delivering latest updates to the platform and service. It's difficult to predict when individual apps would be affected down to a specific time, so more generic notifications are sent out. The time ranges in those notifications don't reflect the experiences at the app level, but the overall operation across all resources. Apps which undergo maintenance instantly restart on freshly updated machines and continue working. There's no downtime when requests/traffic aren't served.
 
 ### Why am I getting so many notifications?
 
-This is related to the previous question and answer. A typical scenario is that customers have multiple different applications, and they are upgraded at different times. To avoid sending notifications for each single one of them, a more generic notification is provided which captures multiple resources at once. The notification is sent at the beginning of and throughout the maintenance window if it continues to signal that there is a chance of restarts to be observed. Due to the time window being longer, you can receive multiple reminders for the same rollout so you can easier correlate any restart/interruption/issue in case it is needed.
+A typical scenario is that customers have multiple applications, and they are upgraded at different times. To avoid sending notifications for each of them, a more generic notification is provided that captures multiple resources. The notification is sent at the beginning and throughout the maintenance window. Due to the time window being longer, you can receive multiple reminders for the same rollout so you can easier correlate any restart/interruption/issue in case it is needed.
 
 ### How is this related to SLA, is the uptime factored in or not?
 
-Platform maintenance is not expected to impact application uptime or availability. Applications continue to stay up and running while platform maintenance occurs. Note: platform maintenance may cause applications to be cold started on new virtual machines, which can lead to cold start delays. An application is still considered to be up and running, even while it is cold starting. For best practices to minimize or avoid cold starts, consider using [local cache for Windows apps](overview-local-cache.md) as well as [Health check](monitor-instances-health-check.md)
-
-It is not expected that sites would incur any SLA violation during maintenance windows.
+Platform maintenance isn't expected to impact application uptime or availability. Applications continue to stay online while platform maintenance occurs. Platform maintenance may cause applications to be cold started on new virtual machines, which can lead to cold start delays. An application is still considered to be online, , even while cold-starting. For best practices to minimize/avoid cold starts, consider using [local cache for Windows apps](overview-local-cache.md) as well as [Health check](monitor-instances-health-check.md). It's not expected that sites would incur any SLA violation during maintenance windows.
 
 ### How does the upgrade work under the hood and how does it ensure smooth operation for my apps?
 
-Azure App Service represents a fleet of scale units which provide hosting of web applications/solutions to the customers. Each scale unit is further divided into smaller pieces (roles of different purposes) and sliced into a concept of upgrade domains (and availability zones) to optimize placements of bigger App Service Plans and smooth rollouts since not all machines in each scale unit are updated at once. Fleet upgrades machines iteratively while monitoring the health of the fleet so any time there is an issue, the system can stop the rollout. This is described in detail at [Demystifying the magic behind App Service OS updates - Azure App Service](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
+Azure App Service represents a fleet of scale units which provide hosting of web applications/solutions to the customers. Each scale unit is further divided into smaller pieces (roles of different purposes) and sliced into a concept of upgrade domains (and availability zones) to optimize placements of bigger App Service Plans and smooth deployments since not all machines in each scale unit are updated at once. Fleet upgrades machines iteratively while monitoring the health of the fleet so any time there is an issue, the system can stop the rollout. This is described in detail at [Demystifying the magic behind App Service OS updates - Azure App Service](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ### Are business hours reflected?
 
