@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Tutorial: Azure AD SSO integration with Phenom TXM
 
-In this tutorial, you'll learn how to integrate Phenom TXM with Azure Active Directory (Azure AD). When you integrate Phenom TXM with Azure AD, you can:
+In this tutorial, you will learn how to integrate Phenom TXM with Azure Active Directory (Azure AD). When you integrate Phenom TXM with Azure AD, you can:
 
 * Control in Azure AD who has access to Phenom TXM.
 * Enable your users to be automatically signed-in to Phenom TXM with their Azure AD accounts.
@@ -48,7 +48,7 @@ To configure the integration of Phenom TXM into Azure AD, you need to add Phenom
 1. In the **Add from the gallery** section, type **Phenom TXM** in the search box.
 1. Select **Phenom TXM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Phenom TXM
 
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     In the **Sign on URL** text box, type one of the following URLs:
 
-     | Enivoronment | Sign on URL |
+     | Environment | Sign on URL |
     |--------------|-------------|
     | Staging | `https://login-stg.phenompro.com` |
     | Production | `https://login.phenom.com` |
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you will create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -113,14 +113,14 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Phenom TXM.
+In this section, you will enable B.Simon to use Azure single sign-on by granting access to Phenom TXM.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Phenom TXM**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Phenom TXM SSO
@@ -139,9 +139,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Enter a valid name in the **Display Name** textbox.
 
-    c. In the **Single SignOn URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    c. In the **Single SignOn URL** textbox, paste the **Login URL** value, which you've copied from the Azure portal.
 
-    d. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
+    d. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value, which you've copied from the Azure portal.
 
     e. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Phenom TXM test user
 
-1. In a different web browser window, log into your Phenom TXM website as an administrator.
+1. In a different web browser window, log in to your Phenom TXM website as an administrator.
 
 1. Go to **Users** tab and click **Create Users** > **Create single new User**.
 
