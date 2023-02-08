@@ -48,7 +48,7 @@ To view your Log Analytics workspace health and set up health status alerts:
 
 ## Investigate Log Analytics workspace health issues
 
-To investigate resource health issues related to a Log Analytics workspace or whether a service health issue is affecting your Log Analytics workspace:
+To investigate Log Analytics workspace health issues:
 
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
 - Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
