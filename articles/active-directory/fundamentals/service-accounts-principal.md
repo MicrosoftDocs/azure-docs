@@ -93,7 +93,7 @@ To assess the security, evaluate privileges and credential storage. Use the foll
 
 |Challenge | Mitigation|
 | - | - |
-| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | Run the following PowerShell to find multi-tenant apps.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disable user consent. <br>Allow user consent from verified publishers, for selected permissions. (recommended) <br> Configure them in the user context. Use their tokens to trigger the service principal.|
+| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | <li>Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<li>Disable user consent <li>Allow user consent from verified publishers, for selected permissions (recommended) <li>Configure them in the user context <li>Use their tokens to trigger the service principal|
 |Use of a hard-coded shared secret in a script using a service principal|Use a certificate|
 |Tracking who uses the certificate or the secret| Monitor the service principal sign-ins using the Azure AD sign-in logs|
 |Can't manage service principal sign-in with Conditional Access| Monitor the sign-ins using the Azure AD sign-in logs
@@ -131,4 +131,4 @@ Conditional Access:
 
 Use Conditional Access to block service principals from untrusted locations. 
 
-[Conditional Access for workload identities](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy).
+See, [Conditional Access for workload identities](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)
