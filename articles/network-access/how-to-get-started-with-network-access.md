@@ -3,6 +3,7 @@ title: Get started with Entra Internet Access
 description: Get started with Entra Internet Access.
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 01/31/2023
 ms.service: network-access

@@ -3,6 +3,7 @@ title: Understand Security Service Edge (SSE)
 description: Learn about Security Service Edge (SSE).
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 02/08/2023
 ms.service: network-access

@@ -3,6 +3,7 @@ title: Entra Private Access FAQ
 description: Frequently asked questions for Entra Private Access.
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 01/31/2023
 ms.service: network-access

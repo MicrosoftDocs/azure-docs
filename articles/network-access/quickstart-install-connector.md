@@ -3,6 +3,7 @@ title: Quickstart - Install Network Access Connector
 description: Learn how to install the Network Access connector.
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 02/08/2023
 ms.service: network-access

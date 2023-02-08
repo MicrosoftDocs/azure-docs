@@ -3,6 +3,7 @@ title: Tutorial - Configure Internet Access
 description: Learn how to configure Internet access for edge devices.
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 02/08/2023
 ms.service: network-access
