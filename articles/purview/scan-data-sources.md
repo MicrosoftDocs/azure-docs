@@ -87,7 +87,7 @@ Depending on the amount of data in your data source, a scan can take some time t
 
     :::image type="content" source="media/scan-data-sources/select-scan-name.png" alt-text="Screenshot of the scans in the collection list with the most recent scan name highlighted.":::
 
-1. Or, you can navigate directly to the to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan.
+1. Or, you can navigate directly to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan.
 
    :::image type="content" source="media/scan-data-sources/register-blob-view-scan.png" alt-text="Screenshot of the data map with a source's view details button highlighted.":::
 
