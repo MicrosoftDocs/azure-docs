@@ -126,7 +126,6 @@ The HTTP proxy with the Monitoring add-on supports the following configurations:
 The following configurations aren't supported:
 
   - The Custom Metrics and Recommended Alerts features aren't supported when you use a proxy with trusted certificates
-  - Outbound proxy isn't supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 
