@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/30/2023
 ms.custom: template-how-to
 ---
 
@@ -49,7 +49,7 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported elf-hosted Integration Runtime version is 5.20.8227.2.
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported self-hosted Integration Runtime version is 5.20.8227.2.
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
@@ -59,6 +59,10 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
    * [Generate a personal access token](/azure/databricks/dev-tools/auth#--azure-databricks-personal-access-tokens), and store it as a secret in Azure Key Vault.
    * [Create a cluster](/azure/databricks/clusters/create-cluster). Note down the cluster ID - you can find it in Azure Databricks workspace -> Compute -> your cluster -> Tags -> Automatically added tags -> `ClusterId`.
+   * Make sure the user has the following [permissions](/azure/databricks/security/access-control/cluster-acl) so as to connect to the Azure Databricks cluster:
+
+      * **Can Attach To** permission to connect to the running cluster.
+      * **Can Restart** permission to automatically trigger the cluster to start if its state is terminated when connecting.
 
 ## Register
 

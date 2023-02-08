@@ -2,9 +2,7 @@
 title: 'About Azure Point-to-Site VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/28/2021
@@ -158,11 +156,11 @@ The zip file also provides the values of some of the important settings on the A
 
 ## <a name="configure"></a>How do I configure a P2S connection?
 
-A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through P2S configuration, and links to configure the VPN client devices:
+A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through P2S configuration.
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
-* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
 * [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
@@ -188,8 +186,7 @@ There are multiple FAQ sections for P2S, based on authentication.
  
 ## Next Steps
 
-* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
-
 * [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

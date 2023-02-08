@@ -71,8 +71,8 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 
 When you go live with your transactable offer in either Microsoft AppSource or Azure Marketplace, you can access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace.
 
->[!NOTE]
->Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2022.
+> [!NOTE]
+> Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2023.
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
@@ -81,8 +81,6 @@ All partners who have a live transactable offer get to work with a dedicated eng
 ### Marketing benefits for transact offers
 
 :::image type="content" alt-text="Table that shows marketing benefits for transact offers." source="./media/gtm-marketplace/marketing-benefits.png" lightbox="./media/gtm-marketplace/marketing-benefits.png":::
-
-### Sales benefits for transact offers
 
 :::image type="content" alt-text="Table that shows sales benefits for transact offers." source="./media/gtm-marketplace/sales-benefits.png" lightbox="./media/gtm-marketplace/sales-benefits.png":::
 
@@ -129,4 +127,5 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 - Activate your Marketplace Rewards benefits in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 - Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 - Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.
+
 

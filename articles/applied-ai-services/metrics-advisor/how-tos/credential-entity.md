@@ -1,6 +1,6 @@
 ---
 title: Create a credential entity
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: How to create a credential entity to manage your credential in secure.
 author: mrbullwinkle
 manager: nitinme

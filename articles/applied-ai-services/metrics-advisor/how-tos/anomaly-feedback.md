@@ -1,6 +1,6 @@
 ---
 title: Provide anomaly feedback to the Metrics Advisor service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results. 
 author: mrbullwinkle
 manager: nitinme
