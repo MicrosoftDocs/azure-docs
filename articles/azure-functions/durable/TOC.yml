@@ -111,9 +111,9 @@
     href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
   - name: .NET isolated API
     items:
-    - name: Durable Functions for .NET isolated
+    - name: Durable Functions bindings for .NET isolated
       href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
-    - name: DurableTask for .NET
+    - name: Durable Task core SDK for .NET isolated
       href: /dotnet/api/microsoft.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
@@ -121,9 +121,9 @@
     href: /python/api/azure-functions-durable/azure.durable_functions
   - name: Java API
     items:
-    - name: Durable Functions for Java
+    - name: Durable Functions bindings for Java
       href: /java/api/com.microsoft.durabletask.azurefunctions
-    - name: DurableTask for Java
+    - name: Durable Task core SDK for Java
       href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
