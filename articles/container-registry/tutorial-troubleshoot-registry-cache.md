@@ -88,4 +88,4 @@ If you're facing issues while creating a Cache rule, we recommend you verify if 
 We recommend deletion of unneeded cache rules to avoid hitting the limit. 
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: https://learn.microsoft.com/azure/key-vault/secrets/quick-create-portal 
+[create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
