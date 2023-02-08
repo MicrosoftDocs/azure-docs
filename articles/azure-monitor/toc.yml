@@ -1088,7 +1088,7 @@ items:
     href: insights/resource-group-insights.md
   - name: Troubleshoot insights
     href: insights/troubleshoot-workbooks.md 
-- name: Visualizations
+- name: Visualize
   items:
   - name: Workbooks
     items:
