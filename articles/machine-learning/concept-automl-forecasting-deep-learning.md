@@ -27,10 +27,30 @@ In this article, we go over deep learning approaches to forecasting in AutoML. W
 The following image is a simplified diagram of the ForecastTCN architecture:
 :::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
-We can give a more precise definition of the ForecastTCN architecture in terms of formulas. Let $X$ be an input array of size $\text{number of features} \times \text{receptive field}$. We can divide the rows of $X$ into numeric and categorical arrays, $X = \begin{bmatrix} X_{n} \\ X_{c} \end{bmatrix}$. Then, ForecastTCN is given by,
- 
-$\begin{align} \notag \begin{split} h_{0} & = \text{premix\_layer}\left(\begin{bmatrix} X_{n} \\ W_{e} X_{c} \end{bmatrix}\right), \\
- h_{k} & = \text{residual\_convolutional\_cell}(h_{k-1}), \hspace{2mm} k \in [1, \ldots, n], \\
-f_{q} & = \text{forecast\_head}\left(\begin{bmatrix} h_{1} \\ \vdots \\ h_{n}\end{bmatrix}\right), \hspace{2mm} q \in [10, 25, 50, 75, 90] \end{split} \end{align}$
+The architectural parameters of a ForecastTCN are as follows:
+|Parameter|Description|
+|--|--|
+|$n_{b}$|Number of blocks in the network; also called the _depth_|
+|$n_{c}$|Number of cells in each block|
+|$n_{\text{ch}}$|Number of channels in each hidden layer|
 
-where $W_{e}$ is an embedding matrix for the categorical features, $h_{k}$ denotes a hidden layer output of size $\text{number of channels} \times \text{receptive field}$, and the $f_{q}$ are forecast outputs, of size $1 \times \text{forecast horizon}$, for given quantiles of the prediction distribution.  
+The maximum number of past observations that the TCN requires to make a forecast is called the _receptive field_ of the TCN. The receptive field is a function of the TCN architecture and is given by,
+
+$\begin{align} \notag t_{\text{rf}} = 4n_{b}\left(2^{n_{c}} - 1\right) + 1.\end{align}$
+
+We can give a more precise definition of the ForecastTCN architecture in terms of formulas. Let $X$ be an input array where each row contains feature values from the input data. We can divide $X$ into numeric and categorical features, $X = \begin{bmatrix} X_{\text{num}} \\ X_{\text{cat}} \end{bmatrix}$. Then, the ForecastTCN is described by,
+ 
+$\begin{align} \notag \begin{split} H_{0} & = \text{pre-mix}\left(\begin{bmatrix} X_{\text{num}} \\ W_{e} X_{\text{cat}} \end{bmatrix}\right), \\
+ H_{k} & = \text{conv\_cell}_{k}(H_{k-1}), \hspace{2mm} k \in [1, \ldots, n_{l}], \\
+f_{q} & = \text{forecast\_head}_{q}\left(\begin{bmatrix} H_{1} \\ \vdots \\ H_{n_{l}}\end{bmatrix}\right), \hspace{2mm} q \in [0.1, 0.25, 0.5, 0.75, 0.9] \end{split} \end{align}$
+
+where $W_{e}$ is an embedding matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of convolutional layers, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution.
+
+|Variable|Shape|
+|--|--|
+|$X$|$n_{\text{features}} \times l_{\text{rf}}$
+|$H_{i}$|$n_{\text{ch}} \times l_{\text{rf}}$|
+|$f_{q}$|$h$|
+
+
+
