@@ -55,7 +55,7 @@ For user accounts used as service accounts, apply the following settings:
 * Account expiration - set the service account to automatically expire, after its review period, unless the account can continue
 * LogonWorkstations - restrict service account sign-in permissions
   * If it runs locally and accesses resources on the machine, restrict it from signing in elsewhere
-* Cannot change password - set the parameter to **true** to prevent the service account from changing its own password
+* Can't change password - set the parameter to **true** to prevent the service account from changing its own password
  
 ## Lifecycle management process
 
@@ -79,7 +79,7 @@ Collect relevant information for each service account. The following table lists
 | Purpose| The purpose of the service account |
 | Permissions (scopes)| The expected permissions |
 | CMDB links| The cross-link service account with the target script or application, and owners |
-| Risk| The risk and business impact score, based on a security risk assessment |
+| Risk| The results of a security risk assessment |
 | Lifetime| The anticipated maximum lifetime to schedule account expiration or recertification |
 
 Make the account request self-service, and require the relevant information. The owner is an application or business owner, an IT team member, or an infrastructure owner. You can use Microsoft Forms for requests and associated information. If the account is approved, use Microsoft Forms to port it to a configuration management databases (CMDB) inventory tool.
@@ -105,7 +105,7 @@ An example is a service account that runs a website with permissions to connect 
 | Permissions, scopes| HR-WEBServer: sign in locally; run web page<br>HR-SQL1: sign in locally; read permissions on HR databases<br>HR-SQL2: sign in locally; read permissions on Salary database only |
 | Cost center| 123456 |
 | Risk assessed| Medium; Business Impact: Medium; private information; Medium |
-| Account restrictions| Log on to: only aforementioned servers; Cannot change password; MBI-Password Policy; |
+| Account restrictions| Sign in to: only aforementioned servers; Can't change password; MBI-Password Policy; |
 | Lifetime| Unrestricted |
 | Review cycle| Biannually: By owner, security team, or privacy team |
 
@@ -113,9 +113,9 @@ An example is a service account that runs a website with permissions to connect 
 
 If your account is compromised by an unauthorized source, assess the risks to associated applications, services, and infrastructure. Consider direct and indirect risks:
 
-* Resources an unauthorized user gains access to
+* Resources an unauthorized user can gain access to
   * Other information or systems the service account can access
-* Permissions the the account can grant   
+* Permissions the account can grant   
   * Indications or signals when permissions change
 
 After the risk assessment, documentation likely shows that risks affect account: 
@@ -164,7 +164,7 @@ To deprovision:
 2. Examine sign-ins and resource access of related service accounts to ensure no potential effect on them.
 3. Prevent account sign-in.
 4. Ensure the account is no longer needed (there's no complaint).
-5. Create a business policy that determines the amount of time accounts are disabled.
+5. Create a business policy that determines the amount of time that accounts are disabled.
 6. Delete the service account.
 
   * **MSAs** - See, [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). Use PowerShell, or delete it manually from the managed service account container.
