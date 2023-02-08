@@ -85,7 +85,7 @@
   - name: .NET SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Chaos/0.9.15-preview
   - name: C# SDK
-    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
+    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
 - name: Resources
   items:
   - name: Azure roadmap
