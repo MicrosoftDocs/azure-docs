@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/07/2023
 ---
 
 # Add users to your data labeling project
