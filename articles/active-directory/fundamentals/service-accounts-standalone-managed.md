@@ -48,7 +48,7 @@ Use sMSAs to simplify management and security tasks. sMSAs are useful when servi
 
 If the software creator can’t tell you if the applicaiton uses an MSA, test the application. Create a test environment and ensure it accesses required resources. 
 
-Learn more: [Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
+Learn more: [Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting)
 
 ### Assess sMSA security posture
 
@@ -56,8 +56,8 @@ Consider the sMSA scope of access as part of the security posture. To mitigate p
 
 | Security issue| Mitigation |
 | - | - |
-| sMSA is a member of privileged groups | <li>Remove the sMSA from elevated privileged groups, such as Domain Admins<li>Use the least-privileged model <li> Grant the sMSA rights and permissions to run its services<li>If you're unsure about permissions, consult the service creator|
-| sMSA has read/write access to sensitive resources | <li>Audit access to sensitive resources<li>Archive audit logs to a security information and event management (SIEM) program, such as Azure Log Analytics or Microsoft Sentinel.<li>Remediate resource permissions if an undesirable access is detected |
+| sMSA is a member of privileged groups | - Remove the sMSA from elevated privileged groups, such as Domain Admins</br> - Use the least-privileged model </br> - Grant the sMSA rights and permissions to run its services</br> - If you're unsure about permissions, consult the service creator|
+| sMSA has read/write access to sensitive resources | - Audit access to sensitive resources</br> - Archive audit logs to a security information and event management (SIEM) program, such as Azure Log Analytics or Microsoft Sentinel </br> - Remediate resource permissions if an undesirable access is detected |
 | By default, the sMSA password rollover frequency is 30 days | Use group policy to tune the duration, depending on enterprise security requirements. To set the password expiration duration, go to:<br>Computer Configuration>Policies>Windows Settings>Security Settings>Security Options. For domain member, use **Maximum machine account password age**. |
 
 ### sMSA challenges
