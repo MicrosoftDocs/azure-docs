@@ -28,7 +28,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 >
 > Customers using the legacy per-transaction pricing plan need to migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges are based on the number of analyzed transactions in the storage account.
 >
-> For further details, please refer to the [Microsoft Defender for Storage FAQ](azure-defender-storage-configure.md#faq---microsoft-defender-for-storage-pricing).
+> For further details, please refer to the [Microsoft Defender for Storage FAQ](../storage/common/azure-defender-storage-configure.md#faq---microsoft-defender-for-storage-pricing).
 
 ## Availability
 
