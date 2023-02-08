@@ -77,7 +77,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
         --address-prefixes 10.0.0.0/28
     ```
 
-   Volumes can either be provisioned statically or dynamically. Both options are covered in detail below.
+   Volumes can either be provisioned statically or dynamically. Both options are covered further in the next sections.
 
 ## Provision Azure NetApp Files volumes statically
 
@@ -262,7 +262,7 @@ To dynamically provision volumes, you need to install Astra Trident. Astra Tride
 
 Before proceeding to the next section, you need to:
 
-1. **Install Astra Trident**. Trident can be installed using the Trident operator (manually or using [Helm][trident-helm-chart]) or [`tridentctl`][tridentctl]. The instructions provided below explain how Astra Trident can be installed using the operator. To learn more about these installation methods and how they work, see the [Install Guide][trident-install-guide].
+1. **Install Astra Trident**. Trident can be installed using the Trident operator (manually or using [Helm][trident-helm-chart]) or [`tridentctl`][tridentctl]. The instructions provided later in this article explain how Astra Trident can be installed using the operator. To learn more about these installation methods and how they work, see the [Install Guide][trident-install-guide].
 
 2. **Create a backend**. To instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes, a backend is created. This step requires details about the account that was created in the previous step.
 
@@ -473,7 +473,7 @@ A PersistentVolumeClaim (PVC) is a request for storage by a user. Upon the creat
 
 ### Use the persistent volume
 
-After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The manifest below can be used to define an NGINX pod that mounts the Azure NetApp Files volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The following manifest can be used to define an NGINX pod that mounts the Azure NetApp Files volume created in the previous step. In this example, the volume is mounted at `/mnt/data`.
 
 1. Create a file named `anf-nginx-pod.yaml` and copy the following manifest:
 
@@ -514,14 +514,14 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
     pod/nginx-pod created
     ```
 
-  Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [kubectl describe] command:
+   Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [kubectl describe] command:
 
     ```bash
     kubectl describe pod nginx-pod
     ```
-    
+
     The output of the command resembles the following example:
-    
+
     ```console
     [...]
     Volumes:
