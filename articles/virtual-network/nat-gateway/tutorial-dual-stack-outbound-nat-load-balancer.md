@@ -131,7 +131,7 @@ az network vnet subnet create \
 
 ```azurecli-interactive
 az network vnet subnet create \
-    --name myBackendSubnet \
+    --name AzureBastionSubnet \
     --resource-group TutorialIPv6NATLB-rg \
     --vnet-name myVNet \
     --address-prefixes '10.1.1.0/26'
@@ -270,7 +270,7 @@ Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to 
 
 ```azurecli-interactive
 az network vnet update \
-    --address-prefixes '2404:f800:8000:122::/63' \
+    --address-prefixes 10.1.0.0/16 2404:f800:8000:122::/63 \
     --name myVNet \
     --resource-group TutorialIPv6NATLB-rg
 ```
@@ -279,8 +279,9 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vn
 
 ```azurecli-interactive
 az network vnet subnet update \
-    --address-prefixes '2404:f800:8000:122::/64' \
+    --address-prefixes 10.1.0.0/24 2404:f800:8000:122::/64 \
     --name myBackendSubnet \
+    --vnet-name myVNet \
     --resource-group TutorialIPv6NATLB-rg
 ```
 ---
@@ -395,8 +396,9 @@ Use [az network nic create](/azure/network/nic#az_network_nic_create) to create 
 
 ```azurecli-interactive
 az network nic create \
-    --name 'myNIC' \
+    --name myNIC \
     --resource-group TutorialIPv6NATLB-rg \
+    --vnet-name myVNet \
     --subnet myBackendSubnet \
     --private-ip-address-version IPv4 
 ```
@@ -427,10 +429,8 @@ az vm create \
     --resource-group TutorialIPv6NATLB-rg \
     --admin-username azureuser \
     --image Win2022Datacenter \
-    --nics myNIC \
-    --public-ip-address "" \
-    --vnet-name myVNet
-```
+    --nics myNIC
+ ```
 ---
 
 ## Create public load balancer
@@ -544,6 +544,7 @@ az network public-ip create \
     --resource-group TutorialIPv6NATLB-rg \
     --name myPublicIP-IPv6 \
     --sku standard \
+    --version IPv6 \
     --zone 1 2 3
 ```
 
@@ -563,13 +564,14 @@ az network lb create \
 Use [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-create) to create the outbound rule for the backend pool of the load balancer.  The outbound rule enables outbound connectivity for virtual machines in the backend pool of the load balancer.
 
 ```azurecli-interactive
-az network lb-outbound-rule create \
+az network lb outbound-rule create \
     --address-pool myBackendPool \
+    --frontend-ip-configs myFrontend-IPv6 \
     --lb-name myLoadBalancer \
     --name myOutBoundRule \
     --protocol All \
     --resource-group TutorialIPv6NATLB-rg \
-    --allocated-outbound-ports 20000 \
+    --outbound-ports 20000 \
     --enable-tcp-reset true
 ```
 
@@ -626,7 +628,12 @@ az network public-ip show \
 ```
 
 ```output
-
+azureuser@Azure:~$ az network public-ip show \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-NAT \
+    --query ipAddress \
+    --output tsv
+40.90.217.214
 ```
 
 ### IPv6
@@ -640,9 +647,13 @@ az network public-ip show \
 ```
 
 ```output
-
+azureuser@Azure:~$ az network public-ip show \
+    --resource-group TutorialIPv6NATLB-rg \
+    --name myPublicIP-IPv6 \
+    --query ipAddress \
+    --output tsv
+2603:1030:c04:3::4d
 ```
-
 
 ---
 
@@ -668,13 +679,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
 
-1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** displayed.
+1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** is displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar, enter **http://v6.testmyipv6.com**
 
-1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:9::** displayed.
+1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:8::14** is displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
@@ -699,13 +710,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
 
-1. You should see the IPv4 address of **20.230.191.5** displayed.
+1. You should see the IPv4 address displayed. In this example, the IP of **40.90.217.214** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address.":::
 
 1. In the address bar, enter **http://v6.testmyipv6.com**
 
-1. You should see the IPv6 address of **2603:1030:c02:8::14** displayed.
+1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c04:3::4d**  is displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address.":::
 
