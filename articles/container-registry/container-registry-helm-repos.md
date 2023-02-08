@@ -155,7 +155,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \

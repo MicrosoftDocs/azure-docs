@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 04/29/2022
+ms.date: 11/04/2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
@@ -278,5 +278,5 @@ An Azure Machine Learning [component](concept-component.md) is a self-contained 
 
 ## Next steps
 
-* [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
+* [How to upgrade from v1 to v2](how-to-migrate-from-v1.md)
 * [Train models with the v2 CLI and SDK](how-to-train-model.md)

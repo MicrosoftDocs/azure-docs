@@ -100,17 +100,20 @@ To view Data Factory costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-:::image type="content" source="media/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
+:::image type="content" source="media/plan-manage-costs/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
 - To narrow costs for a single service, like Data Factory, select **Add filter** and then select **Service name**. Then, select **Azure Data Factory v2**.
 
 Here's an example showing costs for just Data Factory.
 
-:::image type="content" source="media/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
+:::image type="content" source="media/plan-manage-costs/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Data Factory costs by resource group are also shown. From here, you can explore costs on your own.
 
 ### Monitor costs at pipeline level with Cost Analysis
+
+> [!NOTE]
+> Monitoring costs at pipeline level is a preview feature currently only available in Azure Data Factory, and not Synapse pipelines.
 
 In certain cases, you may want a granular breakdown of cost of operations within our factory, for instance, for charge back purposes. Integrating Azure Billing [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) platform, Data Factory can separate out billing charges for each pipeline. By **opting in** Azure Data Factory detailed billing reporting for a factory, you can better understand how much each pipeline is costing you, within the aforementioned factory.
 

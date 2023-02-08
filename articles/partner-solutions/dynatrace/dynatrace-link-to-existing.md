@@ -1,10 +1,9 @@
 ---
-title: Linking to an existing Dynatrace for Azure resource - Azure partner solutions
+title: Linking to an existing Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to link to an instance of Dynatrace.
+
 ms.topic: quickstart
-author: flang-msft
-ms.author: franlanglois
-ms.date: 10/12/2022
+ms.date: 02/02/2023
 
 ---
 
@@ -72,9 +71,9 @@ Select **Next: Metrics and logs** to configure metrics and logs.
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
-    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There\'s a single activity log for each Azure subscription.
+    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There\'s a single activity log for each Azure subscription.
 
-    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
 1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
 

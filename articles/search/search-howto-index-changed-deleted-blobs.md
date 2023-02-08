@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 11/09/2022
 ---
 
 # Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
@@ -48,6 +48,10 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 + Document keys for the documents in your index must be mapped to either be a blob property or blob metadata, such as "metadata_storage_path".
 
 + You must use the preview REST API (`api-version=2020-06-30-Preview`), or the indexer Data Source configuration in the Azure portal, to configure support for soft delete.
+
++ [Blob versioning](../storage/blobs/versioning-overview.md) must not be enabled in the storage account. Otherwise, native soft delete isn't supported by design.
+
+
 
 ### Configure native soft delete
 

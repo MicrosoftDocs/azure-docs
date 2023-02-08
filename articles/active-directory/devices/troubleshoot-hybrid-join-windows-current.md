@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 02/15/2022
+ms.date: 08/29/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -508,7 +508,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 > [!NOTE]
 > When you're collecting network traces, it's important to *not* use Fiddler during repro.
 
-1.    Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
+1. Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
 1. Lock and unlock the device. For hybrid-joined devices, wait a minute or more to allow the PRT acquisition task to finish.
 1. Run `netsh trace stop`.
 1. Share the *nettrace.cab* file with Support.

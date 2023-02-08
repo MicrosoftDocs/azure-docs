@@ -20,7 +20,7 @@ This plugin automatically tracks click events on web pages and uses data-* attri
 
 Users can set up the Click Analytics Auto-collection plugin via npm.
 
-### NPM setup
+### npm setup
 
 Install npm package:
 
@@ -51,7 +51,7 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
-## Snippet Setup (ignore if using NPM setup)
+## Snippet Setup (ignore if using npm setup)
 
 ```html
 <script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
@@ -374,7 +374,7 @@ In JavaScript correlation is turned off by default in order to minimize the tele
 ## Next steps
 
 - Check out the [documentation on utilizing HEART Workbook](usage-heart.md) for expanded product analytics.
-- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
+- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871).
-- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md#integrating-queries) to create custom visualizations of click data.
+- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.

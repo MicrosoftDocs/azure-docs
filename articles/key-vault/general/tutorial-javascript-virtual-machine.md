@@ -104,7 +104,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 
 ## Log in to the VM
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](/azure/virtual-machines/linux-vm-connect) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux-vm-connect.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
 
 
 To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
@@ -173,8 +173,8 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
         return (await client.getSecret(secretName)).value;
     }
     
-    getSecret("mySecret").then(secretValue => {
-        console.log(`The value of secret 'mySecret' in '${keyVaultName}' is: '${secretValue}'`);
+    getSecret(secretName).then(secretValue => {
+        console.log(`The value of secret '${secretName}' in '${keyVaultName}' is: '${secretValue}'`);
     }).catch(err => {
         console.log(err);
     })

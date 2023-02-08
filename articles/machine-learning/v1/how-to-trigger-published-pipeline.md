@@ -5,8 +5,9 @@ description: Triggered pipelines allow you to automate routine, time-consuming t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: larryfr
-author: blackmist
+ms.author: keli19
+author: likebupt
+ms.reviewer: lagayhar
 ms.date: 08/12/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022

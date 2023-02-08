@@ -191,7 +191,7 @@ If you run into problems, the following suggestions may help:
   nslookup gbl.his.arc.azure.com
   nslookup agentserviceapi.guestconfiguration.azure.com
   nslookup dp.kubernetesconfiguration.azure.com
-    ```
+  ```
 
 * If you are having trouble onboarding your Kubernetes cluster, confirm that you’ve added the Azure Active Directory, Azure Resource Manager, AzureFrontDoor.FirstParty and Microsoft Container Registry service tags to your local network firewall.
 

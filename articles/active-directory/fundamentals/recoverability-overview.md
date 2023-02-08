@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/26/2022
 ms.author: jricketts
-ms.reviewer: baselden
+ms.reviewer: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---

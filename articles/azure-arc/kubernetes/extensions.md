@@ -1,11 +1,9 @@
 ---
 title: "Azure Arc-enabled Kubernetes cluster extensions"
-services: azure-arc
-ms.service: azure-arc
 ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 10/12/2022
+ms.date: 01/23/2023
 ms.topic: how-to
-description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
+description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes clusters."
 ---
 
 # Deploy and manage Azure Arc-enabled Kubernetes cluster extensions
@@ -18,12 +16,11 @@ The Kubernetes extensions feature enables the following on Azure Arc-enabled Kub
 In this article, you learn:
 > [!div class="checklist"]
 
-> * Which Azure Arc-enabled Kubernetes cluster extensions are currently available.
 > * How to create extension instances.
 > * Required and optional parameters.
 > * How to view, list, update, and delete extension instances.
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md).
+Before you begin, read the [conceptual overview of Arc-enabled Kubernetes cluster extensions](conceptual-extensions.md) and review the [list of currently available extensions](extensions-release.md).
 
 ## Prerequisites
 
@@ -46,37 +43,8 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
   * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
-## Currently available extensions
-
-The following extensions are currently available.
-
-| Extension | Description |
-| --------- | ----------- |
-| [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| [Azure Policy](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json) | Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. |
-| [Azure Key Vault Secrets Provider](tutorial-akv-secrets-provider.md) | The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a CSI volume. |
-| [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
-| [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
-| [Azure Arc-enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
-| [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
-| [Azure Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters. |
-| [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc-enabled Kubernetes clusters. |
-| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
-| [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
-| [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
-
 > [!NOTE]
 > Installing Azure Arc extensions on [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview) is currently in preview, with support for the Azure Arc-enabled Open Service Mesh, Azure Key Vault Secrets Provider, Flux (GitOps) and Microsoft Defender for Cloud extensions.
-
-### Extension scope
-
-Extension installations on the Arc-enabled Kubernetes cluster are either *cluster-scoped* or *namespace-scoped*. 
-
-A cluster-scoped extension will be installed in the `release-namespace` specified during extension creation. Typically, only one instance of the cluster-scoped extension and its components, such as pods, operators, and Custom Resource Definitions (CRDs), are installed in the release namespace on the cluster.
-
-A namespace-scoped extension can be installed in a given namespace provided using the `–namespace` property. Since the extension can be deployed at a namespace scope, multiple instances of the namespace-scoped extension and its components can run on the cluster.  Each extension instance has permissions on the namespace where it is deployed to. All the above extensions are cluster-scoped except Event Grid on Kubernetes.
-
-All of the extensions listed above are cluster-scoped, except for [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) .
 
 ## Usage of cluster extensions
 
@@ -134,7 +102,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | Parameter name | Description |
 |----------------|------------|
 | `--name` | Name of the extension instance |
-| `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureMonitor.Containers, microsoft.azuredefender.kubernetes | 
+| `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureMonitor.Containers, microsoft.azuredefender.kubernetes |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the Azure Arc-enabled Kubernetes resource on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the Azure Arc-enabled Kubernetes resource |
@@ -273,7 +241,7 @@ Delete an extension instance on a cluster with `k8s-extension delete`, passing i
 az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
->[!NOTE]
+> [!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
 > [!NOTE]
@@ -306,12 +274,5 @@ az extension update --name k8s-extension
 
 ## Next steps
 
-Learn more about the cluster extensions currently available for Azure Arc-enabled Kubernetes:
-
-* [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
-* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-* [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
-* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-* [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
-* [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
-* [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
+* Learn more about [how extensions work with Arc-enabled Kubernetes clusters](conceptual-extensions.md).
+* Review the [cluster extensions currently available for Azure Arc-enabled Kubernetes](extensions-release.md).

@@ -93,7 +93,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Exceeding reserved capacity
 
-When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned thorughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be rate-limited. For more information, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
+When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned thorughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
 
 ## Next steps
 

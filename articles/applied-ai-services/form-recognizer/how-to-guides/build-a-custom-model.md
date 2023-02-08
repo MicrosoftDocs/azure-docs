@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 01/31/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -45,6 +45,12 @@ Follow these tips to further optimize your data set for training:
 ## Upload your training data
 
 Once you've put together the set of forms or documents for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+
+## Video: Train your custom model
+
+* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we'll create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
+
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
 ## Create a project in the Form Recognizer Studio
 
@@ -200,7 +206,7 @@ If you add the following content to the request body, the API will train with do
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
 * [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
-* [Train with labels using the sample labeling tool](../label-tool.md)
+* [Train with labels using the Sample Labeling tool](../label-tool.md)
 
 ## See also
 

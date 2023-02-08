@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 ---
 
@@ -100,7 +100,7 @@ It returns a JSON response that contains a **status** field with the following p
 You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
 
 > [!NOTE]
-> The free tier limits the request rate to 20 calls per minute. The paid tier allows 10 requests per second (RPS) that can be increased upon request. Note your Azure resource identfier and region, and open an Azure support ticket or contact your account team to request a higher request per second (RPS) rate.
+> The free tier limits the request rate to 20 calls per minute. The paid tier allows 30 requests per second (RPS) that can be increased upon request. Note your Azure resource identfier and region, and open an Azure support ticket or contact your account team to request a higher request per second (RPS) rate.
 
 When the **status** field has the `succeeded` value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 

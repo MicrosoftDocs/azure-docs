@@ -29,7 +29,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * For best network performance, it's recommended to use the default **Routing preference**: **Microsoft network**.  
 
-  * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/availability-zones/migrate-api-mgt.md) for your API Management instance, configure the **Zone-redundant** setting.
+  * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/reliability/migrate-api-mgt.md) for your API Management instance, configure the **Zone-redundant** setting.
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 

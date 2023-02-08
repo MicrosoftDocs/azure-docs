@@ -19,7 +19,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-train-keras.md)
-> * [v2 (preview)](how-to-train-keras.md)
+> * [v2 (current version)](how-to-train-keras.md)
 
 In this article, learn how to run your Keras training scripts using the Azure Machine Learning (AzureML) Python SDK v2.
 
@@ -180,7 +180,7 @@ It's now time to submit the job to run in AzureML. This time, you'll use `create
 Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in AzureML studio.
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory.
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
 
 ### What happens during job execution
 As the job is executed, it goes through the following stages:

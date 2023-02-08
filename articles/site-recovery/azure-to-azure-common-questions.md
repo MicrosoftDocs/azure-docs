@@ -1,10 +1,12 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
-author: v-pgaddala
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: rochakm
 ms.date: 04/28/2022
 ms.topic: conceptual
+ms.service: site-recovery
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -114,7 +116,7 @@ No, but VMs need access to Site Recovery URLs and IP ranges. [Learn more](./azur
 
 Yes, you can replicate the app, and keep the disaster recovery configuration in a separate resource group.
 
-For example, if the apps has three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
+For example, if the apps have three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
 
 ### Can I move storage accounts across resource groups?
 
@@ -182,7 +184,7 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 |0 day|No recovery point saved. You can failover only to the latest point|
 |1 day|One recovery point saved per hour beyond the last two hours|
 |2 - 7 days|One recovery point saved per two hours beyond the last two hours|
-|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
+|8 - 15 days|One recovery point saved per two hours beyond the last two hours for seven days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
 
 
 
@@ -200,7 +202,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
@@ -217,7 +219,7 @@ Multi-VM consistency ensures that recovery points are consistent across replicat
 
 No. When you enable multi-VM consistency, it infers that an app has a dependency on all VMs in the replication group, and single VM failover isn't allowed.
 
-### How many VM can I replicate together in a group?
+### How many VMs can I replicate together in a group?
 
 You can replicate 16 VMs together in a replication group.
 
@@ -295,7 +297,7 @@ A [recovery plan](site-recovery-create-recovery-plans.md) in Site Recovery orche
 
 ### How does sequencing work?
 
-In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups fails over one at one time, so that VMs that are part of the same group fail over together. [Learn more](recovery-plan-overview.md#model-apps).
+In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups failover one at a time, so that VMs that are part of the same group failover together. [Learn more](recovery-plan-overview.md#model-apps).
 
 ### How can I find the RTO of a recovery plan?
 
@@ -315,7 +317,7 @@ No. When you fail over VMs from one region to another, the VMs start up in the t
 
 ### When I reprotect, is all data replicated from the secondary region to primary?
 
-It depends. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+It depends. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### How long does it take fail back?
 

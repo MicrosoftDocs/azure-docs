@@ -13,6 +13,7 @@ Resource Manager provides several functions for working with objects in your Azu
 * [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
+* [items](#items)
 * [json](#json)
 * [length](#length)
 * [null](#null)

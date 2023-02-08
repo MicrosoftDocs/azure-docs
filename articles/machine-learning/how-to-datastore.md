@@ -22,8 +22,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 > * [v1](v1/how-to-access-data.md)
 > * [v2 (current version)](how-to-datastore.md)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores.
 
@@ -124,18 +123,18 @@ ml_client.create_or_update(store)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
-from azure.ai.ml.entities._datastore.credentials import AccountKeyCredentials
+from azure.ai.ml.entities import AccountKeyConfiguration
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
 
 store = AzureBlobDatastore(
     name="blob_protocol_example",
-    description="Datastore pointing to a blob container using wasbs protocol.",
+    description="Datastore pointing to a blob container using https protocol.",
     account_name="mytestblobstore",
     container_name="data-container",
-    protocol="wasbs",
-    credentials=AccountKeyCredentials(
+    protocol="https",
+    credentials=AccountKeyConfiguration(
         account_key="XXXxxxXXXxXXXXxxXXXXXxXXXXXxXxxXxXXXxXXXxXXxxxXXxxXXXxXxXXXxxXxxXXXXxxxxxXXxxxxxxXXXxXXX"
     ),
 )
@@ -147,7 +146,7 @@ ml_client.create_or_update(store)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
-from azure.ai.ml.entities._datastore.credentials import SasTokenCredentials
+from azure.ai.ml.entities import SasTokenConfiguration 
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
@@ -157,7 +156,7 @@ store = AzureBlobDatastore(
     description="Datastore pointing to a blob container using SAS token.",
     account_name="mytestblobstore",
     container_name="data-container",
-    credentials=SasTokenCredentials(
+    credentials=SasTokenConfiguration(
         sas_token= "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
     ),
 )
@@ -222,7 +221,7 @@ store = AzureDataLakeGen2Datastore(
     name="",
     description="",
     account_name="",
-    file_system=""
+    filesystem=""
 )
 
 ml_client.create_or_update(store)
@@ -302,7 +301,7 @@ az ml datastore create --file my_files_datastore.yml
 
 ```python
 from azure.ai.ml.entities import AzureFileDatastore
-from azure.ai.ml.entities._datastore.credentials import AccountKeyCredentials
+from azure.ai.ml.entities import AccountKeyConfiguration
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
@@ -312,7 +311,7 @@ store = AzureFileDatastore(
     description="Datastore pointing to an Azure File Share.",
     account_name="mytestfilestore",
     file_share_name="my-share",
-    credentials=AccountKeyCredentials(
+    credentials=AccountKeyConfiguration(
         account_key= "XXXxxxXXXxXXXXxxXXXXXxXXXXXxXxxXxXXXxXXXxXXxxxXXxxXXXxXxXXXxxXxxXXXXxxxxxXXxxxxxxXXXxXXX"
     ),
 )
@@ -324,7 +323,7 @@ ml_client.create_or_update(store)
 
 ```python
 from azure.ai.ml.entities import AzureFileDatastore
-from azure.ai.ml.entities._datastore.credentials import SasTokenCredentials
+from azure.ai.ml.entities import SasTokenConfiguration
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
@@ -334,7 +333,7 @@ store = AzureFileDatastore(
     description="Datastore pointing to an Azure File Share using SAS token.",
     account_name="mytestfilestore",
     file_share_name="my-share",
-    credentials=SasTokenCredentials(
+    credentials=SasTokenConfiguration(
         sas_token="?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
     ),
 )
