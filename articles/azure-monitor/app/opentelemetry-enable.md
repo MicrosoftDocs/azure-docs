@@ -430,8 +430,6 @@ trace.set_tracer_provider(
 
 ---
 
-For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
-
 ## Enable Sampling
 
 You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
@@ -558,8 +556,8 @@ Autocollected requests:
 * Servlets
 * Spring scheduling
 
-> [!NOTE]
-> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+  > [!NOTE]
+  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Autocollected dependencies (plus downstream distributed trace propagation):
 
@@ -1120,9 +1118,6 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 
 You can use `opentelemetry-api` to update the status of a span and record exceptions.
 
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
@@ -1227,9 +1222,6 @@ The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` a
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
 1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
 
    ```xml
@@ -1260,9 +1252,6 @@ so that it will end up in the Application Insights `requests` table.
 
 If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
 you can add your spans by using the OpenTelemetry API.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
@@ -1324,9 +1313,6 @@ Coming soon.
 #### [Java](#tab/java)
 
 You can use `opentelemetry-api` to create span events, which populate the `traces` table in Application Insights. The string passed in to `addEvent()` is saved to the `message` field within the trace.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
@@ -1509,9 +1495,6 @@ You can use `opentelemetry-api` to add attributes to spans.
 
 Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
 
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
-
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
@@ -1659,10 +1642,6 @@ Coming soon.
 ##### [Java](#tab/java)
 
 Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
-
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
@@ -1912,9 +1891,6 @@ Coming soon.
 #### [Java](#tab/java)
 
 You can use `opentelemetry-api` to get the trace ID or span ID.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
