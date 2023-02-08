@@ -7,7 +7,7 @@ ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/06/2023
+ms.date: 02/07/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -19,22 +19,9 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 > [!NOTE]
 > Azure CNI Overlay is currently **_unavailable_** in the following regions:
 > - East US 2
-> - Central US
 > - South Central US
 > - West US
 > - West US 2
-> - West US 3
-> - Southeast Asia
-> - Sweden Central
-> - France Central
-> - Norway East
-> - Switzerland North
-> - Qatar Central
-> - Jio India West
-> - Jio India Central
-> - UAE Central
-> - UAE North
-> - Brazil Southeast
 
 
 ## Overview of overlay networking
@@ -60,7 +47,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Cluster scale                | 1000 nodes and 250 pods/node                                     | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
-| Kubernetes Network Policies  | Azure Network Policies, Calico                                   | Calico                                                                        |
+| Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
 | OS platforms supported       | Linux and Windows                                                | Linux only                                                                    |
 
 ## IP address planning
