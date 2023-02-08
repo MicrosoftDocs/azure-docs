@@ -42,7 +42,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 
 ## Use a managed identity to create a block blob in .NET
 
-The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
+The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication).
 
 To get a token that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. You can then use the token to create a service client object that is authorized to perform data operations in Azure Storage. For more information about using the **DefaultAzureCredential** class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
