@@ -194,14 +194,14 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 
 | Description | Property name | Property type|
 |:--|:--|:--|
-| The managed instance ID | DataControllerId | string |  
-| The instance admin username | Admin | string | 
+| The managed instance ID | DataControllerId | string |
+| The instance admin username | Admin | string |
 | The instance start time | StartTime | string |
 | The instance end time | EndTime | string |
-| The raw kubernetes information (`kubectl get sqlmi`) | K8sRaw | object | 
+| The raw kubernetes information (`kubectl get sqlmi`) | K8sRaw | object |
 | Username and password for basic authentication | BasicLoginInformation | BasicLoginInformation |
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime |
-| SQL managed instance provisioning state | ProvisioningState | string | 
+| SQL managed instance provisioning state | ProvisioningState | string |
 
 The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
 
