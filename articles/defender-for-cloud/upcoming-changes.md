@@ -37,7 +37,8 @@ You can learn more details about each of these alerts from the [alerts reference
 
 In the scenario where a suspicious IP address is detected, the Defender for ARM bundle alert `Azure Resource Manager operation from suspicious IP address` will be presented.
 
-### Deprecation of alerts' automatic export to Log Analytics workspace
+### The alert automatic export to Log Analytics workspace is set to be deprecated
+
 **Estimated date for change: March 2023**
 Up until now, Defender for Cloud security alerts were automatically exported to a default Log Analytics workspace on the resource level which was causing undeterministic behavior. Therefore, this feature is being deprecated.
 The existing way to export your security alerts into a dedicated Log Analytics workspace is by using [Continuous Export feature](https://learn.microsoft.com/en-us/azure/defender-for-cloud/continuous-export?tabs=azure-portal#set-up-a-continuous-export). 
