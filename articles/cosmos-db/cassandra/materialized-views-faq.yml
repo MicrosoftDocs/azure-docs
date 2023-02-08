@@ -47,9 +47,13 @@ sections:
           The following metrics are available:
 
           - **Max Materialized View Catchup Gap in Minutes**: The value `t` indicates rows written to base table in last `t` minutes that are yet to be propagated to the materialized view.
+            :::image type="content" source="media/materialized-views-faq/catchup-metrics.png" lightbox="media/materialized-views-faq/catchup-metrics.png" alt-text="Screenshot of the Catchup metrics for materialized views in Auzre Cosmos DB for Apache Cassandra.":::
           - **Read change feed cost**: Request units consumed on the base table to read data for the materialized view.
+            :::image type="content" source="media/materialized-views-faq/cpu-usage-metrics.png" lightbox="media/materialized-views-faq/cpu-usage-metrics.png" alt-text="Screenshot of the CPU Usage metrics for materialized views in Auzre Cosmos DB for Apache Cassandra.":::
           - **Write cost**: Request units consumed on the materialized view to transform and persist data that was read from the base table.
+            :::image type="content" source="media/materialized-views-faq/max-cpu-metrics.png" lightbox="media/materialized-views-faq/max-cpu-metrics.png" alt-text="Screenshot of the Memory metrics for materialized views in Auzre Cosmos DB for Apache Cassandra.":::
           - Other metrics related to typical resource consumption on materialized view builders. These metrics include **CPU** and **memory usage**.
+            :::image type="content" source="media/materialized-views-faq/memory-metrics.png" lightbox="media/materialized-views-faq/memory-metrics.png" alt-text="Screenshot of the Max CPU metrics for materialized views in Auzre Cosmos DB for Apache Cassandra.":::
       - question: |
           What are the restore options available for materialized views in Azure Cosmos DB for Apache Cassandra?
         answer: |
