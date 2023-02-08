@@ -35,7 +35,12 @@ For partners, the Microsoft preferred solution badge aligns offers published to 
 
 Until July 2021, publishers with at least one co-sell ready offer were eligible to receive the Microsoft preferred solution badge for all offers published to the commercial marketplace. Starting in August 2021, to improve discovery of offers that have achieved co-sell incentive status, the preferred solution badge is awarded only to offers that meet the business and technical requirements to earn an Azure IP co-sell incentive or the Business Applications co-sell incentive.  
 
+## How often are offers badged? 
+
+Badges are updated periodically every 30 days. Please allow a minimum of 45 days before reaching out to file a ticket with the support team.  
+
 ## Next steps
 
 - To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context)
 - For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](/partner-center/co-sell-requirements?context=/azure/marketplace/context/context) or [Business Applications Co-sell incentive status](/partner-center/co-sell-requirements?context=/azure/marketplace/context/context)
+
