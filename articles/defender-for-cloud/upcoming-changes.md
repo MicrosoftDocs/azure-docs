@@ -29,7 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 **Estimated date for change: March 2023**
 
 As we continue to improve the quality of our alerts, the following three alerts from the Defender for ARM plan are set to be deprecated:
-1. Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)
+1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
 2. Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)
 3. Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)
 
