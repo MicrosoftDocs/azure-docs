@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: ignite-2022
 author: rboucher
 ms.author: robb
-ms.date: 01/25/2023
+ms.date: 02/08/2023
 ms.reviewer: robb
 ---
 # Azure Monitor overview
@@ -89,7 +89,7 @@ For detailed information about data collection, see [data collection](./best-pra
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
 
-|Pillar of Observability/<br>Data Store|Description  |
+|Pillar of Observability/<br>Data Store|Description|
 |---------|---------|
 |[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus based metrics](/articles/azure-monitor/essentials/prometheus-metrics-overview.md).|
 |[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
@@ -110,7 +110,7 @@ Insights and visualizations help increase your visibility into the operation of 
 ### Insights
 
 Insights are large, scalable, curated visualizations. For more information, see List of insights and curated visualizations using Azure Monitor.
-The following table describes the three most robust insights:
+The following table describes the three major insights:
 
 |Insight  |Description  |
 |---------|---------|
