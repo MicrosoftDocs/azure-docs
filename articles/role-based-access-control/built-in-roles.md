@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/29/2022
+ms.date: 01/28/2023
 ms.custom: generated
 ---
 
@@ -1060,7 +1060,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Get managed proxy details for the resource. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |
@@ -5879,6 +5879,10 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/delete | Delete a SQL Role Definition |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/write | Create or update a SQL Role Assignment |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/delete | Delete a SQL Role Assignment |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/mongodbRoleDefinitions/write | Create or update a Mongo Role Definition |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/mongodbRoleDefinitions/delete | Delete a MongoDB Role Definition |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/mongodbUserDefinitions/write | Create or update a MongoDB User Definition |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/mongodbUserDefinitions/delete | Delete a MongoDB User Definition |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -5912,7 +5916,11 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
         "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
         "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
         "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
-        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete",
+        "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions/delete"
       ],
       "dataActions": [],
       "notDataActions": []

@@ -64,6 +64,8 @@ items:
     href: built-in-roles.md
   - name: Managed HSM Soft-delete 
     href: soft-delete-overview.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
 - name: Reference
   items:

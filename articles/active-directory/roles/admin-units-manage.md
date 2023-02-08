@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 01/25/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -66,6 +66,20 @@ Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azuread
 New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
+### Microsoft Graph PowerShell
+
+Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit) command to create a new administrative unit.
+
+```powershell
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+$params = @{
+	DisplayName = "Seattle District Technical Schools"
+	Description = "Seattle district technical schools administration"
+	Visibility = "HiddenMembership"
+}
+New-MgDirectoryAdministrativeUnit -BodyParameter $params
+```
+
 ### Microsoft Graph API
 
 Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits) API to create a new administrative unit.
@@ -109,26 +123,13 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 
 1. To confirm that you want to delete the administrative unit, select **Yes**.
 
-### PowerShell - AzureAD Module
+### PowerShell
 
 Use the [Remove-AzureADMSAdministrativeUnit](/powershell/module/azuread/remove-azureadmsadministrativeunit) command to delete an administrative unit.
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
 Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
-```
-### PowerShell - Microsoft Graph PowerShell SDK
-
-```
-Import-Module Microsoft.Graph.Identity.DirectoryManagement
-
-$params = @{
-	DisplayName = "Seattle District Technical Schools"
-	Description = "Seattle district technical schools administration"
-	Visibility = "HiddenMembership"
-}
-
-New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
 ### Microsoft Graph API
