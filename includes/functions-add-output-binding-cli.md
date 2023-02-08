@@ -36,7 +36,7 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.py* file. From the previous quickstart, your *function_app.py* file, which contains one decorator-based binding, is in the *HttpExample* folder:
+Binding attributes are defined directly in the *function_app.py* file. From the previous quickstart, your *function_app.py* file, which contains one decorator-based binding:
 
 ```python
 import azure.functions as func
@@ -48,7 +48,7 @@ app = func.FunctionApp()
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 ```
 
-The route decorator adds HttpTrigger and HttpOutput binding to the function. This is equivalent to defining HttpTrigger and HttpOutput binding in the *function.json*, which enables your function be triggered when http requests hit the specified route. 
+The `route` decorator adds HttpTrigger and HttpOutput binding to the function. This is equivalent to defining HttpTrigger and HttpOutput binding in the *function.json*, which enables your function be triggered when http requests hit the specified route. 
 
 To write to an Azure Storage queue from this function, add the `queue_output` decorator to your function code:
 
