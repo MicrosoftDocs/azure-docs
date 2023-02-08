@@ -27,7 +27,7 @@ There are different ways provided for you to validate resource:
 Azure API for FHIR will always return an `OperationOutcome` as the validation results. Azure API for FHIR service does two step validation, once a resource is passed into $validate endpoint - the first step is a basic validation to ensure resource can be parsed. During resource parsing, individual errors need to be fixed before procceeding further to next step. Once resource is successfully parsed, full validation is conducted as second step.
 
 > [!NOTE]
-> Validate capability in Azure API for FHIR , does not support validating terminology code value sets.
+> Validate capability in Azure API for FHIR , does not support validating all terminology code value sets. Inlibe code value sets defined as part of FHIR specification, will need to be uploaded to the FHIR server prior to validation.
 
 ## Validating an existing resource
 
