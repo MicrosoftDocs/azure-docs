@@ -31,11 +31,11 @@ In this tutorial:
     - Visual Studio Code
     - Visual Studio 2022 for Mac
 * Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
-* A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 ## Create an ASP.NET Core project
 
-After registering an application on the Azure portal, a .NET web application needs to be created using an IDE. Use the tabs below to create an ASP.NET Core project with your IDE.
+After registering an application on the Azure portal, a .NET web application needs to be created using an IDE. Use the tabs to create an ASP.NET Core project with your IDE.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -51,7 +51,7 @@ After registering an application on the Azure portal, a .NET web application nee
 1. In Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
 1. Open a new terminal by selecting **Terminal > New Terminal**.
-1. Run the following commands in the terminal to change into the folder directory and create the project:
+1. Run the following commands in the terminal to change into the directory and create the project:
 
 ```powershell
 cd NewWebAppLocal
@@ -64,14 +64,14 @@ dotnet new webapp
 1. Under **Web and Console** in the left navigation bar, select **App**.
 1. Under **ASP.NET Core**, select **Web Application** and ensure **C#** is selected in the drop down menu, then select **Continue**.
 1. Accept the default for the **Target Framework and Advanced** > **Continue**.
-1. Enter a name for **Project name**, this will be reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
+1. Enter a name for **Project name**, this is reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
 1. Accept the default location for the project or choose a different location, and then select **Create**.
 
 ---
 
 ## Create and upload a self-signed certificate
 
-The use of certificates is suggested for securing the application. When using certificates, make sure to manage and monitor them appropriately. This tutorial uses a self-signed certificate for development purposes, certificates issued by a certificate authority should be used for production.
+The use of certificates is suggested for securing the application. For the purpose of this tutorial, a self-signed certificate will be created in the project directory. Certificates issued by a certificate authority should be used for production.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -114,13 +114,13 @@ To make the certificate available to the application, it must be uploaded into t
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
-1. Double-click the value under **Thumbprint**, select the vertical ellipsis, and then select **Copy**. This will be used in the configuration steps.
+1. Record the **Thumbprint** value, which will be used in the next step.
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
 ## Configure the application for authentication and API reference
 
-The values recorded earlier will be used to configure the application for authentication. As it will also be calling in to a web API, the app settings must contain a reference to this as well.
+The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. As the application will also call into a web API, it must also contain a reference to this API.
 
 1. Open *appsettings.json* and replace the file contents with the following snippet:
   

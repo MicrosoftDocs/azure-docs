@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Add sign-in to an application"
-description: Add sign-in to an ASP.NET Core application using Visual Studio.
+title: "Tutorial: Add sign in to an application"
+description: Add sign in to an ASP.NET Core application using Visual Studio.
 author: cilwerner
 ms.author: cwerner
 manager: CelesteDG
@@ -10,27 +10,20 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
 ---
 
-# Tutorial: Add sign-in to an application
+# Tutorial: Add sign in to an application
 
-In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign-in and sign-out experience.
+In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
 
 In this tutorial:
 
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
 > * Implement authentication in the code
-> * Display the sign-in and sign-out experience
-
+> * Add the sign in and sign out experience
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md).
-* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
-    - Visual Studio 2022
-    - Visual Studio Code
-    - Visual Studio 2022 for Mac
-* A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
-
 
 ## Install identity packages
 
@@ -115,12 +108,11 @@ dotnet add package Microsoft.Identity.Web.Diagnostics
     app.Run();
     ```
 
+## Add the sign in and sign out experience
 
-## Display the sign-in and sign-out experience
+After installing the NuGet packages and adding necessary code for authentication, add the sign in and sign out experiences.
 
-After installing the NuGet packages and adding necessary code for authentication, sign-in and sign-out experiences need to be added.
-
-### Create the *_LoginPartial.cshtml* file to enable the login experience
+### Create the *_LoginPartial.cshtml* file
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -140,9 +132,9 @@ After installing the NuGet packages and adding necessary code for authentication
 1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 ---
 
-### Display the sign-in and sign-out experience
+### Display the sign in and sign out experience
 
-1. Open *_LoginPartial.cshtml* and add the following code for adding the sign-in and sign-out experience:
+1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
 
     ```csharp
     @using System.Security.Principal
