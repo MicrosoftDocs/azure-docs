@@ -14,7 +14,7 @@ recommendations: false
 
 # Document Translation in Azure Cognitive Services Language Studio
 
-Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. In this quickstart, you'll learn to translate documents from local storage or Azure Blob Storage, interactively, without the need to write code.
+ Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a user interface that lets you explore, build, and integrate document translation into your workflows and applications. This quickstart guides you through the steps to translate documents from local storage or Azure Blob Storage, interactively, without the need to write code.
 
 ## Prerequisites
 
@@ -25,14 +25,14 @@ Document Translation in [**Azure Cognitive Services Language Studio**](https://l
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
-To get started, you'll need:
+To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) enabled with a system-assigned managed identity. For more information, *see* [**Managed identities for Document Translation**](../how-to-guides/create-use-managed-identities.md).
 
-  * An Azure blob storage account and managed identity are required to use Document Translation in Language Studio**.
-  * You'll also need to create source and target containers for your Azure blob storage account.
+  * An Azure blob storage account and managed identity are required to use Document Translation in the Language Studio.
+  * You also need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your source and target documents in your Azure blob storage account.
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
@@ -40,7 +40,7 @@ To get started, you'll need:
   
     1. **Subscription**. Select one of your available Azure subscriptions.
     1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
-    1. **Resource Region**. For this project, choose a **non-global** region. We'll use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. Currently, Document Translation doesn't support managed identity in the global region.
+    1. **Resource Region**. For this project, choose a **non-global** region. We use a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication. For Document Translation, managed identity isn't supported in the global region.
     1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
     1. **Pricing tier**. Select Standard S1 to try the service. Document Translation isn't supported in the free tier.
     1. Select **Review + Create**.
@@ -53,7 +53,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If you're using the Language Studio for the first time, you'll need to complete the sections:
+1. If you're using the Language Studio for the first time, you need to complete these sections:
 
     * **Choose a language resource** or create a new language resource in the Azure portal.
 
@@ -69,7 +69,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
 
-1. If you're using the Document Translation feature for the first time, you'll start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
+1. If you're using the Document Translation feature for the first time, start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
 
     :::image type="content" source="../media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
@@ -91,7 +91,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
     :::image type="content" source="../media/language-studio/start-translation.png" alt-text="Screenshot of the start translation job page.":::
 
-1. On the **Job history** page, you'll find the **Translation job id** and the job status.
+1. The **Job history** page contains the **Translation job id** and job status.
 
   > [!NOTE]
   > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
