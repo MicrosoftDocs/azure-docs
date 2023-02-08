@@ -40,7 +40,7 @@ Next, follow the instructions below if you intend to use the Azure CLI while fol
 
 These services are the supported types of endpoints that you can create for your instance:
 * [Event Grid](../event-grid/overview.md) topic
-    * For Event Grid endpoints, only event grid topics are supported. Event grid domains are not supported as endpoints.
+    * For Event Grid endpoints, only Event Grid topics are supported. Event Grid domains are not supported as endpoints.
 * [Event Hubs](../event-hubs/event-hubs-about.md) hub
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topic
 
