@@ -46,7 +46,7 @@ When you create service accounts, consider the information in the following tabl
 | Scope| Define the scope, and anticipate usage duration|
 | Purpose| Create service accounts for one purpose |
 | Permissions | Apply the principle of least permission:<li>Don't assign permissions to built-in groups, such as administrators<li>Remove local machine permissions, where feasible<li>Tailor access, and use AD delegation for directory access<li>Use granular access permissions<li>Set account expiration and location restrictions on user-based service accounts |
-| Monitor and audit use| Monitor sign-in data, and ensure it matches the intended usage. Set alerts for anomalous usage. |
+| Monitor and audit use| <li>Monitor sign-in data, and ensure it matches the intended usage <li>Set alerts for anomalous usage |
 
 ### User account restrictions
 
@@ -167,8 +167,8 @@ To deprovision:
 5. Create a business policy that determines the amount of time that accounts are disabled.
 6. Delete the service account.
 
-  * **MSAs** - See, [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). Use PowerShell, or delete it manually from the managed service account container.
-  * **Computer or user accounts** - Manually delete the account from Active Directory.
+  * MSAs - see, [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). Use PowerShell, or delete it manually from the managed service account container.
+  * Computer or user accounts - manually delete the account from Active Directory
 
 ## Next steps
 
