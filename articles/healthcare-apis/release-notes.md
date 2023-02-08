@@ -23,9 +23,9 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ### MedTech service
 
-**Added support for Qatar Central**
+**Qatar Central region is Generally Available (GA)**
 
-Customers can now access the MedTech service in Qatar Central.
+Customers in Qatar Central can now access the MedTech service.
 
 
 ### DICOM service
