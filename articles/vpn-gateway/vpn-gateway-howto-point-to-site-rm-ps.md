@@ -2,9 +2,7 @@
 title: 'Configure P2S server configuration - certificate authentication: PowerShell'
 description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/18/2023
