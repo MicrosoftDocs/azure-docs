@@ -123,7 +123,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 1. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
 
-3. Search for **Azure IoT Edge** and **Azure IoT Hub**, which are extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
+1. Search for **Azure IoT Edge** and **Azure IoT Hub**, which are extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
 
 1. When the extensions are done installing, open the command palette by selecting **View** > **Command Palette**.
 
@@ -144,11 +144,9 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 The Azure IoT Edge extension provides project templates for all supported IoT Edge module languages in Visual Studio Code. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic.
 
-For this tutorial, we use the C# module template because it is the most commonly used template.
+For this tutorial, we use the C# module template because it's the most commonly used template.
 
 ### Create a project template
-
-::: zone pivot="iotedge-dev-ext"
 
 In the Visual Studio Code command palette, search for and select **Azure IoT Edge: New IoT Edge Solution**. Follow the prompts and use the following values to create your solution:
 
