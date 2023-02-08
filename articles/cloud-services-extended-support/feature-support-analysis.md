@@ -45,7 +45,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 |List VMs in Set|No|Yes|Yes|
 |Automatic Scaling (manual, metrics based, schedule based)|Yes|Yes|Yes|
 |Auto-Remove NICs and Disks when deleting VM instances|Yes|Yes|Yes|
-|Upgrade Policy (VM scale sets)|AutoUD and ManualUD policies. No support for Rolling. Cloud Services - Create Or Update - REST API (Azure Compute) | Microsoft Learn|No, upgrade policy must be null or [] during create|Automatic, Rolling, Manual|
+|Upgrade Policy (VM scale sets)|AutoUD and ManualUD policies. No support for Rolling. Cloud Services - Create Or Update - REST API (Azure Compute) | No, upgrade policy must be null or [] during create|Automatic, Rolling, Manual|
 |Automatic OS Updates|Yes|No|Yes|
 |Customer Defined OS Images|No|Yes|Yes|
 |In Guest Security Patching|No|Yes|No|
