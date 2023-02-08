@@ -4,8 +4,8 @@ description: Learn more about the routine, planned maintenance to keep the App S
 author: msangapu-msft
 tags: app-service
 
-ms.topic: sample
-ms.date: 01/27/2023
+ms.topic: article
+ms.date: 02/08/2023
 ms.author: msangapu
 ---
 # Routine (planned) maintenance for App Service
@@ -13,7 +13,7 @@ ms.author: msangapu
 Routine maintenance covers behind the scenes updates to the Azure App Service platform. Types of maintenance can be performance improvements, bug fixes, 
 new features, or security updates. App Service maintenance can be on App Service itself or the underlying operating system.
 
->[IMPORTANT!]
+>[!IMPORTANT]
 >A breaking change or deprecation of functionality is not a part of routine maintenance (see [Modern Lifecycle Policy - Microsoft Lifecycle | Microsoft Learn](/lifecycle/policies/modern) for deprecation topic for details).
 >
 
