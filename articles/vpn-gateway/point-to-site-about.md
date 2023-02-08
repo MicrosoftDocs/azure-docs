@@ -176,8 +176,7 @@ There are multiple FAQ sections for P2S, based on authentication.
  
 ## Next Steps
 
-* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
-
 * [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**
