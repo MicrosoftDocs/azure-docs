@@ -42,10 +42,10 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
 ::: zone pivot="node-model-v3" 
-1. Provide the following information at the prompts:
+3. Provide the following information at the prompts:
 
     |Prompt|Selection|
     |--|--|
@@ -58,7 +58,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
 ::: zone-end
 ::: zone pivot="node-model-v4" 
-1. Provide the following information at the prompts:
+3. Provide the following information at the prompts:
 
     |Prompt|Selection|
     |--|--|
