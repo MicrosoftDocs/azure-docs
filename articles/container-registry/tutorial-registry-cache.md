@@ -18,25 +18,23 @@ This article is part one in a three-part tutorial series. The tutorial covers:
 
 ## Caching for ACR
 
-By enabling Caching for ACR, you can access, fetch, and cache images. A registry cache enables you to access content from public and private registries. 
-
-The cached artifacts are accessible from private VNETs using ACR [Private Link Support](/azure/container-registry/container-registry-private-link). All the cached artifacts will be delivered through ACR.
+By enabling Caching for ACR, you can cache container images. Caching for ACR enables you to cache container images from public and private registries. 
 
 Implementing Caching for ACR provides the following benefits:
 
-***High-speed pull operations:*** Faster pulls of the container images are achievable by caching the container images in the registry. Since Microsoft manages the Azure network, pull operations are faster by providing Geo-Replication and Availability zone support to the customers.
+***High-speed pull operations:*** Faster pulls of container images are achievable by caching the container images in ACR. Since Microsoft manages the Azure network, pull operations are faster by providing Geo-Replication and Availability Zone support to the customers.
 
-***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to increase security and meet compliance standards. 
+***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Docker Rate Limit:***  Docker has updated the terms of services to limit anonymous users to 100 pull operations every six hours, free Docker account users to 200 pull operations every six hours, and paid Docker subscription to 5000 pull operations per 24 hours. ACR's Registry caching allows users to pull images from the private cache upon requirment. The feature benefits the customers to avoid hitting the Docker rate limit.
+***Docker Rate Limit:***  Docker has updated their terms of services to limit anonymous users to 100 pull operations every six hours, free Docker account users to 200 pull operations every six hours, and paid Docker subscription to 5000 pull operations per 24 hours. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit.
 
 ## Preview Limitations
 
-- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap for cached registries but aren't included in this release.
+- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but aren't included in this release.
 
 - Caching for ACR currently only supports caching for pulled images. Caching for ACR doesn't automatically pull new version of images when a new version is available. This is on the roadmap but isn't supported in this release. 
 
--  Caching for ACR only supports Docker Hub and Microsoft Container Registry. Multiple other registries are on the roadmap but aren't included in this release.
+-  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries are on the roadmap but aren't included in this release.
 
 - Caching for ACR is only available via the Azure Portal. The Azure CLI will be released in the coming weeks.   
 
