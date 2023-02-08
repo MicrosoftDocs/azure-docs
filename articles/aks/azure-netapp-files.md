@@ -28,231 +28,231 @@ The following considerations apply when you use Azure NetApp Files:
 
 ## Configure Azure NetApp Files
 
-Register the *Microsoft.NetApp* resource provider by running the following command:
+1. Register the *Microsoft.NetApp* resource provider by running the following command:
 
-```azurecli
-az provider register --namespace Microsoft.NetApp --wait
-```
+    ```azurecli
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
-> [!NOTE]
-> This can take several minutes to complete.
+    > [!NOTE]
+    > This operation can take several minutes to complete.
 
-When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
-The following example creates an account named *myaccount1* in the *myResourceGroup* resource group and *eastus* region:
+2. When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
+The following command creates an account named *myaccount1* in the *myResourceGroup* resource group and *eastus* region:
 
-```azurecli
-az netappfiles account create \
-    --resource-group myResourceGroup \
-    --location eastus \
-    --account-name myaccount1
-```
+    ```azurecli
+    az netappfiles account create \
+        --resource-group myResourceGroup \
+        --location eastus \
+        --account-name myaccount1
+    ```
 
-Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
+3. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
 
-```azurecli
-az netappfiles pool create \
-    --resource-group myResourceGroup \
-    --location eastus \
-    --account-name myaccount1 \
-    --pool-name mypool1 \
-    --size 4 \
-    --service-level Premium
-```
+    ```azurecli
+    az netappfiles pool create \
+        --resource-group myResourceGroup \
+        --location eastus \
+        --account-name myaccount1 \
+        --pool-name mypool1 \
+        --size 4 \
+        --service-level Premium
+    ```
 
-Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. 
+3. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create].  
 
-> [!NOTE]
-> This subnet must be in the same virtual network as your AKS cluster.
+    > [!NOTE]
+    > This subnet must be in the same virtual network as your AKS cluster.
 
-```azurecli
-RESOURCE_GROUP=myResourceGroup
-VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-SUBNET_NAME=MyNetAppSubnet
-az network vnet subnet create \
-    --resource-group $RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --name $SUBNET_NAME \
-    --delegations "Microsoft.NetApp/volumes" \
-    --address-prefixes 10.0.0.0/28
-```
+    ```azurecli
+    RESOURCE_GROUP=myResourceGroup
+    VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
+    VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
+    SUBNET_NAME=MyNetAppSubnet
+    az network vnet subnet create \
+        --resource-group $RESOURCE_GROUP \
+        --vnet-name $VNET_NAME \
+        --name $SUBNET_NAME \
+        --delegations "Microsoft.NetApp/volumes" \
+        --address-prefixes 10.0.0.0/28
+    ```
 
-Volumes can either be provisioned statically or dynamically. Both options are covered in detail below.
+   Volumes can either be provisioned statically or dynamically. Both options are covered in detail below.
 
 ## Provision Azure NetApp Files volumes statically
 
-Create a volume by using [az netappfiles volume create][az-netappfiles-volume-create].
+1. Create a volume using the [az netappfiles volume create][az-netappfiles-volume-create] command:
 
-```azurecli
-RESOURCE_GROUP=myResourceGroup
-LOCATION=eastus
-ANF_ACCOUNT_NAME=myaccount1
-POOL_NAME=mypool1
-SERVICE_LEVEL=Premium
-VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-SUBNET_NAME=MyNetAppSubnet
-SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
-VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Note that file path needs to be unique within all ANF Accounts
-
-az netappfiles volume create \
-    --resource-group $RESOURCE_GROUP \
-    --location $LOCATION \
-    --account-name $ANF_ACCOUNT_NAME \
-    --pool-name $POOL_NAME \
-    --name "myvol1" \
-    --service-level $SERVICE_LEVEL \
-    --vnet $VNET_ID \
-    --subnet $SUBNET_ID \
-    --usage-threshold $VOLUME_SIZE_GiB \
-    --file-path $UNIQUE_FILE_PATH \
-    --protocol-types "NFSv3"
-```
+    ```azurecli
+    RESOURCE_GROUP=myResourceGroup
+    LOCATION=eastus
+    ANF_ACCOUNT_NAME=myaccount1
+    POOL_NAME=mypool1
+    SERVICE_LEVEL=Premium
+    VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
+    VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
+    SUBNET_NAME=MyNetAppSubnet
+    SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
+    VOLUME_SIZE_GiB=100 # 100 GiB
+    UNIQUE_FILE_PATH="myfilepath2" # Note that file path needs to be unique within all ANF Accounts
+    
+    az netappfiles volume create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME \
+        --pool-name $POOL_NAME \
+        --name "myvol1" \
+        --service-level $SERVICE_LEVEL \
+        --vnet $VNET_ID \
+        --subnet $SUBNET_ID \
+        --usage-threshold $VOLUME_SIZE_GiB \
+        --file-path $UNIQUE_FILE_PATH \
+        --protocol-types "NFSv3"
+    ```
 
 ### Create the persistent volume
 
-List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
+1. List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
 
-```azurecli
-az netappfiles volume show \
-    --resource-group $RESOURCE_GROUP \
-    --account-name $ANF_ACCOUNT_NAME \
-    --pool-name $POOL_NAME \
-    --volume-name "myvol1" -o JSON
-```
+    ```azurecli
+    az netappfiles volume show \
+        --resource-group $RESOURCE_GROUP \
+        --account-name $ANF_ACCOUNT_NAME \
+        --pool-name $POOL_NAME \
+        --volume-name "myvol1" -o JSON
+    ```
 
-The following output resembles the output of the previous command:
+    The following output resembles the output of the previous command:
 
-```console
-{
-  ...
-  "creationToken": "myfilepath2",
-  ...
-  "mountTargets": [
+    ```console
     {
       ...
-      "ipAddress": "10.0.0.4",
+      "creationToken": "myfilepath2",
+      ...
+      "mountTargets": [
+        {
+          ...
+          "ipAddress": "10.0.0.4",
+          ...
+        }
+      ],
       ...
     }
-  ],
-  ...
-}
-```
+    ```
 
-Create a `pv-nfs.yaml` defining a persistent volume and copy the following manifest. Replace `path` with the *creationToken* and `server` with *ipAddress* from the previous command.
+2. Create a `pv-nfs.yaml` defining a persistent volume by copying the following manifest. Replace `path` with the *creationToken* and `server` with *ipAddress* from the previous step.
 
-```yaml
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-nfs
-spec:
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteMany
-  mountOptions:
-    - vers=3
-  nfs:
-    server: 10.0.0.4
-    path: /myfilepath2
-```
+    ```yaml
+    ---
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-nfs
+    spec:
+      capacity:
+        storage: 100Gi
+      accessModes:
+        - ReadWriteMany
+      mountOptions:
+        - vers=3
+      nfs:
+        server: 10.0.0.4
+        path: /myfilepath2
+    ```
 
-Update the *server* and *path* to the values of your NFS (Network File System) volume you created in the previous step. Create the persistent volume with the [kubectl apply][kubectl-apply] command:
+3. Create the persistent volume using the [kubectl apply][kubectl-apply] command:
 
-```bash
-kubectl apply -f pv-nfs.yaml
-```
+    ```bash
+    kubectl apply -f pv-nfs.yaml
+    ```
 
-Verify the *Status* of the PersistentVolume is *Available* using the [kubectl describe][kubectl-describe] command:
+4. Verify the *Status* of the PersistentVolume is *Available* using the [kubectl describe][kubectl-describe] command:
 
-```bash
-kubectl describe pv pv-nfs
-```
+    ```bash
+    kubectl describe pv pv-nfs
+    ```
 
 ### Create a persistent volume claim
 
-Create a `pvc-nfs.yaml` defining a PersistentVolume. For example:
+1. Create a `pvc-nfs.yaml` defining a PersistentVolume by copying the following manifest:
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pvc-nfs
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 1Gi
-```
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: pvc-nfs
+    spec:
+      accessModes:
+        - ReadWriteMany
+      storageClassName: ""
+      resources:
+        requests:
+          storage: 1Gi
+    ```
 
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command:
+2. Create the persistent volume claim using the [kubectl apply][kubectl-apply] command:
 
-```bash
-kubectl apply -f pvc-nfs.yaml
-```
+    ```bash
+    kubectl apply -f pvc-nfs.yaml
+    ```
 
-Verify the *Status* of the persistent volume claim is *Bound* using the [kubectl describe][kubectl-describe] command:
+3. Verify the *Status* of the persistent volume claim is *Bound* using the [kubectl describe][kubectl-describe] command:
 
-```bash
-kubectl describe pvc pvc-nfs
-```
+    ```bash
+    kubectl describe pvc pvc-nfs
+    ```
 
 ### Mount with a pod
 
-Create a `nginx-nfs.yaml` defining a pod that uses the persistent volume claim. For example:
+1. Create a `nginx-nfs.yaml` defining a pod that uses the persistent volume claim by using the following manifest:
 
-```yaml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nginx-nfs
-spec:
-  containers:
-  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-    name: nginx-nfs
-    command:
-    - "/bin/sh"
-    - "-c"
-    - while true; do echo $(date) >> /mnt/azure/outfile; sleep 1; done
-    volumeMounts:
-    - name: disk01
-      mountPath: /mnt/azure
-  volumes:
-  - name: disk01
-    persistentVolumeClaim:
-      claimName: pvc-nfs
-```
+    ```yaml
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: nginx-nfs
+    spec:
+      containers:
+      - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+        name: nginx-nfs
+        command:
+        - "/bin/sh"
+        - "-c"
+        - while true; do echo $(date) >> /mnt/azure/outfile; sleep 1; done
+        volumeMounts:
+        - name: disk01
+          mountPath: /mnt/azure
+      volumes:
+      - name: disk01
+        persistentVolumeClaim:
+          claimName: pvc-nfs
+    ```
 
-Create the pod with the [kubectl apply][kubectl-apply] command:
+2. Create the pod using the [kubectl apply][kubectl-apply] command:
 
-```bash
-kubectl apply -f nginx-nfs.yaml
-```
+    ```bash
+    kubectl apply -f nginx-nfs.yaml
+    ```
 
-Verify the pod is *Running* using the [kubectl describe][kubectl-describe] command:
+3. Verify the pod is *Running* using the [kubectl describe][kubectl-describe] command:
 
-```bash
-kubectl describe pod nginx-nfs
-```
+    ```bash
+    kubectl describe pod nginx-nfs
+    ```
 
-Verify your volume has been mounted on the pod by using [kubectl exec][kubectl-exec] to connect to the pod, and then use `df -h` to check if the volume is mounted.
+4. Verify your volume has been mounted on the pod by using [kubectl exec][kubectl-exec] to connect to the pod, and then use `df -h` to check if the volume is mounted.
 
-```bash
-kubectl exec -it nginx-nfs -- sh
-```
+    ```bash
+    kubectl exec -it nginx-nfs -- sh
+    ```
 
-```console
-/ # df -h
-Filesystem             Size  Used Avail Use% Mounted on
-...
-10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure
-...
-```
+    ```console
+    / # df -h
+    Filesystem             Size  Used Avail Use% Mounted on
+    ...
+    10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure
+    ...
+    ```
 
 ## Provision Azure NetApp Files volumes dynamically
 
@@ -289,7 +289,7 @@ This section walks you through the installation of Astra Trident using the opera
     namespace/trident created
     ```
 
-2. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
+3. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
 
     ```bash
     kubectl apply -f trident-installer/deploy/bundle.yaml -n trident
@@ -305,7 +305,7 @@ This section walks you through the installation of Astra Trident using the opera
     podsecuritypolicy.policy/tridentoperatorpods created
     ```
 
-3. Run the following command to create a `TridentOrchestrator` to install Astra Trident.
+4. Run the following command to create a `TridentOrchestrator` to install Astra Trident.
 
     ```bash
     kubectl apply -f trident-installer/deploy/crds/tridentorchestrator_cr.yaml
@@ -317,9 +317,9 @@ This section walks you through the installation of Astra Trident using the opera
     tridentorchestrator.trident.netapp.io/trident created 
     ```
 
-The operator installs by using the parameters provided in the `TridentOrchestrator` spec. You can learn about the configuration parameters and example backends from the [Trident install guide][trident-install-guide] and [backend guide][trident-backend-install-guide].
+    The operator installs by using the parameters provided in the `TridentOrchestrator` spec. You can learn about the configuration parameters and example backends from the [Trident install guide][trident-install-guide] and [backend guide][trident-backend-install-guide].
 
-4. To confirm Astra Trident was installed successfully, run the following [kubectl describe][kubectl-describe] command: 
+5. To confirm Astra Trident was installed successfully, run the following [kubectl describe][kubectl-describe] command: 
 
     ```bash
     kubectl describe torc trident
@@ -516,39 +516,33 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
 
   Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [kubectl describe] command:
 
-```bash
-kubectl describe pod nginx-pod
-```
-
-The output of the command resembles the following example:
-
-```console
-[...]
-Volumes:
-  volume:
-    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  anf-pvc
-    ReadOnly:   false
-  default-token-k7952:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-k7952
-    Optional:    false
-[...]
-Events:
-  Type    Reason                  Age   From                     Message
-  ----    ------                  ----  ----                     -------
-  Normal  Scheduled               15s   default-scheduler        Successfully assigned trident/nginx-pod to brameshb-non-root-test
-  Normal  SuccessfulAttachVolume  15s   attachdetach-controller  AttachVolume.Attach succeeded for volume "pvc-bffa315d-3f44-4770-86eb-c922f567a075"
-  Normal  Pulled                  12s   kubelet                  Container image "mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine" already present on machine
-  Normal  Created                 11s   kubelet                  Created container nginx
-  Normal  Started                 10s   kubelet                  Started container nginx
-```
-
-Astra Trident supports many features with Azure NetApp Files, such as:
-
-* [Expanding volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html)
-* [On-demand volume snapshots](https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html)
-* [Importing volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-import.html)
+    ```bash
+    kubectl describe pod nginx-pod
+    ```
+    
+    The output of the command resembles the following example:
+    
+    ```console
+    [...]
+    Volumes:
+      volume:
+        Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+        ClaimName:  anf-pvc
+        ReadOnly:   false
+      default-token-k7952:
+        Type:        Secret (a volume populated by a Secret)
+        SecretName:  default-token-k7952
+        Optional:    false
+    [...]
+    Events:
+      Type    Reason                  Age   From                     Message
+      ----    ------                  ----  ----                     -------
+      Normal  Scheduled               15s   default-scheduler        Successfully assigned trident/nginx-pod to brameshb-non-root-test
+      Normal  SuccessfulAttachVolume  15s   attachdetach-controller  AttachVolume.Attach succeeded for volume "pvc-bffa315d-3f44-4770-86eb-c922f567a075"
+      Normal  Pulled                  12s   kubelet                  Container image "mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine" already present on machine
+      Normal  Created                 11s   kubelet                  Created container nginx
+      Normal  Started                 10s   kubelet                  Started container nginx
+    ```
 
 ## Using Azure tags
 
@@ -556,7 +550,11 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 
 ## Next steps
 
-For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
+Astra Trident supports many features with Azure NetApp Files. For more information, see:
+
+* [Expanding volumes][expand-trident-volumes]
+* [On-demand volume snapshots][on-demand-trident-volume-snapshots]
+* [Importing volumes][importing-trident-volumes]
 
 <!-- EXTERNAL LINKS -->
 [astra-trident]: https://docs.netapp.com/us-en/trident/index.html
@@ -570,6 +568,9 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 [tridentctl]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html
 [trident-backend-install-guide]: https://docs.netapp.com/us-en/trident/trident-use/backends.html
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[expand-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html
+[on-demand-trident-volume-snapshots]: https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html
+[importing-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-import.html
 
 <!-- INTERNAL LINKS -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
