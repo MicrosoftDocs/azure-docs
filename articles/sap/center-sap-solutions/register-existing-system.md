@@ -157,8 +157,8 @@ This issue occurs when Azure VM agent's provisioning state is not as expected on
   - If the service is not running then restart this service. To restart use the following steps:
   - sudo systemctl stop waagent
   - sudo systemctl start waagent
-  - If this does not solve the issue, try updating the VM Agent using [this document](../virtual-machines/extensions/update-linux-agent.md)
-3. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../virtual-machines/extensions/update-linux-agent.md).
+  - If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
+3. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
 
 If your registration fails:
 
