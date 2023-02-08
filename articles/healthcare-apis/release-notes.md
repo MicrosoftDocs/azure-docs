@@ -42,7 +42,7 @@ Two new attributes for returning the count of Instances in a Study or Series are
 ### Toolkit and Samples Open Source
 **New sample app has been released**
 
-One new sample app has been released in the open source samples repo: [Azure-Samples/azure-health-data-services-samples: Samples for using the Azure Health Data Services (github.com)](https://github.com/Azure-Samples/azure-health-data-services-samples)
+One new sample app has been released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
 
 
 ## **December 2022**
