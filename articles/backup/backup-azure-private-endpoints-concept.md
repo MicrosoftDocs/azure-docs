@@ -95,7 +95,7 @@ The storage FQDNs hit in both the scenarios are same. However, for a Recovery Se
  
 The private IP mappings for the storage account are listed in the private endpoint created for the Recovery Services vault. We recommend using Azure Private DNS zones, as the DNS records for blobs and queues can then be managed by Azure. When new storage accounts are allocated for the vault, the DNS record for their private IP is added automatically in the blob or queue Azure Private DNS zones.
 
-If you've configured a DNS proxy server, using third-party proxy servers or firewalls, the above domain names must be allowed and redirected to a custom DNS (which has DNS records for the above FQDNs) or to *168.63.129.16* on the Aazure virtual network which has  private DNS zones linked to it.
+If you've configured a DNS proxy server, using third-party proxy servers or firewalls, the above domain names must be allowed and redirected to a custom DNS (which has DNS records for the above FQDNs) or to *168.63.129.16* on the Azure virtual network which has  private DNS zones linked to it.
 
 The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and Azure AD to 168.63.129.16.
 
