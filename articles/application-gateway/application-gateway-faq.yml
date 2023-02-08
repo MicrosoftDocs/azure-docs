@@ -390,7 +390,7 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
           
-      - question: How do I configure HTTPS listeners for .com and .net sites? 
+      - question: How do I configure HTTPS listeners for .com and .NET sites? 
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).
           
@@ -435,7 +435,7 @@ sections:
           
           1. In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which are associated with the Application Gateway.
           2. Add/import the reissued certificate in your store. See documentation [here](../key-vault/certificates/quick-create-portal.md) for more information on how-to.
-          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop down and choose the recently added certificate
+          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop-down and choose the recently added certificate
           4. Click Save
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
           
