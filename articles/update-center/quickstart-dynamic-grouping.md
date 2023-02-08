@@ -35,8 +35,8 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 1. In the **Create a maintenance configuration** page, go to **Machines** > **Create groups to update** to group of machines based on a criteria.
 1. In the **Create group to update** page, select subscriptions, Resource group, Resource type, Location, Tags, and OS type.
 
-   > [NOTE]
-   > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
+    > [!NOTE]
+    > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
 
 1. Select **Preview of selected machines** to view the list of machines for the selected criteria at that current time and select **Add**.
    > [!NOTE]
