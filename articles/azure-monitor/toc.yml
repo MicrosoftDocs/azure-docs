@@ -501,10 +501,10 @@ items:
             href: logs/availability-zones.md
         - name: Monitor
           items:
-          - name: Monitor latency
+          - name: Monitor Log Analytics workspace health
             displayName: latency
-            href: logs/data-ingestion-time.md
-          - name: Monitor a workspace
+            href: logs/log-analytics-workspace-health.md
+          - name: Monitor logged operational issues
             href: logs/monitor-workspace.md     
           - name: Log data ingestion time
             displayName: latency
