@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Securing service principals in Azure Active Directory 
 
-An Azure Active Directory (Azure AD) service principals are the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define who accesses the application, and resources the application accesses. A service principal is created in each tenant where the application is used, and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
+An Azure Active Directory (Azure AD) service principals are the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define application access, and resources the application accesses. A service principal is created in each tenant where the application is used, and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
 
 Learn more: [Application and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
 
@@ -38,12 +38,12 @@ The ApplicationID represents the global application and is the same for applicat
 
 To learn more, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md)
 
-### Create an applicaiton and its service principal object
+### Create an application and its service principal object
 
 You can create an application and its service principal object (ObjectID) in a tenant using:
 
 * Azure PowerShell
-* Azure command-line interfce (CLI)
+* Azure command-line interface (CLI)
 * Microsoft Graph
 * The Azure portal
 * Other tools
@@ -52,7 +52,7 @@ You can create an application and its service principal object (ObjectID) in a t
 
 ## Service principal authentication
 
-When using service principals—client certificates and client secrets, there are two mechanisms for authentication. 
+There are two mechanisms for authentication, when using service principals—client certificates and client secrets.
 
 ![Screenshot of Certificates and Client secrets under New App, Certificates and secrets.](./media/securing-service-accounts/secure-principal-certificates.png)
 
@@ -77,12 +77,12 @@ When using service principals, use the following table to match challenges and m
 | - | - |
 | Access reviews for service principals assigned to privileged roles| This functionality is in preview |
 | Service principal access reviews| Manual check of resource access control list using the Azure portal |
-| Over-permissioned service principals| When you create automation service accounts, or or service principals, grant permissions for the task. Evaluate service principals to reduce privileges. |
+| Over-permissioned service principals| When you create automation service accounts, or service principals, grant permissions for the task. Evaluate service principals to reduce privileges. |
 |Identify modifications to service principal credentials or authentication methods |<li>See, [Sensitive operations report workbook](../reports-monitoring/workbook-sensitive-operations-report.md) <li>See the Tech Community blog post, [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)|
 
 ## Find accounts using service principals
 
-To find accounts run the following commands using service principals with Azure CLI or PowerShell.
+To find accounts, run the following commands using service principals with Azure CLI or PowerShell.
 
 * Azure CLI - `az ad sp list`
 * PowerShell - `Get-AzureADServicePrincipal -All:$true` 
@@ -105,7 +105,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Move from a user account to a service principal 
 
-If you're using an Azure user account as a service principal, evaluate if you can move to a managed identity or a service principal. If you can't use a managed identity, provision a service principal with enough permissions and scope to run the required tasks. You can create a service principal by registering an appliction, or with PowerShell.
+If you're using an Azure user account as a service principal, evaluate if you can move to a managed identity or a service principal. If you can't use a managed identity, grant a service principal enough permissions and scope to run the required tasks. You can create a service principal by registering an application, or with PowerShell.
 
 When using Microsoft Graph, check the API documentation. Ensure the permission type for application is supported. </br>See, [Create servicePrincipal](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http&preserve-view=true)
 
