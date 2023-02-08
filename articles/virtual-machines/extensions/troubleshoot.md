@@ -5,7 +5,7 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: windows
 ms.date: 03/29/2016 
 ms.custom: devx-track-azurepowershell

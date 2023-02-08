@@ -59,9 +59,17 @@ To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.s
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-## See also
+## Resources
 
-- [Set Blob Properties operation](/rest/api/storageservices/set-blob-properties)
-- [Get Blob Properties operation](/rest/api/storageservices/get-blob-properties)
-- [Set Blob Metadata operation](/rest/api/storageservices/set-blob-metadata)
-- [Get Blob Metadata operation](/rest/api/storageservices/get-blob-metadata)
+To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing system properties and user-defined metadata use the following REST API operations:
+
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties) (REST API)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
