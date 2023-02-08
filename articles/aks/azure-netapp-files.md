@@ -22,7 +22,6 @@ The following considerations apply when you use Azure NetApp Files:
 
 * Your AKS cluster must be [in a region that supports Azure NetApp Files][anf-regions].
 * The Azure CLI version 2.0.59 or higher installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Azure NetApp Files is only available [in select Azure regions][anf-regions].
 * After the initial deployment of an AKS cluster, you can choose to provision Azure NetApp Files volumes statically or dynamically.
 * To use dynamic provisioning with Azure NetApp Files, install and configure [Astra Trident][astra-trident] version 19.07 or higher.
 
@@ -59,7 +58,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
         --service-level Premium
     ```
 
-3. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create].  
+4. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster.
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
@@ -81,7 +80,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 ## Provision Azure NetApp Files volumes statically
 
-1. Create a volume using the [az netappfiles volume create][az-netappfiles-volume-create] command:
+1. Create a volume using the [az netappfiles volume create][az-netappfiles-volume-create] command. Update  `RESOURCE_GROUP`, `LOCATION`, `ANF_ACCOUNT_NAME` (Azure NetApp account name), `POOL_NAME`, and `SERVICE_LEVEL` with the correct values.  
 
     ```azurecli
     RESOURCE_GROUP=myResourceGroup
