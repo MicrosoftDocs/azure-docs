@@ -1,5 +1,5 @@
 ---
-title: Understand Azure IoT Hub pricing | Microsoft Docs
+title: Understand Azure IoT Hub pricing
 description: This article provides information about how metering and pricing works with IoT Hub including worked examples.
 author: kgremban
 
@@ -26,7 +26,6 @@ Use the following table to help determine which operations are charged. All bill
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
 - One or more terms in *italics* following each operation (or endpoint). These terms represent billable operations that are charged against quota for your IoT hub. You may see these terms supplied as part of a quota usage insight when you initiate a support request on Azure portal. They may also be returned by customer support. You can use the table below to cross-reference these terms with the corresponding operation to help you understand quota usage and billing for your IoT solution. For more information, see [Example 4](#example-4).
-  
 
 | Operation category | Billing information |
 | --------- | ------------------- |

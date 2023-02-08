@@ -1,8 +1,8 @@
 ---
-title: Azure IoT Hub scaling | Microsoft Docs
-description: How to scale your IoT hub to support your anticipated message throughput and desired features. Includes a summary of the supported throughput for each tier and options for sharding.
+title: Azure IoT Hub scaling
+description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
 author: kgremban
-manager: timlt
+manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -10,6 +10,7 @@ ms.date: 11/21/2022
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
+
 # Choose the right IoT Hub tier for your solution
 
 Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub).
@@ -30,7 +31,7 @@ The standard tier of IoT Hub enables all features, and is required for any IoT s
 
 Only one type of [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
-| Capability | Basic tier | Standard/Free tier |
+| Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
@@ -50,7 +51,7 @@ IoT Hub also offers a free tier that is meant for testing and evaluation. It has
 
 Azure IoT hubs contain many core components from [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT hubs are populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
 
-The partition limit is chosen when an IoT hub is created, and can't be changed. The maximum limit of device-to-cloud partitions for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need four partitions. For more information on determining the partitions, see the [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-) question in the [FAQ](../event-hubs/event-hubs-faq.yml) for [Azure Event Hubs](../event-hubs/index.yml).
+The partition limit is chosen when an IoT hub is created, and can't be changed. The maximum limit of device-to-cloud partitions for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need four partitions. For more information on determining the partitions, see the [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-) question in the FAQ for [Azure Event Hubs](../event-hubs/index.yml).
 
 ## Tier upgrade
 
@@ -65,7 +66,7 @@ The partition configuration remains unchanged when you migrate from basic tier t
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls don't work with basic tier IoT hubs. The following table shows which APIs are available:
 
-| API | Basic tier | Standard/Free tier |
+| API | Basic tier | Standard tier |
 | --- | ---------- | ------------- |
 | [Delete device](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-deletedevice) | Yes | Yes |
 | [Get device](/rest/api/iothub/service/devices/get-identity) | Yes | Yes |
@@ -109,19 +110,19 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 
 Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you choose its tier and edition, and set the number of units available. You can purchase up to 200 units for the B1, B2, S1, or S2 edition, or up to 10 units for the B3 or S3 edition. After you create your IoT hub, without interrupting your existing operations, you can:
 
-- Change the number of units available within its edition (for example, upgrading from one to three units of B1)
-- Upgrade or downgrade between editions within its tier (for example, upgrading from B1 to B2)
-- Upgrade from the basic to the standard tier (for example, upgrading from B1 to S1)
- 
+* Change the number of units available within its edition (for example, upgrading from one to three units of B1)
+* Upgrade or downgrade between editions within its tier (for example, upgrading from B1 to B2)
+* Upgrade from the basic to the standard tier (for example, upgrading from B1 to S1)
+
 For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).  
 
 As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
 
 | Tier edition | Sustained throughput | Sustained send rate |
 | --- | --- | --- |
-| B1, S1 |Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) |Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
-| B2, S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day per unit) |
-| B3, S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
+| B1, S1 |Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) |Average of 278 messages/minute per unit<br/>(400,000 messages/day/unit) |
+| B2, S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day/unit) |
+| B3, S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day/unit) |
 
 Device-to-cloud throughput is only one of the metrics you need to consider when designing an IoT solution. For more comprehensive information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
