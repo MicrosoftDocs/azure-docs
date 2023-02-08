@@ -21,7 +21,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 * [A Microsoft Purview account](create-catalog-portal.md). 
 * No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
-* Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work.
+* Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work. The object ID and tenant ID of your recipient, if an application.
 
 ### Azure Storage account prerequisites
 
@@ -107,7 +107,7 @@ You've now created your share. The recipients of your share will receive an invi
 When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
-   > Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
+   > Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update a sent share
 

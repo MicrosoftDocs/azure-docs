@@ -104,7 +104,7 @@ This registration is only needed the first time when sharing or receiving data i
 When a share is attached, a new asset of type received share is ingested into the Microsoft Purview catalog, in the same collection as the storage account to which you attached the share is registered to. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
-   > Shares attached using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
+   > Shares attached using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update received share
 
