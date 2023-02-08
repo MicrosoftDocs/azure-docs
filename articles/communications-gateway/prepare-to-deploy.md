@@ -21,7 +21,7 @@ You'll need an onboarding partner for integrating with Microsoft Phone System. I
 
 You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
 
-We strongly recommend that all operators have a support plan that includes technical support, such as a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
+We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
 ## 1. Configure Azure Active Directory in Operator Azure tenancy
 

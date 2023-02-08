@@ -17,8 +17,6 @@ ms.custom: devx-track-js, devguide-js
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
-
 ## About properties and metadata
 
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you.
@@ -167,10 +165,21 @@ my-blob.txt properties:
     objectReplicationSourceProperties:
 ```
 
+## Resources
 
-## See also
+To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for JavaScript, see the following resources.
 
-- [Set Blob Properties operation](/rest/api/storageservices/set-blob-properties)
-- [Get Blob Properties operation](/rest/api/storageservices/get-blob-properties)
-- [Set Blob Metadata operation](/rest/api/storageservices/set-blob-metadata)
-- [Get Blob Metadata operation](/rest/api/storageservices/get-blob-metadata)
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for managing system properties and user-defined metadata use the following REST API operations:
+
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties) (REST API)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]

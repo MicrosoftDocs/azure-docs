@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Connect Azure Percept DK over 5G and LTE by using a Vodafone USB Connect 4G v2 modem

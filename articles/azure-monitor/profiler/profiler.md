@@ -97,7 +97,7 @@ To enable Azure AD for profiles ingestion:
 
    b.  [User-Assigned Managed identity documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
 
-1. [Configure and enable Azure AD](../app/azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication) in your Application Insights resource.
+1. [Configure and enable Azure AD](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication) in your Application Insights resource.
 
 1. Add the following application setting to let the Profiler agent know which managed identity to use:
 
