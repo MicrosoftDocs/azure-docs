@@ -16,12 +16,14 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
 - [I don’t see generated SARIF file in the path I chose to drop it](#i-dont-see-generated-sarif-file-in-the-path-i-chose-to-drop-it)
 - [I don’t see the results for my ADO projects in Microsoft Defender for Cloud](#i-dont-see-the-results-for-my-ado-projects-in-microsoft-defender-for-cloud)
+- [Why is my Azure DevOps repository not refreshing to “healthy”](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
 - [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
 - [I am not able to configure Pull Request Annotations](#i-am-not-able-to-configure-pull-request-annotations)
+- [What are the languages DfD supports](#what-are-the-languages-dfd-supports) 
 
 
 ### I'm getting an error while trying to connect
@@ -56,6 +58,12 @@ Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code sca
 
 Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
+### Why is my Azure DevOps repository not refreshing to “healthy”? 
+
+For a previously unhealthy scan result to be healthy again, updated healthy scan results need to be from the same build definition as the one that generated the findings in the first place.  A common scenario where this issue occurs is when testing with different pipelines.  For results to refresh appropriately, scan results need to be for the same pipeline(s) and branch(es). 
+
+If no scanning is performed for 14 days, the scan results would be revert to “N/A”. 
+
 ### I don’t see Recommendations for findings
 
 Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
@@ -89,6 +97,11 @@ The ability to block developers from committing code with exposed secrets is not
 ### I am not able to configure Pull Request Annotations
 
 Make sure you have write (owner/contributor) access to the subscription. 
+
+### What are the languages DfD supports? 
+
+Python, Java Script and Type Script 
+
 
 
 ## Next steps
