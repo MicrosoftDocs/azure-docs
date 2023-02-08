@@ -78,7 +78,7 @@ When using service principals, use the following table to match challenges and m
 | Access reviews for service principals assigned to privileged roles| This functionality is in preview |
 | Service principal access reviews| Manual check of resource access control list using the Azure portal |
 | Over-permissioned service principals| When you create automation service accounts, or service principals, grant permissions for the task. Evaluate service principals to reduce privileges. |
-|Identify modifications to service principal credentials or authentication methods |<li>See, [Sensitive operations report workbook](../reports-monitoring/workbook-sensitive-operations-report.md) <li>See the Tech Community blog post, [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)|
+|Identify modifications to service principal credentials or authentication methods | - See, [Sensitive operations report workbook](../reports-monitoring/workbook-sensitive-operations-report.md) </br> - See the Tech Community blog post, [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)|
 
 ## Find accounts using service principals
 
@@ -95,7 +95,7 @@ To assess the security, evaluate privileges and credential storage. Use the foll
 
 |Challenge | Mitigation|
 | - | - |
-| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | <li>Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<li>Disable user consent <li>Allow user consent from verified publishers, for selected permissions (recommended) <li>Configure them in the user context <li>Use their tokens to trigger the service principal|
+| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | - Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`</br> - Disable user consent <li>Allow user consent from verified publishers, for selected permissions (recommended) </br> - Configure them in the user context </br> - Use their tokens to trigger the service principal|
 |Use of a hard-coded shared secret in a script using a service principal|Use a certificate|
 |Tracking who uses the certificate or the secret| Monitor the service principal sign-ins using the Azure AD sign-in logs|
 |Can't manage service principal sign-in with Conditional Access| Monitor the sign-ins using the Azure AD sign-in logs
