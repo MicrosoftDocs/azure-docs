@@ -58,7 +58,7 @@ See [How to remove a service instance from Azure AD Connect Health](how-to-conne
 
 ### Disable data collection and monitoring for all monitored services
 
-Azure AD Connect Health provides the option to stop data collection of *all* registered services in the tenant. We recommend careful consideration and full acknowledgment of all Hybrid Identity Administrators before you take this action. After the process begins, the Azure AD Connect Health service stops receiving, processing, and reporting any data for all of your services. Existing data in Azure AD Connect Health service is retained for no more than 30 days.
+Azure AD Connect Health provides the option to stop data collection of *all* registered services in the tenant. We recommend careful consideration and full acknowledgment of all hybrid identity administrators before you take this action. After the process begins, the Azure AD Connect Health service stops receiving, processing, and reporting any data for all of your services. Existing data in Azure AD Connect Health service is retained for no more than 30 days.
 
 If you want to stop data collection on a specific server, complete the steps to delete a specific server. To stop data collection for a tenant, complete the following steps to stop data collection and delete all services for the tenant:
 
@@ -81,7 +81,7 @@ To re-enable monitoring in Azure AD Connect Health for a previously deleted moni
 
 ### Re-enable data collection and monitoring for all monitored services
 
-For tenants, data collection can be resumed in Azure AD Connect Health. We recommend careful consideration and full acknowledgment of all Global Administrators before you take this action.
+For tenants, data collection can be resumed in Azure AD Connect Health. We recommend careful consideration and full acknowledgment of all global administrators before you take this action.
 
 > [!IMPORTANT]
 > The following steps are available beginning 24 hours after a disable action. After you enable data collection, the presented insight and monitoring data in Azure AD Connect Health won't show any data that was collected before the disable action.
