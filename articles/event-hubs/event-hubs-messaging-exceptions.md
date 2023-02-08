@@ -117,7 +117,7 @@ This error can occur for one of two reasons:
 
     - Up to 1 MB per second of ingress events (events sent into an event hub), but no more than 1000 ingress events, management operations, or control API calls per second.
     - Up to 2 MB per second of egress events (events consumed from an event hub), but no more than 4096 egress events.
-    - Up to 84 GB of event storage (enough for the default 24-hour retention period).
+    - Up to 84 GB of event storage (enough for the default 1 hour retention period).
     
     On the **Overview** page, in the **Show metrics** section, switch to the **Throughput** tab. Select the chart to open it in a larger window with 1-minute intervals on the x-axis. Look at the peak values and divide them by 60 to get incoming bytes/second or outgoing bytes/second. Use similar approach to calculate number of requests per second at peak times on the **Requests** tab. 
 
