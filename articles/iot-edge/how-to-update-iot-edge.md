@@ -5,7 +5,7 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/29/2022
+ms.date: 2/2/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -106,7 +106,7 @@ The way that you update the IoT Edge agent and IoT Edge hub containers depends o
 
 Check the version of the IoT Edge agent and IoT Edge hub modules currently on your device using the commands `iotedge logs edgeAgent` or `iotedge logs edgeHub`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the runtime module versions.
 
-  ![Find container version in logs](./media/how-to-update-iot-edge/container-version.png)
+:::image type="content" source="./media/how-to-update-iot-edge/container-version.png" alt-text="Screenshot of where to find the container version in console logs." lightbox="./media/how-to-update-iot-edge/container-version.png":::
 
 ### Understand IoT Edge tags
 
@@ -137,21 +137,21 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
-1. In the **IoT Edge Modules** section, select **Runtime Settings**.
+1. On the **Modules** tab, select **Runtime Settings**.
 
-   ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+   :::image type="content" source="./media/how-to-update-iot-edge/configure-runtime.png" alt-text="Screenshot that shows location of the Runtime Settings tab.":::
 
-1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** yet.
+1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. Don't select **Apply** yet.
 
-   ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
+   :::image type="content" source="./media/how-to-update-iot-edge/runtime-settings-edgeagent.png" alt-text="Screenshot that shows where to update the image U R I with your version in the Edge Agent.":::
 
-1. Collapse the **Edge Hub** settings, or scroll down, and update the **Image** value for **Edge Agent** with the same desired version.
+1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version.
 
-   ![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
+   :::image type="content" source="./media/how-to-update-iot-edge/runtime-settings-edgehub.png" alt-text="Screenshot that shows where to update the image U R I with your version in the Edge Hub.":::
 
-1. Select **Save**.
+1. Select **Apply** to save changes.
 
-1. Select **Review + create**, review the deployment, and select **Create**.
+1. Select **Review + create**, review the deployment as seen in the JSON file, and select **Create**.
 
 ## Special case: Update from 1.0 or 1.1 to latest release
 
@@ -214,8 +214,7 @@ Currently, there's no support for IoT Edge version 1.4 running on Windows device
 
 ---
 
-Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
-
+Now that the latest IoT Edge service is running on your devices, you also need to [Update the runtime containers](#update-the-runtime-containers) to the latest version. The updating process for runtime containers is the same as the updating process the IoT Edge service. 
 
 ## Next steps
 
