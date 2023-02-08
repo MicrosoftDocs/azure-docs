@@ -14,20 +14,9 @@ Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, 
 
 Azure Monitor collects and aggregates the data from every layer and component of your system into a common data platform. It correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services. Because this data is stored together, it can be correlated and analyzed using a common set of tools. The data can then be used for analysis and visualizations to help you understand how your applications are performing and respond automatically to system events.
 
-Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (Operations Manager) installation to the cloud in Azure. 
+Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (Operations Manager) installation to the cloud in Azure.
 
-## Monitoring and observability
-
-Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
-
-Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems.
-
-The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds “changes” to these pillars. 
-
-When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
-Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
-
-Azure Monitor is often used to monitor these types resources in Azure, other clouds, or on-premises: 
+Use Azure Monitor to monitor these types resources in Azure, other clouds, or on-premises: 
   - Applications 
   - Virtual machines
   - Guest operating systems 
@@ -40,6 +29,17 @@ Azure Monitor is often used to monitor these types resources in Azure, other clo
 You can also export monitoring data from Azure Monitor into other systems so you can:
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems
+
+## Monitoring and observability
+
+Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
+
+Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems.
+
+The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds “changes” to these pillars. 
+
+When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
+Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
 ## High level architecture
 
@@ -64,7 +64,7 @@ Azure Monitor collects these types of data:
 |Application|Data about the performance and functionality of your application code on any platform.|
 |Infrastructure|**- Container.** Data about containers, such as Azure Kubernetes, and about the applications running inside containers.<br>**- Operating system.** Data about the guest operating system on which your application is running.|
 |Azure Platform|**- Azure resource**. The operation of an Azure resource.<br>**- Azure subscription.** The operation and management of an Azure subscription, and data about the health and operation of Azure itself.<br>**- Azure tenant.** Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>**- Azure resource changes.** Data about changes within your Azure resources and how to address and triage incidents and issues.         |
-|Custom Sources|You can use the Azure Monitor REST API to send customer metric or log data to Azure Monitor and incorporate monitoring of resources that don’t expose telemetry through other methods.|
+|Custom Sources|Use the Azure Monitor REST API to send customer metric or log data to Azure Monitor and incorporate monitoring of resources that don’t expose telemetry through other methods.|
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
 
