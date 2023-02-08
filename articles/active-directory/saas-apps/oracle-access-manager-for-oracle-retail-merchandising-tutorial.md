@@ -64,7 +64,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     a. In the **Identifier** textbox, type a URL using the following pattern: ` https://<SUBDOMAIN>.oraclecloud.com/`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.oraclecloud.com/v1/saml/<UNIQUEID>>`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.oraclecloud.com/v1/saml/<UNIQUEID>`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
     ` https://<SUBDOMAIN>.oraclecloud.com/`
