@@ -39,7 +39,8 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region_.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region,and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
+
 
 > [!NOTE]
 > Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment can have multiple webspaces, but your app can only move between plans that are created in the same webspace.
