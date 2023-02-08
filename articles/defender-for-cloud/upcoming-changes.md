@@ -41,7 +41,7 @@ In the scenario where a suspicious IP address is detected, the Defender for ARM 
 
 **Estimated date for change: March 2023**
 
-Up until now, Defender for Cloud security alerts were automatically exported to a default Log Analytics workspace on the resource level which was causing undeterministic behavior. Therefore, this feature is being deprecated.
+Currently, Defender for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
 The existing way to export your security alerts into a dedicated Log Analytics workspace is by using [Continuous Export feature](https://learn.microsoft.com/en-us/azure/defender-for-cloud/continuous-export?tabs=azure-portal#set-up-a-continuous-export). 
 If you already have continuous export of your alerts to Log Analytics enabled, no further action is required.
 
