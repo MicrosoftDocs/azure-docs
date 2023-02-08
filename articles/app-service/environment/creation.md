@@ -52,11 +52,11 @@ Here's how:
 
 2. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
 
-    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics-v2.png)
+    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
 
 3. From the **Hosting** tab, for **Physical hardware isolation**, select **Enabled** or **Disabled**. If you enable this option, you can deploy onto dedicated hardware. With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a specialized Isolated v2 rate per vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
 
-    ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting-v2.png)
+    ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting.png)
 
 4. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more details, see the DNS section in [Use an App Service Environment][UsingASE]. If you're creating an App Service Environment with an internal VIP you can specify private IP address using **Manual** option for **Inbound IP address**.
 
