@@ -171,6 +171,47 @@ An I/O depth of greater than 1 is not supported on CentOS Linux or RHEL.
 - Upgrade to CentOS Linux 8 or RHEL 8.
 - Change to Ubuntu.
 
+## Slow enumeration of files and folders
+
+### Cause
+
+This problem can occur if there isn't enough cache on the client machine for large directories.
+
+### Solution
+
+To resolve this problem, adjust the **DirectoryCacheEntrySizeMax** registry value to allow caching of larger directory listings in the client machine:
+
+- Location: `HKLM\System\CCS\Services\Lanmanworkstation\Parameters`
+- Value name: `DirectoryCacheEntrySizeMax` 
+- Value type: `DWORD` 
+ 
+For example, you can set it to `0x100000` and see if performance improves.
+
+## Slow file copying to and from Azure file shares in Windows
+
+You might see slow performance when you try to transfer files to the Azure File service.
+
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+-	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+-	Use the right copy method:
+    -	Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
+    -	Use [Robocopy](storage-how-to-create-file-share.md) between file shares on an on-premises computer.
+
+### Considerations for Windows 8.1 or Windows Server 2012 R2
+
+For clients that are running Windows 8.1 or Windows Server 2012 R2, make sure that the [KB3114025](https://support.microsoft.com/help/3114025) hotfix is installed. This hotfix improves the performance of create and close handles.
+
+You can run the following script to check whether the hotfix has been installed:
+
+`reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+
+If hotfix is installed, the following output is displayed:
+
+`HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
+
+> [!Note]
+> Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
+
 ## Slow file copying to and from Azure file shares in Linux
 
 If you're experiencing slow file copying, see the "Slow file copying to and from Azure file shares in Linux" section in the [Linux troubleshooting guide](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux).
