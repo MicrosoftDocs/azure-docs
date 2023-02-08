@@ -43,7 +43,7 @@ For scale-up, the Azure Synapse Autoscale service calculates how many new nodes 
 For scale-down, based on the number of executors, application masters per node, the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
 >[!NOTE]
->A note about updating and force applying autoscale configuration to an existing Spark pool. If "Force new setting" (in the Azure portal) or `ForceApplySetting` in [PowerShell](https://learn.microsoft.com/powershell/module/az.synapse/update-azsynapsesparkpool) is enabled, then all existing Spark sessions are terminated and configuration changes are applied immediately. If this option is not selected, then the configuration is applied to the new Spark sessions and existing sessions are not terminated.
+>A note about updating and force applying autoscale configuration to an existing Spark pool. If **Force new setting** in the Azure portal or `ForceApplySetting` in [PowerShell](/powershell/module/az.synapse/update-azsynapsesparkpool) is enabled, then all existing Spark sessions are terminated and configuration changes are applied immediately. If this option is not selected, then the configuration is applied to the new Spark sessions and existing sessions are not terminated.
 
 ## Get started
 
