@@ -5,7 +5,7 @@ author: pagienge
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/07/2023
 ms.author: pagienge
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
@@ -55,7 +55,7 @@ lrwxrwxrwx. 1 root root  13 Sep  9 21:54 lun2-part1 -> ../../../sde1
 
 ### Expand without downtime
 
-You may be able to expand your managed disks without deallocating your VM.
+You can expand your managed disks without deallocating your VM. The host cache setting of your disk doesn't change whether or not you can expand a data disk without deallocating your VM.
 
 This feature has the following limitations:
 
@@ -65,7 +65,7 @@ This feature has the following limitations:
 
 Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are signed in to an Azure account by using [az login](/cli/azure/reference-index#az-login).
 
-This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
+This article requires an existing VM in Azure with at least one data disk attached and prepared. If you don't already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
 
 In the following samples, replace example parameter names such as *myResourceGroup* and *myVM* with your own values.
 
@@ -79,7 +79,7 @@ In the following samples, replace example parameter names such as *myResourceGro
     ```
 
     > [!NOTE]
-    > The VM must be deallocated to expand the virtual hard disk. Stopping the VM with `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`.
+    > The VM must be deallocated to expand the virtual hard disk. Stopping the VM with `az vm stop` doesn't release the compute resources. To release compute resources, use `az vm deallocate`.
 
 1. View a list of managed disks in a resource group with [az disk list](/cli/azure/disk#az-disk-list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
 
@@ -114,7 +114,7 @@ In the following samples, replace example parameter names such as *myResourceGro
 
 ### Detecting a changed disk size
 
-If a data disk was expanded without downtime using the procedure mentioned previously, the disk size will not be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example we have detected using the methods in this document that the data disk is currently `/dev/sda` and has been resized from 256GB to 512GB.
+If a data disk was expanded without downtime using the procedure mentioned previously, the disk size won't be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example we have detected using the methods in this document that the data disk is currently `/dev/sda` and has been resized from 256GB to 512GB.
 
 1. Identify the currently recognized size on the first line of output from `fdisk -l /dev/sda`
 
@@ -167,7 +167,7 @@ The following instructions apply to endorsed Linux distributions.
 
 # [Ubuntu](#tab/ubuntu)
 
-On Ubuntu 16.x and newer, the root partition of the OS disk and filesystems will be automatically expanded to utilize all free contiguous space on the root disk by cloud-init, provided there is a small bit of free space for the resize operation.  For this circumstance the sequence is simply
+On Ubuntu 16.x and newer, the root partition of the OS disk and filesystems will be automatically expanded to utilize all free contiguous space on the root disk by cloud-init, provided there's a small bit of free space for the resize operation.  For this circumstance the sequence is simply
 
 1. Increase the size of the OS disk as detailed previously
 1. Restart the VM, and then access the VM using the **root** user account.
@@ -202,7 +202,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    sudo -i
    ```
 
-1. Use the following command to install the **growpart** package, which will be used to resize the partition, if it is not already present:
+1. Use the following command to install the **growpart** package, which will be used to resize the partition, if it isn't already present:
 
    ```
    zypper install growpart
@@ -344,7 +344,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
       └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-1. Check whether there is free space in the LVM volume group (VG) containing the root partition.  If there is free space, skip to step 12.
+1. Check whether there's free space in the LVM volume group (VG) containing the root partition.  If there's free space, skip to step 12.
 
    ```bash
    vgdisplay rootvg
@@ -370,7 +370,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-   In this example, the line **Free  PE / Size** shows that there is 38.02 GB free in the volume group, as the disk has already been resized.
+   In this example, the line **Free  PE / Size** shows that there's 38.02 GB free in the volume group, as the disk has already been resized.
    
 1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts  This package is preinstalled on most marketplace images
 
@@ -435,7 +435,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
-1. Expand the LV by the required amount, which does not need to be all the free space in the volume group.  In the following example, **/dev/mapper/rootvg-rootlv** is resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system on the LV.
+1. Expand the LV by the required amount, which doesn't need to be all the free space in the volume group.  In the following example, **/dev/mapper/rootvg-rootlv** is resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system on the LV.
 
    ```bash
    lvresize -r -L +10G /dev/mapper/rootvg-rootlv
