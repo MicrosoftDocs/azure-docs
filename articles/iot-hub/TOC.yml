@@ -383,6 +383,9 @@
               href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
+            - name: CLI
+              displayName: device management, status updates, device maintenance windows
+              href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md

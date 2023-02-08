@@ -24,7 +24,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, learn how to connect to Azure data storage services with Azure Machine Learning datastores.
+In this article, learn how to connect to Azure data storage services, with Azure Machine Learning datastores.
 
 ## Prerequisites
 
