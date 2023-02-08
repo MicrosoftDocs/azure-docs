@@ -234,7 +234,7 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 
 ## Configuring groups optional claims
 
-This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
+This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest. Group optional claims are only emitted in the JWT for **user principals**. **Service principals** _will not_ have group optional claims emitted in the JWT.
 
 > [!IMPORTANT]
 > Azure AD limits the number of groups emitted in a token to 150 for SAML assertions and 200 for JWT, including nested groups.  For more information on group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
