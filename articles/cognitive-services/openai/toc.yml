@@ -15,7 +15,11 @@ items:
     - name: What's new
       href: whats-new.md
 - name: Quickstarts
-  href: quickstart.md
+  items:
+    - name: GPT-3
+      href: quickstart.md
+    - name: ChatGPT
+      href: chatgpt-quickstart.md  
 - name: Concepts
   items:
     - name: Content filtering
