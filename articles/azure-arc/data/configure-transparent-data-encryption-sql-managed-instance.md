@@ -46,11 +46,13 @@ The following limitations must be considered when deploying Service-Managed TDE:
 ## Turn on transparent data encryption on the managed instance
 ### Prerequisites
 
-To turn on automatic transparent data encryption, the managed instance cannot have any manually encrypted credentials that are necessary for the service to create. Users must:
+Turning on TDE on the managed instance will result in the following operations taking place:
 
-1. Disable encryption on their existing databases:[`ALTER DATABASE <database_name> SET ENCRYPTION OFF;`](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-ver16#db_encryption_option-)
-2. Drop all associated DEK's within those databases: [`DROP DATABASE ENCRYPTION KEY;`](/sql/t-sql/statements/drop-database-encryption-key-transact-sql?view=sql-server-ver16)
-3. Drop any existing master key in the `master` database: [`DROP MASTER KEY;`](/sql/t-sql/statements/drop-master-key-transact-sql?view=sql-server-ver16)
+1. Adding the service-managed database master key in the `master` database.
+2. Adding the service-managed certificate protector.
+3. Adding the associated Database Encryption Keys (DEK) on all databases on the managed instance.
+4. Enabling encryption on all databases on the managed instance.
+
 
 
 ### [Service-managed mode](#tab/service-managed-mode)
