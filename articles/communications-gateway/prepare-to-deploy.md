@@ -23,17 +23,21 @@ You must ensure you've got two or more numbers that you own which are globally r
 
 We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
-## 1. Configure Azure Active Directory in Operator Azure tenancy
+## 1. Add the Project Synergy application to your Azure tenancy
 
 > [!NOTE]
 >This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip steps 1 and 2 if you have already onboarded to TPM or OC.
 
-Operator Connect and Teams Phone Mobile inherit permissions and identities from the Azure Active Directory within the Azure tenant where the Project Synergy app is configured. As such, performing this step within an existing Azure tenant uses your existing identities for fully integrated authentication and is recommended. However, if you need to manage identities for Operator Connect separately from the rest of your organization, complete the following steps in a new dedicated tenant.
+The Operator Connect and Teams Phone Mobile programs require your Azure Active Directory tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Azure Active Directory tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
+
+We recommend that you use an existing Azure Active Directory tenant for Azure Communications Gateway, because using an existing tenant uses your existing identities for fully integrated authentication. However, if you need to manage identities for Operator Connect separately from the rest of your organization, create a new dedicated tenant first.
+
+To add the Project Synergy application:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
 1. Select **Properties**.
-1. Scroll down to the Tenant ID field. Your tenant ID will be in the box. Make a note of your tenant ID.
+1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
 1. (If you don't have the Azure Active Directory module installed), run the cmdlet:
     ```azurepowershell
@@ -45,9 +49,9 @@ Operator Connect and Teams Phone Mobile inherit permissions and identities from 
     New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
     ```
 
-## 2. Allow the Project Synergy application
+## 2. Assign an Admin user to the Project Synergy application
 
-Project Synergy allows Operator Connect to access your Azure Active Directory. It's required to allow configuration of Operator Connect or Teams Phone Mobile and to assign users and groups to app-roles for your application.
+The user who sets up Azure Communications Gateway needs to have the Admin user role in the Project Synergy application.
 
 1. In your Azure portal, navigate to **Enterprise applications** using the left-hand side menu. Alternatively, you can search for it in the search bar, it will appear under the **Services** subheading.
 1. Set the **Application type** filter to **All applications** using the drop-down menu.
@@ -56,7 +60,7 @@ Project Synergy allows Operator Connect to access your Azure Active Directory. I
 1. Select your **Project Synergy** application.
 1. Select **Users and groups** from the left hand side menu.
 1. Select **Add user/group**.
-1. Specify the user you want to use for setting up Azure Communications Gateway and assign them the **Admin** role.
+1. Specify the user you want to use for setting up Azure Communications Gateway and give them the **Admin** role.
 
 ## 3. Create an App registration to provide Azure Communications Gateway access to the Operator Connect API
 
