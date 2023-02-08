@@ -103,12 +103,12 @@ For more information about the capabilities of the new workbook solution, see [W
 > [!NOTE]
 > We recommend the Azure Monitor Network Insights workbook solution for accessing metric and log analytics for your Application Gateway resources.
 
-1. Ensure that [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs in a Log Analytics workspace. If it's already configured, the Azure Monitor Network Insights workbook will be able to consume data from the same location. No more changes are required.
+1. Ensure that [diagnostics settings are enabled](#enable-application-gateway-diagnostics-in-the-portal) to store logs in a Log Analytics workspace. If it's already configured, the Azure Monitor Network Insights workbook will be able to consume data from the same location. No more changes are required.
 
     > [!NOTE]
     > All past data is already available within the workbook from the point when diagnostic settings were originally enabled. No data transfer is required.
 
-1. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can add custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric and log data.
+1. Access the [default insights workbook](#access-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can add custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric and log data.
 
 1. After you see all your metric and log insights, to clean up the Azure Gateway analytics solution from your workspace, delete the solution from the **Solution Resources** pane.
 
