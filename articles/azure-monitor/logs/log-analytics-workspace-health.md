@@ -12,16 +12,16 @@ ms.date: 02/07/2023
 
 # Monitor Log Analytics workspace health
 
-[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis in a relatively short period of time, commonly referred to as [latency](../logs/data-ingestion-time.md). This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
+[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis in a relatively short period of time, known as [latency](../logs/data-ingestion-time.md). This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
 
 Azure Service Health monitors:
 
 - [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific Log Analytics workspace. 
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your Log Analytics workspace, including communications about outages, planned maintenance activities, and other health advisories.
 
-## View Log Analytics workspace health and set up alerts 
+## View Log Analytics workspace health and set up health status alerts 
 
-[Azure Service Health](../../service-health/overview.md) monitors the [resource health](../../service-health/resource-health-overview.md) and [service health](../../service-health/service-health-overview.md) of your Log Analytics workspace.
+When Azure Service Health detects typical latency in your Log Analytics workspace, the workspace resource health status is **Available**.
  
 1. To view your Log Analytics workspace health, select **Resource health** from the Log Analytics workspace menu.
 
@@ -51,5 +51,4 @@ To investigate resource health issues related to a Log Analytics workspace or wh
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
 - Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 - [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) reported in your Log Analytics workspace.
-
 
