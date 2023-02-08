@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage routes and filters
+title: Create routes and filters
 titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes and event filters to Azure Digital Twins endpoints
 author: baanders
@@ -15,11 +15,11 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage event routes and filters in Azure Digital Twins
+# Create event routes and filters in Azure Digital Twins
 
 This article walks you through the process of creating *event routes* using the [Azure portal](https://portal.azure.com), [Azure CLI az dt route commands](/cli/azure/dt/route), [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes), and the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme).
 
-Routing [event notifications](concepts-event-notifications.md) from Azure Digital Twins to downstream services or connected compute resources is a two-step process: create endpoints, then create event routes to send data to those endpoints. This article covers the second step, setting up routes to control which events are delivered to which Azure Digital Twin endpoints. To proceed with this article, you should have [endpoints](how-to-manage-endpoints.md) already created.
+Routing [event notifications](concepts-event-notifications.md) from Azure Digital Twins to downstream services or connected compute resources is a two-step process: create endpoints, then create event routes to send data to those endpoints. This article covers the second step, setting up routes to control which events are delivered to which Azure Digital Twin endpoints. To proceed with this article, you should have [endpoints](how-to-create-endpoints.md) already created.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
     
     :::image type="content" source="media/includes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/includes/instance-details.png":::
 
-* Create an endpoint using the instructions in [Manage endpoints](how-to-manage-endpoints.md). In this article, you'll create a route to send data to that endpoint.
+* Create an endpoint using the instructions in [Create endpoints](how-to-create-endpoints.md). In this article, you'll create a route to send data to that endpoint.
 
 Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
@@ -40,7 +40,7 @@ Next, follow the instructions below if you intend to use the Azure CLI while fol
 
 ## Create an event route
 
-After [creating an endpoint](how-to-manage-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
+After [creating an endpoint](how-to-create-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
 
 >[!NOTE]
 > Make sure you've created at least one endpoint as described in the [Prerequisites](#prerequisites) before you move on to creating a route.
@@ -75,7 +75,7 @@ On the **Create an event route** page that opens up, choose at minimum:
 
 For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do so, toggle the switch for the **Advanced editor** to enable it, and write `true` in the **Filter** box.
 
-:::image type="content" source="media/how-to-manage-routes/create-event-route-no-filter.png" alt-text="Screenshot of creating an event route for your instance in the Azure portal." lightbox="media/how-to-manage-routes/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-create-routes/create-event-route-no-filter.png" alt-text="Screenshot of creating an event route for your instance in the Azure portal." lightbox="media/how-to-create-routes/create-event-route-no-filter.png":::
 
 When finished, select the **Save** button to create your event route.
 
@@ -130,11 +130,11 @@ You can either select from some basic common filter options, or use the advanced
 
 To use the basic filters, expand the **Event types** option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
-:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events." lightbox="media/how-to-manage-routes/create-event-route-filter-basic-1-large.png":::
+:::image type="content" source="media/how-to-create-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events." lightbox="media/how-to-create-routes/create-event-route-filter-basic-1-large.png":::
 
 Doing so will autopopulate the filter text box with the text of the filter you've selected:
 
-:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events." lightbox="media/how-to-manage-routes/create-event-route-filter-basic-2-large.png":::
+:::image type="content" source="media/how-to-create-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events." lightbox="media/how-to-create-routes/create-event-route-filter-basic-2-large.png":::
 
 ### Use the advanced filters
 
@@ -142,7 +142,7 @@ You can also use the advanced filter option to write your own custom filters.
 
 To create an event route with advanced filter options, toggle the switch for the **Advanced editor** to enable it. You can then write your own event filters in the **Filter** box:
 
-:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal." lightbox="media/how-to-manage-routes/create-event-route-filter-advanced-large.png":::
+:::image type="content" source="media/how-to-create-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal." lightbox="media/how-to-create-routes/create-event-route-filter-advanced-large.png":::
 
 # [API](#tab/api)
 

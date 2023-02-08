@@ -1,8 +1,13 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-manage-routes.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-route-with-managed-identity.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-endpoints#endpoint-options-identity-based-authentication",
+      "redirect_url": "/azure/digital-twins/how-to-create-endpoints#endpoint-options-identity-based-authentication",
       "redirect_document_id": false
     },
     {
@@ -148,12 +153,12 @@
 
     {
       "source_path": "how-to-manage-routes-apis-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-manage-routes-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
 
@@ -239,7 +244,7 @@
     },
     {
       "source_path": "how-to-egress-endpoints.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
     {

@@ -71,7 +71,7 @@ The endpoint APIs that are available in control plane are:
 * Get endpoint by name
 * Delete endpoint by name
 
-For detailed instructions on creating an endpoint, see [Manage endpoints](how-to-manage-endpoints.md).
+For detailed instructions on creating an endpoint, see [Create endpoints](how-to-create-endpoints.md).
 
 ## Creating event routes
  
@@ -83,14 +83,14 @@ Here's an example of creating an event route within a client application, using 
 
 1. First, a `DigitalTwinsEventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hubs, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-2. The event route object also has a [Filter](how-to-manage-routes.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no extra filtering (a filter of `false` disables the route). 
+2. The event route object also has a [Filter](how-to-create-routes.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no extra filtering (a filter of `false` disables the route). 
 
 3. This event route object is then passed to `CreateOrReplaceEventRouteAsync`, along with a name for the route.
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
-For detailed instructions on creating event routes, see [Manage routes and filters](how-to-manage-routes.md).
+For detailed instructions on creating event routes, see [Create routes and filters](how-to-create-routes.md).
 
 ## Dead-letter events
 
@@ -106,7 +106,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 
-To learn how to set up an endpoint with dead-lettering, see [Endpoint options: Dead-lettering](how-to-manage-endpoints.md#endpoint-options-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [Endpoint options: Dead-lettering](how-to-create-endpoints.md#endpoint-options-dead-lettering).
 
 ### Types of event messages
 
@@ -117,7 +117,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 Continue to the step-by-step instructions for setting up endpoints and event routes:
-* [Manage endpoints](how-to-manage-endpoints.md) and [Manage routes and filters](how-to-manage-routes.md)
+* [Create endpoints](how-to-create-endpoints.md) and [Create routes and filters](how-to-create-routes.md)
 
 Or, follow this walkthrough to set up an Azure Function for twin-to-twin event handling within Azure Digital Twins:
 * [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).
