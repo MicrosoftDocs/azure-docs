@@ -105,7 +105,7 @@ For **Azure Functions** projects and **ASP.NET** projects, you can choose to con
 
 #### Running Azurite from the command line
 
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio is installed. The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location varies based on which version of Visual Studio is installed. The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
 
 | Visual Studio version | Azurite executable location |
 | --- | --- |
