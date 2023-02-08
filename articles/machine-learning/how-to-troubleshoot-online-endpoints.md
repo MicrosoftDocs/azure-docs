@@ -349,7 +349,7 @@ For more information about Azure subscriptions, refer to the [prerequisites sect
 
 #### Authorization error
 
-After you provisioned the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
+After you've provisioned the compute resource (while creating a deployment), Azure tries to pull the user container image from the workspace Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
 To do this, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account and the container registry.
 
