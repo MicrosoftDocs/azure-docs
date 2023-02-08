@@ -188,7 +188,7 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 The progress charts show how many items have been labeled, skipped, need review, or not yet complete. Hover over the chart to see the number of items in each section.
 
-Below the charts is a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
+Below the chart 's a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
 
 You also see a distribution of labelers, and how many items they've labeled.
 
@@ -202,7 +202,7 @@ When ML assisted labeling is on, this section also shows:
 Additionally, when ML assisted labeling is enabled, you can scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
-* Validation - determines whether the prediction of this model will be used to pre-label the items
+* Validation - determines whether item pre-labeling uses the prediction of this model
 * Inference - prediction run for new items
 * Featurization - clusters items (only for image classification projects)
 
@@ -223,7 +223,7 @@ If your project uses consensus labeling, you should review those images that hav
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
 
-1. For each image that needs review, select the **Consensus label** dropdown, to view the conflicting labels.
+1. For each image to review, select the **Consensus label** dropdown, to view the conflicting labels.
 
     :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
 

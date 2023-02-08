@@ -84,7 +84,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
     * Append "/**" to the path, to include all the files in the subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
 1. Select **Create**.
-1. Select the data asset you just created.
+1. Select the data asset you created.
 
 ### Create a dataset from uploaded data
 
@@ -97,7 +97,7 @@ To directly upload your data:
     * Select **File** if you use separate .txt files for each response.
 1. Select **Next**.
 1. Select **From local files**, then select **Next**.
-1. (Optional) Select a datastore; the default will upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. (Optional) Select a datastore; the default uploads to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 1. Select **Next**.
 1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
 1. Find your files or folder in the browser window, then select **Open**.
@@ -105,7 +105,7 @@ To directly upload your data:
 1. Check the **Overwrite if already exists** box if you want. Verify the list of files/folders.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings, or **Create** to create the dataset.
-1. Finally, select the data asset you just created.
+1. Finally, select the data asset you created.
 
 ## Configure incremental refresh
 
@@ -137,13 +137,13 @@ To use **ML-assisted labeling**:
 
 * Select **Enable ML assisted labeling**.
 * Select the **Dataset language** for the project. This list shows all languages that the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) supports.
-* Specify a compute target to use. If you don't have a compute target in your workspace, a compute cluster will be created for you, and then added to your workspace. The cluster is created with a minimum of 0 nodes. This means it costs nothing when not in use.
+* Specify a compute target to use. If you don't have a compute target in your workspace, this creates a compute cluster, and adds that compute cluster to your workspace. The cluster is created with a minimum of zero nodes, and it costs nothing when not in use.
 
-### How does ML-assisted labeling work?
+### ML-assisted labeling - more information
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model lands in that class.
 
-To train the text DNN model that ML-assist uses, the input text per training example will be limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before applying this limit. This practical limit allows for the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit only pertains to what the model internally uses during the training process.
+To train the text DNN model that ML-assist uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before applying this limit. This practical limit allows for the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit only pertains to what the model internally uses during the training process.
 
 The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. The variance depends on many factors, including the number of label classes, and the label distribution.
 
@@ -158,7 +158,7 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 After submission of enough labels for training, the trained model is used to predict tags. The labeler now sees pages that show predicted labels already present on each item. The task then involves review of these predictions, and correction of any mis-labeled items, before page submission. 
 
-Once you train the machine learning model on your manually labeled data, the model is evaluated on a test set of manually labeled items, to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold, above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Pre-labeling uses items with predictions at a higher confidence level compared to this threshold.
+Once you train the machine learning model on your manually labeled data, the model is evaluated on a test set of manually labeled items, to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold, past which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Pre-labeling uses items with predictions at a higher confidence level compared to this threshold.
 
 ## Initialize the text labeling project
 
@@ -170,15 +170,15 @@ Once you train the machine learning model on your manually labeled data, the mod
 
 ### Dashboard
 
-The **Dashboard** tab showsthe labeling task progress.
+The **Dashboard** tab shows the labeling task progress.
 
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
-The progress charts shows how many items have been labeled, skipped, need review, or not yet done. Hover over the chart to see the number of items in each section.
+The progress chart shows how many items have been labeled, skipped, need review, or not yet done. Hover over the chart to see the number of items in each section.
 
-Below the charts is a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
+Under the chart is a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
 
-You also see a distribution of labelers, and how many items they've labeled. 
+You also see a distribution of labelers, and how many items they've labeled.
 
 Finally, the middle section shows a table with a queue of unassigned tasks. When ML assisted labeling is off, this section shows the number of manual tasks awaiting assignment.
 
@@ -186,19 +186,19 @@ Additionally, when ML assisted labeling is enabled, scroll down to see the ML as
 
 ### Data
 
-On the **Data** tab, you can see your dataset, and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, to remove the labels and return the data to the unlabeled queue.
+On the **Data** tab, you can see your dataset and the labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, to remove the labels and return the data to the unlabeled queue.
 
-If your project uses consensus labeling, you should review those images that have no consensus:
+If your project uses consensus labeling, you should focus on those images that have no consensus:
 
 1. Select the **Data** tab.
 1. On the left, select **Review labels**.
 1. On the top right, select **All filters**.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to focus on consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
-1. Under **Labeled datapoints**, select **Consensus labels in need of review**, to show only those images where the labelers didn't come to a consensus.
+1. Under **Labeled datapoints**, select **Consensus labels to review**, to show only those images where the labelers didn't come to a consensus.
 
-    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels that need review.":::
 
 1. For each item that needs review, select the **Consensus label** dropdown, to view the conflicting labels.
 
@@ -240,7 +240,7 @@ For all project types except **Text Named Entity Recognition**, you can export:
 
 For **Text Named Entity Recognition** projects, you can export:
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, you'll see a notification on the top right. Select this to open the notification, which includes the link to the file.
+* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top right appears. Select that notification to see a link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
 
