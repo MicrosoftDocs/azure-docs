@@ -224,7 +224,7 @@ class GetMSIToken {
 
 ## Get a token using Go
 
-```
+```go
 package main
 
 import (
