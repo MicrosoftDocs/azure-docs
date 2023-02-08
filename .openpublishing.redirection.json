@@ -22695,6 +22695,11 @@
             "source_path": "articles/application-gateway/tutorial-protect-application-gateway.md",
             "redirect_URL": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/workloads/sap/index.md",
+            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_document_id": false
         }
     ]
 }
