@@ -87,7 +87,7 @@ The policy [`Vulnerability Assessment settings for SQL server should contain an 
 
 The Defender for SQL vulnerability assessment email report is still available and existing email configurations haven't changed.
 
-## Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
+### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
 
 The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated. 
 
