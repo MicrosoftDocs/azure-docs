@@ -10,9 +10,9 @@ ms.date: 02/07/2023
 #Customer-intent: As a Log Analytics workspace administrator, I want to know when there are latency issues in a Log Analytics workspace, so I can act to resolve the issue, contact Microsoft for support, or track that is Azure is meeting its SLA.  
 ---
 
-# Monitor latency in a Log Analytics workspace
+# Monitor Log Analytics workspace health
 
-[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis within a relatively short period of time. The time it takes for log data to become available in Azure Monitor Logs after it's collected from a monitored resource is called latency. This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
+[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis in a relatively short period of time, commonly referred to as [latency](../logs/data-ingestion-time.md). This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
 
 Azure Service Health monitors:
 
@@ -41,7 +41,13 @@ Azure Service Health monitors:
 
     1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
 
+## Investigate resource health issues related to a Log Analytics workspace
+
+To investigate resource health issues related to a Log Analytics workspace:
+
+- 
 
 ## Next steps
 
-Read the [service-level agreement](https://azure.microsoft.com/support/legal/sla/monitor/v1_3/) for Azure Monitor.
+- 
+

@@ -501,11 +501,14 @@ items:
             href: logs/availability-zones.md
         - name: Monitor
           items:
+          - name: Monitor latency
+            displayName: latency
+            href: logs/data-ingestion-time.md
           - name: Monitor a workspace
             href: logs/monitor-workspace.md
           - name: Analyze usage and cost
-            href: logs/analyze-usage.md
-          - name: Monitor and troubleshoot latency
+            href: logs/analyze-usage.md            
+          - name: Log data ingestion time
             displayName: latency
             href: logs/data-ingestion-time.md
         - name: Move and delete
