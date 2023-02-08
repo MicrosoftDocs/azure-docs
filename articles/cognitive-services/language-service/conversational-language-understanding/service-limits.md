@@ -92,7 +92,7 @@ The following limits are observed for the conversational language understanding.
 |Utterance length in characters (authoring) | 1 | 500 |
 |Utterance length in characters (prediction) | 1 | 1000 |
 |Number of intents per project | 1 | 500|
-|Number of entities per project | 0 | 500|
+|Number of entities per project | 0 | 350|
 |Number of list synonyms per entity| 0 | 20,000 |
 |Number of list synonyms per project| 0 | 2,000,000 |
 |Number of prebuilt components per entity| 0 | 7 |
