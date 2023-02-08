@@ -1,6 +1,6 @@
 ---
 title: Configure SAP Transport Management System to connect from Microsoft Sentinel | Microsoft Docs
-description: This article shows you how to configure the SAP Transport Management System in the event of an error or in a lab environment where it hasn't already been configured, in order to successfully deploy the Microsoft Sentinel Solution for SAP.
+description: This article shows you how to configure the SAP Transport Management System in the event of an error or in a lab environment where it hasn't already been configured, in order to successfully deploy the Microsoft Sentinel solution for SAP® applications.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 04/07/2022
 ---
 # Configure SAP Transport Management System to connect from Microsoft Sentinel
 
-This article shows you how to configure the SAP Transport Management System in order to successfully deploy the Microsoft Sentinel Solution for SAP.
+This article shows you how to configure the SAP Transport Management System in order to successfully deploy the Microsoft Sentinel solution for SAP® applications.
 
 SAP's Transport Management System is normally already configured on production systems. However, in a lab environment, where CRs often haven't been previously installed, configuration may be required.
 
@@ -67,30 +67,30 @@ The following steps show the process for configuring the Transport Management Sy
 
 ## Next steps
 
-Now that you've configured the Transport Management System, you'll be able to successfully complete the `STMS_IMPORT` transaction and you can continue [preparing your SAP environment](preparing-sap.md) for deploying the Microsoft Sentinel Solution for SAP in Microsoft Sentinel.
+Now that you've configured the Transport Management System, you'll be able to successfully complete the `STMS_IMPORT` transaction and you can continue [preparing your SAP environment](preparing-sap.md) for deploying the Microsoft Sentinel solution for SAP® applications in Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
 > [Deploy SAP Change Requests and configure authorization](preparing-sap.md#import-the-crs)
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
