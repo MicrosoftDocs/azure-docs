@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare a deployment for a confidential container on Azure Container Instances
-description: Azure Container Instances tutorial deploy a confidential container - ARM
+description: Azure Container Instances tutorial deploys a confidential container - ARM
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
@@ -14,7 +14,7 @@ ms.custom: "seodec18, mvc, devx-track-js"
 
 Confidential containers on ACI is a serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
 
-In this article, you will:
+In this article, you'll:
 
 > [!div class="checklist"]
 > * Create an ARM template for a confidential container group
@@ -27,12 +27,12 @@ In this article, you will:
 
 ## Create an ACI container group ARM Template
 
-In this tutorial you will be deploying a hello world application which generates a hardware attestation report. We will start by creating an ARM template with a container group resource to define the properties of this application. This ARM template will then be used with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for software attestation. In this tutorial, this [ARM template](https://acidocs.blob.core.windows.net/documentation/template.json) is used.  
+In this tutorial you'll be deploying a hello world application that generates a hardware attestation report. We will start by creating an ARM template with a container group resource to define the properties of this application. This ARM template will then be used with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for software attestation. In this tutorial, this [ARM template](https://acidocs.blob.core.windows.net/documentation/template.json) is used.  
 
 There are two properties added to the ACI resource definition to make the container group confidential: 
 
 1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property is not added, the container group will be deployed as Standard. 
-2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object is not added to the resource you will only receive hardware attestation and all software will be allowed to run within the container group.
+2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object is not added to the resource, you'll only receive hardware attestation, and all software will be allowed to run within the container group.
 
 Save this ARM template on your local machine as **template.json**.
 
@@ -152,16 +152,16 @@ Save this ARM template on your local machine as **template.json**.
 
 ## Create a custom CCE Policy 
 
-With the ARM template that you have just crafted and the Azure CLI confcom extension that was installed earlier, you will be able to generate a custom CCE policy that will be used for software attestation. The tooling will take the ARM template as an input and generate a policy which enforces the specific container images, environment variables, mounts, and commands which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
+With the ARM template that you have crafted and the Azure CLI confcom extension that was installed, you'll be able to generate a custom CCE policy that will be used for software attestation. The tooling will take the ARM template as an input and generate a policy, which enforces the specific container images, environment variables, mounts, and commands which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
 
 
-1. To generate the CCE policy, you will run the following command using the ARM template as input: 
+1. To generate the CCE policy, you'll run the following command using the ARM template as input: 
 
 ```bash
 az confcom acipolicygen -a .\template.json --print-policy
 ``` 
 
-When this command completes you should see a Base 64 encoded string as output. This string is the CCE policy that you will then add to your ARM template. 
+When this command completes you should see a Base 64 encoded string as output. This string is the CCE policy that you'll then add to your ARM template. 
 
 ```bash
 cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5ldmVyeQppbXBvcnQgZnV0dXJlLmtleXdvcmRzLmluCgpmcmFnbWVudHMgOj0gWwpdCgpjb250YWluZXJzIDo9IFsKICAgIHsKICAgICAgICAiY29tbWFuZCI6IFsiL3BhdXNlIl0sCiAgICAgICAgImVudl9ydWxlcyI6IFt7InBhdHRlcm4iOiAiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogdHJ1ZX0seyJwYXR0ZXJuIjogIlRFUk09eHRlcm0iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogZmFsc2V9XSwKICAgICAgICAibGF5ZXJzIjogWyIxNmI1MTQwNTdhMDZhZDY2NWY5MmMwMjg2M2FjYTA3NGZkNTk3NmM3NTVkMjZiZmYxNjM2NTI5OTE2OWU4NDE1Il0sCiAgICAgICAgIm1vdW50cyI6IFtdLAogICAgICAgICJleGVjX3Byb2Nlc3NlcyI6IFtdLAogICAgICAgICJzaWduYWxzIjogW10sCiAgICAgICAgImFsbG93X2VsZXZhdGVkIjogZmFsc2UsCiAgICAgICAgIndvcmtpbmdfZGlyIjogIi8iCiAgICB9LApdCmFsbG93X3Byb3BlcnRpZXNfYWNjZXNzIDo9IHRydWUKYWxsb3dfZHVtcF9zdGFja3MgOj0gdHJ1ZQphbGxvd19ydW50aW1lX2xvZ2dpbmcgOj0gdHJ1ZQphbGxvd19lbnZpcm9ubWVudF92YXJpYWJsZV9kcm9wcGluZyA6PSB0cnVlCmFsbG93X3VuZW5jcnlwdGVkX3NjcmF0Y2ggOj0gdHJ1ZQoKCm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQp1bm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQptb3VudF9vdmVybGF5IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnVubW91bnRfb3ZlcmxheSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpjcmVhdGVfY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfaW5fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfZXh0ZXJuYWwgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2h1dGRvd25fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNpZ25hbF9jb250YWluZXJfcHJvY2VzcyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV9tb3VudCA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmdldF9wcm9wZXJ0aWVzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmR1bXBfc3RhY2tzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJ1bnRpbWVfbG9nZ2luZyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpsb2FkX2ZyYWdtZW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNjcmF0Y2hfbW91bnQgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2NyYXRjaF91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJlYXNvbiA6PSB7ImVycm9ycyI6IGRhdGEuZnJhbWV3b3JrLmVycm9yc30K
@@ -179,7 +179,7 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open a template. Click edit template, load file, and upload the template that you have just crafted. 
+1. Select the following image to sign in to Azure and open a template. Click edit template, load file, and upload the template that you have crafted. 
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerinstance%2Faci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
@@ -222,13 +222,6 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 
 ## Next steps
-
-In this tutorial, you created a container image that can be deployed in Azure Container Instances, and verified that it runs locally. So far, you've done the following:
-
-> [!div class="checklist"]
-> * Cloned the application source from GitHub
-> * Created a container image from the application source
-> * Tested the container locally
 
 Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
