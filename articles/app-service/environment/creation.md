@@ -32,7 +32,7 @@ Make your subnet large enough to hold the maximum size that you'll scale your Ap
 
 Before you deploy your App Service Environment, think about the virtual IP (VIP) type and the deployment type.
 
-With an *internal VIP*, an address in your App Service Environment subnet reaches your apps. Your apps aren't on a public DNS. When you create your App Service Environment in the Azure portal, you have an option to create an Azure private DNS zone for your App Service Environment. With an *external VIP*, your apps are on an address facing the public internet, and they're in a public DNS. 
+With an *internal VIP*, an address in your App Service Environment subnet reaches your apps. Your apps aren't on a public DNS. When you create your App Service Environment in the Azure portal, you have an option to create an Azure private DNS zone for your App Service Environment. With an *external VIP*, your apps are on an address facing the public internet, and they're in a public DNS.  For both *internal VIP* and *external VIP* you can specify *Inbound IP address*, you can select *Automatic* or *Manual* options. If you want to use the *Manual* option for an *Inbound IP address* you must first create a standard *Public IP address* in Azure. 
 
 For the deployment type, you can choose *single zone*, *zone redundant*, or *host group*. The single zone is available in all regions where App Service Environment v3 is available. With the single zone deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. As soon as you have one or more instances, then that charge goes away. It isn't an additive charge.
 
@@ -50,19 +50,23 @@ Here's how:
 
 1. Search Azure Marketplace for *App Service Environment v3*.
 
-1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
+2. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
 
-    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
+    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics-v2.png)
 
-1. From the **Hosting** tab, for **Host group deployment**, select **Enabled** or **Disabled**. If you enable this option, you can deploy onto dedicated hardware. If you do so, you're charged for the entire dedicated host during the creation of the App Service Environment, and then you're charged a reduced price for your App Service plan instances.
+3. From the **Hosting** tab, for **Physical hardware isolation**, select **Enabled** or **Disabled**. If you enable this option, you can deploy onto dedicated hardware. With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a specialized Isolated v2 rate per vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
 
-    ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting.png)
+    ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting-v2.png)
 
-1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more details, see the DNS section in [Use an App Service Environment][UsingASE].
+4. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more details, see the DNS section in [Use an App Service Environment][UsingASE]. If you're creating an App Service Environment with an internal VIP you can specify private IP address using **Manual** option for **Inbound IP address**.
 
-    ![Screenshot that shows App Service Environment networking selections.](./media/creation/creation-networking.png)
+    ![Screenshot that shows App Service Environment networking (ASE Internal) selections.](./media/creation/creation-networking-internal.png)
 
-1. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
+If you're creating an App Service Environment with an external VIP you can select public IP address using **Manual** option for **Inbound IP address**.
+
+![Screenshot that shows App Service Environment networking (ASE Internal) selections.](./media/creation/creation-networking-external.png)
+
+5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
 
 When your App Service Environment has been successfully created, you can select it as a location when you're creating your apps.
 
