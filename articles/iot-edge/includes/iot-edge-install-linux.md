@@ -20,6 +20,14 @@ Run the following commands to add the package repository and then add the Micros
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
+* **22.04**:
+
+   ```bash
+   wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb
+   ```
+
 * **20.04**:
 
    ```bash
