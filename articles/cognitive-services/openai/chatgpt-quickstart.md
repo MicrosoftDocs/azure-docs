@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: quickstart
-author: mbullwin
-ms.author: mrbullwinkle
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 02/07/2023
 zone_pivot_groups: openai-quickstart
 recommendations: false
@@ -20,7 +20,7 @@ Use this article to get started making your first calls to the Azure OpenAI serv
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio quickstart](includes/chatgpt-studio.md)]
+[!INCLUDE [Studio quickstart](includes/studio.md)]
 
 ::: zone-end
 
@@ -32,6 +32,6 @@ Use this article to get started making your first calls to the Azure OpenAI serv
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/chatgpt-rest.md)]
+[!INCLUDE [REST API quickstart](includes/rest.md)]
 
 ::: zone-end
