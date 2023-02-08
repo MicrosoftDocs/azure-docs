@@ -58,6 +58,11 @@ Run kubectl patch to enable service-managed TDE
 ```console
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
 ```
+
+For example,
+```console
+kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
+```
 ---
 
 ## Turn off transparent data encryption on the managed instance
