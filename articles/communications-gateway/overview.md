@@ -64,7 +64,7 @@ Azure Communications Gateway includes optional API integration features. These f
 
 ### CallDuration upload
 
-Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls into the Microsoft Teams environment. This allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams.
+Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls into the Microsoft Teams environment. This allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf. 
 
 ### API Bridge Number Management Portal
 
