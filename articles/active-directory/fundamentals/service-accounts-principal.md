@@ -87,7 +87,7 @@ To find accounts run the following commands using service principals with Azure 
 * Azure CLI - `az ad sp list`
 * PowerShell - `Get-AzureADServicePrincipal -All:$true` 
 
-For more information see [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
+For more information, see [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## Assess service principal security
 
