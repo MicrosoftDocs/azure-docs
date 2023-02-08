@@ -128,7 +128,7 @@ $API_NAME="album-api"
 
 ## Prepare the GitHub repository
 
-Navigate to the repository for your preferred language and fork the repository.
+Open a browser window, go to the GitHub repository for your preferred language, and fork the repository.
 
 # [C#](#tab/csharp)
 
