@@ -3,10 +3,9 @@ title: Switch to Azure Monitor based alerts for Azure Backup
 description: This article describes the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
 ms.date: 09/14/2022
-author: v-amallick
 ms.service: backup
-manager: jsuri
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Switch to Azure Monitor based alerts for Azure Backup

@@ -79,6 +79,9 @@ On-premises management software is backwards compatible, and can connect to sens
 
 For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 
+### Select an update method
+
+Select one of the following tabs, depending on how you've chosen to update your OT sensor software.
 
 # [From the Azure portal (Public preview)](#tab/portal)
 
@@ -107,9 +110,9 @@ This procedure describes how to send a software version update to one or more OT
 
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column. 
+1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column.
 
-    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**. 
+    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**.
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
@@ -127,8 +130,7 @@ When the **Sensor version** column for your sensors reads :::image type="icon" s
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing** until the update is complete, when the value switches to the new sensor version number instead.
 
-If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
-
+If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
 # [From an OT sensor UI](#tab/sensor)
 
@@ -248,6 +250,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
     ```bash
     tail -f /opt/sensor/logs/install.log
     ```
+
 ---
 
 > [!NOTE]
@@ -294,7 +297,6 @@ If you're upgrading from a legacy version to version 22.x or higher, make sure t
 
     - The sensor's **Overview** page shows an activation status of **Valid**.
     - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
-
 
 ## Remove your previous sensor
 

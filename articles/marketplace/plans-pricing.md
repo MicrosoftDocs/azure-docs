@@ -87,8 +87,8 @@ You must associate a pricing model with each plan for the following offer types.
     > [!NOTE]
     > For flat rate and per user pricing models, customers can pay either monthly, annually, or one-time upfront for the entire 1-year, 2-year, or 3-year term.
 
-- **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can charge per core, per core size, or per market and core size. A BYOL license model does not allow for additional, usage-based charges.   (BYOL virtual machine offers do not require a pricing model.)
-
+- **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can select free, flat rate, per vCPU, per vCPU size, or per market and vCPU size. A BYOL license model does not allow for additional, usage-based charges. (BYOL virtual machine offers do not require a pricing model.)
+   
 An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. However, a SaaS offer can have some plans with flat rate with metered billing and other flat rate plans without metered billing. See specific offer documentation for detailed information.
 
 > [!IMPORTANT]
@@ -186,3 +186,4 @@ To obtain information on customer subscriptions currently participating in a fre
 
 - To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./update-existing-offer.md).
 - To learn more about transaction options and associated pricing models, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+

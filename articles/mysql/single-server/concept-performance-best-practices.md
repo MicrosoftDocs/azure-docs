@@ -9,7 +9,7 @@ ms.author: sisawant
 ms.date: 07/22/2022
 ---
 
-# Best practices for optimal performance of your Azure Database for MySQL server
+# Best practices for optimal performance of Azure Database for MySQL servers
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

@@ -3,7 +3,7 @@ title: Expose SAP legacy middleware securely with Azure PaaS
 description: Learn about securely exposing SAP Process Orchestration on Azure.
 author: MartinPankraz
 
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/19/2022

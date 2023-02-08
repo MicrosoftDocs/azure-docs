@@ -1,5 +1,5 @@
 ---
-title: Upload a blob using .NET
+title: Upload a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
@@ -13,9 +13,9 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Upload a blob to Azure Storage by using the .NET client library
+# Upload a blob with .NET
 
-You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
+This article shows how to upload a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
 
 > [!NOTE]
 > Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. You can create a container in a storage account using methods from [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) or [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient). To learn how to create a container in your storage account, see [Create a container in Azure Storage with .NET](storage-blob-container-create.md).
@@ -220,9 +220,18 @@ public static async Task UploadInBlocks
 }
 ```
 
-## See also
+## Resources
+
+To learn more about uploading blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for uploading blobs use the following REST API operations:
+
+- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
+- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+
+### See also
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
-- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
