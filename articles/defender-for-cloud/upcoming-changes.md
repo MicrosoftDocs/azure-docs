@@ -20,7 +20,31 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |--|--|
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | February 2023 |
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | February 2023 |
+| [Three alerts in Defender for ARM plan are set to be deprecated](#three-alerts-in-defender-for-arm-plan-are-set-to-be-deprecated) | March 2023 |
+| [Alerts automatic export to Log Analytics workspace is set to be deprecated](#alerts-automatic-export-to-log-analytics-workspace-is-set-to-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
+
+### Three alerts in Defender for ARM plan are set to be deprecated
+
+**Estimated date for change: March 2023**
+
+As we continue to improve the quality of our alerts, the following three alerts from the Defender for ARM plan are set to be deprecated:
+1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
+1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
+1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
+
+You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
+
+In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for ARM plan alert `Azure Resource Manager operation from suspicious IP address` or ' Azure Resource Manager operation from suspicious proxy IP address' will be presented.
+
+### Alerts automatic export to Log Analytics workspace is set to be deprecated
+
+**Estimated date for change: March 2023**
+
+Currently, Defender for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
+
+You can export your security alerts to a dedicated Log Analytics workspace with the [Continuous Export](continuous-export.md#set-up-a-continuous-export) feature. 
+If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
 
 ### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
