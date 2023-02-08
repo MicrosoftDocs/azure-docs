@@ -2,15 +2,15 @@
 title: "Quickstart: Get token & call Microsoft Graph in a console app"
 description: In this quickstart, you learn how a .NET Core sample app can use the client credentials flow to get a token and call Microsoft Graph.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 12/08/2022
-ms.author: jmprieur
-ms.reviewer: marsma
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform by using the client credentials flow.
 ---

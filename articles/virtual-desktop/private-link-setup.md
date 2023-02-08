@@ -85,7 +85,7 @@ To configure Private Link in the Azure portal:
 
 1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
 
-1. Select **Add a private endpoint**.
+1. Select **New private endpoint**.
 
 1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
 
@@ -115,7 +115,7 @@ To configure Private Link in the Azure portal:
 
 1. When you're finished, select **Next: DNS >**.
 
-1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 1. When you're done, select **Next: Tags >**.
 
