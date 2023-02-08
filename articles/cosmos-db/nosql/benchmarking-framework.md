@@ -219,10 +219,7 @@ Now, you use an [Azure Resource Manager template](../../azure-resource-manager/t
             cosmosKey=$cosmosPrimaryKey
     ```
 
-1. Wait for the deployment to complete. Results should take about 15-20 minutes to be ready.
-
-    > [!TIP]
-    > At some point after deployment, you can check the status of the benchmarking framework's jobs by running querying the `ycsbbenchmarkingMetadata` table in targeted storage account.
+1. Wait for the deployment to complete.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -234,15 +231,90 @@ Now, you use an [Azure Resource Manager template](../../azure-resource-manager/t
 
 TODO: <!-- A short sentence or two. -->
 
-### [Azure CLI / Azure portal](#tab/azure-cli+azure-portal)
+### [Azure CLI](#tab/azure-cli)
 
-1. Step
+1. Query the job record in a storage table named `ycsbbenchmarkingmetadata` using [`az storage entity query`](/cli/azure/storage/entity#az-storage-entity-query).
 
-1. Step
+    ```azurecli-interactive
+    az storage entity query \
+        --account-name $storageAccountName \
+        --connection-string $storageConnectionString \
+        --table-name ycsbbenchmarkingmetadata
+    ```
 
-1. <!-- View results in Azure Storage blob -->
+1. Observe the results of this query. The results should return a single job with `JobStartTime`, `JobStatus`, and `JobFinishTime` properties. Initially, the status of the job is `Started` and it includes a timestamp in the `JobStartTime` property but not the `JobFinishTime` property.
 
-1. Step
+    ```json
+    {
+      "items": [
+        {
+          "JobFinishTime": "",
+          "JobStartTime": "2023-02-08T13:59:42Z",
+          "JobStatus": "Started",
+          "NoOfClientsCompleted": "0",
+          "NoOfClientsStarted": {
+            "edm_type": "Edm.Int64",
+            "value": 1
+          },
+          "PartitionKey": "ycsb_sql",
+          ...
+        }
+      ],
+      ...
+    }
+    ```
+
+1. If necessary, run `az storage entity query` multiple times until the job has a status of `Finished` and includes a timestamp in the `JobFinishTime` property.
+
+    ```json
+    
+    ```
+
+    > [!TIP]
+    > It can take approximately 20-30 minutes for the job to finish.
+
+1. Find the name of the most recently modified storage container with a prefix of `ycsbbenchmarking-*` using [`az storage container list`](/cli/azure/storage/container#az-storage-container-list) and a [JMESPath query](/cli/azure/query-azure-cli).
+
+    ```azurecli-interactive
+    az storage container list \
+        --account-name $storageAccountName \
+        --connection-string $storageConnectionString \
+        --query "sort_by([?starts_with(name, 'ycsbbenchmarking-')], &properties.lastModified)[-1].name" \
+        --output tsv
+    ```
+
+1. Store the container string in a variable named `storageConnectionString`.
+
+    ```azurecli-interactive
+    storageContainerName=$( \
+        az storage container list \
+            --account-name $storageAccountName \
+            --connection-string $storageConnectionString \
+            --query "sort_by([?starts_with(name, 'ycsbbenchmarking-')], &properties.lastModified)[-1].name" \
+            --output tsv \
+    )
+    ```
+
+1. Use [`az storage blob query`]/cli/azure/storage/blob#az-storage-blob-query) to query the job results in a storage blob stored in the previously located container.
+
+    ```azurecli-interactive
+    az storage blob query \
+        --account-name $storageAccountName \
+        --connection-string $storageConnectionString \
+        --container-name $storageContainerName \
+        --name aggregation.csv \
+        --query-expression "SELECT * FROM BlobStorage"
+    ```
+
+1. Observe the results of this query. You should now have a CSV dataset with aggregated results from all the benchmark clients.
+
+    ```json
+    
+    ```
+
+### [Azure portal](#tab/azure-portal)
+
+1. TODO
 
 ---
 
