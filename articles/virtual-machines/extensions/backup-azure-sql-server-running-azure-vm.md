@@ -4,6 +4,8 @@ description: In this article, learn how to register Azure Backup in SQL Server r
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.author: gabsta
+author: GabstaMSFT
 ms.collection: windows
 ms.date: 07/05/2019 
 ms.custom: devx-track-azurepowershell
