@@ -35,7 +35,7 @@ As we continue to improve the quality of our alerts, the following three alerts 
 
 You can learn more details about each of these alerts from the [alerts reference list](https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-resourcemanager).
 
-Notice the scenario of activity from a suspicious IP is detected by a different alert within Defender for ARM bundle - "Azure Resource Manager operation from suspicious IP address".
+In the scenario where a suspicious IP address is detected, the Defender for ARM bundle alert `Azure Resource Manager operation from suspicious IP address` will be presented.
 
 ### Deprecation of alerts' automatic export to Log Analytics workspace
 **Estimated date for change: March 2023**
