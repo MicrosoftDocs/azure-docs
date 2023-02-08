@@ -2,20 +2,20 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 10/12/2022
+ms.date: 01/10/2023
 ms.author: larryfr
 ---
 
 > [!IMPORTANT]
-> A compute instance or compute cluster without a public IP (a preview feature) does not need inbound traffic from Azure Batch management and Azure Machine Learning services. However, if you have multiple computes and some of them use a public IP address, you will need to allow this traffic.
+> A compute instance or compute cluster without a public IP does not need inbound traffic from Azure Batch management and Azure Machine Learning services. However, if you have multiple computes and some of them use a public IP address, you will need to allow this traffic.
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__ (_with a public IP address_), allow inbound traffic from Azure Batch management and Azure Machine Learning services. A compute instance or compute cluster _with no public IP_ (preview) __doesn't__ require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+When using Azure Machine Learning __compute instance__ or __compute cluster__ (_with a public IP address_), allow inbound traffic from the Azure Machine Learning service. A compute instance or compute cluster _with no public IP_ (preview) __doesn't__ require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
 # [IP Address routes](#tab/ipaddress)
 
 For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Cross-region replication in Azure](../articles/availability-zones/cross-region-replication-azure.md). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
-To get a list of IP addresses of the Batch service and Azure Machine Learning service, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
+To get a list of IP addresses of the Azure Machine Learning service, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
 > [!IMPORTANT]
 > The IP addresses may change over time.
@@ -26,16 +26,12 @@ When creating the UDR, set the __Next hop type__ to __Internet__. This means the
 
 # [Service tag routes](#tab/servicetag)
 
-Create user-defined routes for the following service tags:
+Create user-defined routes for the `AzureMachineLearning` service tag.
 
-* `AzureMachineLearning`
-* `BatchNodeManagement.<region>`, where `<region>` is your Azure region.
-
-The following commands demonstrate adding routes for these service tags:
+The following command demonstrates adding a route for this service tag:
 
 ```azurecli
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n AzureMLRoute --address-prefix AzureMachineLearning --next-hop-type Internet
-az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n BatchRoute --address-prefix BatchNodeManagement.westus2 --next-hop-type Internet
 ```
 
 ---

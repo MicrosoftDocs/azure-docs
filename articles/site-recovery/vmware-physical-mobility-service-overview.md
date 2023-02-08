@@ -318,9 +318,9 @@ Locate the installer files for the server’s operating system using the followi
 
 5. Copy the string present in the field  **Machine Details**.
 
-   This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
+   This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
 
-   ![Image showing source machine string](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
+   ![Screenshot showing source machine string.](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
 
 6.	Provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
 7.	Click **Register**.
@@ -355,7 +355,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredLessDiscovery true
    ```
 
 #### Installation settings
@@ -373,9 +373,10 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 
 Setting | Details
 --- | ---
-Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
+Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
 `/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
 
 
 ### Linux machine
@@ -414,10 +415,17 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
   Setting | Details
   --- | ---
-    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`  
-    `-S` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q -D true`  
+    `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
     `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
+    `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
+
+## Credential-less discovery in modernized architecture
+
+When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials will be required. 
+
+![Screenshot showing credential-less-discovery-check-box.](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
 
 ## Generate Mobility Service configuration file
 
