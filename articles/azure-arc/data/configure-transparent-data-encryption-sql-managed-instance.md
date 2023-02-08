@@ -21,8 +21,9 @@ Enabling service-managed transparent data encryption will require the managed in
 
 Turning on the TDE feature does following:
 
-- All existing databases will now be automatically encrypted
-- All newly created databases will get automatically encrypted
+- All existing databases will now be automatically encrypted.
+- All newly created databases will get automatically encrypted.
+
 
 
 
