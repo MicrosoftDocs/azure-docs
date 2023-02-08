@@ -16,7 +16,7 @@ Configuring device redirection for your Azure Virtual Desktop environment allows
 Each client supports different kinds of device redirections. Check out [Compare the clients](compare-remote-desktop-clients.md) for the full list of supported device redirections for each client.
 
 >[!IMPORTANT]
->You can only enable redirections with binary settings that apply to both to and from the remote machine. The service doesn't currently support one-way blocking of redirections from only one side of the connection.
+>You can only enable redirections with binary settings that apply to both to and from the remote machine.
 
 ## Customizing RDP properties for a host pool
 

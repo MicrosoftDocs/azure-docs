@@ -1,5 +1,5 @@
 ---
-title: "Invoking batch endpoints from Azure Data Factory"
+title: "Run batch endpoints from Azure Data Factory"
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Invoking batch endpoints from Azure Data Factory
+# Run batch endpoints from Azure Data Factory
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -36,9 +36,6 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
 You can use a service principal or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
-
-> [!IMPORTANT]
-> Batch Endpoints can consume data stored in storage accounts instead of Azure Machine Learning Data Stores or Data Assets. However, you may need to configure additional permissions for the identity of the compute where the batch endpoint runs on. See [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data).
 
 # [Using a Managed Identity](#tab/mi)
 
@@ -88,10 +85,10 @@ The pipeline requires the following parameters to be configured:
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
-| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
 | `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+| `endpoint_input_type`  | The type of the input data you are providing. Currently batch endpoints support folders (`UriFolder`) and File (`UriFile`). Defaults to `UriFolder`.  | `UriFolder` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 
 # [Using a Service Principal](#tab/sp)
 
@@ -102,7 +99,6 @@ It is composed of the following activities:
 * __Authorize__: It's a Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token. This token will be used to invoke the endpoint later.
 * __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
 * __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity, in turns, uses the following activities:
-  * __Authorize Management__: It's a Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token to be used for job's status query.
   * __Check status__: It's a Web Activity that queries the status of the job resource that was returned as a response of the __Run Batch-Endpoint__ activity. 
   * __Wait__: It's a Wait Activity that controls the polling frequency of the job's status. We set a default of 120 (2 minutes).
 
@@ -114,22 +110,21 @@ The pipeline requires the following parameters to be configured:
 | `client_id`           | The client ID of the service principal used to invoke the endpoint  | `00000000-0000-0000-00000000` |
 | `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
-| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
 | `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+| `endpoint_input_type`  | The type of the input data you are providing. Currently batch endpoints support folders (`UriFolder`) and File (`UriFile`). Defaults to `UriFolder`.  | `UriFolder` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 
 ---
 
 > [!WARNING]
 > Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error *the path already exists*.
 
-> [!IMPORTANT]
-> The input data URI can be a path to an Azure Machine Learning data store, data asset, or a cloud URI. Depending on the case, further configuration may be required to ensure the deployment can read the data properly. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
-
 ## Steps
 
-To create this pipeline in your existing Azure Data Factory, follow these steps:
+To create this pipeline in your existing Azure Data Factory and invoke batch endpoints, follow these steps:
+
+1. Ensure the compute where the batch endpoint is running has permissions to mount the data Azure Data Factory is providing as input. Notice that access is still granted by the identity that invokes the endpoint (in this case Azure Data Factory). However, the compute where the batch endpoint runs needs to have permission to mount the storage account your Azure Data Factory provide. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 
@@ -168,18 +163,20 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 When calling Azure Machine Learning batch deployments consider the following limitations:
 
-* __Data inputs__:
-   * Only Azure Machine Learning data stores or Azure Storage Accounts (Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2) are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
-   * Ensure the deployment has the required access to read the input data depending on the type of input you are using. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
-* __Data outputs__:
-   * Only registered Azure Machine Learning data stores are supported.
-   * Only Azure Blob Storage Accounts are supported for outputs. For instance, Azure Data Lake Storage Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
+### Data inputs
 
-## Considerations when reading and writing data
-
-When reading and writing data, take into account the following considerations:
-
+* Only Azure Machine Learning data stores or Azure Storage Accounts (Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2) are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
 * Batch endpoint jobs don't explore nested folders and hence can't work with nested folder structures. If your data is distributed in multiple folders, notice that you will have to flatten the structure.
 * Make sure that your scoring script provided in the deployment can handle the data as it is expected to be fed into the job. If the model is MLflow, read the limitation in terms of the file type supported by the moment at [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* Batch endpoints distribute and parallelize the work across multiple workers at the file level. Make sure that each worker node has enough memory to load the entire data file at once and send it to the model. Such is especially true for tabular data.
-* When estimating the memory consumption of your jobs, take into account the model memory footprint too. Some models, like transformers in NLP, don't have a liner relationship between the size of the inputs and the memory consumption. On those cases, you may want to consider further partitioning your data into multiple files to allow a greater degree of parallelization with smaller files.
+
+
+### Data outputs
+   
+* Only registered Azure Machine Learning data stores are supported by the moment. We recommend you to register the storage account your Azure Data Factory is using as a Data Store in Azure Machine Learning. In that way, you will be able to write back to the same storage account from where you are reading.
+* Only Azure Blob Storage Accounts are supported for outputs. For instance, Azure Data Lake Storage Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
+
+## Next steps
+
+* [Use low priority VMs in batch deployments](how-to-use-low-priority-batch.md)
+* [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md)
+* [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)

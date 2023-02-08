@@ -3,7 +3,8 @@ title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: conceptual
 ms.date: 03/11/2022
-
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Blobs
@@ -15,7 +16,7 @@ Block blobs in storage accounts with operational backup configured can be restor
 - Blobs will be restored to the same storage account. So blobs that have undergone changes since the time to which you're restoring will be overwritten.
 - Only block blobs in a standard general-purpose v2 storage account can be restored as part of a restore operation. Append blobs, page blobs, and premium block blobs aren't restored.
 - When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation.
-- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail automatically. Break any active leases before starting the restore operation.
+- If a blob with an active lease is included in the range to restore, and if the current version of the leased blob is different from the previous version at the timestamp provided for PITR, the restore operation will fail atomically. We recommend breaking any active leases before initiating the restore operation.
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - If you delete a container from the storage account by calling the **Delete Container** operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers in addition to operational backup to protect against accidental deletion of containers.
 - Refer to the [support matrix](blob-backup-support-matrix.md) for all limitations and supported scenarios.
