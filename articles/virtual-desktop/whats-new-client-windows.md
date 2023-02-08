@@ -26,7 +26,7 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
-- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity (Insiders only).
 - Fixed a bug where refreshes increased memory usage.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 - Updates to Teams for Azure Virtual Desktop, including the following:
