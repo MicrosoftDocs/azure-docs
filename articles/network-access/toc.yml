@@ -11,21 +11,41 @@ items:
   items:
   - name: Install the Network Access Connector
     href: quickstart-install-connector.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Configure Internet access for edge devices
+    href: tutorial-configure-internet-access.md
+- name: Samples
+  expanded: true
+  items:
+  - name: Configure tenant for Entra Network Access
+    href: sample-configure-tenant.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Understand Secure Access Service Edge (SASE)
+    href: concept-understand-sase.md
+  - name: Understand Security Service Edge (SSE)
+    href: concept-understand-sse.md
 - name: How-to guides
   expanded: true
   items:
   - name: Getting Started with Entra Network Access
     href: get-started-with-network-access.md
-- name: Troubleshoot
-  expanded: false
-  items:
-  - name: Troubleshoot Entra Network Access
-    href: troubleshoot-network-access.md
 - name: Reference
   expanded: false
   items:
   - name: Entra Network Access FAQ
     href: network-access-faq.md
+  - name: Troubleshoot
+    expanded: false
+    items:
+    - name: Troubleshoot Entra Network Access
+      href: troubleshoot-network-access.md
+- name: Resources
+  expanded: false
+  items:
   - name: Training videos
     expanded: false
     items:
