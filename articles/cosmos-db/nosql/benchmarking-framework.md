@@ -207,7 +207,7 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
         --template-uri $templateUri \
         --parameters \
             adminPassword='P@ssw.rd' \
-            resultsStorageConnectionString=@storageConnectionString \
+            resultsStorageConnectionString=$storageConnectionString \
             cosmosURI=$cosmosEndpoint \
             cosmosKey=$cosmosPrimaryKey
     ```
