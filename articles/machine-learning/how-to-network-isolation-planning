@@ -21,7 +21,7 @@ In this article, you learn how to plan your network isolation for Azure Machine 
 
 Azure Machine Learning's network isolation involves both Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) components. PaaS services, such as the Azure Machine Learning workspace, storage, key vault, container registry, and monitor, can be isolated using Private Link. IaaS computing services, such as compute instances and compute clusters for AI model training, AKS or managed online endpoints for AI model scoring, can be injected into your virtual network and communicate with PaaS services using Private Link. An example network architecture is below.
 
-![vnet and private endpoints](media/how-to-network-planning/network1.png)
+![vnet and private endpoints](media/how-to-network-isolation-planning/network1.png)
 
 In this architecture, Compute Instances, Compute Clusters, and AKS Clusters are located within your virtual network. They can access the Azure Machine Learning workspace or storage using a private endpoint. You can use service endpoint only for Storage and Key Vault because others do not support service endpoint.
 
@@ -29,7 +29,7 @@ In this architecture, Compute Instances, Compute Clusters, and AKS Clusters are 
 
 Azure Machine Learning has [several required inbound and outbound configurations](https://learn.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall) with your virtual network. If you have a standalone virtual network, configuration is straightforward with your network security group. However, most likely you have hub-spoke or mesh network architecture, firewall, network virtual appliance, proxy and user defined routing. Make sure to allow inbound and outbound with your network security components.
 
-![simple network with inbound and outbound](media/how-to-network-planning/network2.png)
+![simple network with inbound and outbound](media/how-to-network-isolation-planning/network2.png)
 
 In this architecture, you have hub and spoke network architecture. Your spoke vnet has resources for Azure Machine Learning. Hub vnet has a firewall control internet outbound from your virtual networks. In this case, your firewall must allow outbound to required resources and your compute resources in spoke vnet must be able to reach your firewall.
 
@@ -43,7 +43,7 @@ If you have your own DNS server hosted in Azure or on-premises, you need to crea
 
 We have two types of outbound; read only and read/write. Read only outbound cannot be exploitted by malicsious insider but read/write outbound can be. Storage and Frontdoor.frontend are read/write outbound in our case. You can mitigate this data exfiltration risk using [our data exfiltration prevention solution](https://learn.microsoft.com/azure/machine-learning/how-to-prevent-data-loss-exfiltration). We use service endpoint policy with Azure Machine Learning alias to allow outbound to Azure Machine Learning managed storage accounts. You do not need to open outbound to Storage on your firewall.
 
-![simple network with data exfiltration prevention](media/how-to-network-planning/network3.png)
+![simple network with data exfiltration prevention](media/how-to-network-isolation-planning/network3.png)
 
 Compute instance and cluster need to access Azure Machine Learning managed storage accounts to get set-up scripts. Instead of opening the outbound to storage, you can use service endpoint poilicy with Azrue Machine Learning alias to allow the storage access only to Azure Machine Learning storage accounts.
 
@@ -58,7 +58,7 @@ Managed Online Endpoint has built-in network isolation without your Vnet. If you
 
 Azure Machine Learning requries private IPs; one IP per compute instance, compute cluster node, private endpoint. You need material number of IPs if you use AKS. Your hub-spoke network connected with your on-premises might not have enough private IP address spaces. You can have isolated, not-peered VNet for your Azure Machine Learning resources.
 
-![two vnet attached to workspace](media/how-to-network-planning/network4.png)
+![two vnet attached to workspace](media/how-to-network-isolation-planning/network4.png)
 
 With this architecture, your main VNet requires the IPs for private endpoints. You can have hub-spoke VNets for multiple Azure Machine Learning workspaces with large address spaces. A downside of this architecutre is to double the number of private endpoints.
 
@@ -68,7 +68,7 @@ With this architecture, your main VNet requires the IPs for private endpoints. Y
 
 This is an recommended architecture to make all resources private but allow outbound internet access from your Vnet. This is the option to balance your network security and your ML engineers' productivity.
 
-![private recommended architecture](media/how-to-network-planning/network5.png)
+![private recommended architecture](media/how-to-network-isolation-planning/network5.png)
 
 You can automate this environment creation using [this template](https://learn.microsoft.com/azure/machine-learning/tutorial-create-secure-workspace-template) without Managed online endpoint or AKS. 
 
@@ -76,7 +76,7 @@ You can automate this environment creation using [this template](https://learn.m
 
 If you want to remove a firewall requirement, you can use NSG and [Azure virtual network NAT](https://learn.microsoft.com/azure/virtual-network/nat-gateway/nat-overview) to allow internet outbound from your private computing resources.
 
-![private recommended wo firewall](media/how-to-network-planning/network5.5.png)
+![private recommended wo firewall](media/how-to-network-isolation-planning/network5.5.png)
 
 ### Using public workspace
 
@@ -86,7 +86,7 @@ You can use public Azure Machine Learning workspace if you are fine only with Az
 
 This is an recommende architecture to make all resources private and control outbound destinations to prevent data exfiltration. This is the option to use Azure Machine Learning with your sensitive data in production.
 
-![recommended with dep](media/how-to-network-planning/network6.png)
+![recommended with dep](media/how-to-network-isolation-planning/network6.png)
 
 ### Using public workspace
 
