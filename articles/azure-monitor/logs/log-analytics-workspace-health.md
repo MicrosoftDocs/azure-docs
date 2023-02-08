@@ -1,7 +1,7 @@
 ---
 title: Monitor latency in a Log Analytics workspace
 description: This article how to monitor the health of a Log Analytics workspace and set up alerts about latency issues specific to the Log Analytics workspace or related to known Azure service issues.
-ms.topic: conceptual
+ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
@@ -17,7 +17,7 @@ ms.date: 02/07/2023
 Azure Service Health monitors:
 
 - [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific Log Analytics workspace. 
-- [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, including communications about outages, planned maintenance activities, and other health advisories.
+- [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your Log Analytics workspace, including communications about outages, planned maintenance activities, and other health advisories.
 
 ## View Log Analytics workspace health and set up alerts 
 
@@ -28,7 +28,7 @@ Azure Service Health monitors:
     The **Resource health** screen shows:
 
     - **Health history**: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-latency).  
-    - **Azure service issues**: Displayed when a know issue with an Azure service might impact latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
+    - **Azure service issues**: Displayed when a known issue with an Azure service might affect latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
 
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
     
