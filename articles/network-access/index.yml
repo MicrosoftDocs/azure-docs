@@ -13,7 +13,7 @@ metadata:
    ms.date: 01/31/2023
    author: kenwith
    ms.author: kenwith
-   manager: 
+   manager: amycolannino
 
 landingContent:
   - title: About Entra Network Access
@@ -22,6 +22,13 @@ landingContent:
         links:
           - text: What is Entra Network Access?
             url: overview-what-is-network-access.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Install Network Access connector
+            url: quickstart-install-connector.md
 
   - title: Connect
     linkLists:

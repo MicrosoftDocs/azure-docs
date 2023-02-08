@@ -3,6 +3,7 @@ title: Understand Secure Access Service Edge (SASE)
 description: Learn about Secure Access Service Edge (SASE).
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 02/08/2023
 ms.service: network-access

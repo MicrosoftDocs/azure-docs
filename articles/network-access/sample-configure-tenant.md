@@ -3,6 +3,7 @@ title: Sample - Configure Tenant for Network Access
 description: Use PowerShell to configure a tenant for Entra Network Access.
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 02/08/2023
 ms.service: network-access

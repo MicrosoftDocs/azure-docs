@@ -3,6 +3,7 @@ title: What is Zero Trust Network Access?
 description: Zero Trust Network Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
 author: kenwith
 ms.author: kenwith
+manager: amycolannino
 ms.topic: overview
 ms.date: 01/31/2023
 ms.service: network-access
