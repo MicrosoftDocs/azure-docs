@@ -16,17 +16,6 @@ MSIX is a new packaging format that offers many features aimed to improve packag
 
 MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for supported products, such as Azure Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
 
-## Application delivery options in Azure Virtual Desktop
-
-You can deliver apps in Azure Virtual Desktop through one of the following methods:
-
-- Put apps in a master image
-- Use tools like Microsoft Endpoint Configuration Manager or Intune for central management
-- Dynamic app provisioning (App-V, VMware AppVolumes, or Citrix AppLayering)
-- Create custom tools or scripts using Microsoft and a third-party tool
-
-<!--Do we need this section?-->
-
 ## What does MSIX app attach do?
 
 In an Azure Virtual Desktop deployment, MSIX app attach delivers apps to session hosts within [MSIX containers](/windows/msix/msix-container). These containers separate user data, the OS, and apps, increasing security and ensuring easier troubleshooting if something goes wrong. App attach removes the need for repackaging apps when delivering applications dynamically, which increases the speed of deployments and reduces the time it takes for users to sign in to their remote sessions. This rapid delivery reduces operational overhead and costs for your organization.
