@@ -514,7 +514,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
     pod/nginx-pod created
     ```
 
-   Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [kubectl describe] command:
+   Kubernetes has created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. You can confirm by checking the event logs for the pod using [kubectl describe][kubectl-describe] command:
 
     ```bash
     kubectl describe pod nginx-pod
