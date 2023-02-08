@@ -118,6 +118,8 @@ You can pay for Azure Blob Storage charges with your Azure Prepayment (previousl
 
 Consider using these options to reduce costs.
 
+- Analyze existing containers and blobs
+
 - Reserve storage capacity
 
 - Organize data into access tiers
@@ -125,6 +127,18 @@ Consider using these options to reduce costs.
 - Automatically move data between access tiers
 
 This section covers each option in more detail.
+
+#### Analyze existing containers and blobs
+
+If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
+
+See any of these articles to itemize and analyze your existing containers and blobs:
+
+- [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
+
+- [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
+
+- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.md)
 
 #### Reserve storage capacity
 
@@ -140,7 +154,7 @@ See any of these articles:
 
 - [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
 
-- [Best practices for using blob access tiers](access-tiers-best-practices.md)
+- [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
 
 - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
@@ -149,18 +163,6 @@ See any of these articles:
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
 To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
-
-#### Periodically review containers and blobs
-
-If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
-
-See any of these articles to itemize and analyze your existing containers and blobs:
-
-- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
-
-- [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
-
-- [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
 
 ## Create budgets
 

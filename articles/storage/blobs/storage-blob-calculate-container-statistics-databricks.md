@@ -13,7 +13,7 @@ ms.subservice: blobs
 
 This tutorial shows you how to gather statistics about your containers by using Azure Blob Storage inventory along with Azure Databricks.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Generate an inventory report
@@ -51,7 +51,7 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 ## Configure Azure Databricks
 
-In this section, you'll create an Azure Databricks workspace, cluster, and notebook. Later in this tutorial, you'll paste code snippets into notebook cells, and then run them to gather container statistics. 
+In this section, you create an Azure Databricks workspace, cluster, and notebook. Later in this tutorial, you paste code snippets into notebook cells, and then run them to gather container statistics. 
 
 1. Create an Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
@@ -188,7 +188,7 @@ To avoid unnecessary billing, make sure to terminate the cluster. See [Terminate
 
 - Learn how to use Azure Synapse to calculate the blob count and total size of blobs per container. See [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
 
-- Learn how to generate and visualize statistics such as data growth over time, data added over time, number of files modified, blob snapshot sizes, access patterns over each tier, and how data is distributed both currently and over time (For example: data across tiers, file types, in containers, and blob types). See [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
+- Learn how to generate and visualize statistics that describes containers and blobs. See [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 
 - Learn about ways to optimize your costs based on the analysis of your blobs and containers. See these articles:
 
