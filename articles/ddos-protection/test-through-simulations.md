@@ -90,12 +90,12 @@ In addition, Red Button offers two other service suites, [DDoS 360](https://www.
 
 ## RedWolf
 
-RedWolf offers an easy-to-use testing system that is either self-serve or guided by RedWolf experts. RedWolf testing system allows customers to setup attack vectors. Customers can specify attack sizes with real-time control on settings to simulate real-world DDoS attack scenarios in a controlled environment.
+RedWolf offers an easy-to-use testing system that is either self-serve or guided by RedWolf experts. RedWolf testing system allows customers to set up attack vectors. Customers can specify attack sizes with real-time control on settings to simulate real-world DDoS attack scenarios in a controlled environment.
 
 RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suite includes:
 
-1. **Attack Vectors**: Unique cloud attacks designed by RedWolf.
-1. **Guided and self service**: Leverage RedWolf's team or run tests yourself.
+   - **Attack Vectors**: Unique cloud attacks designed by RedWolf.
+   - **Guided and self service**: Leverage RedWolf's team or run tests yourself.
 
 
 
