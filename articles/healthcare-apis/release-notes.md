@@ -37,7 +37,7 @@ The DICOM service now supports `ModalitiesInStudy` as a [searchable attribute](d
 
 **Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
 
-Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses] (https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement#additional-series-tags).  
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#additional-series-tags).  
 
 ### Toolkit and Samples Open Source
 **New sample app has been released**
