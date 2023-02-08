@@ -6,7 +6,7 @@ manager: roshar
 ms.service: storage
 ms.collection: windows
 ms.topic: article
-ms.date: 12/09/2022
+ms.date: 02/07/2023
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -26,7 +26,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 
 ## Expand without downtime
 
-You can now expand your data disks without deallocating your VM.
+You can expand data disks without deallocating your VM. The host cache setting of your disk doesn't change whether or not you can expand a data disk without deallocating your VM.
 
 This feature has the following limitations:
 
