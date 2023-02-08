@@ -47,8 +47,12 @@ To investigate resource health issues related to a Log Analytics workspace:
 
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
 - Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
+- [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) reported in your Log Analytics workspace.
 
 ## Next steps
 
+Learn more about:
+
+- Monitoring and troubleshooting
 
 
