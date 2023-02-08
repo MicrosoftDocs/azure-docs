@@ -8,7 +8,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 title: Set-SAPSecrets
 description: Sets the SPN Secrets in Azure Key vault
 ---
