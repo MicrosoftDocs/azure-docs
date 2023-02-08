@@ -164,6 +164,6 @@ In most cases, these problems are caused by one of the following issues:
 
 - [Use Azure Firewall to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md)
 
-[private-endpoint-overview]: /azure/private-link/private-endpoint-overview
-[firewall-snat-private-ranges]: /azure/firewall/snat-private-range
-[network-policies-overview]: /azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal
+[private-endpoint-overview]: ../private-link/private-endpoint-overview.md
+[firewall-snat-private-ranges]: ../firewall/snat-private-range.md
+[network-policies-overview]: ../private-link/disable-private-endpoint-network-policy.md
