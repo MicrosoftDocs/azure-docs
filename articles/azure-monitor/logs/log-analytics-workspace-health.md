@@ -29,7 +29,10 @@ Azure Service Health monitors:
 
     - **Health history**: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-latency).  
     - **Azure service issues**: Displayed when a known issue with an Azure service might affect latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
-
+   
+    > [!NOTE]
+    > Service health notifications do not indicate that your Log Analytics workspace is necessarily affected by the know service issue. If your Log Analytics workspace resource health status is **Available**, Azure Service Health did not detect issues in your workspace.  
+   
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
     
 1. To get notification about Log Analytics workspace latency issues, create an alert:
@@ -41,9 +44,9 @@ Azure Service Health monitors:
 
     1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
 
-## Investigate resource health issues related to a Log Analytics workspace
+## Investigate Log Analytics workspace health issues
 
-To investigate resource health issues related to a Log Analytics workspace:
+To investigate resource health issues related to a Log Analytics workspace or whether a service health issue is affecting your Log Analytics workspace:
 
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
 - Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
