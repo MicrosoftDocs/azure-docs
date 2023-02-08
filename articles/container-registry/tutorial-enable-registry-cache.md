@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Enable Registry Cache
 
-This article is part two in a three-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Registry Cache, their features, benefit's, and preview limitations. This article walks you through the steps of enabling a Registry Cache by using the Azure portal.
+This article is part two of a three-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Registry Cache, its features, benefits, and preview limitations. This article walks you through the steps of enabling a Registry Cache by using the Azure portal.
 
 ## Prerequisites
 
@@ -17,24 +17,26 @@ This article is part two in a three-part tutorial series. [Part one](tutorial-re
 ## Terminology 
 
 - Cache Rule
-    - A cache rule is a set of rules you can create and use to pull artifacts from a public Registry into your cache. A cache rule contains four parts
+    - A cache rule is a set of rules. You can create and use a Cache rule to pull artifacts from a public Registry into your cache. A cache rule contains four parts
         
-        1. A Rule Name - The name of your cache rule.
+        1. A Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
 
-        2. A Source - The name of the Source Registry.
+        2. A Source - The name of the Source Registry. We support **Docker Hub** and **Microsoft Artifact Registry** only. 
 
-        3. A Repository Path - The source path of the artifact you want to cache.
+        3. A Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/`.
 
-        4. ACR Repository Path - The repository path to store cached artifacts. 
+        4. ACR Repository Path - The name of the new repository path to place and store artifacts. For example, `hello-world`.
 
 - Credential Set
-    - A credential set is a username and password in key vault for the source registry. A credential set is needed if a cached is pulling from a private repository. A credential set contains three parts
+    - A credential set is a username and password in key vault for the source registry. A credential set is needed if a cache is pulling from a private repository. A credential set contains three parts
 
         1. A Credential Set Name - The name of your credential set.
 
         2. A Source registry Login Server - The login server of your source registry.
 
-        3. A username and password - The username and password for your source repository from Secret URI or Key Vault.
+        3. A Source Authentication - The source to store and grant permissions. We support **Secret URI** or **Key Vault** only.
+        
+        4. Username and Password secret's: The secrets containing the username and password. 
 
 ## Configure Registry Cache - Azure portal
 
@@ -60,7 +62,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 7. Specify the **Repository Path** to cache the artifacts.
 
-8. If the repository requires authentication, check the **Authentication** box. If not, skip to step 11.
+8. For adding authentication to the repository, check the **Authentication** box. If authentication is not required, skip to step 11.
 
 9. Choose **Create new credentials** to create a new set of credentials to store the username and password for your source registry. Learn how to [create new credentials](###Create-new-credentials)
 
@@ -72,7 +74,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 12. Select on **Save** 
 
-13. Pull the image from your cache using the Azure CLI command `docker pull MyRegistry.azurecr.io/hello-world`
+13. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
 ### Create new credentials
 
@@ -99,5 +101,5 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 * Advance to the [next article](tutorial-troubleshoot-registry-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: https://learn.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault
-[secure-authentication-secrets]: https://learn.microsoft.com/en-us/azure/static-web-apps/key-vault-secrets
+[create-and-store-keyvault-credentials]: https://learn.microsoft.com/azure/key-vault/secrets/quick-create-portal 
+[secure-authentication-secrets]: https://learn.microsoft.com/azure/static-web-apps/key-vault-secrets
