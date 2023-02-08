@@ -558,7 +558,7 @@ No, Key Vault VM Extension doesn’t have limit on the number of observedCertifi
 #### What will be the default permission if no account is provided in settings?
 Administrators and SYSTEM will get Full Control by default.
 #### How do you determine if a certificate key is going to be CAPI1 or CNG?
-We rely on the default behavior of [PFXImportCertStore API](https://learn.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has Provider Name attribute that matches with CAPI1, certificate will be imported using CAPI1 certificate, else it will be imported using CNG APIs.
+We rely on the default behavior of [PFXImportCertStore API](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has Provider Name attribute that matches with CAPI1, certificate will be imported using CAPI1 certificate, else it will be imported using CNG APIs.
 
 ### Troubleshoot
 
