@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for MongoDB (vCore) documentation
+summary: Azure Cosmos DB for MongoDB (vCore) makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB (vCore) account's connection string.
+
+metadata:
+  title: Azure Cosmos DB for MongoDB (vCore) documentation
+  description: Azure Cosmos DB for MongoDB (vCore) makes it easy to create a database with full native MongoDB support.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: mongodb
+  ms.topic: landing-page
+  ms.collection: collection
+  author: gahl-levy
+  ms.author: gahllevy
+  ms.date: 02/07/2023
+landingContent:
+  - title: Use Azure Cosmos DB for MongoDB (vCore)
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create account
+            url: how-to-create-account.md
+          - text: Scale cluster
+            url: how-to-scale-cluster.md
+          - text: Restore cluster
+            url: how-to-restore-cluster.md
+          - text: Migrate data
+            url: how-to-migrate-data.md
+      - linkListType: concept
+        links:
+          - text: MongoDB feature support
+            url: compatibility.md
+          - text: High availability
+            url: high-availability.md
+          - text: Migration options
+            url: migration-options.md
