@@ -21,7 +21,7 @@ Azure Service Health monitors:
 
 ## View Log Analytics workspace health and set up health status alerts 
 
-When Azure Service Health detects typical latency in your Log Analytics workspace, the workspace resource health status is **Available**.
+When Azure Service Health detects [average latency](../logs/data-ingestion-time.md#average-latency) in your Log Analytics workspace, the workspace resource health status is **Available**.
 
 To view your Log Analytics workspace health and set up health status alerts:
  
