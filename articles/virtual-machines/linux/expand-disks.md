@@ -5,7 +5,7 @@ author: pagienge
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/07/2023
 ms.author: pagienge
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
@@ -55,7 +55,7 @@ lrwxrwxrwx. 1 root root  13 Sep  9 21:54 lun2-part1 -> ../../../sde1
 
 ### Expand without downtime
 
-You may be able to expand your managed disks without deallocating your VM.
+You can expand your managed disks without deallocating your VM. The host cache setting of your disk doesn't change whether or not you can expand a data disk without deallocating your VM.
 
 This feature has the following limitations:
 
