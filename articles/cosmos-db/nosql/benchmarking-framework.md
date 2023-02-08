@@ -46,7 +46,8 @@ First, you'll create a database and container in the existing API for NoSQL acco
     az cosmosdb show \
         --resource-group $resourceGroupName \
         --name $cosmosAccountName \
-        --query "documentEndpoint"
+        --query "documentEndpoint" \
+        --output tsv
     ```
 
 1. Store the `URI` in a variable named `cosmosEndpoint`.
@@ -57,6 +58,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
             --resource-group $resourceGroupName \
             --name $cosmosAccountName \
             --query "documentEndpoint" \
+            --output tsv \
     )
     ```
 
@@ -67,7 +69,8 @@ First, you'll create a database and container in the existing API for NoSQL acco
         --resource-group $resourceGroupName \
         --name $cosmosAccountName \
         --type "keys" \
-        --query "primaryMasterKey"
+        --query "primaryMasterKey" \
+        --output tsv
     ```
 
 1. Store the `PRIMARY KEY` in a variable named `cosmosPrimaryKey`.
@@ -79,6 +82,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
             --name $cosmosAccountName \
             --type "keys" \
             --query "primaryMasterKey" \
+            --output tsv \
     )
     ```
 
@@ -181,7 +185,9 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
     ```azurecli-interactive
     az storage account show-connection-string \
         --resource-group $resourceGroupName \
-        --name $storageAccountName
+        --name $storageAccountName \
+        --query connectionString \
+        --output tsv
     ```
 
 1. Store the connection string in a variable named `storageConnectionString`.
@@ -192,6 +198,7 @@ Now, you'll use an [Azure Resource Manager template](../../azure-resource-manage
             --resource-group $resourceGroupName \
             --name $storageAccountName \
             --query connectionString \
+            --output tsv \
     )
     ```
 
