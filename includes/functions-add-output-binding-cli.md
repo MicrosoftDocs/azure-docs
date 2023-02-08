@@ -48,7 +48,15 @@ app = func.FunctionApp()
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 ```
 
-TBD for v2
+The route decorator adds HttpTrigger and HttpOutput binding to the function. This is equivalent to defining HttpTrigger and HttpOutput binding in the *function.json*, which enables your function be triggered when http requests hit the specified route. 
+
+To write to an Azure Storage queue from this function, add the `queue_output` decorator to your function code:
+
+```python
+@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
+```
+
+In the decorator, `arg_name` identifies the binding parameter referenced in your code, `queue_name` is name of the queue that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Storage account. In quickstarts you use the same storage account as the function app, which is in the `AzureWebJobsStorage` setting. When the `queue_name` doesn't exist, the binding creates it on first use.
 
 ---
 
