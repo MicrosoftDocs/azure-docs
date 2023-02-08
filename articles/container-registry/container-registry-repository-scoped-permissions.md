@@ -24,7 +24,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Limitations
 
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
-* You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-).
+
 
 ## Concepts
 
@@ -57,7 +57,7 @@ The following image shows the relationship between tokens and scope maps.
 
 ## Prerequisites
 
-* **Azure CLI** - Azure CLI commands command examples in this article require Azure CLI version 2.17.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* **Azure CLI** - Azure CLI command examples in this article require Azure CLI version 2.17.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker** - To authenticate with the registry to pull or push images, you need a local Docker installation. Docker provides installation instructions for [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms) systems.
 * **Container registry** - If you don't have one, create a Premium container registry in your Azure subscription, or upgrade an existing registry. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). 
 

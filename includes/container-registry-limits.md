@@ -34,7 +34,7 @@ ms.custom: include file
 | &bull; Tokens | 100 | 500 | 50,000 |
 | &bull; Scope maps | 100 | 500 | 50,000 |
 | &bull; Actions| 500 | 500 | 500 |
-| &bull; Repositories per scope map<sup>5</sup> | N/A | N/A | 500 |
+| &bull; Repositories per scope map<sup>5</sup> | 500 | 500 | 500 |
 | Anonymous pull access | N/A | [Preview][anonymous-pull-access] | [Preview][anonymous-pull-access] |
 
 
