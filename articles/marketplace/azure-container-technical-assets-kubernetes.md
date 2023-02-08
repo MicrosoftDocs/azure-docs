@@ -231,11 +231,11 @@ Complete the following steps to add identifier in the *Per core*, *Per pod*, *Pe
 
 
 
-    :::image type="content" source="./media/azure-container/billing-depoyment.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article":::
+    :::image type="content" source="./media/azure-container/billing-depoyment.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article.":::
 
 
 
-    :::image type="content" source="./media/azure-container/billing-statefulsets.png" alt-text="A screenshot of a properly formatted billing identifier label in a statefulsets.yaml file. The content resembles the sample statefulsets.yaml file linked in this article":::
+    :::image type="content" source="./media/azure-container/billing-statefulsets.png" alt-text="A screenshot of a properly formatted billing identifier label in a statefulsets.yaml file. The content resembles the sample statefulsets.yaml file linked in this article.":::
 
 
 
@@ -247,7 +247,7 @@ Complete the following steps to add identifier in the *Per core*, *Per pod*, *Pe
 
 - For *perCore* billing model, specify [CPU Request][CPU Request] by including the `resources:requests` field in the container resource manifest. Note that this step is only required for *perCore* billing model.  
 
-:::image type="content" source="./media/azure-container/percorebilling.png" alt-text="A screenshot of CPU resource requests in a pods.yaml file. The content resembles the sample per core billing model file linked in this article."::: 
+   :::image type="content" source="./media/azure-container/percorebilling.png" alt-text="A screenshot of CPU resource requests in a pods.yaml file. The content resembles the sample per core billing model file linked in this article."::: 
 
 Note that at deployment time, the cluster extensions feature will replace the billing identifier value with the extension instance name.
 
