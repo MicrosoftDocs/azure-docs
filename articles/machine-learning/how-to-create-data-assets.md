@@ -46,11 +46,11 @@ Data assets can "bookmark" your frequently used data, to avoid the need to remem
 ## Data asset types
 
 > [!NOTE]
-> Make sure to check out the canonical scenarios below when deciding the best data asset for your use case.
+> Make sure to check out the **canonical scenarios** below when deciding if you want to use uri_file, uri_folder or mltable for your use case.
 
 You can create three data asset types:
 
-|Type  |V2 API  |V1 API  |V2/V1 API Difference  |Canonical Scenarios
+|Type  |V2 API  |V1 API  |V2/V1 API Difference  |**Canonical Scenarios**
 |---------|---------|---------|---------|---------|
 |**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |       Read/write a single file - the file can have any format. |  
 |**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |      You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder. |
