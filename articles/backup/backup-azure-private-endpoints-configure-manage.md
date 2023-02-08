@@ -65,7 +65,7 @@ To create private endpoints for Azure Backup, follow these steps:
 4. Select **Review + create**.
 5. When the validation is complete, select **Create** to create the private endpoint.
 
-## Approve Private Endpoints
+## Approve private endpoints
 
 If you're creating the private endpoint as the owner of the Recovery Services vault, the private endpoint you created is auto-approved. Otherwise, the owner of the vault must approve the private endpoint before using it. 
 
@@ -136,7 +136,7 @@ You'll see an entry for the virtual network for which you've created the private
 
 
 
-## Use Private Endpoints for Backup
+## Use private endpoints for backup
 
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
 
