@@ -44,6 +44,8 @@ If Azure AD detects that your tenant has users authenticating using SMS or voice
 
 2.	Educate users on how to add a work or school account. 
 
+## Known limitations
+
 ## Next steps
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
