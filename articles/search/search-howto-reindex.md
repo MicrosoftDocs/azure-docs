@@ -17,11 +17,11 @@ This article explains how to drop and rebuild an Azure Cognitive Search index. I
 
 During active development, it's common to drop and rebuild indexes when you're iterating over index design. Most developers work with a small representative sample of their data to facilitate this process.
 
-## When to rebuild an index
+## Modifications requiring a rebuild
 
-The following table enumerates the conditions under which an index rebuild is required.
+The following table lists the modifications that require an index rebuild.
 
-| Condition | Description |
+| Action | Description |
 |-----------|-------------|
 | Delete a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild isn't practical, you can modify application code to disable access to the "deleted" field or use the [$select query parameter](search-query-odata-select.md) to choose which fields are represented in the result set. Physically, the field definition and contents remain in the index until the next rebuild, when you apply a schema that omits the field in question. |
 | Change a field definition | Revising a field name, data type, or specific [index attributes](/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
@@ -30,9 +30,9 @@ The following table enumerates the conditions under which an index rebuild is re
 | Add a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
 | Switch tiers | In-place upgrades aren't supported. If you require more capacity, you must create a new service and rebuild your indexes from scratch. To help automate this process, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). This app will back up your index to a series of JSON files, and then recreate the index in a search service you specify.|
 
-## Update conditions
+## Modifications with no rebuild requirement
 
-Many other modifications can be made without impacting existing physical structures. Specifically, the following changes don't require an index rebuild. For these changes, you can [update an index definition](/rest/api/searchservice/update-index) with your changes.
+Many other modifications can be made without impacting existing physical structures. Specifically, the following changes don't require an index rebuild. For these changes, you can [update an existing index definition](/rest/api/searchservice/update-index) with your changes.
 
 + Add a new field
 + Set the **retrievable** attribute on an existing field
