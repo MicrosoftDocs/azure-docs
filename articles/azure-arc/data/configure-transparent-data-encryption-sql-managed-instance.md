@@ -91,6 +91,7 @@ Example:
 ```console
 kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": null } } } }'
 ```
+---
 
 ## Back up a transparent data encryption credential
 
