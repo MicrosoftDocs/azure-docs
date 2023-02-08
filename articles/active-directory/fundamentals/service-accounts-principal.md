@@ -38,6 +38,8 @@ The ApplicationID represents the global application and is the same for applicat
 
 To learn more, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md)
 
+### Create an applicaiton and its service principal object
+
 You can create an application and its service principal object (ObjectID) in a tenant using:
 
 * Azure PowerShell
@@ -76,7 +78,7 @@ When using service principals, use the following table to match challenges and m
 | Access reviews for service principals assigned to privileged roles| This functionality is in preview |
 | Service principal access reviews| Manual check of resource access control list using the Azure portal |
 | Over-permissioned service principals| When you create automation service accounts, or or service principals, grant permissions for the task. Evaluate service principals to reduce privileges. |
-|Identify modifications to service principal credentials or authentication methods |See the Sensitive Operations Report workbook. See also, the Tech Community blog post [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718).|
+|Identify modifications to service principal credentials or authentication methods |<li>See, [Sensitive operations report workbook](../reports-monitoring/workbook-sensitive-operations-report.md) <li>See the Tech Community blog post, [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)|
 
 ## Find accounts using service principals
 
