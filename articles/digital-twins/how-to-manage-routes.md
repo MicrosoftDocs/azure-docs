@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes and event filters to Azure Digital Twins endpoints
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/17/2023
+ms.date: 02/08/2023
 ms.topic: how-to
 ms.service: digital-twins
 

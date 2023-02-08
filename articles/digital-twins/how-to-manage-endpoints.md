@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up and manage endpoints for Azure Digital Twins data
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/17/2023
+ms.date: 02/08/2023
 ms.topic: how-to
 ms.service: digital-twins
 
