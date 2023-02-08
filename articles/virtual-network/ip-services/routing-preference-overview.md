@@ -27,8 +27,7 @@ When you route your traffic via the *Microsoft global network*, traffic is deliv
 
 **Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the Microsoft network in Singapore Edge POP.
 
-Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This is also known as *cold potato routing*.
-
+Both ingress and egress traffic stays on the Microsoft global network whenever possible. This is also known as *cold potato routing*.
 
 ## Routing over public Internet (ISP network)
 
@@ -39,6 +38,10 @@ The new routing choice *Internet routing* minimizes travel on the Microsoft glob
 **Ingress traffic:** The ingress path uses *hot potato routing* which means that traffic enters the Microsoft network that is closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
 
 **Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure Chicago is destined to a user from Singapore, then traffic exits the Microsoft network in Chicago and travels over the public internet to the user in Singapore.
+
+> [!NOTE]
+> Even when using a Public IP with Routing Preference "Internet", all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
+>
 
 ## Supported services
 
