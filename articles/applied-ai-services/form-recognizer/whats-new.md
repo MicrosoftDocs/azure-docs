@@ -27,6 +27,14 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## February 2023
+
+* Form Recognizer v3.0 container support
+
+  The v3.0 [**Read**](concept-read.md) and [**Layout**](concept-layout.md) containers are now available for use!
+
+  For more information on containers, *see* 
+
 ## January 2023
 
 > [!TIP]
@@ -36,25 +44,25 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-ae)
-  * Dutch - Netherlands (nl-nl)
-  * French - Canada (fr-ca)
-  * Japanese - Japan (ja-jp)
-  * Portuguese - Brazil (pt-br)
+  * English - United Arab Emirates (en-AE)
+  * Dutch - Netherlands (nl-NL)
+  * French - Canada (fr-CA)
+  * Japanese - Japan (ja-JP)
+  * Portuguese - Brazil (pt-BR)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
   The **prebuilt invoice model** now has added support for the following languages:
 
-  * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
-  * Portuguese - Brazil (pt-br)
+  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Portuguese - Brazil (pt-BR)
 
   The **prebuilt invoice model** now has added support for the following field extractions:
 
   * Currency code
   * Payment options
   * Total discount
-  * Tax items (en-in only)
+  * Tax items (en-IN only)
 
 * **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
 
