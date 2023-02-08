@@ -15,69 +15,69 @@ ms.custom: template-how-to
 >
 > - The telemetry router is in Public Preview and should be deployed for **testing purposes only**.
 > - While the telemetry router is in Public Preview, be advised that future preview releases could include changes to CRD specs, CLI commands, and/or telemetry router messages.
-> - The current preview does not support in-place upgrades of a data controller deployed with the Arc telemetry router enabled. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
+> - The current preview does not support in-place upgrades of a data controller deployed with the Arc telemetry router enabled. In order to install or upgrade a data controller in a future release, you will need to uninstall the data controller and then re-install.
 
 ## What is the Azure Arc Telemetry Router?
 
-The Azure Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview, we only support exporting log data to either Kafka or Elasticsearch and metric data to Kafka.
+The Azure Arc telemetry router enables exporting telemetry data to other monitoring solutions. For this Public Preview, we only support exporting log data to either Kafka or Elasticsearch and metric data to Kafka.
 
 This document specifies how to deploy the telemetry router and configure it to work with the supported exporters.
 
 ## Prerequisites
 
-Deploy an [Arc-enabled Kubernetes cluster in indirectly connected mode](/create-complete-managed-instance-indirectly-connected.md). 
+Deploy and connect to an [Arc-enabled Kubernetes cluster in indirectly connected mode](/create-complete-managed-instance-indirectly-connected.md).
 
 ## Configurations
 
-All configurations are specified through the telemetry router's custom resource specification. For the Public Preview, it initially targets the configuration of exporters and pipelines.
+All configurations are specified through the telemetry router's custom resource specification and supports the configuration of exporters and pipelines.
 
 ### Exporters
 
-For the Public Preview, Exporters are partially configurable and support the following Primary Exporters:
+For the Public Preview, exporters are partially configurable and support the following solutions:
 
-- Kafka
-- Elasticsearch
+|  Exporter     | Supported Telemetry Types |
+|--------------|-----------|
+| Kafka       | logs, metrics      |
+| Elasticsearch       | logs      |
 
 The following properties are currently configurable during the Public Preview:
 
-**General Exporter Settings**
+#### General Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| certificateName     | The client certificate in order to export to the monitoring solution  | 
+| certificateName     | The client certificate in order to export to the monitoring solution  |
 | caCertificateName      | The cluster's Certificate Authority or customer-provided certificate for the Exporter  |
 
-**Kafka Exporter Settings**
+#### Kafka Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| topic       | Name of the topic to export to |
-| brokers      | Broker service endpoint  | 
+| topic       | Name of the topic to export |
+| brokers      | Broker service endpoint  |
 | encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
 
-**Elasticsearch Exporter Settings**
+#### Elasticsearch Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| index       | This setting can be the name of an index or datastream name to publish events to      |
+| index       | This setting can be the name of an index or datastream name to publish events      |
 
 ### Pipelines
 
-During the Public Preview, only logs and metrics pipelines are supported. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  During our public preview, only exporters are configurable.  All pipelines must be prefixed with "logs" or "metrics" in order to be injected with the necessary receivers and processors. For example, `logs/internal`
+The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  All pipelines must be prefixed with the type of exporter that will be used. For example, `elasticsearch/mylogs`
 
-Logs pipelines may export to Kafka or Elasticsearch. Metrics pipelines may only export to Kafka.
-
-**Pipeline Settings**
+#### Pipeline Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| logs       | Can only declare new logs pipelines. Must be prefixed with "logs"       |
-| metrics | Can only declare new metrics pipelines. Must be prefixed with "metrics" |
-| exporters       | List of exporters. Can be multiple of the same type.      |
+| logs       | Can only declare new logs pipelines       |
+| metrics | Can only declare new metrics pipelines |
+| exporters       | List of exporters. Can be multiple of the same type     |
 
 ### Credentials
 
-**Credentials Settings**
+#### Credentials Settings
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -85,74 +85,30 @@ Logs pipelines may export to Kafka or Elasticsearch. Metrics pipelines may only 
 | secretName       | Name of the secret provided through Kubernetes      |
 | secretNamespace       | Namespace with secret provided through Kubernetes      |
 
-## Example TelemetryRouter Specification:
+## Example TelemetryRouter Specification
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta3
+apiVersion: arcdata.microsoft.com/v1beta4
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
   namespace: <namespace>
 spec:
-    collector:
-      customerPipelines:
-        # Additional logs pipelines must be prefixed with "logs"
-        # For example: logs/internal, logs/external, etc.
-        logs:
-          # The name of these exporters need to map to the declared ones beneath
-          # the exporters property.
-          # logs pipelines can export to elasticsearch or kafka
-          exporters:
-          - elasticsearch
-          - kafka
-        # Additional metrics piplines must be prefixed with "metrics"
-        # For example: metrics/internal, metrics/external, etc.
-        metrics:
-          # The name of these exporters need to map to the declared ones beneath
-          # the exporters property.
-          # metrics pipelines can export to kafka only
-          exporters:
-          - kafka
+  credentials:
+    certificates:
+    - certificateName: arcdata-msft-elasticsearch-exporter-internal
+    - certificateName: cluster-ca-certificate
+  exporters:
+    elasticsearch:
+    - caCertificateName: cluster-ca-certificate
+      certificateName: arcdata-msft-elasticsearch-exporter-internal
+      endpoint: https://logsdb-svc:9200
+      index: logstash-otel
+      name: arcdata/msft/internal
+  pipelines:
+    logs:
       exporters:
-        # Only elasticsearch and kafka exporters are supported for this first preview.
-        # Any additional exporters of those types must be prefixed with the name
-        # of the exporter, e.g. kafka/2, elasticsearch/2
-        elasticsearch:
-          # Users will specify client and CA certificate names
-          # for the exporter as well as any additional settings needed
-          # These names should map to the credentials section below.
-          caCertificateName: cluster-ca-certificate
-          certificateName: elasticsearch-exporter
-          endpoint: <elasticsearch_endpoint>
-          settings:
-            # Currently supported properties include: index
-            # This can be the name of an index or datastream name to publish events to
-            index: <elasticsearch_index>
-        kafka:
-            certificateName: kafka-exporter
-            caCertificateName: cluster-ca-certificate
-            settings:
-                # Currently supported properties include: topic, brokers, and encoding
-                # Name of the topic to export to
-                topic: kafka_logs_topic
-                # Broker service endpoint
-                brokers: kafka-broker-svc.test.svc.cluster.local:9092
-                # Encoding for the telemetry, otlp_json or otlp_proto
-                encoding: otlp_json
-    credentials:
-      certificates:
-      # For user-provided certificates, they must be provided
-      # through a Kubernetes secret, where the name of the secret and its
-      # namespace are specified.
-      - certificateName: elasticsearch-exporter
-        secretName: <name_of_secret>
-        secretNamespace: <namespace_with_secret>
-      - certificateName: kafka-exporter
-        secretName: <name_of_secret>
-        secretNamespace: <namespace_with_secret>
-      - certificateName: cluster-ca-certificate
-        secretName: <name_of_secret>
-        secretNamespace: <namespace_with_secret>
+      - elasticsearch/arcdata/msft/internal
 ```
 
 ## Deployment
@@ -161,11 +117,17 @@ spec:
 > 
 > The telemetry router currently supports indirectly connected mode only.
 
-After setting up your Kubernetes cluster, you'll need to enable a temporary feature flag to deploy the telemetry router when the data controller is created. To set the feature flag, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you've created your configuration profile, add the `monitoring` property with the `enableOpenTelemetry` flag set to `true`. You can set the feature flag by running the following commands in the az CLI:
+### Create a Custom Configuration Profile
+
+After setting up your Kubernetes cluster, you'll need to [create a custom configuration profile](create-custom-configuration-template.md) and enable a temporary feature flag that will deploy the telemetry router during data controller creation.
+
+### Turn on the Feature Flag
+
+After creating the custom configuration profile, you'll need to edit the profile to add the `monitoring` property with the `enableOpenTelemetry` flag set to `true`. You can set the feature flag by running the following az CLI commands (edit the --path parameter, as necessary):
 
 ```bash
-az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring={}"
-az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring.enableOpenTelemetry=true"
+az arcdata dc config add --path ./control.json --json-values ".spec.monitoring={}"
+az arcdata dc config add --path ./control.json --json-values ".spec.monitoring.enableOpenTelemetry=true"
 ```
 
 To confirm the flag was set correctly, open the control.json file and confirm the `monitoring` object was added to the `spec` object and `enableOpenTelemetry` is set to `true`, as shown below.
@@ -176,38 +138,46 @@ spec:
         enableOpenTelemetry: true
 ```
 
-Then deploy the data controller as normal in the [deployment instructions](create-data-controller-indirect-cli.md?tabs=linux).
+Note that this feature flag requirement will be removed on a future release.
 
-When the data controller is deployed, it also deploys a default TelemetryRouter custom resource as part of the data controller creation. The controller pod will only be marked ready when both custom resources have finished deploying. Use the following command to verify that the TelemetryRouter exists:
+### Create the Data Controller
+
+After creating the custom configuration profile and setting the feature flag, you're ready to [create the data controller using indirect connectivity mode](create-data-controller-indirect-cli.md?tabs=linux). Be sure to replace the `--profile-name` parameter with a `--path` parameter that points to your custom control.json file (see [use custom control.json file to deploy Azure Arc-enabled data controller](https://learn.microsoft.com/en-us/azure/azure-arc/data/create-custom-configuration-template#use-custom-controljson-file-to-deploy-azure-arc-enabled-data-controller-using-azure-cli-az))
+
+### Verify Telemetry Router Deployment
+
+When the data controller is created, a TelemetryRouter custom resource is also created. Data controller deployment will only be marked ready when both custom resources have finished deploying. After the data controller finishes deployment, you can use the following command to verify that the TelemetryRouter exists:
 
 ```bash
 kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 ```
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta3
+apiVersion: arcdata.microsoft.com/v1beta4
   kind: TelemetryRouter
   metadata:
     name: arc-telemetry-router
     namespace: <namespace>
   spec:
-    pipelines:
-      logs:
-        exporters:
-        - elasticsearch/arcdata/msft/internal
-    exporters:
-      elasticsearch/arcdata/msft/internal:
-        caCertificateName: cluster-ca-certificate
-        certificateName: arcdata-msft-elasticsearch-exporter-internal
-        endpoint: https://logsdb-svc:9200
-        index: logstash-otel
     credentials:
       certificates:
       - certificateName: arcdata-msft-elasticsearch-exporter-internal
       - certificateName: cluster-ca-certificate
+    exporters:
+      elasticsearch:
+      - caCertificateName: cluster-ca-certificate
+        certificateName: arcdata-msft-elasticsearch-exporter-internal
+        endpoint: https://logsdb-svc:9200
+        index: logstash-otel
+        name: arcdata/msft/internal
+    pipelines:
+      logs:
+        exporters:
+        - elasticsearch/arcdata/msft/internal
+
 ```
 
-We're exporting logs to our deployment of Elasticsearch in the Arc cluster.  You can see the index, service endpoint, and certificates it's using to do so.  This example shows the Elasticsearch pipeline, exporter, and credential in the spec, so you can see how to export to your own monitoring solutions.
+For the public preview, the pipeline and exporter are have a default pre-configuration to Microsoft's deployment of Elasticsearch. This default deployment gives you an example of how the parameters for credentials, exporters, and pipelines are setup within the spec. You can follow this example to export to your own monitoring solutions. See [adding exporters and pipelines](adding-exporters-and-pipelines.md) for additional examples. This example deployment will be removed at the conclusion of the public preview.
 
 When you deploy the telemetry router, two TelemetryCollector custom resources are also created. You can run the following commands to see detailed configuration of the wrapped TelemetryCollector resources and their deployment status:
 
@@ -215,8 +185,6 @@ When you deploy the telemetry router, two TelemetryCollector custom resources ar
 kubectl describe TelemetryCollector collector-inbound -n <namespace>
 kubectl describe TelemetryCollector collector-outbound -n <namespace>
 ```
-
-The first of the two TelemetryCollector custom resources is the inbound collector, which receives the logs and metrics, then exports them to a Kafka custom resource.
 
 ```yaml
 Name:         collector-inbound
@@ -297,8 +265,6 @@ Spec:
 Events:             <none>
 
 ```
-
-The second of the two TelemetryCollector custom resources is the outbound collector, which receives the logs and metrics data from the Kafka custom resource. Those logs and metrics can then be exported to the customer's monitoring solutions, such as Kafka or Elasticsearch.
 
 ```yaml
 Name:         collector-outbound
@@ -382,29 +348,34 @@ Events:             <none>
 
 ```
 
-After you deploy the TelemetryRouter, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported.
+After deploying the TelemetryRouter, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported. If you look at the pods, you should see the following:
 
-If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`. You should also see the `kakfa-server-0` pod.
+- Two telemetry collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`
+- A kakfa broker pod - `arck-arc-router-kafka-broker-0`
+- A kakfa controller pod - `arck-arc-router-kafka-controller-0`
 
 ```bash
 kubectl get pods -n <namespace>
 
-NAME                          READY   STATUS      RESTARTS   AGE
-arc-bootstrapper-job-kmrsx    0/1     Completed   0          19h
-arc-webhook-job-5bd06-r6g8w   0/1     Completed   0          19h
-arctc-collector-inbound-0     2/2     Running     0          19h
-arctc-collector-outbound-0    2/2     Running     0          19h
-bootstrapper-789b4f89-c77z6   1/1     Running     0          19h
-control-xtjrr                 2/2     Running     0          19h
-controldb-0                   2/2     Running     0          19h
-kafka-server-0                2/2     Running     0          19h
-logsdb-0                      3/3     Running     0          19h
-logsui-67hvm                  3/3     Running     0          19h
-metricsdb-0                   2/2     Running     0          19h
-metricsdc-hq25d               2/2     Running     0          19h
-metricsdc-twq7r               2/2     Running     0          19h
-metricsdc-z5khh               2/2     Running     0          19h
-metricsui-psnvg               2/2     Running     0          19h
+NAME                                 READY   STATUS      RESTARTS   AGE
+arc-bootstrapper-job-4z2vr           0/1     Completed   0          15h
+arc-webhook-job-facc4-z7dd7          0/1     Completed   0          15h
+arck-arc-router-kafka-broker-0       2/2     Running     0          15h
+arck-arc-router-kafka-controller-0   2/2     Running     0          15h
+arctc-collector-inbound-0            2/2     Running     0          15h
+arctc-collector-outbound-0           2/2     Running     0          15h
+bootstrapper-8d5bff6f7-7w88j         1/1     Running     0          15h
+control-vpfr9                        2/2     Running     0          15h
+controldb-0                          2/2     Running     0          15h
+logsdb-0                             3/3     Running     0          15h
+logsui-fwrh9                         3/3     Running     0          15h
+metricsdb-0                          2/2     Running     0          15h
+metricsdc-bc4df                      2/2     Running     0          15h
+metricsdc-fm7jh                      2/2     Running     0          15h
+metricsdc-qgl26                      2/2     Running     0          15h
+metricsdc-sndjv                      2/2     Running     0          15h
+metricsdc-xh78q                      2/2     Running     0          15h
+metricsui-qqgbv                      2/2     Running     0          15h
 ```
 
 ## Next steps
