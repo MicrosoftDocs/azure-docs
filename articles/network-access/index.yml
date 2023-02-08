@@ -21,4 +21,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Entra Network Access?
-            url: what-is-network-access.md
+            url: overview-what-is-network-access.md

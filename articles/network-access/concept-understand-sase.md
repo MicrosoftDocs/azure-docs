@@ -1,10 +1,10 @@
 ---
-title: Entra Internet Access FAQ
-description: Frequently asked questions for Entra Internet Access.
+title: Understand Secure Access Service Edge (SASE)
+description: Learn about Secure Access Service Edge (SASE).
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
-ms.date: 01/31/2023
+ms.date: 02/08/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -15,7 +15,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Entra Internet Access FAQ
+# Understand Secure Access Service Edge (SASE)
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

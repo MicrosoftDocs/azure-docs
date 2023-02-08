@@ -5,38 +5,84 @@ items:
   expanded: true
   items:
   - name: What is Entra Network Access?
-    href: what-is-network-access.md
-  - name: What is Entra Internet Access?
-    href: what-is-entra-internet-access.md
-  - name: What is Entra Private Access?
-    href: what-is-entra-private-access.md
+    href: overview-what-is-network-access.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Install the Network Access Connector
+    href: quickstart-install-connector.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Configure Internet access for edge devices
+    href: tutorial-configure-internet-access.md
+- name: Samples
+  expanded: false
+  items:
+  - name: Configure tenant for Entra Network Access
+    href: sample-configure-tenant.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Understand Secure Access Service Edge (SASE)
+    href: concept-understand-sase.md
+  - name: Understand Security Service Edge (SSE)
+    href: concept-understand-sse.md
 - name: How-to guides
   expanded: true
   items:
-  - name: Entra Internet Access
-    expanded: false
-  - name: Getting Started with Entra Internet Access
-    href: get-started-with-entra-internet-access.md
-  - name: Getting Started with Entra Private Access
-    href: get-started-with-entra-private-access.md
-- name: Troubleshoot
-  expanded: false
-  items:
-  - name: Troubleshoot Entra Internet Access
-    href: troubleshoot-entra-internet-access.md
-  - name: Troubleshoot Entra Private Access
-    href: troubleshoot-entra-private-access.md
-  - name: Training videos
+  - name: Get Started with Entra Network Access
+    href: how-to-get-started-with-network-access.md
+  - name: Connect
     expanded: false
     items:
-    - name: Get started with Entra Internet Access training videos
-      href: entra-internet-access-training-videos.md
-    - name: Get started with Entra Private Access training videos
-      href: entra-private-access-training-videos.md
+    - name: Define quick access ranges
+      href: how-to-get-started-with-network-access.md
+    - name: Deploy on premises connectors
+      href: how-to-get-started-with-network-access.md
+    - name: Configure traffic forwarding
+      href: how-to-get-started-with-network-access.md
+    - name: Configure devices
+      href: how-to-get-started-with-network-access.md
+    - name: Configure branch Office locations
+      href: how-to-get-started-with-network-access.md
+  - name: Create
+    expanded: false
+    items:
+    - name: Create applications
+      href: how-to-get-started-with-network-access.md
+    - name: Create conditional access policies
+      href: how-to-get-started-with-network-access.md
+  - name: Secure
+    expanded: false
+    items:
+    - name: Session management policies
+      href: how-to-get-started-with-network-access.md
+    - name: Create web gateway policies 
+      href: how-to-get-started-with-network-access.md
+  - name: Monitor
+    expanded: false
+    items:
+    - name: App segment discovery
+      href: how-to-get-started-with-network-access.md
+    - name: Enriched Office 365 logs
+      href: how-to-get-started-with-network-access.md
+    - name: Network logging
+      href: how-to-get-started-with-network-access.md
+    - name: Admin audit logging
+      href: how-to-get-started-with-network-access.md
 - name: Reference
   expanded: false
   items:
-  - name: Entra Internet Access FAQ
-    href: entra-internet-access-faq.md
-  - name: Entra Private Access FAQ
-    href: entra-private-access-faq.md
+  - name: Entra Network Access FAQ
+    href: reference-network-access-faq.md
+  - name: Troubleshoot Entra Network Access
+    href: /troubleshoot
+- name: Resources
+  expanded: false
+  items:
+  - name: Training videos
+    expanded: false
+    items:
+    - name: Get started with Entra Network Access training videos
+      href: resource-network-access-training-videos.md

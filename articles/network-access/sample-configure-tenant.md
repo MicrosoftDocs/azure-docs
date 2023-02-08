@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Entra Internet Access
-description: Troubleshoot Entra Internet Access.
+title: Sample - Configure Tenant for Network Access
+description: Use PowerShell to configure a tenant for Entra Network Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
-ms.date: 01/31/2023
+ms.date: 02/08/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -15,7 +15,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Troubleshoot Entra Internet Access
+# Sample - Use PowerShell to configure a tenant for Entra Network Access
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
