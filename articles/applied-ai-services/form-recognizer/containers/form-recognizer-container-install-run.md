@@ -166,7 +166,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 :::moniker range="form-recog-3.0.0"
 
-### [Read](#tab/read)
+### Read
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with the `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
@@ -195,7 +195,7 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 docker-compose up
 ```
 
-### [Layout](#tab/layout)
+### Layout
 
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
