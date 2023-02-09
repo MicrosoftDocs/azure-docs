@@ -37,7 +37,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 - Collect logs:
   - For Windows: Run the log collector tool in </br>`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1` </br>
-  Logs are in `C:\HybridWorkerExtensionLogs.`
+  Logs are in `C:\HybridWorkerExtensionLogs`.
   - For Linux: Logs are in folders </br>`/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux` and `/home/hweautomation` (entire folders).
 
 ### Scenario: Hybrid Worker deployment fails with Private Link error
