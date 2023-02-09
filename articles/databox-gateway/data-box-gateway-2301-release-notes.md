@@ -19,7 +19,8 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to the software version:
 
-- **Data Box Gateway 2301 (1.6.2225.773)**
+- **Data Box Gateway 2301 (1.6.2225.773-42623-6816909)**
+- **Update KB 5023528**
 
 Update 2301 can be applied only to devices that are running 2105 versions of the software or later. If you are running a version earlier than 2105, update your device to 2105 and then update to 2301.
 
@@ -32,9 +33,12 @@ This release contains the following bug fixes:
 This release also contains the following updates:
 
 - **Monitoring agent update**
+- **Update Agent SDK** - Fixes the expired certificate issue.
 - **SAAS agent SDK update** - Provides certificate rotation.
+- **Updated Nuget Package References** - Enhances security.
 - **Core OS build update**
 - **Other updates** - All cumulative updates and .NET framework updates through November 2022.
+
 
 ## Known issues in this release
 
