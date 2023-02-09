@@ -136,6 +136,10 @@
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md
+    - name: Security
+      items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
 - name: Reference
   items:
     - name: WebSocket subprotocols

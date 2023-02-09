@@ -21,7 +21,7 @@ In this how-to guide, you'll carry out the steps you need to complete after depl
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Collect the required information for a site](collect-required-information-for-a-site.md).
 - You must have deployed a site with Azure Active Directory set as the authentication type.
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
 - Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Configure domain system name (DNS) for local monitoring IP
@@ -65,7 +65,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. | `auth_url` |
     | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field. | `token_url` |
     | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
-    | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>*/**. | `redirect_uri_root` |
+    | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
 
 ## Create Kubernetes Secret Objects
@@ -149,3 +149,4 @@ Follow this step if you need to update your existing Kubernetes Secret Objects; 
 If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+

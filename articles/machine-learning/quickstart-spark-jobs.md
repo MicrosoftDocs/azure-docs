@@ -20,6 +20,8 @@ The Azure Machine Learning integration, with Azure Synapse Analytics (preview), 
 
 In this quickstart guide, you'll learn how to submit a Spark job using Azure Machine Learning Managed (Automatic) Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough in a few simple steps.
 
+See [this resource](./apache-spark-azure-ml-concepts.md) for more information about **Apache Spark in Azure Machine Learning** concepts.
+
 ## Prerequisites
 
 # [CLI](#tab/cli)
