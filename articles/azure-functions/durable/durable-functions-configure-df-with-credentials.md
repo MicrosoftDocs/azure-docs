@@ -57,11 +57,11 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
    * **AzureWebJobsStorage__accountName**: For example: `mystorageaccount123`
 
-   * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint; 
+   * **AzureWebJobsStorage__blobServiceUri**: Example: `https://mystorageaccount123.blob.core.windows.net/` 
 
-     **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint;
+     **AzureWebJobsStorage__queueServiceUri**: Example: `https://mystorageaccount123.queue.core.windows.net/` 
 
-     **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint.
+     **AzureWebJobsStorage__tableServiceUri**: Example: `https://mystorageaccount123.table.core.windows.net/` 
 
      > [!NOTE] 
      > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, then you will need to use this second option to provide specific service URLs. The values for these settings can be found in the storage account under the **Endpoints** tab. For more information on using Azure Storage with Azure Government, see the [Develop with Storage API on Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md) documentation. 
@@ -132,11 +132,11 @@ To run and test in Azure, specify the followings in your Azure function app’s 
 
    * **AzureWebJobsStorage__accountName**: For example: `mystorageaccount123` 
 
-   * **AzureWebJobsStorage__blobServiceUri**: MyBlobEndpoint;
+   * **AzureWebJobsStorage__blobServiceUri**: Example: `https://mystorageaccount123.blob.core.windows.net/` 
 
-     **AzureWebJobsStorage__queueServiceUri**: MyQueueEndpoint; 
+     **AzureWebJobsStorage__queueServiceUri**: Example: `https://mystorageaccount123.queue.core.windows.net/` 
 
-     **AzureWebJobsStorage__tableServiceUri**: MyTableEndpoint. 
+     **AzureWebJobsStorage__tableServiceUri**: Example: `https://mystorageaccount123.table.core.windows.net/` 
    
    The values for these Uri variables can be found in the storage account under the **Endpoints** tab. 
    
