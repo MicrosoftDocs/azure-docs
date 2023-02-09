@@ -29,7 +29,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
     1. Make a note of the **Container blob** URL. For example:  
-    `https://storageaccountname.blob.core.windows.net/containername/`  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername`  
         1. Navigate to your **Storage account**.
         1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
         1. Select **Container properties** in the context menu.
@@ -51,7 +51,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
 1. Select **Diagnostics Collection** under the **Support + Troubleshooting** section on the left side. This will open a **Diagnostics Collection** view.
 1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
-    `https://storageaccountname.blob.core.windows.net/containername/diagnosticsPackageName.zip`  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername/diagsPackageName.zip`  
     > [!TIP]
     > The **Container URL** should have been noted during creation. If it wasn't:
     >
