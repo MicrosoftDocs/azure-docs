@@ -1,7 +1,7 @@
 ---
 title: Log Azure Communication Services events
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to, you'll learn how log Azure Communication Services events to Azure Table Storage"
+description: "In this how-to, you'll learn how to log Azure Communication Services events to Azure Table Storage"
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
