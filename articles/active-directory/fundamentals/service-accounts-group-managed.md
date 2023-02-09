@@ -39,14 +39,14 @@ If a service doesn't support gMSAs, you can use a standalone managed service acc
 
 If you can't use a gMSA or sMSA supported by your service, configure the service to run as a standard user account. Service and domain administrators are required to observe strong password management processes to help keep the account secure.
 
-## Assess gSMA security posture
+## Assess gMSA security posture
 
 gMSAs are more secure than standard user accounts, which require ongoing password management. However, consider gMSA scope of access in relation to security posture. Potential security issues and mitigations for using gMSAs are shown in the following table:
 
 | Security issue| Mitigation |
 | - | - |
-| gMSA is a member of privileged groups | <li>Review your group memberships. Create a PowerShell script to enumerate group memberships. Filter the resultant CSV file by gMSA file names.<li>Remove the gMSA from privileged groups.<li>Grant the gMSA rights and permissions it requires to run its service. See your service vendor. 
-| gMSA has read/write access to sensitive resources | <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Microsoft Sentinel, for analysis.<li>Remove unnecessary resource permissions if there's an unnecessary access level. |
+| gMSA is a member of privileged groups | - Review your group memberships. Create a PowerShell script to enumerate group memberships. Filter the resultant CSV file by gMSA file names</br> - Remove the gMSA from privileged groups</br> - Grant the gMSA rights and permissions it requires to run its service. See your service vendor. 
+| gMSA has read/write access to sensitive resources | - Audit access to sensitive resources</br> - Archive audit logs to a SIEM, such as Azure Log Analytics or Microsoft Sentinel</br> - Remove unnecessary resource permissions if there's an unnecessary access level |
 
 
 ## Find gMSAs
@@ -118,7 +118,7 @@ To move to a gMSA:
 3. Install the new gMSA on hosts that run the service.
    
    > [!NOTE] 
-   > Before configuring your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
+   > Before you configure your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
 
 4. Change your service identity to gMSA.
 5. Specify a blank password.
