@@ -46,7 +46,7 @@ The following scenarios are _not_ supported:
 
 ## Next steps
 - [Quick start](how-to-connect-pta-quick-start.md): Get up and running with Azure AD Pass-through Authentication.
-- [Migrate your apps to Azure AD](../manage-apps/migration-resources.md) - Resources to help you migrate application access and authentication to Azure AD.
+- [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions about the Pass-through Authentication feature.
