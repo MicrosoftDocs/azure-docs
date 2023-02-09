@@ -31,9 +31,9 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * Form Recognizer v3.0 container support
 
-    The v3.0 [**Read**](concept-read.md) and [**Layout**](concept-layout.md) containers are now available for use!
+  * The v3.0 [**Read**](concept-read.md) and [**Layout**](concept-layout.md) containers are now available for use!
 
-    For more information on containers, _see_ [Install and run containers](containers/form-recognizer-container-install-run.md)
+  * For more information on containers, _see_ [Install and run containers](containers/form-recognizer-container-install-run.md)
 
 ---
 
