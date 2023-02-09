@@ -38,7 +38,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | PowerFlex version 3.6 |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerFlex CSI version 1.4 |1.21.5|1.4.1_2022-03-08 | 15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerStore X|1.20.6|1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
-| PowerStore T|1.23.5|1.9.0_2022-07-12|16.0.312.4243 |postgres 12.3 (Ubuntu 12.3-1)|
+| PowerStore T|1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
 
 ### HPE
 
@@ -58,6 +58,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
 |Lenovo ThinkAgile MX3520 |AKS on Azure Stack HCI 21H2| 1.10.0_2022-08-09 |16.0.312.4243|postgres 12.3 (Ubuntu 12.3-1)|
+|Lenovo ThinkAgile MX1020 |1.24.6| 1.14.0_2022-12-13 |16.0.816.19223|Not validated|
 
 ### Nutanix
 
@@ -85,6 +86,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | TKGm v1.5.3 | 1.22.8 | 1.9.0_2022-07-12 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
 | TKG-1.6.0 | 1.23.8 | 1.11.0_2022-09-13	| 16.0.312.4243 | 	postgres 12.3 (Ubuntu 12.3-1)
+| TKG 2.1.0 | 1.26.0 | 1.15.0_2023-01-10	| 16.0.816.19223 | 	postgres 14.5 (Ubuntu 20.04)
 
 ### Wind River
 
