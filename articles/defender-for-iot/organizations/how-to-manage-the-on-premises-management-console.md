@@ -15,13 +15,9 @@ You onboard the on-premises management console from the Azure portal.
 
 You may need to download software for your on-premises management console if you're installing Defender for IoT software on your own appliances, or updating software versions.
 
-**To download on-premises management console software**:
+- To download on-premises management console software for the first time, sign into the Azure portal and select **Getting started** > **On-premises management console**.
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
-
-1. Select **Download** for your on-premises management console software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
-
-    :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
+- If you're updating your on-premises management console, we recommend that you download the update package from the **Sites and sensors** page > **Local update** option. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 

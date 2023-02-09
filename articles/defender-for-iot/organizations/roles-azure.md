@@ -29,8 +29,8 @@ Roles for management actions are applied to user roles across an entire Azure su
 |  **View values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   ✔   |   ✔    | ✔ | ✔|
 |  **Modify values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   -    |   ✔    | ✔ | ✔|
 |  **Recover on-premises management console passwords** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |
-|  **Download OT threat intelligence packages** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
-|  **Push OT threat intelligence updates** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
+|  **[Download OT threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#manually-update-locally-managed-sensors)** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
+|  **[Push OT threat intelligence updates](how-to-work-with-threat-intelligence-packages.md#manually-push-updates-to-cloud-connected-sensors)** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **Onboard an Enterprise IoT plan from Microsoft 365 Defender** [*](#enterprise-iot-security)<br>Apply per subscription only | - | ✔ | - | - |
 | **View Azure alerts** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
 | **Modify Azure alerts (write access - change status, learn, download PCAP)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
