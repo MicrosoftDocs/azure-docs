@@ -60,7 +60,7 @@ To avoid data duplication, make sure that the appliance that sends Syslog data a
 
 ## Create a DCR for your Syslog logs
 
-Create the DCR for your Syslog-based logs using the Azure Monitor [guidelines](../azure-monitor/essentials/data-collection-rule-overview) and [structure](../azure-monitor/essentials/data-collection-rule-structure). Review the [best practices](../azure-monitor/essentials/data-collection-rule-best-practices) if needed.
+Create the DCR for your Syslog-based logs using the Azure Monitor [guidelines](../azure-monitor/essentials/data-collection-rule-overview.md) and [structure](../azure-monitor/essentials/data-collection-rule-structure.md). Review the [best practices](../azure-monitor/essentials/data-collection-rule-best-practices.md) if needed.
 
 ## Create a DCR for both Syslog and CEF logs
 

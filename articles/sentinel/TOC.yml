@@ -269,7 +269,7 @@
         - name: CEF via AMA
           href: connect-cef-ama.md        
         - name: CEF and Syslog
-          href: connect-cef-syslog-options.md
+          href: connect-cef-syslog.md
         - name: CEF over Syslog sources (legacy)
           href: connect-common-event-format.md
         - name: Syslog (raw) sources (legacy)
