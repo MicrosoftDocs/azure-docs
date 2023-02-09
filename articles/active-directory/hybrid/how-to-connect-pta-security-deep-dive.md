@@ -83,7 +83,7 @@ The Authentication Agents use the following steps to register themselves with Az
 
 ![Agent registration](./media/how-to-connect-pta-security-deep-dive/pta1.png)
 
-1. Azure AD first requests that a Hybrid Identity Administratoristrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the 
+1. Azure AD first requests that a Hybrid Identity Administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the 
 2. The Authentication Agent then generates a key pair: a public key and a private key.
     - The key pair is generated through standard RSA 2048-bit encryption.
     - The private key stays on the on-premises server where the Authentication Agent resides.
