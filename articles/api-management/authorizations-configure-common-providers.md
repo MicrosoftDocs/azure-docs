@@ -56,7 +56,7 @@ Authorizations support two generic providers:
 A generic provider allows you to use your own OAuth 2.0 identity provider based on your specific needs. 
 
 > [!NOTE]
-> We recommend using the generic OAuth 2.0 with PKCE provider for improved security if your identity provider supports it. 
+> We recommend using the generic OAuth 2.0 with PKCE provider for improved security if your identity provider supports it. [Learn more](https://oauth.net/2/pkce/)
 
 * **Supported grant types**: authorization code, client credentials
 
