@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Lab Services
 titleSuffix: Azure Lab Services
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students. 
+description: Learn how Azure Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students.
 ms.topic: overview
 ms.date: 02/09/2023
 ms.custom: devdivchpfy22
@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: administrators, educators, and students. After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configure the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
+Azure Lab Services lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: administrators, educators, and students. After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configure the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
 
 To get started with Azure Lab Services, you need to [create a lab plan Azure resource](./quick-create-resources.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
