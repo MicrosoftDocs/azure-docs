@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Lab Services
+  - name: What is Azure Lab Services?
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
