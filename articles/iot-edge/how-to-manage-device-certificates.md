@@ -22,7 +22,8 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 * You should be familiar with the concepts in [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md), in particular how IoT Edge uses certificates.
 
-* An IoT Edge device.<br>
+* An IoT Edge device.
+  
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of these quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
@@ -100,7 +101,7 @@ sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
 sudo ls -Rla /var/aziot
 ```
 
-The output of list with correct ownership and permission is similar to the following:
+The output of the list with the correct ownership and permission is similar to the following output:
 
 ```Output
 azureUser@vm:/var/aziot$ sudo ls -Rla /var/aziot
@@ -192,7 +193,7 @@ Installing the certificate to the trust bundle file makes it available to contai
 
 ## Import certificate and private key files
 
-IoT Edge can use existing certificate and private key files to authenticate or attest to Azure, issue new module server certificates, and authenticate to EST servers. To install them:
+IoT Edge can use existing certificates and private key files to authenticate or attest to Azure, issue new module server certificates, and authenticate to EST servers. To install them:
 
 1. Check the certificate and private key files meet the [format requirements](#format-requirements).
 
@@ -466,7 +467,7 @@ This approach requires you to manually update the files as certificate expires. 
 
 IoT Edge can interface with an [Enrollment over Secure Transport (EST) server](https://wikipedia.org/wiki/Enrollment_over_Secure_Transport) for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. It can be configured globally and overridden for each certificate type.
 
-In this scenario, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue an identity certificate for subsequent requests, as well as for authentication to DPS or IoT Hub.
+In this scenario, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue an identity certificate for subsequent requests and for authentication to DPS or IoT Hub.
 
 1. Get access to an EST server. If you don't have an EST server, use one of the following options to start testing:
 
