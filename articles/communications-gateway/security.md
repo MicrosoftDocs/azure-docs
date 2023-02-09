@@ -18,7 +18,7 @@ The customer data Azure Communications Gateway handles can be split into:
 
 ## Data retention, data security and encryption at rest
 
-Azure Communications Gateway doesn't store content data, but it does store customer data and provide statistics based on it. This data is stored for a maximum of 30 days. After this period, it's no longer accessible to perform diagnostics or analysis of individual calls. Anonymized statistics and logs produced based on customer data will continue to be available beyond the 30 days limit.
+Azure Communications Gateway doesn't store content data, but it does store customer data and provide statistics based on it. This data is stored for a maximum of 30 days. After this period, it's no longer accessible to perform diagnostics or analysis of individual calls. Anonymized statistics and logs produced based on customer data are available after the 30 days limit.
 
 Azure Communications Gateway doesn't support [Customer Lockbox for Microsoft Azure](/azure/security/fundamentals/customer-lockbox-overview).  However Microsoft engineers can only access data on a just-in-time basis, and only for diagnostic purposes.
 
@@ -26,7 +26,13 @@ Azure Communications Gateway stores all data at rest securely, including any cus
 
 ## Encryption in transit
 
-All traffic handled by Azure Communications Gateway is encrypted. This encryption is used between Azure Communications Gateway components and towards Microsoft Teams. SIP and HTTP traffic is encrypted using TLS. Media traffic is encrypted using SRTP. When encrypting traffic to send to your network, Azure Communications Gateway will attempt to use TLSv1.3, falling back to TLSv1.2 should that fail. The following cipher suites are used for encrypting SIP and RTP:
+All traffic handled by Azure Communications Gateway is encrypted. This encryption is used between Azure Communications Gateway components and towards Microsoft Teams.
+* SIP and HTTP traffic is encrypted using TLS.
+* Media traffic is encrypted using SRTP.
+
+When encrypting traffic to send to your network, Azure Communications Gateway prefers TLSv1.3. It falls back to TLSv1.2 if necessary.
+
+The following cipher suites are used for encrypting SIP and RTP.
 
 ### Ciphers used with TLSv1.2
 
