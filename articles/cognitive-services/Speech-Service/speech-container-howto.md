@@ -482,6 +482,44 @@ ApiKey={API_KEY}
 
 Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
+
+### Run the container disconnected from the internet (authorization required)
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
+
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train, download, and configure your custom speech models for use in your container.
+1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+   
+To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the  speech resource in step 1.
+
+After all required models have been downloaded to your host computer, you need to download the disconnected license file using the instructions in the above chapter, titled [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment), using the Speech resource from step 2.
+
+To run the container in disconnected mode, follow the instructions from above chapter titled [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment) and add an additional `-v` parameter to mount the directory containing your custom speech model.
+
+Example for running a Custom Speech-to-Text container in disconnected mode:
+```bash
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v {OUTPUT_PATH} \
+-v {MODEL_PATH} \
+{IMAGE} \
+eula=accept \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
+```
+
+The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 # [Neural text-to-speech](#tab/ntts)
 
 To run the neural text-to-speech container, execute the following `docker run` command:
