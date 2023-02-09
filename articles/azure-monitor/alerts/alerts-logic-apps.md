@@ -116,7 +116,7 @@ In this example, the following steps create a Logic App that uses the [common al
     1. In the **Search** field, search for and select **Initialize variable**.
     1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
     1. In the **Type** field, select **Array**.
-    1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: *split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')*
+    1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: `split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')`.
 
              :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
 
@@ -126,10 +126,10 @@ In this example, the following steps create a Logic App that uses the [common al
 
         |Field|String value|
         |---------|---------|
-        |Subscription|*variables('AffectedResource')[2]*|
-        |Resource Group|*variables('AffectedResource')[4]*|
-        |Resource Provider|*variables('AffectedResource')[6]*|
-        |Short Resource Id|*concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8])*|
+        |Subscription|`variables('AffectedResource')[2]`|
+        |Resource Group|`variables('AffectedResource')[4]`|
+        |Resource Provider|`variables('AffectedResource')[6]`|
+        |Short Resource Id|`concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8]`)|
         |Client Api Version|2021-06-01|
     1. The dynamic content now includes tags from the resource that you can use in your notification.
 
@@ -147,15 +147,15 @@ In this example, the following steps create a Logic App that uses the [common al
 1. Sign into Office 365 when prompted to create a connection.
 1. Create the email **Body** by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.   
 For example:
-    - Enter the text: *An alert has been triggered with this monitoring condition:*. Then, select **monitorCondition** from the **Dynamic content** list.
-    - Enter the text: *Date fired:*. Then, select **firedDateTime** from the **Dynamic content** list.
-    - Enter the text: *Affected resources:*. Then, select **alertTargetIDs** from the **Dynamic content** list.
+    - Enter the text: `An alert has been triggered with this monitoring condition:`. Then, select **monitorCondition** from the **Dynamic content** list.
+    - Enter the text: `Date fired:`. Then, select **firedDateTime** from the **Dynamic content** list.
+    - Enter the text: `Affected resources:`. Then, select **alertTargetIDs** from the **Dynamic content** list.
 
 1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
 For example:
-     - Enter the text: *Alert:*. Then, select **alertRule** from the **Dynamic content** list.
-     - Enter the text: *with severity:*. Then, select **severity** from the **Dynamic content** list.
-     - Enter the text: *has condition:*. Then, select **monitorCondition** from the **Dynamic content** list.  
+     - Enter the text: `Alert:`. Then, select **alertRule** from the **Dynamic content** list.
+     - Enter the text: `with severity:`. Then, select **severity** from the **Dynamic content** list.
+     - Enter the text: `has condition:`. Then, select **monitorCondition** from the **Dynamic content** list.  
 
 1. Enter the email address to send the alert to in the **To** field.
 1. Select **Save**.
@@ -169,20 +169,19 @@ The next step is to create an action group to trigger your Logic App.
 ## [Post a Teams message](#tab/send-teams-message)
 
 1. In the search field, search for *Microsoft Teams*.  
-
 1. Select **Microsoft Teams**
     :::image type="content" source="./media/alerts-logic-apps/choose-operation-teams.png" alt-text="A screenshot showing add action page of the logic apps designer with Microsoft Teams selected.":::  
 1. Select **Post a message in a chat or channel** from the list of actions.
 1. Sign into Teams when prompted to create a connection.  
-1. Select *User*  from the **Post as** dropdown.
-1. Select *Group chat* from the **Post in** dropdown.
+1. Select **User**  from the **Post as** dropdown.
+1. Select **Group chat** from the **Post in** dropdown.
 1. Select your group from the **Group chat** dropdown.
 1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.
     For example:
-    - Enter *Alert:* then select **alertRule** from the **Dynamic content** list.
-    - Enter *with severity:* and select **severity** from the **Dynamic content** list.
-    - Enter *was fired at:* and select **firedDateTime** from the **Dynamic content** list.
-    - Add more fields according to your requirements.
+    1. Enter `Alert:` then select **alertRule** from the **Dynamic content** list.
+    1. Enter `with severity:` and select **severity** from the **Dynamic content** list.
+    1. Enter `was fired at:` and select **firedDateTime** from the **Dynamic content** list.
+    1. Add more fields according to your requirements.
 1. Select **Save**
     :::image type="content" source="./media/alerts-logic-apps/configure-teams-message.png" alt-text="A screenshot showing the parameters tab for the post a message in a chat or channel action.":::
 
