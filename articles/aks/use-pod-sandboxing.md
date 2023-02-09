@@ -93,9 +93,9 @@ The solution architecture is based on the following components:
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
 
-For a pod to use the this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
+For a pod to use this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
 
-When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
+When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
@@ -103,7 +103,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -133,7 +133,7 @@ To use this feature with an existing AKS cluster, if the cluster is running vers
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters nodepool, such as *nodepool2*.
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. When using the `--workload-runtime` parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. When using the `--workload-runtime` parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
      * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
      * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -208,7 +208,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify isolation configuration
 
-1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command.
+1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example we are accessing the container inside the *untrusted* pod. 
 
     ```bash
     kubectl exec -it untrusted -- /bin/bash
@@ -216,7 +216,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell to the container to either the *trusted* pod, you can run the following commands to verify that the untrusted container is running in a VM that has different number of CPUs and memory from the trusted container.
+2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a VM that has different number of CPUs and memory from the *trusted* container.
 
    To see the number of CPUs available, run:
 
@@ -224,7 +224,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     cat /proc/cpuinfo
     ```
 
-   The consolidated output from the command resembles the following:
+   The following example resembles consolidated output from the command:
 
     ```output
     root@untrusted:/# cat /proc/cpuinfo
@@ -249,7 +249,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     cat /proc/meminfo
     ```
 
-   The consolidated output from the command resembles the following:
+   The following example resembles consolidated output from the command:
 
     ```output
     root@untrusted:/# cat /proc/meminfo
@@ -281,7 +281,7 @@ kubectl delete pod pod-name
 
 * Learn about [Confidential virtual machines on AKS][cvm-on-aks] with AMD SEV-SNP support to protect data-in-use with full VM memory encryption for your highly sensitive container workloads.
 
-* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to leverage hardware isolation and control over Azure platform maintenance events. 
+* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events. 
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
