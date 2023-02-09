@@ -98,7 +98,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 
 ### Create Data Collection Rule
-1. Download [CtDcrCreation.json](change-tracking-data-collection-rule-creation.md) script on your machine.
+1. Download [CtDcrCreation.json](change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
