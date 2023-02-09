@@ -98,7 +98,9 @@ npm install -g
 
 To use Azurite with most project types in Visual Studio, you first need to run the Azurite executable. Once the executable is running, Azurite listens for connection requests from the application. To learn more, see [Running Azurite from the command line](#running-azurite-from-the-command-line).
 
-For **Azure Functions** projects and **ASP.NET** projects, you can choose to configure the project to start Azurite automatically. This configuration is done during the project setup. To learn more about configuring these project types to start Azurite automatically, see the following guidance:
+For **Azure Functions** projects and **ASP.NET** projects, you can choose to configure the project to start Azurite automatically. This configuration is done during the project setup. While this project configuration starts Azurite automatically, Visual Studio doesn't expose detailed Azurite configuration options. To customize detailed Azurite configuration options, [run the Azurite executable](#running-azurite-from-the-command-line) before launching Visual Studio.
+
+To learn more about configuring **Azure Functions** projects and **ASP.NET** projects to start Azurite automatically, see the following guidance:
 
 - [Running Azurite from an Azure Functions project](#running-azurite-from-an-azure-functions-project)
 - [Running Azurite from an ASP.NET project](#running-azurite-from-an-aspnet-project)
@@ -116,6 +118,8 @@ Navigate to the appropriate location and start `azurite.exe`. After you run the 
 
 > [!div class="mx-imgBorder"]
 > ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
+
+To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
 
 #### Running Azurite from an Azure Functions project
 
