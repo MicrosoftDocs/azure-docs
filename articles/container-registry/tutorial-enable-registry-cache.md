@@ -17,7 +17,7 @@ This article is part two of a three-part tutorial series. [Part one](tutorial-re
 ## Terminology 
 
 - Cache Rule
-    - A cache rule is a set of rules. You can create to pull artifacts from a public Registry into your cache. A cache rule contains four parts
+    - A cache rule is a set of rules you can create to pull artifacts from a public Registry into your cache. A cache rule contains four parts
         
         1. A Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
 
