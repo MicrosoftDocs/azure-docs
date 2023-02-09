@@ -182,13 +182,14 @@ With the static web app configured to connect to the database, you can now verif
 
 ## Start the application locally
 
-Uninstall SWA CLI
-Upgrade SWA CLI
-
-1. Use npm to install the Static Web Apps CLI
+1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 
     ```bash
     npm install -g @azure/static-web-apps-cli
+    ```
+
+    ```bash
+    npm update
     ```
 
 1. Start the static web app with the database configuration.
@@ -205,6 +206,10 @@ To run each command, open the developer tools and paste in each command into the
 
 > [!NOTE]
 > Keys sent in requests must match the database column capitalization.
+
+### Return all items
+
+Run the following code in the browser's console window to select all items.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -268,6 +273,8 @@ To run each command, open the developer tools and paste in each command into the
 })();
 ```
 
+The browser's console window displays a table that lists all the records in the database.
+
 ::: zone-end
 
 | ID | Name |
@@ -275,7 +282,9 @@ To run each command, open the developer tools and paste in each command into the
 | 1 | Sunny |
 | 2 | Dheeraj |
 
-## Get by ID
+### Get by ID
+
+Run the following code in the browser's console window to get an item by its unique identifier.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -335,11 +344,15 @@ To run each command, open the developer tools and paste in each command into the
 
 ::: zone-end
 
+The browser's console window displays a table listing the single record requested from the database.
+
 | ID | Name |
 |---|---|
 | 1 | Sunny |
 
-## Update data
+### Update
+
+Run the following code in the browser's console window to update a record.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -416,12 +429,16 @@ This example uses a `PUT` verb to do the update.
 
 ::: zone-end
 
+The browser's console window now displays a table showing the updated data.
+
 | ID | Name |
 |---|---|
 | 1 | Molly |
 | 2 | Dheeraj |
 
-## Create
+### Create
+
+Run the following code in the browser's console window to create a new record.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -487,14 +504,15 @@ This example uses a `PUT` verb to do the update.
 
 ::: zone-end
 
+The browser's console window now displays a table showing the new record in the database.
+
 | ID | Name |
 |---|---|
-| 1 | Sunny |
-| 2 | Dheeraj |
 | 3 | Pedro |
 
+### Delete
 
-## Delete
+Run the following code in the browser's console window to delete a record.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -551,51 +569,12 @@ This example uses a `PUT` verb to do the update.
 
 ::: zone-end
 
-
-::: zone pivot="static-web-apps-rest"
-
-
-::: zone-end
-
-::: zone pivot="static-web-apps-graphql"
-
-```javascript
-(() => {
-  const endpoint = "http://localhost:4280/data-api/graphql";
-
-  async function getById(id) {
-  
-    const query = `query {
-      person(ID: ${id}) {
-        ID
-        Name
-      }
-    }`;
-  
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Length": query.length,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ query })
-    });
-    const data = await res.json();
-    console.table(data);
-  }
-
-  getById(1);
-})();
-```
-
-::: zone-end
+The browser's console window now displays a table showing the response from the delete request.
 
 | ID | Name |
 |---|---|
 | 2 | Dheeraj |
 | 3 | Pedro |
-
-
 
 ## Next steps
 
