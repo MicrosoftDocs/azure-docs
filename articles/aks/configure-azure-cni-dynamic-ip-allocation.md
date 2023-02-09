@@ -52,7 +52,7 @@ All other guidance related to configuring the maximum pods per node remains the 
 
 ## Deployment parameters
 
-The [deployment parameters](/configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
+The [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
 * The **subnet** parameter now refers to the subnet related to the cluster's nodes.
 * An additional parameter **pod subnet** is used to specify the subnet whose IP addresses will be dynamically allocated to pods.
