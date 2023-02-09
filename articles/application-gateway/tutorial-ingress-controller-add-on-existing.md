@@ -68,7 +68,7 @@ az network application-gateway create -n myApplicationGateway -l eastus -g myRes
 ```
 
 > [!NOTE]
-> application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
+> The application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
 
 ## Enable the AGIC add-on in existing AKS cluster through Azure CLI 
 

@@ -2,10 +2,11 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 11/17/2022
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
+
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
 |en-GB-RyanNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|

@@ -189,7 +189,7 @@ Run [Get-AzFrontDoorCdnEndpoint](/powershell/module/az.cdn/get-azfrontdoorcdnend
 
 ```azurepowershell-interactive
 $fd = Get-AzFrontDoorCdnEndpoint `
-    -EndpointName contosofrontend-1234 `
+    -EndpointName contosofrontend `
     -ProfileName contosoafd `
     -ResourceGroupName myRGFD
 

@@ -1,7 +1,7 @@
 ---
 title: Upgrade AutoML to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate AutoML from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade AutoML from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

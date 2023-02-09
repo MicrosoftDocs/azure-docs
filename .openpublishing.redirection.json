@@ -13445,16 +13445,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
-            "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
-            "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/event-grid/cli-samples.md",
             "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
             "redirect_document_id": true
@@ -14108,6 +14098,26 @@
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": ""
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-designer-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-form.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-form",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-python.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-python",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/search-get-started-vs-code.md",
@@ -22672,6 +22682,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
+            "redirect_URL": "/azure/external-attack-surface-management/index",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
             "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos",
             "redirect_document_id": false
@@ -22679,6 +22694,11 @@
         {
             "source_path": "articles/application-gateway/tutorial-protect-application-gateway.md",
             "redirect_URL": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/workloads/sap/index.md",
+            "redirect_URL": "/azure/sap/workloads/get-started",
             "redirect_document_id": false
         }
     ]

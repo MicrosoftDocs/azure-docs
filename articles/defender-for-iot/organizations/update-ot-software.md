@@ -79,6 +79,10 @@ On-premises management software is backwards compatible, and can connect to sens
 
 For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 
+### Select an update method
+
+Select one of the following tabs, depending on how you've chosen to update your OT sensor software.
+
 # [From the Azure portal (Public preview)](#tab/portal)
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.

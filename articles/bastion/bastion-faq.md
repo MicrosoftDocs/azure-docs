@@ -29,7 +29,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. For more information, see [Set up routing configuration for a virtual network connection](../virtual-wan/how-to-virtual-hub-routing.md#routing-configuration).
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub), default 0.0.0.0/0 route must not be overwritten. 
 
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -46,7 +46,7 @@ You may use a private DNS zone ending with one of the names listed above (ex: pr
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
-### <a name="dns"></a>Does Azure Bastion support Private Link?"
+### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
 
