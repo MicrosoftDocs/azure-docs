@@ -2330,7 +2330,7 @@ widgetsnbextension==3.5.2
 
 ## R libraries (Preview)
 
-|  **Library**  | **Version** | **       Library** | **Version** | **       Library** | **Version** |
+|  **Library**  | **Version** | **Library** | **Version** | **Library** | **Version** |
 |:-------------:|:-----------:|:------------------:|:-----------:|:------------------:|:-----------:|
 | askpass       | 1.1         | highcharter        | 0.9.4       | readr              | 2.1.3       |
 | assertthat    | 0.2.1       | highr              | 0.9         | readxl             | 1.4.1       |

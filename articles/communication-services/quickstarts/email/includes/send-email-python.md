@@ -63,7 +63,7 @@ pip install azure-communication-email
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
 
 | Name | Description |
 | ---- |-------------|
