@@ -21,7 +21,7 @@ This release corresponds to software version:
 - **Azure Stack Edge 2301 (1.6.2225.773)**
 
 > [!NOTE]
-> Update 2301 can be applied only to devices that are running 2101 versions of the software or later. If you are running a version earlier than 2101, update your device to 2101 amd then update to 2301. 
+> Update 2301 can be applied only to devices that are running 2101 versions of the software or later. If you are running a version earlier than 2101, update your device to 2101 and then update to 2301. 
 
 ## What's new
 
