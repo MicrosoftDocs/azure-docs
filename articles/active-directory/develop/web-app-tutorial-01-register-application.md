@@ -6,7 +6,7 @@ ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
-ms.date: 10/18/2022
+ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
 ---
 

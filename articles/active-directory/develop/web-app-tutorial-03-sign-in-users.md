@@ -6,7 +6,7 @@ ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
-ms.date: 10/18/2022
+ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
 ---
 
@@ -19,7 +19,7 @@ In this tutorial:
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
 > * Implement authentication in the code
-> * Add the sign in and sign out experience
+> * Add the sign in and sign out experiences
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ After installing the NuGet packages and adding necessary code for authentication
 1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 ---
 
-### Display the sign in and sign out experience
+### Edit the *_LoginPartial.cshtml* file
 
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
 

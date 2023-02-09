@@ -6,7 +6,7 @@ ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
-ms.date: 10/18/2022
+ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
 ---
 
@@ -20,8 +20,7 @@ In this tutorial:
 > * Create an ASP.NET Core project
 > * Create a self-signed certificate
 > * Configure the settings for the application
-> * Define platform settings
-> * Define the URLs needed for the application
+> * Define platform settings and URLs
 
 ## Prerequisites
 
@@ -43,7 +42,7 @@ After registering an application on the Azure portal, a .NET web application nee
 1. Search for and choose the **ASP.NET Core Web App** template, and then select **Next**.
 1. Enter a name for the project, such as *NewWebAppLocal*.
 1. Choose a location for the project or accept the default option, and then select **Next**.
-1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**. The **Authentication type** could be changed to Microsoft identity platform, which would add the authentication configuration to the application.
+1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**. **Authentication type** can be set to none as this tutorial will cover this process.
 1. Select **Create**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
@@ -63,7 +62,7 @@ dotnet new webapp
 1. Open Visual Studio, and then select **New**.
 1. Under **Web and Console** in the left navigation bar, select **App**.
 1. Under **ASP.NET Core**, select **Web Application** and ensure **C#** is selected in the drop down menu, then select **Continue**.
-1. Ensure the **Target Framework** is set to .NET6.0 at a minimum.
+1. Ensure the **Target Framework** is set to **.NET 6.0** at a minimum.
 1. Enter a name for **Project name**, this is reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
 1. Accept the default location for the project or choose a different location, and then select **Create**.
 
@@ -111,9 +110,8 @@ To make the certificate available to the application, it must be uploaded into t
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
-1. Browse for and select the certificate that was previously created.
-1. Enter a description for the certificate.
-1. Select **Add**.
+1. Select the folder icon, then browse for and select the certificate that was previously created.
+1. Enter a description for the certificate and select **Add**.
 1. Record the **Thumbprint** value, which will be used in the next step.
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
@@ -153,7 +151,7 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
     }
     ```
 
-    * `Instance` - The endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+    * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
@@ -161,7 +159,7 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
     * `DownstreamApi` - Is an identifier that defines an endpoint for accessing Microsoft Graph. The application URI is combined with the specified scope. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different.
 1. Save changes to the file.
 1. In the **Properties** folder, open the *launchSettings.json* file.
-1. Within the `https` bracket of the JSON, record the https URL listed for `applicationURL`, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
+1. Find and record the `https` value within *launchSettings.json*, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
 
 
 ## Define the platform and URLs

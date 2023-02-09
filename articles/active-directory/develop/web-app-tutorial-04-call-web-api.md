@@ -6,7 +6,7 @@ ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
-ms.date: 10/18/2022
+ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to use my app to call a web API, in this case Microsoft Graph. I need to know how to modify my code so the API can be called successfully.
 ---
 
@@ -17,8 +17,6 @@ The application can now be configured to call an API. For the purposes of this t
 In this tutorial:
 
 > [!div class="checklist"]
-> * Add the API configuration
-> * Retrieve defined scopes and acquire a token
 > * Call the API and display the results
 > * Test the application
 
@@ -28,7 +26,7 @@ In this tutorial:
 
 ## Call the API and display the results
 
-1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet:
+1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet. Check that the project `namespace` matches your project name. 
 
     ```csharp
     using System.Text.Json;
@@ -69,9 +67,9 @@ In this tutorial:
     }
     ```
   
-1. Now open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
+1. Open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
 
-	  ```html
+	```html
     <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
 
     <p><pre><code class="language-js">@ViewData["ApiResult"]</code></pre></p>
