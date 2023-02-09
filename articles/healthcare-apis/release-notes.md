@@ -18,6 +18,33 @@ ms.custom: references_regions
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## January 2023
+
+### MedTech service
+
+**Qatar Central region is Generally Available (GA)**
+
+Customers in Qatar Central can now access the MedTech service.
+
+
+### DICOM service
+
+**Added support for `ModalitiesInStudy` attribute**
+
+The DICOM service now supports `ModalitiesInStudy` as a [searchable attribute](dicom/dicom-services-conformance-statement.md#searchable-attributes) at the Study, Series, and Instance level.  Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently.  
+
+
+**Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
+
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#additional-series-tags).  
+
+### Toolkit and Samples Open Source
+**New sample app has been released**
+
+One new sample app has been released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
+
+
 ## **December 2022**
 
 #### Azure Health Data Services

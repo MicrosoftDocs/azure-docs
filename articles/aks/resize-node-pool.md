@@ -3,7 +3,7 @@ title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
 services: container-service
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
 
@@ -169,7 +169,7 @@ node/aks-nodepool1-31721111-vmss000002 cordoned
 ## Drain the existing nodes
 
 > [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
+> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least one pod replica to be moved at a time. Otherwise, the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and verify `ALLOWED DISRUPTIONS` is at least one or higher.
 
 Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
 
