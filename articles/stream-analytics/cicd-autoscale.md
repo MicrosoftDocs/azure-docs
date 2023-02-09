@@ -26,7 +26,7 @@ Examples of an autoscale setting:
 
 ## How to autoscale job?
 
-### Scenario 1: Configure autoscale settings for a local Stream Analytics project.
+### Scenario 1: Configure autoscale settings for a local Stream Analytics project
 
 If you have a working Stream Analytics project in the local machine, follow the steps to configure autoscale settings:
 
@@ -53,6 +53,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
     ```
 
     If the project is built successfully, you see 2 JSON files created under **Deploy** folder. One is the ARM template file and the other one is the parameter file. 
+
     ![Build project](./media/cicd-autoscale/build-project.png)
 
     > [!NOTE]
@@ -74,6 +75,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
     ```
 
     If the autoscale setting is configured successfully, you see 2 JSON files created under **Deploy** folder. One is the ARM template file and the other one is the parameter file. 
+
     ![Configure autoscale](./media/cicd-autoscale/configure-autoscale.png)
 
     Here's the list of metrics you can use for defining autoscale rules: 
@@ -99,6 +101,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
     |DeserializationError           | Input Deserialization Errors |
 
     The default value for all metric threshold is **70**. If you want to set the metric threshold to another number, open **\*.AutoscaleSettingTemplate.parameters.json** file and change the **Threshold** value. 
+
     ![Set metric threshold](./media/cicd-autoscale/set-metric-threshold.png)
     
     To learn more about defining autoscale rules, visit [here](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings).
@@ -133,7 +136,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
           -TemplateParameterFile $parameterFile
         ```
 
-### Scenario 2. Autoscale a running Stream Analytics job in Azure
+### Scenario 2: Autoscale a running Stream Analytics job in Azure
 
 If you have a Stream Analytics job running in Azure, you can use ASA CI/CD tool in the PowerShell to configure autoscale settings. 
 
@@ -145,7 +148,6 @@ azure-streamanalytics-cicd autoscale --capacity 12 --metrics ProcessCPUUsagePerc
 If configure successfully, you see ARM template and parameter files created in the current directory.
 
 Then you can deploy the autoscale settings to Azure by following the Deployment steps in scenario 1.
-
 
 ## Help
 
