@@ -1848,8 +1848,10 @@
       href: ../azure-monitor/vm/tutorial-monitor-vm-enable-insights.md?context=/azure/virtual-machines/context/context
     - name: Collect guest logs and metrics
       href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=/azure/virtual-machines/context/context
+  - name: VM insights
+    href: ../azure-monitor/vm/vminsights-overview.md
   - name: Azure Monitor Agent
-    href: ../azure-monitor/vm/agents/agents-overview.md
+    href: ../azure-monitor/agents/agents-overview.md
   - name: Analyze availability
     href: resource-graph-availability.md
   - name: VM usage

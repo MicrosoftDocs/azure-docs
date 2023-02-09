@@ -11,12 +11,12 @@ ms.reviewer: Xema Pathak
 ---
 
 # VM availability information in Azure Resource Graph
-[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Azure Resource Graph (ARG) for detailed failure attribution and downtime analysis including the following:
+[Azure Resource Graph](../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../service-health/resource-health-vm-annotation.md) to Azure Resource Graph (ARG) for detailed failure attribution and downtime analysis including the following:
 
 - Query the latest snapshot of VM availability together across all your Azure subscriptions. 
 - Assess the impact to business SLAs and trigger decisive mitigation actions, in response to disruptions and type of failure signature.
-- Set up custom dashboards to supervise the comprehensive health of applications by [joining](../../governance/resource-graph/concepts/work-with-data.md) VM availability information with additional [resource metadata](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli) in Resource Graph.
-- Track relevant changes in VM availability across a rolling 14 days window,  by using the [change tracking](../../governance/resource-graph/how-to/get-resource-changes.md) mechanism for conducting detailed investigations.
+- Set up custom dashboards to supervise the comprehensive health of applications by [joining](../governance/resource-graph/concepts/work-with-data.md) VM availability information with additional [resource metadata](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli) in Resource Graph.
+- Track relevant changes in VM availability across a rolling 14 days window,  by using the [change tracking](../governance/resource-graph/how-to/get-resource-changes.md) mechanism for conducting detailed investigations.
 
 To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoftresourcehealthresourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
 
@@ -29,7 +29,7 @@ To view the details for a record, scroll to the right and select **See details**
 There will be two  types of events populated in the HealthResources table:
 
 ## microsoft.resourcehealth/availabilitystatuses
-This event denotes the latest availability status of a VM, based on the [health checks](../../service-health/resource-health-checks-resource-types.md#microsoftcomputevirtualmachines) performed by the underlying Azure platform. The [availability states](../../service-health/resource-health-overview.md#health-status) currently emitted for VMs are as follows:
+This event denotes the latest availability status of a VM, based on the [health checks](../service-health/resource-health-checks-resource-types.md#microsoftcomputevirtualmachines) performed by the underlying Azure platform. The [availability states](../service-health/resource-health-overview.md#health-status) currently emitted for VMs are as follows:
 
 - **Available**: The VM is up and running as expected.
 - **Unavailable**: A disruption to the normal functioning of the VM has been detected.
@@ -59,7 +59,7 @@ A sample `properties` value looks similar to the following:
 ```
 
 ## microsoft.resourcehealth/resourceannotations
-This event contextualizes any changes to VM availability, by detailing necessary failure attributes to help you investigate and mitigate the disruption as needed. The full list of VM health annotations are listed at [Resource Health virtual machine Health Annotations] (../../service-health/resource-health-vm-annotation.md).
+This event contextualizes any changes to VM availability, by detailing necessary failure attributes to help you investigate and mitigate the disruption as needed. The full list of VM health annotations are listed at [Resource Health virtual machine Health Annotations] (../service-health/resource-health-vm-annotation.md).
 
 These annotations can be broadly classified into the following:
 
@@ -78,9 +78,9 @@ These annotations can be broadly classified into the following:
 | context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \|VM-initiated \| Not Applicable \| Null |
 | summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
 
-See [Azure Resource Graph sample queries by table](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.
+See [Azure Resource Graph sample queries by table](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.
 
 ## Next steps
 
-* [Create alerts from collected data](monitor-virtual-machine-alerts.md)
+* [Create alerts from collected data](../azure-monitor/vm/monitor-virtual-machine-alerts.md)
 
