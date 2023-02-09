@@ -45,7 +45,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 | Code sample | Related article  | Purpose |
 |-------------|------------------|---------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | [Quickstart: Create a search index](search-get-started-dotnet.md) | Covers the basic workflow for creating, loading, and querying a search index in C# using sample data. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) | [Quickstart: Create a search index](search-get-started-dotnet.md) | Covers the basic workflow for creating, loading, and querying a search index in C# using sample data. |
 | [search-website](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/search-website-functions-v4) | [Tutorial: Add search to web apps](tutorial-csharp-overview.md) | Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [How to use the .NET client library](search-howto-dotnet-sdk.md) | Steps through the basic workflow, but in more detail and with discussion of API usage.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md) | Synonym lists are used for query expansion, providing matchable  terms that are external to an index. |

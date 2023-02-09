@@ -54,17 +54,7 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 - Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources that are delivered by SAP or its partners. DataSources that are created by customers are automatically activated. If DataSources have been or are being extracted by SAP BW or BW/4HANA, the DataSources have already been activated. For more information about DataSources and their activations, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
 
-- Make sure that DataSources are released for extractions via ODP. This requirement applies only to DataSources that customers create. DataSources that are delivered by SAP or its partners are automatically released. For more information, see the following SAP support notes:
-
-  - [1560241 - To release DataSources for ODP API](https://launchpad.support.sap.com/#/notes/1560241)
-  
-    Combine this task with running the following programs:
-
-    - RODPS_OS_EXPOSE to release DataSources for external use
-
-    - BS_ANLY_DS_RELEASE_ODP to release BW extractors for the ODP API
-
-  - [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584) for a list of all SAP-delivered DataSources (more than 7,400) that have been released
+- Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create as well as DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
 
 ### Set up the SAP Landscape Transformation Replication Server
 

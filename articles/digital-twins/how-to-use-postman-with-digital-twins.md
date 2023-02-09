@@ -97,7 +97,7 @@ The following sections describe both of these processes. The rest of the article
 
 ## Import collection of Azure Digital Twins APIs
 
-A quick way to get started with Azure Digital Twins in Postman is to import a pre-built collection of requests for the control plane and data plane Azure Digital Twins APIs.
+A quick way to get started with Azure Digital Twins in Postman is to import a pre-built collection of requests for the APIs. Follow the steps below to import a collection of popular Azure Digital Twins data plane API requests containing sample request data.
 
 1. From the main Postman window, select the **Import** button.
     :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection.png" alt-text="Screenshot of a newly opened Postman window. The 'Import' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-import-collection.png":::
@@ -110,11 +110,14 @@ The newly imported collection can now be seen from your main Postman view, in th
 
 :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png" alt-text="Screenshot of the main Postman window. The newly imported collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png":::
 
+>[!TIP]
+> To import the complete set of API calls for a certain version of the Azure Digital Twins APIs (including control plane or data plane), you can also import Swagger files as collections. For links to the Swagger files for the control plane and data plane APIs, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
+
 Next, continue on to the next section to add a bearer token to the collection for authorization and connect it to your Azure Digital twins instance.
 
 ### Configure authorization
 
-Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to pull up a menu. Select **Edit**.
+Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to display action options. Select **Edit**.
 
 :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-edit-collection.png" alt-text="Screenshot of Postman. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the options." lightbox="media/how-to-use-postman-with-digital-twins/postman-edit-collection.png":::
 
@@ -124,12 +127,12 @@ Follow these steps to add a bearer token to the collection for authorization. Us
 
     :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-authorization-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-authorization-imported.png":::
 
-1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
+1. Set the Type to **OAuth 2.0** and paste your access token into the Access Token box. You must use the correct token for the type of API you're using, as there are different tokens for data plane APIs versus control plane APIs. Select **Save**.
 
     :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-paste-token-imported.png" alt-text="Screenshot of Postman edit dialog for the imported collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-paste-token-imported.png":::
 
     > [!TIP]
-    > You must use the correct token for the type of API you're using. There is one access token for data plane APIS and another for control plane APIs.
+    > You can choose to turn on token sharing if you want to store the token with the request on Postman cloud, and potentially share your token with others.
 
 ### Other configuration
 
@@ -237,7 +240,7 @@ You can now view your request under the collection, and select it to pull up its
 
 To make a Postman request to one of the Azure Digital Twins APIs, you'll need the URL of the API and information about what details it requires. You can find this information in the [Azure Digital Twins REST API reference documentation](/rest/api/azure-digitaltwins/).
 
-To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
+To proceed with an example query, this article will use the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query/querytwins) to query for all the digital twins in an instance.
 
 1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. Use your instance's host name from the [Prerequisites section](#prerequisites).

@@ -195,7 +195,7 @@ Learn more: [How it works: Azure AD Multi-Factor Authentication](../authenticati
 
 When you change user UPN, the old UPN appears on the user account and notification might not be received. Use verification codes.
 
-Learn more: [Common questions about the Microsoft Authenticator app](/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd)
+Learn more: [Common questions about the Microsoft Authenticator app](https://prod.support.services.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd)
 
 **Workaround**
 

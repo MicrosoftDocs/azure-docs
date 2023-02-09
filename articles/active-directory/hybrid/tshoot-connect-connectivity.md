@@ -76,7 +76,7 @@ If you use a **Microsoft account** rather than a **school or organization** acco
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your Hybrid Identity Administrator has MFA enabled.
+This error appears if the endpoint `https://secure.aadcdn.microsoftonline-p.com` cannot be reached and your Hybrid Identity Administrator has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.
@@ -179,23 +179,23 @@ The multi-factor authentication (MFA) challenge was canceled.
 
 <div id="connect-msolservice-failed">
 <!--
-  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  Empty div just to act as an alias for the "Connect To MSOnline Failed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Connect To MS Online Failed
+### Connect To MSOnline Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
 <div id="get-msoluserrole-failed">
 <!--
-  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  Empty div just to act as an alias for the "Azure AD Global Administrator Role Needed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../roles/permissions-reference.md) to the user.
+### Azure AD Global Administrator Role Needed
+User was authenticated successfully. However user is not assigned Global Administrator role. This is [how you can assign Global Administrator role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--

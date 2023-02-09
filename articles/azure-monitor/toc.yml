@@ -27,10 +27,12 @@ items:
     href: whats-new.md
 - name: Concepts
   items:
+  - name: Multicloud monitoring
+    href: best-practices-multicloud.md
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
+      href: /security/benchmark/azure/baselines/azure-monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -397,12 +399,17 @@ items:
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
+      - name: Manage Azure Monitor workspaces
+        href: essentials/azure-monitor-workspace-manage.md
       - name: Enable on AKS cluster
         displayName: Prometheus
         href: essentials/prometheus-metrics-enable.md      
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Query Prometheus metrics in workbooks
+        displayName: Prometheus
+        href: essentials/prometheus-workbooks.md
       - name: Remote-write
         items:
         - name: Overview
@@ -499,13 +506,16 @@ items:
             href: logs/availability-zones.md
         - name: Monitor
           items:
-          - name: Monitor a workspace
-            href: logs/monitor-workspace.md
-          - name: Analyze usage and cost
-            href: logs/analyze-usage.md
+          - name: Monitor Log Analytics workspace health
+            displayName: latency
+            href: logs/log-analytics-workspace-health.md
+          - name: Monitor operational issues
+            href: logs/monitor-workspace.md     
           - name: Log data ingestion time
             displayName: latency
             href: logs/data-ingestion-time.md
+          - name: Analyze usage and cost
+            href: logs/analyze-usage.md   
         - name: Move and delete
           items:
           - name: Move a workspace
@@ -578,8 +588,6 @@ items:
           href: app/tutorial-users.md
         - name: Dashboard with application data
           href: app/tutorial-app-dashboards.md
-        - name: Monitor mobile or UWP application
-          href: app/mobile-center-quickstart.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -695,7 +703,7 @@ items:
       - name: Java
         items:
         - name: Overview
-          href: app/java-in-process-agent.md
+          href: app/opentelemetry-enable.md?tabs=java
         - name: Spring Boot
           href: app/java-spring-boot.md
         - name: Java Profiler
@@ -789,7 +797,7 @@ items:
       - name: Failure anomalies
         href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: alerts/proactive-performance-diagnostics.md
+        href: alerts/smart-detection-performance.md
       - name: Trace degradation
         href: alerts/proactive-trace-severity.md
       - name: Exception volume
@@ -946,8 +954,6 @@ items:
       items:
       - name: SharePoint sites
         href: app/sharepoint.md
-      - name: Windows desktop
-        href: app/windows-desktop.md
   - name: Container insights
     items:
     - name: Overview
@@ -996,6 +1002,8 @@ items:
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
         href: containers/container-insights-persistent-volumes.md
+      - name: Monitor Security with Syslog 
+        href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
       - name: Custom metrics
@@ -1186,9 +1194,7 @@ items:
      - name: Upgrading Log Analytics Dashboards
        href: logs/dashboard-upgrade.md
   - name: Power BI
-    items:
-      - name: Export log data
-        href: logs/log-powerbi.md
+    href: logs/log-powerbi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
@@ -1301,10 +1307,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Custom filters
-      href: change/change-analysis-custom-filters.md
-    - name: Pin and share changes via Azure dashboard
-      href: change/change-analysis-query.md
     - name: Track a web outage with Change Analysis
       href: change/change-analysis-track-outages.md
     - name: Troubleshoot
@@ -1325,9 +1327,9 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: Use dynamic thresholds
+      - name: Dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alerts for many time series
+      - name: Single alert for multiple time series
         href: alerts/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: alerts/alerts-metric-logs.md
@@ -1353,15 +1355,13 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Alert processing rules
+      href: alerts/alerts-processing-rules.md
+      displayName: Azure CLI, az monitor action rule
     - name: Notifications and actions
       items:
-      - name: Alert processing rules
-        href: alerts/alerts-processing-rules.md
-        displayName: Azure CLI, az monitor action rule
       - name: Create an action group
         href: alerts/action-groups.md
-      - name: Create action groups with Resource Manager
-        href: alerts/action-groups-create-resource-manager-template.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
@@ -1474,10 +1474,11 @@ items:
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
+      - name: Autoscale diagnostics
+        href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-      - name: Resource Log schemas
-        href: autoscale/autoscale-resource-log-schema.md  
+
 - name: Reference
   items:
   - name: Service limits
@@ -1692,8 +1693,6 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

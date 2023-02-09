@@ -94,7 +94,7 @@ Use the Docker documentation to install on your development machine:
 * Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms.
   * For the Windows Subsystem for Linux (WSL), install Docker Desktop for Windows.
 
-## Set up VS Code and tools
+## Set up Visual Studio Code and tools
 
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
 
@@ -133,7 +133,7 @@ In the Visual Studio Code command palette, search for and select **Azure IoT Edg
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **C# Module**. |
    | Provide a module name | Accept the default **SampleModule**. |
@@ -284,7 +284,7 @@ Visual Studio Code now has access to your container registry, so it's time to tu
 
     ![View both image versions in container registry](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
-<!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
+<!--Alternative steps: Use Visual Studio Code Docker tools to view ACR images with tags-->
 
 ### Troubleshoot
 

@@ -86,8 +86,12 @@ items:
         href: storage-auth-abac-cli.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Analyze blob inventory reports
-      href: storage-blob-inventory-report-analytics.md
+    - name: Itemize and analyze your data estate
+      items:
+      - name: Analyze blob inventory reports
+        href: storage-blob-inventory-report-analytics.md
+      - name: Calculate container statistics
+        href: storage-blob-calculate-container-statistics-databricks.md
   - name: Samples
     items:
     - name: .NET
@@ -702,6 +706,40 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+        - name: Python
+          items:
+          - name: Get started
+            href: storage-blob-python-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-python.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-python.md
+            - name: List containers
+              href: storage-blob-containers-list-python.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-python.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-python.md
+          - name: Blob actions
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-python.md
+            - name: Download blobs
+              href: storage-blob-download-python.md
+            - name: Copy blobs
+              href: storage-blob-copy-python.md
+            - name: List blobs
+              href: storage-blobs-list-python.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-python.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-python.md
+            - name: Manage blob leases
+              href: storage-blob-lease-python.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

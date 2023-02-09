@@ -42,6 +42,9 @@ These are the limitations of this feature:
 
 + The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. 
 
++ The MongoDB attribute `$ref` is a reserved word. If you need this in your MongoDB collection, consider alternative solutions for populating an index. 
+
+
 As an alternative to this connector, if your scenario has any of those requirements, you could use the [Push API/SDK](search-what-is-data-import.md) or consider [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an [Azure Cognitive Search index](../data-factory/connector-azure-search.md) as the sink.
 
 ## Define the data source
