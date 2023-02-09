@@ -58,7 +58,7 @@ Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code sca
 
 Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
-### Why is my Azure DevOps repository not refreshing to “healthy”? 
+### Why is my Azure DevOps repository not refreshing to healthy? 
 
 For a previously unhealthy scan result to be healthy again, updated healthy scan results need to be from the same build definition as the one that generated the findings in the first place.  A common scenario where this issue occurs is when testing with different pipelines.  For results to refresh appropriately, scan results need to be for the same pipeline(s) and branch(es). 
 
