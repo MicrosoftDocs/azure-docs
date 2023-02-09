@@ -43,7 +43,7 @@ In this article you learn how to download, install, and run Form Recognizer cont
 
 > [!IMPORTANT]
 >
-> * To use Form Recognizer containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
+> * To use Form Recognizer containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
 
 ## Prerequisites
 
@@ -114,19 +114,19 @@ Feature container | Supporting container(s) |
 :::moniker range="form-recog-3.0.0"
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Read | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
-| Layout | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| `Read` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Read 3.2 | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
-| Layout 2.1 | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
-| Business Card 2.1 | `2` cores, 4-GB memory | `4` cores, 4-GB memory |
-| ID Document 2.1 | `1` core, 2-GB memory |`2` cores, 2-GB memory |
-| Invoice 2.1 | `4` cores, 8-GB memory | `8` cores, 8-GB memory |
-| Receipt 2.1 |  `4` cores, 8-GB memory | `8` cores, 8-GB memory  |
+| `Read 3.2` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| `Layout 2.1` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| `Business Card 2.1` | `2` cores, 4-GB memory | `4` cores, 4-GB memory |
+| `ID Document 2.1` | `1` core, 2-GB memory |`2` cores, 2-GB memory |
+| `Invoice 2.1` | `4` cores, 8-GB memory | `8` cores, 8-GB memory |
+| `Receipt 2.1` |  `4` cores, 8-GB memory | `8` cores, 8-GB memory  |
 
 ##### Custom containers
 
@@ -159,7 +159,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 * Ensure that the EULA value is set to "accept".
 
-* The `EULA`, `Billing`, and `ApiKey`  values must be specified; otherwise the container won't start.
+* The `EULA`, `Billing`, and `ApiKey`  values must be specified; otherwise the container can't start.
 
 > [!IMPORTANT]
 > The keys are used to access your Form Recognizer resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
@@ -431,13 +431,13 @@ In addition to the [prerequisites](#prerequisites), you need to do the following
 #### &bullet; Create a folder to store your input data
 
   1. Name this folder **shared**.
-  1. We'll reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
+  1. We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
   1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You need to add it to your **.env** file.
 
 #### &bullet; Create a folder to store the logs  written by the Form Recognizer service on your local machine.
 
   1. Name this folder **output**.
-  1. We'll reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
+  1. We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
   1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You need to add it to your **.env** file.
 
 #### &bullet; Create an environment file
@@ -523,7 +523,7 @@ http {
 
 * Gather a set of at least six forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created.
 
-* If you want to label your data, download the [Form Recognizer Sample Labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases). The download will import the labeling tool .exe file that you use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer Sample Labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases). The download imports the labeling tool .exe file that you use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
 #### Create a new Sample Labeling tool project
 
@@ -696,7 +696,7 @@ docker-compose down
 The Form Recognizer containers send billing information to Azure by using a Form Recognizer resource on your Azure account.
 
 :::moniker range="form-recog-3.0.0"
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You'll be billed for each container instance used to process your documents and images.
+Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]
 > Currently, Form Recognizer v3 containers only support pay as you go pricing. Support for commitment tiers and disconnected mode will be added in MArch 2023.
@@ -704,7 +704,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you be billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
+Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you're billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you're billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 :::moniker-end
@@ -715,7 +715,7 @@ The container needs the billing argument values to run. These values allow the c
 
 ### Billing arguments
 
-The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline/compose_up/) command will start the container when all three of the following options are provided with valid values:
+The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline/compose_up/) command starts the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|
