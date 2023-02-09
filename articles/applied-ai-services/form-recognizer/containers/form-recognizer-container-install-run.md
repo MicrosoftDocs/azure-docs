@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Install and run Form Recognizer v2.1 containers
+# Install and run Form Recognizer containers
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
@@ -27,7 +27,7 @@ Azure Form Recognizer is an Azure Applied AI Service that lets you build automat
 ::: moniker range="form-recog-3.0.0"
 In this article you learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements.
 
-* The **Read** and **Layout** models are supported by Form Recognizer v3.0 containers.
+* **Read** and **Layout** models are supported by Form Recognizer v3.0 containers.
 
 * **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** models are currently only supported in the [v2.1 containers](form-recognizer-container-install-run.md?view=form-recog-2.1.0&preserve-view=true).
 
@@ -39,6 +39,7 @@ In this article you learn how to download, install, and run Form Recognizer cont
 * **Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by six Form Recognizer feature containers.
 
 * For Receipt, Business Card and ID Document containers you also need the **Read** OCR container.
+
 ::: moniker-end
 
 > [!IMPORTANT]
@@ -56,14 +57,26 @@ You also need the following to use Form Recognizer containers:
 | **Familiarity with Docker** | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology). |
 | **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
 |**Form Recognizer resource** | A [**single-service Azure Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. To use the containers, you must have the associated key and endpoint URI. Both values are available on the Azure portal Form Recognizer **Keys and Endpoint** page: <ul><li>**{FORM_RECOGNIZER_KEY}**: one of the two available resource keys.<li>**{FORM_RECOGNIZER_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></li></ul>|
-:::moniker range="form-recog-2.1.0"
-| **Computer Vision API resource** | **To process business cards, ID documents, or Receipts, you need a Computer Vision resource.** <ul><li>You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image). The usual [billing](#billing) fees apply.</li> <li>If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`). If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of *5000*. </li></ul></br>Pass in both the key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:<ul><li>**{COMPUTER_VISION_KEY}**: one of the two available resource keys.</li><li> **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></ul> |
-:::moniker-end
-
 |Optional|Purpose|
 |---------|----------|
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
-|||
+
+:::moniker range="form-recog-2.1.0"
+You also need a **Computer Vision API resource to process business cards, ID documents, or Receipts**.
+
+* You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
+
+* The usual [billing](#billing) fees apply.
+
+* If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`).
+
+* If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of **5000**.
+
+* Pass in both the key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:
+
+  * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
+  * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
+:::moniker-end
 
 ## Request approval to run container
 
