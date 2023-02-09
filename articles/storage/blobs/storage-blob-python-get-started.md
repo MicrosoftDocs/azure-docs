@@ -47,7 +47,11 @@ Blob client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can create a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
+To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
+
+To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+
+You can authorize a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
 
 To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
@@ -64,7 +68,9 @@ To authorize with Azure AD, you'll need to use a [security principal](/azure/act
 
 #### Authorize access using DefaultAzureCredential
 
-The easiest way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
+An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
+
+The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_DAC":::
 
