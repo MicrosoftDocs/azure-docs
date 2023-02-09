@@ -128,7 +128,7 @@ When you set up a lab plan, you also can bring your own virtual network to your 
 
 After you've finished planning, you're ready to set up your lab plan.
 
-1. **Create your lab plan**. For instructions, see [Create a lab plan](./tutorial-setup-lab-plan.md#create-a-lab-plan).
+1. **Create your lab plan**. For instructions, see [Create a lab plan](./quick-create-resources.md).
 
    For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#naming).
 
