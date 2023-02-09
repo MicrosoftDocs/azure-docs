@@ -18,19 +18,10 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | February 2023 |
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is will be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-will-be-deprecated) | February 2023 |
 | [Three alerts in Defender for Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
-
-### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
-
-**Estimated date for change: February 2023**
-
-The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
-
-We recommend that you use the recommendation to remediate vulnerabilities in your containers. Remediating the recommendation won't affect your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
 
 ### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault will be deprecated
 
