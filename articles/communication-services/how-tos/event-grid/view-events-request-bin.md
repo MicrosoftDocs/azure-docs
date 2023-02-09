@@ -1,7 +1,7 @@
 ---
 title: Validate Azure Communication Services events
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to, you'll learn how to validate Azure Communication Services events with requestbin or Azure Event Viewer"
+description: "In this how-to document, you can learn how to validate Azure Communication Services events with RequestBin or Azure Event Viewer"
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Validate Azure Communication Services events
 
-As developers are getting started with Azure Communication Services, they often want to validate that their events are being sent by their resource. This document will show you how to validate that your events are being sent by your Azure Communication Services resource using Azure Event Grid viewer or RequestBin. 
+As developers are getting started with Azure Communication Services, they often want to validate that their events are being sent by their resource. This document shows you how to validate that your events are being sent by your Azure Communication Services resource using Azure Event Grid viewer or RequestBin. 
 
 ## Pre-requisites
 
@@ -26,11 +26,11 @@ Alternatively, if you want a quick and easy way to validate your events, you can
 
 ![request bin url](./media/requestbin-url.png)
 
-The steps below should be the same for both options.
+The next steps are the same for both options.
 
 ## Configure your Azure Communication Services resource to send events to your endpoint
 
-1. Using [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli), we configure the endpoint we just created in the pre-requisites to receive events from your Azure Communication Services resource. You need the resource id for your Azure Communication Services resource found in the Azure Portal.
+1. Using [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli), we configure the endpoint we created in the pre-requisites to receive events from your Azure Communication Services resource. You need the resource ID for your Azure Communication Services resource found in the Azure portal.
 
     ```bash
 
@@ -38,7 +38,7 @@ The steps below should be the same for both options.
 
     ```
 
-    In the command above, we only added the `Microsoft.Communication.SMSReceived` event type. You can add more event types to the command if you would like to receive more events. For a list of all the event types, see [Azure Communication Services events](../events-reference.md).
+    In the command, we only added the `Microsoft.Communication.SMSReceived` event type. You can add more event types to the command if you would like to receive more events. For a list of all the event types, see [Azure Communication Services events](../events-reference.md).
 
 2. (Optional, only if using RequestBin) You need to copy the `validationURL` on the first event the gets posted to your endpoint. You need to paste that URL on your browser to validate the endpoint. The page should saw 'Webhook successfully validated as a subscription endpoint'.
 
@@ -46,4 +46,4 @@ The steps below should be the same for both options.
 
 ## View events
 
-Now that you have configured your endpoint to receive events, you can leverage it to view events as they come through.
+Now that you've configured your endpoint to receive events, you can use it to view events as they come through.
