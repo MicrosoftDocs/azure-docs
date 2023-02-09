@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.date: 02/09/2023
 ms.author: v-bcatherine
 zone_pivot_groups: container-apps-image-build-from-repo
 ---
@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-image-build-from-repo
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-In this quickstart, you'll create a back end web API service that returns a static collection of music albums.  After this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you create a backend web API service that returns a static collection of music albums.  After this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 The following screenshot shows the output from the album API service deployed in this quickstart.
 
@@ -22,7 +22,7 @@ The following screenshot shows the output from the album API service deployed in
 
 ## Prerequisites
 
-To complete this project, you'll need the following items:
+To complete this project, you need the following items:
 
 
 ::: zone pivot="local-build"
@@ -128,7 +128,7 @@ $API_NAME="album-api"
 
 ## Prepare the GitHub repository
 
-Open a browser window, go to the GitHub repository for your preferred language, and fork the repository.
+In a browser window, go to the GitHub repository for your preferred language and fork the repository.
 
 # [C#](#tab/csharp)
 
@@ -276,26 +276,26 @@ az containerapp up `
     --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
-You'll need run the following command to get your registry credentials.
-
-You'll be prompted to enter the user code to log in your device to GitHub.  The URI for device activation and the user code will be displayed in the terminal.  Go to the device activation page and then copy the user code from the terminal and paste it in the browser.  The browser will prompt you to log in to GitHub and authorize the Azure CLI to access your GitHub account.  
+Using the URL and the user code displayed in the terminal, go to the GitHub device activation page in a browser and enter the user code to the page.  Follow the prompts to authorize the Azure CLI to access your GitHub repository.  
 
 ::: zone-end
 
-The `up` command creates a GitHub Action workflow in`.github/workflows` folder in your repository.
- The workflow will be triggered to build and deploy your container app when you push changes to the repository.  
+The `up` command creates a GitHub Action workflow in your repository *.github/workflows* folder. The workflow is triggered to build and deploy your container app when you push changes to the repository.
 
 ---
 
 ## Verify deployment
 
-Copy the FQDN to a web browser.  From your web browser, navigate to the `/albums` endpoint of the FQDN.
+Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
 ## Clean up resources
 
-If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
+If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart with the following command.
+
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it. If the group contains resources outside the scope of this quickstart, they are also deleted.
 
 # [Bash](#tab/bash)
 
