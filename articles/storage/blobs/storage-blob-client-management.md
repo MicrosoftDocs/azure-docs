@@ -283,7 +283,7 @@ The following examples show how to create a blob client to interact with a speci
 ## [.NET](#tab/dotnet)
 
 ```csharp
-BlobClient GetBlobClient(
+public BlobClient GetBlobClient(
     BlobServiceClient blobServiceClient,
     string containerName,
     string blobName)
