@@ -116,7 +116,7 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 1. Create a new Python file called sample_multivariate_detect.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of sample_multivariate_detect.py with the following code. You need to modify the paths for the variables `blob_url_path` and `local_json_file_path`
+2. Replace the contents of sample_multivariate_detect.py with the following code. You need to modify the paths for the variables `blob_url_path` and `local_json_file_path`.
 
 ```python
 import json
