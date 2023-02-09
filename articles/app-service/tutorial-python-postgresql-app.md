@@ -124,7 +124,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **Python 3.9**.
+        1. *Runtime stack* &rarr; **Python 3.10**.
         1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name is also set by default to appropriate values.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
         1. Select **Review + create**.
@@ -148,8 +148,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png":::
     :::column-end:::
 :::row-end:::
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## 2. Verify connection settings
 
@@ -175,7 +173,8 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column-end:::
 :::row-end:::
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
+
 
 ## 3. Deploy sample code
 
@@ -328,7 +327,8 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 -----
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
+
 
 ## 4. Generate database schema
 
@@ -383,8 +383,6 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 -----
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 ## 5. Browse to the app
 
 :::row:::
@@ -406,8 +404,6 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
     :::column-end:::
 :::row-end:::
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## 6. Stream diagnostic logs
 
@@ -447,8 +443,6 @@ For more robust logging, consider using Django's [built-in logger](https://docs.
     :::column-end:::
 :::row-end:::
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 ## 7. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
@@ -481,8 +475,6 @@ When you're finished, you can delete all of the resources from your Azure subscr
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-clean-up-resources-3.png"::::
     :::column-end:::
 :::row-end:::
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## Frequently asked questions
 
