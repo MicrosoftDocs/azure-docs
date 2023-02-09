@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 This tutorial walks you through how you would migrate to cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.  
 
 > [!NOTE]
-> This article provides information for a basic migration and you should review the [Migrating to cloud sync](migrate-aadc-to-cloud-sync.md) documentation before attempting to migrate your production environment.
+> This article provides information for a basic migration and you should review the [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
 ![Diagram that shows the Azure AD Connect cloud sync flow.](media/tutorial-migrate-aadc-aadccp/diagram-2.png)
 
@@ -56,8 +56,8 @@ The following are prerequisites required for completing this tutorial
 
 As a minimum, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. To update Azure AD Connect sync, complete the steps in [Azure AD Connect: Upgrade to the latest version](../hybrid/how-to-upgrade-previous-version.md).  
 
-## Backup your Azure AD Connect configuration
-Before making any changes, you should back-up your Azure AD Connect configuration.  This way, you can role-back should you need to.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
+## Back up your Azure AD Connect configuration
+Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can role-back.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
 
 ## Stop the scheduler
 

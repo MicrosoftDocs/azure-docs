@@ -55,7 +55,7 @@
     - name: Directory extensions and custom attributes
       href: custom-attribute-mapping.md
     - name: Migrate from Azure AD Connect
-      href: migrate-aadc-to-cloud-sync.md
+      href: migrate-azure-ad-connect-to-cloud-sync.md
   - name: Plan and design
     items:
     - name: Topologies and scenarios for Azure AD Connect cloud sync
