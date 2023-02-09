@@ -239,7 +239,7 @@ DTDL v3 (currently in preview) supports language extensions that define addition
 
 Each feature extension is identified by its *context specifier*, which is a unique [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#digital-twin-model-identifier) value. To enable a feature extension in a model, add the extension's context specifier to the model's `@context` field (alongside the general DTDL context specifier of `dtmi:dtdl:context;3`). You can add multiple feature extensions to the same model.
 
-Here's an example of what that `@context` field might look like with feature extensions. The following excerpt is from a model that uses both the [quantitative types extension](#quantitativetypes-extension) and the [annotation extension](#annotation-extension).
+Here's an example of what that `@context` field might look like with feature extensions. The following excerpt is from a model that uses both the [QuantitativeTypes extension](#quantitativetypes-extension) and the [Annotation extension](#annotation-extension).
 
 ```json
   "@context": [
@@ -251,7 +251,7 @@ Here's an example of what that `@context` field might look like with feature ext
 
 After you've added a feature extension to a model, you'll have access to that extension's *adjunct types* within the model. You can add adjunct types to the `@type` field of a DTDL element, to give the element additional capabilities. The adjunct type may add additional properties to the element.
 
-For example, here's an excerpt from a model that's using the [annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a Telemetry element. Adding this adjunct type to the Telemetry element allows the element to have an additional `annotates` field, which is used to indicate another Property or Telemetry that is annotated by this element. 
+For example, here's an excerpt from a model that's using the [Annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a Telemetry element. Adding this adjunct type to the Telemetry element allows the element to have an additional `annotates` field, which is used to indicate another Property or Telemetry that is annotated by this element. 
 
 ```json
 {
@@ -262,7 +262,7 @@ For example, here's an excerpt from a model that's using the [annotation extensi
   },
 ```
 
-The rest of this section explains the annotation extension and other DTDL v3 feature extensions in more detail.
+The rest of this section explains the Annotation extension and other DTDL v3 feature extensions in more detail.
 
 ### Annotation extension
 
