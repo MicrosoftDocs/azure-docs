@@ -44,7 +44,7 @@ With HTTPS ingress enabled, your container app features the following characteri
 
 ### <a name="tcp"></a>TCP (preview) 
 
-TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS.
+TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. [Configure ingress](#configure-ingress)
 
 > [!NOTE]
 > TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
@@ -133,13 +133,10 @@ The header is added to an HTTP request or response using a *name: value* format.
 
 ### Configure HTTP headers
 
->[!NOTE] Add information about how to configure HTTP headers.
-> [!div class="nextstepaction"]
-> [IP restrictions](ip-restirctions.md)
+> [!NOTE] 
+> Add information about how to configure HTTP headers.
 
 ## Next steps
 
-- [Network policies](network-policies.md)
-- [DNS](dns.md)
-- [VNET integration](vnet-integration.md)
-- [Custom VNET](vnet-custom.md)
+> [!div class="nextstepaction"]
+> [IP restrictions](ip-restrictions.md)

@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 02/10/2023
-ms.author: vbcatherine
+ms.author: v-bcatherine
 ---
 
 # <a name="ip-access-restrictions"></a>Set up IP restrictions to inbound access restrictions by IP address ranges (preview)
