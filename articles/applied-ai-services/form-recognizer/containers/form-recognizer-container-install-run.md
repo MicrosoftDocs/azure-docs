@@ -123,9 +123,10 @@ Feature container | Supporting container(s) |
 >
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-##### Read, Layout, and Prebuilt containers
-
 :::moniker range="form-recog-3.0.0"
+
+##### Read and Layout containers
+
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | `Read` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
@@ -133,6 +134,9 @@ Feature container | Supporting container(s) |
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
+
+##### Read, Layout, and prebuilt containers
+
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | `Read 3.2` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
@@ -713,7 +717,7 @@ The Form Recognizer containers send billing information to Azure by using a Form
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]
-> Currently, Form Recognizer v3 containers only support pay as you go pricing. Support for commitment tiers and disconnected mode will be added in MArch 2023.
+> Currently, Form Recognizer v3 containers only support pay as you go pricing. Support for commitment tiers and disconnected mode will be added in March 2023.
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 :::moniker-end
 
