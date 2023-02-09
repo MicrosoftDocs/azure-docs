@@ -189,13 +189,13 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 
 <div id="get-msoluserrole-failed">
 <!--
-  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  Empty div just to act as an alias for the "Azure AD Global Administrator Role Needed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../roles/permissions-reference.md) to the user.
+### Azure AD Global Administrator Role Needed
+User was authenticated successfully. However user is not assigned Global Administrator role. This is [how you can assign Global Administrator role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--

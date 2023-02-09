@@ -4,7 +4,7 @@ description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/17/2022
+ms.date: 1/31/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -173,9 +173,9 @@ In the Azure portal:
 
 4. Select **Runtime Settings**.
 
-5. In the **Edge Hub** module settings, delete everything from the **Create Options** text box.
+5. In the **Edge Hub** module settings, delete everything from the **Container Create Options** text box.
 
-6. Save your changes and create the deployment.
+6. Select **Apply** to save your changes and create the deployment.
 
 In the deployment.json file:
 
@@ -184,31 +184,30 @@ In the deployment.json file:
 2. Find the `edgeHub` settings in the edgeAgent desired properties section:
 
    ```json
-   "edgeHub": {
-       "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-           "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
-       },
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always"
-   }
+     "edgeHub": {
+         "restartPolicy": "always",
+         "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+         },
+         "status": "running",
+         "type": "docker"
+      }
    ```
 
 3. Remove the `createOptions` line, and the trailing comma at the end of the `image` line before it:
 
    ```json
-   "edgeHub": {
-       "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
-       },
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always"
+     "edgeHub": {
+         "restartPolicy": "always",
+         "settings": {
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+         "status": "running",
+         "type": "docker"
    }
    ```
 
-4. Save the file and apply it to your IoT Edge device again.
+4. Select **Create** to apply it to your IoT Edge device again.
 
 ### IoT Edge module fails to send a message to edgeHub with 404 error
 
@@ -248,25 +247,33 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* that is set to *false*.
+1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. 
+1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*. 
 
-![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
+   :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
 
-In the deployment manifest:
+1. Select **Apply** to save changes, then select **Review + create**. 
 
-```json
-"edgeHub": {
-  "type": "docker",
-  "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-    "createOptions": <snipped>
-  },
-  "env": {
-    "OptimizeForPerformance": {
-      "value": "false"
-    }
-  },
-```
+   The environment variable is now in the `edgeHub` property of the deployment manifest:
+   
+   ```json
+      "edgeHub": {
+         "env": {
+               "OptimizeForPerformance": {
+                  "value": false
+               }
+         },
+         "restartPolicy": "always",
+         "settings": {
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+         },
+         "status": "running",
+         "type": "docker"
+      }
+    ```
+
+1. Select **Create** to save your changes and deploy the module.
 
 ### Security daemon couldn't start successfully
 
@@ -313,13 +320,14 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
 
-2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
+2. Open the configuration panel by selecting **Not configured** (if your virtual machine is new) under DNS name, or select your existing DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
 
-   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
+   :::image type="content" source="./media/troubleshoot/configure-dns.png" alt-text="Screenshot of how to open the configuration panel of your DNS name.":::
 
-3. Provide a value for **DNS name label** and select **Save**.
+3. Provide a value for **DNS name label** if you don't have one already and select **Save**.
 
-4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+4. Copy the new DNS name, which should be in the format: <br>
+   **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 
 5. On the IoT Edge device, open the config file.
 

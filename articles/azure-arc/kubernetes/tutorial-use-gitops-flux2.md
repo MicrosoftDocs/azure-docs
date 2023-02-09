@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 12/19/2022
+ms.date: 02/08/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -219,8 +219,8 @@ az k8s-configuration flux create -g flux-demo-rg \
 --scope cluster \
 -u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
 --branch main  \
---kustomization name=infra path=./infrastructure prune=true \
---kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
+--kustomization-name=infra path=./infrastructure prune=true \
+--kustomization-name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 ```
 
 The `microsoft.flux` extension will be installed on the cluster (if it hasn't already been installed due to a previous GitOps deployment).

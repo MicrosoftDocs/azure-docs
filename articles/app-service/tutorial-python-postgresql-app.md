@@ -532,10 +532,10 @@ If you encounter any errors related to connecting to the database, check if the 
 
 ## Next steps
 
-Learn how to map a custom DNS name to your app:
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Learn how App Service runs a Python app:
 

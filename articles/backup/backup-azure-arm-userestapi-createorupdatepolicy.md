@@ -4,9 +4,9 @@ description: In this article, you'll learn how to create and manage backup polic
 ms.topic: conceptual
 ms.date: 06/13/2022
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Create Azure Recovery Services backup policies using REST API
 

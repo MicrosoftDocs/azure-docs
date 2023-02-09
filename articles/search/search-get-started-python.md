@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/17/2023
+ms.date: 01/27/2023
 ms.custom: devx-track-python, mode-api
 ---
 
