@@ -251,7 +251,7 @@ version = registered_model.version
     
     __endpoint.yaml__
 
-<!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml"::: -->
+    <!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -295,7 +295,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-<!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint"::: -->
+    <!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -322,7 +322,7 @@ version = registered_model.version
 
     __sklearn-deployment.yaml__
 
-<!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml"::: -->
+    <!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -375,7 +375,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-<!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment"::: -->
+    <!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -719,7 +719,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     **sample-request-sklearn.json**
     
-<!--    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json"::: -->
+    <!--    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json"::: -->
 
     To submit a request to the endpoint, you can do as follows:
     
