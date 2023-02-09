@@ -166,7 +166,7 @@ sections:
       - question: |
           What if a System Center Operations Manager agent is already installed on my VM?
         answer: |
-          Defender for Cloud will install the Log Analytics agent extension side by side to the existing System Center Operations Manager agent. The existing agent will continue to report to the System Center Operations Manager server normally. Note that the Operations Manager agent and Log Analytics agent share common run-time libraries, which will be updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
+          Defender for Cloud implements an Azure Policy that does not allow the Log Analytics agent to be installed while the System Center Operations Manager Agent in installed on the machine. Both the agents have the ability to multi-home and report to the System Center Operations Manager and the Log Analytics workspace. Note that the Operations Manager agent and Log Analytics agent share common run-time libraries. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).          
           
           
       - question: |
