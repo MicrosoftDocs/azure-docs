@@ -51,7 +51,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
 1. Remove the default value "AzureWebJobsStorage". 
 
-   ![Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-01.png)
+   ![Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)
 
 2. Link your Azure storage account by adding **either one** of the following value settings: 
 
@@ -66,7 +66,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
      > [!NOTE] 
      > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, then you will need to use this second option to provide specific service URLs. The values for these settings can be found in the storage account under the **Endpoints** tab. For more information on using Azure Storage with Azure Government, see the [Develop with Storage API on Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md) documentation. 
 
-   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
+   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 3. Finalize your managed identity configuration: 
 
@@ -77,7 +77,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
      * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Azure AD portal)
 
-     ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-03.png)
+     ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
 
 
@@ -104,7 +104,7 @@ In particular, this quickstart assumes that you have already:
 
    3. Copy and save the secret value carefully because it will not show up again after you leave the page. 
    
-   ![Screenshot of client secret page.](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-01.png)
+   ![Screenshot of client secret page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png)
 
 ### Assign Role-based Access Controls (RBAC) to the client application 
 
@@ -116,11 +116,11 @@ Assign these three roles to your client application with the following steps.
 
 1. Navigate to your function’s storage account **Access Control (IAM)** page and add a new role assignment. 
 
-   ![Screenshot of access control page.](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-02.png)
+   ![Screenshot of access control page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png)
 
 2. Choose the required role, click next, then search for your application, review and add. 
 
-   ![Screenshot of role assignment page.](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-03.png)
+   ![Screenshot of role assignment page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png)
 
 ### Add client secret configuration 
 
@@ -140,7 +140,7 @@ To run and test in Azure, specify the followings in your Azure function app’s 
    
    The values for these Uri variables can be found in the storage account under the **Endpoints** tab. 
    
-   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-MI-scenario-02.png)
+   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 3. Add a client secret credential by specifying the following values: 
    * **AzureWebJobsStorage__clientId**: (this is a GUID value found in the Azure AD application page) 
@@ -151,5 +151,5 @@ To run and test in Azure, specify the followings in your Azure function app’s 
 
    The client ID and tenant ID values can be found on your client application’s overview page. The client secret value is the one that was carefully saved in the previous step. It will not be available after the page is refreshed. 
    
-   ![Screenshot of application's overview page.](media/durable-functions-configure-df-with-credentials/durable-functions-CS-scenario-04.png)
+   ![Screenshot of application's overview page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)
 
