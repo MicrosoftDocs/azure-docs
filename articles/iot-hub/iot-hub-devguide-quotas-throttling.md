@@ -19,7 +19,7 @@ This article explains the quotas for an IoT Hub, and provides information to hel
 
 Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
-Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send in your hub per day. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+Each IoT hub is provisioned with units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send in your hub per day. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/) in the Azure portal.
 
@@ -63,17 +63,17 @@ The following table shows the enforced throttles for operations that are availab
 
 ### Throttling details
 
-* The meter size determines at what increments your throttling limit is consumed. If your direct call's payload is between 0 and 4 KB, it is counted as 4 KB. You can make up to 40 calls per second per unit before hitting the limit of 160 KB/sec/unit.
+* The meter size determines at what increments your throttling limit is consumed. If your direct call's payload is between 0 KB and 4 KB, it's counted as 4 KB. You can make up to 40 calls per second per unit before hitting the limit of 160 KB/sec/unit.
 
    Similarly, if your payload is between 4 KB and 8 KB, each call accounts for 8 KB and you can make up to 20 calls per second per unit before hitting the max limit.
 
-   Finally, if your payload size is between 156KB and 160 KB, you'll be able to make only 1 call per second per unit in your hub before hitting the limit of 160 KB/sec/unit.
+   Finally, if your payload size is between 156 KB and 160 KB, you can make only one call per second per unit in your hub before hitting the limit of 160 KB/sec/unit.
 
 * For *Jobs device operations (update twin, invoke direct method)* for tier S3, 50/sec/unit only applies to when you invoke methods using jobs. If you invoke direct methods directly, the original throttling limit of 24 MB/sec/unit (for S3) applies.
 
-* Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. D2C messages can be up to 256 KB; C2D messages can be up to 64 KB. These are the [maximum message sizes] for each type of message.
+* Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages irrespective of 4 KB chunks. D2C messages can be up to 256 KB; C2D messages can be up to 64 KB. These are the maximum message sizes for each type of message.
 
-* It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, refer to [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
+* It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 
 ### Traffic shaping
 
@@ -85,11 +85,11 @@ For example, you use a simulated device to send 200 device-to-cloud messages per
 
 Device identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-When initiating identity operations through [bulk registry update operations](/rest/api/iothub/service/bulkregistry/updateregistry) (*not* bulk import and export jobs), the same throttle limits apply. For example, if you want to submit bulk operation to create 50 devices, and you have a S1 IoT Hub with 1 unit, only two of these bulk requests are accepted per minute. This because the identity operation throttle for an S1 IoT Hub with 1 unit is 100/min/unit. Also in this case, a third request (and beyond) in the same minute would be rejected because the limit had already been reached. 
+When initiating identity operations through [bulk registry update operations](/rest/api/iothub/service/bulkregistry/updateregistry) (*not* bulk import and export jobs), the same throttle limits apply. For example, if you want to submit bulk operation to create 50 devices, and you have a S1 IoT Hub with one unit, only two of these bulk requests are accepted per minute. This limitation is because the identity operation throttle for an S1 IoT Hub with one unit is 100/min/unit. Also in this case, a third request (and beyond) in the same minute would be rejected because the limit has been reached.
 
 ### Device connections throttle
 
-The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
+The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle doesn't govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
@@ -101,10 +101,10 @@ IoT Hub enforces other operational limits:
 | --------- | ----- |
 | Devices | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. The only way to increase this limit is to contact [Microsoft Support](https://azure.microsoft.com/support/options/).|
 | File uploads | 10 concurrent file uploads per device. |
-| Jobs<sup>1</sup> | Maximum concurrent jobs is 1 (for Free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
+| Jobs<sup>1</sup> | Maximum concurrent jobs are 1 (for Free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | Additional endpoints | Basic and standard SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing queries | Basic and standard SKU hubs may have 100 routing queries. Free SKU hubs may have five routing queries. |
-| Message enrichments | Basic and standard SKU hubs can have up to 10 message enrichments. Free SKU hubs can have up to 2 message enrichments.|
+| Message enrichments | Basic and standard SKU hubs can have up to 10 message enrichments. Free SKU hubs can have up to two message enrichments.|
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50 per device. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB for the request and 128 KB for the response. |
@@ -115,7 +115,7 @@ IoT Hub enforces other operational limits:
 | Restrict outbound network access | Maximum number of allowed FQDNs is 20. |
 | x509 CA certificates | Maximum number of x509 CA certificates that can be registered on IoT Hub is 25. |
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
+<sup>1</sup>This feature isn't available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 
 ## Increasing the quota or throttle limit
 
@@ -123,13 +123,13 @@ At any given time, you can increase quotas or throttle limits by [increasing the
 
 ## Latency
 
-IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a certain latency. When designing your solution, you should:
+IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it can't guarantee a certain latency. When designing your solution, you should:
 
 * Avoid making any assumptions about the maximum latency of any IoT Hub operation.
 * Provision your IoT hub in the Azure region closest to your devices.
 * Consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
 
-Multiple IoT Hub units affect throttling as described previously, but do not provide any additional latency benefits or guarantees.
+Multiple IoT Hub units affect throttling as described previously, but don't provide any additional latency benefits or guarantees.
 
 If you see unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 

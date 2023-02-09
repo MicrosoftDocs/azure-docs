@@ -40,7 +40,7 @@ If you want to upgrade an existing IoT hub, you can do so from the Azure portal.
 
    :::image type="content" source="./media/iot-hub-upgrade/pricing-scale.png" alt-text="Screenshot that shows the pricing and scale page for an IoT hub.":::
 
-1. To upgrade the tier for your hub, select **Upgrade** on the tier tile. You can only upgrade from the basic tier to the standard tier. You cannot change the tier of a free or standard hub.
+1. To upgrade the tier for your hub, select **Upgrade** on the tier tile. You can only upgrade from the basic tier to the standard tier. You can't change the tier of a free or standard hub.
 
 1. To change the size or units for your hub, select **Adjust** on the daily message limit tile.
 
