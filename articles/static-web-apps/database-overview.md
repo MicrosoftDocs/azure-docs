@@ -41,7 +41,7 @@ Examples, not an exhaustive list of scenarios.
 | Name | Type | Description |
 |---|---|---|
 | [Cosmos DB](/azure/cosmos-db/distributed-nosql) |  | Globally distributed database platform for both NoSQL and relational databases of any scale.  |
-| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) |  | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. |
+| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) |  | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. |
 | [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | Fully managed PostgreSQL database. |
@@ -49,6 +49,7 @@ Examples, not an exhaustive list of scenarios.
 ### Connection authentication types
 
 | Type | Description |
+|---|---|
 | Connection string | Use the `env()` function to read a connection string from an environment variable. |
 | System-assigned Managed Identity |  |
 | User-assigned Managed Identity |  |
