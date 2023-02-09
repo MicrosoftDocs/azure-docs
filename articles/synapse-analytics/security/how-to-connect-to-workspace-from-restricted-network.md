@@ -112,7 +112,8 @@ After you create this endpoint, the approval state shows a status of **Pending**
 Now, all set. You can access your Azure Synapse Analytics Studio workspace resource.
 
 ## Step 6: Allow URL through firewall
-Following URLs must be accessible from client browser after enabling Synapse Private Link Hub. 
+
+Following URLs must be accessible from client browser after enabling Azure Synapse private link hub. 
 
 Required for auth: 
  - `login.microsoftonline.com`
