@@ -20,11 +20,11 @@ ms.reviewer: Xema Pathak
 
 To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoftresourcehealthresourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
 
-:::image type="content" source="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" alt-text="Screenshot of Azure Resource Graph with simple healthresources query." lightbox="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" :::
+:::image type="content" source="media/monitor-vm/resource-graph-explorer-healthresources.png" alt-text="Screenshot of Azure Resource Graph with simple healthresources query." lightbox="media/monitor-vm/resource-graph-explorer-healthresources.png" :::
 
 To view the details for a record, scroll to the right and select **See details**.
 
-:::image type="content" source="media/monitor-virtual-machines/resource-graph-explorer-healthresources-detail.png" alt-text="Screenshot of Azure Resource Graph healthresources detailed record." lightbox="media/monitor-virtual-machines/resource-graph-explorer-healthresources-detail.png" :::
+:::image type="content" source="media/monitor-vm/resource-graph-explorer-healthresources-detail.png" alt-text="Screenshot of Azure Resource Graph healthresources detailed record." lightbox="media/monitor-vm/resource-graph-explorer-healthresources-detail.png" :::
 
 There will be two  types of events populated in the HealthResources table:
 
