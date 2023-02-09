@@ -12,17 +12,17 @@ ms.date: 01/31/2023
 
 # Considerations for migrating from physical labs to Azure Lab Services
 
-Azure Lab Services enables you to provide lab environments that users can access from anywhere, any time of the day. When you migrate from physical labs to Azure Lab Services, you might reassess your lab structure to minimize costs and optimize the experience for lab creators and users. In this article, you learn about the considerations and benefits of migrating from physical labs to Azure Lab Services.
+Azure Lab Services enables you to provide lab environments that users can access from anywhere, any time of the day. When you migrate from physical labs to Azure Lab Services, you should reassess your lab structure to minimize costs and optimize the experience for lab creators and users. In this article, you learn about the considerations and benefits of migrating from physical labs to Azure Lab Services.
 
 ## Considerations for moving to Azure Lab Services
 
-The key factors when migrating from physical labs to Azure Lab Services are:
+When you migrate physical labs to Azure Lab Services, you should consider the following aspects:
 
-- The lab structure: single-purpose labs versus shared labs
-- Lab software requirements
-- Lab hardware requirements
+- What is the lab structure? Are labs used for different purposes (shared lab), such as multiple classes, or are they dedicated (single-purpose lab)?
+- What are the software requirements for the lab?
+- What are the lab hardware requirements? A shared lab has to accommodate the needs for all usage scenarios and therefore has higher requirements.
 
-The software and hardware requirements for a lab depend on the lab structure. A shared lab has to accommodate the needs for all usage scenarios and therefore has higher requirements.
+To optimally benefit, you need to reassess the lab and image contents as a whole. It's not recommended to reuse the same lab image from your physical lab as-is.
 
 ## Lab structure
 
@@ -42,6 +42,8 @@ Azure Lab Services is designed to use hardware more efficiently, so that you onl
 
 This structure helps to identify the optimal VM size for each class based on the specific workload, and helps to reduce the disk size requirements (Azure Lab Services’ currently supports a disk size of 127 GB).
 
+When you use Azure Lab Services, it's recommended that you use single-purpose labs.
+
 Learn more about [how to structure labs](./administrator-guide.md#lab) in the Azure Lab Services administrator guide.
 
 ## Benefits
@@ -52,7 +54,7 @@ There are multiple benefits of using single-purpose labs (for example, one class
 
 - Lab VMs only contain the software that is needed for their purpose. This simplifies the set-up and maintenance of labs by lab creators, and provides more clarity for lab users.
 
-- Access to each individual lab is controlled. Lab users are only granted access to labs and software they need to. Learn how to [add and manage lab users](./how-to-configure-student-usage.md).
+- Access to each individual lab is controlled. Lab users are only granted access to labs and software they need. Learn how to [add and manage lab users](./how-to-configure-student-usage.md).
 
 - Further optimize costs by taking advantage of the following features:
 
@@ -102,7 +104,7 @@ Consider a usage scenario where student uses their VM for a total of 10 hours:
 
     The total of both the engineering and math labs is 215000.
 
-By using a more granular lab structure, the total savings for running the labs are 33%. Also, keep in mind that you only pay for the number of hours that your students actually use their VMs. If students use their VMs less, the actual costs will be lower.
+By using a more granular lab structure, the total savings for running the labs are 33%. Also, keep in mind that you only pay for the number of hours that your students actually use their VMs. If students use their VMs less, the actual costs are lower.
 
 >[!IMPORTANT]
 > The cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
@@ -112,13 +114,17 @@ By using a more granular lab structure, the total savings for running the labs a
 When you start using Azure Lab Services, IT and faculty should coordinate early in the planning process to: 
 
 - Identify the specific software applications that each class requires. Learn more about [lab software requirements](./setup-guide.md#what-software-requirements-does-the-class-have).
-- Understand the workloads that students will perform using the lab. 
+- Understand the workloads that students perform using the lab. 
 
 This information is needed to choose the appropriate VM size when you create a lab and to set up the image on the template VM. Learn more about [VM sizing in Azure Lab Services](./administrator-guide.md#vm-sizing).
 
-To ensure that you choose the appropriate VM size, we recommend starting with the minimum VM size that meets the hardware requirements for your applications.  Then, have faculty connect to a lab VM to validate common workloads that students will perform to ensure the performance and experience is sufficient.  It’s helpful to refer to the [Class Types](./class-types.md), which show real-world examples of how to set up applications for classes along with the recommended VM size.
+To ensure that you choose the appropriate VM size, we recommend starting with the minimum VM size that meets the hardware requirements for your applications.  Then, have faculty connect to a lab VM to validate common workloads that students perform to ensure the performance and experience is sufficient.  It’s helpful to refer to the [Class Types](./class-types.md), which show real-world examples of how to set up applications for classes along with the recommended VM size.
 
 Also, [Azure Compute Gallery](./how-to-use-shared-image-gallery.md) is useful for creating and storing custom images. A compute gallery enables you to create an image once and reuse it to create multiple labs.
+
+## Conclusion
+
+Azure Lab Services provides many benefits for optimizing the cost of running your labs, simplifying set-up and maintenance, and having fine-grained access control. To optimally benefit, it's recommended to structure your labs in Azure Lab Services to have a single purpose. For example, create a separate lab for each classroom training.
 
 ## Next steps
 
