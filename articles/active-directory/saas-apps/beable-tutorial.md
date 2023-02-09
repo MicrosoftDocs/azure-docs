@@ -104,11 +104,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the Beable tile in the My Apps, you should be automatically signed in to the Beable for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
-
-* [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
-
 ## Next steps
 
 Once you configure Beable you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
