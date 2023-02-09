@@ -109,16 +109,14 @@ In this example, the following steps create a Logic App that uses the [common al
     }
     ```
 
-
-1. (Optional). You can customize the alert notification by extracting information about the resource using resource tags. You can then include those resource tags to the alert payload and use the information in your logical expressions for sending the notifications. Create a variable for the Affected Resource IDs and split them into in an array to add to the payload. You can then use these values to customize the alert notification. 
-    1. Select **+** and **Add an action** to insert a new step.
-
     :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the http request received step.":::
 
+1. (Optional). You can customize the alert notification by extracting information about the resource. You can then include those resource tags in the alert payload and use the information in your logical expressions for sending the notifications. To do this, we will create a variable for the affected resource Ids, and then split the information about the resources into in an array to add to the payload. You can then use these values to customize the alert notification. 
+    1. Select **+** and **Add an action** to insert a new step.
     1. In the **Search** field, search for and select **Initialize variable**.
-        1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
-        1. In the **Type** field, select **Array**.
-        1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: *split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')*
+    1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
+    1. In the **Type** field, select **Array**.
+    1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: *split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')*
 
              :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
 
@@ -136,12 +134,11 @@ In this example, the following steps create a Logic App that uses the [common al
     1. The dynamic content now includes tags from the resource that you can use in your notification.
 
 1. Send an email or post a Teams message.
-
-## [Send an email](#tab/send-email)
-
-1. Select the **+** icon to insert a new step.
+1. Select **+** and **Add an action** to insert a new step.
 
     :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
+
+## [Send an email](#tab/send-email)
 
 1. In the search field, search for *outlook*.
 1. Select **Office 365 Outlook**. 
