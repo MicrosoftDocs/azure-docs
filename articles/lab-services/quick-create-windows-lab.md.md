@@ -1,7 +1,7 @@
 ---
-title: Quickstart create a Windows-based lab
+title: Quickstart: Create a Windows-based lab
 titleSuffix: Azure Lab Services
-description: In this quickstart, you learn how to create a Windows-based lab in Azure Lab Services. You create the lab from a Azure Marketplace image, publish it, and then connect to it through Remote Desktop (RDP).
+description: In this quickstart, you learn how to create a Windows-based lab in Azure Lab Services. You create the lab from an Azure Marketplace image, publish it, and then connect to it through Remote Desktop (RDP).
 services: lab-services
 ms.service: lab-services
 author: ntrogh
@@ -22,6 +22,7 @@ After you complete this quickstart, you'll have a lab plan that you can use for 
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+
 [!INCLUDE [Create Azure resources](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Create a lab
@@ -92,7 +93,7 @@ To publish the lab and create one lab VM:
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing in progress message is highlighted.":::  
 
-1. On the **Virtual machine pool** page, confirm that there is one lab VM, named **Unassigned**, that is in the **Stopped** state.
+1. On the **Virtual machine pool** page, confirm that there's one lab VM, named **Unassigned**, that is in the **Stopped** state.
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
 

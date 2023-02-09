@@ -1,5 +1,5 @@
 ---
-title: Quickstart create lab plan resource
+title: Quickstart: Create lab plan resource
 titleSuffix: Azure Lab Services
 description: In this quickstart, you learn how to create a lab plan resource in the Azure portal. You need a lab plan to get started with Azure Lab Services.
 services: lab-services
@@ -11,7 +11,7 @@ ms.date: 02/09/2023
 ms.custom: mode-portal
 ---
 
-# Quickstart: Create lab resources you need to get started with Azure Lab Services
+# Quickstart: Create a lab plan resource you need to get started with Azure Lab Services
 
 Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this quickstart, you create an Azure Lab Services lab plan in the Azure portal. You can then get started with creating labs by using the Azure Lab Services website, Microsoft Teams, or Canvas.
 

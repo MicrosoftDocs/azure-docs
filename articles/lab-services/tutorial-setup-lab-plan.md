@@ -13,11 +13,11 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Create a lab for classroom training with Azure Lab Services
 
-Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and reponsibilities.
+Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and responsibilities.
 
 After you complete this tutorial, lab users register for the lab and connect to their lab VM through remote desktop (RDP).
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Assign a user to the Lab Creator role
@@ -30,6 +30,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+
 [!INCLUDE [Create Azure resources](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Add a user to the Lab Creator role
@@ -84,7 +85,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
 The lab template serves as the basis for the lab VMs. To make sure that lab users have the right configuration and software components, you can customize the lab template.
 
-To customize the lab template, you first starts the template virtual machine. You can then connect to it and configure it for the classroom training.
+To customize the lab template, you first start the template virtual machine. You can then connect to it and configure it for the classroom training.
 
 Use the following steps to update a template VM.  
 
@@ -104,7 +105,7 @@ Use the following steps to update a template VM.
 
 1. On the **Template** page, select **Stop template**.
 
-You've now customized the lab template for the course. Every VM in the lab will now have the same configuration as the template VM.
+You've now customized the lab template for the course. Every VM in the lab will have the same configuration as the template VM.
 
 ## Publish lab
 
@@ -148,7 +149,7 @@ Follow these steps to add a recurring schedule to your lab:
     | **Start time** | Enter a start time for the classroom training. |
     | **Stop time** | Enter an end time for the classroom training. |
     | **Time zone** | Select your time zone. |
-    | **Repeat** | Keep the default value, which is a weekly recurrence for 4 months. |
+    | **Repeat** | Keep the default value, which is a weekly recurrence for four months. |
     | **Notes** | Optionally enter a description for the schedule. |
 
 1. Select **Save** to confirm the lab schedule.
@@ -161,7 +162,7 @@ Follow these steps to add a recurring schedule to your lab:
 
 ## Invite users
 
-Bu default, Azure Lab Services restricts access to a lab. Only listed users can register for a lab and use a lab VM. Optionally, you can turn off restricted access.
+By default, Azure Lab Services restricts access to a lab. Only listed users can register for a lab and use a lab VM. Optionally, you can turn off restricted access.
 
 To allow access for users to a lab, perform the following steps:
 
@@ -192,7 +193,7 @@ You've now added users to the lab. On the **Users** page, you can see that their
 
 ### Send invitation emails
 
-After adding users, they can register for the lab by using a registration link for the lab. You can either manually provide users with the link, or you can invite users by letting Azure Lab Services send invitation emails.
+After you add users to the lab, they can register for the lab by using a registration link for the lab. You can either manually provide users with the link, or you can invite users by letting Azure Lab Services send invitation emails.
 
 1. On the **Users** page for the lab, select **Invite all** on the toolbar.
 
