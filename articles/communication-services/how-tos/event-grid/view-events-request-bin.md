@@ -1,7 +1,7 @@
 ---
 title: Validate Azure Communication Services events
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to, you'll learn how validate Azure Communication Services events with requestbin or Azure Event Viewer"
+description: "In this how-to, you'll learn how to validate Azure Communication Services events with requestbin or Azure Event Viewer"
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
