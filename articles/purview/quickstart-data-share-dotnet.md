@@ -73,183 +73,510 @@ To use it, be sure to fill out these variables:
 - **collectionName** - the name of the collection where your share will be housed.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-var sentShareClient = new SentSharesClient(endPoint, credential);
-var collectionName = "<name of your collection>";
-
-// Get collection internal reference name
-// Collections that are not the root collection have a friendlyName (the name you see in the Microsoft Purview Data Map) and an internal reference name used to access the collection programmatically.
-var collectionsResponse = await accountClient.GetCollectionsAsync();
-
-var collectionsResponseDocument = JsonDocument.Parse(collectionsResponse.Content);
-var collections = collectionsResponseDocument.RootElement.GetProperty("value");
-
-foreach (var collection in collections.EnumerateArray())
-{
-    if (String.Equals(collectionName, collection.GetProperty("friendlyName").ToString(), StringComparison.OrdinalIgnoreCase))
-    {
-        collectionName = collection.GetProperty("name").ToString();
-    }
-}
-
-// Create sent share
-var sentShareName = "sample-Share";
-var inPlaceSentShareDto = new
-{
-    shareKind = "InPlace",
-    properties = new
-    {
-        description = "demo share",
-        collection = new
-        {
-            referenceName = collectionName,
-            type = "CollectionReference"
-        }
-    }
-};
-var sentShare = await sentShareClient.CreateOrUpdateAsync(sentShareName, RequestContent.Create(inPlaceSentShareDto));
-```
-
-## Add an asset to a sent share
-
-The below code will add a data asset to a share you're sending.
-To use it, be sure to fill out these variables:
-
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name of the data share where you'll add the asset
-- **assetName** - a name for the asset you'll be adding
-- **senderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
-- **senderStorageContainer** - the name of container where your asset is housed in your storage account
-- **senderPathToShare** - the folder and file path for the asset you'll be sharing
-- **pathNameForReceiver** - a (path compliant) name that for the share that will be visible to the data receiver
-
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_02_Namespaces
-using Azure.Core;
-using Azure.Identity;
-
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-// Add asset to sent share
-var sentShareName = "sample-Share";
-var assetName = "fabrikam-blob-asset";
-var assetNameForReceiver = "receiver-visible-asset-name";
-var senderStorageResourceId = "<SENDER_STORAGE_ACCOUNT_RESOURCE_ID>";
-var senderStorageContainer = "fabrikamcontainer";
-var senderPathToShare = "folder/sample.txt";
-var pathNameForReceiver = "from-fabrikam";
-var assetData = new
-{
-    // For Adls Gen2 asset use "AdlsGen2Account"
-    kind = "blobAccount",
-    properties = new
-    {
-        storageAccountResourceId = senderStorageResourceId,
-        receiverAssetName = assetNameForReceiver,
-        paths = new[]
-        {
-            new
-            {
-                containerName = senderStorageContainer,
-                senderPath = senderPathToShare,
-                receiverPath = pathNameForReceiver
-            }
-        }
-    }
-};
-var assetsClient = new AssetsClient(endPoint, credential);
-await assetsClient.CreateAsync(WaitUntil.Started, sentShareName, assetName, RequestContent.Create(assetData));
-```
-
-## Send invitation
-
-The below code will send an invitation to a data share.
-To use it, be sure to fill out these variables:
-
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name of the data share you're sending
-- **assetName** - a name for your invitation
-- **targetEmail** or **targetActiveDirectoryId and targetObjectId** - the email address **or** objectId and tenantId for the user or service principal that will receive the data share. TenantId is optional.
-
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_03_Namespaces
-using Azure.Core;
-using Azure.Identity;
-
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-// Send invitation
-var sentShareName = "sample-Share";
-var invitationName = "invitation-to-fabrikam";
-var invitationData = new
-{
-    invitationKind = "User",
-    properties = new
-    {
-        targetEmail = "user@domain.com"
-    }
-};
-// Instead of sending invitation to Azure login email of the user, you can send invitation to object ID of a service principal and tenant ID.
-// Tenant ID is optional. To use this method, comment out the previous declaration, and uncomment the next one.
-//var invitationData = new
-//{
-//    invitationKind = "Application",
-//    properties = new
-//    {
-//        targetActiveDirectoryId = "<targetActiveDirectoryId>",
-//        targetObjectId = "<targetObjectId>"
-//    }
-//};
-var sentShareInvitationsClient = new SentShareInvitationsClient(endPoint, credential);
-await sentShareInvitationsClient.CreateOrUpdateAsync(sentShareName, invitationName, RequestContent.Create(invitationData));
-```
-
-## View sent share invitations
-
-The below code will allow you to view your sent invitations.
-To use it, be sure to fill out these variables:
-
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name share that an invitation was sent for
-
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_04_Namespaces
-using System.Linq;
+using System.ComponentModel;
 using System.Text.Json;
-using Azure.Identity;
 
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-var sentShareName = "sample-Share";
-// View sent share invitations. (Pending/Rejected)
-var sentShareInvitationsClient = new SentShareInvitationsClient(endPoint, credential);
-var sentShareInvitations = sentShareInvitationsClient.GetSentShareInvitations(sentShareName);
-var responseInvitation = sentShareInvitations.FirstOrDefault();
-if (responseInvitation == null)
+public static class ShareNetSample20
 {
-    //No invitations
-    return;
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
+    private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
+
+    private static string SenderStorageKind = "<Sender Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
+    private static string SenderStorageContainer = "<Share Data Container Name>";
+    private static string SenderPathToShare = "<File/Folder Path To Share>";
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // [OPTIONAL INPUTS] Override Value If Desired.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experience API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: CreateShare - START");
+            await Sender_CreateSentShare();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: CreateShare - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+
+    private static async Task<BinaryData> Sender_CreateSentShare()
+    {
+
+        TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+        if (sentSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Sent Shares Client.");
+        }
+
+        // Create sent share
+        var inPlaceSentShareDto = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}",
+                description = $"Sent share created via updated experience SDK.",
+                artifact = new
+                {
+                    storeKind = SenderStorageKind,
+                    storeReference = new
+                    {
+                        referenceName = SenderStorageResourceId,
+                        type = "ArmResourceReference"
+                    },
+                    properties = new
+                    {
+                        paths = new[]
+                        {
+                            new
+                            {
+                                receiverPath = ReceiverVisiblePath,
+                                containerName = SenderStorageContainer,
+                                senderPath = SenderPathToShare
+                            }
+                        }
+                    }
+                }
+            },
+        };
+
+        Operation<BinaryData> sentShare = await sentSharesClient.CreateSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
+        return Utilities.LogResult(sentShare.Value);
+    }
 }
-var responseInvitationDocument = JsonDocument.Parse(responseInvitation);
-var targetEmail = responseInvitationDocument.RootElement.GetProperty("properties").GetProperty("targetEmail");
 ```
 
-## View received invitations
+## Send invitation to a user
 
-The below code will allow you to view your received invitations.
-To use it, be sure to fill out these variables:
-
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_05_Namespaces
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
 using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
 
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-// View received invitations
-var receivedInvitationsClient = new ReceivedInvitationsClient(endPoint, credential);
-var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string RecipientUserEmailId = "<Target User's Email Id>";
+
+
+    // Credential Values
+    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
+    private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // [OPTIONAL INPUTS] Override Value If Desired.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experience API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: SendtoUser - START");
+            await Sender_CreateUserRecipient();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: SendtoUser - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+
+    private static async Task<BinaryData> Sender_CreateUserRecipient()
+    {
+
+        TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+        if (string.IsNullOrEmpty(RecipientUserEmailId))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient User Email Id.");
+        }
+
+        // Create user recipient and invite
+        var invitationData = new
+        {
+            invitationKind = "User",
+            properties = new
+            {
+                expirationDate = DateTime.Now.AddDays(7).ToString(),
+                notify = true, // Send invitation email
+                targetEmail = RecipientUserEmailId
+            }
+        };
+
+        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, Utilities.GenerateResourceName(useGuid: true), RequestContent.Create(invitationData));
+        return Utilities.LogResult(sentInvitation.Content);
+    }
+    
+}
+```
+
+## Send invitation to a service
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string RecipientApplicationTenantId = "<Target Application's Tenant Id>";
+    private static string RecipientApplicationObjectId = "<Target Application's Object Id>";
+
+    // Credential Values
+    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
+    private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // [OPTIONAL INPUTS] Override Value If Desired.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experience API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: SendtoService - START");
+            await Sender_CreateServiceRecipient();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: SendtoService - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+
+    private static async Task<BinaryData> Sender_CreateServiceRecipient()
+    {
+
+        TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+        if (!Guid.TryParse(RecipientApplicationTenantId, out Guid _))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient Service Tenant Id.");
+        }
+
+        if (!Guid.TryParse(RecipientApplicationObjectId, out Guid _))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient Service Object Id.");
+        }
+
+        // Create service recipient
+        var invitationData = new
+        {
+            invitationKind = "Service",
+            properties = new
+            {
+                expirationDate = DateTime.Now.AddDays(5).ToString(),
+                targetActiveDirectoryId = RecipientApplicationTenantId,
+                targetObjectId = RecipientApplicationObjectId
+            }
+        };
+
+        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, Utilities.GenerateResourceName(useGuid: true), RequestContent.Create(invitationData));
+        return Utilities.LogResult(sentInvitation.Content);
+    }
+
+    
+}
+```
+
+## List all sent shares
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## List all share recipients
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            var allRecipients = await sentSharesClient.GetAllSentShareInvitationsAsync(SentShareId).ToResultList();
+
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## Delete detatched recipients
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            var allRecipients = await sentSharesClient.GetAllSentShareInvitationsAsync(SentShareId).ToResultList();
+
+            var recipientToDelete = allRecipients.Single(recipient =>
+            {
+                var doc = JsonDocument.Parse(recipient).RootElement;
+                var props = doc.GetProperty("properties");
+                var key = props.GetProperty("shareStatus").ToString();
+                return key == "Detached";
+            });
+            var recipientId = JsonDocument.Parse(recipientToDelete).RootElement.GetProperty("id").ToString();
+            await sentSharesClient.DeleteSentShareInvitationAsync(WaitUntil.Completed, SentShareId, recipientId);
+            
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## Delete individual recipient
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string recipientId = "<Recipient (Client) Id>"
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            await sentSharesClient.DeleteSentShareInvitationAsync(WaitUntil.Completed, SentShareId, recipientId);
+            
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## Delete sent share
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            await sentSharesClient.DeleteSentShareAsync(WaitUntil.Completed, SentShareId);
+            
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
 ```
 
 ## Create a received share
@@ -262,143 +589,643 @@ To use it, be sure to fill out these variables:
 -  **sentShareLocation** - the region where the share is housed. It should be the same region as the sent share and will be one of [Microsoft Purview's available regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).
 - **collectionName** - the name of the collection where your share will be housed.
 
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_06_Namespaces
-using System.Linq;
-using System.Text.Json;
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
 
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-var collectionName = "<name of your collection>"
-
-// Create received share
-var receivedInvitationsClient = new ReceivedInvitationsClient(endPoint, credential);
-var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
-var receivedShareName = "fabrikam-received-share";
-var receivedInvitation = receivedInvitations.LastOrDefault();
-
-// Get collection internal reference name
-// Collections that are not the root collection have a friendlyName (the name you see in the Microsoft Purview Data Map) and an internal reference name used to access the collection programmatically.
-var collectionsResponse = await accountClient.GetCollectionsAsync();
-
-var collectionsResponseDocument = JsonDocument.Parse(collectionsResponse.Content);
-var collections = collectionsResponseDocument.RootElement.GetProperty("value");
-
-foreach (var collection in collections.EnumerateArray())
+public static class ShareNetSample20
 {
-    if (collection.Equals(collection.GetProperty("friendlyName").ToString(), StringComparison.OrdinalIgnoreCase))
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
+    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
+
+    private static string ReceiverStorageKind = "<Receiver Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string ReceiverStorageResourceId = "<Receiver Storage Account Resource Id>";
+    private static string ReceiverStorageContainer = "<Container Name To Receive Data Under>";
+    private static string ReceiverTargetFolderName = "<Folder Name to Received Data Under>";
+    private static string ReceiverTargetMountPath = "<Mount Path to Received Data Under>";
+
+    //Use if using a service principal to receive a share
+    private static bool UseServiceTokenCredentials = false;
+    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
+    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
+
+    // [OPTIONAL INPUTS] Override Values If Desired.
+    private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string ReceiverVisiblePath = Utilities.GenerateResourceName();
+
+    // General Configs
+    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
+    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
     {
-        collectionName = collection.GetProperty("name").ToString();
-    }
-}
-
-
-if (receivedInvitation == null)
-{
-    //No received invitations
-    return;
-}
-var receivedInvitationDocument = JsonDocument.Parse(receivedInvitation).RootElement;
-var receivedInvitationId = receivedInvitationDocument.GetProperty("name");
-var receivedShareData = new
-{
-    shareKind = "InPlace",
-    properties = new
-    {
-        invitationId = receivedInvitationId,
-        sentShareLocation = "eastus",
-        collection = new
+        try
         {
-            referenceName = collectionName,
-            type = "CollectionReference"
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experience API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: CreateReceivedShare - START");
+            await Receiver_CreateReceivedShare();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: CreateReceivedShare - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
         }
     }
-};
-var receivedShareClient = new ReceivedSharesClient(endPoint, credential);
-var receivedShare = await receivedShareClient.CreateAsync(receivedShareName, RequestContent.Create(receivedShareData));
-```
 
-## View accepted shares
+    private static async Task<BinaryData> Receiver_CreateReceivedShare(ReceivedSharesClient receivedSharesClient)
+    {
 
-The below code will allow you to view your accepted shares.
-To use it, be sure to fill out these variables:
+        TokenCredential receiverCredentials = UseServiceTokenCredentials
+            ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
+            : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
 
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name of the share you would like to view
+        receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
 
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_07_Namespaces
-using System.Linq;
-using System.Text.Json;
-using Azure.Identity;
+        if (receivedSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
+        }
 
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-var sentShareName = "sample-Share";
-// View accepted shares
-var acceptedSentSharesClient = new AcceptedSentSharesClient(endPoint, credential);
-var acceptedSentShares = acceptedSentSharesClient.GetAcceptedSentShares(sentShareName);
-var acceptedSentShare = acceptedSentShares.FirstOrDefault();
-if (acceptedSentShare == null)
-{
-    //No accepted sent shares
-    return;
+        var results = await receivedSharesClient.GetAllDetachedReceivedSharesAsync().ToResultList();
+        var detachedReceivedShare = Utilities.LogResults(results);
+
+        if (detachedReceivedShare == null)
+        {
+            throw new InvalidOperationException("No received shares found.");
+        }
+
+        var detachedReceivedShareDocument = JsonDocument.Parse(detachedReceivedShare).RootElement;
+        ReceivedShareId = detachedReceivedShareDocument.GetProperty("id").ToString();
+
+        var attachedReceivedShareData = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}",
+                sink = new
+                {
+                    storeKind = ReceiverStorageKind,
+                    properties = new
+                    {
+                        containerName = ReceiverStorageContainer,
+                        folder = ReceiverTargetFolderName,
+                        mountPath = ReceiverTargetMountPath
+                    },
+                    storeReference = new
+                    {
+                        referenceName = ReceiverStorageResourceId,
+                        type = "ArmResourceReference"
+                    }
+                }
+            }
+        };
+
+        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        return Utilities.LogResult(receivedShare.Value);
+    }
 }
-var receiverEmail = JsonDocument.Parse(acceptedSentShare).RootElement.GetProperty("properties").GetProperty("receiverEmail").GetString();
 ```
 
-## Get received assets
+## Update received share
 
-The below code will allow you to see the assets received from a share.
-To use it, be sure to fill out these variables:
-
-- **endpoint** - "https://\<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **receivedShareName** - the name of the share you would like to view the assets from
-- **assetMappingName** - consumer provided input that is used as identifier for the created asset mapping
-- **receiverContainerName** - the name of the container where the assets were housed
-- **receiverFolderName** - the name of the folder where the assets were housed
-- **receiverMountPath** - an optional input path parameter for destination mapping location
-- **receiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
-
-```C# Snippet:Azure_Analytics_Purview_Share_Samples_08_Namespaces
-using System;
-using System.Linq;
-using System.Text.Json;
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
 
-var credential = new DefaultAzureCredential();
-var endPoint = "https://<my-account-name>.purview.azure.com/share";
-// Get received assets
-var receivedShareName = "fabrikam-received-share";
-var receivedAssetsClient = new ReceivedAssetsClient(endPoint, credential);
-var receivedAssets = receivedAssetsClient.GetReceivedAssets(receivedShareName);
-var receivedAssetName = JsonDocument.Parse(receivedAssets.First()).RootElement.GetProperty("name").GetString();
-string assetMappingName = "receiver-asset-mapping";
-string receiverContainerName = "receivedcontainer";
-string receiverFolderName = "receivedfolder";
-string receiverMountPath = "receivedmountpath";
-string receiverStorageResourceId = "<RECEIVER_STORAGE_ACCOUNT_RESOURCE_ID>";
-var assetMappingData = new
+public static class ShareNetSample20
 {
-    // For Adls Gen2 asset use "AdlsGen2Account"
-    kind = "BlobAccount",
-    properties = new
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
+    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
+
+    private static string ReceiverStorageKind = "<Receiver Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string ReAttachStorageResourceId = "<Storage Account Resource Id For Reattaching Recieved Share>";
+    private static string ReceiverStorageContainer = "<Container Name To Receive Data Under>";
+    private static string ReceiverTargetFolderName = "<Folder Name to Received Data Under>";
+    private static string ReceiverTargetMountPath = "<Mount Path to Received Data Under>";
+
+    //Use if using a service principal to receive a share
+    private static bool UseServiceTokenCredentials = false;
+    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
+    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
+
+    // [OPTIONAL INPUTS] Override Values If Desired.
+    private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    // General Configs
+    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
+    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
     {
-        assetId = Guid.Parse(receivedAssetName),
-        storageAccountResourceId = receiverStorageResourceId,
-        containerName = receiverContainerName,
-        folder = receiverFolderName,
-        mountPath = receiverMountPath
+        try
+        {
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experience API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: UpdateReceivedShare - START");
+            await Receiver_UpdateReceivedShare();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: UpdateReceivedShare - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
     }
-};
-var assetMappingsClient = new AssetMappingsClient(endPoint, credential);
-var assetMapping = await assetMappingsClient.CreateAsync(WaitUntil.Completed, receivedShareName, assetMappingName, RequestContent.Create(assetMappingData));
+
+    private static async Task<BinaryData> Receiver_UpdateReceivedShare()
+    {
+
+        TokenCredential receiverCredentials = UseServiceTokenCredentials
+            ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
+            : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
+
+        receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+
+        if (receivedSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
+        }
+
+        var attachedReceivedShareData = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}-ReAttached",
+                sink = new
+                {
+                    storeKind = ReceiverStorageKind,
+                    properties = new
+                    {
+                        containerName = $"{ReceiverStorageContainer}reattached",
+                        folder = ReceiverTargetFolderName,
+                        mountPath = ReceiverTargetMountPath
+                    },
+                    storeReference = new
+                    {
+                        referenceName = ReAttachStorageResourceId,
+                        type = "ArmResourceReference"
+                    }
+                }
+            }
+        };
+
+        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        return Utilities.LogResult(receivedShare.Value);
+    }
+}
+```
+
+## List all received shares
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceiverStorageResourceId = "<Storage Account Resource Id For Reattaching Recieved Share>";
+
+    //Use if using a service principal to receive a share
+    private static bool UseServiceTokenCredentials = false;
+    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
+    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
+
+    // General Configs
+    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
+    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential receiverCredentials = UseServiceTokenCredentials
+            ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
+            : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
+
+            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+
+            var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## Delete received share
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
+
+    //Use if using a service principal to receive a share
+    private static bool UseServiceTokenCredentials = false;
+    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
+    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
+
+    // General Configs
+    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
+    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            TokenCredential receiverCredentials = UseServiceTokenCredentials
+            ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
+            : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
+
+            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+
+            await receivedSharesClient.DeleteReceivedShareAsync(WaitUntil.Completed, ReceivedShareId);
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+}
+```
+
+## Full lifecycle script
+
+This script gives the full share lifecycle for Sender, Receiver, and Manager operations. You can use this script and edit the Operations boolean toggles as needed.
+
+```C# Snippet:Azure_Analytics_Purview_Share_Sample
+// -----------------------------------------------------------------------
+//  <copyright>
+//      Copyright (C) Microsoft Corporation. All rights reserved.
+//  </copyright>
+// -----------------------------------------------------------------------
+
+using Azure;
+using Azure.Analytics.Purview.Share;
+using Azure.Core;
+using Azure.Identity;
+using System.ComponentModel;
+using System.Text.Json;
+
+namespace ShareNetSample;
+
+public static class ShareNetSample20
+{
+    // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
+    private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
+
+    private static string SenderStorageKind = "<Sender Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
+    private static string SenderStorageContainer = "<Share Data Container Name>";
+    private static string SenderPathToShare = "<File/Folder Path To Share>";
+
+    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
+    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
+
+    private static string RecipientUserEmailId = "<Target User's Email Id>";
+    private static string RecipientApplicationTenantId = "<Target Application's Tenant Id>";
+    private static string RecipientApplicationObjectId = "<Target Application's Object Id>";
+
+    private static string ReceiverStorageKind = "<Receiver Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string ReceiverStorageResourceId = "<Receiver Storage Account Resource Id>";
+    private static string ReceiverStorageContainer = "<Container Name To Receive Data Under>";
+    private static string ReceiverTargetFolderName = "<Folder Name to Received Data Under>";
+    private static string ReceiverTargetMountPath = "<Mount Path to Received Data Under>";
+
+    // Set if using Service principal to create shares
+    private static bool UseServiceTokenCredentials = false;
+    private static string SenderClientId = "<Sender Application (Client) Id>";
+    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
+
+    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
+    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
+
+    // Set if performing manage share operations
+    private static string ReAttachStorageResourceId = "<Storage Account Resource Id For Reattaching Recieved Share>";
+
+
+    // [OPTIONAL INPUTS] Override Values If Desired.
+    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string ReceiverVisiblePath = Utilities.GenerateResourceName();
+
+
+    // Toggle As Needed.
+    private static bool PerformSenderOperations = true;
+    private static bool PerformReceiverOperations = true;
+    private static bool PerformManageOperations = true;
+
+
+    // General Configs
+    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
+    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+
+    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
+    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
+
+    private static async Task Main(string[] args)
+    {
+        try
+        {
+            /// Replace all placeholder inputs above with actual values before running this program.
+            /// This updated Share experiece API will create Shares based on callers RBAC role on the storage account.
+            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
+
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: RunShareLifecycle - START");
+            await RunShareLifecycle();
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: RunShareLifecycle - FINISH");
+        }
+        catch (Exception ex)
+        {
+            Utilities.LogError(ex);
+        }
+    }
+
+    private async static Task RunShareLifecycle()
+    {
+        SentSharesClient? sentSharesClient = null;
+        ReceivedSharesClient? receivedSharesClient = null;
+
+        if (PerformSenderOperations)
+        {
+            TokenCredential senderCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
+
+            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+
+            Utilities.LogCheckpoint("Create Sent Share");
+            await Sender_CreateSentShare(sentSharesClient);
+
+            Utilities.LogCheckpoint("Add Service Recipient and Invite");
+            await Sender_CreateServiceRecipient(sentSharesClient);
+
+            Utilities.LogCheckpoint("Add User Recipient and Invite");
+            await Sender_CreateUserRecipient(sentSharesClient);
+        }
+
+        if (PerformReceiverOperations)
+        {
+            TokenCredential receiverCredentials = UseServiceTokenCredentials
+                ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
+                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
+
+            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+
+            Utilities.LogCheckpoint("List And Attach Received Share");
+            await Receiver_CreateReceivedShare(receivedSharesClient);
+        }
+
+        if (PerformManageOperations && sentSharesClient != null && receivedSharesClient != null)
+        {
+            Utilities.LogCheckpoint("List All Sent Shares");
+            var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
+            Utilities.LogResults(allSentShares);
+
+            Utilities.LogCheckpoint("List All Recipients");
+            var allRecipients = await sentSharesClient.GetAllSentShareInvitationsAsync(SentShareId).ToResultList();
+            Utilities.LogResults(allRecipients);
+
+            Utilities.LogCheckpoint("List All Received Shares");
+            var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
+            Utilities.LogResults(allReceivedShares);
+
+            Utilities.LogCheckpoint("Re-atach Received Share");
+            await Receiver_UpdateReceivedShare(receivedSharesClient);
+
+            Utilities.LogCheckpoint("Delete Recipient");
+            var recipientToDelete = allRecipients.Single(recipient =>
+            {
+                var doc = JsonDocument.Parse(recipient).RootElement;
+                var props = doc.GetProperty("properties");
+                var key = props.GetProperty("shareStatus").ToString();
+                return key == "Detached";
+            });
+            var recipientId = JsonDocument.Parse(recipientToDelete).RootElement.GetProperty("id").ToString();
+            await sentSharesClient.DeleteSentShareInvitationAsync(WaitUntil.Completed, SentShareId, recipientId);
+            Utilities.LogResult(recipientId);
+
+            Utilities.LogCheckpoint("Delete Received Share");
+            await receivedSharesClient.DeleteReceivedShareAsync(WaitUntil.Completed, ReceivedShareId);
+            Utilities.LogResult(ReceivedShareId);
+
+            Utilities.LogCheckpoint("Delete Sent Share");
+            await sentSharesClient.DeleteSentShareAsync(WaitUntil.Completed, SentShareId);
+            Utilities.LogResult(SentShareId);
+        }
+    }
+
+    private static async Task<BinaryData> Sender_CreateSentShare(SentSharesClient sentSharesClient)
+    {
+        if (sentSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Sent Shares Client.");
+        }
+
+        // Create sent share
+        var inPlaceSentShareDto = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}",
+                description = $"Sent share created via updated experience SDK.",
+                artifact = new
+                {
+                    storeKind = SenderStorageKind,
+                    storeReference = new
+                    {
+                        referenceName = SenderStorageResourceId,
+                        type = "ArmResourceReference"
+                    },
+                    properties = new
+                    {
+                        paths = new[]
+                        {
+                            new
+                            {
+                                receiverPath = ReceiverVisiblePath,
+                                containerName = SenderStorageContainer,
+                                senderPath = SenderPathToShare
+                            }
+                        }
+                    }
+                }
+            },
+        };
+
+        Operation<BinaryData> sentShare = await sentSharesClient.CreateSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
+        return Utilities.LogResult(sentShare.Value);
+    }
+
+    private static async Task<BinaryData> Sender_CreateUserRecipient(SentSharesClient sentShareClient)
+    {
+        if (string.IsNullOrEmpty(RecipientUserEmailId))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient User Email Id.");
+        }
+
+        // Create user recipient and invite
+        var invitationData = new
+        {
+            invitationKind = "User",
+            properties = new
+            {
+                expirationDate = DateTime.Now.AddDays(7).ToString(),
+                notify = true, // Send invitation email
+                targetEmail = RecipientUserEmailId
+            }
+        };
+
+        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, Utilities.GenerateResourceName(useGuid: true), RequestContent.Create(invitationData));
+        return Utilities.LogResult(sentInvitation.Content);
+    }
+
+    private static async Task<BinaryData> Sender_CreateServiceRecipient(SentSharesClient sentShareClient)
+    {
+        if (!Guid.TryParse(RecipientApplicationTenantId, out Guid _))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient Service Tenant Id.");
+        }
+
+        if (!Guid.TryParse(RecipientApplicationObjectId, out Guid _))
+        {
+            throw new InvalidEnumArgumentException("Invalid Recipient Service Object Id.");
+        }
+
+        // Create service recipient
+        var invitationData = new
+        {
+            invitationKind = "Service",
+            properties = new
+            {
+                expirationDate = DateTime.Now.AddDays(5).ToString(),
+                targetActiveDirectoryId = RecipientApplicationTenantId,
+                targetObjectId = RecipientApplicationObjectId
+            }
+        };
+
+        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, Utilities.GenerateResourceName(useGuid: true), RequestContent.Create(invitationData));
+        return Utilities.LogResult(sentInvitation.Content);
+    }
+
+    private static async Task<BinaryData> Receiver_CreateReceivedShare(ReceivedSharesClient receivedSharesClient)
+    {
+        if (receivedSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
+        }
+
+        var results = await receivedSharesClient.GetAllDetachedReceivedSharesAsync().ToResultList();
+        var detachedReceivedShare = Utilities.LogResults(results);
+
+        if (detachedReceivedShare == null)
+        {
+            throw new InvalidOperationException("No received shares found.");
+        }
+
+        var detachedReceivedShareDocument = JsonDocument.Parse(detachedReceivedShare).RootElement;
+        ReceivedShareId = detachedReceivedShareDocument.GetProperty("id").ToString();
+
+        var attachedReceivedShareData = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}",
+                sink = new
+                {
+                    storeKind = ReceiverStorageKind,
+                    properties = new
+                    {
+                        containerName = ReceiverStorageContainer,
+                        folder = ReceiverTargetFolderName,
+                        mountPath = ReceiverTargetMountPath
+                    },
+                    storeReference = new
+                    {
+                        referenceName = ReceiverStorageResourceId,
+                        type = "ArmResourceReference"
+                    }
+                }
+            }
+        };
+
+        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        return Utilities.LogResult(receivedShare.Value);
+    }
+
+    private static async Task<BinaryData> Receiver_UpdateReceivedShare(ReceivedSharesClient receivedSharesClient)
+    {
+        if (receivedSharesClient == null)
+        {
+            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
+        }
+
+        var attachedReceivedShareData = new
+        {
+            shareKind = "InPlace",
+            properties = new
+            {
+                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}-ReAttached",
+                sink = new
+                {
+                    storeKind = ReceiverStorageKind,
+                    properties = new
+                    {
+                        containerName = $"{ReceiverStorageContainer}reattached",
+                        folder = ReceiverTargetFolderName,
+                        mountPath = ReceiverTargetMountPath
+                    },
+                    storeReference = new
+                    {
+                        referenceName = ReAttachStorageResourceId,
+                        type = "ArmResourceReference"
+                    }
+                }
+            }
+        };
+
+        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        return Utilities.LogResult(receivedShare.Value);
+    }
+}
 ```
 
 ## Clean up resources
 
-To clean up the resources created for the quick start, use the following guidelines: 
+To clean up the resources created for the quick start, use the following guidelines:
 
 1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-share).
 1. Also [delete your received share](how-to-receive-share.md#delete-received-share).
