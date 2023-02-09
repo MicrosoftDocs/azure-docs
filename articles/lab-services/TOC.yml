@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
-  - name: What's New in Lab Services?
+  - name: What's new in Azure Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
   expanded: true
