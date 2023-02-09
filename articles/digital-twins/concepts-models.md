@@ -270,42 +270,7 @@ The *annotation extension* is used to add custom metadata to a property or telem
 
 This extension includes the `ValueAnnotation` adjunct type, which can be added to a DTDL Property or Telemetry element. The `ValueAnnotation` type adds one field to the element, `annotates`, which allows you to name another property or telemetry that is annotated by the current element.
 
-Here's an example of a model that uses the annotation extension, along with the [quantitative types extension](#quantitative-types-extension). In this example, there's a `currentTemp` Telemetry that provides a stream of temperature readings from a sensor. The `currentTempAccuracy` Telemetry and the `currentTempNote` Property are both co-typed with `ValueAnnotation`, and are used to add annotations to that `currentTemp` element.
-
-```json
-{
-  "@context": [
-      "dtmi:dtdl:context;3",
-      "dtmi:dtdl:extension:quantitativeTypes;1",
-      "dtmi:dtdl:extension:annotation;1"
-  ],
-  "@id": "dtmi:com:example:Sensor;1",
-  "@type": "Interface",
-  "contents": [
-      {
-          "@type": [ "Telemetry", "Temperature" ],
-          "name": "currentTemp",
-          "schema": "double",
-          "unit": "degreeFahrenheit"
-      },
-      {
-          "@type": [ "Telemetry", "ValueAnnotation" ],
-          "name": "currentTempAccuracy",
-          "annotates": "currentTemp",
-          "schema": "double"
-      },
-      {
-          "@type": [ "Property", "ValueAnnotation" ],
-          "name": "currentTempNote",
-          "annotates": "currentTemp",
-          "schema": "string",
-          "writable": true
-      }
-  ]
-}
-```
-
-You can view this extension's full spec details in the [DTDL V3 annotation extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.annotation.v1.md).
+You can view examples of this extension and its full spec details in the [DTDL V3 annotation extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.annotation.v1.md).
 
 ### Historization extension
 
@@ -313,36 +278,7 @@ The *historization extension* is used to designate a Property or Telemetry in a 
 
 This extension includes the `Historized` adjunct type, which can be added as a co-type to a DTDL Property or Telemetry element to indicate that the service should persist the element's historical values and make them available for querying and analytics. The `Historized` adjunct type doesn't add any fields to the element. 
 
-Here's an example of a model that uses the historization extension. In this example, the `setPointTemp` Property is co-typed with `Historized`. A second Property, `setPointTempSemantic`, is co-typed with both `Historized` and a semantic type from the [quantitative types extension](#quantitative-types-extension), to show how these extensions might be used together.
-
-```json
-{
-    "@context": [
-        "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:historization;1",
-        "dtmi:dtdl:extension:quantitativeTypes;1"
-    ],
-    "@id": "dtmi:com:example:Thermostat;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": [ "Property", "Historized" ],
-        "name": "setPointTemp",
-        "writable": true,
-        "schema": "double"
-      },
-      {
-        "@type": [ "Property", "Temperature", "Historized" ],
-        "name": "setPointTempSemantic",
-        "writable": true,
-        "schema": "double",
-        "unit": "degreeFahrenheit"
-      }
-    ]
-  }
-```
-
-You can view this extension's full spec details in the [DTDL V3 historization extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md).
+You can view examples of this extension and its full spec details in the [DTDL V3 historization extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md).
 
 ### Quantitative types extension
 
@@ -350,42 +286,7 @@ The *quantitative types extension* is used to enable semantic types, unit types,
 
 This extension enables the use of many semantic types as adjunct types, which can be added to a CommandRequest, a Field, a MapValue, a Property, or a Telemetry in DTDL V3. Semantic types add one field to the element, `unit`, which accepts a valid unit that corresponds to the semantic type. For a full list of supported semantic types and units, see the [DTDL V3 quantitative types extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md). 
 
-Here's an example of a model that uses the quantitative types extension, along with the [annotation extension](#annotation-extension). The `currentTemp` Telemetry field is co-typed with the `Temperature` semantic type. This adds a `unit` field to the element, and the chosen unit is `degreeFahrenheit`.
-
-```json
-{
-  "@context": [
-      "dtmi:dtdl:context;3",
-      "dtmi:dtdl:extension:quantitativeTypes;1",
-      "dtmi:dtdl:extension:annotation;1"
-  ],
-  "@id": "dtmi:com:example:Sensor;1",
-  "@type": "Interface",
-  "contents": [
-      {
-          "@type": [ "Telemetry", "Temperature" ],
-          "name": "currentTemp",
-          "schema": "double",
-          "unit": "degreeFahrenheit"
-      },
-      {
-          "@type": [ "Telemetry", "ValueAnnotation" ],
-          "name": "currentTempAccuracy",
-          "annotates": "currentTemp",
-          "schema": "double"
-      },
-      {
-          "@type": [ "Property", "ValueAnnotation" ],
-          "name": "currentTempNote",
-          "annotates": "currentTemp",
-          "schema": "string",
-          "writable": true
-      }
-  ]
-}
-```
-
-You can view this extension's full spec details in the [DTDL V3 quantitative types extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md).
+You can view examples of this extension and its full spec details in the [DTDL V3 quantitative types extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md).
 
 ### Streaming extension
 
@@ -393,33 +294,7 @@ The *streaming extension* is used to designate a Property in a DTDL V3 model as 
 
 This extension includes the `Streaming` adjunct type, which can be added as a co-type to a DTDL Property. If a Property is co-typed with `Streaming`, it must **not** have a `writable` field set to `true`. The `Streaming` adjunct type doesn't add any fields to the element.
 
-Here's an example of a model that uses the streaming extension. In this example, the `flowRate` Property is intended to be continuously updated, so it's co-typed with `Streaming` to indicate lower requirements for storage durability.
-
-```json
-{
-  "@context": [
-      "dtmi:dtdl:context;3",
-      "dtmi:dtdl:extension:streaming;1"
-  ],
-   "@id":"dtmi:com:example:GasTurbine;1",
-   "@type":"Interface",
-   "displayName":"GasTurbine",
-   "contents":[
-      {
-         "@type":"Property",
-         "name":"serialNumber",
-         "schema":"string"
-      },
-      {
-         "@type":["Property", "Streaming"],
-         "name":"flowRate",
-         "schema":"double"
-      }
-   ]
-}
-```
-
-You can view this extension's full spec details in the [DTDL V3 streaming extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.streaming.v1.md).
+You can view examples of this extension and its full spec details in the [DTDL V3 streaming extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.streaming.v1.md).
 
 
 ## Service-specific DTDL notes
