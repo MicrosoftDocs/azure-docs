@@ -12,7 +12,10 @@ ms.author: jasteppe
 
 # Understand the MedTech service device message data transformation
 
-This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into Fast Healthcare Interoperability Resources (FHIR&#174;) [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence on a [FHIR service](../fhir/overview.md).
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into FHIR [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence on the [FHIR service](../fhir/overview.md).
 
 The MedTech service device message data processing follows these steps and in this order:
 
