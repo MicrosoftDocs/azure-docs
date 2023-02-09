@@ -39,13 +39,15 @@ pip install --upgrade azure.ai.anomalydetector
 Multivariate Anomaly Detector requires your sample file to be stored as a .zip file in Azure Blob Storage.
 
 1. Create an <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
-2. Go to Access Control(IAM), and select +ADD to Add role assignment.
-3. Search role of Storage Blob Data Reader, click on it and then select Next.
-4. Select assign access to Managed identity, and Select Members, then choose the anomaly detector resource that you created earlier, then select Review + assign.
+2. Go to Access Control(IAM), and select **ADD** to Add role assignment.
+3. Search role of **Storage Blob Data Reader**, highlight this account type and then select **Next**.
+4. Select **assign access to Managed identity**, and Select **Members**, then choose the **Anomaly Detector resource** that you created earlier, then select **Review + assign**.
+
+This configuration can sometimes be a little confusing, if you have trouble we recommend consulting our [multivariate Jupyter Notebook sample](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/SDK%20Sample/%F0%9F%86%95MVAD-SDK-Demo.ipynb), which walks through this process more in-depth.
 
 ### Download sample data
 
-This quickstart uses two files for sample data `sample_data_5_3000.csv` and `5_3000.json`. These can both be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/)
+This quickstart uses two files for sample data `sample_data_5_3000.csv` and `5_3000.json`. These files can both be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/)
 
  You can also download the sample data by running:
 
@@ -61,18 +63,18 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/mu
 
 1. Go to your Storage Account, select Containers and create a new container.
 2. Select **Upload** and upload sample_data_5_3000.csv
-3. Click on the data that you uploaded and copy the Blob URL as you will need to add it to the code sample in a few steps.
+3. Select the data that you uploaded and copy the Blob URL as you need to add it to the code sample in a few steps.
 
 ## Retrieve key and endpoint
 
-To successfully make a call against the Anomaly Detector service, you'll need the following values:
+To successfully make a call against the Anomaly Detector service, you need the following values:
 
 |Variable name | Value |
 |--------------------------|-------------|
 | `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
 | `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
 ### Create environment variables
 
@@ -114,30 +116,9 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 1. Create a new Python file called sample_multivariate_detect.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of sample_multivariate_detect.py with the following code. You will need to modify the paths for the variables `blob_url_path` and `local_json_file_path`
+2. Replace the contents of sample_multivariate_detect.py with the following code. You need to modify the paths for the variables `blob_url_path` and `local_json_file_path`
 
 ```python
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-
-"""
-FILE: sample_multivariate_detect.py
-
-DESCRIPTION:
-    This sample demonstrates how to use multivariate dataset to train a model and use the model to detect anomalies.
-
-Prerequisites:
-     * The Anomaly Detector client library for Python
-     * A valid data feed
-
-USAGE:
-    python sample_multivariate_detect.py
-
-    Set the environment variables with your own values before running the sample:
-    1) ANOMALY_DETECTOR_KEY - your source Form Anomaly Detector API key.
-    2) ANOMALY_DETECTOR_ENDPOINT - the endpoint to your source Anomaly Detector resource.
-"""
-
 import json
 import os
 import time
@@ -149,7 +130,7 @@ from azure.core.exceptions import HttpResponseError
 from azure.ai.anomalydetector.models import *
 
 blob_url_path = "Path-to-sample-file-in-your-storage-account"  # example path: https://docstest001.blob.core.windows.net/test/sample_data_5_3000.csv
-local_json_file_path = "Local-path-to-sample-json-file" # example where file is in same local directory as your script: "5_3000.json"
+local_json_file_path = "Local-path-to-sample-json-file" # example where file is in same local directory as your Python script: "5_3000.json"
 
 
 class MultivariateSample:
@@ -336,7 +317,7 @@ if __name__ == "__main__":
                 )
 
     # *******************************************************************************************************************
-    # use your own inference data sending to last detection api, you should define your own variables and detectingPoints
+    # Use your own inference data sending to last detection api, you should define your own variables and detectingPoints
     # *****************************************************************************************************************
     # define "<YOUR OWN variables>"
     # variables = [
@@ -425,9 +406,7 @@ timestamp: 2021-01-02 00:07:00+00:00, is_anomaly: 1    , anomaly score: 0.6615, 
 	contributor variable: series_2  , contributor score: 0.0354
 ```
 
-The results above have been truncated for brevity.
-
-We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/SDK%20Sample/%F0%9F%86%95MVAD-SDK-Demo.ipynb) to help you get started.
+The output results have been truncated for brevity.
 
 ## Clean up resources
 
