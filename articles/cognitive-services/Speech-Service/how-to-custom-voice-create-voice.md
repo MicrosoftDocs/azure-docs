@@ -184,7 +184,7 @@ Go to the model details page and follow the on-screen instructions to install th
 
 Alternatively, select **Install the latest engine** later to update your model to the latest engine version.
 
-:::image type="content" source="media/custom-voice/cnv-install-latest-engine.png" alt-text="Screenshot of selecting Update button to update engine.":::
+:::image type="content" source="media/custom-voice/cnv-install-latest-engine.png" alt-text="Screenshot of selecting Install the latest engine button to update engine.":::
 
 You're not charged for engine update. The previous versions are still kept. You can check all engine versions for the model from **Engine version** drop-down list, or remove one if you don't need it anymore. 
 
