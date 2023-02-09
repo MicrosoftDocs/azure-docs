@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/08/2023
+ms.date: 02/09/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to renew expiring service principal credentials.
+This article covers the recommendation to renew expiring service principal credentials. This recommendation is called `servicePrincipalKeyExpiry` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
