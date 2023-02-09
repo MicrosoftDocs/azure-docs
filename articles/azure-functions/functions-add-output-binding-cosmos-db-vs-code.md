@@ -33,7 +33,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 > [!IMPORTANT]
 > [Azure Cosmos DB serverless](../cosmos-db/serverless.md) is now generally available. This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. To use Azure Cosmos DB in serverless mode, choose **Serverless** as the **Capacity mode** when creating your account.
 
-1. In Visual Studio Code, select **View** > **Command Pallete...** then in the command pallete search for `Azure Databases: Create Server...`
+1. In Visual Studio Code, select **View** > **Command Palette...** then in the command palette search for `Azure Databases: Create Server...`
 
 1. Provide the following information at the prompts:
 
@@ -49,7 +49,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 ## Create an Azure Cosmos DB database and container
 
-1. Select the Azure icon in the Activity bar, expand **Resources** > **Azure Cosmos DB**, right-click (Ctrl+click on macOS) your account, and select **Create database...**.
+1. Select the Azure icon in the Activity bar, expand **Resources** > **Azure Cosmos DB**, right-click (Ctrl+select on macOS) your account, and select **Create database...**.
 
 1. Provide the following information at the prompts:
 
@@ -63,9 +63,9 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 ## Update your function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you update your app to write JSON documents to the Azure Cosmos DB container you've just created. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure Cosmos DB account when running locally.
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you update your app to write JSON documents to the Azure Cosmos DB container you've created. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure Cosmos DB account when running locally.
 
-1. In Visual Studio Code, right-click (Ctrl+click on macOS) on your new Azure Cosmos DB account, and select **Copy Connection String**.
+1. In Visual Studio Code, right-click (Ctrl+select on macOS) on your new Azure Cosmos DB account, and select **Copy Connection String**.
 
     :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/copy-connection-string.png" alt-text="Copying the Azure Cosmos DB connection string" border="true":::
 
@@ -76,7 +76,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
     |Prompt| Selection|
     |--|--|
     |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
-    |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you just copied.|
+    |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you copied.|
 
     This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
@@ -92,7 +92,7 @@ Because you're using an Azure Cosmos DB output binding, you must have the corres
 
 ::: zone pivot="programming-language-csharp"
 
-With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure Cosmos DB extension package to your project.
+Except for HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure Cosmos DB extension package to your project.
 
 # [In-process](#tab/in-process)
 ```bash
@@ -140,7 +140,7 @@ Open the *HttpExample.cs* project file and add the following classes:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="36-46":::
 
-The `MyDocument` class defines an object that gets written to the database. The connection string for the Storage account is set by the `Connection` property. In this case, you could omit `Connection` because you are already using the default storage account.
+The `MyDocument` class defines an object that gets written to the database. The connection string for the Storage account is set by the `Connection` property. In this case, you could omit `Connection` because you're already using the default storage account.
 
 The `MultiResponse` class allows you to both write to the specified collection in the Azure Cosmos DB and return an HTTP success message. Because you need to return a `MultiResponse` object, you need to also update the method signature.
 
@@ -152,9 +152,9 @@ Specific attributes specify the name of the container and the name of its parent
 
 ::: zone pivot="programming-language-javascript"
 
-Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the function.json file. 
+Binding attributes are defined directly in the *function.json* file. Depending on the binding type, other properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
 
-To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+To create a binding, right-click (Ctrl+select on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
 
 | Prompt | Value | Description |
 | -------- | ----- | ----------- |
@@ -188,9 +188,9 @@ A binding is added to the `bindings` array in your function.json, which should l
 
 # [v1](#tab/v1)
 
-Binding attributes are defined directly in the *function.json* file. Depending on the binding type, additional properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
+Binding attributes are defined directly in the *function.json* file. Depending on the binding type, other properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
 
-To create a binding, right-click (Ctrl+click on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+To create a binding, right-select (Ctrl+select on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
 
 | Prompt | Value | Description |
 | -------- | ----- | ----------- |
