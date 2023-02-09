@@ -582,6 +582,8 @@ items:
           href: ../common/storage-auth-aad-app.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Write code
         items:
+        - name: Create and manage client objects
+          href: storage-blob-client-management.md
         - name: .NET
           items:
           - name: Get started
