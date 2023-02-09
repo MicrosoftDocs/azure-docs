@@ -9,11 +9,7 @@ ms.date: 02/06/2023
 
 # Lambda functions for ARM templates
 
-This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In ARM templates, lambda expression is in this format:
-
-```json
-<lambda variable> => <expression>
-```
+This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. 
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
