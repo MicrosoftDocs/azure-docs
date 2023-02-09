@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Secure user-based service accounts in Active Directory
 
-On-premises user accounts was the traditional approach to help secure services running on Windows. Today, use these accounts if group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about the account type to use, see [Securing on-premises service accounts](service-accounts-on-premises.md). 
+On-premises user accounts were the traditional approach to help secure services running on Windows. Today, use these accounts if group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about the account type to use, see [Securing on-premises service accounts](service-accounts-on-premises.md). 
 
 You can investigate moving your service an Azure service account, such as a managed identity or a service principal. 
 
@@ -39,11 +39,11 @@ The challenges of on-premises user accounts are summarized in the following tabl
 | Challenge | Mitigation |
 | - | - |
 | Password management is manual and leads to weaker security and service downtime| - Ensure regular password complexity and changes are governed by a process that maintains strong passwords</br> - Coordinate password changes with a service password, which helps reduce service downtime|
-| Identifying on-premises user accounts that are service accounts can be difficult | - Document service accounts deployed in your environment</br> - Track the account name and the resources they can access</br> - Consider adding the prefix svc- to user accounts used as service accounts |
+| Identifying on-premises user accounts that are service accounts can be difficult | - Document service accounts deployed in your environment</br> - Track the account name and the resources they can access</br> - Consider adding the prefix svc to user accounts used as service accounts |
 
 ## Find on-premises user accounts used as service accounts
 
-On-premises user accounts are like other AD user accounts. It can be difficult to find the accounts, because no user account attribute identifies it as a service account. We recommend you create a naming convention for user accounts uses as service accounts. For example, add the prefix svc- to a service name: svc-HRDataConnector.
+On-premises user accounts are like other AD user accounts. It can be difficult to find the accounts, because no user account attribute identifies it as a service account. We recommend you create a naming convention for user accounts uses as service accounts. For example, add the prefix svc to a service name: svc-HRDataConnector.
 
 Use some of the following criteria to find service accounts. However, this approach might not find accounts:
 
@@ -95,11 +95,11 @@ See the following table for potential on-premises user account security issues a
 | - | - |
 | Password management| - Ensure password complexity and password change are governed by regular updates and strong password requirements</br> - Coordinate password changes with a password update to minimize service downtime |
 | The account is a member of privileged groups| - Review group membership</br> - Remove the account from privileged groups</br> - Grant the account rights and permissions to run its service (consult with service vendor)</br> - For example, deny sign-in locally or interactive sign-in|
-| The account has read/write permissions to sensitive resources| - Audit access to sensitive resources</br> - Archive audit logs to a SIEM: Azure Log Analytics or Microsoft Sentinel</br> - Remediate resource permissions if you detect an undesirable access levels |
+| The account has read/write permissions to sensitive resources| - Audit access to sensitive resources</br> - Archive audit logs to a SIEM: Azure Log Analytics or Microsoft Sentinel</br> - Remediate resource permissions if you detect undesirable access levels |
 
 ## Use secure account types
 
-Microsoft doesn't recommend use of on-premises user accounts as service accounts. For services that uses this account type, assess if it can be configured to use a gMSA or an sMSA. In addition, evaluate if you can move the service to Azure to enable use of safer account types. 
+Microsoft doesn't recommend use of on-premises user accounts as service accounts. For services that use this account type, assess if it can be configured to use a gMSA or an sMSA. In addition, evaluate if you can move the service to Azure to enable use of safer account types. 
 
 ## Next steps
 
