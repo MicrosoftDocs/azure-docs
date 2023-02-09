@@ -54,6 +54,7 @@ The information in the rest of this document provides information on what featur
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | GA       | YES                | YES         |
+| [Configure Apache Spark pools to perform data wrangling](apache-spark-azure-ml-concepts.md)                                             | Public Preview       | No                | No         |
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 

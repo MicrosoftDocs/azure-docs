@@ -7,7 +7,7 @@ ms.date: 01/31/2023
 ms.custom: seodec18
 
 ---
-# By an App Service domain and configure an app with it
+# Buy an App Service domain and configure an app with it
 
 App Service domains are custom domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This article shows you how to buy an App Service domain and configure an App Service app with it.
 

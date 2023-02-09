@@ -139,6 +139,13 @@ productDirectory:
         - mobile
       url: communication-services/overview.md
     # Card
+    - title: Azure Communications Gateway
+      summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
+      imageSrc: ./media/index/communications-gateway.svg
+      azureCategories:
+        - networking
+      url: communications-gateway/index.yml
+    # Card
     - title: Computer Vision
       summary: Distill actionable information from images
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
