@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -37,6 +37,8 @@ Each of these features can be enabled independently. For example, a public IP ad
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt-in to the experience using Azure PowerShell, Azure CLI, or REST API.
 
 When you join the preview, all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you may do so by [unregistering from the preview](#unregister-from-the-preview).
+
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
 ## Register to the preview
 
@@ -162,8 +164,6 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
-For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
-
 ## Regions and availability
 
 The following regions are available for public preview.  Provisioning in regions outside of the list will result in error / failure:
@@ -210,11 +210,10 @@ Network security groups associated to an Application Gateway subnet no longer re
 
 The following is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
- ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png)
+ [ ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png) ](./media/application-gateway-private-deployment/inbound-rules.png#lightbox)
 
 > [!Note]
 > Application Gateway will display an alert asking to ensure the **Allow LoadBalanceRule** is specified if a **DenyAll** rule inadvertently restricts access to health probes.
-
 
 ## Route Table Control
 
