@@ -80,7 +80,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [.Net 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0), which is a prerequisite for Logic Apps runtime.
+  * [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0), which includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime.
 
   * [Azure Functions Core Tools - 4.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
