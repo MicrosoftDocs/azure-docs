@@ -426,9 +426,9 @@ A storage class is used to define how a unit of storage is dynamically created w
     azure-netapp-files   csi.trident.netapp.io   Delete          Immediate           false                  3s
     ```
 
-### Create a PersistentVolumeClaim
+### Create a persistent volume claim
 
-A PersistentVolumeClaim (PVC) is a request for storage by a user. Upon the creation of a PersistentVolumeClaim, Astra Trident automatically creates an Azure NetApp Files volume and makes it available for Kubernetes workloads to consume.
+A persistent volume claim (PVC) is a request for storage by a user. Upon the creation of a persistent volume claim, Astra Trident automatically creates an Azure NetApp Files volume and makes it available for Kubernetes workloads to consume.
 
 1. Create a file named `anf-pvc.yaml` and copy the following manifest. In this example, a 1-TiB volume is created that with *ReadWriteMany* access.
 
