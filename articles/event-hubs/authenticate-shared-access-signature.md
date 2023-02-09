@@ -328,6 +328,11 @@ You can disable local authentication for a given Event Hubs namespace by setting
   ]
 ``` 
 
+## Samples
+
+- See the .NET sample #6 in [this GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples) to learn how to publish events to an event hub using shared access credentials or the default azure credential identity.
+- See the .NET sample #5 in [this GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) to learn how to consume or process events using shared access credentials or the default azure credential identity.
+
 ## Next steps
 See the following articles:
 
