@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a Windows-based lab
+title: 'Quickstart: Create a Windows-based lab'
 titleSuffix: Azure Lab Services
 description: In this quickstart, you learn how to create a Windows-based lab in Azure Lab Services. You create the lab from an Azure Marketplace image, publish it, and then connect to it through Remote Desktop (RDP).
 services: lab-services

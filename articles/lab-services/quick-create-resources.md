@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create lab plan resource
+title: 'Quickstart: Create lab plan resource'
 titleSuffix: Azure Lab Services
 description: In this quickstart, you learn how to create a lab plan resource in the Azure portal. You need a lab plan to get started with Azure Lab Services.
 services: lab-services
