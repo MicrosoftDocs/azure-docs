@@ -121,7 +121,7 @@ Required for auth:
  - `msauth.net`
  - `msftauth.net`
  - `graph.microsoft.com`
-  - `login.live.com`, though this may be different based on account type.
+ - `login.live.com`, though this may be different based on account type.
  
 Required for workspace/pool management: 
  - `management.azure.com`
