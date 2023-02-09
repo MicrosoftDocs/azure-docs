@@ -79,7 +79,7 @@ Because SolidWorks requires a GPU, the engineering lab uses the **Small GPU (Vis
 
 The following image shows how the lab structure changes when moving this physical lab to Azure Lab Services.
 
-:::image type="content" source="./media/concept-migrating-physical-labs/physical-lab-to-lab-services.png" alt-text="Diagram that shows both the physical lab structure and the target lab structure in Azure Lab Services.":::
+:::image type="content" source="./media/concept-migrating-physical-labs/physical-lab-to-lab-services.png" alt-text="Diagram that shows both the physical lab structure and the target lab structure in Azure Lab Services." lightbox="./media/concept-migrating-physical-labs/physical-lab-to-lab-services.png":::
 
 ### Cost analysis
 
