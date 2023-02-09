@@ -18,7 +18,7 @@ This article explains how you can use ASA CI/CD tool to configure autoscale sett
 The ASA CI/CD tool allows you to specify the maximum number of streaming units and configure set of rules for autoscaling your jobs. Then it determines to add SUs to handle increases in load or to reduce the number of SUs when computing resources are sitting idle. 
 
 Examples of an autoscale setting:
-- If the maximum number of SUs is set to 12, it will increase SUs when the average SU% utilization of the job over the last 2 minutes goes above 75%.
+- If the maximum number of SUs is set to 12, it increases SUs when the average SU% utilization of the job over the last 2 minutes goes above 75%.
 
 ## Prerequisites
 - A Stream Analytics project in the local machine. If don't have one, follow this [guide](quick-create-visual-studio-code.md) to create one. 
@@ -37,6 +37,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
     ```
     
     Here's the list of command supported for `azure-streamanalytics-cicd`:
+
     |Command        |Description    |
     |---------------|---------------|
     |build          |Generate standard ARM template for the given Azure Stream Analytics VSCode project.|
@@ -59,6 +60,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
 4. Configure autoscale setting.
     You need to add parameter key and values using `azure-streamanalytics-cicd autoscale` command.
+
     |Parameter key   | Value | Example|
     |----------------|-------|--------|
     |capacity| maximum SUs (1, 3, 6 or multiples of 6 up to 396)|12|
@@ -75,6 +77,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
     ![Configure autoscale](./media/cicd-autoscale/configure-autoscale.png)
 
     Here's the list of metrics you can use for defining autoscale rules: 
+
     |Metrics                        | Description           |
     |-------------------------------|-------------------|
     |ProcessCPUUsagePercentage      | CPU % Utilization |
@@ -139,7 +142,7 @@ Replace **$jobResourceId** with your Stream Analytics job resource ID and run th
 azure-streamanalytics-cicd autoscale --capacity 12 --metrics ProcessCPUUsagePercentage ResourceUtilization --targetJobResourceId $jobResourceId --outputPath ./Deploy
 ```
 
-If configure successfully, you see ARM tempalte and parameter files created in the current directory.
+If configure successfully, you see ARM template and parameter files created in the current directory.
 
 Then you can deploy the autoscale settings to Azure by following the Deployment steps in scenario 1.
 
