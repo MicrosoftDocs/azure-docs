@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Solution for SAP - data reference
-description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel Solution for SAP.
+title: Microsoft Sentinel solution for SAP® applications - data reference
+description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
@@ -8,18 +8,18 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel Solution for SAP data reference
+# Microsoft Sentinel solution for SAP® applications data reference
 
 > [!IMPORTANT]
 > Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-This article describes the functions, logs, and tables available as part of the Microsoft Sentinel Solution for SAP and its data connector. It is intended for advanced SAP users.
+This article describes the functions, logs, and tables available as part of the Microsoft Sentinel solution for SAP® applications and its data connector. It is intended for advanced SAP users.
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel Solution for SAP. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -391,7 +391,7 @@ For a full history of user activity, run a custom KQL query against the SAPAudit
 
 ## Logs produced by the data connector agent
 
-This section describes the SAP logs available from the Microsoft Sentinel Solution for SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+This section describes the SAP logs available from the Microsoft Sentinel solution for SAP® applications data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 For best results, use the Microsoft Sentinel functions listed below to visualize, access, and query the data.
 
@@ -1066,9 +1066,9 @@ For best results, refer to these tables using the name in the **Sentinel functio
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Solution for SAP detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP® applications detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel Solution for SAP: built-in security content](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel solution for SAP® applications: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

@@ -506,13 +506,16 @@ items:
             href: logs/availability-zones.md
         - name: Monitor
           items:
-          - name: Monitor a workspace
-            href: logs/monitor-workspace.md
-          - name: Analyze usage and cost
-            href: logs/analyze-usage.md
+          - name: Monitor Log Analytics workspace health
+            displayName: latency
+            href: logs/log-analytics-workspace-health.md
+          - name: Monitor operational issues
+            href: logs/monitor-workspace.md     
           - name: Log data ingestion time
             displayName: latency
             href: logs/data-ingestion-time.md
+          - name: Analyze usage and cost
+            href: logs/analyze-usage.md   
         - name: Move and delete
           items:
           - name: Move a workspace
@@ -700,7 +703,7 @@ items:
       - name: Java
         items:
         - name: Overview
-          href: app/java-in-process-agent.md
+          href: app/opentelemetry-enable.md?tabs=java
         - name: Spring Boot
           href: app/java-spring-boot.md
         - name: Java Profiler
@@ -1191,9 +1194,7 @@ items:
      - name: Upgrading Log Analytics Dashboards
        href: logs/dashboard-upgrade.md
   - name: Power BI
-    items:
-      - name: Export log data
-        href: logs/log-powerbi.md
+    href: logs/log-powerbi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
@@ -1692,8 +1693,6 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

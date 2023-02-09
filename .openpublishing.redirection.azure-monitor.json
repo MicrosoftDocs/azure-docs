@@ -26,6 +26,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/legacy-pricing.md",
+            "redirect_url": "/azure/azure-monitor/best-practices-cost",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger.md",
             "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger",
             "redirect_document_id": false
@@ -5698,13 +5703,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/proactive-performance-diagnostics.md",
+            "redirect_url": "https://azure.microsoft.com/updates/public-preview-alerts-based-smart-detection-for-application-insights/",
+            "redirect_document_id": false
+        },
+      {
             "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-resource-log-schema.md",
             "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/azure-monitor/alerts/proactive-performance-diagnostics.md",
-            "redirect_url": "https://azure.microsoft.com/updates/public-preview-alerts-based-smart-detection-for-application-insights/",
+      {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
             "redirect_document_id": false
         }
     ]
