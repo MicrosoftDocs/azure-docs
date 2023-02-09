@@ -45,13 +45,13 @@ Navigate to your app's storage resource on the Azure portal. Follow [these instr
 * Storage Blob Data Contributor 
 * Storage Table Data Contributor 
 
-### Add managed identity configuration in the Azure Portal
+### Add managed identity configuration in the Azure portal
 
 Navigate to your Azure function app’s **Configuration** page and perform the following changes: 
 
 1. Remove the default value "AzureWebJobsStorage". 
 
-   ![Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)
+  [ ![Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png#lightbox)
 
 2. Link your Azure storage account by adding **either one** of the following value settings: 
 
@@ -90,11 +90,11 @@ Registering a client application in Azure Active Directory (Azure AD) is another
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it. 
 In particular, this quickstart assumes that you have already: 
 
-* Created a Durable Functions project on your local machine or in the Azure Portal. 
+* Created a Durable Functions project on your local machine or in the Azure portal. 
 
 
 ### Register a client application on Azure Active Directory 
-1. Register a client application under Azure Active Directory in the Azure Portal according to [these instructions](../../healthcare-apis/register-application.md).
+1. Register a client application under Azure Active Directory in the Azure portal according to [these instructions](../../healthcare-apis/register-application.md).
 
 2. Create a client secret for your client application. In your registered application:  
 
@@ -124,7 +124,7 @@ Assign these three roles to your client application with the following steps.
 
 ### Add client secret configuration 
 
-To run and test in Azure, specify the followings in your Azure function app’s **Configuration** page in the Azure Portal. To run and test locally, specify the following in the function’s **local.settings.json** file. 
+To run and test in Azure, specify the followings in your Azure function app’s **Configuration** page in the Azure portal. To run and test locally, specify the following in the function’s **local.settings.json** file. 
 
 1. Remove the default value "AzureWebJobsStorage". 
 
