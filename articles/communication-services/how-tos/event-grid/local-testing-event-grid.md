@@ -6,7 +6,7 @@ author: ddematheu2
 manager: shahen
 services: azure-communication-services
 ms.author: dademath
-ms.date: 02/09/2022
+ms.date: 02/09/2023
 ms.topic: how-to
 ms.service: azure-communication-services
 ---
