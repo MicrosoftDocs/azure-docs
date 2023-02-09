@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/02/23
+ms.date: 02/02/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -31,6 +31,7 @@ Serverless
 Examples, not an exhaustive list of scenarios.
 
 | Type | Description |
+|---|---|
 | Content management systems (CMS) |  |
 | Marketing sites |  |
 | Line-of-business applications |  |
@@ -57,7 +58,7 @@ Examples, not an exhaustive list of scenarios.
 ## Constraints
 
 The database must be accessible by Azure's infrastructure. What is the IP address range/domain range to allowlist? Sajeetharan Sinnathurai
-During public preview, the Database connections will scale from 0 to 1 worker. 
+During public preview, the Database connections will scale from 0 to 1 worker.
 
 ## Next steps
 
