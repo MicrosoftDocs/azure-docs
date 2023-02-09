@@ -19,7 +19,7 @@ This article describes how to enable and disable transparent data encryption (TD
 Enabling service-managed transparent data encryption will require the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials will be automatically created when service-managed transparent data encryption is enabled. For more info on TDE, please refer to [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption).
 
 
-Turning on the TDE feature does following:
+Turning on the TDE feature does the following:
 
 - All existing databases will now be automatically encrypted.
 - All newly created databases will get automatically encrypted.
