@@ -102,7 +102,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account. 
+You've now created your share. The recipients of your share will receive an invitation and they can view the share invitation in their Microsoft Purview account. 
 
 When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 

@@ -31,9 +31,9 @@ Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overvi
 |**Data provider**: create share, add asset and recipients, revoke access | **Microsoft Purview collection role**: minimum of Data Reader to use the Microsoft Purview compliance portal experience, none to use API or SDK |
 | |**Storage account role** checked when adding and updating asset: Owner or Storage Blob Data Owner |
 | |**Storage account permissions** checked when adding and updating asset: Microsoft.Authorization/roleAssignments/write OR Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/|
-|**Data consumer**: Receive share, map asset, terminate share |**Microsoft Purview collection role**: minimum of Data Reader to use the Microsoft Purview compliance portal experience, none to use API or SDK |
-| |**Storage account role** checked when mapping asset: Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner |
-| |**Storage account permissions** checked when mapping asset: Microsoft.Storage/storageAccounts/write OR Microsoft.Storage/storageAccounts/blobServices/containers/write|	
+|**Data consumer**: Receive share, attach share, delete share |**Microsoft Purview collection role**: minimum of Data Reader to use the Microsoft Purview compliance portal experience, none to use API or SDK |
+| |**Storage account role** checked when attaching share: Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner |
+| |**Storage account permissions** checked when attaching share: Microsoft.Storage/storageAccounts/write OR Microsoft.Storage/storageAccounts/blobServices/containers/write|	
 |**Data consumer**: Access shared data| No share-specific role required. You can access shared data with regular storage account permission just like any other data. Data consumer's ability to apply ACLs for shared data is currently not supported.|
 
 ##	How can I share data from containers?
@@ -62,11 +62,11 @@ Through API and SDK, you also send invitation to object ID of a user principal o
 
 ## Is the recipient accepting the share only for themselves?
 
-When the recipient accepts the share and maps asset to a target storage account, any user or application that has access to the target storage account will be able to access shared data.
+When the recipient attaches the share to a target storage account, any user or application that has access to the target storage account will be able to access shared data.
 
 ## If the recipient leaves the organization, what happens to the received share?
 
-Once the received share is accepted and asset is mapped to a target storage account, any users with appropriate permissions to the target storage account can continue to access the shared data even after the recipient has left the organization.
+Once the received share is accepted and attached to a target storage account, any users with appropriate permissions to the target storage account can continue to access the shared data even after the recipient has left the organization.
 
 Once the received share is accepted, any user with Data Share Contributor permission to the Microsoft Purview collection that the share is received into can view and update the received share.
 

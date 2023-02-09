@@ -69,7 +69,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. You can view your share invitations in any Microsoft Purview account. In the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
 
-    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing pending received share for the first time. [You can see our guide below for steps.](#guest-user-verification) Once verified, it's valid for 12 months.
+    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing share invitation for the first time. [You can see our guide below for steps.](#guest-user-verification) Once verified, it's valid for 12 months.
 
     :::image type="content" source="./media/how-to-receive-share/view-invites.png" alt-text="Screenshot showing the Share invites page in the Microsoft Purview governance portal." border="true":::  
 
@@ -93,7 +93,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Select **Attach to target**.
 
-   :::image type="content" source="./media/how-to-receive-share/attach-shared-data.png" alt-text="Screenshot showing pending share configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
+   :::image type="content" source="./media/how-to-receive-share/attach-shared-data.png" alt-text="Screenshot showing share invitation configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
 
 1. On the Manage data shares page, you'll see the new share with the status of **Creating** until it has completed and is attached.
 
@@ -161,7 +161,7 @@ If you've been notified that you've received a share, but can't view share invit
 * You don't have a minimum of **Data Reader** role to any collections in this Microsoft Purview account. Contact your *Microsoft Purview Collection Admin* to grant you access to **Data Reader** role to view, accept and configure the received share. 
 * Share invitation is sent to your email alias or an email distribution group instead of your Azure sign-in email. Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address.
 * Share has already been accepted.  If you've already accepted the share, it will no longer show up in *Share invites* tab. Select *Received shares* in any Storage account that you have permissions to and see your active shares.
-* You're a guest user of the tenant. If you're a guest user of a tenant, [you need to verify your email address for the tenant in order to view pending share for the first time](#guest-user-verification). Once verified, it's valid for 12 months.
+* You're a guest user of the tenant. If you're a guest user of a tenant, [you need to verify your email address for the tenant in order to view a share invitation for the first time](#guest-user-verification). Once verified, it's valid for 12 months.
 
 ### Can't see target storage account in the list when attaching a share
 
