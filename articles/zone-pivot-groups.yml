@@ -335,6 +335,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
