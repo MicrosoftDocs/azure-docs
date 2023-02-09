@@ -93,7 +93,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In the **Enable ChangeTracking and Inventory for virtual machines** page, enter the following options:
    1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
    1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to create data collection rule](#create-data-collection-rule).
+   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource id after you create the Data collection rule](#create-data-collection-rule).
    1. Select **Review + create**.
 
 
@@ -104,15 +104,17 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. In the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy DCR. The **Data Collection Rule Name** is optional.
+1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
    >[!NOTE]
-   >- Ensure that the name of your DCR is unique in that resource group, else the deployment will overwrite the existing DCR.
+   >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
    >- The Log Analytics Workspace Resource Id specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../how-to/region-mappings.md)
 
 1. Select **Review+create** > **Create** to initiate the deployment of *CtDcrCreation*.
-1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created DCR for Change tracking and inventory deployment through policy.
+1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.
+ 
+   :::image type="content" source="media/enable-vms-monitoring-agent/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
 
 ## Next steps
 
