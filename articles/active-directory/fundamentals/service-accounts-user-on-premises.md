@@ -19,7 +19,12 @@ ms.collection: M365-identity-device-management
 
 On-premises user accounts was the traditional approach to help secure services running on Windows. Today, use these accounts if group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about the account type to use, see [Securing on-premises service accounts](service-accounts-on-premises.md). 
 
-You can investigate moving your service an Azure service account, such as a managed identity or a service principal. See, [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+You can investigate moving your service an Azure service account, such as a managed identity or a service principal. 
+
+Learn more:
+
+* [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+* [Securing service principals in Azure Active Directory](service-accounts-principal.md)
 
 You can create on-premises user accounts to provide security for services and permissions the accounts use to access local and network resources. On-premises user accounts require manual password management, like other Active Directory (AD) user accounts. Service and domain administrators are required to maintain strong password management processes to help keep accounts secure.
 
