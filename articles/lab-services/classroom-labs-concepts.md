@@ -86,5 +86,5 @@ A lab can use either quota time, [scheduled time](#schedule), or a combination o
 
 ## Next steps
 
-- [Get started and create a lab](./quick-create-lab-plan-portal.md).
-- [Set up a lab for classroom training](./tutorial-setup-lab-plan.md).
+- [Create the resources to get started](./quick-create-resources.md)
+- [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab-plan.md)

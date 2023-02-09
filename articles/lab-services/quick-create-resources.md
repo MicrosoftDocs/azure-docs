@@ -42,4 +42,4 @@ You now have an Azure Lab Services lab plan that contains the common configurati
 Use this resource to learn more about Azure Lab Services and create labs.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create Windows-based lab](./quick-create-windows-lab.md)
+> [Quickstart: Create a Windows-based lab](./quick-create-windows-lab.md)
