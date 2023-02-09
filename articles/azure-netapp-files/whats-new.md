@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## January 2023
+## February 2023
 
 * [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) (Preview)
 
