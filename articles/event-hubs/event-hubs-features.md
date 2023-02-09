@@ -47,14 +47,14 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
-- The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
+- The **default** value and **shortest** possible retention period is **1 hour**.
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all events including events that are already in the event hub. 
 
 Event Hubs retains events for a configured retention time that applies across
 all partitions. Events are automatically removed when the retention period has
-been reached. If you specify a retention period of one day, the event will
+been reached. If you specify a retention period of one day (24 hours), the event will
 become unavailable exactly 24 hours after it has been accepted. You can't
 explicitly delete events. 
 

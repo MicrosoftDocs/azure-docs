@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: SAP on Azure documentation (preview)
+title: SAP on Azure documentation
 summary:  SAP on Azure provides multiple options for running, managing and monitoring SAP workloads on Azure.
 metadata:
   title: SAP on Azure
@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan
-  ms.date: 01/18/2022
+  ms.date: 02/08/2023
 
 landingContent:
   - title: SAP workloads on Azure VMs
