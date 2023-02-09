@@ -12,8 +12,10 @@
   items:
     - name: Create resources to get started
       href: quick-create-resources.md
+      displayName: get started, lab plan, lab, quickstart, getting started
     - name: Create a Windows-based lab
       href: quick-create-windows-lab.md
+      displayName: get started, lab plan, lab, quickstart, lab VM, virtual machine, getting started
 - name: Tutorials
   items:
   - name: Set up a lab for classroom training
@@ -28,8 +30,9 @@
     href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
-  - name: Labs concepts
-    href: classroom-labs-concepts.md    
+  - name: Key concepts for Azure Lab Services
+    href: classroom-labs-concepts.md
+    displayName: definitions, concepts, lab, template, lab plan, what is, schedule, quota, compute gallery, virtual machine, VM
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
   - name: Nested virtualization on a template VM
