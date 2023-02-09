@@ -125,7 +125,7 @@ If you've configured your storage account to allow access from selected networks
 
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The threshold is 14,400 Gb per 5-minute evaluation period. |
+    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The alert threshold is 1676 GiB per 5-minute evaluation period. |
   
 1. Alert remediation actions:
     - Use a separate storage account for export that isn't shared with non-monitoring data.
@@ -138,7 +138,7 @@ If you've configured your storage account to allow access from selected networks
   
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 1,200 MB per 5-minute evaluation period. |
+    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 228 MiB per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Incoming requests | Count | 80% of maximum events per alert evaluation period. For example, the limit is 1,000/s per unit (TU or PU) and five units used. The threshold is 1,200,000 per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Quota exceeded errors | Count | Between 1% of request. For example, requests per 5 minutes is 600,000. The threshold is 6,000 per 5-minute evaluation period. |
 
@@ -631,7 +631,9 @@ The template option doesn't apply.
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
 ## Supported tables
-All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.
+
+> [!NOTE]
+> We are in a process of adding support for more tables. Please check this article regularly. 
 
 | Table | Limitations |
 |:---|:---|
