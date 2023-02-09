@@ -49,3 +49,4 @@ Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download
 ## Next steps
 
 - [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md)
+
