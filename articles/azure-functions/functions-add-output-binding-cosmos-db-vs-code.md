@@ -1,10 +1,10 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-ms.date: 08/17/2021
+ms.date: 02/09/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.devlang: csharp, javascript
+ms.devlang: csharp, javascript, python
 ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022
 ---
 
@@ -19,6 +19,9 @@ Before you begin, you must complete the [quickstart: Create a C# function in Azu
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end
+::: zone pivot="programming-language-python"  
+Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](create-first-function-vs-code-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end
 
 ## Configure your environment
@@ -102,7 +105,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ---
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-python"
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
 
@@ -178,6 +181,48 @@ A binding is added to the `bindings` array in your function.json, which should l
     "connectionStringSetting": "CosmosDbConnectionString"
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+# [v1](#tab/v1)
+
+Binding attributes are defined directly in the *function.json* file. Depending on the binding type, additional properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
+
+To create a binding, right-click (Ctrl+click on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+
+| Prompt | Value | Description |
+| -------- | ----- | ----------- |
+| **Select binding direction** | `out` | The binding is an output binding. |
+| **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
+| **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
+| **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
+| **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
+| **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
+| **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
+| **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
+| **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
+
+A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present
+
+```json
+{
+    "type": "cosmosDB",
+    "direction": "out",
+    "name": "outputDocument",
+    "databaseName": "my-database",
+    "collectionName": "my-container",
+    "createIfNotExists": "false",
+    "connectionStringSetting": "CosmosDbConnectionString"
+}
+```
+
+# [v2](#tab/v2)
+
+TBD
+
+---
 
 ::: zone-end
 
@@ -295,11 +340,25 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 ::: zone-end  
 
+::: zone pivot="programming-language-python"
+
+# [v1](#tab/v1)
+
+TBD
+
+# [v2](#tab/v2)
+
+TBD
+
+---
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-python"
 ## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
@@ -357,4 +416,9 @@ You've updated your HTTP triggered function to write JSON documents to an Azure 
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
 + [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-python"
++ [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
+
++ [Azure Functions Python developer guide](functions-reference-node.md)  
 ::: zone-end  
