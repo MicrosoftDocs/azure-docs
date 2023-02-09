@@ -44,6 +44,8 @@ The following table shows the build agent pool scale set sizes available:
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
 
+We allow at most one pool-sized build tasks to build and twice the pool-sized build tasks to queue. If the quota of agent pool is insufficient for the build task, the request for this build will get an error -- "The usage of build results in Building or Queuing status are (cpu: xxx, memory: xxxMi) and the remained quota is insufficient for this build. please retry with smaller size of build resourceRequests, retry after the previous build process completed or increased your build agent pool size".  
+
 ## Configure the build agent pool
 
 When you create a new Azure Spring Apps service instance using the Azure portal, you can use the **VMware Tanzu settings** tab to configure the number of resources given to the build agent pool.
