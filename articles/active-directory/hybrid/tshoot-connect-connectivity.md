@@ -45,7 +45,7 @@ Of these URLs, the URLs listed in the following table are the absolute bare mini
 | --- | --- | --- |
 | `mscrl.microsoft.com` |HTTP/80 |Used to download certificate revocation list (CRL) lists. |
 | `*.verisign.com` |HTTP/80 |Used to download CRL lists. |
-| `*.entrust.net` |HTTP/80 |Used to download CRL lists for multi-factor authentication (MFA). |
+| `*.entrust.net` |HTTP/80 |Used to download CRL lists for multifactor authentication (MFA). |
 | `*.management.core.windows.net` (Azure Storage)</br>`*.graph.windows.net` (Azure AD Graph)|HTTPS/443|Used for the various Azure services.|
 | `secure.aadcdn.microsoftonline-p.com` |HTTPS/443 |Used for MFA. |
 | `*.microsoftonline.com` |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
