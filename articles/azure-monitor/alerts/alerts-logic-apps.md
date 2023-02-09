@@ -3,7 +3,7 @@ title: Customize alert notifications using Logic Apps
 description: Learn how to create a logic app to process Azure Monitor alerts.
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 02/09/2023
 ms.author: edbaynash
 ms.reviewer: edbaynash
 
@@ -23,7 +23,7 @@ This article shows you how to create a Logic App and integrate it with an Azure 
   + [Query/management HTTP response](/azure/data-explorer/kusto/api/rest/response)
 + Integrate with external services using existing connectors like Outlook, Microsoft Teams, Slack and PagerDuty, or by configuring the Logic App for your own services.
 
-In this example, we'll use the following steps to create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:
+In this example, the following steps create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:
 
 1. [Create a Logic App](#create-a-logic-app) for sending an email or a Teams post.
 1. [Create an alert action group](#create-an-action-group) that triggers the logic app.
@@ -110,21 +110,31 @@ In this example, we'll use the following steps to create a Logic App that uses t
     ```
 
 
-1. (Optional). You can customize the alert notification by extracting information about the resource using resource tags. You can then include those resource tags to the alert payload and use the information in your logical expressions for sending the notifications. In this case, we are going to create a variable for the Affected Resource IDs and split them into in an array to add to the payload. You can then use these values to customize the alert notification. 
-    1. Select the **+** icon to insert a new step.
+1. (Optional). You can customize the alert notification by extracting information about the resource using resource tags. You can then include those resource tags to the alert payload and use the information in your logical expressions for sending the notifications. Create a variable for the Affected Resource IDs and split them into in an array to add to the payload. You can then use these values to customize the alert notification. 
+    1. Select **+** and **Add an action** to insert a new step.
 
-    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the when http request received step.":::
+    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the http request received step.":::
 
-    1. In the **Search** field, search for and select enter **Initialize variable**.
+    1. In the **Search** field, search for and select **Initialize variable**.
         1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
-        1. In the type field, select **Array**.
-        1. In the **Value** field, select **Dynamic Content**. In the **Expression** tab, enter:
-            ```json
-            split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/') 
-            ```
-        1. Select **OK**.
-        
-         :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
+        1. In the **Type** field, select **Array**.
+        1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: *split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')*
+
+             :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
+
+    1. Select **+** and **Add an action** to insert another step.
+    1. In the **Search** field, search for and select **Azure Resource Manager**, and then **Read a resource**. 
+    1. Populate the array with the tags from the affected resources with this information. In each of the fields, click inside the field, and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
+
+        |Field|String value|
+        |---------|---------|
+        |Subscription|*variables('AffectedResource')[2]*|
+        |Resource Group|*variables('AffectedResource')[4]*|
+        |Resource Provider|*variables('AffectedResource')[6]*|
+        |Short Resource Id|*concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8])*|
+        |Client Api Version|2021-06-01|
+    1. The dynamic content now includes tags from the resource that you can use in your notification.
+
 1. Send an email or post a Teams message.
 
 ## [Send an email](#tab/send-email)
@@ -140,22 +150,22 @@ In this example, we'll use the following steps to create a Logic App that uses t
 1. Sign into Office 365 when prompted to create a connection.
 1. Create the email **Body** by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.   
 For example:
-    - Enter *An alert has monitoring condition:* then select **monitorCondition** from the **Dynamic content** list.
-    - Then enter *Date fired:* and select **firedDateTime** from the **Dynamic content** list. 
-    - Enter *Affected resources:* and select **alertTargetIDs** from the **Dynamic content** list.  
-    
+    - Enter the text: *An alert has been triggered with this monitoring condition:*. Then, select **monitorCondition** from the **Dynamic content** list.
+    - Enter the text: *Date fired:*. Then, select **firedDateTime** from the **Dynamic content** list.
+    - Enter the text: *Affected resources:*. Then, select **alertTargetIDs** from the **Dynamic content** list.
+
 1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
 For example:
-     - Enter *Alert:* and select **alertRule** from the **Dynamic content** list.
-     - Then enter *with severity:* and select **severity** from the **Dynamic content** list.
-     - Enter  *has condition:* and select **monitorCondition** from the **Dynamic content** list.  
-          
+     - Enter the text: *Alert:*. Then, select **alertRule** from the **Dynamic content** list.
+     - Enter the text: *with severity:*. Then, select **severity** from the **Dynamic content** list.
+     - Enter the text: *has condition:*. Then, select **monitorCondition** from the **Dynamic content** list.  
+
 1. Enter the email address to send the alert to in the **To** field.
 1. Select **Save**.
 
    :::image type="content" source="./media/alerts-logic-apps/configure-email.png" alt-text="A screenshot showing the parameters tab for the send email action.":::
 
-You've created a Logic App that will send an email to the specified address, with details from the alert that triggered it. 
+You've created a Logic App that sends an email to the specified address, with details from the alert that triggered it. 
 
 The next step is to create an action group to trigger your Logic App.
 
@@ -170,7 +180,7 @@ The next step is to create an action group to trigger your Logic App.
 1. Select *User*  from the **Post as** dropdown.
 1. Select *Group chat* from the **Post in** dropdown.
 1. Select your group from the **Group chat** dropdown.
-1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.  
+1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.
     For example:
     - Enter *Alert:* then select **alertRule** from the **Dynamic content** list.
     - Enter *with severity:* and select **severity** from the **Dynamic content** list.
@@ -179,7 +189,7 @@ The next step is to create an action group to trigger your Logic App.
 1. Select **Save**
     :::image type="content" source="./media/alerts-logic-apps/configure-teams-message.png" alt-text="A screenshot showing the parameters tab for the post a message in a chat or channel action.":::
 
-You've created a Logic App that will send a Teams message to the specified group, with details from the alert that triggered it. 
+You've created a Logic App that sends a Teams message to the specified group, with details from the alert that triggered it. 
 
 The next step is to create an action group to trigger your Logic App.
 
@@ -198,7 +208,7 @@ To trigger your Logic app, create an action group, then create an alert that use
 :::image type="content" source="./media/alerts-logic-apps/create-action-group.png" alt-text="A screenshot showing the actions tab of a create action group page.":::
 1. In the **Actions** tab under **Action type**, select **Logic App**.
 1. In the **Logic App** section, select your logic app from the dropdown.
-1. Set **Enable common alert schema** to *Yes*. If you select *No*, the alert type will determine which alert schema is used. For more information about alert schemas, see [Context specific alert schemas](./alerts-non-common-schema-definitions.md).
+1. Set **Enable common alert schema** to *Yes*. If you select *No*, the alert type determines which alert schema is used. For more information about alert schemas, see [Context specific alert schemas](./alerts-non-common-schema-definitions.md).
 1. Select **OK**.
 1. Enter a name in the **Name** field.
 1. Select **Review + create**, the **Create**.
@@ -214,7 +224,7 @@ To trigger your Logic app, create an action group, then create an alert that use
  
 :::image type="content" source="./media/alerts-logic-apps/test-action-group2.png" alt-text="A screenshot showing an action group details test page.":::
 
-The following email will be sent to the specified account:
+The following email is sent to the specified account:
 
 :::image type="content" source="./media/alerts-logic-apps/sample-output-email.png" alt-text="A screenshot showing a sample email sent by the test page.":::
 
