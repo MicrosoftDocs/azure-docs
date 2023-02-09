@@ -206,7 +206,7 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 
 ## Network Security Group Control
 
-Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
+Network security groups (NSGs) associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
 The following is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
@@ -214,6 +214,99 @@ The following is an example of the most restrictive set of inbound rules, denyin
 
 > [!Note]
 > Application Gateway will display an alert asking to ensure the **Allow LoadBalanceRule** is specified if a **DenyAll** rule inadvertently restricts access to health probes.
+
+### Example scenario
+
+This example will walk through creation of an NSG using the Azure portal with the following rules:
+
+- Allow inbound traffic to port 80 and 8080 to Application Gateway from client requests originating from the Internet
+- Deny all other inbound traffic 
+- Allow outbound traffic to a backend target in another virtual network
+- Allow outbound traffic to a backend target that is Internet accessible
+- Deny all other outbound traffic
+
+First, [create a network security group](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). Three inbound [default rules](../virtual-network/network-security-groups-overview.md#default-security-rules) are created with the security group. See the following example:
+
+ [ ![View default security group rules](./media/application-gateway-private-deployment/default-rules.png) ](./media/application-gateway-private-deployment/default-rules.png#lightbox)
+
+Next, create the following four new inbound security rules:
+
+- Allow inbound port 80, tcp, from internet (any)
+- Allow inbound port 8080, tcp, from internet (any)
+- Allow inbound from AzureLoadBalancer
+- Deny Any Inbound
+
+To create these rules: 
+- Select **Inbound security rules**
+- Select **Add**
+- Enter the information below for each rule into the **Add inbound security rule** pane. 
+- When you have entered the information, select **Add** to create the rule. 
+- Creation of each rule will take a moment.
+
+Rule 1:
+ - Source:  Any
+ - Source port ranges: *
+ - Destination: Any
+ - Service: HTTP
+ - Destination port ranges: 80
+ - Protocol: TCP
+ - Action: Allow
+ - Priority: 1028
+ - Name: AllowWeb
+
+Rule 2:
+ - Source:  Any
+ - Source port ranges: *
+ - Destination: Any
+ - Service: Custom
+ - Destination port ranges: 8080
+ - Protocol: TCP
+ - Action: Allow
+ - Priority: 1029
+ - Name: AllowWeb8080
+
+Rule 3:
+ - Source:  Service Tag
+ - Source service tag: AzureLoadBalancer
+ - Source port ranges: *
+ - Destination: Any
+ - Service: Custom
+ - Destination port ranges: *
+ - Protocol: Any
+ - Action: Allow
+ - Priority: 1045
+ - Name: DenyAllInbound
+
+Rule 4: 
+ - Source:  Any
+ - Source port ranges: *
+ - Destination: Any
+ - Service: Custom
+ - Destination port ranges: *
+ - Protocol: Any
+ - Action: Deny
+ - Priority: 4095
+ - Name: DenyAllInbound
+
+Select **Refresh** to review all rules when provisioning is complete.
+
+--image
+
+Similarly, we will select Outbound security rules and create the following three rules:
+-	Allow TCP 443 from 10.2.0.0/24
+o	10.2.0.0/24 being the address space of the Application Gateway subnet
+-	Allow TCP source 10.2.0.0/24 destination 10.13.0.4
+o	10.2.0.0/24 being the address space of the Application Gateway subnet
+o	10.13.0.3 being a virtual machine in a peered vnet
+
+--image
+
+The last step is to associate the network security group to the subnet Application Gateway resides: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#associate-network-security-group-to-subnet
+Result:
+
+--image
+
+  Be careful when defining DenyAll rules as you may inadvertently deny inbound traffic from clients you intend to allow access to; or similarly, you may inadvertently deny outbound traffic to the backend target, causing backend health to fail, ultimately leading to 5XX responses.
 
 ## Route Table Control
 
