@@ -120,8 +120,8 @@ Required for auth:
  - `aadcdn.msauth.net`
  - `msauth.net`
  - `msftauth.net`
- - `login.live.com` // it will be different based on account type
  - `graph.microsoft.com`
+  - `login.live.com`, though this may be different based on account type.
  
 Required for workspace/pool management: 
  - `management.azure.com`
