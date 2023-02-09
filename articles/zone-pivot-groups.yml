@@ -1997,6 +1997,8 @@ groups:
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
+  - id: platform-maui
+    title: .NET MAUI
   - id: platform-xamarin
     title: Xamarin
   - id: platform-react
