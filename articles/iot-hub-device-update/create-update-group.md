@@ -77,7 +77,7 @@ You can schedule a job on multiple devices to add or update a Device Update tag.
 For more information, see [Schedule and broadcast jobs](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
 > [!NOTE]
-> This action counts against your IoT Hub messages quota. We recommend only changing up to 50,000 device or module twin tags at a time, otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+> This action counts against your IoT Hub messages quota. We recommend only changing up to 50,000 device or module twin tags at a time, otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 ### Add tags by updating twins
 
