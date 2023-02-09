@@ -56,3 +56,4 @@ Clone repo and open `CommunicationCallingSampleMauiApp/CommunicationCallingSampl
 ### Highlights and feedback
 
 Visit [GitHub](https://github.com/Azure-Samples/communication-services-ui-library-maui#key-sample-highlights) to learn more and discover more capabilities and share your valuable feedback.
+
