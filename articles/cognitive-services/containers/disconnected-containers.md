@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/28/2022
+ms.date: 02/09/2023
 ms.author: aahi
 ---
 
@@ -71,21 +71,21 @@ Access is limited to customers that meet the following requirements:
 
 4. See the following documentation for steps on downloading and configuring the container for disconnected usage:
 
-    * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md) 
-    * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
-    * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
+    * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet-authorization-required) 
+    * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#run-the-container-disconnected-from-the-internet-authorization-required)
 
     **Speech service**
 
-    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-authorization-required)
 
     **Language service**
 
-    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
-    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
-    * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
+    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
     
 
 ## Usage records

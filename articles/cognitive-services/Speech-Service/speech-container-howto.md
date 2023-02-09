@@ -587,12 +587,6 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
 
-## Run the container in disconnected environments
-
-You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
-
-For Speech Service container configuration, see [Disconnected containers](../containers/disconnected-containers.md#speech-containers).
-
 ## Query the container's prediction endpoint
 
 > [!NOTE]
