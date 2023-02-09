@@ -139,22 +139,22 @@ Ensure that sensors send information to the on-premises management console. Make
 
 Two options are available for connecting Microsoft Defender for IoT sensors to the on-premises management console:
 
-- Connect from the sensor console.
-- Connect by using tunneling.
+- [Connect from the sensor console](#connect-sensors-to-the-on-premises-management-console-from-the-sensor-console)
+- [Connect sensors by using tunneling](#connect-sensors-by-using-tunneling)
 
-After connecting, you must set up a site with these sensors.
+After connecting, you must [set up a site](#set-up-a-site) with these sensors.
 
 ### Connect sensors to the on-premises management console from the sensor console
 
-To connect sensors to the on-premises management console from the sensor console:
+**To connect sensors to the on-premises management console from the sensor console**:
 
-1. On the on-premises management console, select **System Settings**.
+1. In the on-premises management console, select **System Settings**.
 
 1. Copy the string in the **Copy Connection String** box.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Screenshot that shows copying the connection string for the sensor.":::
 
-1. On the sensor, go to **System Settings** and select **Connection to Management Console** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-to-management-console.png" border="false":::
+1. On the sensor, go to **System Settings** > **Connection to Management Console**.
 
 1. Paste the copied connection string from the on-premises management console into the **Connection string** box.
 
@@ -164,55 +164,55 @@ To connect sensors to the on-premises management console from the sensor console
 
 ### Connect sensors by using tunneling
 
-Enable a secured tunneling connection between organizational sensors and the on-premises management console. This setup circumvents interaction with the organizational firewall. As a result, it reduces the attack surface.
+Enhance system security by preventing direct user access to the sensor. Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
 Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (9000 by default) to any sensor.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/tunneling-diagram.png" alt-text="Screenshot that shows a tunneling diagram for connecting sensors to the on-premises management console.":::
+For example, the following image shows a sample architecture where users access the sensor consoles via the on-premises management console.
 
-To set up tunneling at the on-premises management console:
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor." border="false":::
 
-1. Sign in to the on-premises management console and run the following command:
+**To set up tunneling at the on-premises management console**:
+
+1. Sign in to the on-premises management console's CLI with the *cyberx* or the *support* user credentials and run the following command:
 
       ```bash
-      cyberx-management-tunnel-enable
+      sudo cyberx-management-tunnel-enable
       
       ```
 
+    For more information on users, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+
 1. Allow a few minutes for the connection to start.
+   
+    When tunneling access is configured, the following URL syntax is used to access the sensor consoles: `https://<on-premises management console address>/<sensor address>/<page URL>`
 
 You can also customize the port range to a number other than 9000. An example is 10000.
 
-To use a new port:
-
-1. Sign in to the on-premises management console and run the following command:
-
-      ```bash
-      sudo cyberx-management-tunnel-enable --port 10000
-      
-      ```
-
-1. Disable the connection, when required.
-
-To disable:
+**To use a new port**:
 
 Sign in to the on-premises management console and run the following command:
 
-  ```bash
-  cyberx-management-tunnel-disable
+```bash
+sudo cyberx-management-tunnel-enable --port 10000
+          
+```
+
+**To disable the connection**:
+
+Sign in to the on-premises management console and run the following command:
+
+```bash
+cyberx-management-tunnel-disable
   
-  ```
+```
 
 No configuration is needed on the sensor.
 
-To view log files:
+**To access the tunneling log files**:
 
-Review log information in the log files.
-
-To access log files:
-
-1. Sign in to the on-premises management console and go to */var/log/apache2.log*.
-1. Sign in to the sensor and go to */var/cyberx/logs/tunnel.log*.
+1. **From the on-premises management console**: Sign in and go to */var/log/apache2.log*.
+1. **From the sensor**: Sign in and go to */var/cyberx/logs/tunnel.log*.
 
 ## Set up a site
 

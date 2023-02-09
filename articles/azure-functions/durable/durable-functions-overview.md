@@ -50,12 +50,35 @@ You can use Durable Functions to implement the function chaining pattern concise
 
 In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("Chaining")]
 public static async Task<object> Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    try
+    {
+        var x = await context.CallActivityAsync<object>("F1", null);
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
+    }
+    catch (Exception)
+    {
+        // Error handling or compensation goes here.
+    }
+}
+```
+
+You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("Chaining")]
+public static async Task<object> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     try
     {
@@ -159,12 +182,41 @@ With normal functions, you can fan out by having the function send multiple mess
 
 The Durable Functions extension handles this pattern with relatively simple code:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
 public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    var parallelTasks = new List<Task<int>>();
+
+    // Get a list of N work items to process in parallel.
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1", null);
+    for (int i = 0; i < workBatch.Length; i++)
+    {
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
+        parallelTasks.Add(task);
+    }
+
+    await Task.WhenAll(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    int sum = parallelTasks.Sum(t => t.Result);
+    await context.CallActivityAsync("F3", sum);
+}
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `Task.WhenAll` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("FanOutFanIn")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -344,7 +396,7 @@ In a few lines of code, you can use Durable Functions to create multiple monitor
 
 The following code implements a basic monitor:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -352,6 +404,35 @@ public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+
+    while (context.CurrentUtcDateTime < expiryTime)
+    {
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform an action when a condition is met.
+            await context.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
+    }
+
+    // Perform more work here, or let the orchestration end.
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("MonitorJobStatus")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context, int jobId)
+{
     int pollingInterval = GetPollingInterval();
     DateTime expiryTime = GetExpiryTime();
 
@@ -507,12 +588,41 @@ You can implement the pattern in this example by using an orchestrator function.
 
 These examples create an approval process to demonstrate the human interaction pattern:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
 public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    await context.CallActivityAsync("RequestApproval", null);
+    using (var timeoutCts = new CancellationTokenSource())
+    {
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
+
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
+        if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
+        {
+            timeoutCts.Cancel();
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+        }
+        else
+        {
+            await context.CallActivityAsync("Escalate", null);
+        }
+    }
+}
+```
+
+To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("ApprovalWorkflow")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
@@ -655,13 +765,26 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 An event can also be raised using the durable orchestration client from another function in the same function app:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
     [DurableClient] IDurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("RaiseEventToOrchestration")]
+public static async Task Run(
+    [HttpTrigger] string instanceId,
+    [DurableClient] DurableTaskClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -725,7 +848,7 @@ The tricky thing about trying to implement this pattern with normal, stateless f
 
 You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("Counter")]
@@ -767,6 +890,10 @@ public class Counter
         => ctx.DispatchAsync<Counter>();
 }
 ```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+Durable entities are currently not supported in the .NET-isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -827,7 +954,7 @@ Durable entities are currently not supported in Java.
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-isolated)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -846,6 +973,10 @@ public static async Task Run(
 
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
+
+# [C# (Isolated)](#tab/csharp-inproc)
+
+Durable entities are currently not supported in the .NET-isolated worker.
 
 # [JavaScript](#tab/javascript)
 

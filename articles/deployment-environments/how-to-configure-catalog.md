@@ -54,13 +54,13 @@ You can choose from two types of repositories:
 
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. [Get the clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-a-github-repo).
-1. Copy and save the URL. You'll use it later.
+1. Copy and save the URL. You use it later.
 
 #### Get the clone URL of an Azure DevOps repository
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 1. [Get the clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
-1. Copy and save the URL. You'll use it later.
+1. Copy and save the URL. You use it later.
 
 ### Create a personal access token
 
@@ -77,17 +77,17 @@ Next, create a personal access token. Depending on the type of repository you us
 1. In the **Expiration** dropdown, select an expiration for your token.
 1. For a private repository, under **Select scopes**, select the **repo** scope.
 1. Select **Generate token**.
-1. Save the generated token. You'll use the token later.
+1. Save the generated token. You use the token later.
 
 #### Create a personal access token in Azure DevOps
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 1. Create a [personal access token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
-1. Save the generated token. You'll use the token later.
+1. Save the generated token. You use the token later.
 
 ### Store the personal access token as a key vault secret
 
-To store the personal access token you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
+To store the personal access token, you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
 1. Create a [key vault](../key-vault/general/quick-create-portal.md#create-a-vault).
 1. Add the personal access token as a [secret to the key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -105,10 +105,10 @@ To store the personal access token you generated as a [key vault secret](../key-
     | **Name** | Enter a name for the catalog. |
     | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.<br/>*Sample Catalog Example:* https://github.com/Azure/deployment-environments.git |
     | **Branch**  | Enter the repository branch to connect to.<br/>*Sample Catalog Example:* main|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments|
-    | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. </br> This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments</br> The folder path can begin with or without a '/'.|
+    | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.</br>When you copy a Secret Identifier, the connection string includes a version identifier at the end, like this: https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a. </br>Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. </br> *Example secret identifier: https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat*|
 
-   :::image type="content" source="media/how-to-configure-catalog/add-new-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
+   :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
@@ -123,7 +123,7 @@ To sync an updated catalog:
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the dev center. Any templates in a deleted catalog won't be available to development teams when they deploy new environments. Update the catalog item reference for any existing environments that were created by using the catalog items in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the dev center. Templates in a deleted catalog are not available to development teams when they deploy new environments. Update the catalog item reference for any existing environments that were created by using the catalog items in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 

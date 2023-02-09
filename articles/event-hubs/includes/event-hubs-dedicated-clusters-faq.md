@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 02/07/2023
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -23,19 +23,19 @@ The following table shows the benchmark results that we achieved during our test
 | Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
 | Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
 
-In the testing, the following criteria was used:
+In the testing, the following criteria were used:
 
 - A dedicated-tier Event Hubs cluster with 4 capacity units (CUs) was used. 
 - The event hub used for ingestion had 200 partitions. 
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
-If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-event-hubs-dedicated-cluster), to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they are bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
+If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-event-hubs-dedicated-cluster) to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they are bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
 
 [Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) in the following scenarios to scale out or scale in your dedicated cluster.
 
 - You need more than 10 CUs for a self-serve scalable dedicated cluster (a cluster that was created with the **Support scaling** option set).
-- You need to scale out or scale in a cluster that was created without selecting the **Support scaling** option
+- You need to scale out or scale in a cluster that was created without selecting the **Support scaling** option 
 - You need to scale out or scale in a dedicated cluster that was created before the self-serve experience was released
 
 
@@ -51,15 +51,16 @@ Due to difference in the backend architecture, we don't currently support migrat
 CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicator to consider whether you need to scale up your dedicated cluster or not.
 
 To monitor the CPU usage of the dedicated cluster, you need to follow these steps. 
-- In the metrics page of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
-:::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
+- In the metrics page of your Event Hubs Dedicated cluster, select **Add metric**.
+- Select `CPU` as the metric and use the `Max` as the aggregation. 
+
+    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png" alt-text="Screenshot showing the Metrics page with the CPU metric." lightbox="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png":::
+- Then, select **Add filter**, and add a filter for the property type `Role`, use the equal operator and select all three values(`Backend`, `Gateway`) from the dropdown.  
+
+    :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Screeshot showing the metrics page with CPU consumption metric and roles." lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
 
-- Select `CPU` as the metrics and use the `Max` as the aggregation. 
-- Then add a filter for the property type `Role`, use the equal operator and select all three values(`SBSAdmin`, `SBSFE`, `SBSEH`) from the dropdown.  
-
-Then you can monitor this metric to determine when you should scale your dedicated cluster. 
-You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.  
+    Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.  
 
 
 ### How does Geo-DR work with my cluster?

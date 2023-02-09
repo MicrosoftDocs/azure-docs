@@ -23,7 +23,7 @@ After you've configured data export rules in a Log Analytics workspace, new data
 
 [![Diagram that shows a data export flow.](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
 
-Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
+Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time. Alternatively, you can filter or modify exported data by configuring [transformations](./../essentials/data-collection-transformations.md) in your workspace, which apply to incoming data, before it's sent to your Log Analytics workspaces and to export destinations.
 
 ## Other export options
 Log Analytics workspace data export continuously exports data that's sent to your Log Analytics workspace. There are other options to export data for particular scenarios:
@@ -34,16 +34,16 @@ Log Analytics workspace data export continuously exports data that's sent to you
 
 ## Limitations
 
-- All tables will be supported in export, but tables are currently limited to those specified in the [supported tables](#supported-tables) section.
-- Legacy custom logs by using the [HTTP Data Collector API](./data-collector-api.md) won't be supported in export. Data for [data collection rule-based custom logs](./logs-ingestion-api-overview.md) can be exported.
-- You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled.
+- Custom logs created using the [HTTP Data Collector API](./data-collector-api.md) and the dataSources API can't be exported. This includes text logs consumed by Log Analytics agent. You can export custom logs created using [data collection rules](./logs-ingestion-api-overview.md), including text-based logs.
+- Data export will gradually support more tables, but is currently limited to the tables specified in the [supported tables](#supported-tables) section.
+- You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - The storage account must be unique across rules in the workspace.
 - Table names can be 60 characters long when you're exporting to a storage account. They can be 47 characters when you're exporting to event hubs. Tables with longer names won't be exported.
 - Currently, data export isn't supported in China.
 
 ## Data completeness
-Data export is optimized for moving large data volumes to your destinations. In certain retry conditions, it can include a fraction of duplicated records. The export operation might fail when ingress limits are reached. For more information, see [Create or update a data export rule](#create-or-update-a-data-export-rule). In such a case, a retry continues for up to 30 minutes. If the destination is still unavailable, data will be discarded until the destination becomes available.
+Data export is optimized to move large data volumes to your destinations. The export operation might fail if the destination doesn't have sufficient capacity or is unavailable. In the event of failure, the retry process continues for up to 12 hours. For more information about destination limits and recommended alerts, see [Create or update a data export rule](#create-or-update-a-data-export-rule). If the destinations are still unavailable after the retry period, the data is discarded. In certain cases, retry can cause duplication of a fraction of the exported records.
 
 ## Pricing model
 Data export charges are based on the volume of data exported measured in bytes. The size of data exported by Log Analytics Data Export is the number of bytes in the exported JSON-formatted data. Data volume is measured in GB (10^9 bytes).
@@ -125,7 +125,7 @@ If you've configured your storage account to allow access from selected networks
 
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The threshold is 14,400 Gb per 5-minute evaluation period. |
+    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The alert threshold is 1676 GiB per 5-minute evaluation period. |
   
 1. Alert remediation actions:
     - Use a separate storage account for export that isn't shared with non-monitoring data.
@@ -138,7 +138,7 @@ If you've configured your storage account to allow access from selected networks
   
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 1,200 MB per 5-minute evaluation period. |
+    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 228 MiB per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Incoming requests | Count | 80% of maximum events per alert evaluation period. For example, the limit is 1,000/s per unit (TU or PU) and five units used. The threshold is 1,200,000 per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Quota exceeded errors | Count | Between 1% of request. For example, requests per 5 minutes is 600,000. The threshold is 6,000 per 5-minute evaluation period. |
 
@@ -631,7 +631,9 @@ The template option doesn't apply.
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
 ## Supported tables
-All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.
+
+> [!NOTE]
+> We are in a process of adding support for more tables. Please check this article regularly. 
 
 | Table | Limitations |
 |:---|:---|

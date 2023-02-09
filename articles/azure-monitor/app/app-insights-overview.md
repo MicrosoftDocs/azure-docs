@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/24/2023
 ---
 
 # Application Insights overview
@@ -74,7 +74,7 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also av
 
 Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](opentelemetry-enable.md?tabs=java).
 
 ### [Node.js](#tab/nodejs)
 
@@ -102,7 +102,7 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 This section outlines supported scenarios.
 
 * [C#|VB (.NET)](./asp-net.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 * [JavaScript](./javascript.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
@@ -121,7 +121,7 @@ Supported platforms and frameworks are listed here.
 #### Auto-instrumentation (enable without code changes)
 * [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
 * [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 
 #### Manual instrumentation / SDK (some code changes required)
 * [ASP.NET](./asp-net.md)
@@ -132,10 +132,10 @@ Supported platforms and frameworks are listed here.
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
-* [Windows desktop applications, services, and worker roles](./windows-desktop.md)
-* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
-* [Android](../app/mobile-center-quickstart.md) (App Center)
-* [iOS](../app/mobile-center-quickstart.md) (App Center)
+* [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
+* [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
+* [Android](https://github.com/Microsoft/appcenter) (App Center)
+* [iOS](https://github.com/Microsoft/appcenter) (App Center)
 
 > [!NOTE]
 > OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
@@ -143,7 +143,7 @@ Supported platforms and frameworks are listed here.
 ### Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./java-in-process-agent.md#autocollected-logs)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md?tabs=java#logs)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
@@ -158,7 +158,7 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 
 ## Troubleshooting
 
-### FAQ
+### Frequently asked questions
 
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum

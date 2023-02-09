@@ -121,12 +121,12 @@ __System-assigned managed identity__
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-from azure.ai.ml.entities import UserAssignedIdentity, IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.entities import ManagedIdentityConfiguration, IdentityConfiguration, AmlCompute
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration from the user-assigned managed identity
-managed_identity = UserAssignedIdentity(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
-identity_config = IdentityConfiguration(type = IdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
+managed_identity = ManagedIdentityConfiguration(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
@@ -251,14 +251,14 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command
     from azure.ai.ml.entities import Data, UriReference
     from azure.ai.ml import Input
     from azure.ai.ml.constants import AssetTypes
-    from azure.ai.ml import UserIdentity
+    from azure.ai.ml import UserIdentityConfiguration
     
     # Specify the data location
     my_job_inputs = {
@@ -272,7 +272,7 @@ The following steps outline how to set up data access with user identity for tra
         inputs=my_job_inputs,
         environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
         compute="<my-compute-cluster-name>",
-        identity= UserIdentity() 
+        identity= UserIdentityConfiguration() 
     )
     # submit the command
     returned_job = ml_client.jobs.create_or_update(job)
@@ -364,10 +364,10 @@ az ml compute create --name cpu-cluster --type <cluster name>  --identity-type s
 
 ```python
 from azure.ai.ml.entities import IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration for a system-assigned managed identity
-identity_config = IdentityConfiguration(type = IdentityType.SYSTEM_ASSIGNED)
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.SYSTEM_ASSIGNED)
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"

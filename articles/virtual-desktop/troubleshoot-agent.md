@@ -348,18 +348,13 @@ You must generate a new registration key that is used to re-register your sessio
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 
-1. Sign in to your session host VM as an administrator and use the correct version of the agent installer for the operating system of your session host VM:
-    1. For Windows 10 and Windows 11:
-        1. [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-        1. [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
-    1. For Windows 7:
-        1. [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)
-        1. [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)
+1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
+        - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+        - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
    > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
-1. Run the agent installer
 1. When the installer asks you for the registration token, paste the registration key from your clipboard.
 
    > [!div class="mx-imgBorder"]
@@ -368,7 +363,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 1. Run the boot loader installer.
 1. Restart your session VM. 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter **Azure Virtual Desktop** and select the matching service entry.
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
 1. Select **Session Hosts** to see the list of all session hosts in that host pool.
 1. You should now see the session host registered in the host pool with the status **Available**. 
