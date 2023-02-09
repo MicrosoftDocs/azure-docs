@@ -320,15 +320,6 @@ You can work around this problem by specifying a hard mount. A hard mount forces
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
-## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.x
-
-### Cause
-This error is logged because Azure Files [doesn't currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
-
-### Solution
-This error can be ignored.
-
-
 ### Unable to access folders or files which name has a space or a dot at the end
 
 You are unable to access folders or files from the Azure file share while mounted on Linux, commands like du and ls and/or third-party applications may fail with a "No such file or directory" error while accessing the share, however you are able to upload files to said folders via the portal.
