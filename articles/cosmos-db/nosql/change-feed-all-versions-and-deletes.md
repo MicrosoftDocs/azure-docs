@@ -55,7 +55,7 @@ During the preview, the following methods to read the change feed are available 
 
 | **Method to read change feed** | **.NET** | **Java** | **Python** | **Node/JS** |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Change feed pull model](change-feed-pull-model.md) | [>= 3.31.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) | [>= 4.37.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
+| [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) | [>= 4.37.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
 | [Change feed processor](change-feed-processor.md) | No | [>= 4.37.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) | No | No |
 | Azure Functions trigger | No | No | No | No |
 
@@ -70,7 +70,7 @@ The response object will be an array of items representing each change with the 
 [
     {  
         "current": { 
-            <This is the current version of the item that changed. All of the properties of your item will appear here. This will be    empty for delete operations.>
+            <This is the current version of the item that changed. All of the properties of your item will appear here. This will be empty for delete operations.>
          },  
         "previous" : { 
             <This is the previous version of the item that changed. If the change was a delete operation, the item that was deleted will appear here. This will be empty for create and replace operations.>
@@ -94,9 +94,9 @@ The response object will be an array of items representing each change with the 
 
 * Reading changes on a container that existed before continuous backups were enabled on the account is not supported.
 
-* The ability to select a start time based on a past timestamp isn't currently supported. You may either start from "now" or from a previous [lease](change-feed-processor.md#components-of-the-change-feed-processor) or [continuation token](change-feed-pull-model.md#saving-continuation-tokens).
+* The ability to start reading the change feed from the beginning or select a start time based on a past timestamp isn't currently supported. You may either start from "now" or from a previous [lease](change-feed-processor.md#components-of-the-change-feed-processor) or [continuation token](change-feed-pull-model.md#saving-continuation-tokens).
 
-* Receiving the previous version of items that have been changed is not currently available.
+* Receiving the previous version of items that have been updated is not currently available.
 
 * Accounts using [Private Endpoints](../how-to-configure-private-endpoints.md) aren't supported.
 

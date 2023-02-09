@@ -50,7 +50,7 @@ Here's some key differences between the change feed processor and pull model:
 
 ### [.NET](#tab/dotnet)
 
-To process the change feed using the pull model, create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-latest-version.md) or [all versions and deletes](change-feed-all-versions-and-deletes.md). If you're reading the change feed in all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
+To process the change feed using the pull model, create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-latest-version.md) or [all versions and deletes](change-feed-all-versions-and-deletes.md). Use `ChangeFeedMode.Incremental` for reading the change feed in latest version mode or `ChangeFeedMode.LatestVersion` in the preview NuGet package. If you're reading the change feed in all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
 
 You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed through stored procedures, transaction scope is preserved when reading items from the change feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
 
@@ -63,7 +63,7 @@ FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(Ch
 Here's an example for obtaining a `FeedIterator` in all versions and deletes mode that returns dynamic objects:
 
 ```csharp
-FeedIterator<dynamic> InteratorWithDynamic = container.GetChangeFeedIterator<dynamic>(ChangeFeedStartFrom.Now(), ChangeFeedMode.FullFidelity);
+FeedIterator<dynamic> InteratorWithDynamic = container.GetChangeFeedIterator<dynamic>(ChangeFeedStartFrom.Now(), ChangeFeedMode.AllVersionsAndDeletes);
 ```
 
 > [!Note]
