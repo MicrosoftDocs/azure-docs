@@ -34,7 +34,7 @@ Before you begin, verify that you have:
 
 ## Separate your facilities
 
-To avoid data duplication, make sure that the appliance that sends Syslog data and the appliance that sends CEF data do so on different facilities, for example `local1` ad `local2`. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+To avoid data duplication, make sure that the appliance that sends Syslog data and the appliance that sends CEF data do so on different facilities, for example `local1` and `local2`. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
 
 ## Create a DCR for your CEF logs
 
