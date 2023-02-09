@@ -26,6 +26,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent-redirect.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/legacy-pricing.md",
             "redirect_url": "/azure/azure-monitor/best-practices-cost",
             "redirect_document_id": false
