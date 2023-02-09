@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 1/25/2023
+ms.date: 02/09/2023
 ms.author: jasteppe
 ---
 
@@ -19,11 +19,11 @@ The MedTech service device message data processing follows these steps and in th
 > [!div class="checklist"]
 > - Ingest
 > - Normalize - Device mappings applied.
-> - Group
+> - Group - Optional
 > - Transform - FHIR destination mappings applied.
 > - Persist
 
-:::image type="content" source="media/understand-service/iot-data-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/iot-data-flow.png":::
+:::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
 
 ## Ingest
 Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
@@ -49,7 +49,7 @@ Normalize is the next stage where device message data is processed using user-se
 
 The normalization process not only simplifies data processing at later stages, but also provides the capability to project one device message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single device message. This device message would create four separate FHIR Observation resources. Each resource would represent a different vital sign, with the device message projected into four different normalized messages.
 
-## Group
+## Group - Optional
 Group is the next *optional* stage where the normalized messages available from the MedTech service normalization stage are grouped using three different parameters:
 
 > [!div class="checklist"]
