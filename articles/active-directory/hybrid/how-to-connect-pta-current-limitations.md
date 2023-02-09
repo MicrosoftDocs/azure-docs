@@ -24,11 +24,10 @@ ms.collection: M365-identity-device-management
 The following scenarios are supported:
 
 - User sign-ins to web browser-based applications.
-- User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, EAS, SMTP, POP and IMAP.
 - User sign-ins to legacy Office client applications and Office applications that support [modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 and 2016 versions.
 - User sign-ins to legacy protocol applications such as PowerShell version 1.0 and others.
-- Azure AD joins for Windows 10 devices.
-- App passwords for Multi-Factor Authentication.
+- Azure AD joins for Windows 10 and later devices.
+- Hybrid Azure AD joins for Windows 10 and later devices. 
 
 ## Unsupported scenarios
 
