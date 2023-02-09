@@ -15,10 +15,11 @@ ms.custom: subject-rbac-steps
 
 Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and reponsibilities.
 
+After you complete this tutorial, lab users register for the lab and connect to their lab VM through remote desktop (RDP).
+
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a lab plan
 > * Assign a user to the Lab Creator role
 > * Create a lab
 > * Customize the lab template
@@ -29,16 +30,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
-
-## Create a lab plan
-
-In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
-
-Follow these steps to create a lab plan from the Azure portal:
-
-[!INCLUDE [Create a lab plan](./includes/lab-services-tutorial-create-lab-plan.md)]
-
-You've now successfully created a lab plan by using the Azure portal. To let others create labs in the lab plan, you assign them the Lab Creator role.
+[!INCLUDE [Create Azure resources](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Add a user to the Lab Creator role
 
@@ -226,7 +218,7 @@ After adding users, they can register for the lab by using a registration link f
 
 You've successfully created a customized lab for a classroom training, created a recurring lab schedule, and invited users to register for the lab. Next, lab users can now connect to their lab virtual machine by using remote desktop.
 
-You've also leverage Azure AD roles to grant permissions to others for creating labs. Depending on your organization, you may delegate the permissions for managing lab plans or managing labs to different people or teams. Learn more about [built-in roles in Azure Lab Services](./administrator-guide.md#rbac-roles).
+You've also assigned Azure AD roles to grant permissions to others for creating labs. Depending on your organization, you may delegate the permissions for managing lab plans or managing labs to different people or teams. Learn more about [built-in roles in Azure Lab Services](./administrator-guide.md#rbac-roles).
 
 > [!div class="nextstepaction"]
 > [Connect to a lab virtual machine](./tutorial-connect-lab-virtual-machine.md)

@@ -10,8 +10,10 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a lab in the Azure portal
-      href: quick-create-lab-plan-portal.md
+    - name: Create resources to get started
+      href: quick-create-resources.md
+    - name: Create a Windows-based lab
+      href: quick-create-windows-lab.md
 - name: Tutorials
   items:
   - name: Set up a lab for classroom training
