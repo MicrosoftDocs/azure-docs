@@ -219,7 +219,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
     **Example of Permissions Management Analytics Report**
 
     > [!div class="mx-imgBorder"] 
-    > ![Screenshot, example of Permissions Analytics Report.](media/permissions-management-trial-user-guide/permissions-management-report-example.png)                          
+    > :::image type="content" source="media/permissions-management-trial-user-guide/permissions-management-report-example.png" alt-text="Example of Permissions Management Analytics Report." lightbox="media/permissions-management-trial-user-guide/permissions-management-report-example.png":::                          
                
     **Actions to try**    
     - [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  
