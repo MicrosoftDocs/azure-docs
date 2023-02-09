@@ -1103,7 +1103,7 @@ items:
           items:
           - name: Authorize with Azure AD and Azure RBAC
             href: authorize-access-azure-active-directory.md
-          - name: Authorize with Azure AD and Azure ABAC
+          - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
             items:
             - name: Actions and attributes for conditions

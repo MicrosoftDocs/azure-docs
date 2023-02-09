@@ -76,4 +76,4 @@ public static void CreateQueue(string accountName, string queueName)
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
