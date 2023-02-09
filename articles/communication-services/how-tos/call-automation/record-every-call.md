@@ -6,16 +6,15 @@ author: ddematheu2
 manager: shahen
 services: azure-communication-services
 ms.author: dademath
-ms.date: 02/09/2022
 ms.topic: how-to
 ms.service: azure-communication-services
 ---
 
 # Record a call when it starts
 
-Call recording is often used directly through the UI of a calling application, where the user triggers the recording. For applications within industries like banking or healthcare, call recording is required from the get-go. The service needs to automatically record for compliance purposes. This sample shows how to record a call when it starts. It uses Azure Communication Services and Azure Event Grid to trigger an Azure Function when a call starts. It automatically will record every call within your Azure Communication Services resource.
+Call recording is often used directly through the UI of a calling application, where the user triggers the recording. For applications within industries like banking or healthcare, call recording is required from the get-go. The service needs to automatically record for compliance purposes. This sample shows how to record a call when it starts. It uses Azure Communication Services and Azure Event Grid to trigger an Azure Function when a call starts. It automatically records every call within your Azure Communication Services resource.
 
-In this QuickStart, we will focus on showcasing the processing of call started events through Azure Functions using Event Grid triggers. We will leverage the Call Automation SDK for Azure Communication Services to start recording.
+In this QuickStart, we focus on showcasing the processing of call started events through Azure Functions using Event Grid triggers. We leverage the Call Automation SDK for Azure Communication Services to start recording.
 
 The Call Started event when a call start is formatted in the following way:
 
@@ -64,7 +63,7 @@ The Call Started event when a call start is formatted in the following way:
    - Template: Azure Event Grid Trigger
    - Function Name: User defined
 
-    Once created, you will see a function created in your directory like this:
+    Once created, you see a function created in your directory like this:
 
     ```csharp
     
@@ -109,7 +108,7 @@ The Call Started event when a call start is formatted in the following way:
 
 ## Start recording
 
-1. Create a method to handle the call started events. This method will trigger recording to start when the call started.
+1. Create a method to handle the call started events. This method trigger recording to start when the call started.
 
 ```csharp
 
@@ -138,9 +137,9 @@ The Call Started event when a call start is formatted in the following way:
 
 ### Running locally
 
-To run the function locally, you will simply press `F5` in Visual Studio Code. We will use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+To run the function locally, you simply press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
 
-1. Once the function is running, we will configure ngrok. (You will need to [download ngrok](https://ngrok.com/download) for your environment.)
+1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
 
    ```bash
 
@@ -150,7 +149,7 @@ To run the function locally, you will simply press `F5` in Visual Studio Code. W
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We will do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You will need the resource id for your Azure Communication Services resource found in the Azure Portal.
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource id for your Azure Communication Services resource found in the Azure Portal.
 
     ```bash
 
@@ -162,7 +161,7 @@ To run the function locally, you will simply press `F5` in Visual Studio Code. W
 
 ### Deploy to Azure
 
-To deploy the Azure Function to Azure, you will need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we will configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we will run a similar command as above:
+To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we run a similar command as above:
 
 ```bash
 
