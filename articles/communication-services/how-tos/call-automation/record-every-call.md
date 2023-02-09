@@ -1,7 +1,7 @@
 ---
 title: Record a call when it starts
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to, you'll learn how to record a call through Azure Communication Services once it starts"
+description: "In this how-to document, you can learn how to record a call through Azure Communication Services once it starts"
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 Call recording is often used directly through the UI of a calling application, where the user triggers the recording. For applications within industries like banking or healthcare, call recording is required from the get-go. The service needs to automatically record for compliance purposes. This sample shows how to record a call when it starts. It uses Azure Communication Services and Azure Event Grid to trigger an Azure Function when a call starts. It automatically records every call within your Azure Communication Services resource.
 
-In this QuickStart, we focus on showcasing the processing of call started events through Azure Functions using Event Grid triggers. We leverage the Call Automation SDK for Azure Communication Services to start recording.
+In this QuickStart, we focus on showcasing the processing of call started events through Azure Functions using Event Grid triggers. We use the Call Automation SDK for Azure Communication Services to start recording.
 
 The Call Started event when a call start is formatted in the following way:
 
@@ -137,7 +137,7 @@ The Call Started event when a call start is formatted in the following way:
 
 ### Running locally
 
-To run the function locally, you simply press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+To run the function locally, you can press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
 
 1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
 
@@ -149,7 +149,7 @@ To run the function locally, you simply press `F5` in Visual Studio Code. We use
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource id for your Azure Communication Services resource found in the Azure Portal.
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal.
 
     ```bash
 
@@ -157,11 +157,11 @@ To run the function locally, you simply press `F5` in Visual Studio Code. We use
 
     ```
 
-3. Now that everything is hooked up, test the flow by sending an SMS to the phone number you have on your Azure Communication Services resource. You should see the console logs on your terminal where the function is running. If you added the code to respond to the SMS, you should see that text message delivered back to you.
+3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](https://learn.microsoft.com/azure/communication-services/how-tos/calling-sdk/record-calls?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
 
 ### Deploy to Azure
 
-To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we run a similar command as above:
+To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run a similar command:
 
 ```bash
 
@@ -169,6 +169,6 @@ az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --en
 
 ```
 
-Since this is an update to the previous command we ran, make sure to use the same event subscription name you used above.
+Since we are updating the event subscription we had created before, make sure to use the same event subscription name you used in the previous step.
 
-You can test as above, by sending an SMS to the phone number you have procured through Azure Communication Services resource.
+You can test by starting a call in your resource, similar to the previous step.
