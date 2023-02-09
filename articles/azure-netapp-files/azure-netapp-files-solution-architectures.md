@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 02/06/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -125,6 +125,7 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
 * [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
+* [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
 
 ### SAP IQ-NLS
 
@@ -224,6 +225,7 @@ This section provides solutions for Azure platform services.
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
 * [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
 * [Providing Disaster Recovery to CloudBees-Jenkins in AKS with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/providing-disaster-recovery-to-cloudbees-jenkins-in-aks-with/ba-p/3553412)
+* [Disaster protection for JFrog Artifactory in AKS with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-protection-for-jfrog-artifactory-in-aks-with-astra/ba-p/3701501)
 * [Develop and test easily on AKS with NetApp® Astra Control Service® and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/develop-and-test-easily-on-aks-with-netapp-astra-control-service/ba-p/3604225)
 
 ### Azure Machine Learning

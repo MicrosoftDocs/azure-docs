@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 02/06/2023
 ms.author: normesta
 ms.subservice: blobs
 ---
@@ -68,7 +68,7 @@ Soft-deleted objects are invisible unless they're explicitly displayed or listed
 > [!IMPORTANT]
 > This section doesn't apply to accounts that have a hierarchical namespace.
 
-Calling an operation such as [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) overwrites the data in a blob. When blob soft delete is enabled, overwriting a blob automatically creates a soft-deleted snapshot of the blob's state prior to the write operation. When the retention period expires, the soft-deleted snapshot is permanently deleted.
+Calling an operation such as [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) overwrites the data in a blob. When blob soft delete is enabled, overwriting a blob automatically creates a soft-deleted snapshot of the blob's state prior to the write operation. When the retention period expires, the soft-deleted snapshot is permanently deleted. The operation performed by the system to create the snapshot doesn't appear in Azure Monitor resource logs or Storage Analytics logs.
 
 Soft-deleted snapshots are invisible unless soft-deleted objects are explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
 
