@@ -40,10 +40,10 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
     |Command        |Description    |
     |---------------|---------------|
-    |build          |Generate standard ARM template for the given Azure Stream Analytics VSCode project.|
-    |localrun       |Run locally for the given Azure Stream Analytics VSCode project.|
-    |test           |Test for given Azure Stream Analytics VSCode project.| 
-    |addtestcase    |Add test cases for the given Azure Stream Analytics VSCode project.| 
+    |build          |Generate standard ARM template for the given Azure Stream Analytics Visual Studio Code project.|
+    |localrun       |Run locally for the given Azure Stream Analytics Visual Studio Code project.|
+    |test           |Test for given Azure Stream Analytics Visual Studio Code project.| 
+    |addtestcase    |Add test cases for the given Azure Stream Analytics Visual Studio Code project.| 
     |autoscale      |Generate autoscale setting ARM template file.| 
     |help           |Display more information on a specific command.| 
 
