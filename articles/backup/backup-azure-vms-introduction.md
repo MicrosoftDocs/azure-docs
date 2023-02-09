@@ -76,7 +76,7 @@ The following table explains the different types of snapshot consistency:
 **Restore copy** | During the restore process, data is copied from the vault to the storage account.<br/><br/> The total restore time depends on the I/O operations per second (IOPS) and the throughput of the storage account.<br/><br/> To reduce the copy time, select a storage account that isn't loaded with other application writes and reads.
 
 > [!Note]
-> Azure Backup now enables you to back up your Azure VMs to multiple times a day using the Enhanced policy. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines. [Learn more](backup-azure-vms-enhanced-policy.md).
+> Azure Backup now enables you to back up your Azure VMs multiple times a day using the Enhanced policy. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines. [Learn more](backup-azure-vms-enhanced-policy.md).
 
 ### Backup performance
 
