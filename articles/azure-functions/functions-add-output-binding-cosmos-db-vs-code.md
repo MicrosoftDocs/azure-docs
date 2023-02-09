@@ -220,7 +220,16 @@ A binding is added to the `bindings` array in your function.json, which should l
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.py* file. You use the queue_output decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python##azure-cosmos-db-output-binding).
+Binding attributes are defined directly in the *function_app.py* file. You use the queue_output decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-cosmos-db-output-binding).
+
+Add the following decorator to your function code in *function_app.py*:
+
+```python
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
+    collection_name="my-container", connection_string_setting="CosmosDbConnectionString")
+```
+
+In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `collection_name` are the database and collection names that the binding writes to, and `connection_string_setting` is the name of an application setting that contains the connection string for the Storage account, which is in the CosmosDbConnectionString setting in the *local.settings.json* file.
 
 ---
 
@@ -344,11 +353,69 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 # [v1](#tab/v1)
 
-TBD
+```python
+import azure.functions as func
+import logging
+
+def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
+    outputDocument: func.Out[func.Document]) -> str:
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        outputDocument.set(func.Document.from_dict({"id": name}))
+        msg.set(name)
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
 
 # [v2](#tab/v2)
 
-TBD
+```python
+import azure.functions as func
+import logging
+
+app = func.FunctionApp()
+
+@app.function_name(name="HttpTrigger1")
+@app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
+@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
+    collection_name="my-container", connection_string_setting="CosmosDbConnectionString")
+def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
+    outputDocument: func.Out[func.Document]) -> func.HttpResponse:
+     logging.info('Python HTTP trigger function processed a request.')
+     logging.info('Python Cosmos DB trigger function processed a request.')
+     name = req.params.get('name')
+     if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+     if name:
+        outputDocument.set(func.Document.from_dict({"id": name}))
+        msg.set(name)
+        return func.HttpResponse(f"Hello {name}!")
+     else:
+        return func.HttpResponse(
+                    "Please pass a name on the query string or in the request body",
+                    status_code=400
+                )
+```
 
 ---
 
