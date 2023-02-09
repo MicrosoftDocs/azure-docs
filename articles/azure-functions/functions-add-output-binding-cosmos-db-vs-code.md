@@ -204,7 +204,7 @@ To create a binding, right-select (Ctrl+select on macOS) the *function.json* fil
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
-A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present
+A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present
 
 ```json
 {
@@ -353,7 +353,7 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 # [v1](#tab/v1)
 
-Update *HttpExample\\\_\_init\_\_.py* to match the following code, add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
+Update *HttpExample\\\_\_init\_\_.py* to match the following code. Add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func
@@ -382,7 +382,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
         )
 ```
 
-The document `{"id": "name"}` is created in the collection.
+The document `{"id": "name"}` is created in the database collection specified in the binding.
 
 # [v2](#tab/v2)
 
@@ -423,7 +423,7 @@ def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
                 )
 ```
 
-The document `{"id": "name"}` is created in the collection.
+The document `{"id": "name"}` is created in the database collection specified in the binding.
 
 ---
 
