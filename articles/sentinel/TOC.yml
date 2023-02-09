@@ -262,14 +262,21 @@
         href: connect-azure-windows-microsoft-services.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
-      - name: CEF over Syslog sources
-        href: connect-common-event-format.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md
+      - name: CEF/Syslog options
+        href: connect-cef-syslog-options.md
+        items:
+        - name: CEF via AMA
+          href: connect-cef-ama.md
+        - name: Syslog via AMA
+          href: /azure-monitor/essentials/data-collection-rule-overview
+        - name: CEF and Syslog
+          href: connect-cef-syslog-options.md
+        - name: CEF over Syslog sources (legacy)
+          href: connect-common-event-format.md
+        - name: Syslog (raw) sources (legacy)
+          href: connect-syslog.md
       - name: DNS via AMA
-        href: connect-dns-ama.md
-      - name: Syslog (raw) sources
-        href: connect-syslog.md
+        href: connect-dns-ama.md      
       - name: Microsoft Purview Information Protection
         href: connect-microsoft-purview.md
       - name: Microsoft Sentinel Data Collector API
