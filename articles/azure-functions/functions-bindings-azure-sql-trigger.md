@@ -107,6 +107,8 @@ Isolated worker process isn't currently supported.
 -->
 ---
 
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
