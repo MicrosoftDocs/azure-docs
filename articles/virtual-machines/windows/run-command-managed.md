@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
+> [!IMPORTANT]
+> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
 
 The Run Command feature uses the virtual machine (VM) agent to scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
@@ -91,7 +93,7 @@ Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```powershell-interactive
-Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Status
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand InstanceView
 ```
 
 ### Create or update Run Command on a VM using SourceScriptUri (storage blob SAS URL)

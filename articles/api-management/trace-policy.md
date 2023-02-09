@@ -18,6 +18,8 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 -   The policy adds a property in the log entry when [resource logs](./api-management-howto-use-azure-monitor.md#resource-logs) are enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 -   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
+[!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ## Policy statement
