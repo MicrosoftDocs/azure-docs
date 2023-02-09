@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: kesheth
+ms.author: kgaddam10
 ---
 
 # Release notes: Azure API for FHIR
