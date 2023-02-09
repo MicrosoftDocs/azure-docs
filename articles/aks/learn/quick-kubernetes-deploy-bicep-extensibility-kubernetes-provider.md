@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure applications to Azure Kubernetes Service clusters using Bicep extensibility Kubernetes provider
+title: Quickstart: Deploy Azure applications to Azure Kubernetes Service clusters using Bicep extensibility Kubernetes provider
 description: Learn how to quickly create a Kubernetes cluster and deploy Azure applications in Azure Kubernetes Service (AKS) using Bicep extensibility Kubernetes provider.
 services: container-service
 ms.topic: quickstart
