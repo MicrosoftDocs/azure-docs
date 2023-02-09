@@ -59,7 +59,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 <sup>1</sup> The same restrictions apply to Speech translation feature.\
 <sup>2</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).\
-<sup>3</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).\
+<sup>3</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).
 
 ### Text-to-speech quotas and limits per Speech resource
 
