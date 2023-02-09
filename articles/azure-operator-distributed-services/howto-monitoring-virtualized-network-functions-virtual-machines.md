@@ -13,13 +13,24 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This section discusses the optional tooling available for telecom operators to monitor the Virtualized Network Functions (VNF) workloads. With Azure Monitoring Agent (AMA), logs and performance metrics can be collected from the Virtual Machines (VM) running VNFs. One of the pre-requisites for AMA is Arc connectivity back to Azure (using Azure Arc for Servers).
 
+## Extension Onboarding with CLI using Managed Identity Auth
+
+When enabling Monitoring agents on VMs using CLI, ensure appropriate versions of CLI are installed:
+
+- azure-cli: 2.39.0+
+- azure-cli-core: 2.39.0+
+- Resource-graph: 2.1.0+
+
+Documentation for starting with [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/get-started-with-azure-cli), how to install it across [multiple operating systems](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli), and how to install [CLI extensions](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview).
+
 ## Arc connectivity
 
 Azure Arc-enabled servers let you manage Linux physical servers and Virtual Machines hosted outside of Azure, such as on-premises cloud environment like AODS. A hybrid machine is any machine not running in Azure. When a hybrid machine is connected to Azure, it becomes a connected machine, treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
 ### Prerequisites
 
-Before you start, be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription, and resources meet the requirements. Some of the prerequisites are:
+Before you start, be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription, and resources meet the requirements.
+Some of the prerequisites are:
 
 - Your VNF VM is connected to CloudServicesNetwork (the network that the VM uses to communicate with AODS services).
 - You have SSH access to your VNF VM.
@@ -85,7 +96,7 @@ If the agent fails to start after setup is finished, check the logs for detailed
 
 After you install the agent and configure it to connect to Azure Arc-enabled servers, verify that the server is successfully connected at [Azure portal](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="media/VNF-VM-Arc-connected-server.png" alt-text="Sample Arc-Enrolled VM":::
+:::image type="content" source="media/sample-arc-enrolled-vm.png" alt-text="Sample Arc-Enrolled VM":::
 
 Figure: Sample Arc-Enrolled VM
 
@@ -105,12 +116,12 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../virtual-mac
 
 Ensure that you configure collection of logs and metrics using the Data Collection Rule.
 
-:::image type="content" source="media/DCR-rule-creation.png" alt-text="DCR adding source":::
+:::image type="content" source="media/drc-adding-source.png" alt-text="DCR adding source":::
 Figure: DCR adding source
 
 **Note:** The metrics configured with DCR should have destination set to Log Analytics Workspace as it's not supported on Azure Monitor Metrics yet.
 
-:::image type="content" source="media/DCR-rule-creation-2.png" alt-text="DCR adding destination":::
+:::image type="content" source="media/dcr-adding-destination.png" alt-text="DCR adding destination":::
 Figure: DCR adding destination
 
 ### Pre-requisites
@@ -128,7 +139,7 @@ The following prerequisites must be met prior to installing the Azure Monitor Ag
 
 Once, the Virtual Machines are Arc connected, ensure that you create a local file from your [Azure Cloud Shell](../cloud-shell/overview.md) with name "settings.json" to provide the proxy information:
 
-:::image type="content" source="media/AMA-agent-settings.png" alt-text="Settings.json file":::
+:::image type="content" source="media/ama-agent-settings.png" alt-text="Settings.json file":::
 Figure: settings.json file
 
 Then use the following command to install the Azure Monitoring agent on these Azure Arc-enabled servers:
@@ -161,7 +172,7 @@ az monitor data-collection rule create --name \<name-for-dcr\> --resource-group 
 
 An example rules-file:
 
-:::image type="content" source="media/DCR-rule-json.png" alt-text="Sample DCR rule file":::
+:::image type="content" source="media/sample-dcr-rule.png" alt-text="Sample DCR rule file":::
 Figure: Sample DCR rule file
 
 For more information, please refer to this [link](../monitor/data-collection/rule?view=azure-cli-latest.md#az-monitor-data-collection-rule-create).

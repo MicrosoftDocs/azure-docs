@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 The AODS observability framework provides operational insights into your AODS instances. It supports logging, monitoring and alerting (LMA), analytics and visualization of operational (platform and workloads) data and metrics.
 
-:::image type="content" source="media/AODS-LMA-Framework.png" alt-text="AODS Logging, Monitoring and Alerting (LMA) Framework":::
+:::image type="content" source="media/lma-framework.png" alt-text="AODS Logging, Monitoring and Alerting (LMA) Framework":::
 Figure: AODS Logging, Monitoring and Alerting (LMA) Framework
 
 The key highlights of the AODS observability are:
@@ -97,7 +97,7 @@ The logs from AODS platform are stored in the following tables:
 
 The 'InsightMetrics' table in the Logs section contains the metrics collected from Bare Metal Machines and the undercloud Kubernetes cluster. In addition, a few selected metrics collected from the undercloud can be observed by opening the Metrics tab from the Azure Monitor menu.
 
-:::image type="content" source="media/AODS_Azure_Monitor_Metrics_Selection.png" alt-text="Azure Monitor Metrics Selection.":::
+:::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Azure Monitor Metrics Selection.":::
 Figure: Azure Monitor Metrics Selection
 
 See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)** for details on using this tool.

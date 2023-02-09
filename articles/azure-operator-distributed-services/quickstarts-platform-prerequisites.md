@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Distributor Services: Platform deployment pre-requisites"
-description: Learn the prerequisite steps for deploying the Azure Operator Distributor Services platform software.
+title: "Azure Operator Distributed Services: Platform deployment pre-requisites"
+description: Learn the prerequisite steps for deploying the Azure Operator Distributed Services platform software.
 author: surajmb #Required; your GitHub user alias, with correct capitalization.
 ms.author: surmb #Required; microsoft alias of author; optional team alias.
 ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
@@ -9,62 +9,45 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: Deploy Azure Operator Distributor Services platform software prerequisites
+# Quickstart: Deploy Azure Operator Distributed Services platform software prerequisites
 
 You'll need to complete the prerequisites before you can deploy the
-Azure Operator Distributor Services platform software. Some of these steps may take
+Azure Operator Distributed Services platform software. Some of these steps may take
 weeks to months and, thus, a review of these prerequisites may prove beneficial.
 
-When deploying Azure Operator Distributor Services for the first time,
-you'll first need to create a Network Fabric Controller and then a (Network Cloud) Cluster Manager.
-In subsequent deployments of Azure Operator Distributor Services instances, you can skip to creating the on-premises
+In subsequent deployments of Azure Operator Distributed Services instances, you can skip to creating the on-premises
 network fabric and the cluster. An instance of Network Fabric Controller can support up to 32
-Azure Operator Distributor Services instances.
+Azure Operator Distributed Services instances.
 
-In these steps, we'll assume that you're deploying Azure Operator Distributor Services for the first time.
+## Prerequisites
 
-## Before we begin
-
-You need to be familiar with the Azure Operator Distributor Services [key features](./introduction.md#key-features)
+You need to be familiar with the Azure Operator Distributed Services [key features](./introduction.md#key-features)
 and [platform components](./concepts-resource-types.md).
 
 The prerequisite activities have been split among activities you'll perform in Azure and on
 your premises that may require some data gathering.
 
-### Azure to-do's
+### Azure prerequisites
 
-- Ensure Azure Subscription for Azure Operator Distributor Services resources has been permitted access to the
-  necessary Azure Resource Providers.
-  - Microsoft.NetworkCloud
-  - Microsoft.ManagedNetworkFabric
-  - Microsoft.HybridContainerService
-  - Microsoft.HybridNetwork
-- Establish [ExpressRoute](../azure/expressroute/expressroute-introduction.md) connectivity
-  from your on-premises network to an Azure Region
-  - ExpressRoute circuit [creation and verification](../azure/expressroute/expressroute-howto-circuit-portal-resource-manager.md)
-    can be performed via the Azure portal
-  - In the ExpressRoute blade, ensure Circuit status indicates the status
-    of the circuit on the Microsoft side. Provider status indicates if
-    the circuit has been provisioned or not provisioned on the
-    service-provider side. For an ExpressRoute circuit to be operational,
-    Circuit status must be Enabled, and Provider status must be
-    Provisioned
+- When deploying Azure Operator Distributed Services for the first time or in a new region,
+you'll first need to create a Network Fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-NFC-CM-create.md).
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
-  that will be created for Azure Operator Distributor Services platform.
+  that will be created for Azure Operator Distributed Services platform.
 - Set up Key Vault to store encryption and security tokens, service principals,
   passwords, certificates, and API keys
 - Set up Log Analytics workSpace (LAW) to store logs and analytics data for
-  Azure Operator Distributor Services sub-components (Fabric, Cluster, etc.)
-- Set up Azure Storage account to store Azure Operator Distributor Services data objects
-  - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS.
+  Azure Operator Distributed Services sub-components (Fabric, Cluster, etc.)
+- Set up Azure Storage account to store Azure Operator Distributed Services data objects:
+  - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS
+  - this storage is not for user/consumer data.
 
-### On your premises to-do's
+### On your premises prerequisites
 
-- Purchase and install hardware
-  - purchase the hardware as specified in the BOM provided to you
-  - perform the physical installation (EF&I)
-  - cable as per the BOM including the cabling to your WAN via a pair of PE devices.
+- Purchase and install hardware:
+  - Purchase the hardware as specified in the BOM provided to you
+  - Perform the physical installation (EF&I)
+  - Cable as per the BOM including the cabling to your WAN via a pair of PE devices.
 - All network fabric devices (except for the Terminal Server (TS)) are set to ZTP mode
 - Servers and Storage devices have default factory settings
 - Establish ExpressRoute connectivity from your WAN to an Azure Region
@@ -73,22 +56,22 @@ your premises that may require some data gathering.
     - Authentication credentials have been set up
     - DHCP client is enabled on the out-of-band management port, and
     - HTTP access is enabled
-  - Terminal Server Interface is connected to your on-premises PEs and configured with the IP addresses and credentials
+  - Terminal Server Interface is connected to your on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
 - For the [Network Fabric configuration](./quickstarts-platform-deployment.md#step-3-create-network-fabric) (to be performed later)
   you'll need to provide:
-  - ExpressRoute credentials
+  - ExpressRoute credentials and information
   - Terminal Server IPs and credentials
-  - optional IP prefix for the Network
+  - [optional] IP prefix for the Network
     Fabric Controller (NFC) subnet during its creation; the default IPv4 and IPv6
     prefix are `10.0.0.0/19` and `FC00:/59`, respectively
-  - optional IP prefix for the Azure Operator Distributor Services
+  - [optional] IP prefix for the Azure Operator Distributed Services
     Management plane during NFC creation.
     By default, `10.1.0.0/19` and, `FC00:0000:0000:100::/59`
     IPv4 and IPv6 prefix, respectively, are used for subnets in the management plane for the first
-    Azure Operator Distributor Services instance. Prefix range `10.1.0.0/19` to `10.4.224.0/19` and
+    Azure Operator Distributed Services instance. Prefix range `10.1.0.0/19` to `10.4.224.0/19` and
     `FC00:0000:0000:100::/59` to `FC00:0000:0000:4e0::/59` are used for
-    the 32 instances of Azure Operator Distributor Services supported for each NFC instance.
+    the 32 instances of Azure Operator Distributed Services supported for each NFC instance.
 
 ## Set up Terminal Server
 
@@ -175,7 +158,7 @@ your premises that may require some data gathering.
    - Physical Inspection Date:
    - Chassis Serial Number:
    - Pure Array Hostname:
-   - CLLI:
+   - CLLI code (Common Language location identifier):
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the Operator and shared with Pure Technician, which will be common to all installations:
@@ -220,7 +203,7 @@ your premises that may require some data gathering.
 
 ## Install CLI Extensions and sign-in to your Azure Subscription
 
-Install the appropriate [CLI Extensions](./howto-install-networkcloud-cli-extensions.md)
+[!INCLUDE [Azure CLI extensions](./includes/howto-install-cli-extensions.md)]
 
 ### Azure Subscription sign-in
 

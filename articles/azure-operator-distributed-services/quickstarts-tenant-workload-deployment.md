@@ -11,9 +11,15 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # How-To Deploy Tenant Workloads
 
-This how-to guide explains the steps for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads.
+This how-to guide explains the steps for deploying VNF and CNF workloads. Section V (for VM-based deployments) deals with creating VMs and to deploy VNF workloads. Section K (for Kubernetes; based deployments) specifies steps for creating AKS-Hybrid clusters for deploying  CNF workloads.
 
-## How to create VMs for VNF workloads
+These examples don't specify all required parameters and, thus, shouldn't be used verbatim.
+
+## Before you begin
+
+You should complete the prerequisites specified [here](./quickstarts-tenant-workload-prerequisites.md).
+
+## Section V: How to create VMs for deploying VNF workloads
 
 Step-V1: [Create Isolation Domains for VMs](#step-v1-create-isolation-domain-for-vm-workloads)
 
@@ -21,17 +27,15 @@ Step-V2: [Create Networks for VM](#step-v2-create-networks-for-vm-workloads)
 
 Step-V3: [Create Virtual Machines](#step-v3-create-a-vm)
 
-Step-V4: [Provision Tenant workloads (VNFs)](#step-v4-provision-tenant-workloads-vnfs)
-
-**Commands shown below are examples and should not be copied or used verbatim.**
-
 ## Deploy VMs for VNF workloads
 
 This section explains steps to create VMs for VNF workloads
 
 ### Step V1: Create Isolation Domain for VM workloads
 
-Isolation domains enable creation of layer 2 and layer 3 connectivity between AODS and network fabric network functions. This connectivity enables inter-rack and intra-rack communication between the workloads. You can create as many L2 and L3 Isolation Domains as needed.
+Isolation domains enable creation of layer 2 and layer 3 connectivity between AODS and network fabric network functions.
+This connectivity enables inter-rack and intra-rack communication between the workloads.
+You can create as many L2 and L3 Isolation Domains as needed.
 
 You should have the following information already:
 
@@ -60,8 +64,6 @@ This section describes how to create the following networks for VM Workloads:
 - Layer 3 network
 - Trunked network
 - Cloud services network
-
-Refer to the "Preparation" and "Before You Begin" sections for the information you'll need.
 
 #### Create an L2 network
 
@@ -131,11 +133,7 @@ You can include as many L2 and L3 Isolation Domains as needed.
 
 ### Create Cloud Services network
 
-Your VM will require one Cloud Services Network.
-
-You'll need:
-
-- The egress endpoints you want to add to the proxy for your VM to access.
+Your VM will require one Cloud Services Network. You'll need the egress endpoints you want to add to the proxy for your VM to access.
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
@@ -153,9 +151,7 @@ AODS provides `az networkcloud virtualmachine create` to enable users to create 
 VM. For creating an AODS virtual machine on your cluster, have it [Microsoft Azure Arc-enrolled](https://learn.microsoft.com//azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
-#### Pre-requisite
-
-The pre-requisites are:
+#### Parameters
 
 - The `subscription`, `resource group`, `location`, and `customlocation` of the AODS cluster for deployment
   - **SUBSCRIPTION**=
@@ -180,9 +176,7 @@ The pre-requisites are:
   - **USERDATA**=
 - The resource ID of the earlier created [cloud service network](#create-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
 
-#### Instructions
-
-##### 1. Update user data file
+#### 1. Update user data file
 
 Update the values listed in the _USERDATA_ file with the proper information
 
@@ -204,7 +198,7 @@ Encode the user data
 ENCODED_USERDATA=(`base64 -w0 USERDATA`)
 ```
 
-##### 2. Create the VM with the encoded data
+#### 2. Create the VM with the encoded data
 
 Update the VM template with proper information:
 
@@ -233,7 +227,7 @@ Run this command, update with your resource group and subscription info
 az deployment group create --resource-group _RESOURCE_GROUP_ --subscription=_SUBSCRIPTION_ --name _DEPLOYMENT_NAME_ --template-file _VM_TEMPLATE_
 ```
 
-##### 3. SSH to the VM
+#### 3. SSH to the VM
 
 It will take a few minutes for the VM to be created and then Arc connected, so should it fail at first, try again after a short wait.
 
@@ -243,9 +237,6 @@ az ssh vm -n _VMNAME_ -g _RESOURCE_GROUP_ --subscription _SUBSCRIPTION_ --privat
 
 **Capacity Note:**
 In the BOM 1.5 Dell servers, each server has two CPU chipsets. Each CPU chip has 28 cores and, thus, with hyperthreading enabled (default), the CPU chip supports 56 vCPUs. 8 vCPUs are reserved for infrastructure (OS, agents) and the remaining 48 are available for tenant workloads.
-
-Refer to the [Preparation](./quickstarts-tenant-workload-prerequisites.md#preparation) and
-[Before You Begin](./quickstarts-tenant-workload-prerequisites.md#before-you-begin) sections on information you'll need.
 
 Here's some information you'll need.
 
@@ -290,11 +281,9 @@ az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \
 --vm-image-repository-credentials registry-url="<YourAcrUrl>" username="<YourAcrUsername>" password="<YourAcrPassword>" \
 ```
 
-### Step V4: Provision Tenant workloads (VNFs)
+You've created the VMs with your custom image. You're now ready to use for VNFs.
 
-The environment is ready for customers to deploy their workloads either directly via AODS APIs or via NFM in Azure.
-
-## How to create AKS-Hybrid cluster for CNF workloads
+## Section K: How to create AKS-Hybrid cluster for deploying CNF workloads
 
 Step-K1: [Create Isolation Domains for AKS-Hybrid Cluster](#step-k1-create-isolation-domain-for-aks-hybrid-cluster)
 
@@ -347,15 +336,12 @@ This section describes how to create the following networks:
 
 At a minimum, you need to create a "Default CNI network" and a "Cloud Services network".
 
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+##### Create an L2 Network for AKS-Hybrid Cluster
 
-#### Create an L2 Network for AKS-Hybrid Cluster
+You'll need the resourceId of the [L2 Isolation Domain](./quickstarts-tenant-prerequisites.md#l2-isolation-domain) you created earlier that configures the VLAN for this network.
 
-You'll need the resourceId of the [L2 Isolation Domain](./quickstarts-tenant-prerequisites.md#l2-isolation-domain) you created earlier that configures the VLANfor this network.
-
-You'll also need to configure the following information for your network:
-
-- hybrid-aks-plugin-type: valid values are `OSDevice`, `SR-IOV`, `DPDK`. Default: `SR-IOV`
+For your network, the valid values for
+`hybrid-aks-plugin-type` are `OSDevice`, `SR-IOV`, `DPDK`; the default value is `SR-IOV`.
 
 ```azurecli
   az networkcloud l2network create --name "<YourL2NetworkName>" \
@@ -367,9 +353,7 @@ You'll also need to configure the following information for your network:
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-#### Create an L3 Network for AKS-Hybrid Cluster
-
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+##### Create an L3 Network for AKS-Hybrid Cluster
 
 You'll need the following information:
 
@@ -400,9 +384,7 @@ You'll also need to configure the following information for your aks-hybrid clus
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-#### Create a Trunked Network for AKS-hybrid Cluster
-
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+##### Create a Trunked Network for AKS-hybrid Cluster
 
 You'll need to gather the resourceId(s) of the L2 and L3 Isolation Domains you created earlier that configured the VLAN(s) for this network. You're allowed to include as many L2 and L3 Isolation Domains as needed.
 
@@ -427,9 +409,7 @@ You'll also need to configure the following information for your network
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-#### Create Default CNI Network for AKS-Hybrid Cluster
-
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+##### Create Default CNI Network for AKS-Hybrid Cluster
 
 You'll need the following information:
 
@@ -453,9 +433,7 @@ You'll need the following information:
     --vlan < YourNetworkVlan>
 ```
 
-#### Create Cloud Services Network for AKS-Hybrid Cluster
-
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+##### Create Cloud Services Network for AKS-Hybrid Cluster
 
 You'll need the following information:
 
@@ -472,15 +450,9 @@ You'll need the following information:
 
 #### Step K2b. Create vNET for the tenant networks of AKS-Hybrid Cluster
 
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
+For each previously created tenant network, a corresponding AKS-Hybrid vNET network needs to be created
 
-For each previously created tenant network, a corresponding AKS-Hybrid vnet network needs to be created
-
-You'll also need the following information:
-
-- The Azure Resource Manager resource ID for each of the networks you created earlier.
-
-You can retrieve the Azure Resource Manager resource IDs as follows:
+You'll need the Azure Resource Manager resource ID for each of the networks you created earlier. You can retrieve the Azure Resource Manager resource IDs as follows:
 
 ```azurecli
 az networkcloud cloudservicesnetwork show -g "<YourResourceGroupName>" -n "<YourCloudServicesNetworkName>" --subscription "<YourSubscription>" -o tsv --query id
@@ -508,8 +480,6 @@ az hybridaks vnet create \
 ### Step K3: Create an AKS-Hybrid Cluster
 
 This section describes how to create an AKS-Hybrid Cluster
-
-Refer to the "Preparation" and "Before You Begin" sections on information you'll need for this section.
 
 ```azurecli
   az hybridaks create \
@@ -566,4 +536,4 @@ returns a list of the cluster nodes.
 
 ### Step K4: Provision Tenant Workloads (CNFs)
 
-The environment is ready for customers to deploy their workloads either directly via AODS APIs or via NFM in Azure.
+You can now deploy the CNFs either directly via AODS APIs or via Azure Network Function Manager.

@@ -11,53 +11,54 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Configure L2 and L3 Isolation Domains using managed network fabric services
 
-This article describes how you can manage your Layer 2 and Layer 3 Isolation Domains using the Azure Command Line Interface (AzureCLI). create, status, update, delete and check status of Layer 2 and Layer 3 Isolation Domains.
+The Isolation Domains enable communication between workloads hosted in the same rack (intra-rack communication) or different racks (inter-rack communication).
+This how-to describes how you can manage your Layer 2 and Layer 3 Isolation Domains using the Azure Command Line Interface (AzureCLI). You can create, update, delete and check status of Layer 2 and Layer 3 Isolation Domains.
 
 ## Prerequisites
 
-- Ensure Network Fabric Controller and Network Fabric have been created.
-- Install the latest version of [needed CLIs](./howto-install-networkcloud-cli-extensions.md)
-
-## Register providers for Managed Network Fabric
-
-This step can be skipped if already done during Network Fabric Controller Creation
-
-1. In Azure CLI, enter the command: `az provider register --namespace Microsoft.ManagedNetworkFabric`
-1. Monitor the registration process. Registration may take up to 10 minutes: `az provider show -n Microsoft.ManagedNetworkFabric -o table`
-1. Once registered, you should see the `RegistrationState` change to `Registered`: `az provider show -n Microsoft.ManagedNetworkFabric -o table`.
-
-## Isolation Domains
-
-You create Isolation Domains to enable layer 2 and layer 3 connectivity between AODS workloads. The Isolation Domains enable communication between workloads hosted in the same rack (intra-rack communication) or different racks (inter-rack communication). You can use the CLI for creating L2 and L3 Isolation Domains.
-
-> [!NOTE]
-> AODS reserves VLANs <=500 for Platform use, and therefore VLANs in this range can't be used for your (tenant) workload networks. You should use VLAN values between 501 and 4095.
+1. Ensure Network Fabric Controller and Network Fabric have been created.
+1. Install the latest version of CLIs
+[!INCLUDE [necessary CLIs](./includes/howto-install-cli-extensions.md)]
 
 ### Sign-in to your Azure account
 
 Sign-in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID used across all AODS resources.
 
-```azurecli
-az login
-az account set --subscription ********-****-****-****-*********
-```
+    ```azurecli
+    az login
+    az account set --subscription ********-****-****-****-*********
+    ```
 
-### Parameters for Isolation Domain management
+### Register providers for Managed Network Fabric
 
-| Parameter           | Description                                                                                                                                                                                                                         |
-| :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+1. In Azure CLI, enter the command: `az provider register --namespace Microsoft.ManagedNetworkFabric`
+1. Monitor the registration process. Registration may take up to 10 minutes: `az provider show -n Microsoft.ManagedNetworkFabric -o table`
+1. Once registered, you should see the `RegistrationState` change to `Registered`: `az provider show -n Microsoft.ManagedNetworkFabric -o table`.
+
+You'll create Isolation Domains to enable layer 2 and layer 3 connectivity between AODS workloads.
+
+> [!NOTE]
+> AODS reserves VLANs <=500 for Platform use, and therefore VLANs in this range can't be used for your (tenant) workload networks. You should use VLAN values between 501 and 4095.
+
+## Parameters for Isolation Domain management
+
+| Parameter| Description|
+| :--| :--------|
 | vlan-id             | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The Isolation Domain must be deleted and recreated if the VLAN identifier value needs to be modified. |
-| administrativeState | Indicate administrative state of the Isolation Domain                                                                                                                                                                               |
-| provisioningState   | Indicates provisioning state                                                                                                                                                                                                        |
-| subscriptionId      | Your Azure subscriptionId for your AODS instance.                                                                                                                                                                                   |
-| resourceGroupName   | Use the corresponding NFC resource group name                                                                                                                                                                                       |
-| resource-name       | Resource Name of the Isolation Domain                                                                                                                                                                                               |
-| nf-id               | ARM ID of the Network Fabric                                                                                                                                                                                                        |
-| location            | Azure region where the resource is being created                                                                                                                                                                                    |
+| administrativeState | Indicate administrative state of the Isolation Domain |
+| provisioningState   | Indicates provisioning state |
+| subscriptionId      | Your Azure subscriptionId for your AODS instance. |
+| resourceGroupName   | Use the corresponding NFC resource group name |
+| resource-name       | Resource Name of the Isolation Domain |
+| nf-id               | ARM ID of the Network Fabric |
+| location            | Azure region where the resource is being created |
 
-### Create L2 Isolation Domain
+## L2 Isolation Domain
 
 You use an L2 Isolation Domain to establish layer 2 connectivity between workloads running on AODS compute nodes.
+### Create L2 Isolation Domain
+
+Create an L2 Isolation domain:
 
 ```azurecli
 az nf l2domain create \
@@ -245,23 +246,35 @@ Expected output:
 Please use show or list command to validate that isolation domain is deleted. Deleted resources will not appear in result
 ```
 
+## L3 Isolation Domain
+
+Layer 3 Isolation Domain enables layer 3 connectivity between workloads running on AODS compute nodes.
+The L3 Isolation Domain enables the workloads to exchange layer 3 information with Network Fabric devices.
+
+Layer 3 isolation domain has two components: Internal and External Networks.
+At least one or more internal networks are required to be created.
+The internal networks define layer 3 connectivity between NFs running in AODS compute nodes and an optional external network.
+The external network provides connectivity between the internet and internal networks via your PEs.
+
+L3 isolation domain enables deploying workloads that advertise service IPs to the fabric via BGP.
+Fabric ASN refers to the ASN of the network devices on the Fabric. The Fabric ASN was specified while creating the Network Fabric.
+Peer ASN refers to ASN of the Network Functions in AODS, and it can't be the same as Fabric ASN.
+
+The workflow for a successful provisioning of an L3 Isolation Domain is as follows:
+  - Create a L3 Isolation Domain
+  - Create one or more Internal Networks
+  - Enable a L3 Isolation Domain
+
+To make changes to the L3 Isolation Domain, first Disable the L3 Isolation Domain (Administrative state). Re-enable the L3 Isolation Domain (AdministrativeState state) once the changes are completed:
+  - Disable the L3 Isolation Domain
+  - Make changes to the L3 Isolation Domain
+  - Re-enable the L3 Isolation Domain
+
+Procedure to show, enable/disable and delete IPv6 based Isolation Domains is same as used for IPv4.
+
 ### Create L3 Isolation Domain
 
-- Layer 3 Isolation Domain enables layer 3 connectivity between workloads running on AODS compute nodes. The L3 Isolation Domain enables the workloads to exchange layer 3 information with Network Fabric devices.
-- Layer 3 isolation domain has two components - Internal and External Networks
-- At least one or more internal networks are required to be created. The internal networks define layer 3 connectivity between NFs running in AODS compute nodes and an optional external network. The external network provides connectivity between the internet and internal networks via your PEs.
-- L3 isolation domain enables deploying workloads that advertise service IPs to the fabric via BGP
-- Fabric ASN refers to the ASN of the network devices on the Fabric. The Fabric ASN is specified while creating the Network Fabric.
-- Peer ASN refers to ASN of the Network Functions in AODS, and it can't be same as Fabric ASN.
-- The workflow for a successful provisioning of an L3 Isolation Domain is as follows:
-  - **Create a L3 Isolation Domain**
-  - **Create one or more Internal Networks**
-  - **Enable a L3 Isolation Domain**
-- To make changes to the L3 Isolation Domain, first Disable the L3 Isolation Domain (Administrative state). Re-enable the L3 Isolation Domain (AdministrativeState state) once the changes are completed:
-  - **Disable the L3 Isolation Domain**
-  - **Make changes to the L3 Isolation Domain**
-  - **Re-enable the L3 Isolation Domain**
-- Procedure to show, enable/disable and delete IPv6 based Isolation Domains is same as used for IPv4.
+You can create the L3 Isolation Domain:
 
 ```azurecli
 az nf l3domain create
@@ -381,7 +394,7 @@ Expected Output
 }
 ```
 
-once the Isolation Domain is created successfully, the next step is to create an internal network.
+Once the Isolation Domain is created successfully, the next step is to create an internal network.
 
 ## Internal Network Creation
 
@@ -554,7 +567,9 @@ Expected Output
 
 This command creates an External network using Azure CLI.
 
-**Note:** For Option A You need to create an external network before you enable the L3 Isolation Domain. An external is dependent on Internal network, so an external can't be enabled without an internal network. The vlan-id value should be between 501 and 4095
+**Note:** For Option A, you need to create an external network before you enable the L3 Isolation Domain.
+An external is dependent on Internal network, so an external can't be enabled without an internal network.
+The vlan-id value should be between 501 and 4095.
 
 ```azurecli
 az nf externalnetwork create
@@ -656,7 +671,7 @@ Expected Output
 }
 ```
 
-## Enable/Disable L3 Isolation Domains
+### Enable/Disable L3 Isolation Domains
 
 This command is used change administrative state of L3 Isolation Domain, you have to run the az show command to verify if the Administrative state has changed to Enabled or not.
 
@@ -694,7 +709,7 @@ Expected Output
 }
 ```
 
-## Delete L3 Isolation Domains
+### Delete L3 Isolation Domains
 
 This command is used to delete L3 Isolation Domain
 
@@ -704,20 +719,22 @@ az nf l3domain delete --resource-group "fab1-nf" --resource-name "example-l3doma
 
 Use the `show` or `list` commands to validate that the Isolation Domain has been deleted.
 
-## Create Networks in L3 Isolation Domain
+### Create Networks in L3 Isolation Domain
 
-- Internal networks enable layer 3 inter-rack and intra-rack communication between workloads via exchanging routes with the fabric. An L3 Isolation Domain can support multiple internal networks, each on a separate VLAN
+Internal networks enable layer 3 inter-rack and intra-rack communication between workloads via exchanging routes with the fabric.
+An L3 Isolation Domain can support multiple internal networks, each on a separate VLAN.
 
-- External networks enable workloads to have layer 3 connectivity with your provider edge. It also allows for workloads to interact with external services like firewall and DNS.
+External networks enable workloads to have layer 3 connectivity with your provider edge.
+They also allow for workloads to interact with external services like firewalls and DNS.
+The Fabric ASN (created during network fabric creation) is needed for creating external networks.
 
-- Fabric ASN is provided by you when creating external networks
+## An example of networks creation for a Network Function
 
-## Example Isolation Domain operations for Network Function
+The diagram represents an example Network Function, with three different internal networks Trust, Untrust and Management (`Mgmt`).
+Each of the internal networks is created in its own L3 Isolation Domain (`L3 ISD`).
 
 :::image type="content" source="media/Network-Function.png" alt-text="Network Function networking diagram":::
 Figure Network Function networking diagram
-
-The diagram represents an example Network Function, with three different internal networks Trust, Untrust and Management (`Mgmt`). Each of the internal networks is created in its own L3 Isolation Domain (`L3 ISD`).
 
 ### Create required L3 Isolation Domains
 

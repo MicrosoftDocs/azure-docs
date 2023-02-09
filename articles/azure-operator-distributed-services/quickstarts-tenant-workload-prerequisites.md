@@ -11,18 +11,18 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Tenant Workloads Deployment Prerequisites
 
-:::image type="content" source="./media/AODS-Deployment-Tenant-Workloads.png" alt-text="Tenant Workload Deployment Flow":::
+:::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Tenant Workload Deployment Flow":::
 Figure: Tenant Workload Deployment Flow
 
 This guide explains prerequisites for creating VMs for VNF workloads and AKS-Hybrid for CNF workloads.
 
 ## Preparation
 
-You'll need to create various networks based on your workload needs. Following are some
+You'll need to create various networks based on your workload needs. The following are some
 recommended questions to consider, but this list is by no means exhaustive. Consult with
 the appropriate support team(s) for help:
 
-- What type of network(s) would you need to support your workload
+- What type of network(s) would you need to support your workload?
   - A layer 3 network requires a VLAN and subnet assignment
     - Subnet must be large enough to support IP assignment to each of the VM
     - Note the first three usable IP addresses are reserved for internal use by the
@@ -37,25 +37,40 @@ the appropriate support team(s) for help:
     isolation domain, as each L3 isolation domain can support multiple layer 3 networks.
   - You'll be provided with a proxy to allow your VM to reach other external endpoints.
     You'll be asked later to create a `cloudservicesnetwork` where you'll need to supply the
-    endpoints to be proxied, so now will be a good time to gather that list of endpoints (you can update the list of endpoints after the network is created)
+    endpoints to be proxied, so now will be a good time to gather that list of endpoints
+    (you can update the list of endpoints after the network is created)
   - For AKS-Hybrid cluster, you'll also be creating a `defaultcninetwork` to support your
-    cluster CNI networking needs, you'll need to come up with another vlan/subnet
+    cluster CNI networking needs, you'll need to come up with another VLAN/subnet
     assignment similar to a layer 3 network.
+
+You'll need:
+
+- your Azure account and the subscription ID of AODS cluster deployment
+- the `custom location` resource ID of your AODS cluster
+
+### Review Azure Container Registry
+
+[Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
+The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](https://learn.microsoft.com/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
+For more details, also see [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/).
+
+## Install CLI extensions
+
+[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
 
 ## AODS Workload Images
 
 These images will be used when creating your workload VMs. Make sure each is a
 containerized image in either qcow or raw disk format and is uploaded to an Azure Container
 Registry. If your Azure Container Registry is password protected, you can supply this info when creating your VM.
-Refer to [AODS VM disk image build procedure](#aods-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
+Refer to [AODS VM disk image build procedure](#aods-vm-disk-image-builds-procedure) for an example for pulling from an anonymous Azure Container Registry.
 
-### AODS VM disk image builds procedure
+### AODS VM disk image build procedure
 
-This example is of an anonymous pull of an image from Azure Container Registry.  
-Assumes that you already have an existing VM instance image in `qcow2` format and that the image is set up to boot with cloud-init. Also assumes you have a working docker build and runtime environment.
+This is a paper-exercise example of an anonymous pull of an image from Azure Container Registry.  
+It assumes that you already have an existing VM instance image in `qcow2` format and that the image is set up to boot with cloud-init. A working docker build and runtime environment  is required.
 
 Create a dockerfile that copies the `qcow2` image file into the container's /disk directory. Place in an expected directory with correct permissions.
-
 For example, a Dockerfile named `aods-vm-img-dockerfile`:
 
 ```bash
@@ -111,19 +126,9 @@ az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \
 
 This VM image build procedure is derived from [kubevirt](https://kubevirt.io/user-guide/virtual_machines/disks_and_volumes/#containerdisk-workflow-example).
 
-[Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts. The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](https://learn.microsoft.com/azure/container-registry/container-registry-helm-repos), etc., security and monitoring. For more details, also see [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/).
+## Miscellaneous prerequisites
 
-## Install extensions
+To deploy your workloads you'll also need:
 
-### Before you begin
-
-
-You'll need:
-
-- an Azure account and have it added to the proper subscription.
-- to install the [CLI Extensions](./howto-install-networkcloud-cli-extensions.md)
-- to create your own resource group or find a resource group to use
-- the network fabric resource ID, you'll need this ID to create isolation domains later
-- the platform extension custom location resource ID of your cluster, you'll need this ID to create networks and VMs later
-- the cloud operator extension `custom location` resource ID.
-
+- to create resource group or find a resource group to use for your workloads
+- the network fabric resource ID, you'll need this ID to create isolation domains

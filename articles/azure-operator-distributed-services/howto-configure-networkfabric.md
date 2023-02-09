@@ -18,11 +18,15 @@ This article describes how to create a Network Fabric by using the Azure Command
 * A Network Fabric Controller has been created--add link in your Azure account.
   * A Network Fabric Controller instance in Azure can be used for multiple Network Fabrics.
   * You can reuse a pre-existing Network Fabric Controller.
-* Install the latest version of the [CLI commands](https://learn.microsoft.com/cli/azure/install-azure-cli)
+* Install the latest version of the [CLI commands](#install-cli-extensions)
 * Physical infrastructure has been installed and cabled as per BoM.
 * ExpressRoute connectivity has been established between the Azure region and your WAN (your networking).
 * The needed VLANs, Route-Targets and IP addresses have been configured in your network.
 * Terminal server has been [installed and configured](./quickstarts-platform-prerequisites.md#set-up-terminal-server)
+
+### Install CLI extensions
+
+[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
 
 ## Parameters needed to create network fabric
 

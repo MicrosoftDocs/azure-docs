@@ -47,52 +47,18 @@ Operators can unify data governance and enforce security and compliance policies
 
 ## How AODS works
 
-:::image type="content" source="media/Operator-Workloads-Natively-Azure.pngg" alt-text="How AODS works diagram":::
+AODS requires curated hardware Bill of Materials, comprised of commercially available off-the-shelf servers, network switches, and storage arrays. The infrastructure, deployed in operators' on-premises data center, is Linux-based, in alignment with Network Function needs, telecommunications industry trends, and relevant open-source communities. AODS supports both virtualized network functions (VNFs) and containerized network functions (CNFs).
+
+The diagram below illustrates the AODS architecture. 
+
+:::image type="content" source="media/architecture-overview.png" alt-text="How AODS works diagram":::
 Figure: How AODS works
-
-AODS provides interfaces to instantiate on-premises infrastructure to support
-the runtime and orchestration of network functions running on the operator's
-premise.
-
-The AODS product provides an Azure platform and a
-model of object-oriented resources for the provisioning and
-lifecycle management of on-premises infrastructure.
-The infrastructure is composed of racks, servers, and a network fabric optimized for
-network functions and delivering carrier-grade performance. The product manages
-the infrastructure stack lifecycle.
-
-The platform manages the lifecycle of certain curated sets of
-software stacks in order to meet current Operator's environments.
-The product supports multiple workload types including through Kubernetes cluster-as-a-service
-on virtual and bare metal machines.
-
-The resource modeling creates several
-new Azure Resource Providers (RPs) and Resource Types, and the
-integration of several existing Azure RPs. The main AODS RPs are:
-
-- `Microsoft.NetworkCloud RP` responsible for the management of:
-  - bare metal hosts
-  - virtual machines
-  - AKS-Hybrid cluster
-- `Microsoft.ManagedNetworkFabric RP`responsible for the management of the network fabric:
-  - switches and routers
-  - networks connecting the bare metal hosts and the external networks.
-
-The AODS RPs support the creation and provisioning of Azure connected on-premises
-infrastructure.
-Use Azure APIs to orchestrate the infrastructure and Kubernetes clusters (for VNFs/CNFs) deployed on it.
-The aim is
-to produce and deliver a rich Azure experience to the Telco operators.
-Deliver a one-touch cloud deployment experience by integrating with Azure and the Arc ecosystem.
-
-The platform supports two types of virtual machines (VMs). The first VM type supports sharing
-of physical network resources using SR-IOV passthrough.
-
-The second VM type effectively provides bare-metal
-networking performance. This performance is accomplished by
-running a large virtual machine:
-- that consumes the entire physical host, and 
-- passthrough the network and other accelerator cards directly into the machine.
+1. The management layer of AODS is built on Azure Resource Mananager (ARM), which provides consistent user experience in Azure Portal and API. 
+2. A number of Azure Resource Providers provide modeling and lifecycle management of AODS resources such as bare metal machines, clusters, network fabrics, etc.
+3. AODS controllers, i.e., Cluster Manager and Network Fabric Controller, are deployed in a managed VNet connected to operators' on-premises network. They enable functionalities such as infrastructure bootstrapping, configurations etc.
+4. AODS is built on many other Azure services such as Azure Active Directory, Azure Monitor, Azure Keyvault, Azure Container Registries, Azure Kubernetes Services, etc.
+5. Azure Arc enables a seamless integration of Azure cloud services and on-premises environments, translating between the ARM models and the Kubernetes resource definitions.
+6. ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations. 
 
 ## Key features
 

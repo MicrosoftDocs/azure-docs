@@ -26,8 +26,8 @@
 #    href: bare-metal-functions.md
 #  - name: Workbooks and Alerts
 #    href: workbooks-alerts.md
-- name: Pre-certification 
-  href: howto-precertification.md
+ - name: Pre-certification 
+   href: howto-precertification.md
 - name: Sample Deployment
 #  items:
 #  - name: VNF Deployment

@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Distributed Services: Platform Functions for bare metal machines"
-description: Learn how to manage bare metal machines (BMM).
+title: "Azure Operator Distributed Services: Platform Functions for Bare Metal Machines"
+description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
 ms.service: Azure Operator Distributed Services
@@ -9,25 +9,27 @@ ms.date: 02/01/2023
 ms.custom: template-how-to
 ---
 
-# Platform Functions
+# Manage lifecycle of Bare Metal Machines
 
-Commands to manage the lifecycle of the bare metal machines (BMM) include:
+This how-to-guide explains the operations that can be performed on Bare Metal Machines (BMM). Commands to manage the lifecycle of the BMM include:
 
-- power-off, start the BMM
+- power-off
+- start the BMM
 - make the BMM unschedulable or schedulable
 - reinstall the BMM image
 
-## Before you begin
+When you want to reinstall or  update the image, or replace the BMM, make the BMM unschedulable.  In these cases, you'll need to evacuate existing workloads. You may have a need for no new workloads to be scheduled on a BMM, in which case make it unschedulable but without evacuating the workloads.
 
-- Ensure that you've installed the [Azure CLI & appropriate extensions](howto-install-networkcloud-cli-extensions.md).
-- The target bare metal machine (server) must be `powered-on` and have its `readyState` set to True
-- Your Azure Resource group name that you created for `network cloud cluster resource`
+Make your BMM schedulable for it to be used.
 
-## Bare metal machine (BMM) power-off and start commands
+## Prerequisites
 
-The commands are used to `power-off` and `start` a bare metal machine (BMM)
+1. Install the CLI extensions
+  [!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+1. Ensure that the target bare metal machine (server) must be `powered-on` and have its `readyState` set to True
+1. Get the Resource group name that you created for `network cloud cluster resource`
 
-### Executing a power-off command
+## Power-off Bare Metal Machines
 
 This command will `power-off` the specified `bareMetalMachineName`.
 
@@ -36,7 +38,7 @@ This command will `power-off` the specified `bareMetalMachineName`.
         --resource-group "resourceGroupName"
 ```
 
-### Executing a start command
+## Start Bare Metal Machine
 
 This command will `start` the specified `bareMetalMachineName`.
 
@@ -45,9 +47,7 @@ This command will `start` the specified `bareMetalMachineName`.
     --resource-group "resourceGroupName"
 ```
 
-## BMM lifecycle interactions
-
-AODS supports the ability to make a BMM unschedulable, schedulable or have its image reinstalled.
+## Make a BMM unschedulable (Cordon)
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On execution of the `cordon` command,
@@ -56,13 +56,6 @@ BMM will result in the pod being set to `pending` state. Existing pods will cont
 The cordon command supports an `evacuate` parameter with the default `false` value.
 On executing the `cordon` command, with the value `true` for the `evacuate`
 parameter, the pods currently running on the BMM will be `stopped` and the BMM will be set to `pending` state.
-
-You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All pods in `pending`
-state on the BMM will be `re-started` when the BMM is `uncordoned`.
-
-The BMM image can be reinstalled using the `reimage` command.
-
-### Make a BMM unschedulable (Cordon)
 
 ```azurecli
   az networkcloud baremetalmachine cordon \
@@ -73,7 +66,10 @@ The BMM image can be reinstalled using the `reimage` command.
 
 The `evacuate "True"` removes pods from that node while `evacuate "FALSE"` only prevents the scheduling of new pods.
 
-### Make a BMM schedulable (Uncordon)
+## Make a BMM schedulable (Uncordon)
+
+You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All pods in `pending`
+state on the BMM will be `re-started` when the BMM is `uncordoned`.
 
 ```azurecli
   az networkcloud baremetalmachine uncordon \
@@ -81,8 +77,9 @@ The `evacuate "True"` removes pods from that node while `evacuate "FALSE"` only 
     --resource-group "resourceGroupName"
 ```
 
-### Reimage a BMM (reinstall a BMM image)
+## Reimage a BMM (reinstall a BMM image)
 
+The existing BMM image can be **reinstalled** using the `reimage` command but won't install a new image.
 Ensure that the workloads are drained from the BMM, using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "TRUE"`, prior to executing the `reimage` command.
 
@@ -91,6 +88,4 @@ az networkcloud baremetalmachine reimage –-name "bareMetalMachineName"  \
   --resource-group "resourceGroupName"
 ```
 
-You should [uncordon](#make-a-bmm-schedulable-uncordon) the BMM on completion of the reimage command.
-
-_Note: The reimage operation won't replace the image with a different image ... it will take the current existing image and reinstall it._
+You should [uncordon](#make-a-bmm-schedulable-uncordon) the BMM on completion of the `reimage` command.

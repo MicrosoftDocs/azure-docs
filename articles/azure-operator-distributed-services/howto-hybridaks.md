@@ -17,12 +17,13 @@ This document shows how to manage an AKS-Hybrid cluster that you use for your CN
 
 You'll need:
 
-- You should have created an [AKS-Hybrid Cluster](./quickstarts-tenant-workload-deployment.md#how-to-create-aks-hybrid-cluster-for-cnf-workloads)
-- <`YourAKS-HybridClusterName`>: the name of your previously created AKS-Hybrid cluster
-- <`YourSubscription`>: your subscription name or ID where the AKS-Hybrid cluster was created
-- <`YourResourceGroupName`>: the name of the Resource group where the AKS-Hybrid cluster was created
-- <`tags`>: space-separated key=value tags: key[=value] [key[=value] ...]. Use '' to clear existing tags
-- You should have installed the [CLI extensions](./howto-install-networkcloud-cli-extensions.md)
+1. You should have created an [AKS-Hybrid Cluster](./quickstarts-tenant-workload-deployment.md#how-to-create-aks-hybrid-cluster-for-cnf-workloads)
+2. <`YourAKS-HybridClusterName`>: the name of your previously created AKS-Hybrid cluster
+3. <`YourSubscription`>: your subscription name or ID where the AKS-Hybrid cluster was created
+4. <`YourResourceGroupName`>: the name of the Resource group where the AKS-Hybrid cluster was created
+5. <`tags`>: space-separated key=value tags: key[=value] [key[=value] ...]. Use '' to clear existing tags
+6. You should have installed the CLI extensions
+[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
 
 ## List command
 

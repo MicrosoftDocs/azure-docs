@@ -11,10 +11,9 @@ ms.service: Azure Operator Distributed Services
 
 # How to pre-certify network functions on Azure Operator Distributed Services
 
-## Network Function Manager
-
-
-The pre-certification of network functions accelerates deployment of network services. The pre-certified network functions can be managed like any other Azure resource. The lifecycle of these pre-certified network functions is managed by Azure Network Function Manager or an NFM of your choice.
+The pre-certification of network functions accelerates deployment of network services.
+The pre-certified network functions can be managed like any other Azure resource.
+The lifecycle of these pre-certified network functions is managed by Azure Network Function Manager (ANFM) or an NFM of your choice.
 
 In this section, we'll describe the process and the steps for network function pre-certification
 
@@ -27,26 +26,27 @@ required to change the commercial licensing arrangement with the operators.
 
 ## Pre-Certification Process
 
-This section outlines the pre-certification process for Network Function deployment. Microsoft uses this process with Network Equipment Providers (NEP) that
+This section outlines the pre-certification process for Network Function deployment.
+Microsoft uses this process with Network Equipment Providers (NEP) that
 provide network function(s). This process guides the partner through
 onboarding the network function onto AODS and
 certifies the network function deployment methods using Azure deployment
 services. The goal of this program is to ensure that the partner's network function
 deployment process is predictable and repeatable on the AODS platform.
 Microsoft provides a pre-certification environment for the partners to validate
-the deployment of their network function. As a result, the partners' network functions will be published in the Microsoft catalog of
+the deployment of their network function. As a result, the partners'
+network functions will be published in the Microsoft catalog of
 network functions. This catalog will be available to operators using the AODS platform.
 
-If
-the NF partner is interested in listing their offer in the Azure Marketplace,
+If the NF partner is interested in listing their offer in the Azure Marketplace,
 Microsoft will work with the partner to enable this offering in the marketplace.
 
-### Network Function Manager
+### Azure Network Function Manager
 
 The Azure [Network Function Manager
-[NFM](../network-function-manager/overview.md)
+[(ANFM)](../network-function-manager/overview.md)
 provides a cloud native orchestration and managed experience for
-pre-certified network functions (from the Azure Marketplace). The NFM
+pre-certified network functions (from the Azure Marketplace). The ANFM
 provides consistent Azure managed applications experience for network functions.
 
 ### Pre-certification steps

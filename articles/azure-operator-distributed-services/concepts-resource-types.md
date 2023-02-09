@@ -13,8 +13,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 This article introduces you to the Azure Operator Distributed Services (AODS) components represented as Azure resources in Azure Resource Manager.
 
-:::image type="content" source="media/AODS-Resource-Types.png" alt-text="AODS Resource Types":::
-Figure: AODS Resource model
+:::image type="content" source="media/resource-types.png" alt-text="Resource Types":::
+Figure: Resource model
 
 ## Platform components
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Distributor Services: Platform deployment"
-description: Learn the steps for deploying the Azure Operator Distributor Services platform software.
+title: "Azure Operator Distributed Services: Platform deployment"
+description: Learn the steps for deploying the Azure Operator Distributed Services platform software.
 author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
@@ -11,195 +11,32 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Platform Software Deployment
 
-In this quickstart, you'll learn step by step process to deploy the Azure Operator Distributor
+In this quickstart, you'll learn step by step process to deploy the Azure Operator Distributed
 Services platform software.
 
-- Prerequisites: [Install CLI Extensions and Log in to your Azure Subscription](./quickstarts-platform-prerequisites.md#install-cli-extensions-and-log-in-to-your-azure-subscription)
+- Step 1: Create Network Fabric
+- Step 2: Create a Cluster
+- Step 3: Provision the Network Fabric
+- Step 4: Provision the Cluster
 
-- Step1: Create Network Fabric Controller
-- Step2: Create Cluster Manager
-- Step3: Create Network Fabric
-- Step4: Create a Cluster
-- Step5: Provision the Network Fabric
-- Step6: Provision the Cluster
+These steps use commands and parameters that are detailed in the API documents.
+## Prerequisites
 
-**Note** that the example commands and parameters are more completely defined in the API documents.
+- Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
+- Complete the [prerequisite steps](./quickstarts-platform-prerequisites.md).
 
-## Resource Provider models and API Guide, and Metrics
+<<<<<<< HEAD
+## API Guide and Metrics
+=======
+## API Guide, and Metrics
+>>>>>>> f54a42810922ca03988bc78590f0b0cc35cf0003
 
 The [API guide](https://docs.microsoft.com/rest/api/azure/azure-operator-distributed-srveices) provides
 information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics).
 
-Resource providers:
-
-## Step 1: Create a Network Fabric Controller
-
-Deployment of the Azure Operator Distributor Services (AODS) platform software starts
-with the creation of a Network Fabric
-
-Controller. Operators will sign in to their subscription to create a `Network
-Fabric Controller` (NFC) in an Azure region to manage multiple Network Fabric
-(NF) instances associated. Each network fabric instance is associated
-with an on-premises AODS instance. Bootstrapping
-and management of network fabric instances are performed from the NFC.
-
-You'll create a Network Fabric Controller (NFC) prior to the first deployment
-of an on-premises AODS instance. Each NFC can manage up to 32 AODS instances.
-For subsequent network fabric deployments, managed by this
-Fabric Controller, an NFC won't need to be created. After 32 AODS instances
-have been deployed, another NFC will need to be created.
-
-An NFC manages network fabric of AODS instances deployed in an Azure region.
-You.ll need to create an NFC in every Azure region that you'll deploy
-AODS instances in.
-
-Create the NFC:
-
-```azurecli
-az nf controller create \
---resource-group "$NFC_RESOURCE_GROUP" \
---location "$LOCATION"  \
---resource-name "$NFC_RESOURCE_NAME" \
---ipv4-address-space "$NFC_MANAGEMENT_CLUSTER_IPV4" \
---ipv6-address-space "$NFC_MANAGEMENT_CLUSTER_IPV6" \
---infra-er-connections '[{"expressRouteCircuitId": "$INFRA_ER_CIRCUIT1_ID", \
-  "expressRouteAuthorizationKey": "$INFRA_ER_CIRCUIT1_AUTH"}]'
---workload-er-connections '[{"expressRouteCircuitId": "$WORKLOAD_ER_CIRCUIT1_ID", \
-  "expressRouteAuthorizationKey": "$WORKLOAD_ER_CIRCUIT1_AUTH"}]'
-```
-
-### Parameters required for Network Fabric Controller operations
-
-| Parameter name              | Description                                                                                                                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NFC_RESOURCE_GROUP          | The resource group name                                                                                                                                                                  |
-| LOCATION                    | The Azure Region where the NFC will be deployed (for example, `eastus`)                                                                                                                  |
-| NFC_RESOURCE_NAME           | Resource Name of the Network Fabric Controller                                                                                                                                           |
-| NFC_MANAGEMENT_CLUSTER_IPV4 | Optional IPv4 Prefixes for NFC VNet. Can be specified at the time of creation. If unspecified, default value of `10.0.0.0/19` is assigned. The prefix should be at least of length `/19` |
-| NFC_MANAGEMENT_CLUSTER_IPV6 | Optional IPv6 Prefixes for NFC `vnet`. Can be specified at the time of creation. If unspecified, undefined. The prefix should be at least of length `/59`                                |
-| INFRA_ER_CIRCUIT1_ID        | The name of express route circuit for infrastructure must be of type `Microsoft.Network/expressRouteCircuits/circuitName`                                                                 |
-| INFRA_ER_CIRCUIT1_AUTH      | Authorization key for the circuit for infrastructure must be of type `Microsoft.Network/expressRouteCircuits/authorizations`                                                              |
-| WORKLOAD_ER_CIRCUIT1_ID     | The name of express route circuit for workloads must be of type `Microsoft.Network/expressRouteCircuits/circuitName`                                                                      |
-| WORKLOAD_ER_CIRCUIT1_AUTH   | Authorization key for the circuit for workloads must be of type `Microsoft.Network/expressRouteCircuits/authorizations`                                                                   |
-
-
-The Network Fabric Controller is created within the resource group in your Azure Subscription.
-
-The Network Fabric Controller ID will be needed in the next steps to create
-the Cluster Manager and Network Fabric resources. The v4 and v6 IP address
-space is a private large subnet, recommended for `/16` in multi-rack
-environments, which is used by the NFC to allocate IP to all devices in all Instances under the NFC and Cluster Manager domain.
-
-### Validation
-
-The NFC and a few other hosted resources will be created in the NFC hosted resource groups.
-The other resources include:
-
-- ExpressRoute Gateway,
-- Infrastructure vnet,
-- Tenant vnet,
-- Infrastructure Proxy/DNS/NTP VM,
-- storage account,
-- Key Vault,
-- SAW restricted jumpbox VM,
-- hosted AKS,
-- resources for each cluster, and
-- Kubernetes clusters for the controller, infrastructure, and tenant.
-
-View the status of the NFC:
-
-```azurecli
-az nf controller show --resource-group "$NFC_RESOURCE_GROUP" --resource-name "$NFC_RESOURCE_NAME"
-```
-
-The NFC deployment is complete when the `provisioningState` of the resource shows: `"provisioningState": "Succeeded"`
-
-### Logging
-
-NFC created logs can be viewed in:
-
-1. Azure portal Resource/ResourceGroup Activity logs.
-2. Azure CLI with `--debug` flag on the command-line.
-3. Resource provider logs based off subscription or correlation ID in debug
-
-## Step 2: Create a Cluster Manager
-
-A Cluster Manager (CM) represents the control-plane to manage one or more of your
-on-premises Azure Operator Distributor Services clusters (instances).
-The Cluster Manager is served by a User Resource Provider (RP) that
-resides in an AKS cluster within your Subscription. The Cluster Manager
-is responsible for the lifecycle management of your AODS Clusters (instances).
-The CM will appear in your subscription as a resource.
-
-A Fabric Controller is required before the Cluster Manager can be created.
-There's a one-to-one dependency between the Network Fabric Controller and
-Cluster Manager. You'll need to create a Cluster Manager every time another
-NFC is created.
-
-You need to create a CM before the first deployment of an AODS instance.
-You don't need to create a CM for subsequent AODS on-premises deployments to be managed by
-the same Cluster Manager.
-
-Create Cluster Manager:
-
-```azurecli
-az networkcloud clustermanager create --name "$CM_RESOURCE_NAME" \
-  --location "$LOCATION" --analytics-workspace-id "$LAW_ID" \
-  --availability-zones "$AVAILABILITY_ZONES" --fabric-controller-id "$NFC_ID" \
-  --managed-resource-group-configuration name="$CM_MRG_RG" \
-  --tags $TAG1="$VALUE1" $TAG2="$VALUE2" \
-  --resource-group "$CM_RESOURCE_GROUP"
-
-az networkcloud clustermanager wait --created --name "$CM_RESOURCE_NAME" \
-  --resource-group "$CM_RESOURCE_GROUP"
-```
-
-You can also create a Cluster Manger using ARM template/parameter files in
-[ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
-
-### Parameters for use in Cluster Manager operations
-
-| Parameter name     | Description                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------- |
-| CM_RESOURCE_NAME   | Resource Name of the Network Fabric Controller                                      |
-| LAW_ID             | Log Analytics Workspace ID for the CM                                               |
-| LOCATION           | The Azure Region where the NFC will be deployed (for example, `eastus`)             |
-| AVAILABILITY_ZONES | List of targeted availability zones, recommended "1" "2" "3"                        |
-| CM_RESOURCE_GROUP  | The resource group name                                                             |
-| NFC_ID             | ID for NFC integrated with this Cluster Manager from `az nf controller show` output |
-| CM_MRG_RG          | The resource group name for the Cluster Manager managed resource group              |
-| TAG/VALUE          | Custom tag/value pairs to pass to Cluster Manager                                   |
-
-The Cluster Manager is created within the resource group in your Azure Subscription.
-
-The CM Custom Location will be needed to create the Cluster.
-
-### Validation
-
-The CM creation will also create other resources in the CM hosted resource groups.
-These other resources include a storage account, Key Vault, AKS cluster,
-managed identity, and a custom location.
-
-You can view the status of the CM:
-
-```azurecli
-az networkcloud clustermanager show --resource-group "$CM_RESOURCE_GROUP" \
-  --name $CM_RESOURCE_NAME"
-```
-
-The CM deployment is complete when the `provisioningState` of the resource shows: `"provisioningState": "Succeeded",`
-
-### Logging
-
-CM create logs can be viewed in:
-
-1. Azure portal Resource/ResourceGroup Activity logs.
-2. Azure CLI with `--debug` flag passed on command-line.
-3. Resource provider logs based off subscription or correlation ID in debug
-
-## Step 3: Create Network Fabric
+## Step 1: Create Network Fabric
 
 The network fabric instance (NF) is a collection of all network devices
 described in the previous section, associated with a single AODS instance. The NF
@@ -297,14 +134,14 @@ Fabric create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 4: Create a Cluster
+## Step 2: Create a Cluster
 
 The Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
 You should have successfully created the Network Fabric for this on-premises deployment.
-Each AODS on-premises instance (a.k.a, Cluster) has one-to-one association
+Each AODS on-premises instance has a one-to-one association
 with a Network Fabric.
 
 Create the Cluster:
@@ -402,13 +239,14 @@ Cluster create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-### Step 5: Provision Network Fabric
+<<<<<<< HEAD
+## Step 3: Provision Network Fabric
+=======
+### Step 3: Provision Network Fabric
+>>>>>>> f54a42810922ca03988bc78590f0b0cc35cf0003
 
 The network fabric instance (NF) is a collection of all network devices
-associated with a single AODS instance. The NF
-instance interconnects compute servers and storage instances within an AODS
-instance. The NF also facilitates connectivity to and from your network into
-the AODS instance.
+associated with a single AODS instance.
 
 Provision the Network Fabric:
 
@@ -440,7 +278,7 @@ Fabric create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 6: Deploy Cluster
+## Step 4: Deploy Cluster
 
 Once a Cluster has been created and the Rack Manifests have been added, the
 deploy cluster action is triggered. The deploy cluster action creates the
@@ -449,7 +287,7 @@ bootstrap image and deploys the cluster.
 Deploy Cluster will cause a sequence of events to occur in the Cluster Manager
 
 1.  Validation of the cluster/rack manifests for completeness.
-2.  Generation of a bootable image (for the ephemeral bootstrap cluster).
+2.  Generation of a bootable image for the ephemeral bootstrap cluster
     (Validation of Infrastructure).
 3.  Interaction with the IPMI interface of the targeted bootstrap machine.
 4.  Perform hardware validation checks
