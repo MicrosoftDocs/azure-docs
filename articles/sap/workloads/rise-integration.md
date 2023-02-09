@@ -194,7 +194,9 @@ SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SA
 
 ## Microsoft Sentinel with SAP RISE
 
-The Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities and guard your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and leverage Sentinel’s built-in features.
+The Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities and guard your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. 
+
+The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and leverage Sentinel’s built-in features.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premise estate
 -	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
 -	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, AAD data and more
@@ -215,10 +217,10 @@ The following data sources may not available for a SAP RISE/ECS landscape:
 - Client IP address information from SAP security audit log (*)
 - DB table logs (preview), spool output log (*)
 - SAPControl and JAVA application server logs
-- Infrastructure and operating system logs (for example VMs running SAP). All aspects of the Azure infrastructure and operation system are monitored by SAP independently
+- Infrastructure and operating system logs (for example VMs running SAP). All aspects of the Azure infrastructure and operation system are monitored by SAP independently  
 Items noted with (*) require a change request with modifications and/or parameters for which SAP needs to be contacted.
 
-For more information on Microsoft Sentinel and SAP, including a deployment guide, see the [product documentation](/azure/sentinel/sap/deployment-overview).
+For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Sentinel product documentation](/azure/sentinel/sap/deployment-overview).
 
 ## Azure Monitoring for SAP with SAP RISE
 
