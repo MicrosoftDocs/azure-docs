@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 02/09/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,6 +22,7 @@ Updates in February include:
 
 - [Recommendation to find vulnerabilities in running container images for Linux released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
+- [Microsoft Defender for DevOps (preview) is now available in other regions](#microsoft-defender-for-devops-preview-is-now-available-in-other-regions)
 
 ### Recommendation to find vulnerabilities in running container images released for General Availability (GA)
 
@@ -37,6 +38,13 @@ This new standard includes both existing and new recommendations that extend Def
 
 Learn how to [Manage AWS assessments and standards](how-to-manage-aws-assessments-standards.md).
 
+
+### Microsoft Defender for DevOps (preview) is now available in other regions
+
+Microsoft Defender for DevOps has expanded its preview and is now available in the West Europe and East Australia regions, when you onboard your Azure DevOps and GitHub resources.  
+
+Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
+
 ## January 2023
 
 Updates in January include:
@@ -51,7 +59,7 @@ Updates in January include:
 
 ### The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page
 
-In our continuing efforts to simplify your Defender for Cloud configuration experience, we moved the configuration for Endpoint protection (Microsoft Defender for Endpoint) component from the **Environment settings** > **Integrations** page to the **Environment settings** > **Defender plans** > **Settings and monitoring** page, where the other components are managed as well. There is no change to the functionality other than the location in the portal.
+In our continuing efforts to simplify your Defender for Cloud configuration experience, we moved the configuration for Endpoint protection (Microsoft Defender for Endpoint) component from the **Environment settings** > **Integrations** page to the **Environment settings** > **Defender plans** > **Settings and monitoring** page, where the other components are managed as well. There's no change to the functionality other than the location in the portal.
 
 Learn more about [enabling Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) on your servers with Defender for Servers.
 
