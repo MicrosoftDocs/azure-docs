@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Kno2fy
 
-In this article, you will learn how to integrate Kno2fy with Azure Active Directory (Azure AD). Kno2fy empowers healthcare organizations to send, receive, and find patient information across the healthcare ecosystem with just a few quick clicks. When you integrate Kno2fy with Azure AD, you can:
+In this article, you learn how to integrate Kno2fy with Azure Active Directory (Azure AD). Kno2fy empowers healthcare organizations to send, receive, and find patient information across the healthcare ecosystem with just a few quick clicks. When you integrate Kno2fy with Azure AD, you can:
 
 * Control in Azure AD who has access to Kno2fy.
 * Enable your users to be automatically signed-in to Kno2fy with their Azure AD accounts.
@@ -91,11 +91,11 @@ In this section, you create a user called Britta Simon at Kno2fy. Work with [Kno
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Kno2fy Sign on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Kno2fy Sign-on URL where you can initiate the login flow. 
 
-* Go to Kno2fy Sign on URL directly and initiate the login flow from there.
+* Go to Kno2fy Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you select the Kno2fy tile in the My Apps, this will redirect to Kno2fy Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you select the Kno2fy tile in the My Apps, this will redirect to Kno2fy Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
