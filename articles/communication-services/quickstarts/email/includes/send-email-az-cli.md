@@ -35,7 +35,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 
 ### Store your connection string in an environment variable 
@@ -85,10 +85,10 @@ az communication email send
 Make these replacements in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
-- Replace "<emailalias@emaildomain.com>" with the email address you would like to send a message to.
-- Replace "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>" with the MailFrom address of your verified domain.
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-To track the status of the email delivery, you'll need the `messageId` from the response.
+To track the status of the email delivery, you need the `messageId` from the response.
 
 ### Optional parameters
 
