@@ -23,7 +23,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
 - [I am not able to configure Pull Request Annotations](#i-am-not-able-to-configure-pull-request-annotations)
-- [What are the languages DfD supports](#what-are-the-languages-dfd-supports) 
+- [What are the programing languages that are supported by Defender for DevOps?](#what-are-the-programing-languages-that-are-supported-by-defender-for-devops) 
 
 
 ### I'm getting an error while trying to connect
