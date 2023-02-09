@@ -12,7 +12,7 @@ This article is part two of a three-part tutorial series. [Part one](tutorial-re
 
 ## Prerequisites
 
-* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+* Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Terminology 
 
