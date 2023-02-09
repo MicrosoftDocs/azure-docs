@@ -4,7 +4,7 @@ description: This guide is on using DICOM service for digital pathology
 services: healthcare-apis
 author: smithasa
 ms.service: healthcare-apis
-ms.subservice: dicom
+ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/09/2023
 ms.author: smithasa
@@ -30,7 +30,7 @@ DICOM service supports unique digital pathology requirements like:
 3. A cost effective way to store images long-term post diagnosis for archival and research use.
 
 ## End to End reference solution
-![dicom-digital-pathology](media/dicom-digital-pathology.png)
+![DICOM service for digital pathology reference solution](media/dicom-digital-pathology.png)
 
 ### Digitization
 
