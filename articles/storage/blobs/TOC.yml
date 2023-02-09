@@ -86,8 +86,12 @@ items:
         href: storage-auth-abac-cli.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Analyze blob inventory reports
-      href: storage-blob-inventory-report-analytics.md
+    - name: Itemize and analyze your data estate
+      items:
+      - name: Analyze blob inventory reports
+        href: storage-blob-inventory-report-analytics.md
+      - name: Calculate container statistics
+        href: storage-blob-calculate-container-statistics-databricks.md
   - name: Samples
     items:
     - name: .NET
@@ -578,6 +582,8 @@ items:
           href: ../common/storage-auth-aad-app.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Write code
         items:
+        - name: Create and manage client objects
+          href: storage-blob-client-management.md
         - name: .NET
           items:
           - name: Get started
