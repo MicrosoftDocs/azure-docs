@@ -1,3 +1,19 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: dademath2
+manager: shahen
+
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 02/09/2023
+ms.topic: include
+ms.custom: include file
+ms.author: dademath
+---
+
+
 Event Grid provides out of the box support for Azure Functions, making it easy to set up an event listener without the need to deal with the complexity of parsing headers or debugging webhooks. With this out of the box trigger we will set up an Azure Function that will run each time an event is detected that matches the trigger. In this document we will be focusing on SMS received triggers.
 
 ## Setting up our local environment
