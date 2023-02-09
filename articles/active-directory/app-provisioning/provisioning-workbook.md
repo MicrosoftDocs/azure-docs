@@ -33,10 +33,13 @@ This workbook:
 You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](../cloud-sync/how-to-troubleshoot.md).
 
 ## Source and Target
-At the top of the workbook, using the drop-down, specify the source directory and target directory.  
+At the top of the workbook, using the drop-down, specify the source and target identities.  
 
 Theses fields are the source and target of identities.  The rest of the filters that appear are based on the selection of source and target.
 You can scope your search so that it is more granular using the additional fields.  Use the table below as a reference for queries.
+
+For example, if you wanted to see data from your cloud sync workflow, your source would be Active Directory and your target would be Azure AD.
+
 
 >[!NOTE]
 >Source and target are required.  If you do not select a source and target, you won't see any data.
