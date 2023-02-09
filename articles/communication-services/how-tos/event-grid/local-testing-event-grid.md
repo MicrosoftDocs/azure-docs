@@ -1,3 +1,16 @@
+---
+title: Test your Event Grid handler locally
+titleSuffix: An Azure Communication Services how-to document
+description: "In this how-to, you'll learn how to locally test your Event Grid handler for Azure Communication Services events with Postman"
+author: ddematheu2
+manager: shahen
+services: azure-communication-services
+ms.author: dademath
+ms.date: 02/09/2022
+ms.topic: how-to
+ms.service: azure-communication-services
+---
+
 # Test your Event Grid handler locally
 
 Testing Event Grid triggered Azure Functions locally can be complicated. You don't want to have to trigger events over and over to test your flow. It can also get expensive as triggering those events might require you perform an event that costs money like sending an SMS or placing a phone call. To help with this, we will show you how to leverage Postman to trigger your Azure Function with a payload that mimics the Event Grid event.
