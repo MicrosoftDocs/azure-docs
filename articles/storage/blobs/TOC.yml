@@ -572,14 +572,6 @@ items:
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Develop with Blob Storage
       items:
-      - name: Set up Azure AD
-        items:
-        - name: Get an access token for authorization with Azure AD
-          href: ../common/identity-library-acquire-token.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Authorize from an application running in Azure
-          href: authorize-managed-identity.md
-        - name: Authorize from a native or web application
-          href: ../common/storage-auth-aad-app.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Write code
         items:
         - name: Create and manage client objects

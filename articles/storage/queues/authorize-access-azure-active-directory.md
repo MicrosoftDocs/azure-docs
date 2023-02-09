@@ -2,14 +2,13 @@
 title: Authorize access to queues using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
-services: storage
 author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 02/09/2023
 ms.author: jammart
-ms.subservice: queues
+ms.subservice: common
 ---
 
 # Authorize access to queues using Azure Active Directory
@@ -22,11 +21,27 @@ Authorization with Azure AD is available for all general-purpose storage account
 
 ## Overview of Azure AD for queues
 
-When a security principal (a user, group, or application) attempts to access a queue resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Queue service and used by the service to authorize access to the specified resource.
+When a security principal (a user, group, or application) attempts to access a queue resource, the request must be authorized, unless it is a queue available for anonymous access. With Azure AD, access to a resource is a two-step process:
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access queues.
+1. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned.
 
-The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for queue data. The roles that are assigned to a security principal determine the permissions that that principal will have. To learn more about assigning Azure roles for queue access, see [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md).
+    The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access queue data.
+
+1. Next, the token is passed as part of a request to the Queue service and used by the service to authorize access to the specified resource.
+
+    The authorization step requires that one or more Azure RBAC roles be assigned to the security principal making the request. For more information, see [Assign Azure roles for access rights](#assign-azure-roles-for-access-rights).
+
+### Use an Azure AD account with Azure portal, PowerShell, or Azure CLI
+
+To learn about how to access data in the Azure portal with an Azure AD account, see [Data access from the Azure portal](#data-access-from-the-azure-portal). To learn how to call Azure PowerShell or Azure CLI commands with an Azure AD account, see [Data access from PowerShell or Azure CLI](#data-access-from-powershell-or-azure-cli).
+
+### Use Azure AD to authorize access in application code
+
+The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of Azure Storage requests.
+
+An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
+
+The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against Azure Storage. A simple way to get the access token and token credential is to use the **DefaultAzureCredential** class that is provided by the Azure Identity client library. An instance of this class attempts to get the token credential in a variety of common ways, and it works in both the development environment and in Azure.
 
 [!INCLUDE [storage-auth-language-table](../../../includes/storage-auth-language-table.md)]
 
@@ -34,9 +49,14 @@ Authorizing queue data operations with Azure AD is supported only for REST API v
 
 ## Assign Azure roles for access rights
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queue data. You can also define custom roles for access to queue data.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure RBAC. Azure Storage defines a set of  built-in RBAC roles that encompass common sets of permissions used to access queue data. You can also define custom roles for access to queue data. To learn more about assigning Azure roles for queue access, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md).
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). The RBAC roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for queue access, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
+
+In some cases you may need to enable fine-grained access to queue resources or to simplify permissions when you have a large number of role assignments for a storage resource. You can use Azure attribute-based access control (Azure ABAC) to configure conditions on role assignments. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. For more information about configuring conditions for Azure storage resources with ABAC, see [Authorize access to queues using Azure role assignment conditions (preview)](storage-auth-abac.md). For details about supported conditions for queue data operations, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md).
+
+> [!NOTE]
+> When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for access to Queue Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
 
 ### Resource scope
 
@@ -61,11 +81,11 @@ Azure RBAC provides a number of built-in roles for authorizing access to queue d
 - [Storage Queue Data Message Processor](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-Only roles explicitly defined for data access permit a security principal to access queue data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the queue data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Choose how to authorize access to blob data in the Azure portal](../../storage/queues/authorize-data-operations-portal.md).
+Only roles explicitly defined for data access permit a security principal to access queue data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the queue data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Choose how to authorize access to queue data in the Azure portal](../../storage/queues/authorize-data-operations-portal.md).
 
 For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -80,15 +100,17 @@ For details on the permissions required to call specific Queue service operation
 
 Access to queue data via the Azure portal, PowerShell, or Azure CLI can be authorized either by using the user's Azure AD account or by using the account access keys (Shared Key authorization).
 
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
+
 ### Data access from the Azure portal
 
 The Azure portal can use either your Azure AD account or the account access keys to access queue data in an Azure storage account. Which authorization scheme the Azure portal uses depends on the Azure roles that are assigned to you.
 
 When you attempt to access queue data, the Azure portal first checks whether you have been assigned an Azure role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the Azure portal uses the account key for accessing queue data via Shared Key authorization. If you have not been assigned a role with this action, then the Azure portal attempts to access data using your Azure AD account.
 
-To access queue data from the Azure portal using your Azure AD account, you need permissions to access queue data, and you also need permissions to navigate through the storage account resources in the Azure portal. The built-in roles provided by Azure Storage grant access to queue resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires the assignment of an Azure Resource Manager role such as the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable. To learn more about how to assign permissions to users for data access in the Azure portal with an Azure AD account, see [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md) or [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md).
+To access queue data from the Azure portal using your Azure AD account, you need permissions to access queue data, and you also need permissions to navigate through the storage account resources in the Azure portal. The built-in roles provided by Azure Storage grant access to queue resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires the assignment of an Azure Resource Manager role such as the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable. To learn more about how to assign permissions to users for data access in the Azure portal with an Azure AD account, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md).
 
-The Azure portal indicates which authorization scheme is in use when you navigate to a queue. For more information about data access in the portal, see [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md) and [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
+The Azure portal indicates which authorization scheme is in use when you navigate to a queue. For more information about data access in the portal, see [Choose how to authorize access to queue data in the Azure portal](authorize-data-operations-portal.md).
 
 ### Data access from PowerShell or Azure CLI
 
