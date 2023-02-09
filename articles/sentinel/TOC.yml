@@ -262,9 +262,10 @@
         href: connect-azure-windows-microsoft-services.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
-      - name: CEF/Syslog options
-        href: connect-cef-syslog-options.md
+      - name: CEF/Syslog        
         items:
+        - name: CEF/Syslog options
+          href: connect-cef-syslog-options.md
         - name: CEF via AMA
           href: connect-cef-ama.md
         - name: Syslog via AMA
