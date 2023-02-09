@@ -33,6 +33,9 @@ In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account f
 > This quickstart is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
+> [!TIP]
+> If you're working with Azure Cosmos DB resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Cosmos DB, see [Access data with Azure Cosmos DB NoSQL API](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db).
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
