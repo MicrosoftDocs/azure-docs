@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Share data'
 description: Learn how to securely share data from your environment using Microsoft Purview Data Sharing.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: quickstart

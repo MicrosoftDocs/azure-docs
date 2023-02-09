@@ -1,8 +1,8 @@
 ---
 title: How to receive shared data
 description: Learn how to receive shared data from Azure Blob Storage and Azure Data Lake Storage using Microsoft Purview Data Sharing.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to

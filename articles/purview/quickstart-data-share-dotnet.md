@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Share data using the .NET SDK'
 description: This article will guide you through sharing and receiving data using Microsoft Purview Data Sharing account through the .NET SDK.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.devlang: csharp
