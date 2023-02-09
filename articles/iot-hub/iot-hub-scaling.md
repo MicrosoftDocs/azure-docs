@@ -6,7 +6,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 02/09/2023
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
@@ -93,17 +93,23 @@ Once you've chosen the tier that provides the best features for your solution, d
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-| Size | Messages per day per unit |
-| ---- | ------------------------- |
-| 1    | 400,000                   |
-| 2    | 6,000,000                 |
-| 3    | 300,000,000               |
-
-You can purchase up to 200 units for a size 1 or 2 IoT hub, or up to 10 units for a size 3 IoT hub. Your daily message limit and throttling limits are based on the combined capacity of all units. For example, buying one unit of size 2 gives you the same daily message limit as fifteen units of size 1.
-
 Tiers and sizes are represented as *editions*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**.
 
 Only one type of [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
+
+The following table shows the capacity for device-to-cloud messages for each size.
+
+| Size | Messages per day per unit | Data per day per unit |
+| ---- | ------------------------- | --------------------- |
+| 1    | 400,000                   | 1.5 GB                |
+| 2    | 6,000,000                 | 22.8 GB               |
+| 3    | 300,000,000               | 1144.4 GB             |
+
+You can purchase up to 200 units for a size 1 or 2 IoT hub, or up to 10 units for a size 3 IoT hub. Your daily message limit and throttling limits are based on the combined capacity of all units. For example, buying one unit of size 2 gives you the same daily message limit as fifteen units of size 1.
+
+For more information on the capacity and limits of each IoT Hub edition, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+
+### Upgrade or downgrade editions
 
 After you create your IoT hub, without interrupting your existing operations, you can:
 
@@ -111,24 +117,6 @@ After you create your IoT hub, without interrupting your existing operations, yo
 * Upgrade or downgrade between editions within its tier (for example, upgrading from B1 to B2)
 
 For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).  
-
-### Message throughput
-
-The best way to size an IoT Hub solution is to evaluate the traffic on a per-unit basis. In particular, consider the required peak throughput for the following categories of operations:
-
-* Device-to-cloud messages
-* Cloud-to-device messages
-* Identity registry operations
-
-As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
-
-| Tier edition | Sustained throughput | Sustained send rate |
-| --- | --- | --- |
-| B1, S1 |Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) |Average of 278 messages/minute per unit<br/>(400,000 messages/day/unit) |
-| B2, S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day/unit) |
-| B3, S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day/unit) |
-
-Device-to-cloud throughput is only one of the metrics you need to consider when designing an IoT solution. For more comprehensive information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Auto-scale
 

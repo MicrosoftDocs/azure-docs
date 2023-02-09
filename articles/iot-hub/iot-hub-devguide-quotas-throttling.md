@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 02/09/2023
 ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
@@ -15,11 +15,9 @@ ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Supp
 
 This article explains the quotas for an IoT Hub, and provides information to help you understand how throttling works.
 
-## Quotas and throttling
-
 Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
-Each IoT hub is provisioned with units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send in your hub per day. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+Each IoT hub is provisioned with units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send in your hub per day. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) or [Choose the right IoT Hub tier for your solution].
 
 You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/) in the Azure portal.
 
@@ -28,6 +26,8 @@ The tier also determines the throttling limits that IoT Hub enforces on all oper
 ## Operation throttles
 
 Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).
+
+It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 
 ### Basic and standard tier operations
 
@@ -71,15 +71,13 @@ The following table shows the enforced throttles for operations that are availab
 
 * For *Jobs device operations (update twin, invoke direct method)* for tier S3, 50/sec/unit only applies to when you invoke methods using jobs. If you invoke direct methods directly, the original throttling limit of 24 MB/sec/unit (for S3) applies.
 
-* Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages irrespective of 4 KB chunks. D2C messages can be up to 256 KB; C2D messages can be up to 64 KB. These are the maximum message sizes for each type of message.
-
-* It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
+* Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages irrespective of 4 KB chunks. Device-to-cloud messages can be up to 256 KB; cloud-to-device messages can be up to 64 KB. These are the maximum message sizes for each type of message.
 
 ### Traffic shaping
 
 To accommodate burst traffic, IoT Hub accepts requests above the throttle for a limited time. The first few of these requests are processed immediately. However, if the number of requests continues to violate the throttle, IoT Hub starts placing the requests in a queue and requests are processed at the limit rate. This effect is called *traffic shaping*. Furthermore, the size of this queue is limited. If the throttle violation continues, eventually the queue fills up, and IoT Hub starts rejecting requests with `429 ThrottlingException`.
 
-For example, you use a simulated device to send 200 device-to-cloud messages per second to your S1 IoT Hub (which has a limit of 100/sec D2C sends). For the first minute or two, the messages are processed immediately. However, since the device continues to send more messages than the throttle limit, IoT Hub begins to only process 100 messages per second and puts the rest in a queue. You start noticing increased latency. Eventually, you start getting `429 ThrottlingException` as the queue fills up, and the ["Number of throttling errors" IoT Hub metric](monitor-iot-hub-reference.md#device-telemetry-metrics) starts increasing. To learn how to create alerts and charts based on metrics, see [Monitor IoT Hub](monitor-iot-hub.md).
+For example, you use a simulated device to send 200 device-to-cloud messages per second to your S1 IoT Hub (which has a limit of 100/sec device-to-cloud sends). For the first minute or two, the messages are processed immediately. However, since the device continues to send more messages than the throttle limit, IoT Hub begins to only process 100 messages per second and puts the rest in a queue. You start noticing increased latency. Eventually, you start getting `429 ThrottlingException` as the queue fills up, and the ["Number of throttling errors" IoT Hub metric](monitor-iot-hub-reference.md#device-telemetry-metrics) starts increasing. To learn how to create alerts and charts based on metrics, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ### Identity registry operations throttle
 
