@@ -85,8 +85,8 @@ az communication email send
 Make these replacements in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
-- Replace "<emailalias@emaildomain.com>" with the email address you would like to send a message to.
-- Replace "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>" with the MailFrom address of your verified domain.
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
 To track the status of the email delivery, you'll need the `messageId` from the response.
 
