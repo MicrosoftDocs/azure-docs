@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 02/06/2023
+ms.date: 02/15/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
