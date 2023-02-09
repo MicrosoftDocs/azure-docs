@@ -1,37 +1,37 @@
 ---
-title: Mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
-description: Learn how to mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview).
+title: How to mount an Azure Blob Storage container on Linux with BlobFuse2
+titleSuffix: Azure Storage
+description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 01/26/2023
+ms.custom: engagement-fy23
 ---
 
-# Mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview)
-
-[BlobFuse2 (preview)](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+# How to mount an Azure Blob Storage container on Linux with BlobFuse2
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
-- [Install BlobFuse2](#install-blobfuse2)
-- [Configure BlobFuse2](#configure-blobfuse2)
-- [Mount a blob container](#mount-a-blob-container)
-- [Access data](#access-data)
+> [Install BlobFuse2](#how-to-install-blobfuse2)
+>
+> [Configure BlobFuse2](#how-to-configure-blobfuse2)
+>
+> [Mount a blob container](#how-to-mount-a-blob-container)
+>
+> [Access data](#how-to-access-data)
 
-## Install BlobFuse2
+## How to install BlobFuse2
 
-To install BlobFuse2, you have two basic options:
+You have two options for installing BlobFuse2:
 
-- [Install BlobFuse2 binaries](#option-1-install-blobfuse2-binaries-preferred) (preferred)
-- [Build BlobFuse2 binaries from source code](#option-2-build-binaries-from-source-code)
+- [**Install BlobFuse2 from the Microsoft software repositories for Linux**](#option-1-install-blobfuse2-from-the-microsoft-software-repositories-for-linux) - This is the preferred method of installation. BlobFuse2 is available in the repositories for several common Linux distributions.
+- [**Build the BlobFuse2 binaries from source code**](#option-2-build-the-binaries-from-source-code) - You can build the BlobFuse2 binaries from source code if it is not available in the repositories for your distribution.
 
-### Option 1: Install BlobFuse2 binaries (preferred)
+### Option 1: Install BlobFuse2 from the Microsoft software repositories for Linux
 
 To see supported distributions, see [BlobFuse2 releases](https://github.com/Azure/azure-storage-fuse/releases).
 
@@ -43,26 +43,58 @@ To check your version of Linux, run the following command:
 lsb_release -a
 ```
 
-If no binaries are available for your distribution, you can [build the binaries from source code](https://github.com/MicrosoftDocs/azure-docs-pr/pull/203174#option-2-build-from-source).
+If no binaries are available for your distribution, you can [Option 2: Build the binaries from source code](#option-2-build-the-binaries-from-source-code).
 
-#### Install the BlobFuse2 binaries
+To install BlobFuse2 from the repositories:
 
-To install BlobFuse2 binaries:
+> [Configure the Microsoft package repository](#configure-the-microsoft-package-repository)
+>
+> [Install BlobFuse2](#install-blobfuse2)
 
-1. Retrieve the latest BlobFuse2 binary for your distribution from GitHub. For example:
+#### Configure the Microsoft package repository
 
-    ```bash
-    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview.3/blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
-    ```
+Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-1. Install BlobFuse2. For example, on an Ubuntu distribution, run:
+As an example, on a Redhat Enterprise Linux 8 distribution:
 
-    ```bash
-    sudo apt-get install libfuse3-dev fuse3 
-    sudo dpkg -i blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
-    ```
+```bash
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
+```
 
-### Option 2: Build binaries from source code
+Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+
+Another example on an Ubuntu 20.04 distribution:
+
+```bash
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install libfuse3-dev fuse3 
+```
+
+Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
+
+#### Install BlobFuse2
+
+On an Ubuntu/Debian distribution:
+
+```bash
+sudo apt-get install blobfuse2
+```
+
+On a Redhat Enterprise Linux distribution:
+
+```bash
+sudo yum install blobfuse2
+```
+
+On a SUSE distribution:
+
+```bash
+sudo zypper install blobfuse2
+```
+
+### Option 2: Build the binaries from source code
 
 To build the BlobFuse2 binaries from source code:
 
@@ -100,7 +132,7 @@ To build the BlobFuse2 binaries from source code:
 > [!TIP]
 > If you need to install Go, see [Download and install Go](https://go.dev/doc/install).
 
-## Configure BlobFuse2
+## How to configure BlobFuse2
 
 You can configure BlobFuse2 by using various settings. Some of the typical settings include:
 
@@ -206,7 +238,7 @@ You must grant access to the storage account for the user who mounts the contain
 
 You can provide authorization information in a configuration file or in environment variables. For more information, see [Configure settings for BlobFuse2](blobfuse2-configuration.md).
 
-## Mount a blob container
+## How to mount a blob container
 
 > [!IMPORTANT]
 > BlobFuse2 doesn't support overlapping mount paths. If you run multiple instances of BlobFuse2, make sure that each instance has a unique and non-overlapping mount point.
@@ -230,7 +262,7 @@ mkdir test
 echo "hello world" > test/blob.txt
 ```
 
-## Access data
+## How to access data
 
 Generally, you can work with the BlobFuse2-mounted storage like you would work with the native Linux file system. It uses the virtual directory scheme with a forward slash (`/`) as a delimiter in the file path and supports basic file system operations such as `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
 

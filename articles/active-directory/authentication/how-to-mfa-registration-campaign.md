@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 01/05/2023
 
 ms.author: justinha
 author: mjsantani
@@ -305,6 +305,9 @@ Yes. If they have been scoped for the nudge using the policy.
 
 It's the same as snoozing.
 
+**Why don’t some users see a nudge when there is a conditional access policy for "Register security information"?**
+
+A nudge won't appear if a user is in scope for a conditional access policy that blocks access to the **Register security information** page.
 
 ## Next steps
 

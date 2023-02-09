@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 11/14/2022
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
@@ -90,7 +90,7 @@ appInsights.loadAppInsights();
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/web/api/history). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
+| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
 
 ### React components usage tracking
 

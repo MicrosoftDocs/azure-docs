@@ -484,7 +484,7 @@ FROM
     OPENROWSET(
         BULK (
             'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
-            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet'
         ),
         FORMAT='PARQUET'
     )

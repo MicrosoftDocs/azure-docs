@@ -9,7 +9,7 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:

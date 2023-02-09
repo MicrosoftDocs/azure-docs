@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -148,6 +148,8 @@ After you've configured provisioning, use the following resources to monitor you
 - The Azure AD provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If necessary, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Azure AD provisioning service to your application.
 
 - Self-hosted ServiceNow instances aren't supported. 
+
+- When an update to the *active* attribute in ServiceNow is provisioned, the attribute *locked_out* is also updated accordingly, even if *locked_out* is not mapped in the Azure provisioning service.  
 
 ## Additional resources
 

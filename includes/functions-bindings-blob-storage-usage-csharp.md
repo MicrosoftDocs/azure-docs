@@ -12,7 +12,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
    
 # [C# script](#tab/csharp-script)
 
@@ -63,11 +63,11 @@ The following parameter types are extension version-specific and require `FileAc
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 2.x and higher](#tab/extensionv2/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 

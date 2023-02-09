@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
-ms.date: 08/29/2022
+ms.date: 11/21/2022
 ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
@@ -174,7 +174,7 @@ Azure ML pipelines are reusable ML workflows that usually consist of several com
 
 ## Create component 1: data prep (using programmatic definition)
 
-Let's start by creating the first component. This component handles the preprocessing of the data. The preprocessing task is performed in the *data_prep.py* python file.
+Let's start by creating the first component. This component handles the preprocessing of the data. The preprocessing task is performed in the *data_prep.py* Python file.
 
 First create a source folder for the data_prep component:
 
@@ -207,6 +207,10 @@ Create the directory for this component:
 
 [!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_src_dir)]
 
+Create the training script in the directory:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.py)]
+
 As you can see in this training script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
 
@@ -228,9 +232,9 @@ Now that both your components are defined and registered, you can start implemen
 
 Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-The python functions returned by `load_component()` work as any regular python function that we'll use within a pipeline to call each step.
+The Python functions returned by `load_component()` work as any regular Python function that we'll use within a pipeline to call each step.
 
-To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
+To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a Python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 

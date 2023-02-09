@@ -216,6 +216,7 @@ $templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>"
 RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
+
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
 

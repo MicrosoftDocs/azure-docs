@@ -5,13 +5,12 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -43,7 +42,7 @@ The token signing and token decrypting certificates are usually self-signed cert
 >
 >
 
-Azure AD attempts to monitor the federation metadata, and update the token signing certificates as indicated by this metadata. 30 days before the expiration of the token signing certificates, Azure AD checks if new certificates are available by polling the federation metadata.
+Azure AD attempts to monitor the federation metadata, and update the token signing certificates as indicated by this metadata. 35 days before the expiration of the token signing certificates, Azure AD checks if new certificates are available by polling the federation metadata.
 
 * If it can successfully poll the federation metadata and retrieve the new certificates, no email notification is issued to the user.
 * If it cannot retrieve the new token signing certificates, either because the federation metadata is not reachable or automatic certificate rollover is not enabled, Azure AD issues an email.
@@ -102,13 +101,13 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 If the thumbprints in both the outputs match, your certificates are in sync with Azure AD.
 
 ### Step 3: Check if your certificate is about to expire
-In the output of either Get-MsolFederationProperty or Get-AdfsCertificate, check for the date under "Not After." If the date is less than 30 days away, you should take action.
+In the output of either Get-MsolFederationProperty or Get-AdfsCertificate, check for the date under "Not After." If the date is less than 35 days away, you should take action.
 
 | AutoCertificateRollover | Certificates in sync with Azure AD | Federation metadata is publicly accessible | Validity | Action |
 |:---:|:---:|:---:|:---:|:---:|
 | Yes |Yes |Yes |- |No action needed. See [Renew token signing certificate automatically](#autorenew). |
 | Yes |No |- |Less than 15 days |Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
-| No |- |- |Less than 30 days |Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
+| No |- |- |Less than 35 days |Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
 
 \[-]  Does not matter
 
@@ -188,6 +187,6 @@ Token signing certificates are standard X509 certificates that are used to secur
 
 By default, AD FS is configured to generate token signing and token decryption certificates automatically, both at the initial configuration time and when the certificates are approaching their expiration date.
 
-Azure AD tries to retrieve a new certificate from your federation service metadata 30 days before the expiry of the current certificate. In case a new certificate is not available at that time, Azure AD will continue to monitor the metadata on regular daily intervals. As soon as the new certificate is available in the metadata, the federation settings for the domain are updated with the new certificate information. You can use `Get-MsolDomainFederationSettings` to verify if you see the new certificate in the NextSigningCertificate / SigningCertificate.
+Azure AD tries to retrieve a new certificate from your federation service metadata 35 days before the expiry of the current certificate. In case a new certificate is not available at that time, Azure AD will continue to monitor the metadata on regular daily intervals. As soon as the new certificate is available in the metadata, the federation settings for the domain are updated with the new certificate information. You can use `Get-MsolDomainFederationSettings` to verify if you see the new certificate in the NextSigningCertificate / SigningCertificate.
 
 For more information on Token Signing certificates in AD FS see [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

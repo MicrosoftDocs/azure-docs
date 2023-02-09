@@ -2,7 +2,7 @@
 title: Diagnose performance issues using Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose performance issues in your application by using Application Insights.
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 11/15/2022
 ms.custom: mvc
 ms.reviewer: vitalyg
 ---
@@ -105,4 +105,4 @@ Like the data collected for server performance, Application Insights makes all c
 Now that you've learned how to identify runtime exceptions, proceed to the next tutorial to learn how to create alerts in response to failures.
 
 > [!div class="nextstepaction"]
-> [Alert on application health](./tutorial-alert.md)
+> [Standard test](availability-standard-tests.md)

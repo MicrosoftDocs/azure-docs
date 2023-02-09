@@ -3,7 +3,7 @@ title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/25/2022
+ms.date: 01/24/2023
 ---
 
 # Manage security policies
@@ -14,7 +14,7 @@ To understand the relationships between initiatives, policies, and recommendatio
 
 ## Who can edit security policies?
 
-Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defender for Cloud roles:
+Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defenders for Cloud roles:
 
 - **Security reader**: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
@@ -45,8 +45,6 @@ To view your security policies in Defender for Cloud:
     1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
     1. To view and edit the default initiative, select it and proceed as described below.
-
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        

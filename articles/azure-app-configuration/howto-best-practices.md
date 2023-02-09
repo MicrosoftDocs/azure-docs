@@ -76,8 +76,8 @@ Use the App Configuration provider or SDK libraries to access App Configuration 
 
 You can also make your App Configuration data accessible to your application as *Application settings* or environment variables. With this approach, you can avoid changing your application code.
 
-* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
-* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
+* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. App Configuration offers tools to [export a collection of key-values as references](howto-import-export-data.md#export-data-to-azure-app-service) at once. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
+* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions without selecting the option of export-as-reference. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
 
 ## Reduce requests made to App Configuration
 

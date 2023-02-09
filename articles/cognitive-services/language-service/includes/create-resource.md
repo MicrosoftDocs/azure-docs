@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ---
 
@@ -13,7 +13,7 @@ ms.author: aahi
 
 To use the code sample below, you'll need to deploy an Azure resource. This resource will contain a key and endpoint you'll use to authenticate the API calls you send to the Language service.
 
-1. Use the following link to [create a language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) using the Azure portal. You will need to sign in using your Azure subscription.
+1. Use the following link to <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics" target="_blank">create a language resource</a> using the Azure portal. You will need to sign in using your Azure subscription.
 1. On the **Select additional features** screen that appears, select **Continue to create your resource**.
 
     :::image type="content" source="../media/portal-resource-additional-features.png" alt-text="A screenshot showing additional feature options in the Azure portal." lightbox="../media/portal-resource-additional-features.png":::
@@ -34,15 +34,3 @@ To use the code sample below, you'll need to deploy an Azure resource. This reso
 1. Select **Review + Create** at the bottom of the page.
 
 1. In the screen that appears, make sure the validation has passed, and that you entered your information correctly. Then click **Create**. 
-
-### Get your key and endpoint
-
-Next you will need the key and endpoint from the resource to connect your application to the API. You'll paste your key and endpoint into the code later in the quickstart.
-
-1. After the Language resource deploys successfully, click the **Go to Resource** button under **Next Steps**.
-
-    :::image type="content" source="../media/portal-resource-next-steps.png" alt-text="A screenshot showing the next steps after a resource has deployed." lightbox="../media/portal-resource-next-steps.png":::
-
-1. On the screen for your resource, select **Keys and endpoint** on the left navigation menu. You will use one of your keys and your endpoint in the steps below. 
-
-    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the keys and endpoint section for a resource." lightbox="../media/azure-portal-resource-credentials.png":::

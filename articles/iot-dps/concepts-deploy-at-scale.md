@@ -180,6 +180,7 @@ Recommended device logic when connecting to IoT Hub via DPS:
     - When receiving any of the 500-series of server error responses, retry the connection using either cached credentials or the results of a Device Registration Status Lookup API call.
     - When receiving `401, Unauthorized` or `403, Forbidden` or `404, Not Found`, perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
 - At any time, devices should be capable of responding to a user-initiated reprovisioning command.
+- If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT Hub for at least 15 minutes (If scenario permits 30 minutes or more),  before attempting to go back to DPS.  
 
 Other IoT Hub scenarios when using DPS:
 

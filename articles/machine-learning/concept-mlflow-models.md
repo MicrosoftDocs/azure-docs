@@ -5,9 +5,10 @@ description: Learn about how MLflow uses the concept of models instead of artifa
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 07/8/2022
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: devx-track-python, cliv2, sdkv2
 ---
@@ -49,7 +50,7 @@ Models can get logged by using MLflow SDK:
 
 ```python
 import mlflow
-mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+mlflow.sklearn.log_model(sklearn_estimator, "classifier")
 ```
 
 

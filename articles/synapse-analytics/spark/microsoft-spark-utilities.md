@@ -122,7 +122,7 @@ var blob_relative_path = "";  // replace with your relative folder path
 var linked_service_name = "";    // replace with your linked service name
 var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
 
-spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+spark.Conf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
 
 var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
 
@@ -879,10 +879,13 @@ Get result:
 getToken(audience, name): returns AAD token for a given audience, name (optional)
 isValidToken(token): returns true if token hasn't expired
 getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
-getSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
 getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
 putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
 putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
 ```
 
 ### Get token

@@ -4,8 +4,8 @@ description: Describes how extract a PostgreSQL database into a script file and 
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 09/22/2020
 ---
 # Migrate your PostgreSQL database using export and import

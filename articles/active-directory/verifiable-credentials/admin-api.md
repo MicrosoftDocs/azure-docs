@@ -28,7 +28,7 @@ The Admin API is server over HTTPS. All URLs referenced in the documentation hav
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. 
+The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role.
 
 ## Onboarding
 

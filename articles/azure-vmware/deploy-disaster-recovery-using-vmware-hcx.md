@@ -3,7 +3,8 @@ title: Deploy disaster recovery using VMware HCX
 description: Learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX Disaster Recovery. Also learn how to use Azure VMware Solution as the recovery or target site.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/10/2021
+ms.date: 10/26/2022
+ms.custom: engagement-fy23
 ---
 
 # Deploy disaster recovery using VMware HCX

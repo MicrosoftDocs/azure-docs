@@ -88,6 +88,7 @@ You can deploy Azure Arc-enabled data services on various types of Kubernetes cl
 - Google Kubernetes Engine (GKE)
 - Open source, upstream Kubernetes (typically deployed by using kubeadm)
 - OpenShift Container Platform (OCP)
+- K3s
 - Additional [partner-validated Kubernetes distributions](./validation-program.md)
 
 > [!IMPORTANT]
