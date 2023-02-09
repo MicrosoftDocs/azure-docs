@@ -22,35 +22,9 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - Autoscale doesn't support scaling of ephemeral disks.
 > - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
-> - Autoscale is available in Azure and Azure Government.
+> - Autoscale is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
-
-Deploying scaling plans with autoscale in public Azure is currently limited to the following regions. You can also deploy scaling plans in all Azure Government regions.
-
-:::row:::
-    :::column:::
-        - Australia East
-        - Canada Central
-        - Canada East
-        - Central US
-        - East US
-        - East US 2
-        - Japan East
-        - North Central US
-        - North Europe
-    :::column-end:::
-    :::column:::
-        - South Central US
-        - UK South
-        - UK West
-        - West Central US
-        - West Europe
-        - West US
-        - West US 2
-        - West US 3
-    :::column-end:::
-:::row-end:::
 
 ## How a scaling plan works
 
