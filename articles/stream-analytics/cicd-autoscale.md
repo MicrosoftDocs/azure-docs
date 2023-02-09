@@ -22,11 +22,11 @@ Examples of an autoscale setting:
 
 ## Prerequisites
 - A Stream Analytics project in the local machine. If don't have one, follow this [guide](quick-create-visual-studio-code.md) to create one. 
-- Or you have a running Stream Analytics job in Azure.
+- Or you have a running ASA job in Azure.
 
-## How to autoscale job?
+## How to configure autoscale settings?
 
-### Scenario 1: Configure autoscale settings for a local Stream Analytics project
+### Scenario 1: configure for a local Stream Analytics project
 
 If you have a working Stream Analytics project in the local machine, follow the steps to configure autoscale settings:
 
@@ -136,7 +136,11 @@ If you have a working Stream Analytics project in the local machine, follow the 
           -TemplateParameterFile $parameterFile
         ```
 
-### Scenario 2: Autoscale a running Stream Analytics job in Azure
+Once your project is deployed successfully, you can view the autoscale settings in Azure portal. 
+
+![Portal autoscale setting](./media/cicd-autoscale/portal-autoscale-setting.png)
+
+### Scenario 2: Configure for a running ASA job in Azure
 
 If you have a Stream Analytics job running in Azure, you can use ASA CI/CD tool in the PowerShell to configure autoscale settings. 
 
@@ -156,4 +160,4 @@ For more information about autoscale settings, run this command in PowerShell:
 azure-streamanalytics-cicd autoscale --help
 ```
 
-If you have any issues about ASA CI/CD tool, you can report [here](https://github.com/microsoft/vscode-asa/issues).
+If you have any issues about the ASA CI/CD tool, you can report it [here](https://github.com/microsoft/vscode-asa/issues).
