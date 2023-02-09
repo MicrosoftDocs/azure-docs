@@ -20,14 +20,14 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in February include:
 
-- [Recommendation to find vulnerabilities in running container images released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
+- [Recommendation to find vulnerabilities in running container images for Linux released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
 
 ### Recommendation to find vulnerabilities in running container images released for General Availability (GA)
 
-The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is now GA. The recommendation is used to identify unhealthy resources and is included in the calculations of your secure score.
+The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation for Linux is now GA. The recommendation is used to identify unhealthy resources and is included in the calculations of your secure score.
 
-We recommend that you use the recommendation to remediate vulnerabilities in your containers. Learn about [recommendation remediation](implement-security-recommendations.md).
+We recommend that you use the recommendation to remediate vulnerabilities in your Linux containers. Learn about [recommendation remediation](implement-security-recommendations.md).
 
 ### Announcing support for the AWS CIS 1.5.0 compliance standard
 
