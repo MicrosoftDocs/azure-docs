@@ -114,7 +114,7 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 ### Create a new Python application
 
-1. Create a new Python file called sample_multivariate_detect.py. Then open it up in your preferred editor or IDE.
+1. Create a new Python file called **sample_multivariate_detect.py**. Then open it up in your preferred editor or IDE.
 
 2. Replace the contents of sample_multivariate_detect.py with the following code. You need to modify the paths for the variables `blob_url_path` and `local_json_file_path`.
 
@@ -369,7 +369,7 @@ if __name__ == "__main__":
 Run the application with the `python` command on your quickstart file.
 
 ```console
-python quickstart.py
+python sample_multivariate_detect.py
 ```
 
 ### Output
