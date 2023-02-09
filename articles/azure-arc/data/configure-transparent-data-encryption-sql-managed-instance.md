@@ -24,9 +24,6 @@ Turning on the TDE feature does the following:
 - All existing databases will now be automatically encrypted.
 - All newly created databases will get automatically encrypted.
 
-
-
-
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
@@ -52,8 +49,6 @@ Turning on TDE on the managed instance will result in the following operations t
 2. Adding the service-managed certificate protector.
 3. Adding the associated Database Encryption Keys (DEK) on all databases on the managed instance.
 4. Enabling encryption on all databases on the managed instance.
-
-
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
@@ -146,7 +141,6 @@ When you back up credentials from the managed instance, the credentials are stor
    ```console
    kubectl cp --namespace arc-ns --container arc-sqlmi sql-0:/var/opt/mssql/data/servercert.crt $HOME/sqlcerts/servercert.crt
    ```
-
    ---
 
 3. Copy the private key from the container to your file system.
@@ -172,7 +166,6 @@ When you back up credentials from the managed instance, the credentials are stor
    ```console
    kubectl cp --namespace arc-ns --container arc-sqlmi sql-0:/var/opt/mssql/data/servercert.key $HOME/sqlcerts/servercert.key
    ```
-
    ---
 
 4. Delete the certificate and private key from the container.
@@ -218,7 +211,6 @@ Similar to above, to restore the credentials, copy them into the container and r
    ```console
    kubectl cp --namespace arc-ns --container arc-sqlmi $HOME/sqlcerts/servercert.crt sql-0:/var/opt/mssql/data/servercert.crt
    ```
-
    ---
 
 2. Copy the private key from your file system to the container.
@@ -243,7 +235,6 @@ Similar to above, to restore the credentials, copy them into the container and r
    ```console
    kubectl cp --namespace arc-ns --container arc-sqlmi $HOME/sqlcerts/servercert.key sql-0:/var/opt/mssql/data/servercert.key
    ```
-
    ---
 
 3. Create the certificate using file paths from `/var/opt/mssql/data`.
