@@ -87,7 +87,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine. 
+The Azure Marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine. 
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
