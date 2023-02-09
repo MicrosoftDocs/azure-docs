@@ -35,7 +35,7 @@ Refer to the native [UI Library overview](../../concepts/ui-library/ui-library-o
 
 ### Run sample app
 
-Clone repo.
+Clone [repo](https://github.com/Azure-Samples/communication-services-ui-library-maui).
 
 #### For Android
 
