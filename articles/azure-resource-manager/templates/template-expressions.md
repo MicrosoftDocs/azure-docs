@@ -126,7 +126,7 @@ To set a property to null, you can use `null` or `[json('null')]`. The [json fun
 "objectValue": "[json('null')]"
 ```
 
-A better solution is to use the [filter()](./template-functions-lambda.md/#filter). For example:
+A better solution is to use the [filter() function](./template-functions-lambda.md#filter). For example:
 
 ```json
 {
