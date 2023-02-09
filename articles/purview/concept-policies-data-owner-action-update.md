@@ -18,7 +18,7 @@ The following two actions that were previously available in the Microsoft Purvie
 - SQL Performance Monitor
 - SQL Security Auditor
 
-If you currently have Data owner policies with these actions we encourage you to give the DevOps policies experience a try. Going forward, creating new policies or editing existing policies that involve these two actions is not supported from the Data owner experience.
+If you currently have Data owner policies with these actions we encourage you to give the DevOps policies experience a try. Creating new policies or editing existing policies that involve these two actions is now unsupported from the Data owner experience.
 
 ## Next steps
 Check these concept guides
