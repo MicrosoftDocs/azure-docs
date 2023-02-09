@@ -57,7 +57,7 @@ curl -X POST \
     --data-binary {dcmFile}.dcm
 ```
 
-We have tested supporting `10s of GBs upload in few seconds`. 
+We have tested supporting <b>tens of GBs upload in few seconds</b>. 
 
 ### Retrieving
 
@@ -73,7 +73,7 @@ curl -X GET \
     --output {fileName}
 ```
 
-We have tested supporting `download of 60Kb tile in around 60-70ms` from client.
+We have tested supporting <b>download of 60Kb tile in around 60-70ms</b> from client.
 
 ### Viewers
 
@@ -90,10 +90,6 @@ Follow the [CORS guidelines](configure-cross-origin-resource-sharing.md) if the 
 
 Reach out to dicom-support@microsoft.com if you want to work with our partner ISVs that provides E2E solution and support.
 
-## Summary
-
-This conceptual article provided you with an overview of using DICOM service for digital pathology.
- 
 ## Next steps
 
 For more information about DICOM service, see
