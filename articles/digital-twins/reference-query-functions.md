@@ -21,7 +21,7 @@ This document contains reference information on *functions* for the [Azure Digit
 
 ## ARRAY_CONTAINS
 
-A function to determine whether an array property of a twin (supported in DTDL V3) contains another specified value.
+A function to determine whether an array property of a twin (supported in DTDL v3) contains another specified value.
 
 ### Syntax
 

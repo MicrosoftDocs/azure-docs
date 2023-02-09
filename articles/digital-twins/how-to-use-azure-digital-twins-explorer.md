@@ -117,7 +117,7 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
 
-The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL Version 3 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md).
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md).
 
 | Icon | Data type |
 | --- | --- |

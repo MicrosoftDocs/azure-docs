@@ -46,7 +46,7 @@ The following C# code snippet shows how an RDF model file is loaded into a graph
 
 ### RDF converter application 
 
-There's a sample application available that converts an RDF-based model file to [DTDL Version 2 (V2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). DTDL V2 is supported by Azure Digital Twins, but you can also follow [these instructions](how-to-manage-model.md#convert-v2-models-to-v3) to convert DTDL V2 models to the newer DTDL V3.
+There's a sample application available that converts an RDF-based model file to [DTDL Version 2 (v2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). DTDL v2 is supported by Azure Digital Twins, but you can also follow [these instructions](how-to-manage-model.md#convert-v2-models-to-v3) to convert DTDL v2 models to the newer DTDL v3.
 
 The sample application has been validated for the [Brick](https://brickschema.org/ontology/) schema, and can be extended for other schemas in the building industry (such as [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/), or [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 

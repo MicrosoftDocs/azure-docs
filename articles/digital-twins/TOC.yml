@@ -177,7 +177,7 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
     href: /cli/azure/dt
-  - name: DTDL V3 Reference
+  - name: DTDL v3 Language Description
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
