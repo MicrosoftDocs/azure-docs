@@ -1,15 +1,17 @@
 ---
-title: (Coming Soon) Content hub centralization changes in Microsoft Sentinel
+title: Out-of-the-box (OOTB) content centralization changes
+titleSuffix: Microsoft Sentinel
 description: This article describes the centralization changes about to take place for out-of-the-box content in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: conceptual
 ms.date: 01/30/2023
 ms.author: austinmc
+#Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out of the box content, and how to centralize the management, discovery and inventory of content in Sentinel.
 ---
 
-# [Coming Soon] Content hub centralization changes in Microsoft Sentinel
+# Microsoft Sentinel OOTB content centralization changes
 
-Microsoft Sentinel Content hub enables discovery and on-demand installation of out-of-the-box (OOTB) content and solutions in a single step. Previously, some of this built-in content only existed in various gallery sections of Sentinel. We're excited to announce all of the following gallery content templates are now available in content hub as standalone items or part of packaged solutions.
+Microsoft Sentinel Content hub enables discovery and on-demand installation of out-of-the-box (OOTB) content and solutions in a single step. Previously, some of this OOTB content only existed in various gallery sections of Sentinel. We're excited to announce *all* of the following gallery content templates are now available in content hub as standalone items or part of packaged solutions.
 
 - **Data connectors**
 - **Hunting queries**
@@ -17,48 +19,100 @@ Microsoft Sentinel Content hub enables discovery and on-demand installation of o
 - **Playbook templates**
 - **Workbook templates**
 
-In order to centralize all OOTB content in one place, however, we're planning to retire the gallery-only templates. The legacy gallery templates don't update automatically, but the content hub provides update workflows for solutions and automatic updates for standalone content. So, we're introducing a central tool to filter "in-use" templates retired from the feature galleries and reinstate the corresponding content hub items. This change will complete the journey towards centralizing Microsoft Sentinel content.
+In order to centralize all out-of-the-box content we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated, and the content hub is where OOTB content is kept up to date. Content hub provides update workflows for solutions and automatic updates for standalone content. We're also introducing a central tool to reinstate the corresponding "in use" retired templates as content hub items. 
+
+Microsoft Sentinel has an official GitHub repository for community contributions vetted by the community and Microsoft. It is the source for many of the content items in Content hub. In order to enable discovery of all OOTB content in Content hub, the OOTB content centralization changes have already been extended to the Microsoft Sentinel GitHub repo. With this change: 
+
+ - All OOTB content packaged in solutions in content hub now show up under the Solutions folder in the GitHub repository. 
+ - All standalone OOTB content will continue to remain in their respective locations as before. 
+  
+These changes will complete the journey towards centralizing Microsoft Sentinel content.
 
 ## When is this change coming?
-This change is expected to go live in all Microsoft Sentinel workspaces in Spring 2023.
-
 > [!NOTE]
-> This planned timeline is tentative and is subject to change.
+> These planned timelines are tentative and subject to change.
+>
+
+The centralization change in the Sentinel portal is expected to go live in all Sentinel workspaces Q2 2023. The Microsoft Sentinel GitHub changes have already been done. Standalone content is available in existing GitHub folders and solutions content moved to the solutions folder.  
 
 ## Scope of change
 This change is only scoped to gallery content type templates. All these same templates and more OOTB content are available in content hub as solutions or standalone content. 
+
+For Microsoft Sentinel GitHub, OOTB content packaged in solutions in content hub now shows up under the GitHub [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). The other existing content in GitHub is scoped to the following folders and only contains standalone content items. Content in the remaining GitHub folders not called out in this list do not have any changes.
+
+- [DataConnectors folder](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors)
+- [Detections folder](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) (Analytics rules)
+- [Hunting queries folder](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries)
+- [Parsers folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers)
+- [Playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
+- [Workbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks)
+
 
 ### What's not changing?
 The active or custom items created in any manner (from templates or otherwise) are **NOT** impacted by this change. This specifically means the following are **NOT** affected by this change: 
 
 - Data Connectors with *Status = Connected*. 
-- Alert rules or detections in enabled or disabled state in the 'Active rules' tab in the Analytics gallery. 
+- Alert rules or detections (enabled or disabled) in the *'Active rules'* tab in the Analytics gallery. 
 - Saved workbooks in the 'My workbooks' tab in the Workbooks gallery. 
 - Cloned content or *Content source = Custom* in the Hunting gallery. 
-- Active playbooks in either enabled or disabled state in the 'Active playbooks' tab in the Automation gallery. 
+- Active playbooks (enabled or disabled) in the *'Active playbooks'* tab in the Automation gallery. 
 
 Any OOTB content templates installed from content hub (identifiable as *Content source = Content hub*) are NOT affected by this change.
 
 ### What's changing?
-All template galleries will display an in-product warning banner. This banner will contain a link to a tool that will run within the Sentinel portal. Activating the tool will initiate a guided experience to reinstate the content hub version of templates that are in-use active items originally based on gallery templates. This tool only runs once per workspace so be sure to plan with your organization. Once the tool runs successfully, the warning banner will resolve and no longer be visible from the template galleries of that workspace. 
+All template galleries will display an in-product warning banner. This banner will contain a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool will initiate a guided experience to reinstate the content templates for the `IN USE` active items originally based on gallery templates. This tool only runs once per workspace so be sure to plan with your organization. Once the tool runs successfully, the warning banner will resolve and no longer be visible from the template galleries of that workspace. 
 
 Specific impact to the gallery content templates for each of these galleries are detailed in the following table. Expect these changes when the OOTB content centralization goes live. 
 
-| Gallery | Changes |
+| Content Type | Impact |
 | ------- | ------- |
-| [Data connectors](connect-data-sources.md) | The templates identifiable as content source = "Gallery content" and Status = "Not connected" will no longer appear in the data connectors gallery. |
-| [Analytics templates](detect-threats-built-in.md#view-built-in-detections) | The templates identifiable as source name = "Gallery content" will no longer appear in the Analytics template gallery. |
-| [Hunting](hunting.md#use-built-in-queries) | The templates with Content source = "Gallery content" will no longer appear in the Hunting gallery. |
-| [Workbooks templates](get-visibility.md#use-built-in-workbooks) | The templates with Content source = "Gallery content" will no longer appear in the Workbooks template gallery. |
-| [Playbooks templates](use-playbook-templates.md#explore-playbook-templates) | The templates identifiable as source name = "Gallery content" will no longer appear in the Automation Playbook templates gallery. |
+| [Data connectors](connect-data-sources.md) | The templates identifiable as `content source = "Gallery content"` and `Status = "Not connected"` will no longer appear in the data connectors gallery. |
+| [Analytics templates](detect-threats-built-in.md#view-built-in-detections) | The templates identifiable as `source name = "Gallery content"` will no longer appear in the Analytics template gallery. |
+| [Hunting](hunting.md#use-built-in-queries) | The templates with `Content source = "Gallery content"` will no longer appear in the Hunting gallery. |
+| [Workbooks templates](get-visibility.md#use-built-in-workbooks) | The templates with `Content source = "Gallery content"` will no longer appear in the Workbooks template gallery. |
+| [Playbooks templates](use-playbook-templates.md#explore-playbook-templates) | The templates identifiable as `source name = "Gallery content"` will no longer appear in the Automation Playbook templates gallery. |
 
 ## Action needed
-- Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of the templates. The gallery content in the above-listed feature galleries may be out-of-date.  
-- Plan with your organization who and when will run the tool when you see the banner and the change goes live.
-- Spread awareness of the OOTB content centralization change in your organization.  
+- Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of the templates. 
+- For existing gallery content templates you are using, get future updates by installing the respective solutions or standalone content items from Content hub. The gallery content in the feature galleries may be out-of-date.
+- If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the solutions folder in addition to existing content folders.  
+- Plan with your organization who and when will run the tool when you see the warning banner and the change goes live in Q2 2023.
+- Review the FAQs section to learn more details that may be applicable to your environment. 
+
+## Content centralization FAQs
+#### Will my SOC alert generation and incidents generation and management get impacted with this change? 
+No, there’s no impact to active alert rules or detections or active playbooks, or cloned hunting queries or saved workbooks. The OOTB content centralization change should not have an impact on your current incident generation and management processes.  
+
+#### Are there exceptions on impacts to some of the gallery content templates as part of this centralization? 
+Analytic rule templates of the following types will be un-impacted with this change: 
+
+- Fusion templates 
+- Anomalies templates 
+- ML (Managed Language) rule templates 
+- Microsoft incident creation templates 
+- BBTI (Blackbox Threat intelligence) templates 
+
+#### Will any of the APIs be impacted with this change? 
+Currently only alert rule template Get and List APIs exists for content template management. These APIs will continue to surface gallery-content templates.   
+
+New content hub APIs will be available soon to enable OOTB content management scenarios for OOTB content types (data connectors, playbook templates, workbook templates, analytic rule templates, hunting queries) and this includes mechanism to get up-to-date analytics rule templates installed on the workspace. 
+
+Action needed: Plan to update your applications and processes to leverage the new content hub OOTB content management APIs when those are available in Q2 2023.  
+
+#### How will the central tool identify my in-use OOTB content templates? 
+The tool will look for data connectors with “status = connected” to build a list of solutions and standalone content that you can review and install to get content hub OOTB content templates in all the impacted feature galleries. For playbook templates, in addition there is a specific check for ‘in-use’ playbook templates. Since this process installs solutions, you might get more OOTB content items that match the connected data source than you might be actually using.  
+
+Please note that this central tool is a best-case effort to get your in-use OOTB content templates. You can get additional OOTB content or content might be missing that you can get directly by installing from content hub.   
+
+#### What if I am using APIs to connect data sources in my Microsoft Sentinel workspace?  
+Currently all the data connectors exist in the data connectors gallery so you can see the specific data connector show up as “status = Connected” if the specific data type matches with that referenced in the data connector. After the centralization experiences go live, the specific data connector needs to be installed from the respective solution to get the same behavior.  
+
+Action needed: Plan to update the process/any custom tooling for deploying data connectors in this scenario to start installing the specific solution(s) before the connecting to data ingest APIs step. The API for installing a solution will be coming in Q2 2023 with the content hub OOTB content management APIs.    
+
+#### What if I am working with content using Repositories feature in Microsoft Sentinel? 
+Repositories enable working with custom or active content in Microsoft Sentinel. This won't be impacted by the OOTB content centralization changes. 
 
 ## Next steps
-
 Take a look at these other resources for OOTB content and Content hub.
 
 - [About OOTB content and solutions in Microsoft Sentinel](sentinel-solutions.md)
