@@ -84,6 +84,8 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
+  - name: Troubleshooting SSO on Apple devices
+    href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
   - name: Hybrid Azure AD join reference

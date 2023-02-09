@@ -107,7 +107,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
 > If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
 > * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
