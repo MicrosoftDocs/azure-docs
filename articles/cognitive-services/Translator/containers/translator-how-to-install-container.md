@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/09/2023
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -142,6 +142,22 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS
 
 > [!NOTE]
 > If you attempt the cURL POST request before the container is ready, you'll end up getting a *Service is temporarily unavailable* response. Wait until the container is ready, then try again.
+
+
+### Run the container disconnected from the internet (authorization required)
+
+> [!IMPORTANT]
+> * You must include a parameter to download model files for the [languages](../translator/language-support.md) you want to translate. For example: `-e Languages=en,es`
+> * The container will generate a `docker run` template that you can use to run the container, containing parameters you will need for the downloaded models and configuration file. Make sure you save this template.
+
+[!INCLUDE [configure-disconnected-container](../../containers/includes/configure-disconnected-container.md)]
+
+To run the Translator container disconnected from the internet, you'll need to add parameters for the downloaded translation models and container configuration. These values are generated and displayed in the container output when you configure the container as described above. For example:
+
+```bash
+-e MODELS= /path/to/model1/, /path/to/model2/
+-e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
+```
 
 ## Stop the container
 
