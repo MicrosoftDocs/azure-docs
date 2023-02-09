@@ -1836,6 +1836,7 @@
     href: monitor-vm.md?context=/azure/virtual-machines/context/context
   - name: Monitor virtual machine reference
     href: monitor-vm-reference.md?context=/azure/virtual-machines/context/context
+  - name: 
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
   - name: Tutorials
@@ -1848,6 +1849,20 @@
       href: ../azure-monitor/vm/tutorial-monitor-vm-enable-insights.md?context=/azure/virtual-machines/context/context
     - name: Collect guest logs and metrics
       href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=/azure/virtual-machines/context/context
+    - name: Monitor virtual machines guide
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Deploy agents
+        href: vm/monitor-virtual-machine-agent.md
+      - name: Collect data
+        href: vm/monitor-virtual-machine-data-collection.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Migrate management pack logic
+        href: vm/monitor-virtual-machine-management-packs.md
   - name: VM insights
     href: ../azure-monitor/vm/vminsights-overview.md
   - name: Azure Monitor Agent
