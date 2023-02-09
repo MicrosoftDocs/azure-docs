@@ -71,7 +71,13 @@ az provider register --namespace "Microsoft.ContainerService"
 
 ## Limitations
 
-What limitations need to be specified?
+IO performance limitation: Kata containers may not reach the IOPS that traditional containers can reach on Azure Files and high performance local SSD.
+
+Microsoft Defender for Containers addon
+
+Azure Monitor addon
+
+Existing [Kata](https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network) Limitations
 
 ## How it works
 
@@ -141,7 +147,7 @@ To use this feature with an existing AKS cluster, if the cluster is running vers
 
 To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
 
-1. Create a file named *trusted-app.yaml* to describe a trusted DaemonSet, and then paste the following manifest.
+1. Create a file named *trusted-app.yaml* to describe a trusted pod, and then paste the following manifest.
 
     ```yml
     kind: Pod
@@ -155,7 +161,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
         command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
     ```
 
-2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
+2. Deploy the Kubernetes pod by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
 
     ```bash
     kubectl apply -f trusted-app.yaml
@@ -171,7 +177,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
 
 To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
 
-1. Create a file named *untrusted-app.yaml* to describe an untrusted DaemonSet, and then paste the following manifest.
+1. Create a file named *untrusted-app.yaml* to describe an untrusted pod, and then paste the following manifest.
 
     ```yml
     kind: Pod
@@ -188,7 +194,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    The value for **runtimeClassNameSpec** is `kata-mhsv-vm-isolation`.
 
-2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
+2. Deploy the Kubernetes pod by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
     ```bash
     kubectl apply -f untrusted-app.yaml
