@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/08/2023
+ms.date: 02/09/2023
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ This release corresponds to the software version:
 
 - **Data Box Gateway 2301 (1.6.2225.773)**
 
-Update 2301 can be applied to all prior releases of Data Box Gateway.
+Update 2301 can be applied only to devices that are running 2105 versions of the software or later. If you are running a version earlier than 2105, update your device to 2105 and then update to 2301.
 
 ## What's new
 
@@ -34,7 +34,7 @@ This release also contains the following updates:
 - **Monitoring agent update**
 - **SAAS agent SDK update** - Provides certificate rotation.
 - **Core OS build update**
-- **Other updates** - All cumulative updates and .NET framework updates through January 2023.
+- **Other updates** - All cumulative updates and .NET framework updates through November 2022.
 
 ## Known issues in this release
 
