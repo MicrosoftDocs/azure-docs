@@ -1,7 +1,7 @@
 ---
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to, you'll learn how to locally test your Event Grid handler for Azure Communication Services events with Postman"
+description: "In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman"
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
@@ -13,14 +13,14 @@ ms.service: azure-communication-services
 
 # Test your Event Grid handler locally
 
-Testing Event Grid triggered Azure Functions locally can be complicated. You don't want to have to trigger events over and over to test your flow. It can also get expensive as triggering those events might require you perform an event that costs money like sending an SMS or placing a phone call. To help with this, we show you how to leverage Postman to trigger your Azure Function with a payload that mimics the Event Grid event.
+Testing Event Grid triggered Azure Functions locally can be complicated. You don't want to have to trigger events over and over to test your flow. It can also get expensive as triggering those events might require you perform an event that costs money like sending an SMS or placing a phone call. To help with testing, we show you how to use Postman to trigger your Azure Function with a payload that mimics the Event Grid event.
 
 ## Pre-requisites
 
 - Install [Postman](https://www.postman.com/downloads/).
-- Have a running Azure Function that is configured to be triggered by Event Grid. If you don't have one, you can follow the [quickstart](https://learn.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=in-process%2Cextensionv3&pivots=programming-language-javascript) to create one.
+- Have a running Azure Function that can be triggered by Event Grid. If you don't have one, you can follow the [quickstart](https://learn.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=in-process%2Cextensionv3&pivots=programming-language-javascript) to create one.
 
-The Azure Function can be running either in Azure if you want to simply test it with some test events or if you want to test the entire flow locally (press `F5` in VS Code to run it locally). If you want to test the entire flow locally, you need to use [ngrok](https://ngrok.com/) to hook your locally running Azure Function. Configure ngrok by running the following command:
+The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow locally, you need to use [ngrok](https://ngrok.com/) to hook your locally running Azure Function. Configure ngrok by running the command:
 
 ```bash
 
@@ -36,9 +36,9 @@ ngrok http 7071
 
 2. Select the `POST` method.
 
-3. Enter the URL of your Azure Function. Can either be the URL of the Azure Function running in Azure or the ngrok URL if you are running it locally. Ensure that you add the function name at the end of the URL: `?functionName=<<FUNCTION_NAME>>`.
+3. Enter the URL of your Azure Function. Can either be the URL of the Azure Function running in Azure or the ngrok URL if you're running it locally. Ensure that you add the function name at the end of the URL: `?functionName=<<FUNCTION_NAME>>`.
 
-4. Select the `Body` tab and select `raw` and `JSON` from the dropdown. In the body, you add a test schema for the event you want to trigger. For example, if you are testing an Azure Function that is triggered by receiving SMS events, you add the following:
+4. Select the `Body` tab and select `raw` and `JSON` from the dropdown. In the body, you add a test schema for the event you want to trigger. For example, if you're testing an Azure Function that is triggered by receiving SMS events, you add the following:
 
     ```json
     
@@ -61,7 +61,7 @@ ngrok http 7071
     
     ```
 
-    You can find additional for the different event types used for Azure Communication Services in the [documentation](https://learn.microsoft.com//azure/event-grid/event-schema-communication-services).
+    You can find more information for the different event types used for Azure Communication Services in the [documentation](https://learn.microsoft.com//azure/event-grid/event-schema-communication-services).
 
 5. Select the `Headers` tab and add the following headers:
 
@@ -74,4 +74,4 @@ ngrok http 7071
 
     ![Postman send](media/postman_send.png)
 
-    At this point an event should be triggered in your Azure Function. You can verify this by looking at the logs in the Azure Portal or by adding a breakpoint / console log in your Azure Function. This should help you test your Azure Function locally and validate your code without having to trigger events over and over again.
+    At this point, an event should trigger in your Azure Function. You can verify the event by looking at the execution of your Azure Function. You can then validate that the function is doing its job correctly.
