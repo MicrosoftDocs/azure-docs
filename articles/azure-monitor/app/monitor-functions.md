@@ -75,5 +75,5 @@ To collect custom telemetry from services such as Redis, Memcached, MongoDB, and
 * Read more instructions and information about monitoring [Monitoring Azure Functions](../../azure-functions/functions-monitoring.md)
 * Get an overview of [Distributed Tracing](./distributed-tracing.md)
 * See what [Application Map](./app-map.md?tabs=net) can do for your business
-* Read about [requests and dependencies for Java apps](./java-in-process-agent.md)
+* Read about [requests and dependencies for Java apps](./opentelemetry-enable.md?tabs=java)
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md)
