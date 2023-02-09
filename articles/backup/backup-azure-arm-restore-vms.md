@@ -35,8 +35,8 @@ Azure Backup provides several ways to restore a VM.
 
 Some details about storage accounts:
 
-- **Create VM**: When you create a new VM, the VM will be placed in the storage account you specify.
-- **Restore disk**: When you restore a disk, the disk is copied to the storage account you specify. The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account.
+- **Create VM**: When creating a new VM with managed disks, a template is placed in the storage account you specify. If using unmanaged disks, the VHD files for the VM's disks will be placed in the storage account you specify.
+- **Restore disk**: The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account. When you restore an unmanaged disk, the disk is also copied to the storage account you specify. 
 - **Replace disk**: When you replace a disk in an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is also copied to the Recovery Services vault through data transfer, as a background process. However, once the snapshot phase is completed, the replace disks operation is triggered. After the replace disk operation, the disks of the source Azure VM are left in the specified Resource group for your operation and the VHDs are stored in the specified storage account. You can choose to delete or retain these VHDs and disks.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
 - **Storage type**: Blob storage isn't supported.
