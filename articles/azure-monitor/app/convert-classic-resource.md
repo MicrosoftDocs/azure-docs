@@ -566,7 +566,7 @@ Legacy table: customMetrics
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 |value|real|(removed)||
-|valueCount|int|ValueCount|int|
+|valueCount|int|ItemCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
 |valueSum|real|ValueSum|real|

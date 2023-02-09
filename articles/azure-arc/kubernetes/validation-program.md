@@ -30,7 +30,7 @@ The following providers and their corresponding Kubernetes distributions have su
 | Nutanix      | [Nutanix Kubernetes Engine](https://www.nutanix.com/products/kubernetes-engine)    | Version [2.5](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Engine-v2_5:Nutanix-Kubernetes-Engine-v2_5); upstream K8s v1.23.11 |
 | Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution | Upstream K8s Version: 1.22.10 <br> Upstream K8s Version: 1.21.3 |
 | Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version [3.6.0](https://docs.mirantis.com/mke/3.6/release-notes/3-6-0.html) <br> MKE Version [3.5.5](https://docs.mirantis.com/mke/3.5/release-notes/3-5-5.html) <br> MKE Version [3.4.7](https://docs.mirantis.com/mke/3.4/release-notes/3-4-7.html) |
-| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 22.06; Upstream K8s version: 1.23.1 <br>Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
+| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 22.12; Upstream K8s version: 1.24.4 <br>Wind River Cloud Platform 22.06; Upstream K8s version: 1.23.1 <br>Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
 

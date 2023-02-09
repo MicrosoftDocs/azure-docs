@@ -17,10 +17,12 @@ ms.devlang: azurecli
 
 # Configure MLflow for Azure Machine Learning
 
-Azure Machine Learning workspaces are MLflow compatible, which means they can act as an MLflow server without any extra configuration. Each workspace has an MLflow tracking URI that can be used by MLflow to connect to the workspace. In this article, learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
+Azure Machine Learning workspaces are MLflow-compatible, which means they can act as an MLflow server without any extra configuration. Each workspace has an MLflow tracking URI that can be used by MLflow to connect to the workspace. Azure Machine Learning workspaces **are already configured to work with MLflow** so no extra configuration is required.
+
+However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
 
 > [!IMPORTANT]
-> When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. It's automatically configured for you.
+> When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
 
 ## Prerequisites
 
@@ -49,9 +51,18 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 
 [!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-auth.md)]
 
-> [!NOTE]
-> If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
+If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
+
+### Troubleshooting authentication
+
+MLflow will try to authenticate to Azure Machine Learning on the first operation interacting with the service, like `mlflow.set_experiment()` or `mlflow.start_run()`. If you find issues or unexpected authentication prompts during the process, you can increase the logging level to get more details about the error:
+
+```python
+import logging
+
+logging.getLogger("azure").setLevel(logging.DEBUG)
+```
 
 ## Set experiment name (optional)
 

@@ -115,7 +115,7 @@ When you create a compute instance or compute cluster, the following resources a
 * A Network Security Group with required outbound rules. These rules allow __inbound__ access from the Azure Machine Learning (TCP on port 44224) and Azure Batch service (TCP on ports 29876-29877).
 
     > [!IMPORTANT]
-    > If you use a firewall to block internet access into the VNet, you must configure the firewall to allow this traffic. For example, with Azure Firewall you can create user-defined routes. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md#inbound-configuration).
+    > If you use a firewall to block internet access into the VNet, you must configure the firewall to allow this traffic. For example, with Azure Firewall you can create user-defined routes. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 * A load balancer with a public IP.
 
@@ -126,7 +126,7 @@ Also allow __outbound__ access to the following service tags. For each tag, repl
 
 Data access from your compute instance or cluster goes through the private endpoint of the Storage Account for your VNet.
 
-If you use Visual Studio Code on a compute instance, you must allow other outbound traffic. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md).
+If you use Visual Studio Code on a compute instance, you must allow other outbound traffic. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 

@@ -36,7 +36,7 @@ sections:
         answer: |
           You have several options to secure the connection between the API Management gateway and your backend services, including:
           
-          * Use subscription key authentication. For more information, see [Import and publish your first API](import-and-publish.md).
+          * Use subscription key authentication. On its own, a subscription key isn't a strong form of authentication, but is often used along with another method. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md). 
           * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
           * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md).
           * Connect your API Management instance to an [Azure virtual network](virtual-network-concepts.md).

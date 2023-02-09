@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting shared private link resources
+title: Troubleshoot shared private link resources
 titleSuffix: Azure Cognitive Search
-description: Troubleshooting guide for common problems when managing shared private link resources.
+description: Troubleshooting guide for common problems when managing shared private link resources in Azure Cognitive Search.
 
 manager: nitinme
 author: arv100kri
@@ -9,10 +9,10 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/26/2022
+ms.date: 01/18/2023
 ---
 
-# Troubleshooting common issues with Shared Private Links
+# Troubleshoot issues with Shared Private Links in Azure Cognitive Search
 
 A shared private link allows Azure Cognitive Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur.
 

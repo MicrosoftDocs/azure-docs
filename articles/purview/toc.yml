@@ -134,6 +134,10 @@ items:
       href: concept-policies-devops.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
+    - name: Impact of deleting Microsoft Purview account on access policies
+      href: concept-policies-purview-account-delete.md
+    - name: Update on Data owner policies actions
+      href: concept-policies-data-owner-action-update.md
   - name: Data Estate Insights
     items:
     - name: Data Estate Insights
@@ -154,7 +158,11 @@ items:
       href: manage-credentials.md
       displayName: Create and manage credentials
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+      items:
+        - name: Create and manage a self-hosted integration runtime
+          href: manage-integration-runtimes.md
+        - name: Self-hosted integration runtime auto-update and expiration
+          href: self-hosted-integration-runtime-version.md
     - name: Manage assets with Metamodel
       href: how-to-metamodel.md
     - name: Create Service Principal
@@ -245,6 +253,8 @@ items:
       href: register-scan-amazon-s3.md
   - name: Scan
     items:
+    - name: Scan a registered source
+      href: scan-data-sources.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
@@ -363,8 +373,6 @@ items:
     items:
     - name: Register data sources for "Data use management"
       href: how-to-enable-data-use-management.md
-    - name: Impact of deleting Microsoft Purview account on access policies
-      href: how-to-policies-purview-account-delete.md
     - name: DevOps policies
       items:
       - name: DevOps policies - Create, list, update and delete policies

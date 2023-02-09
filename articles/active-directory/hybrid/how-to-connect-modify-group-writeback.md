@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/15/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -36,13 +36,28 @@ To configure directory settings to disable automatic writeback of newly created 
 - PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
     
   ```PowerShell 
-    # Import Module
-    Import-Module Microsoft.Graph.Identity.DirectoryManagement
+  # Import Module
+  Import-Module Microsoft.Graph.Identity.DirectoryManagement
 
-    #Connect to MgGraph with necessary scope and select the Beta API Version
-    Connect-MgGraph -Scopes Directory.ReadWrite.All
-    Select-MgProfile -Name beta
+  #Connect to MgGraph with necessary scope and select the Beta API Version
+  Connect-MgGraph -Scopes Directory.ReadWrite.All
+  Select-MgProfile -Name beta
 
+  # Verify if "Group.Unified" directory settings exist
+  $DirectorySetting = Get-MgDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
+
+  # If "Group.Unified" directory settings exist, update the value for new unified group writeback default
+  if ($DirectorySetting) {
+    $DirectorySetting.Values | ForEach-Object {
+        if ($_.Name -eq "NewUnifiedGroupWritebackDefault") {
+            $_.Value = "false"
+        }
+    }
+    Update-MgDirectorySetting -DirectorySettingId $DirectorySetting.Id -BodyParameter $DirectorySetting
+  }
+  else
+  {
+    # In case the directory setting doesn't exist, create a new "Group.Unified" directory setting
     # Import "Group.Unified" template values to a hashtable
     $Template = Get-MgDirectorySettingTemplate | Where-Object {$_.DisplayName -eq "Group.Unified"}
     $TemplateValues = @{}
@@ -52,6 +67,7 @@ To configure directory settings to disable automatic writeback of newly created 
 
     # Update the value for new unified group writeback default
     $TemplateValues["NewUnifiedGroupWritebackDefault"] = "false"
+    
     # Create a directory setting using the Template values hashtable including the updated value
     $params = @{}
     $params.Add("TemplateId", $Template.Id)
@@ -60,6 +76,7 @@ To configure directory settings to disable automatic writeback of newly created 
         $params.Values += @(@{Name = $_; Value = $TemplateValues[$_]})
     }
     New-MgDirectorySetting -BodyParameter $params
+  }
   ``` 
 
 > [!NOTE]     

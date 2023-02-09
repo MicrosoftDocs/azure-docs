@@ -13,7 +13,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: CelesteDG
-  ms.date: 10/10/2022
+  ms.date: 01/23/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -155,6 +155,10 @@ additionalContent:
         - title: Hybrid identity
           summary: Create a user identity that can access both on-premises and cloud resources by using Azure AD Connect.
           url: ./hybrid/index.yml
+        # Card
+        - title: Multi-tenant organizations
+          summary: Collaborate across tenants within your organization.
+          url: ./multi-tenant-organizations/index.yml
     - title: Control access
       items:
         # Card
