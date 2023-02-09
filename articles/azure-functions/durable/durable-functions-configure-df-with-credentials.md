@@ -72,7 +72,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
    * If **system-assigned identity** should be used, then specify nothing else. 
 
-   * If **user-assigned identity** should be used: then add the following app settings values in your app configuration:  
+   * If **user-assigned identity** should be used, then add the following app settings values in your app configuration:  
      * **AzureWebJobsStorage__credential**: managedidentity 
 
      * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Azure AD portal)
