@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 01/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -78,12 +78,9 @@ If you select **Determine location by IP address (IPv4 only)**, the system will 
 
 If you select **Determine location by GPS coordinates**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions. 
+The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions.
 
-For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. 
-
-- After 24 hours, the user must open the app and approve the notification. 
-- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve  notifications. 
+Every hour the user is accessing resources covered by the policy they will need to approve a push notification from the app.
  
 Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
@@ -165,7 +162,7 @@ Most of the IPv6 traffic that gets proxied to Azure AD comes from Microsoft Exch
 If you're using Azure VNets, you'll have traffic coming from an IPv6 address. If you have VNet traffic blocked by a Conditional Access policy, check your Azure AD sign-in log. Once you’ve identified the traffic, you can get the IPv6 address being used and exclude it from your policy. 
 
 > [!NOTE]
-> If you want to specify an IP CIDR range for a single address, apply the /128 bit mask. If you see the IPv6 address 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a and wanted to exclude that single address as a range, you would use 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
+> If you want to specify an IP CIDR range for a single address, apply the /128 bit mask. If you see the IPv6 address 2001:db8:4a7d:3f57:a1e2:6b4a:8f3e:d17b and wanted to exclude that single address as a range, you would use 2001:db8:4a7d:3f57:a1e2:6b4a:8f3e:d17b/128.
 
 ## What you should know
 

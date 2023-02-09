@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.service: site-recovery
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template

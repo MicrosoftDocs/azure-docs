@@ -119,6 +119,9 @@ g.addV('person').
   property('age', 44)
 ```
 
+> [!TIP]
+> If you are following along with these examples, you can use any of these properties (`age`, `firstName`, `lastName`) as a partition key when you create your graph. The `id` property is not supported as a partition key in a graph.
+
 Next, the following Gremlin statement inserts a *knows* edge between **Thomas** and **Robin**.
 
 ```console

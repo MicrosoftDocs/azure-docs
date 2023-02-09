@@ -83,7 +83,6 @@ Regions are paired for cross-region replication based on proximity and other fac
 | United Arab Emirates | UAE North | UAE Central\* |
 | US Department of Defense |US DoD East\* |US DoD Central\* |
 | US Government |US Gov Arizona\* |US Gov Texas\* |
-| US Government |US Gov Iowa\* |US Gov Virginia\* |
 | US Government |US Gov Virginia\* |US Gov Texas\* |
 
 (\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](https://learn.microsoft.com/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).

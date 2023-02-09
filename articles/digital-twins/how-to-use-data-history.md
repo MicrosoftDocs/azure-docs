@@ -32,7 +32,7 @@ It also contains a sample twin graph that you can use to see the historized twin
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 >[!NOTE]
 > You can also use Azure Cloud Shell in the PowerShell environment instead of the Bash environment, if you prefer. The commands on this page are written for the Bash environment, so they may require some small adjustments to be run in PowerShell.
@@ -183,7 +183,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Create a connection**. Doing so will begin the process of creating a data history connection.
 
-2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
+2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
 
     :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
 

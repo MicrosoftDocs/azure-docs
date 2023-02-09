@@ -246,11 +246,13 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 ```
 
 ```powershell
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
-  --settings AzureStorageConfig__AccountName=$blobStorageAccount `
-    AzureStorageConfig__ImageContainer=images `
-    AzureStorageConfig__ThumbnailContainer=thumbnails `
-    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+New-AzStaticWebAppSetting -ResourceGroupName myResourceGroup -Name $webapp `
+  -AppSetting @{ `
+    AzureStorageConfig__AccountName = $blobStorageAccount `
+    AzureStorageConfig__ImageContainer = images `
+    AzureStorageConfig__ThumbnailContainer = thumbnails `
+    AzureStorageConfig__AccountKey = $blobStorageAccountKey `
+  }
 ```
 
 # [JavaScript v12 SDK](#tab/javascript)

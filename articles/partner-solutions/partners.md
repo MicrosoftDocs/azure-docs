@@ -1,11 +1,11 @@
 ---
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
-author: flang-msft
+
+
 
 ms.topic: conceptual
-ms.date: 09/24/2022
-ms.author: franlanglois
+ms.date: 01/18/2023
 
 ---
 
@@ -18,20 +18,23 @@ Azure Native ISV Services are available through the Marketplace.
 ## Observability
 
 |Partner  |Description  |
-|---|---------|
-|[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
+|---------|-------------|
+|[Datadog - An Azure Native ISV Service](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
 |[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
-|[Dynatrace for Azure](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
+|[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
+|[Azure Native New Relic Service Preview](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
+
 
 ## Data and storage
 
 |Partner  |Description  |
-|---|---------|
-| [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event streaming platform powered by Apache Kafka. |
+|---------|-------------|
+|[Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. |
+|[Azure Native Qumulo Scalable File Service Preview](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  |
 
 ## Networking and security
 
 |Partner  |Description  |
-|---|---------|
-|[NGINX for Azure (preview)](nginx/nginx-overview.md)   | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |
+|---------|-------------|
+|[NGINXaaS - Azure Native ISV Service](nginx/nginx-overview.md) | Use NGINXaaS as a reverse proxy within your Azure environment. |

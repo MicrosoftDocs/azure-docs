@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 11/18/2022
+ms.date: 01/23/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,44 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.21 - August 2022
+
+### New features
+
+- `azcmagent connect` usability improvements:
+  - The `--subscription-id (-s)` parameter now accepts friendly names in addition to subscription IDs
+  - Automatic registration of any missing resource providers for first-time users (additional user permissions required to register resource providers)
+  - A progress bar now appears while the resource is being created and connected
+  - The onboarding script now supports both the yum and dnf package managers on RPM-based Linux systems
+- You can now restrict which URLs can be used to download machine configuration (formerly Azure Policy guest configuration) packages by setting the `allowedGuestConfigPkgUrls` tag on the server resource and providing a comma-separated list of URL patterns to allow.
+
+### Fixed
+
+- Extension installation failures are now reported to Azure more reliably to prevent extensions from being stuck in the "creating" state
+- Metadata for Google Cloud Platform virtual machines can now be retrieved when the agent is configured to use a proxy server
+- Improved network connection retry logic and error handling
+- Linux only: resolves local escalation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
+
+## Version 1.20 - July 2022
+
+### Known issues
+
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
+
+### New features
+
+- Added support for connecting the agent to the Azure China cloud
+- Added support for Debian 10
+- Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
+  - GCP VM OS is no longer collected
+  - CPU logical core count is now collected
+- Improved error messages and colorization
+
+### Fixed
+
+- Agents configured to use private endpoints will now download extensions over the private endpoint
+- The `--use-private-link` flag on [azcmagent check](manage-agent.md#check) has been renamed to `--enable-pls-check` to more accurately represent its function
 
 ## Version 1.19 - June 2022
 

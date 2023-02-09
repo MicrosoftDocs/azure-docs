@@ -26,7 +26,7 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - It's always a good idea to install the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

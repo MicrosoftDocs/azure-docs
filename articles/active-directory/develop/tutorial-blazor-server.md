@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Create a Blazor Server app that uses the Microsoft identity platform for authentication
 description: In this tutorial, you set up authentication using the Microsoft identity platform in a Blazor Server app.
-author: janicericketts
-ms.author: jricketts
+author: henrymbuguakiarie
+ms.author: henrymbugua
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 12/13/2022
 ms.custom: "engagement-fy23"
+ms.reviewer: janicericketts
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
 
@@ -54,7 +55,7 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 Run the following command to download the templates for `Microsoft.Identity.Web`, which we'll make use of in this tutorial.
 
 ```dotnetcli
-dotnet new install Microsoft.Identity.Web.ProjectTemplates
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.

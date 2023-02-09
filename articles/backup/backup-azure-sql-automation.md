@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
