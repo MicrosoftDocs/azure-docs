@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 02/03/2023
 ---
 
-# Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
+# Set up TLS encryption and authentication for Non ESP Apache Kafka in Azure HDInsight
 
 This article shows you how to set up Transport Layer Security (TLS) encryption, previously known as Secure Sockets Layer (SSL) encryption, between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way TLS).
 
