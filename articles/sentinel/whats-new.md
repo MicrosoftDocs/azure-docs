@@ -19,7 +19,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## February 2023
 
-- [New CloudWatch connector (Preview)]()
+- [New CloudWatch data type for the AWS S3 connector (Preview)](#new-cloudwatch-data-type-for-the-aws-s3-connector)
 - [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
 - [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
 - [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
@@ -27,11 +27,9 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### New CloudWatch data type for the AWS S3 connector
 
-The Microsoft Sentinel AWS S3 connector now supports CloudWatch logs in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. 
+The Microsoft Sentinel AWS S3 connector now supports [CloudWatch logs](connect-aws.md) in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
 
-Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
-
-The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure/azure-monitor/logs/tutorial-workspace-transformations-portal). 
+The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 
 ### Audit and monitor the health of your analytics rules (Preview)
 
