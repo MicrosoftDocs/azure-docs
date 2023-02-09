@@ -100,7 +100,11 @@ Make sure you have write (owner/contributor) access to the subscription.
 
 ### What are the programing languages that are supported by Defender for DevOps? 
 
-Python, Java Script and Type Script 
+The following languages are supported by Defender for DevOps:
+
+- Python
+- Java Script
+- Type Script
 
 
 
