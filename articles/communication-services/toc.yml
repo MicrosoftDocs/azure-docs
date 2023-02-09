@@ -3,36 +3,34 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Communication Services?
-    expanded: true
+  expanded: true
+  - name: What's new
+  - name: Fundamentals
     items:
-    - name: What's new
-    - name: Fundamentals
-      items:
-      - name: Overview
-        href: overview.md
-      - name: Create a Communication Services resource
-        href: quickstarts/create-communication-resource.md
-      - name: Create and manage access tokens
-        href: quickstarts/access-tokens.md
-      - name: Get and manage phone numbers
-        href: quickstarts/telephony/get-phone-number.md
-      - name: Available SDKs and APIs
-        href: concepts/sdk-options.md
-      - name: Designing your architecture
-        href: concepts/client-and-server-architecture.md
-    - name: Common Scenarios
-      items:
-        - name: Virtual visit scenarios
-          href: tutorials/virtual-visits.md
-        - name: Virtual event scenarios
-          href: tutorials/events-playbook.md
-    - name: Service limits
-      href: concepts/service-limits.md
-    - name: Troubleshooting
-      href: concepts/troubleshooting-info.md
-    - name: Help and support options
-      href: support.md
+    - name: What is Azure Communication Services?
+      href: overview.md
+    - name: Create a Communication Services resource
+      href: quickstarts/create-communication-resource.md
+    - name: Create and manage access tokens
+      href: quickstarts/access-tokens.md
+    - name: Get and manage phone numbers
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Available SDKs and APIs
+      href: concepts/sdk-options.md
+    - name: Designing your architecture
+      href: concepts/client-and-server-architecture.md
+  - name: Common Scenarios
+    items:
+      - name: Virtual visit scenarios
+        href: tutorials/virtual-visits.md
+      - name: Virtual event scenarios
+        href: tutorials/events-playbook.md
+  - name: Service limits
+    href: concepts/service-limits.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
+  - name: Help and support options
+    href: support.md
 - name: Quickstart 
   items:
   - name: SMS
