@@ -135,7 +135,9 @@ items:
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
     - name: Impact of deleting Microsoft Purview account on access policies
-      href: how-to-policies-purview-account-delete.md
+      href: concept-policies-purview-account-delete.md
+    - name: Update on Data owner policies actions
+      href: concept-policies-data-owner-action-update.md
   - name: Data Estate Insights
     items:
     - name: Data Estate Insights
