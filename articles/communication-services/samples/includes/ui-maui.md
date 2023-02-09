@@ -26,7 +26,7 @@ Refer to the native [UI Library overview](../../concepts/ui-library/ui-library-o
 
 ### Prerequisites
 
-- Visual Studio [Setup Instructions](/xamarin/get-started/installation/?pivots=macos)
+- Visual Studio [Setup Instructions](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin)
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - iOS [Requirements](https://github.com/Azure/communication-ui-library-ios#requirements)
 - Android [Requirements](https://github.com/Azure/communication-ui-library-android#prerequisites)
