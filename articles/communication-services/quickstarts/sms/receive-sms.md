@@ -1,4 +1,19 @@
-# Receive SMS
+---
+title: Quickstart - Send an SMS message
+titleSuffix: Azure Communication Services
+description: "In this quickstart, you'll learn how to send an SMS message by using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python."
+author: ddematheu2
+manager: shahen
+services: azure-communication-services
+ms.author: dademath
+ms.date: 05/25/2022
+ms.topic: quickstart
+ms.service: azure-communication-services
+ms.subservice: sms
+zone_pivot_groups: acs-azcli-js-csharp-java-python
+---
+
+# Quickstart: Receive SMS
 
 Azure Communication Services SMS capabilities provide developers options to consume SMS received events. The events are posted to Azure Event Grid which provides out of the box integrations to process those using webhooks, Azure Functions, Power Automate / Logic App connectors, and more.
 
