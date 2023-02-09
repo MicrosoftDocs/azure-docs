@@ -2,7 +2,7 @@
 title: Azure Data Box Gateway 2301 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2301 release.
 services: databox
-author: v-dalc
+author: alkohli
  
 ms.service: databox
 ms.subservice: gateway
