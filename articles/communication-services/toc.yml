@@ -15,7 +15,7 @@ items:
       href: quickstarts/access-tokens.md
     - name: Get and manage phone numbers
       href: quickstarts/telephony/get-phone-number.md
-    - name: Available SDKs and APIs
+    - name: SDKs and APIs
       href: concepts/sdk-options.md
     - name: Designing your architecture
       href: concepts/client-and-server-architecture.md
