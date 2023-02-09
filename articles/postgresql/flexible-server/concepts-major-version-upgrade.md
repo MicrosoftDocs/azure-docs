@@ -27,7 +27,7 @@ Here are some of the important considerations with in-place major version upgrad
 
 1. During in-place major version upgrade process,  Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
 
-2. If the pre-check is successful, then Flexible Server automatically takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
+2. If the pre-check is successful, then Flexible Server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
 
 3. Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
 
@@ -57,6 +57,8 @@ During preview, if in-place major version upgrade pre-check operations fail then
 3. Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
 4. During preview, in-place major version upgrade is currently available in the following regions.  
+
+Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /West Central US/ West US / West US3/ Qatar  Central
 
 5. Servers configured with logical replication slots aren't supported. 
 
