@@ -75,7 +75,7 @@ kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec":
 Turning off TDE on the managed instance will result in the following operations taking place:
 
 1. Disabling encryption on all databases on the managed instance.
-2. Dropping the associated DEK's on all databases on the managed instance.
+2. Dropping the associated DEKs on all databases on the managed instance.
 3. Dropping the service-managed certificate protector.
 4. Dropping the service-managed database master key in the `master` database.
 
