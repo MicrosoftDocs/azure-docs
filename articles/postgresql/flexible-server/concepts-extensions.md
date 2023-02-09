@@ -173,6 +173,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -233,6 +234,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -293,6 +295,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -352,6 +355,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.5           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 1.7.4           |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|

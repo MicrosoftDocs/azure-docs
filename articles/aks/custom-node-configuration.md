@@ -134,7 +134,7 @@ Create a `linuxosconfig.json` file with the following contents:
 Create a new cluster specifying the kubelet and OS configurations using the JSON files created in the previous step. 
 
 > [!NOTE]
-> When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
+> When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomKubeletConfig or CustomLinuxOsConfig isn't supported for OS type: Windows.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json --linux-os-config ./linuxosconfig.json

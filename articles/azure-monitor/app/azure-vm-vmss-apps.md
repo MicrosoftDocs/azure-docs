@@ -33,7 +33,7 @@ The Application Insights Agent autocollects the same dependency signals out of t
 
 ### [Java](#tab/Java)
 
-We recommend the [Application Insights Java 3.0 agent](./java-in-process-agent.md) for Java. The most popular libraries, frameworks, logs, and dependencies are [autocollected](./java-in-process-agent.md#autocollected-requests), along with many [other configurations](./java-standalone-config.md).
+We recommend the [Application Insights Java 3.0 agent](./opentelemetry-enable.md?tabs=java) for Java. The most popular libraries, frameworks, logs, and dependencies are [autocollected](./java-in-process-agent.md#autocollected-requests), along with many [other configurations](./java-standalone-config.md).
 
 ### [Node.js](#tab/nodejs)
 

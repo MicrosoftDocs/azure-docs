@@ -4,7 +4,7 @@ description: Connect privately to an App Service apps using Azure private endpoi
 author: madsd
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 01/30/2023
+ms.date: 02/09/2023
 ms.author: madsd
 ---
 
@@ -27,7 +27,7 @@ A private endpoint is a special network interface (NIC) for your App Service app
 When you create a private endpoint for your app, it provides secure connectivity between clients on your private network and your app. The private endpoint is assigned an IP Address from the IP address range of your virtual network.
 The connection between the private endpoint and the app uses a secure [Private Link](../../private-link/private-link-overview.md). Private endpoint is only used for incoming traffic to your app. Outgoing traffic won't use this private endpoint. You can inject outgoing traffic to your network in a different subnet through the [virtual network integration feature](../overview-vnet-integration.md).
 
-Each slot of an app is configured separately. You can plug up to 100 private endpoints per slot. You can't share a private endpoint between slots.
+Each slot of an app is configured separately. You can plug up to 100 private endpoints per slot. You can't share a private endpoint between slots. The sub-resource name of a slot will be `sites-<slot-name>`.
 
 The subnet where you plug the private endpoint can have other resources in it, you don't need a dedicated empty subnet.
 You can also deploy the private endpoint in a different region than your app. 
