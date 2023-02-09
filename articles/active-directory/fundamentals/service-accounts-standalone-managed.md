@@ -23,7 +23,8 @@ In Active Directory (AD), sMSAs are tied to a server that runs a service. You ca
 
    ![Screenshot of a service name and type under Active Directory Users and Computers.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
 
-Managed service accounts were introduced in Windows Server 2008 R2 Active Directory Schema, and they require Windows Server 2008 R2, or later version. 
+> [!NOTE]
+> Managed service accounts were introduced in Windows Server 2008 R2 Active Directory Schema, and they require Windows Server 2008 R2, or a later version. 
 
 ## sMSA benefits
 
@@ -68,7 +69,7 @@ Use the following table to associate challenges with mitigations.
 | - | - |
 | sMSAs are on a single server | Use a gMSA to use the account across servers |
 | sMSAs can't be used across domains | Use a gMSA to use the account across domains |
-| Not all applications support sMSAs| Use a gMSA, if possible. Otherwise, use a standard user account or a computer account, as recommended by the creator.|
+| Not all applications support sMSAs| Use a gMSA, if possible. Otherwise, use a standard user account or a computer account, as recommended by the creator|
 
 ## Find sMSAs
 
@@ -99,11 +100,11 @@ To manage your sMSAs, you can use the following AD PowerShell cmdlets:
 If an application service supports sMSAs, but not gMSAs, and you're using a user account or computer account for the security context, see</br>
 [Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
 
-If possible, move resources to Azure and use Azure managed identities or service principals.
+If possible, move resources to Azure and use Azure managed identities, or service principals.
 
 ## Next steps
 
-To learn more about securing service accounts, see
+To learn more about securing service accounts, see:
 
 * [Securing on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
