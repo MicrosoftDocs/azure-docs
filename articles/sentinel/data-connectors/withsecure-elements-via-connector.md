@@ -3,7 +3,7 @@ title: "WithSecure Elements via connector for Microsoft Sentinel"
 description: "Learn how to install the connector WithSecure Elements via to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -22,6 +22,19 @@ The Common Event Format (CEF) provides natively search & correlation, alerting a
 | **Log Analytics table(s)** | CommonSecurityLog (WithSecure Events)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [WithSecure](https://www.withsecure.com/en/support) |
+
+## Query samples
+
+**All logs**
+   ```kusto
+CommonSecurityLog
+
+   | where DeviceVendor == "F-Secure"
+
+   | sort by TimeGenerated
+   ```
+
+
 
 ## Vendor installation instructions
 

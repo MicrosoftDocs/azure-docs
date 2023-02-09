@@ -3,7 +3,7 @@ title: "SonicWall Firewall connector for Microsoft Sentinel"
 description: "Learn how to install the connector SonicWall Firewall to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -29,7 +29,7 @@ CommonSecurityLog
 
    | where DeviceVendor == "SonicWall"
 
-   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
+   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2600","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 5700","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
 
    
    | sort by TimeGenerated
@@ -42,7 +42,7 @@ CommonSecurityLog
 
    | where DeviceVendor == "SonicWall"
 
-   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
+   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2600","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 5700","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
 
             
    | summarize count() by DestinationIP, DestinationPort, TimeGenerated
@@ -57,7 +57,7 @@ CommonSecurityLog
 
    | where DeviceVendor == "SonicWall"
 
-   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
+   | where DeviceProduct has_any ("firewall","TZ 670","TZ 600","TZ 600P","NSv 270","TZ 570","TZ 570W","TZ 570P","TZ 500","TZ 500W","TZ 270","TZ 270W","TZ 370W","TZ 470W","TZ 350W","TZ 350","TZ 370","TZ 470","TZ 300W","TZ 300P","TZ 300","TZ 400W","TZ 400","SOHO 250","SOHO 250W","NSa 2700","NSv 470","NSv 870","NSa 3700","NSa 2600","NSa 2650","NSa 3600","NSa 3650","NSa 4650","NSa 5650","NSa 5700","NSa 6650","NSa 9250","NSa 9450","NSa 9650","NSsp 12400","NSsp 12800","NSsp 15700","NSv 10","NSv 25","NSv 50","NSv 100","NSv 200","NSv 300","NSv 400","NSv 800","NSv 1600") 
  
    | where AdditionalExtensions contains "fw_action='drop'"
    ```

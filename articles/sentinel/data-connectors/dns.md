@@ -3,7 +3,7 @@ title: "DNS connector for Microsoft Sentinel"
 description: "Learn how to install the connector DNS to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,6 +18,8 @@ The DNS log connector allows you to easily connect your DNS analytic and audit l
 -   Identify frequently queried domain names and talkative DNS clients.
 -   View request load on DNS servers.
 -   View dynamic DNS registration failures.
+
+For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2220127&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

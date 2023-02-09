@@ -3,7 +3,7 @@ title: "Cloudflare (Preview) (using Azure Function) connector for Microsoft Sent
 description: "Learn how to install the connector Cloudflare (Preview) (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -127,4 +127,4 @@ If you're already signed in, go to the next step.
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-cloudflare?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudflare.cloudflare_sentinel?tab=Overview) in the Azure Marketplace.

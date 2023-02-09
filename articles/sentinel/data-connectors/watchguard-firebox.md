@@ -3,14 +3,14 @@ title: "WatchGuard Firebox connector for Microsoft Sentinel"
 description: "Learn how to install the connector WatchGuard Firebox to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # WatchGuard Firebox connector for Microsoft Sentinel
 
-WatchGuard Firebox （https://www.watchguard.com/wgrd-products/firewall-appliances and https://www.watchguard.com/wgrd-products/cloud-and-virtual-firewalls） is security products/firewall-appliances. Watchguard Firebox will send syslog to Watchguard Firebox collector agent.The agent then sends the message to the workspace.
+WatchGuard Firebox (https://www.watchguard.com/wgrd-products/firewall-appliances and https://www.watchguard.com/wgrd-products/cloud-and-virtual-firewalls) is security products/firewall-appliances. Watchguard Firebox will send syslog to Watchguard Firebox collector agent.The agent then sends the message to the workspace.
 
 ## Connector attributes
 
@@ -66,7 +66,7 @@ WatchGuardFirebox
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinelgithubparsersWatchguardFirebox) to create the Kusto Functions alias, **WatchGuardFirebox**
+>This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-watchguardfirebox-parser) to create the Kusto Functions alias, **WatchGuardFirebox**
 
 1. Install and onboard the agent for Linux
 

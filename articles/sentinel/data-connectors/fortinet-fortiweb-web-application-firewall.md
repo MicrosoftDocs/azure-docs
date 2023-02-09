@@ -1,6 +1,6 @@
 ---
-title: "Forcepoint CASB connector for Microsoft Sentinel"
-description: "Learn how to install the connector Forcepoint CASB to connect your data source to Microsoft Sentinel."
+title: "Fortinet FortiWeb Web Application Firewall connector for Microsoft Sentinel"
+description: "Learn how to install the connector Fortinet FortiWeb Web Application Firewall to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/09/2023
@@ -8,44 +8,29 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Forcepoint CASB connector for Microsoft Sentinel
+# Fortinet FortiWeb Web Application Firewall connector for Microsoft Sentinel
 
-The Forcepoint CASB (Cloud Access Security Broker) Connector allows you to automatically export CASB logs and events into Microsoft Sentinel in real-time. This enriches visibility into user activities across locations and cloud applications, enables further correlation with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Microsoft Sentinel.
+The [fortiweb](https://www.fortinet.com/products/web-application-firewall/fortiweb) data connector provides the capability to ingest Threat Analytics and events into Microsoft Sentinel.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | CommonSecurityLog (ForcepointCASB)<br/> |
+| **Log Analytics table(s)** | CommonSecurityLog (Fortiweb)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Community](https://github.com/Azure/Azure-Sentinel/issues) |
+| **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
 
-**Top 5 Users With The Highest Number Of Logs**
+**Top 10 Threats**
    ```kusto
-CommonSecurityLog 
-
-   | summarize Count = count() by DestinationUserName
-
-   | top 5 by DestinationUserName
-
-   | render barchart
-   ```
-
-**Top 5 Users by Number of Failed Attempts **
-   ```kusto
-CommonSecurityLog 
-
-   | extend outcome = coalesce(column_ifexists("EventOutcome", ""), tostring(split(split(AdditionalExtensions, ";", 2)[0], "=", 1)[0]), "")
-
-   | extend reason = coalesce(column_ifexists("Reason", ""), tostring(split(split(AdditionalExtensions, ";", 3)[0], "=", 1)[0]), "")
-
-   | where outcome =="Failure"
-
-   | summarize Count= count() by DestinationUserName
-
-   | render barchart
+Fortiweb
+ 
+   | where isnotempty(EventType)
+    
+   | summarize count() by EventType
+ 
+   | top 10 by count_
    ```
 
 
@@ -60,7 +45,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel. This machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
@@ -88,8 +73,8 @@ Open Log Analytics to check if the logs are received using the CommonSecurityLog
 
 If the logs are not received, run the following connectivity validation script:
 
-> 1. Make sure that you have Python on your machine using the following command: python -version 
- 
+> 1. Make sure that you have Python on your machine using the following command: python -version
+
 >2. You must have elevated permissions (sudo) on your machine
 
    Run the following command to validate your connectivity:
@@ -103,14 +88,8 @@ Make sure to configure the machine's security according to your organization's s
 
 [Learn more >](https://aka.ms/SecureCEF)
 
-5. Forcepoint integration installation guide 
-
-To complete the installation of this Forcepoint product integration, follow the guide linked below.
-
-[Installation Guide >](https://frcpnt.com/casb-sentinel)
-
 
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-forcepoint-casb?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-fortiwebcloud?tab=Overview) in the Azure Marketplace.

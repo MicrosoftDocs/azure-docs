@@ -141,6 +141,10 @@ Data connectors are available as part of the following offerings:
 
 - [Claroty](data-connectors/claroty.md)
 
+## Cloudflare
+
+- [Cloudflare (Preview) (using Azure Function)](data-connectors/cloudflare-preview-using-azure-function.md)
+
 ## Cognni
 
 - [Cognni](data-connectors/cognni.md)
@@ -330,6 +334,7 @@ Data connectors are available as part of the following offerings:
 - [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [DNS](data-connectors/dns.md)
+- [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
@@ -340,7 +345,7 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for Office 365](data-connectors/microsoft-defender-for-office-365.md)
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
-- [Microsoft Purview](data-connectors/microsoft-purview.md)
+- [Microsoft Purview (Preview)](data-connectors/microsoft-purview-preview.md)
 - [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
 - [Office 365](data-connectors/office-365.md)

@@ -3,7 +3,7 @@ title: "Microsoft Defender for Office 365 connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft Defender for Office 365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -22,6 +22,8 @@ The following types of alerts will be imported:
 -   User restricted from sending email 
 
 These alerts can be seen by Office customers in the ** Office Security and Compliance Center**.
+
+For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2219942&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

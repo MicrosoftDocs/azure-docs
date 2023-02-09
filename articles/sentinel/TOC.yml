@@ -370,6 +370,8 @@
         href: data-connectors/citrix-waf-web-app-firewall.md
       - name: Claroty
         href: data-connectors/claroty.md
+      - name: Cloudflare (Preview) (using Azure Function)
+        href: data-connectors/cloudflare-preview-using-azure-function.md
       - name: Cognni
         href: data-connectors/cognni.md
       - name: Common Event Format (CEF)
@@ -432,6 +434,8 @@
         href: data-connectors/forescout-host-property-monitor.md
       - name: Fortinet
         href: data-connectors/fortinet.md
+      - name: Fortinet FortiWeb Web Application Firewall
+        href: data-connectors/fortinet-fortiweb-web-application-firewall.md
       - name: GitHub (using Webhooks) (using Azure Function)
         href: data-connectors/github-using-webhooks-using-azure-function.md
       - name: GitHub Enterprise Audit Log
@@ -504,8 +508,8 @@
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
         href: data-connectors/microsoft-project.md
-      - name: Microsoft Purview
-        href: data-connectors/microsoft-purview.md
+      - name: Microsoft Purview (Preview)
+        href: data-connectors/microsoft-purview-preview.md
       - name: Microsoft Purview Information Protection
         href: data-connectors/microsoft-purview-information-protection.md
       - name: Microsoft Sysmon For Linux

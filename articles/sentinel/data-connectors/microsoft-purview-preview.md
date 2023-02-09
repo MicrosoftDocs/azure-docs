@@ -1,16 +1,16 @@
 ---
-title: "Microsoft Purview connector for Microsoft Sentinel"
-description: "Learn how to install the connector Microsoft Purview to connect your data source to Microsoft Sentinel."
+title: "Microsoft Purview (Preview) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Microsoft Purview (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/09/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Microsoft Purview connector for Microsoft Sentinel
+# Microsoft Purview (Preview) connector for Microsoft Sentinel
 
-Connect to Microsoft Purview to enable data sensitivity enrichment of Microsoft Sentinel. Data classification and sensitivity label logs from Microsoft Purview scans can be ingested and visualized through workbooks, analytical rules, and more.
+Connect to Microsoft Purview to enable data sensitivity enrichment of Microsoft Sentinel. Data classification and sensitivity label logs from Microsoft Purview scans can be ingested and visualized through workbooks, analytical rules, and more. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2224125&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 
