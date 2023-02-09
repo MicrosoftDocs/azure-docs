@@ -30,6 +30,15 @@ landingContent:
           - text: Install Network Access connector
             url: quickstart-install-connector.md
 
+  - title: Learn about security at the edge
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Understand Secure Access Service Edge (SASE)
+            url: concept-understand-sase.md
+          - text: Understand Security Service Edge (SSE)
+            url: concept-understand-sse.md
+
   - title: Connect
     linkLists:
       - linkListType: how-to-guide
