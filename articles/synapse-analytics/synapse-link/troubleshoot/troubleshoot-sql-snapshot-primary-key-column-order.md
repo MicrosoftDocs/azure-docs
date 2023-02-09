@@ -50,19 +50,13 @@ Verify the cause of this issue with the following query on SQL Server system met
     DECLARE @PKColNames TABLE (VALUE NVARCHAR(50))
     
     INSERT INTO @PKColNames
-    VALUES ('primarykey_column1')
-        ,('primarykey_column2')
-        ,('primarykey_column3')
+    VALUES ('primarykey_column1') --edit column name(s) here
+        ,('primarykey_column2');
     
     DECLARE @COUNTER INT = 0;
-    DECLARE @MAX INT = (
-            SELECT COUNT(*)
-            FROM @PKColNames
-            )
+    DECLARE @MAX INT = (SELECT COUNT(*) FROM @PKColNames )
     DECLARE @VALUE VARCHAR(50);
-    
-    DECLARE @PK_COL_ID int 
-    
+    DECLARE @PK_COL_ID int;
     DECLARE @COL_CNT int WHILE @COUNTER < @MAX BEGIN SET @VALUE = (
             SELECT VALUE
             FROM      (SELECT (
@@ -86,15 +80,15 @@ Verify the cause of this issue with the following query on SQL Server system met
         AND column_id <= (@PK_COL_ID)  
     
     IF (@COL_CNT < @PK_COL_ID)         
-        PRINT 'Column before primary key ' + @VALUE + ' was deleted'   
-    ELSE              
+        PRINT 'Column before primary key ' + @VALUE + ' was deleted'; 
+    ELSE                  
+        PRINT 'No column before this primary key ' + @VALUE + ' was deleted';
     
-    PRINT 'No column before this primary key ' + @VALUE + ' was deleted'
-    
-    SET @COUNTER = @COUNTER + 1  END
+    SET @COUNTER = @COUNTER + 1;
+    END
     ```
 1. Replace `dbo.TableName` with the source table name (including the schema) which is in status 'WaitingForSnapshot'. 
-1. Provide the primary key column names in the INSERT statement into the @PKColNames table variable, replacing "primarykey_column" values. 
+1. Provide the primary key column name(s) in the INSERT statement into the @PKColNames table variable, replacing "primarykey_column" values. Add one row for each column in the primary key as necessary.
     1. To retrieve the primary key column names, use the following query replacing the `dbo.TableName` with the source table name, and execute the query.
     ```sql
     SELECT c.name
