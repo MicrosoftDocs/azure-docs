@@ -38,7 +38,7 @@ Install both the .NET Core SDK and dotnet runtime.
 
 ---
 
-## 1. Add the Web PubSub client SDK
+## Add the Web PubSub client SDK
 
 # [JavaScript](#tab/javascript)
 
@@ -62,7 +62,7 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 ---
 
-## 2. Construct and Connect to Web PubSub
+## Connect to Web PubSub
 
 A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
@@ -93,9 +93,9 @@ var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 
 ---
 
-## 3. Subscribe to a group
+## Subscribe to a group
 
-To receive message from groups, you need to add to call back to handle messages you receive from the group, and you must join the group before you can receive messages from it. The following code subscribes the client to a group called `group1`.
+To receive message from groups, you need to add a callback to handle messages you receive from the group, and you must join the group before you can receive messages from it. The following code subscribes the client to a group called `group1`.
 
 # [JavaScript](#tab/javascript)
 
@@ -130,7 +130,7 @@ await client.JoinGroupAsync("group1");
 ```
 ---
 
-## 4. Publish a message to a group
+## Publish a message to a group
 
 Then you can send messages to the group and as the client has joined the group before, you'll receive the message you've sent.
 
