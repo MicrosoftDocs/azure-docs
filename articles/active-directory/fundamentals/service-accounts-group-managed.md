@@ -110,16 +110,15 @@ To manage gMSAs, use the following Active Directory PowerShell cmdlets:
 ## Move to a gMSA
 
 gMSAs are a secure service account type for on-premises. It's recommended you use gMSAs, if possible. In addition, consider moving your services to Azure and your service accounts to Azure Active Directory. 
+
+   > [!NOTE] 
+   > Before you configure your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
   
 To move to a gMSA:
 
 1. Ensure the Key Distribution Service (KDS) root key is deployed in the forest. This is a one-time operation. See, [Create the Key Distribution Services KDS Root Key](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key).
 2. Create a new gMSA. See, [Getting Started with Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 3. Install the new gMSA on hosts that run the service.
-   
-   > [!NOTE] 
-   > Before you configure your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
-
 4. Change your service identity to gMSA.
 5. Specify a blank password.
 6. Validate your service is working under the new gMSA identity.
