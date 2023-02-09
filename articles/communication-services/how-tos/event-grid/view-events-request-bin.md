@@ -1,3 +1,16 @@
+---
+title: Validate Azure Communication Services events
+titleSuffix: An Azure Communication Services how-to document
+description: "In this how-to, you'll learn how validate Azure Communication Services events with requestbin or Azure Event Viewer"
+author: ddematheu2
+manager: shahen
+services: azure-communication-services
+ms.author: dademath
+ms.date: 02/09/2022
+ms.topic: how-to
+ms.service: azure-communication-services
+---
+
 # Validate Azure Communication Services events
 
 As developers are getting started with Azure Communication Services, they often want to validate that their events are being sent by their resource. This document will show you how to validate that your events are being sent by your Azure Communication Services resource using Azure Event Grid viewer or RequestBin. 
