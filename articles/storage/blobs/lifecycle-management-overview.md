@@ -319,7 +319,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
 ```
 
 > [!NOTE]
-> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
+> Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ### Expire data based on age
 
@@ -479,3 +479,4 @@ Unfortunately, there's no way to track the time at which the policy will be exec
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)

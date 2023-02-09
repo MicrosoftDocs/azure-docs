@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 02/02/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -121,7 +121,9 @@ For anyone that has used Azure AD to [provision identities into a SaaS applicati
 
 ## License requirements
 
-Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md)
 
 ## Frequently asked questions
 
