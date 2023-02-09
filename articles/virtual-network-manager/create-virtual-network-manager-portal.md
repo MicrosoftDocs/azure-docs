@@ -193,7 +193,9 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of add a network group to a connectivity configuration.":::
 
-1. Select the **Preview Topology** tab to preview the topology of the configuration based on your network groups.
+1. Select the **Preview Topology** tab to view the topology of the configuration. The topology will show the network groups you added to the configuration.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/preview-topology.png" alt-text="Screenshot of preview topology for network group connectivity configuration.":::
 
 1. Select **Next: Review + Create >** and **Create** to create the configuration.
 
