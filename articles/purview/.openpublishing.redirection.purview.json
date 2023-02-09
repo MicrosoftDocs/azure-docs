@@ -77,7 +77,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/how-to-policies-purview-account-delete.md",
-        "redirect_url": "/azure/purview/concept-policies-purview-account-delete.md",
+        "redirect_url": "/azure/purview/concept-policies-purview-account-delete",
         "redirect_document_id": true
       },
       {
