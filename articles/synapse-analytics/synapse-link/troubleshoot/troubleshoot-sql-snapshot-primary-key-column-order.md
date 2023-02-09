@@ -90,17 +90,17 @@ Verify the cause of this issue with the following query on SQL Server system met
 1. Replace `dbo.TableName` with the source table name (including the schema) which is in status 'WaitingForSnapshot'. 
 1. Provide the primary key column name(s) in the INSERT statement into the @PKColNames table variable, replacing "primarykey_column" values. Add one row for each column in the primary key as necessary.
     1. To retrieve the primary key column names, use the following query replacing the `dbo.TableName` with the source table name, and execute the query.
-    ```sql
-    SELECT c.name
-    FROM sys.objects o
-    INNER JOIN sys.columns c ON o.object_id = c.object_id
-    INNER JOIN sys.index_columns ic ON o.object_id = ic.object_id
-        AND ic.column_id = c.column_id
-    INNER JOIN sys.indexes i ON o.object_id = i.object_id
-        AND i.index_id = ic.index_id
-    WHERE i.is_primary_key = 1
-        AND o.object_id = object_id('dbo.TableName');
-    ```
+        ```sql
+        SELECT c.name
+        FROM sys.objects o
+        INNER JOIN sys.columns c ON o.object_id = c.object_id
+        INNER JOIN sys.index_columns ic ON o.object_id = ic.object_id
+            AND ic.column_id = c.column_id
+        INNER JOIN sys.indexes i ON o.object_id = i.object_id
+            AND i.index_id = ic.index_id
+        WHERE i.is_primary_key = 1
+            AND o.object_id = object_id('dbo.TableName');
+        ```
 1. Execute the query and view the text output. If the query run result shows `Column before primary key was deleted.`, it can be confirmed that Snapshot is stuck because of primary key column order error. Proceed with the below resolution steps. 
 
 ## Potential Causes
