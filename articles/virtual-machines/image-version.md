@@ -323,8 +323,27 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
----
+## Create an image in one tenant using the source image in another tenant using CLI
 
+1. In the subscription where the source image exists, grant reader permissions to the user
+2. Once the user has reader permission to the source image, login to both the tenants (source and target)
+
+```azurecli-interactive
+az login
+```
+Login to the tenant where the source image is available
+```azurecli-interactive
+az login --tenant <tenantid>
+```
+Login back to the subscription where the image will be created and ensure subscription context is set
+```azurecli-interactive
+az login
+az account set --subscription <<sub id>>
+```
+Run the following command to create the image
+```azurecli-interactive
+az sig image-version create --gallery-image-definition <<image definition name>> --gallery-image-version <<image version>> --gallery-name <<image gallery name>> --resource-group <<resource group name>> --image-version "resource id of the source image"
+```
 
 ## Next steps
 
