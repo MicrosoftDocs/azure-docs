@@ -92,20 +92,16 @@ See the following table for potential on-premises user account security issues a
 | The account is a member of privileged groups| - Review group membership</br> - Remove the account from privileged groups</br> - Grant the account rights and permissions to run its service (consult with service vendor)</br> - For example, deny sign-in locally or interactive sign-in|
 | The account has read/write permissions to sensitive resources| - Audit access to sensitive resources</br> - Archive audit logs to a SIEM: Azure Log Analytics or Microsoft Sentinel</br> - Remediate resource permissions if you detect an undesirable access levels |
 
-## Move to more secure account types
+## Use secure account types
 
-Microsoft doesn't recommend that you use on-premises user accounts as service accounts. For any service that uses this type of account, assess whether it can instead be configured to use a gMSA or an sMSA.
-
-Additionally, evaluate whether the service itself could be moved to Azure so that more secure service account types can be used. 
+Microsoft doesn't recommend use of on-premises user accounts as service accounts. For services that uses this account type, assess if it can be configured to use a gMSA or an sMSA. In addition, evaluate if you can move the service to Azure to enable use of safer account types. 
 
 ## Next steps
 
-To learn more about securing service accounts, see the following articles:
+To learn more about securing service accounts:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
+* [Securing on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
-* [Secure computer accounts](service-accounts-computer.md)  
+* [Secure on-premises computer accounts with AD](service-accounts-computer.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
-
- 
