@@ -42,7 +42,7 @@ SAP managed workload is preferably deployed in the same [Azure region](https://a
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet.
 :::image-end:::
 
-Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual network peering needs to be set up between [different tenants](../../virtual-network/create-peering-different-subscriptions.md). This can be accomplished by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a VNet peering - different subscriptions](../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
+Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual network peering needs to be set up between [different tenants](../../virtual-network/create-peering-different-subscriptions.md). This can be accomplished by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a vnet peering - different subscriptions](../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
 
 ### Connectivity during migration to ECS/RISE
 
@@ -50,7 +50,7 @@ Migration of your SAP landscape to ECS/RISE is done in several phases over sever
 
 During your migration planning to ECS/RISE, plan how in each phase SAP systems are reachable for your user base and how data transfer to ECS/RISE vnet is routed. Often multiple locations and parties are involved, such as existing service provider and data centers with own connection to your corporate network. Make sure no temporary solutions with VPN connections are created without considering how in later phases SAP data gets migrated for the business critical and largest systems.
 
-## VPN Vnet-to-Vnet
+## VPN vnet-to-vnet
 
 As an alternative to vnet peering, virtual private network (VPN) connection can be established between VPN gateways, deployed both in the SAP RISE/ECS subscription and customers own. A vnet-to-vnet connection will be established between these two VPN gateways, enabling fast communication between the two separate vnets. The respective vnets and gateways can be located in different Azure regions.
 
@@ -88,13 +88,13 @@ Contact your SAP representative for details and steps needed.
 
 Integration of customer owned networks with Cloud-based infrastructure and providing a seamless name resolution concept is a vital part of a successful project implementation.
 
-This diagram describes one of the common integration scenarios of SAP owned subscriptions, VNets and DNS infrastructure with customer’s local network and DNS services. In such setup on-premises DNS servers are holding all DNS entries. The DNS infrastructure is capable to resolve DNS requests coming from all sources (on-premises clients, customer’s Azure services and SAP managed environments).
+This diagram describes one of the common integration scenarios of SAP owned subscriptions, vnets and DNS infrastructure with customer’s local network and DNS services. In such setup on-premises DNS servers are holding all DNS entries. The DNS infrastructure is capable to resolve DNS requests coming from all sources (on-premises clients, customer’s Azure services and SAP managed environments).
 
 [![Diagram shows customer DNS servers are located both within customer's hub vnet as well as SAP RISE vnet, with DNS zone transfer between them.](./media/sap-rise-integration/sap-rise-dns.png)](./media/sap-rise-integration/sap-rise-dns.png#lightbox)
 
 Design description and specifics:
 
-  - Custom DNS configuration for SAP-owned VNets
+  - Custom DNS configuration for SAP-owned vnets
 
   - Two VMs in the RISE/STE/ECS Azure vnet hosting DNS servers
 
@@ -106,7 +106,7 @@ Design description and specifics:
 
   - Optionally, customers can set up a DNS forwarder within their Azure vnets. Such forwarder then pushes DNS requests coming from Azure services to SAP DNS servers that are targeted to the delegated zone (\*ecs.contoso.com).
 
-Alternatively, DNS zone transfer from SAP DNS servers could be performed to a customer’s DNS servers located in Azure Hub VNet (diagram in this section). This is applicable for the designs when customers operate custom DNS solution (e.g. [AD DS](/windows-server/identity/ad-ds/active-directory-domain-services) or BIND servers) within their Hub VNet.
+Alternatively, DNS zone transfer from SAP DNS servers could be performed to a customer’s DNS servers located in Azure hub vbet (diagram in this section). This is applicable for the designs when customers operate custom DNS solution (e.g. [AD DS](/windows-server/identity/ad-ds/active-directory-domain-services) or BIND servers) within their hub vnet.
 
 **Important to note**, that both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, can't be used to accept DNS replication from SAP RISE/STE/ECS DNS servers. Additionally, external DNS service providers are typically not supported by SAP RISE/ECS.
 
@@ -192,17 +192,33 @@ Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. This is not necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
 
-## Azure Sentinel with SAP RISE
+## Microsoft Sentinel with SAP RISE
 
-Azure Sentinel provides security analytics and threat intelligence across the enterprise. With Azure Sentinel solution deployed in the customer subscription, many application can be connected with defined connectors. Sentinel's [SAP connector](/azure/sentinel/sap/deployment-overview) consumes data from your SAP landscape through RFC interface and provides out of the box security content for SAP application data. This security data can be correlated with events from other sources to triage any events detected.
+The Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities and guard your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and leverage Sentinel’s built-in features.
+-	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premise estate
+-	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
+-	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, AAD data and more
+-	Customize based on your needs - build your own detections to monitor sensitive transactions and other business risks
+-	Visualize the data with built-in workbooks
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Connecting Sentinel with SAP RISE/ECS":::
-   This diagram shows an example of Azure Sentinel connected through an intermediary VM to SAP managed SAP system. The intermediary VM is located in customer's own subscription with configured SAP data connector agent.
+   This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container is located in customer's own subscription with configured SAP data connector agent.
 :::image-end:::
 
-The shown example of Azure Sentinel uses a VM running in customer's Azure subscription to run the necessary connector agent. Through RFC interface on the private network the SAP data is retrieved and analyzed by customer's own Sentinel instance. Access is limited to SAP data. Information from other sources such as database audit logs, virtual machine and operating system logs cannot be currently analyzed by Sentinel with SAP RISE/ECS scenario.
+For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. Private network connectivity from customer's vnet is required to reach the SAP landscapes managed by SAP RISE/ECS. Typically, this connection is over the established vnet peering or through alternatives described in this document.
 
-Contact SAP for available interface options to leverage Azure Sentinel to consume and analyze threat intelligence data from all layers - infrastructure, operating system, SAP and database - of your SAP managed workload under RISE with SAP.
+To enable the solution, only an authorized RFC user is required and nothing needs to be installed on the SAP systems. The container-based [SAP data collection agent](/azure/sentinel/sap/deployment-overview) included with the solution can be installed either on VM or AKS/any Kubernetes environment. The collector agent uses an SAP service user to consume application log data from your SAP landscape through RFC interface leveraging standard RFC calls. 
+- Authentication methods supported: SAP username and password or X509/SNC certificates
+- Only RFC based connections are possible currently with SAP RISE/ECS environments
+
+The following data sources may not available for a SAP RISE/ECS landscape:
+- Client IP address information from SAP security audit log (*)
+- DB table logs (preview), spool output log (*)
+- SAPControl and JAVA application server logs
+- Infrastructure and operating system logs (for example VMs running SAP). All aspects of the Azure infrastructure and operation system are monitored by SAP independently
+Items noted with (*) require a change request with modifications and/or parameters for which SAP needs to be contacted.
+
+For more information on Microsoft Sentinel and SAP, including a deployment guide, see the [product documentation](/azure/sentinel/sap/deployment-overview).
 
 ## Azure Monitoring for SAP with SAP RISE
 
