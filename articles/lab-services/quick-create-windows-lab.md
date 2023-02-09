@@ -118,7 +118,7 @@ After you publish the lab, you can now start the lab VM and connect to it by usi
 You can now explore and experiment within the lab virtual machine.
 
 > [!NOTE]
-> When a lab creator starts a lab VM, the lab user's quota is not affected. Quota for a user specifies the number of lab hours available to the user, outside of scheduled events. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+> When a lab creator starts a lab VM, the lab user's quota is not affected. Quota for a user specifies the number of lab hours available to the user, outside of scheduled events. Learn more about [lab user quotas](./classroom-labs-concepts.md#quota).
 
 ## Clean up resources
 
