@@ -110,14 +110,19 @@ In this example, the following steps create a Logic App that uses the [common al
 
     :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="A screenshot showing the parameters for the http request received step.":::
 
-1. (Optional). You can customize the alert notification by extracting information about the resource. You can then include those resource tags in the alert payload and use the information in your logical expressions for sending the notifications. To do this, we will create a variable for the affected resource Ids, and then split the information about the resources into in an array to add to the payload. You can then use these values to customize the alert notification. 
+1. (Optional). You can customize the alert notification by extracting information about the affected resource on which the alert fired, e.g. the resource’s tags. You can then include those resource tags in the alert payload and use the information in your logical expressions for sending the notifications. To do this, we will:
+    - Create a variable for the affected resource IDs
+    - Split the resource ID into in an array so we can use its various elements (e.g. subscription, resource group)
+    - Use the Azure Resource Manager connector to read the resource’s metadata.
+    - Fetch the resource’s tags which can then be used in subsequent steps of the Logic App.
+
     1. Select **+** and **Add an action** to insert a new step.
     1. In the **Search** field, search for and select **Initialize variable**.
     1. In the **Name** field, enter the name of the variable, such as 'AffectedResources'.
     1. In the **Type** field, select **Array**.
     1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab, and enter this string: `split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')`.
 
-             :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
+        :::image type="content" source="./media/alerts-logic-apps/initialize-variable.png" alt-text="A screenshot showing the parameters for the initializing a variable in Logic Apps.":::
 
     1. Select **+** and **Add an action** to insert another step.
     1. In the **Search** field, search for and select **Azure Resource Manager**, and then **Read a resource**. 
@@ -130,7 +135,8 @@ In this example, the following steps create a Logic App that uses the [common al
         |Resource Provider|`variables('AffectedResource')[6]`|
         |Short Resource Id|`concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8]`)|
         |Client Api Version|2021-06-01|
-    1. The dynamic content now includes tags from the resource that you can use in your notification.
+
+    The dynamic content now includes tags from the affected resource. You can use those tags when you configure your notifications as described in the following steps.
 
 1. Send an email or post a Teams message.
 1. Select **+** and **Add an action** to insert a new step.
