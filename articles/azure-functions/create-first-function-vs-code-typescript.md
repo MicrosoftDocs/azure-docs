@@ -69,6 +69,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 ::: zone-end
 ::: zone pivot="node-model-v4" 
 3. Provide the following information at the prompts:
+
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `TypeScript`.|
