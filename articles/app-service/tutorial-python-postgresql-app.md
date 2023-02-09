@@ -53,6 +53,7 @@ cd msdocs-flask-postgresql-sample-app
 cd msdocs-django-postgresql-sample-app
 ```
 
+---
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
