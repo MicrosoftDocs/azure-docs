@@ -118,7 +118,7 @@ Request a token for Azure Time Series Insights using C# and the Azure Identity c
 
 ### App registration
 
-* Developers may use the [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) to obtain tokens for app registrations.
+* Use the [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) to obtain tokens for app registrations.
 
 MSAL can be used in many application scenarios, including, but not limited to:
 
@@ -132,7 +132,7 @@ MSAL can be used in many application scenarios, including, but not limited to:
 For sample C# code showing how to acquire a token as an app registration and query data from a Gen2 environment, view the sample app on [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
 
 > [!IMPORTANT]
-> If you are using [Azure Active Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) read about [migrating to MSAL](../active-directory/develop/msal-net-migration.md).
+> If you are using Azure Active Directory Authentication Library (ADAL), [migrate to MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## Common headers and parameters
 

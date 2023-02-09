@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: lgayhardt
 ms.author: lagayhar
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 
@@ -37,7 +38,15 @@ When you create a workspace, Azure creates several resources within the resource
 - An Applications Insights instance
 - A key vault
 
-These resources can be deleted by selecting them from the list and choosing **Delete** 
+These resources can be deleted by selecting them from the list and choosing **Delete**:
+
+> [!IMPORTANT]
+> If the resource is configured for soft delete, the data won't be deleted unless you optionally select to delete the resource permanently. For more information, see the following articles:
+> * [Workspace soft-deletion](concept-soft-delete.md).
+> * [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md).
+> * [Soft delete in Azure Container Registry](../container-registry/container-registry-soft-delete-policy.md).
+> * [Azure log analytics workspace](../azure-monitor/logs/delete-workspace.md).
+> * [Azure Key Vault soft-delete](../key-vault/general/soft-delete-overview.md).
 
 :::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted.":::
 

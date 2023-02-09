@@ -3,14 +3,12 @@ title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
 author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
 # Audit Microsoft Sentinel queries and activities
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how you can view audit data for queries run and activities performed in your Microsoft Sentinel workspace, such as for internal and external compliance requirements in your Security Operations (SOC) workspace.
 

@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Autoscale a scale set with Azure templates
-description: Learn how to use Azure Resource Manager templates to automatically scale a virtual machine scale set as CPU demands increases and decreases
+description: Learn how to use Azure Resource Manager templates to automatically scale a Virtual Machine Scale Set as CPU demands increases and decreases
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 03/27/2018
-ms.reviewer: avverma
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.custom: avverma, devx-track-azurecli
 
 ---
-# Tutorial: Automatically scale a virtual machine scale set with an Azure template
+# Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
@@ -26,7 +26,7 @@ When you create a scale set, you define the number of VM instances that you wish
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
@@ -142,7 +142,7 @@ First, create a resource group with [az group create](/cli/azure/group). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
+Now create a Virtual Machine Scale Set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
 az deployment group create \

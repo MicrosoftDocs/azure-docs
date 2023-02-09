@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
+ms.reviewer: lagayhar
 ms.date:  05/10/2022
 ms.topic: how-to
 ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022

@@ -1,8 +1,8 @@
 ---
 title: Build near real-time dashboard with Azure Synapse Analytics and Power BI
 description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build near-real time dashboards using Power BI 
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/25/2022
@@ -30,7 +30,7 @@ Before you start, make sure you've completed the following steps:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this step.
 * Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a [Dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
-* Create a table named **carsummary** using your Dedicated SQL pool. You can do it by running the following SQL script:
+* Create a table named `carsummary` using your Dedicated SQL pool. You can do it by running the following SQL script:
     ```SQL
     CREATE TABLE carsummary   
     (  
@@ -44,13 +44,13 @@ Before you start, make sure you've completed the following steps:
 1. Locate the Resource Group in which the TollApp event generator was deployed. 
 2. Select the Azure Event Hubs **namespace**. 
 1. On the **Event Hubs Namespace** page, select **Event Hubs** under **Entities** on the left menu. 
-1. Select **entrystream** instance.
+1. Select `entrystream` instance.
 
     :::image type="content" source="./media/stream-analytics-no-code/select-event-hub.png" alt-text="Screenshot showing the selection of the event hub." lightbox="./media/stream-analytics-no-code/select-event-hub.png":::    
 1. Go to **Process data** under Features section and then select **start** on the **Start with blank canvas** template.
 
     :::image type="content" source="./media/stream-analytics-no-code/start-blank-canvas.png" alt-text="Screenshot showing the selection of the Start button on the Start with a blank canvas tile." lightbox="./media/stream-analytics-no-code/start-blank-canvas.png":::    
-1. Name your job **carsummary** and select **Create**.
+1. Name your job `carsummary` and select **Create**.
 
     :::image type="content" source="./media/stream-analytics-no-code/job-name.png" alt-text="Screenshot of the New Stream Analytics job page." lightbox="./media/stream-analytics-no-code/job-name.png":::    
 1. On the **event hub** configuration page, confirm the following settings, and then select **Connect**.
@@ -89,9 +89,9 @@ Before you start, make sure you've completed the following steps:
 1. Select **Synapse** on the command bar. Connect the **Synapse** tile to the **Manage fields** tile on your canvas.
 1.  Configure Azure Synapse Analytics by specifying:
     * Subscription where your Azure Synapse Analytics is located
-    * Database of the Dedicated SQL pool that you used to create the **carsummary** table in the previous section.
+    * Database of the Dedicated SQL pool that you used to create the `carsummary` table in the previous section.
     * Username and password to authenticate
-    * Table name as **carsummary**
+    * Table name as `carsummary`
     * Select **Connect**. You'll see sample results that will be written to your Synapse SQL table.
 
         :::image type="content" source="./media/stream-analytics-no-code/synapse-settings.png" alt-text="Screenshot of the Synapse tile settings." lightbox="./media/stream-analytics-no-code/synapse-settings.png":::

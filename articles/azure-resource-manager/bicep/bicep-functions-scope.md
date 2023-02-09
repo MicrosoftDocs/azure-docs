@@ -2,7 +2,7 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 11/17/2022
 ---
 
 # Scope functions for Bicep
@@ -270,7 +270,7 @@ Returns an object used for setting the scope to the tenant.
 
 Or
 
-Returns properties about the tenant for the current deployment.
+Returns the tenant of the user.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

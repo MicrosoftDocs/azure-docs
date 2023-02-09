@@ -27,6 +27,10 @@
     items:
     - name: Azure portal
       href: create-cluster.md
+  - name: Build application
+    items:
+    - name: Clickstream analysis
+      href: quick-start-build-application.md
 - name: Tutorials
   items:
   - name: Capture Event Hubs data in Parquet format
@@ -231,6 +235,8 @@
       href: move-cluster.md  
   - name: Build with no code editor
     items:
+    - name: Capture Event Hubs data in Delta Lake format
+      href: capture-event-hub-data-delta-lake.md
     - name: Capture Event Hubs data in Parquet format
       href: capture-event-hub-data-parquet.md
     - name: Materialize data to Azure Cosmos DB

@@ -1,8 +1,8 @@
 ---
 title: No-code stream processing through Azure Stream Analytics
 description: Learn about processing your real-time data streams in Azure Event Hubs by using the Azure Stream Analytics no-code editor.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022, ignite-2022

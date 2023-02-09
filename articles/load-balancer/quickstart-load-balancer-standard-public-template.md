@@ -10,9 +10,9 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2020
+ms.date: 12/13/2022
 ms.author: mbender
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, FY23 content-maintenance
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ---
 
@@ -84,7 +84,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
    The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
 
-   The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
+   The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 
 It takes about 10 minutes to deploy the template. When completed, the output is similar to:
 
@@ -98,7 +98,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is the project name with **`rg`** appended.
 
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
 

@@ -97,17 +97,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-deployment.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-hub/iot-hub-security-groud-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-ground-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": true
     },
     {
@@ -1107,6 +1102,16 @@
       "source_path_from_root": "/articles/iot-hub/iot-hub-visual-studio-cloud-device-messaging.md",
       "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-weather-forecast-machine-learning.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-certificates.md",
+      "redirect_url": "/azure/iot-hub/reference-x509-certificates",
+      "redirect_document_id": true
     }
   ]
 }

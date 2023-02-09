@@ -2,9 +2,7 @@
 title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
 titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
-services: vpn-gateway
 author: chadmath
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
@@ -106,6 +104,8 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
 The perfect forward secrecy feature can cause disconnection problems. If the VPN device has perfect forward secrecy enabled, disable the feature. Then update the VPN gateway IPsec policy.
 
+> [!Note]
+> VPN gateways do not reply to ICMP on their local address.
 ## Next steps
 
 -	[Configure a site-to-site connection to a virtual network](./tutorial-site-to-site-portal.md)
