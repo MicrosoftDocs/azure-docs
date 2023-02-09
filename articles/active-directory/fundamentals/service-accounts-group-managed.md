@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 02/09/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -113,8 +113,8 @@ gMSAs are a secure service account type for on-premises. It's recommended you us
   
 To move to a gMSA:
 
-1. Ensure the [Key Distribution Service (KDS) root key](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key) is deployed in the forest. This is a one-time operation.
-2. [Create a new gMSA](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+1. Ensure the Key Distribution Service (KDS) root key is deployed in the forest. This is a one-time operation. See, [Create the Key Distribution Services KDS Root Key](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key).
+2. Create a new gMSA. See, [Getting Started with Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 3. Install the new gMSA on hosts that run the service.
    
    > [!NOTE] 
