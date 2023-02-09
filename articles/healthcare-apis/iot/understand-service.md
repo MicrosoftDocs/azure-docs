@@ -1,6 +1,6 @@
 ---
 title: Understand the MedTech service device message data transformation - Azure Health Data Services
-description: This article will provide you with an understanding of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data into the FHIR service.
+description: This article provides you with an understanding of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data into the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -67,7 +67,7 @@ At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, alon
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming device messages. If set to `Create`, the MedTech service will create minimal Device and Patient resources on the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to `Create`, the MedTech service creates minimal Device and Patient resources on the FHIR service.  
 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
@@ -75,7 +75,7 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service.
 
 ## Persist
-Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it will be created in the FHIR service. If the FHIR Observation resource already existed, it will get updated in the FHIR service.
+Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it's created in the FHIR service. If the FHIR Observation resource already existed, it gets updated in the FHIR service.
 
 The FHIR service uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the FHIR service.
 
