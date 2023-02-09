@@ -353,6 +353,8 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 # [v1](#tab/v1)
 
+Update *HttpExample\\\_\_init\_\_.py* to match the following code, add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
+
 ```python
 import azure.functions as func
 import logging
@@ -380,7 +382,11 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
         )
 ```
 
+The document `{"id": "name"}` is created in the collection.
+
 # [v2](#tab/v2)
+
+Update *HttpExample\\function_app.py* to match the following code, add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func
@@ -416,6 +422,8 @@ def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
                     status_code=400
                 )
 ```
+
+The document `{"id": "name"}` is created in the collection.
 
 ---
 
