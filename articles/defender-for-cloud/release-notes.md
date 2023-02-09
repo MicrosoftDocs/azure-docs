@@ -20,7 +20,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in February include:
 
-[Recommendation to find vulnerabilities in running container images released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
+- [Recommendation to find vulnerabilities in running container images released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
 
 ### Recommendation to find vulnerabilities in running container images released for General Availability (GA)
