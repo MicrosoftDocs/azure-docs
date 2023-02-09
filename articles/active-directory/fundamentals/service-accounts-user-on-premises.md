@@ -1,14 +1,14 @@
 ---
-title: Secure user-based service accounts  | Azure Active Directory
-description: A guide to securing user-based service accounts.
+title: Secure user-based service accounts in Active Directory
+description: Learn how to locate, assess, and mitigate security issues for user-based service accounts
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 02/09/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
