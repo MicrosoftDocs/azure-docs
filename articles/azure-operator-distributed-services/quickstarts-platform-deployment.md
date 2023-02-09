@@ -25,11 +25,7 @@ These steps use commands and parameters that are detailed in the API documents.
 - Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
 - Complete the [prerequisite steps](./quickstarts-platform-prerequisites.md).
 
-<<<<<<< HEAD
 ## API Guide and Metrics
-=======
-## API Guide, and Metrics
->>>>>>> f54a42810922ca03988bc78590f0b0cc35cf0003
 
 The [API guide](https://docs.microsoft.com/rest/api/azure/azure-operator-distributed-srveices) provides
 information on the resource providers and resource models, and the APIs.
@@ -239,11 +235,7 @@ Cluster create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-<<<<<<< HEAD
 ## Step 3: Provision Network Fabric
-=======
-### Step 3: Provision Network Fabric
->>>>>>> f54a42810922ca03988bc78590f0b0cc35cf0003
 
 The network fabric instance (NF) is a collection of all network devices
 associated with a single AODS instance.

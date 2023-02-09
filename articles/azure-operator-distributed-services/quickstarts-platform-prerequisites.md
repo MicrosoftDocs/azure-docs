@@ -21,7 +21,7 @@ Azure Operator Distributed Services instances.
 
 ## Prerequisites
 
-You need to be familiar with the Azure Operator Distributed Services [key features](./introduction.md#key-features)
+You need to be familiar with the Azure Operator Distributed Services [key features](./overview.md#key-features)
 and [platform components](./concepts-resource-types.md).
 
 The prerequisite activities have been split among activities you'll perform in Azure and on
