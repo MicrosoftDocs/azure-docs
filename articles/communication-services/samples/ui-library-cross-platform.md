@@ -18,7 +18,11 @@ zone_pivot_groups: acs-xamarin-react
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Azure Communication Services introduces Cross Platform development using **Xamarin and React Native** solutions. This sample demonstrates how Azure Communication Services Calling integrates the UI Library for mobile platforms and create the bindings to allow developers to begin building with the calling capabilities.
+Azure Communication Services introduces Cross Platform development using **.NET MAUI, Xamarin and React Native** solutions. This sample demonstrates how Azure Communication Services Calling integrates the UI Library for mobile platforms and create the bindings to allow developers to begin building with the calling capabilities.
+
+::: zone pivot="platform-maui"
+[!INCLUDE [.NET MAUI](./includes/ui-maui.md)]
+::: zone-end
 
 ::: zone pivot="platform-xamarin"
 [!INCLUDE [Xamarin](./includes/ui-xamarin.md)]
