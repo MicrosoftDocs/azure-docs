@@ -87,14 +87,11 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 - Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
 - Use the Get VM API and commands to get model and instance view for a single instance.
 
-### Scale sets VM batch operations
-Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) aren't used with Flexible orchestration mode.
-
 ### Monitor application health
 Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
 
 ### List scale sets VM API changes
-Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or [Azure Resource Graph](../governance/resource-graph/overview.md).
+Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the details for many VMs in the scale set, use [Azure Resource Graph](../governance/resource-graph/overview.md) or the standard List VM API and commands. Use the standard GET VM API and commands to get information on a single instance.
 
 ### Retrieve boot diagnostics data
 Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The Virtual Machine Scale Sets VM boot diagnostic APIs and commands aren't used with Flexible orchestration mode instances.
@@ -199,6 +196,7 @@ The following Virtual Machine Scale Set parameters aren't currently supported wi
 - Virtual Machine Scale Set Instance Protection
 - Basic Load Balancer
 - Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules
+- System assigned Managed Identity - Use User assigned Managed Identity instead
 
 
 ## Get started with Flexible orchestration mode
@@ -218,7 +216,7 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
     |-|-|-|-|
     | Deploy across availability zones  | Yes  | Yes  | No  |
     | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
-    | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
+    | Placement groups  | N/A  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
     | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
 - **What is the absolute max instance count with guaranteed fault domain availability?**
