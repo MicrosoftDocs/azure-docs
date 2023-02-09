@@ -1,6 +1,6 @@
 ---
-title: Autoscale a Stream Analytics job using ASA CI/CD tool
-description: This article shows how to autoscale a Stream Analytics job using ASA CI/CD tool.
+title: Configure autoscale settings for a Stream Analytics job using ASA CI/CD tool
+description: This article shows how to configure autoscale settings for a Stream Analytics job using ASA CI/CD tool.
 services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/08/2023
 ---
 
-# Autoscale a Stream Analytics job using ASA CI/CD tool
+# Configure autoscale settings for a Stream Analytics job using ASA CI/CD tool
 
 Streaming units (SUs) represent the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated to your job. The autoscale feature dynamically adjust SUs based on your rule definitions. You can configure autoscale settings for your Stream Analytics job in the Azure portal or using ASA CI/CD tool in your local machine. 
 
@@ -54,13 +54,13 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
     If the project is built successfully, you see 2 JSON files created under **Deploy** folder. One is the ARM template file and the other one is the parameter file. 
 
-    ![Build project](./media/cicd-autoscale/build-project.png)
+    ![Screenshot showing the files generated after building project.](./media/cicd-autoscale/build-project.png)
 
     > [!NOTE]
     > It is highly recommended to use the `--v2` option for the updated ARM template schema, which has fewer parameters yet retains the same functionality as the previous version. The old ARM template will be deprecated in the future, and only templates created using `build --v2` will receive updates or bug fixes.
 
 4. Configure autoscale setting.
-    You need to add parameter key and values using `azure-streamanalytics-cicd autoscale` command.
+    You need to add parameter keys and values using `azure-streamanalytics-cicd autoscale` command.
 
     |Parameter key   | Value | Example|
     |----------------|-------|--------|
@@ -76,7 +76,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
     If the autoscale setting is configured successfully, you see 2 JSON files created under **Deploy** folder. One is the ARM template file and the other one is the parameter file. 
 
-    ![Configure autoscale](./media/cicd-autoscale/configure-autoscale.png)
+    ![Screenshot showing the autoscale files generated after configuring autoscale.](./media/cicd-autoscale/configure-autoscale.png)
 
     Here's the list of metrics you can use for defining autoscale rules: 
 
@@ -102,7 +102,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
     The default value for all metric threshold is **70**. If you want to set the metric threshold to another number, open **\*.AutoscaleSettingTemplate.parameters.json** file and change the **Threshold** value. 
 
-    ![Set metric threshold](./media/cicd-autoscale/set-metric-threshold.png)
+    ![Screenshot showing how to set metric threshold in parameter files.](./media/cicd-autoscale/set-metric-threshold.png)
     
     To learn more about defining autoscale rules, visit [here](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings).
     
@@ -138,7 +138,6 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
 Once your project is deployed successfully, you can view the autoscale settings in Azure portal. 
 
-![Portal autoscale setting](./media/cicd-autoscale/portal-autoscale-setting.png)
 
 ### Scenario 2: Configure for a running ASA job in Azure
 
