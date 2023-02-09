@@ -26,12 +26,20 @@ This workbook:
 - Provides and agrigated and detailed view of information captured by the provisioning logs.
 - Allows you to customize the data to tailor it to your specific needs
 
+
+
 ## Enabling provisioning logs
 
 You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](../cloud-sync/how-to-troubleshoot.md).
 
 ## Source and Target
-At the top of the workbook, using the drop-down, specify the source directory and target directory.  You can also scope your search so that it is more granular using the additional fields provided.  Use the table below as a reference for queries.
+At the top of the workbook, using the drop-down, specify the source directory and target directory.  
+
+Theses fields are the source and target of identities.  The rest of the filters that appear are based on the selection of source and target.
+You can scope your search so that it is more granular using the additional fields.  Use the table below as a reference for queries.
+
+>[!NOTE]
+>Source and target are required.  If you do not select a source and target, you won't see any data.
 
 :::image type="content" source="media/provisioning-workbook/fields-1.png" alt-text="Screenshot of fields." lightbox="media/provisioning-workbook/fields-1.png":::
 
@@ -43,9 +51,12 @@ At the top of the workbook, using the drop-down, specify the source directory an
 |Time Range|The range of provisioning information you want to view.  This can be anywhere from 4 hours to 90 days.  You can also set a custom value.|
 |Status|View the provisioning status such as Success or Skipped.|
 |Action|View the provisioning actions taken such as Create or Delete.|
-|AppName|Allows you to filter by the application name.  In the case of Active Directory, you can filter by domains.|
-|JobId|Allows you to target specific Job Ids.|
-|SyncType|Filter by type of synchronization such as object or password.|
+|App Name|Allows you to filter by the application name.  In the case of Active Directory, you can filter by domains.|
+|Job Id|Allows you to target specific Job Ids.|
+|Sync type|Filter by type of synchronization such as object or password.|
+
+>[!NOTE]
+> All of the charts and grids in Sync Summary, Sync Details, and Sync Details by grid, change based on source,target and the parameter selections. 
 
 
 ## Sync Summary  
@@ -54,6 +65,7 @@ The sync summary section provides a summary of your organizations synchronizatio
    - Provisioning events by action
    - Provisioning events by status
    - Unique sync count by status
+   - Provisioning success rate
    - Top provisioning errors
 
 
@@ -64,11 +76,19 @@ The sync details tab allows you to drill into the synchronization data and get m
    - Objects sync by status
    - Objects synced by action
    - Sync log details
+   
+ >[!NOTE] 
+ >The grid is filterable on any of the above filters but you can also click the tiles under under **Objects synced by Status** and **Action**.
  
  :::image type="content" source="media/provisioning-workbook/sync-details-1.png" alt-text="Screenshot of the synchronization details." lightbox="media/provisioning-workbook/sync-details-1.png":::
 
 You can further drill in to the sync log details for additional information.
 
+
+
+>[!NOTE]
+>Clicking on the Source ID it will dive deeper and provide more information on the synchronized object.
+ 
 ## Sync details by cycle
 The sync details by cycle tab allows you to get more granular with the synchronization data.  This information includes:
    - Objects sync by status
@@ -79,12 +99,30 @@ The sync details by cycle tab allows you to get more granular with the synchroni
 
 You can further drill in to the sync log details for additional information.
 
-## User provisioning view
-The user provisioning view tab allows you to get synchronization data on individual users.  This includes all the places that a user has been provisioned to.  You can view by:
+>[!NOTE] 
+>The grid is filterable on any of the above filters but you can also click the tiles under under **Objects synced by Status** and **Action**.
+
+## Single user view
+The user provisioning view tab allows you to get synchronization data on individual users.  
+
+>[!NOTE]
+>This section does not involve using source and target.  
+
+In this section, you enter a time range and select a specific user to see which applications a user has been provisioned or deprovisioned in.
+
+Once you select a time range, it will filter for users that have events in that time range.
+
+
+To target a specific user, you can add one of the following parameters, for that user. 
    - UPN
    - UserID
+   
+:::image type="content" source="media/provisioning-workbook/single-user-1.png" alt-text="Screenshot of the single user view." lightbox="media/provisioning-workbook/single-user-1.png":::
  
+## Details 
+By clicking on the Source ID in the  **Sync details** or the **Sync details by cycle** views, you can see additional information on the object synchronized.
 
+:::image type="content" source="media/provisioning-workbook/details-1.png" alt-text="Screenshot of the details of an object." lightbox="media/provisioning-workbook/details-1.png":::
 
 ## Custom queries
 
