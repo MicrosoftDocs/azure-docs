@@ -95,7 +95,7 @@ Deploying Pod Sandboxing using Kata Containers is similar to the standard contai
 
 For a pod to use this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
 
-When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
+When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is one core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use one CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
@@ -128,12 +128,12 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 To use this feature with an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
 
-1. Add a nodepool to your AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
+1. Add a node pool to your AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
 
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
-   * **--name**: Enter a unique name for your clusters nodepool, such as *nodepool2*.
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. When using the `--workload-runtime` parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters are required. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
      * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
      * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -243,7 +243,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     cpu cores       : 1
     ```
 
-   To see the how much memory is available, run:
+   To see how much memory is available, run:
 
     ```bash
     cat /proc/meminfo
