@@ -9,7 +9,12 @@ ms.date: 02/09/2023
 
 # Lambda functions for ARM templates
 
-This article describes the lambda functions to use in ARM templates. [Lambda functions](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code.
+This article describes the lambda functions to use in ARM templates. [Lambda functions](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In Bicep, lambda expression is in this format:
+
+```bicep
+lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
+```
+
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
@@ -25,7 +30,7 @@ ARM template lambda function has these limitations:
 
 ## filter
 
-`filter(inputArray, lambda expression)`
+`filter(inputArray, lambda function)`
 
 Filters an array with a custom filtering function.
 
@@ -36,7 +41,7 @@ In Bicep, use the [filter](../bicep/bicep-functions-lambda.md#filter) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item will be filtered out of the output array.|
 
 ### Return value
 
@@ -137,7 +142,7 @@ The output from the preceding example:
 
 ## map
 
-`map(inputArray, lambda expression)`
+`map(inputArray, lambda function)`
 
 Applies a custom mapping function to each element of an array.
 
@@ -148,7 +153,7 @@ In Bicep, use the [map](../bicep/bicep-functions-lambda.md#map) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to map.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element, in order to generate the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element, in order to generate the output array.|
 
 ### Return value
 
@@ -225,7 +230,7 @@ The output from the preceding example is:
 
 ## reduce
 
-`reduce(inputArray, initialValue, lambda expression)`
+`reduce(inputArray, initialValue, lambda function)`
 
 Reduces an array with a custom reduce function.
 
@@ -237,7 +242,7 @@ In Bicep, use the [reduce](../bicep/bicep-functions-lambda.md#reduce) function.
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
 | initialValue |No |any |Initial value.|
-| lambda expression |Yes |expression |The lambda expression used to aggregate the current value and the next value.|
+| lambda function |Yes |expression |The lambda function used to aggregate the current value and the next value.|
 
 ### Return value
 
@@ -332,7 +337,7 @@ The [union](./template-functions-object.md#union) function returns a single obje
 
 ## sort
 
-`sort(inputArray, lambda expression)`
+`sort(inputArray, lambda function)`
 
 Sorts an array with a custom sort function.
 
@@ -343,7 +348,7 @@ In Bicep, use the [sort](../bicep/bicep-functions-lambda.md#sort) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to sort.|
-| lambda expression |Yes |expression |The lambda expression used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
+| lambda function |Yes |expression |The lambda function used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
 
 ### Return value
 
@@ -408,7 +413,7 @@ The output from the preceding example sorts the dog objects from the youngest to
 
 ## toObject
 
-`toObject(inputArray, lambda expression, [lambda expression])`
+`toObject(inputArray, lambda function, [lambda function])`
 
 Converts an array to an object with a custom key function and optional custom value function.
 
@@ -419,8 +424,8 @@ In Bicep, use the [toObject](../templates/template-functions-lambda.md#toobject)
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array used for creating an object.|
-| lambda expression |Yes |expression |The lambda expression used to provide the key predicate.|
-| lambda expression |No |expression |The lambda expression used to provide the value predicate.|
+| lambda function |Yes |expression |The lambda function used to provide the key predicate.|
+| lambda function |No |expression |The lambda function used to provide the value predicate.|
 
 ### Return value
 
