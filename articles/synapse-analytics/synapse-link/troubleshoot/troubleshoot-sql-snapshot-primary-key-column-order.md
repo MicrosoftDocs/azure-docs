@@ -47,23 +47,71 @@ Verify the cause of this issue with the following query on SQL Server system met
 1. Copy the T-SQL query:
 
     ```sql
-    DECLARE @pk_col_id int, @col_cnt int;
-    SELECT @pk_col_id = column_id from sys.columns where object_id = object_id('dbo.TableName') and name = 'PrimaryKey_ColName';
-    SELECT @col_cnt = count(*) from sys.columns where object_id = object_id('dbo.TableName') and column_id <= (@pk_col_id);
-    IF (@pk_col_id is null or @col_cnt = 0)
-        print 'Table and column not found. Check table or column name and try again.';
-    IF (@col_cnt < @pk_col_id)
-        print 'Column before primary key was deleted.';
+    DECLARE @PKColNames TABLE (VALUE NVARCHAR(50))
+    
+    INSERT INTO @PKColNames
+    VALUES ('primarykey_column1')
+        ,('primarykey_column2')
+        ,('primarykey_column3')
+    
+    DECLARE @COUNTER INT = 0;
+    DECLARE @MAX INT = (
+            SELECT COUNT(*)
+            FROM @PKColNames
+            )
+    DECLARE @VALUE VARCHAR(50);
+    
+    DECLARE @PK_COL_ID int 
+    
+    DECLARE @COL_CNT int WHILE @COUNTER < @MAX BEGIN SET @VALUE = (
+            SELECT VALUE
+            FROM      (SELECT (
+                        ROW_NUMBER() OVER (
+                            ORDER BY (
+                                    SELECT NULL
+                                    )
+                            )
+                        ) [index], VALUE FROM @PKColNames) R        
+            ORDER BY R.[index] OFFSET @COUNTER ROWS FETCH NEXT 1 ROWS ONLY
+            );
+    
+    SELECT @PK_COL_ID = column_id
+    FROM sys.columns
+    WHERE object_id = object_id('dbo.TableName')
+        AND name = @VALUE
+    
+    SELECT @COL_CNT = count(*)
+    FROM sys.columns
+    WHERE object_id = object_id('dbo.TableName')
+        AND column_id <= (@PK_COL_ID)  
+    
+    IF (@COL_CNT < @PK_COL_ID)         
+        PRINT 'Column before primary key ' + @VALUE + ' was deleted'   
+    ELSE              
+    
+    PRINT 'No column before this primary key ' + @VALUE + ' was deleted'
+    
+    SET @COUNTER = @COUNTER + 1  END
     ```
 1. Replace `dbo.TableName` with the source table name (including the schema) which is in status 'WaitingForSnapshot'. 
-1. Replace `PrimaryKey_ColName` with the name of the left-most primary key column on the source table. 
-1. Execute the query. 
-
-If the query run result shows `Column before primary key was deleted.`, it can be confirmed that Snapshot is stuck because of primary key column order error. Proceed with the below resolution steps. 
+1. Provide the primary key column names in the INSERT statement into the @PKColNames table variable, replacing "primarykey_column" values. 
+    1. To retrieve the primary key column names, use the following query replacing the `dbo.TableName` with the source table name, and execute the query.
+    ```sql
+    SELECT c.name
+    FROM sys.objects o
+    INNER JOIN sys.columns c ON o.object_id = c.object_id
+    INNER JOIN sys.index_columns ic ON o.object_id = ic.object_id
+        AND ic.column_id = c.column_id
+    INNER JOIN sys.indexes i ON o.object_id = i.object_id
+        AND i.index_id = ic.index_id
+    WHERE i.is_primary_key = 1
+        AND o.object_id = object_id('dbo.TableName');
+    ```
+1. Execute the query and view the text output. If the query run result shows `Column before primary key was deleted.`, it can be confirmed that Snapshot is stuck because of primary key column order error. Proceed with the below resolution steps. 
 
 ## Potential Causes
 
-The SQL Server source database publisher is having issues with column indexing during schema export. This can occur when the primary key column is not defined as the first column, and a column to the left of the primary key column(s) was dropped, before enabling change feed. In this scenario, the SQL publisher uses an incorrect index to query the primary key.
+The SQL Server source database publisher is having issues with identifying the primary key columns during schema export due to the column count changes. This can occur when the primary key column(s) are not defined as the first column(s) in a table, and column(s) to the left of the primary key column(s) are dropped, before enabling change feed. The columns could have been dropped any time in the past. In this scenario, the SQL publisher uses an incorrect `column_id` to query the primary key column(s).
 
 ## Resolution
 
@@ -77,7 +125,7 @@ In the Synapse Analytics workspace, remove the source table from the **Integrate
 
 A column change is likely the reason why the table cannot successfully snapshot, so another table column order change is necessary. 
 
-1. Re-order the table columns. Move the primary key column(s) to be the first column(s) in the table. 
+1. Re-order the table columns. Move any of the primary key column(s) to be the first column(s) in the table.
 
 > [!CAUTION] 
 > If the table has many rows, there may be an impact on heavy workload on system resources for the table being altered. The table being altered could be assigned a table level lock, blocking concurrent access to the table by other applications. 

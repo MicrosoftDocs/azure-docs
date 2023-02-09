@@ -72,7 +72,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
         *    Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters
         *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
 * Single row updates (including off-page storage) of > 370 MB are not supported.
-* If the primary key column(s) of the table are not the first columns in the table, and columns to the left of the primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
+* If the primary key column(s) of the table are not the first columns in the table, and columns to the left of primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
 
 ### Azure SQL Database only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
