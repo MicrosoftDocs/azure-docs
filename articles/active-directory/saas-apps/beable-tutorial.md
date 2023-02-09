@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Beable
 
-In this article, you'll learn how to integrate Beable with Azure Active Directory (Azure AD). Beable Education offers interactive & engaging online learning platforms, textbooks & mobile apps for students to access information & succeed in studies. When you integrate Beable with Azure AD, you can:
+In this article, you learn how to integrate Beable with Azure Active Directory (Azure AD). Beable Education offers interactive & engaging online learning platforms, textbooks & mobile apps for students to access information & succeed in studies. When you integrate Beable with Azure AD, you can:
 
 * Control in Azure AD who has access to Beable.
 * Enable your users to be automatically signed-in to Beable with their Azure AD accounts.
@@ -94,7 +94,7 @@ To configure single sign-on on **Beable** side, you need to send the downloaded 
 
 ### Create Beable test user
 
-In this section, the users are rostered in Beable. Please work with [Beable support team](https://beable.com/contact/) to provision the users in the Beable platform.
+In this section, the users are rostered in Beable. Work with [Beable support team](https://beable.com/contact/) to provision the users in the Beable platform.
 
 ## Test SSO 
 
