@@ -238,9 +238,9 @@ The update should be done via ARM template by setting the zonalUpdateMode proper
             }
         }]
 ```
-2. Add a node to the node type from a cluster by following the procedure to [modify node type](https://learn.microsoft.com/en-us/azure/service-fabric/how-to-managed-cluster-modify-node-type) 
+2. Add a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md) 
 
-3. Remove a node to the node type from a cluster by following the procedure to [modify node type](https://learn.microsoft.com/en-us/azure/service-fabric/how-to-managed-cluster-modify-node-type)
+3. Remove a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md)
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
