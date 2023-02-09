@@ -16,10 +16,6 @@ The customer data Azure Communications Gateway handles can be split into:
 - Content data, such as media for voice calls.
 - Customer data present in call metadata.
 
-## Encryption between Microsoft Teams and Azure Communications Gateway
-
-All traffic between Azure Communications Gateway and Microsoft Teams is encrypted. SIP traffic is encrypted using TLS. Media traffic is encrypted using SRTP.
-
 ## Data retention, data security and encryption at rest
 
 Azure Communications Gateway doesn't store content data, but it does store customer data and provide statistics based on it. This data is stored for a maximum of 30 days. After this period, it's no longer accessible to perform diagnostics or analysis of individual calls. Anonymized statistics and logs produced based on customer data will continue to be available beyond the 30 days limit.
@@ -30,9 +26,7 @@ Azure Communications Gateway stores all data at rest securely, including any cus
 
 ## Encryption in Transit
 
-All traffic between your network and Azure Communications Gateway is encrypted with TLS (for SIP traffic) and SRTP (for media traffic).
-
-When encrypting traffic, Azure Communications Gateway uses the following cipher suites.
+All traffic handled by Azure Communications Gateway is encrypted. This encryption is used between Azure Communications Gateway components and towards Microsoft Teams. SIP and HTTP traffic is encrypted using TLS. Media traffic is encrypted using SRTP. When encrypting traffic to send to your network, Azure Communications Gateway will attempt to use TLSv1.3, falling back to TLSv1.2 should that fail. The following cipher suites are used for encrypting SIP and RTP:
 
 ### Ciphers used with TLSv1.2
 
