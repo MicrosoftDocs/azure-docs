@@ -1,5 +1,20 @@
-Logging SMS and Email delivery / engagement events into Azure Storage
-Logging events can provide visibility to customers on events being fired across their resource. Many of these events are also logged to Azure Monitor, but having a path to log directly through Event Grid can help developers during testing and validation. A comparison of coverage between Event Grid and Azure Monitor here: [WIP] https://microsoft-my.sharepoint-df.com/:x:/p/dademath/ERsWm_hjIi9Mioi4WpNbNSkBUwv2Aam0Zy5JAFHwUKbzAA?e=JRstDq 
+---
+title: Log Azure Communication Services events
+titleSuffix: An Azure Communication Services how-to document
+description: "In this how-to, you'll learn how log Azure Communication Services events to Azure Table Storage"
+author: ddematheu2
+manager: shahen
+services: azure-communication-services
+ms.author: dademath
+ms.date: 02/09/2022
+ms.topic: how-to
+ms.service: azure-communication-services
+---
+
+# Logging SMS and Email delivery / engagement events into Azure Storage
+
+Logging events can provide visibility to customers on events being fired across their resource. Many of these events are also logged to Azure Monitor, but having a path to log directly through Event Grid can help developers during testing and validation.
+
 Pre-Reqs
 -	Create an Azure Table Storage resource. You will need a storage account in Azure. As part of this step you will create a table 
 -	You will need the following values to configure the Azure Table Storage connector:
