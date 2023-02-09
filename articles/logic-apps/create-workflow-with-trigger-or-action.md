@@ -40,13 +40,23 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, under the search box, select **All** so that you can search all the connectors and triggers by name.
 
-   The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. The **Triggers** list shows all available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
+   The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. The **Triggers** list shows the available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and the triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
  
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-triggers-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with blank workflow designer, and built-in triggers gallery.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and built-in triggers gallery.":::
 
-   To show more connectors in the gallery, below the connectors row, select the down arrow.
+   To show more connectors with triggers in the gallery, below the connectors row, select the down arrow.
 
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with workflow designer, and down arrow selected to show more connectors.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and down arrow selected to show more connectors with triggers.":::
+
+   The designer uses the following groups to organize connectors and their operations:
+
+   | Group | Description |
+   |-------|-------------|
+   | **For You** | Any connectors and triggers that you recently used. |
+   | **All** | All connectors and triggers in Azure Logic Apps. |
+   | **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
+   | **Standard** and **Enterprise** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
+   | **Custom** | Any connectors and actions that you created and installed. |
 
 1. In the search box, enter the name for the connector or trigger that you want to find.
 
@@ -69,19 +79,19 @@ The following steps use the Azure portal, but you can also use the following too
    | Group | Description |
    |-------|-------------|
    | **Built-in** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. |
-   | **Azure** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. <br><br>**Note**: Stateless workflows have only the **Built-in** group, not the **Azure** group. |
+   | **Azure** | For stateful workflows only, connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
 
-   The following example shows the designer for a blank Standard logic app workflow with the **Built-in** group selected. The **Triggers** list shows the available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+   The following example shows the designer for a blank Standard logic app workflow with the **Built-in** group selected. The **Triggers** list shows the available triggers, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and the triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer). 
  
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-built-in-triggers-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with blank workflow designer, and built-in triggers gallery.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-built-in-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app with blank workflow, and built-in triggers gallery.":::
 
-   To show more connectors in the gallery, below the connectors row, select the down arrow.
+   To show more connectors with triggers in the gallery, below the connectors row, select the down arrow.
 
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with workflow designer, and down arrow selected to show more connectors.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-built-in-connectors-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and down arrow selected to show more built-in connectors with triggers.":::
 
-   The following example shows the designer for a blank Standard logic app workflow with the **Azure** group selected. The **Triggers** list shows the available triggers, which appear in a specific order.
+   For stateful workflows, the following example shows the designer for a blank Standard logic app workflow with the **Azure** group selected. The **Triggers** list shows the available triggers, which appear in a specific order.
 
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/azure-triggers-standard.png" alt-text="Screenshot showing Azure portal, Standard logic app with blank workflow designer, and Azure triggers gallery.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/azure-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Azure triggers gallery.":::
 
 1. To filter the list, in the search box, enter the name for the connector or trigger. From the triggers list, select the trigger that you want.
 
@@ -97,7 +107,7 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, select **Add a trigger**, if not already selected.
 
-   The **Browse operations** pane opens and shows all the available connectors.
+   The **Browse operations** pane opens and shows the available connectors.
 
 1. Choose either option:
 
@@ -108,9 +118,9 @@ The following steps use the Azure portal, but you can also use the following too
      | Group | Description |
      |-------|-------------|
      | **In-App** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. In the non-preview designer, this group is the same as the **Built-in** group. |
-     | **Shared** | Connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the non-preview designer, this group is the same as the **Azure** group. |
+     | **Shared** | For stateful workflows only, connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the non-preview designer, this group is the same as the **Azure** group. |
 
-   For more information about the way that the designer organizes operation collections, connectors, and triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
+   For more information about the way that the designer organizes operation collections, connectors, and the triggers list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
 
 1. From the operation collection or connector list, select the collection or connector that you want. After the triggers list appears, select the trigger that you want.
 
@@ -136,9 +146,13 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. Under the **Choose an operation** search box, select **All** so that you can search all the connectors and actions by name.
 
-   The following example shows the designer for a Consumption logic app workflow, and the **Actions** list shows all available actions, sorted alphabetically by collection name:
+   The following example shows the designer for a Consumption logic app workflow that has an existing trigger and shows the **All** group selected. The **Actions** list shows the available actions, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and the actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
-   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-actions-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with blank workflow designer, and built-in actions gallery.":::
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with existing trigger, and built-in actions gallery.":::
+
+   To show more connectors with actions in the gallery, below the connectors row, select the down arrow.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-connectors-actions-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow designer, and down arrow selected to show more connectors with actions.":::
 
    The designer uses the following groups to organize connectors and their operations:
 
@@ -150,11 +164,9 @@ The following steps use the Azure portal, but you can also use the following too
    | **Standard** and **Enterprise** | Connectors and actions that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
    | **Custom** | Any connectors and actions that you created and installed. |
 
-   For more information about the way that the designer organizes operation collections, connectors, and actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
-
 1. In the search box, enter the name for the connector or action that you want to find.
 
-1. From the triggers list, select the action that you want.
+1. From the actions list, select the action that you want.
 
 1. If prompted, provide any necessary connection information, which differs based on the connector. When you're done, select **Create**.
 
@@ -177,9 +189,19 @@ The following steps use the Azure portal, but you can also use the following too
    | Group | Description |
    |-------|-------------|
    | **Built-in** | Connectors and actions that run directly and natively within the Azure Logic Apps runtime. |
-   | **Azure** | Connectors and actions that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
+   | **Azure** | For stateful workflows only, connectors and actions that are Microsoft-managed, hosted, and run in multi-tenant Azure. |
 
-   For more information about the way that the designer organizes operation collections, connectors, and actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+   The following example shows the designer for a Standard logic app workflow that has an existing trigger and shows the **Built-in** group selected. The **Actions** list shows the available actions, which appear in a specific order. For more information about the way that the designer organizes operation collections, connectors, and the actions list, see [Connectors, triggers, and actions in the designer](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-built-in-actions-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app workflow with a trigger, and built-in actions gallery.":::
+
+   To show more connectors with actions in the gallery, below the connectors row, select the down arrow.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/show-more-built-in-connectors-actions-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow designer, and down arrow selected to show more built-in connectors with actions.":::
+
+   For stateful workflows, the following example shows the designer for a Standard logic app workflow that has an existing trigger and shows the **Azure** group selected. The **Actions** list shows the available actions, which appear in a specific order.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/azure-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app workflow with a trigger, and Azure actions gallery.":::
 
 1. To filter the list, in the search box, enter the name for the connector or action. From the actions list, select the action that you want.
 
@@ -201,7 +223,7 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, select **Add an action**, if not already selected.
 
-   The **Browse operations** pane opens and shows all the available connectors.
+   The **Browse operations** pane opens and shows the available connectors.
 
 1. Choose either option:
 
@@ -246,11 +268,11 @@ The designer uses the following groups to organize connectors and their operatio
 
 Under the search box, a row shows the available operation collections and connectors organized from left to right, based on global popularity and usage. The individual **Triggers** and **Actions** lists are grouped by collection or connector name. These names appear in ascending order, first numerically if any exist, and then alphabetically.
 
-The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. So, the **Triggers** list shows all available triggers, based on the previously described order:
+The following example shows the designer for a blank Consumption logic app workflow with the **All** group selected. So, the **Triggers** list shows the available triggers, based on the previously described order:
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-triggers-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with blank workflow designer, and built-in triggers gallery.":::
 
-The following example shows the designer for a Consumption logic app workflow, and the **Actions** list shows all available actions, sorted alphabetically by collection name:
+The following example shows the designer for a Consumption logic app workflow, and the **Actions** list shows the available actions, sorted alphabetically by collection name:
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-all-actions-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app with blank workflow designer, and built-in actions gallery.":::
 
