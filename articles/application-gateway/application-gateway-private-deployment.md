@@ -361,7 +361,8 @@ Result:
 
 [ ![View the NSG overview](./media/application-gateway-private-deployment/nsg-overview.png) ](./media/application-gateway-private-deployment/nsg-overview.png#lightbox)
 
-> [!IMPORTANT] Be careful when defining **DenyAll** rules as you may inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
+> [!IMPORTANT] 
+> Be careful when defining **DenyAll** rules as you may inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
 
 ## Route Table Control
 
