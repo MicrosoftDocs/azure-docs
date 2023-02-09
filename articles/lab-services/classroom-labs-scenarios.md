@@ -25,6 +25,27 @@ Labs meet the following requirements for conducting training in any virtual envi
 - Easily share the training lab with each trainee
 - Reuse the training lab again and again
 
+## Mapping organizational roles to permissions
+
+Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to Azure Lab Services. For more information, see the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+
+Different people or departments might be involved with the creation of labs to support classroom trainings. The following diagram shows a typical setup where responsibilities are split between three personas: administrators, educators, and students.
+
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles.png" alt-text="Diagram that shows the different steps for creating a lab in Azure Lab Services, and how the steps map to administrator, educator, and student organizational roles.":::
+
+You can now map the organizational roles to the corresponding Azure AD roles in Azure Lab Services. Depending on your organization, you might assign multiple responsibilities to one person, or inversely, assign the same responsibility to a group of people. For example, your organization might not have an IT department with administrators, and educators are responsible for creating the lab plans.
+
+The following table shows an example organizational mapping:
+
+| Org. role | Azure AD role | Description |
+| --- | --- | --- |
+| Administrator | Subscription Owner<br/>Subscription Contributor | Create lab plans. |
+| Educator      | Lab Creator | Create and manage the labs they created. |
+|               | Lab Contributor | Create and manage all labs (when assigned at the resource group level). |
+|               | Lab Operator | Optionally, assign to other educators to allow manage lab schedules, publish labs, and reset/start/stop/connect lab VMs. |
+|               | Lab Assistant | Optionally, assign to other educators to help support labsstudents by allowing reset/start/stop/connect lab VMs. |
+| Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
+| Student       |  | Students don't require Azure AD roles and are assigned access to the lab. Leanr how you can [add lab users to a lab](./how-to-configure-student-usage.md). |
 
 ## Create the lab plan as a lab plan administrator
 
