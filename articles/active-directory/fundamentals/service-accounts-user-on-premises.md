@@ -38,7 +38,7 @@ The challenges of on-premises user accounts are summarized in the following tabl
 
 | Challenge | Mitigation |
 | - | - |
-| Password management is manual and leads to weaker security and service downtime| - Ensure regular password complexity and changes are governed by a process that maintains strong passwords</br> - Coordinate password changes with a service password, which helps reduce service downtime|
+| Password management is manual and leads to weaker security and service downtime| - Ensure regular password complexity and that changes are governed by a process that maintains strong passwords</br> - Coordinate password changes with a service password, which helps reduce service downtime|
 | Identifying on-premises user accounts that are service accounts can be difficult | - Document service accounts deployed in your environment</br> - Track the account name and the resources they can access</br> - Consider adding the prefix svc to user accounts used as service accounts |
 
 ## Find on-premises user accounts used as service accounts
@@ -97,7 +97,7 @@ See the following table for potential on-premises user account security issues a
 | The account is a member of privileged groups| - Review group membership</br> - Remove the account from privileged groups</br> - Grant the account rights and permissions to run its service (consult with service vendor)</br> - For example, deny sign-in locally or interactive sign-in|
 | The account has read/write permissions to sensitive resources| - Audit access to sensitive resources</br> - Archive audit logs to a SIEM: Azure Log Analytics or Microsoft Sentinel</br> - Remediate resource permissions if you detect undesirable access levels |
 
-## Use secure account types
+## Secure account types
 
 Microsoft doesn't recommend use of on-premises user accounts as service accounts. For services that use this account type, assess if it can be configured to use a gMSA or an sMSA. In addition, evaluate if you can move the service to Azure to enable use of safer account types. 
 
