@@ -155,7 +155,7 @@ sections:
       - question: | 
           When should I use Confidential containers on Azure Container Instances? 
         answer: |
-          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees such as machine learning workloads that utilize data sets that include PII or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
+          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees such as machine learning workloads that utilize data sets that include personally identifiable information or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
       - question: | 
           How do I generate a confidential computing enforcement policy?
         answer: |
@@ -167,7 +167,7 @@ sections:
       - question: |
           What regions are Confidential containers on Azure Container Instances available?
         answer: |
-          Confidential containers on Azure Container Instances are only available in select regions (West Europe, North Europe, and West US) during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
+          Confidential containers on Azure Container Instances are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
 
   - name: Pricing
     questions:

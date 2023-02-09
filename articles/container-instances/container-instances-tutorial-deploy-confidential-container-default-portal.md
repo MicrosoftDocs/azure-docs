@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Deploy a Confidential container to Azure Container Instances via Azure portal
-description: In this tutorial, you will deploy a Confidential container with a default policy to Azure Container Instances via Azure portal.
+title: Tutorial - Deploy a confidential container to Azure Container Instances via Azure portal
+description: In this tutorial, you will deploy a confidential container with a default policy to Azure Container Instances via Azure portal.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
@@ -10,7 +10,7 @@ ms.date: 02/28/2023
 ms.custom: "seodec18, mvc, devx-track-js"
 ---
 
-# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure Portal
+# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure portal
 
 In this tutorial, you will use Azure portal to deploy a Confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
 

@@ -12,7 +12,7 @@ ms.custom: "seodec18, mvc, devx-track-js"
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy 
 
-Confidential containers on ACI is a serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
+Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
 
 In this article, you'll:
 
@@ -218,8 +218,6 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 2. Once its status is *Running*, navigate to the IP address in your browser. 
 
     ![App deployed using Azure Container Instances viewed in browser](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
-
-
 
 ## Next steps
 
