@@ -40,11 +40,11 @@ Identity related **NuGet packages** must be installed in the project for authent
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
 1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
 
-```powershell
-dotnet add package Microsoft.Identity.Web 
-dotnet add package Microsoft.Identity.Web.UI 
-dotnet add package Microsoft.Identity.Web.Diagnostics 
-```
+    ```powershell
+    dotnet add package Microsoft.Identity.Web 
+    dotnet add package Microsoft.Identity.Web.UI 
+    dotnet add package Microsoft.Identity.Web.Diagnostics 
+    ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
@@ -126,7 +126,6 @@ After installing the NuGet packages and adding necessary code for authentication
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-<!-- Confirmation and testing needed here -->
 1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
 1. Select **Razor Page - Empty**, and then select **Add**.
 1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.

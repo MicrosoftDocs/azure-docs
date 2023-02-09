@@ -63,7 +63,7 @@ dotnet new webapp
 1. Open Visual Studio, and then select **New**.
 1. Under **Web and Console** in the left navigation bar, select **App**.
 1. Under **ASP.NET Core**, select **Web Application** and ensure **C#** is selected in the drop down menu, then select **Continue**.
-1. Accept the default for the **Target Framework and Advanced** > **Continue**.
+1. Ensure the **Target Framework** is set to .NET6.0 at a minimum.
 1. Enter a name for **Project name**, this is reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
 1. Accept the default location for the project or choose a different location, and then select **Create**.
 
@@ -93,7 +93,7 @@ The use of certificates is suggested for securing the application. For the purpo
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. Select **Tools > Command Line > Developer Command Prompt**.
+1. Locate the **Terminal** option in your project. 
 
 1. Enter the following command to create a new self-signed certificate:
 
@@ -109,7 +109,7 @@ To make the certificate available to the application, it must be uploaded into t
 1. Starting from the **Overview** page of the app created earlier, under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
-:::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
@@ -120,7 +120,7 @@ To make the certificate available to the application, it must be uploaded into t
 
 ## Configure the application for authentication and API reference
 
-The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. As the application will also call into a web API, it must also contain a reference to this API.
+The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. As the application will also call into a web API, it must also contain a reference to it.
 
 1. Open *appsettings.json* and replace the file contents with the following snippet:
   
@@ -174,6 +174,7 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
 
 1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
 1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-oidc`.
+1. Select **Configure**.
 
 ## Next steps
 
