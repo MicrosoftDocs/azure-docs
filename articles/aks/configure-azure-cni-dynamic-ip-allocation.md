@@ -26,8 +26,8 @@ This article shows you how to use Azure CNI networking for dynamic allocation of
 > [!NOTE]
 > When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
-* Review the [prerequisites](/configure-azure-cni.md#prerequisites) for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
-* Review the [deployment parameters](/configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS, as the same parameters apply.
+* Review the [prerequisites](./configure-azure-cni.md#prerequisites) for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
+* Review the [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 * AKS Engine and DIY clusters aren't supported.
 * Azure CLI version `2.37.0` or later.
 
