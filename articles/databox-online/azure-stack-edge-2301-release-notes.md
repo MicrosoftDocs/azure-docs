@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/08/2023
+ms.date: 02/09/2023
 ms.author: alkohli
 ---
 
@@ -21,17 +21,17 @@ This release corresponds to software version:
 - **Azure Stack Edge 2301 (1.6.2225.773)**
 
 > [!NOTE]
-> Update 2301 can be applied only to devices that are running general availability (GA) versions of the software or later.
+> Update 2301 can be applied only to devices that are running 2101 versions of the software or later. If you are running a version earlier than 2101, update your device to 2101 amd then update to 2301. 
 
 ## What's new
 
 This release contains the following bug fixes:
 
-- **Upload issue** - This release...
+- **Bug fix.1** - This release...
 
 This release also contains the following updates:
 
-- All cumulative Windows updates and .NET framework updates released through January 2023.
+- All cumulative Windows updates and .NET framework updates released through November 2022.
 
 ## Known issues in this release
 
