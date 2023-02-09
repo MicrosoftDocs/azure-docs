@@ -10,7 +10,7 @@ ms.author: albecker
 ms.subservice: disks
 ---
 
-# Change the disk type of an Azure managed disk
+# Change the disk type of an Azure managed disk - CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 

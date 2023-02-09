@@ -10,7 +10,7 @@ ms.author: albecker
 ms.custom: devx-track-azurepowershell
 ---
 
-# Change the disk type of an Azure managed disk
+# Change the disk type of an Azure managed disk - PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
