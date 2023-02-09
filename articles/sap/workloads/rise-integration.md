@@ -19,9 +19,13 @@ ms.author: robiro
 
 # Integrating Azure with SAP RISE managed workloads
 
-For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services (ECS) and SAP S/4HANA Cloud, private edition (PCE) which are deployed on Azure, integrating the SAP managed environment with their own Azure ecosystem and third party applications is of particular importance. The following article explains the concepts utilized and best practices to follow for a secure and performant solution.
+For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services (ECS) and SAP S/4HANA Cloud, private edition (PCE) which are deployed on Azure, integrating the SAP managed environment with their own Azure ecosystem and third party applications is of particular importance. The following article explains the concepts and best practices to follow for a secure and performant solution.
 
-RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services are SAP managed services of your SAP landscape, in an Azure subscription owned by SAP. The virtual network (vnet) utilized by these managed systems should fit well in your overall network concept and your available IP address space. Requirements for private IP range for RISE PCE or ECS environments are coming from SAP reference deployments. Customers specify the chosen RFC1918 CIDR IP address range to SAP. To facilitate connectivity between SAP and customers owned Azure subscriptions/vnets, a direct vnet peering can be set up. Another option is the use of a VPN vnet-to-vnet connection.
+## Azure support aspects
+
+RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services are SAP managed services of your SAP landscape, in an Azure subscription owned by SAP. This means all Azure resources of your SAP environment are visible and managed only by SAP. In turn, the customer's own Azure environment contains applications which interact with the SAP systems. Elements such as virtual networks, network security groups, firewalls, routing, Azure services such as Azure Data Factory and others running inside the customer subscription accessing the SAP managed applications. When engaging with Azure support on Azure topics, only resources owned in your own customer subscriptions can be investigated. Contact SAP for issues with any resources operated in SAP's Azure subscriptions for your RISE workload.
+
+As part of your RISE project, document the interface points between on-premises, your own Azure environment and SAP workload managed by SAP. This needs to include any network information such as address space, firewall(s) and routing, as well as network file shares, Azure services, DNS and others. Document ownership of any interface partner and where any resource is running, so this information can be accessed quickly in a support situation and determine your best way to obtain support. SAP's support organization is to be contacted for services running in SAP's Azure subscriptions.
 
 > [!IMPORTANT]
 > For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud private edition, contact your SAP representative.
@@ -155,8 +159,7 @@ Data connectors within the self-hosted integration runtime communicate with the 
 
 The customer is responsible for deployment and operation of the self-hosted integration runtime within their subscription and vnet. The communication between Azure PaaS services such as Data Factory or Synapse Analytics and self-hosted integration runtime is within the customer’s subscription. SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge or support about any details of the connected application or service.
 
-> [!Note]
-> Contact SAP for details on communication paths available to you with SAP RISE and the necessary steps to open them. SAP must also be contacted for any SAP license details for any implications accessing SAP data through any Azure Data Factory or Synapse connectors.
+Contact SAP for details on communication paths available to you with SAP RISE and the necessary steps to open them. SAP must also be contacted for any SAP license details for any implications accessing SAP data through any external applications.
 
 To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
@@ -172,24 +175,34 @@ The SAP RISE environment here provides access to the SAP ports for RFC and https
 
 SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription.
 
-> [!Note]
-> Contact SAP for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
+SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription. Contact SAP for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
 
 ## Single Sign-On for SAP 
 
-Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The integration steps with AAD based SSO are available for typical ECS/RISE managed workloads:
+Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps identical to a natively run SAP system can be followed. The integration steps with Azure Active Directory (AAD) based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](../../active-directory/saas-apps/sap-netweaver-tutorial.md)
 - [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](../../active-directory/saas-apps/sap-fiori-tutorial.md)
 - [Tutorial: Azure Active Directory integration with SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md)
 
-| SSO method | Identity Provider | Typical use case                 | Implementation           |
-| :--------- | :---------------: | :------------------------------- | :----------------------- |
-| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration   |
-| SNC        | AD                | SAP GUI                          | Configure with ECS team  |
-| SPNEGO     | AD                | Web GUI, Portal                  | Configure with ECS team  |
+| SSO method | Identity Provider | Typical use case                 | Implementation            |
+| :--------- | :---------------: | :------------------------------- | :------------------------ |
+| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration    |
+| SNC        | AD                | SAP GUI                          | Customer configuration    |
+| SPNEGO     | AD                | Web GUI, Portal                  | Customer configuration    |
 
-SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, needs to be planned in detail with SAP. SSO methods such as Kerberos/SPNEGO and Kerberos/SNC are used often for SSO with SAP GUI, Web GUI and SAP Portal and require an AD domain for the Kerberos protocol. Active directory integration is typically done on OS level, either Windows domain registration or Linux utilities such as kutil and keytab. With ECS/RISE managed workload this would mean having your domain objects in Azure tenant and subscription of SAP, as SAP does not provide a new AD domain for integration. Consider such implementation with your compliance team and SAP.
+SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. This is not necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
 
+## Azure Sentinel with SAP RISE
+
+Azure Sentinel provides security analytics and threat intelligence across the enterprise. SAP is one of the many workloads which can provide data to Azure Sentinel. With Azure Sentinel solution deployed in the customer subscription, many application can be connected with defined connectors. Sentinel's [SAP connector](/azure/sentinel/sap/deployment-overview) consumes data from your SAP landscape through RFC interface and provides out of the box security content for SAP application data. This security data can be correlated with events from other sources to triage any events detected.
+
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Connecting Sentinel with SAP RISE/ECS":::
+   This diagram shows an example of Azure Sentinel connected through an intermediary VM to SAP managed SAP system. The intermediary VM is located in customer's own subscription with configured SAP data connector agent.
+:::image-end:::
+
+The shown example of Azure Sentinel uses a VM running in customer's Azure subscription to run the necessary connector agent. Through RFC interface on the private network the SAP data is retrieved and analyzed by customer's own Sentinel instance. Access is limited to SAP data. Information from other sources such as database audit logs, virtual machine and operating system logs cannot be currently analyzed by Sentinel with SAP RISE/ECS scenario.
+
+Contact SAP for available interface options to leverage Azure Sentinel to consume and analyze threat intelligence data from all layers - infrastructure, operating system, SAP and database - of your SAP managed workload under RISE with SAP.
 
 ## Azure Monitoring for SAP with SAP RISE
 
