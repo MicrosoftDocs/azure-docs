@@ -15,7 +15,7 @@ If you are looking to provision a single IoT Edge device, create an **individual
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](../how-to-deploy-at-scale.md).
 
-For more information about enrollments in the device provisioning service, see [How to manage device enrollments](/articles/iot-dps/how-to-manage-enrollments.md).
+For more information about enrollments in the device provisioning service, see [How to manage device enrollments](/azure/iot-dps/how-to-manage-enrollments).
 
 # [Individual enrollment](#tab/individual-enrollment)
 
@@ -101,7 +101,7 @@ When you create an enrollment group, you have the option of using a verified cer
 
 #### Create enrollment group
 
-For more information about enrollments in the device provisioning service, see [How to manage device enrollments](/articles/iot-dps/how-to-manage-enrollments.md).
+For more information about enrollments in the device provisioning service, see [How to manage device enrollments](/azure/iot-dps/how-to-manage-enrollments).
 
 > [!TIP]
 > The steps in this article are for the Azure portal, but you can also create group enrollments using the Azure CLI. For more information, see [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group). As part of the CLI command, use the **edge-enabled** flag to specify that the enrollment is for IoT Edge devices. For a group enrollment, all devices must be IoT Edge devices or none of them can be.

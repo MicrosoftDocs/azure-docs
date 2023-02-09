@@ -157,7 +157,7 @@ Connect-AzureAD -TenantId $tenantID
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipal.Id
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.
@@ -194,7 +194,7 @@ Connect-MgGraph -TenantId $tenantId -Scopes 'Application.Read.All','Application.
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-MgServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipal.Id
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.

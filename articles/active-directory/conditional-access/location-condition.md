@@ -162,7 +162,7 @@ Most of the IPv6 traffic that gets proxied to Azure AD comes from Microsoft Exch
 If you're using Azure VNets, you'll have traffic coming from an IPv6 address. If you have VNet traffic blocked by a Conditional Access policy, check your Azure AD sign-in log. Once you’ve identified the traffic, you can get the IPv6 address being used and exclude it from your policy. 
 
 > [!NOTE]
-> If you want to specify an IP CIDR range for a single address, apply the /128 bit mask. If you see the IPv6 address 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a and wanted to exclude that single address as a range, you would use 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
+> If you want to specify an IP CIDR range for a single address, apply the /128 bit mask. If you see the IPv6 address 2001:db8:4a7d:3f57:a1e2:6b4a:8f3e:d17b and wanted to exclude that single address as a range, you would use 2001:db8:4a7d:3f57:a1e2:6b4a:8f3e:d17b/128.
 
 ## What you should know
 

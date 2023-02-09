@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 11/17/2022
+ms.date: 01/24/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -17,4 +17,6 @@ Your storage account access keys are similar to a root password for your storage
 > [!IMPORTANT]
 > Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests against blob, queue, and table data if possible, rather than using the account keys (Shared Key authorization). Authorization with Azure AD provides superior security and ease of use over Shared Key authorization.
 >
-> To protect an Azure Storage account with Azure AD Conditional Access policies, you must disallow Shared Key authorization for the storage account. For more information about how to disallow Shared Key authorization, see [Prevent Shared Key authorization for an Azure Storage account](../articles/storage/common/shared-key-authorization-prevent.md).
+> To prevent users from accessing data in your storage account with Shared Key, you can disallow Shared Key authorization for the storage account. Disallowing Shared Key access is recommended as a security best practice. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../articles/storage/common/shared-key-authorization-prevent.md).
+>
+> To protect an Azure Storage account with Azure AD Conditional Access policies, you must disallow Shared Key authorization for the storage account.

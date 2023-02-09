@@ -2,11 +2,12 @@
 title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
-ms.author: pahealy
-author: phealy
-ms.date: 12/19/2022
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.date: 11/14/2020
+ms.author: allensu
+author: asudbring
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -53,6 +54,18 @@ spec:
   selector:
     app: public-app
 ```
+
+### Specify the load balancer IP address
+
+If you want to use a specific IP address with the load balancer, there are two ways:
+
+> [!IMPORTANT]
+> Adding the *LoadBalancerIP* property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead.
+
+* **Set service annotations**: Use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address.
+* **Add the *LoadBalancerIP* property to the load balancer YAML manifest**: Add the *Service.Spec.LoadBalancerIP* property to the load balancer YAML manifest. This field is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235), and it can't support dual-stack. Current usage remains the same and existing services are expected to work without modification.
+
+### Deploy the service manifest
 
 Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and specify the name of your YAML manifest.
 

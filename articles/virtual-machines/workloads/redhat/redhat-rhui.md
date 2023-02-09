@@ -204,11 +204,19 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 ```
 # Azure Global
+RHUI 3 
 13.91.47.76
 40.85.190.91
 52.187.75.218
 52.174.163.213
 52.237.203.198
+
+RHUI 4
+westeurope - 52.136.197.163
+southcentralus - 20.225.226.182
+eastus - 52.142.4.99
+australiaeast - 20.248.180.252
+southeastasia - 20.24.186.80
 
 # Azure US Government
 13.72.186.193

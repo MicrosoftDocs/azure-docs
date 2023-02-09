@@ -244,7 +244,7 @@ Under folder samples/Chatroom, run the below commands:
 
 ```bash
 # Build and publish the assemblies to publish folder
-dotnet publish -os linux -o publish
+dotnet publish --os linux -o publish
 # zip the publish folder as app.zip
 cd publish
 zip -r app.zip .

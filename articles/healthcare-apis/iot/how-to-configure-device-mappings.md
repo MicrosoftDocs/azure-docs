@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -61,6 +61,29 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
     }
 }
 ```
+
+## Device mappings validations
+
+The validation process validates the device mappings before allowing them to be saved for use. These elements are required in the device mapping templates.
+
+**Device mappings**
+
+|Element|Required|
+|:-------|:------|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|TimestampExpression|True|
+|Values[].ValueName|True|
+|Values[].ValueExpression|True|
+
+> [!NOTE]
+> `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event. 
+>
+> For example:
+> 
+> Some IoMT scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
+
 ## CollectionContentTemplate
 
 The CollectionContentTemplate is the **root** template type used by the MedTech service device mappings template and represents a list of all templates that will be used during the normalization process.
@@ -179,7 +202,7 @@ You can define one or more templates within the MedTech service device mapping. 
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing common MedTech service errors. 
 
 ## Next steps
 

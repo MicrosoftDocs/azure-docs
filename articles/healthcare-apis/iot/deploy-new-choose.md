@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/10/2023
+ms.date: 1/18/2023
 ms.author: jasteppe
 ---
 
@@ -27,7 +27,7 @@ In this quickstart, you'll learn about these deployment methods:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
-To learn more about deploying the MedTech service including an Azure IoT Hub using an ARM template and the **Deploy to Azure** button, see [Receive device messages through Azure IoT Hub](device-data-through-iot-hub.md).
+To learn more about deploying the MedTech service including an Azure IoT Hub using an ARM template and the **Deploy to Azure** button, see [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md).
 
 ## ARM template using the Deploy to Azure button
 

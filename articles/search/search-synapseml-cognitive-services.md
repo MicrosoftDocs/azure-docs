@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/28/2022
+ms.date: 02/01/2023
 ---
 
 # Tutorial: Index large data from Apache Spark using SynapseML and Cognitive Search
@@ -40,11 +40,11 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 
 <sup>1</sup> This link resolves to a tutorial for loading the package.
 
-<sup>2</sup> You can use the free tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For non-free tiers, you'll need to provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
+<sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For non-free tiers, you'll need to provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
 
-<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
+<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions that follow, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
 
-<sup>4</sup> This link resolves to an Azure Databricks tutorial. Azure Databricks provides the Spark computing platform. The Azure Databricks article listed in the prerequisites includes multiple steps. For this tutorial, follow only the instructions in "Create a workspace".
+<sup>4</sup> In this tutorial, Azure Databricks provides the Spark computing platform and the instructions in the link will tell you how to set up the workspace. For this tutorial, we used the portal steps in "Create a workspace".
 
 > [!NOTE]
 > All of the above Azure resources support security features in the Microsoft Identity platform. For simplicity, this tutorial assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
@@ -258,7 +258,7 @@ url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-
 requests.post(url, json={"search": "door", "count": "true", "select": "Description, Translations"}, headers={"api-key": search_key}).json()
 ```
 
-The following screenshot shows the cell output for above script.
+The following screenshot shows the cell output for sample script.
 
 :::image type="content" source="media/search-synapseml-cognitive-services/query-results.png" alt-text="Screenshot of query results showing the count, search string, and return fields." border="true":::
 
