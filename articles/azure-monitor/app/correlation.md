@@ -159,7 +159,15 @@ For a reference, you can find the OpenCensus data model on [this GitHub page](ht
 
 OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will correlate automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request.
 
-**Sample Flask application**
+Explore this sample Flask application. Install Flask, OpenCensus, and the extensions for Flask and Azure.
+
+```shell
+
+pip install flask opencensus opencensus-ext-flask opencensus-ext-azure
+
+```
+
+**Sample Flask Application**
 
 ```python
 from flask import Flask
@@ -170,7 +178,9 @@ from opencensus.trace.samplers import ProbabilitySampler
 app = Flask(__name__)
 middleware = FlaskMiddleware(
     app,
-    exporter=AzureExporter(),
+    exporter=AzureExporter(
+        connection_string='<appinsights-connection-string>', # or set environment variable APPLICATION_INSIGHTS_CONNECTION_STRING
+    ), 
     sampler=ProbabilitySampler(rate=1.0),
 )
 
