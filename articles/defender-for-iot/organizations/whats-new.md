@@ -65,7 +65,7 @@ For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, 
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 
-For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors).
 
 ### Azure connectivity status shown on OT sensors
 

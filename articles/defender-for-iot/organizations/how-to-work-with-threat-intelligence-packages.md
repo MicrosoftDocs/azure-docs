@@ -2,6 +2,7 @@
 title: Maintain threat intelligence packages on OT network sensors - Microsoft Defender for IoT
 description: Learn how to maintain threat intelligence packages on OT network sensors.ms.date: 02/09/2023
 ms.topic: how-to
+ms.date: 08/02/2023
 ---
 # Maintain threat intelligence packages on OT network sensors
 

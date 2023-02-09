@@ -148,9 +148,7 @@ This procedure describes how to send a software version update to one or more OT
 
     :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 
-1. In the **Send package** pane that appears on the right, check to make sure that you're sending the correct software to the sensor you want to update. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
-
-    To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+1. In the **Send package** pane that appears on the right, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
 1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column.
 
