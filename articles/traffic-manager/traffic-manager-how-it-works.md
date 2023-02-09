@@ -37,7 +37,7 @@ To achieve this configuration, they complete the following steps:
 3. Configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
 
 > [!IMPORTANT]
-> Only one Azure [tenant ID + subscription ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use will display an error. In the following example, the root DNS name is **contoso**. If a profile is created using a dot-separated name, such as **partners.contoso**, then **contoso** is automatically reserved as the root DNS name.
+> Only one Azure [tenant ID + subscription ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use will display an error. In the following example, the root DNS name is **contoso**. If a profile is created using a dot-separated name, such as **partners.contoso.trafficmanager.net**, then **contoso.trafficmanager.net** is automatically reserved.
 
 ![Traffic Manager DNS configuration][1]
 
