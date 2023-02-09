@@ -220,7 +220,7 @@ A binding is added to the `bindings` array in your function.json, which should l
 
 # [v2](#tab/v2)
 
-TBD
+Binding attributes are defined directly in the *function_app.py* file. You use the queue_output decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python##azure-cosmos-db-output-binding).
 
 ---
 
