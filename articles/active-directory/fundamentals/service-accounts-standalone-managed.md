@@ -30,7 +30,7 @@ In Active Directory (AD), sMSAs are tied to a server that runs a service. You ca
 
 sMSAs have greater security than user accounts used as service accounts. They help reduce administrative overhead:
 
-* Set strong passwords - sMSAs use 240-byte, randomly generated complex passwords
+* Set strong passwords - sMSAs use 240 byte, randomly generated complex passwords
   * The complexity minimizes the likelihood of compromise by brute force or dictionary attacks
 * Cycle passwords regularly - Windows changes the sMSA password every 30 days. 
   * Service and domain administrators don’t need to schedule password changes or manage the associated downtime
@@ -47,7 +47,7 @@ Use sMSAs to simplify management and security tasks. sMSAs are useful when servi
 > [!NOTE] 
 > You can use sMSAs for more than one service, but it's recommended that each service has an identity for auditing. 
 
-If the software creator can’t tell you if the applicaiton uses an MSA, test the application. Create a test environment and ensure it accesses required resources. 
+If the software creator can’t tell you if the application uses an MSA, test the application. Create a test environment and ensure it accesses required resources. 
 
 Learn more: [Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting)
 
