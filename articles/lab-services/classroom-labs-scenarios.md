@@ -56,4 +56,4 @@ A student or training attendee registers to the lab by using the registration li
 
 ## Next steps
 
-- To get started by creating a lab plan, follow the steps in [Tutorial: Setup a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- Get started by following the steps in the tutorial [Set up a lab for classroom training](./tutorial-setup-lab-plan.md).
