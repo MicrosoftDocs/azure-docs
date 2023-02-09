@@ -1,0 +1,129 @@
+Event Grid provides out of the box support for Azure Functions, making it easy to set up an event listener without the need to deal with the complexity of parsing headers or debugging webhooks. With this out of the box trigger we will set up an Azure Function that will run each time an event is detected that matches the trigger. In this document we will be focusing on SMS received triggers.
+
+## Setting up our local environment
+
+1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+2. With the extension, create an Azure Function following these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node).
+
+   Configure the function with the following instructions:
+   - Language: Typescript
+   - Template: Azure Event Grid Trigger
+   - Function Name: User defined
+
+    Once created, you will see a function created in your directory like this:
+
+    ```javascript
+    
+    import { AzureFunction, Context } from "@azure/functions"
+
+    const eventGridTrigger: AzureFunction = async function (context: Context, eventGridEvent: any): Promise<void> {
+        context.log(eventGridEvent);
+
+    };
+    
+    export default eventGridTrigger;
+
+    ```
+
+## Configure Azure Function to receive SMS event
+
+1. Configure Azure Function to parse values from the event like who sent it, to what number and what the message was.
+
+     ```javascript
+    
+    import { AzureFunction, Context } from "@azure/functions"
+
+    const eventGridTrigger: AzureFunction = async function (context: Context, eventGridEvent: any): Promise<void> {
+        context.log(eventGridEvent);
+        const to = eventGridEvent['data']['to'];
+        const from = eventGridEvent['data']['from'];
+        const message = eventGridEvent['data']['message'];
+
+        context.log(to);
+        context.log(from);
+        context.log(message);
+
+    };
+    
+    export default eventGridTrigger;
+
+    ```
+
+At this point you have successfully handled receiving an SMS through events. Now the possibilities of what to do with that event range from just logging it to responding to it. In the next section will will look at the second option. If you don't want to do this, skip to the next section on running the function locally.
+
+## Responding to the SMS
+
+1. To respond to the incoming SMS, we will leverage the Azure Communication Service SMS capabilities for sending SMS. We will start by invoking the `SmsClient` and initializing it with the `connection string` for our resource. THen we will compose an SMS to send based on the `to` and `from` values from the event we got. (We will flip those.)
+
+    ```javascript
+    import { AzureFunction, Context } from "@azure/functions"
+    import { SmsClient } from "@azure/communication-sms";
+    
+    const connectionString = process.env.ACS_CONNECTION_STRING; //Replace with your connection string
+    
+    const eventGridTrigger: AzureFunction = async function (context: Context, eventGridEvent: any): Promise<void> {
+        context.log(eventGridEvent);
+        const to = eventGridEvent['data']['to'];
+        const from = eventGridEvent['data']['from'];
+        const message = eventGridEvent['data']['message'];
+    
+        context.log(to);
+        context.log(from);
+        context.log(message);
+    
+        const smsClient = new SmsClient(connectionString);
+    
+        context.log(smsClient);
+    
+        const sendResults = await smsClient.send({
+            from: to,
+            to: [from],
+            message: "Message received successfully. Will respond shortly."
+        });
+    
+        context.log(sendResults);
+    
+    };
+    
+    export default eventGridTrigger;
+    ```
+
+From here the possibilities are endless. From responding to a message with a pre-canned answer, to adding a bot or simply storing responses, you can adapt the code above to do that.
+
+## Running locally
+
+To run the function locally, you will simply press `F5` in Visual Studio Code. We will use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+
+1. Once the function is running, we will configure ngrok. (You will need to [download ngrok](https://ngrok.com/download) for your environment.)
+
+   ```bash
+
+    ngrok http 7071
+
+    ```
+
+    Copy the ngrok link provided where your function is running.
+
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We will do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You will need the resource id for your Azure Communication Services resource found in the Azure Portal.
+
+    ```bash
+
+    az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.SMSReceived 
+
+    ```
+
+3. Now that everything is hooked up, test the flow by sending an SMS to the phone number you have on your Azure Communication Services resource. You should see the console logs on your terminal where the function is running. If you added the code to respond to the SMS, you should see that text message delivered back to you.
+
+## Deploy to Azure
+
+To deploy the Azure Function to Azure, you will need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we will configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we will run a similar command as above:
+
+```bash
+
+az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type azurefunction --endpoint "<<AZ FUNCTION URL>> " --source-resource-id "<<RESOURCE_ID>>"
+
+```
+
+Since this is an update to the previous command we ran, make sure to use the same event subscription name you used above.
+
+You can test as above, by sending an SMS to the phone number you have procured through Azure Communication Services resource.
