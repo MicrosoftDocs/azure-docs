@@ -24,7 +24,7 @@ Azure Communications Gateway doesn't support [Customer Lockbox for Microsoft Azu
 
 Azure Communications Gateway stores all data at rest securely, including any customer data that has to be temporarily stored, such as call records.  It uses standard Azure infrastructure, with platform-managed encryption keys, to provide server-side encryption compliant with a range of security standards including FedRAMP. For more information, see [encryption of data at rest](../security/fundamentals/encryption-overview.md).
 
-## Encryption in Transit
+## Encryption in transit
 
 All traffic handled by Azure Communications Gateway is encrypted. This encryption is used between Azure Communications Gateway components and towards Microsoft Teams. SIP and HTTP traffic is encrypted using TLS. Media traffic is encrypted using SRTP. When encrypting traffic to send to your network, Azure Communications Gateway will attempt to use TLSv1.3, falling back to TLSv1.2 should that fail. The following cipher suites are used for encrypting SIP and RTP:
 
