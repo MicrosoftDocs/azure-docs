@@ -2,8 +2,8 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: garchiro7
-manager: anujbh
+author: iaulakh
+manager: james.cheng
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/09/2023
