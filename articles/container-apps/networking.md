@@ -196,7 +196,7 @@ There's no forced tunneling in Container Apps routes.
 ## DNS
 -	**Custom DNS**: If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment won't function.
 
--	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](./ingress.md#configuration) in an internal Container Apps environment, configure your domains in one of the following ways:
+-	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](./ingress.md#configure-ingress) in an internal Container Apps environment, configure your domains in one of the following ways:
 
     1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 

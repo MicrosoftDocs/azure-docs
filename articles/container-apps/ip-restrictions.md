@@ -9,10 +9,9 @@ ms.date: 02/10/2023
 ms.author: vbcatherine
 ---
 
-
 # <a name="ip-access-restrictions"></a>Set up IP restrictions to inbound access restrictions by IP address ranges (preview)
 
-By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
+By default, ingress doesn't filter traffic. You can add ip restrictions to limit inbound access to your container app. There are two ways to filter inbound traffic:
 
 * **Allowlist**:  Deny all inbound traffic, but allow access from a list of IP address ranges
 * **Denylist**: Allow all inbound traffic, but deny access from a list of IP address ranges

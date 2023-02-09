@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 02/12/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -14,7 +14,8 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Ingress is a feature that works on a set of configurable rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
 
->[!NOTE] Add diagram here
+> [!NOTE]
+> Add diagram here
 
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
@@ -55,7 +56,7 @@ With TCP ingress enabled, your container app features the following characterist
 
 ## Fully qualified domain name
 
->[!NOTE]
+> [!NOTE]
 > should we mention that there is an FQDN for each revision?
 
 With ingress enabled, your application is assigned a fully qualified domain name (FQDN). The domain name takes the following forms:
@@ -100,7 +101,7 @@ The following settings are available when configuring ingress:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `external` | Whether your ingress-enabled app is accessible outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint configured, `false` for visibility within app environment only. (default) | Yes |
+| `external` | Whether your ingress-enabled app is accessible outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 | `exposedPort` | (TCP ingress only) The port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment and can't be `80` or `443`. | A port number from `1` to `65535`. | No |
 | `transport` | The transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect HTTP/1 or HTTP/2 (default), `tcp` for TCP. | No |
@@ -109,21 +110,22 @@ The following settings are available when configuring ingress:
 > [!NOTE]
 > To disable ingress for your application, omit the `ingress` configuration property entirely.
 
+## Configure ingress
 
-## How to configure ingress
+> [!NOTE] 
+> Need information about the flags that are available in the CLI and the portal.
 
-
->[!NOTE] Need information about the flags that are available in the CLI and the portal.
-
->[!NOTE] How far do we want to go with this?  Do we want to show how to configure ingress in the portal?  In the CLI? In the ARM template?
+> [!NOTE] 
+> How far do we want to go with this?  Do we want to show how to configure ingress in the portal?  In the CLI? In the ARM template?
 
 ## HTTP headers
 
 The HTTP headers are used to pass protocol and metadata related information between client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.
 
->[!NOTE] why is X-Forwarded-Proto needed?
+> [!NOTE] 
+> why is X-Forwarded-Proto needed?
 
-The header is a contains is added to an HTTP request or response using a *name: value* format.  Container Apps  X-Forwarded-Proto (XPF) request header is used to identify the protocol that the client used to connect with the Container Apps service???. 
+The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are added to the request or response.
 
 | Header | Description | Values | Required |
 |---|---|---|---|
@@ -132,8 +134,6 @@ The header is a contains is added to an HTTP request or response using a *name: 
 ### Configure HTTP headers
 
 >[!NOTE] Add information about how to configure HTTP headers.
-
-
 > [!div class="nextstepaction"]
 > [IP restrictions](ip-restirctions.md)
 
