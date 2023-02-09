@@ -11,7 +11,7 @@ zone_pivot_groups: static-web-apps-api-protocols
 
 # Tutorial: Add a database connection in Azure Static Web Apps (preview)
 
-In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you issue REST or GraphQL commands to manipulate data without having to write any data access code. 
+In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you can issue REST or GraphQL commands to manipulate data without having to write data access code.
 
 > [!div class="checklist"]
 > * Associate a Azure SQL database to your static web app
@@ -19,17 +19,21 @@ In this tutorial, you learn to connect an Azure SQL database to your static web 
 
 ## Prerequisites
 
-To complete this tutorial, you need to have an existing Azure SQL database and static web app.
+To complete this tutorial, you need to have an existing Azure SQL database and static web app, and Azure Data Studio installed.
 
 | Resource | Description |
 |---|---|
 | [Azure Data Studio](https://aka.ms/azuredatastudio) | Data client used to create a sample table and add sample data. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started guide](getting-started.md).  |
-| [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in to [create a single database](/azure/azure-sql/database/single-database-create-quickstart). |
+| [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in to [create a single database guide](/azure/azure-sql/database/single-database-create-quickstart). |
+
+Begin by configuring your database to work with Azure Static Web Apps database connection feature.
 
 ## Configure database security
 
-1. Go to your Azure SQL Server the [Azure portal](https://portal.azure.com)
+To work in a development environment, you need to allowlist your IP address for access to the database.
+
+1. Go to your Azure SQL Server the [Azure portal](https://portal.azure.com).
 
 1. Under the *Security* section, select **Networking**.
 
@@ -38,6 +42,8 @@ To complete this tutorial, you need to have an existing Azure SQL database and s
 1. Select **Save**.
 
 ## Get database connection string
+
+Next, create an environment variable for the database connection string in an upcoming step. For now, get the connection string and set it aside in a text editor.
 
 From the Azure SQL Server window in the Azure portal
 
@@ -52,6 +58,8 @@ From the Azure SQL Server window in the Azure portal
     1. Make sure to replace the `{your_password}` placeholder in the connection string with your password.
 
 ## Create sample data
+
+Create a sample table and seed it with some sample data to match the tutorial.
 
 1. From the *Overview* window of your SQL database, select **Connect with...** to open the connection drop-down.
 
@@ -73,27 +81,31 @@ From the Azure SQL Server window in the Azure portal
 
 1. Run the following script to create a new table named *MyTestPeopleTable*.
 
-  ```sql
-  CREATE TABLE [dbo].[MyTestPeopleTable] (
-      [ID]       INT          IDENTITY (1, 1) NOT NULL,
-      [Name]     VARCHAR (25) NULL
-  );
-  ```
+    ```sql
+    CREATE TABLE [dbo].[MyTestPeopleTable] (
+        [ID]       INT          IDENTITY (1, 1) NOT NULL,
+        [Name]     VARCHAR (25) NULL
+    );
+    ```
 
-> [!NOTE]
-> The `ID` field is auto-incremented.
+    > [!NOTE]
+    > The `ID` field is auto-incremented.
 
 1. Run the following script to add data into the *MyTestPeopleTable* table.
 
-  ```sql
-  INSERT INTO [dbo].[MyTestPeopleTable] (Name)
-  VALUES ('Sunny');
-  
-  INSERT INTO [dbo].[MyTestPeopleTable] (Name)
-  VALUES ('Dheeraj');
-  ```
+    ```sql
+    INSERT INTO [dbo].[MyTestPeopleTable] (Name)
+    VALUES ('Sunny');
+    
+    INSERT INTO [dbo].[MyTestPeopleTable] (Name)
+    VALUES ('Dheeraj');
+    ```
+
+Now that you have sample data in the database, you can configure your static web app to connect to the database.
 
 ## Add environment variable to web app
+
+The next step is to configure your static web app. The first step is to save your database connection string as an environment variable.
 
 1. Open your static web app in the Azure portal.
 
@@ -107,67 +119,89 @@ From the Azure SQL Server window in the Azure portal
 
 ## Create the database configuration file
 
-Save to a folder named *db-config*.
+Now switch to your local machine to work with the files in your static web app.
 
-*staticwebapp.database.config.json*
+1. In the local repository of your static web app, create a new folder named **db-config**.
 
-```json
-{ 
-    "$schema": "dab.draft-01.schema.json", 
-    "data-source": { 
-      "database-type": "mssql", 
-      "connection-string": "@env(DATABASE_CONNECTION_STRING)" 
-    }, 
-    "runtime": { 
-      "rest": { 
-        "path": "/api" 
-      }, 
-      "graphql": { 
-        "path": "/graphql" 
-      }, 
-      "host": { 
-        "mode": "development", 
-        "cors": { 
-          "origins": ["http://localhost:4280"], 
-          "allow-credentials": true 
-        }, 
-        "authentication": { 
-          "provider": "StaticWebApps" 
-        } 
-      } 
-    }, 
-    "entities": { 
-      "People": { 
-        "source": "dbo.MyTestPeopleTable", 
-        "permissions": [ 
-          { 
-            "actions": ["*"], 
-            "role": "admin" 
-          }, 
-          { 
-            "actions": ["read"], 
-            "role": "anonymous" 
-          } 
-        ], 
-      }, 
-    } 
-  } 
-```
+1. Create a file named **staticwebapp.database.config.json** and paste in the following sample configuration file.
+
+    ```json
+    { 
+        "$schema": "dab.draft-01.schema.json", 
+        "data-source": { 
+          "database-type": "mssql", 
+          "connection-string": "@env(DATABASE_CONNECTION_STRING)" 
+        }, 
+        "runtime": { 
+          "rest": { 
+            "path": "/api" 
+          }, 
+          "graphql": { 
+            "path": "/graphql" 
+          }, 
+          "host": { 
+            "mode": "development", 
+            "cors": { 
+              "origins": ["http://localhost:4280"], 
+              "allow-credentials": true 
+            }, 
+            "authentication": { 
+              "provider": "StaticWebApps" 
+            } 
+          } 
+        }, 
+        "entities": { 
+          "People": { 
+            "source": "dbo.MyTestPeopleTable", 
+            "permissions": [ 
+              { 
+                "actions": ["*"], 
+                "role": "admin" 
+              }, 
+              { 
+                "actions": ["read"], 
+                "role": "anonymous" 
+              } 
+            ], 
+          }, 
+        } 
+      } 
+    ```
+
+Before moving on to the next step, review the following table that explains different aspects of the configuration file.
 
 | Feature | Explanation |
 |---|---|
 | Database connection | The database connection string is pulled from an environment variable named `DATABASE_CONNECTION_STRING`. |
-| API endpoint | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed via `/data-api/graphql`. |
-| API Security | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlist *http://localhost:4280*. |
-| Entity model | Entities are defined according to the document or table names. The setting `entity.<NAME>.source` points to the entity name. Notice how the API endpoint name doesn't need to be identical to the table name. |
+| API endpoint | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed through `/data-api/graphql`. |
+| API Security | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
+| Entity model | Entities are defined according to the document or table names. The setting `entity.<NAME>.source` points to the entity name. Note how the API endpoint name doesn't need to be identical to the table name. |
 | Entity security | Entity permissions are defined in `entity.<NAME>.permissions` array. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
+
+With the static web app configured to connect to the database, you can now verify the connection.
 
 ## Start the application locally
 
 Uninstall SWA CLI
 Upgrade SWA CLI
 
-`swa start /. --data-api-location db-config`
+1. Use npm to install the Static Web Apps CLI
+
+    ```bash
+    npm install -g @azure/static-web-apps-cli
+    ```
+
+1. Start the static web app with the database configuration.
+
+    ```bash
+    swa start /. --data-api-location db-config
+    ```
+
+## Manipulate data
+
+The following commands are implemented as framework-agnostic code.
+
+To run each command, open the developer tools and paste in each command into the browser's developer console window.
 
 > [!NOTE]
 > Keys sent in requests must match the database column capitalization.
