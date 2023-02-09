@@ -1,7 +1,7 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
-ms.date: 01/10/2023
+ms.date: 02/09/2023
 ms.topic: how-to
 ---
 
@@ -67,7 +67,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 Use this procedure if you're going to be updating an on-premises management console, or if you'll be updating sensor software directly from the sensor console.
 
 > [!TIP]
-> To update cloud-connected sensors directly from the Azure portal, skip to [Update your sensors](#update-your-sensors), below.
+> To update cloud-connected sensors directly from the Azure portal, skip to [Update OT sensors](#update-ot-sensors) below.
 >
 
 1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor update (Preview)**.
@@ -279,12 +279,12 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 Upgrade log files are located on the sensor machine at `/opt/sensor/logs/legacy-upgrade.log`, and are accessible to the *[cyberx_host](roles-on-premises.md#default-privileged-on-premises-users)* user via SSH.
 
-<!--do we want to keep any of the following information for legacy support? in any case, we don't provide those update packages. send to support intead?-->
+<!--do we want to keep any of the following information for legacy support? in any case, we don't provide those update packages. send to support instead?
 ## Download and apply a new activation file
 
 **Relevant only when updating from a legacy version to version 22.x or higher**
 
-This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to activate the sensor before you [update the software](#update-your-sensors).
+This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to activate the sensor before you [update the software](#update-ot-sensors).
 
 **To prepare your sensor for update**:
 
@@ -337,6 +337,8 @@ In such cases:
 1. Verify that your sensors are connected successfully.
 
 1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
+
+-->
 
 ## Next steps
 

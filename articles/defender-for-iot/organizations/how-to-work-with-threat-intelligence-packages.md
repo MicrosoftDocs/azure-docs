@@ -4,6 +4,8 @@ description: Learn how to maintain threat intelligence packages on OT network se
 ms.topic: how-to
 ms.date: 08/02/2023
 ---
+
+
 # Maintain threat intelligence packages on OT network sensors
 
 Microsoft security teams continually run proprietary ICS threat intelligence and vulnerability research. Security research provides security detection, analytics, and response to Microsoft's cloud infrastructure and services, traditional products and deices, and internal corporate resources.
