@@ -17,6 +17,8 @@ Azure Lab Services enables you to create labs, whose infrastructure is managed b
 
 A lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes.
 
+:::image type="content" source="./media/quick-create-resources/lab-services-process-lab-plan.png" alt-text="Diagram that shows the steps for creating a lab with Azure Lab Services, highlighting Create a lab plan.":::
+
 After you complete this quickstart, you'll have a lab plan that you can use for other tutorials.
 
 ## Prerequisites

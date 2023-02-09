@@ -17,7 +17,9 @@ Azure Lab Services enables you to create labs, whose infrastructure is managed b
 
 To create the lab VM, you first create a lab plan in the Azure portal, and use the Azure Lab Services website to add a lab based on an Azure Marketplace VM image. After you publish the VM, you can then register for the lab and connect to it by using remote desktop.
 
-After you complete this quickstart, you'll have a lab plan that you can use for other tutorials.
+:::image type="content" source="./media/quick-create-windows-lab/lab-services-process-windows-lab.png" alt-text="Diagram that shows the steps for creating a lab with Azure Lab Services, highlighting Create a lab plan, create lab, publish lab, and connect to lab.":::
+
+After you complete this quickstart, you'll have a lab that you can connect to and use for your own experimentation, or you can invite other lab users.
 
 ## Prerequisites
 
