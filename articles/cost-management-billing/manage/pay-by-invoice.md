@@ -147,7 +147,7 @@ Payments made by wire transfer have processing times that vary, depending on the
 - Wire transfers (domestic) - Four business days. Two days to arrive, plus two days to post.
 - Wire transfers (international) - Seven business days. Five days to arrive, plus two days to post.
 
-If your account is approved for payment by check or wire transfer, the instructions for payment can are found on the invoice.
+If your account is approved for payment by check or wire transfer, the instructions for payment can be found on the invoice.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
