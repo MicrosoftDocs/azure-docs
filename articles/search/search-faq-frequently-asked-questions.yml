@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Cognitive Search support vector search?
         answer: |
-          No. Cognitive Search runs on a version of Apache Lucene that doesn't support vector search.
+          No. Currently, Cognitive Search runs on a version of Apache Lucene that doesn't support vector search.
 
       - question: |
           How do I work with Cognitive Search?
