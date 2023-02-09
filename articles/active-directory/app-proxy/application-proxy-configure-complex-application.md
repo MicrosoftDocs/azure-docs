@@ -65,11 +65,11 @@ To publish complex distributed app through Application Proxy with application se
 
 1. On the Application Proxy Basic settings page, select "Add application segments".
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segments.png" alt-text="Add application segment.":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segments.png" alt-text="Screenshot of link to add an application segment.":::
 
 3. On the Manage and configure application segments page, select "+ Add app segment"
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Add and manage application segment.":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Screenshot pf Manage and configure application segment blade.":::
 
 4. In the Internal Url field, enter the internal URL for your app.
 
@@ -79,7 +79,7 @@ To publish complex distributed app through Application Proxy with application se
 
 7. Select Create.
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/create-app-segment.png" alt-text="create application segment":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/create-app-segment.png" alt-text="Screenshot of add or edit application segment context plane.":::
 
 Your application is now set up to use the configured application segments. Be sure to assign users to your application before you test or release it.
 
