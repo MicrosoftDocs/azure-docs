@@ -102,7 +102,7 @@ If you have a working Stream Analytics project in the local machine, follow the 
 
     The default value for all metric threshold is **70**. If you want to set the metric threshold to another number, open **\*.AutoscaleSettingTemplate.parameters.json** file and change the **Threshold** value. 
 
-    ![Screenshot showing how to set metric threshold in parameter files.](./media/cicd-autoscale/set-metric-threshold.png)
+    ![Screenshot showing how to set metric threshold in parameter file.](./media/cicd-autoscale/set-metric-threshold.png)
     
     To learn more about defining autoscale rules, visit [here](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings).
     
