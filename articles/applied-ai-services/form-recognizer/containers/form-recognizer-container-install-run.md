@@ -1,5 +1,5 @@
 ---
-title: Install and run Docker containers for Form Recognizer v2.1
+title: Install and run Docker containers for Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Use the Docker containers for Form Recognizer on-premises to identify and extract key-value pairs, selection marks, tables, and structure from forms and documents.
 author: laujan
