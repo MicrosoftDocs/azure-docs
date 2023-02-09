@@ -267,9 +267,7 @@
         - name: CEF/Syslog options
           href: connect-cef-syslog-options.md
         - name: CEF via AMA
-          href: connect-cef-ama.md
-        - name: Syslog via AMA
-          href: /azure-monitor/essentials/data-collection-rule-overview
+          href: connect-cef-ama.md        
         - name: CEF and Syslog
           href: connect-cef-syslog-options.md
         - name: CEF over Syslog sources (legacy)
