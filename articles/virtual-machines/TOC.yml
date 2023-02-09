@@ -1836,7 +1836,6 @@
     href: monitor-vm.md?context=/azure/virtual-machines/context/context
   - name: Monitor virtual machine reference
     href: monitor-vm-reference.md?context=/azure/virtual-machines/context/context
-  - name: 
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
   - name: Tutorials
@@ -1849,20 +1848,20 @@
       href: ../azure-monitor/vm/tutorial-monitor-vm-enable-insights.md?context=/azure/virtual-machines/context/context
     - name: Collect guest logs and metrics
       href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=/azure/virtual-machines/context/context
-    - name: Monitor virtual machines guide
-      items:
-      - name: Overview
-        href: ../azure-monitor/vm/monitor-virtual-machine.md
-      - name: Deploy agents
-        href: ../azure-monitor/vm/monitor-virtual-machine-agent.md
-      - name: Collect data
-        href: ../azure-monitor/vm/monitor-virtual-machine-data-collection.md
-      - name: Analyze data
-        href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md
-      - name: Create alerts
-        href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md
-      - name: Migrate management pack logic
-        href: ../azure-monitor/vm/monitor-virtual-machine-management-packs.md
+  - name: Monitor virtual machines guide
+    items:
+    - name: Overview
+      href: ../azure-monitor/vm/monitor-virtual-machine.md
+    - name: Deploy agents
+      href: ../azure-monitor/vm/monitor-virtual-machine-agent.md
+    - name: Collect data
+      href: ../azure-monitor/vm/monitor-virtual-machine-data-collection.md
+    - name: Analyze data
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md
+    - name: Create alerts
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md
+    - name: Migrate management pack logic
+      href: ../azure-monitor/vm/monitor-virtual-machine-management-packs.md
   - name: VM insights
     href: ../azure-monitor/vm/vminsights-overview.md
   - name: Azure Monitor Agent
