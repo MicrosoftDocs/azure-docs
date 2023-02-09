@@ -14,7 +14,7 @@ ms.author: dademath
 ---
 
 
-Event Grid provides out of the box support for Azure Functions, making it easy to set up an event listener without the need to deal with the complexity of parsing headers or debugging webhooks. With this out of the box trigger we will set up an Azure Function that will run each time an event is detected that matches the trigger. In this document we will be focusing on SMS received triggers.
+Event Grid provides out of the box support for Azure Functions, making it easy to set up an event listener without the need to deal with the complexity of parsing headers or debugging webhooks. With this out of the box trigger, we can set up an Azure Function that runs each time an event is detected that matches the trigger. In this document we focus on SMS received triggers.
 
 ## Setting up our local environment
 
@@ -26,7 +26,7 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
    - Template: Azure Event Grid Trigger
    - Function Name: User defined
 
-    Once created, you will see a function created in your directory like this:
+    Once created, you see a function created in your directory like this:
 
     ```javascript
     
@@ -65,11 +65,11 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
 
     ```
 
-At this point you have successfully handled receiving an SMS through events. Now the possibilities of what to do with that event range from just logging it to responding to it. In the next section will will look at the second option. If you don't want to do this, skip to the next section on running the function locally.
+At this point you have successfully handled receiving an SMS through events. Now the possibilities of what to do with that event range from just logging it to responding to it. In the next section, we focus on responding to that SMS we received. If you don't want to do this, skip to the next section on running the function locally.
 
 ## Responding to the SMS
 
-1. To respond to the incoming SMS, we will leverage the Azure Communication Service SMS capabilities for sending SMS. We will start by invoking the `SmsClient` and initializing it with the `connection string` for our resource. THen we will compose an SMS to send based on the `to` and `from` values from the event we got. (We will flip those.)
+1. To respond to the incoming SMS, we leverage the Azure Communication Service SMS capabilities for sending SMS. We start by invoking the `SmsClient` and initializing it with the `connection string` for our resource. Then we compose an SMS to send based on the `to` and `from` values from the event we got.
 
     ```javascript
     import { AzureFunction, Context } from "@azure/functions"
@@ -108,9 +108,9 @@ From here the possibilities are endless. From responding to a message with a pre
 
 ## Running locally
 
-To run the function locally, you will simply press `F5` in Visual Studio Code. We will use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+To run the function locally, Simply press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
 
-1. Once the function is running, we will configure ngrok. (You will need to [download ngrok](https://ngrok.com/download) for your environment.)
+1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
 
    ```bash
 
@@ -120,7 +120,7 @@ To run the function locally, you will simply press `F5` in Visual Studio Code. W
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We will do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You will need the resource id for your Azure Communication Services resource found in the Azure Portal.
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource id for your Azure Communication Services resource found in the Azure Portal.
 
     ```bash
 
@@ -132,7 +132,7 @@ To run the function locally, you will simply press `F5` in Visual Studio Code. W
 
 ## Deploy to Azure
 
-To deploy the Azure Function to Azure, you will need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we will configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we will run a similar command as above:
+To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure Portal under the function), we run a similar command as above:
 
 ```bash
 
