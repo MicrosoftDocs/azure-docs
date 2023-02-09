@@ -290,23 +290,78 @@ Rule 4:
 
 Select **Refresh** to review all rules when provisioning is complete.
 
---image
+ [ ![View example inbound security group rules](./media/application-gateway-private-deployment/inbound-example.png) ](./media/application-gateway-private-deployment/inbound-example.png#lightbox)
 
-Similarly, we will select Outbound security rules and create the following three rules:
--	Allow TCP 443 from 10.2.0.0/24
-o	10.2.0.0/24 being the address space of the Application Gateway subnet
--	Allow TCP source 10.2.0.0/24 destination 10.13.0.4
-o	10.2.0.0/24 being the address space of the Application Gateway subnet
-o	10.13.0.3 being a virtual machine in a peered vnet
+Next, create the following outbound security rules:
 
---image
+- Allow TCP 443 from 10.10.4.0/24 to backend target 20.62.8.49
+- Allow TCP 80 from source 10.10.4.0/24 to destination 10.13.0.4
+- DenyAll traffic rule
 
-The last step is to associate the network security group to the subnet Application Gateway resides: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#associate-network-security-group-to-subnet
+These rules are assigned a priority of 400 and 401, above the three default outbound rules with priority 65000, 65001, and 65500.
+
+> [!NOTE]
+> - 10.10.4.0/24 is the Application Gateway subnet address space.
+> - 10.13.0.4 is a virtual machine in a peered VNet.
+> - 20.63.8.49 is a backend target VM.
+
+To create these rules: 
+- Select **Outbound security rules**
+- Select **Add**
+- Enter the information below for each rule into the **Add outbound security rule** pane. 
+- When you have entered the information, select **Add** to create the rule. 
+- Creation of each rule will take a moment.
+
+Rule 1:
+ - Source: IP Addresses
+ - Source IP addresses/CIDR ranges: 10.10.4.0/24 
+ - Source port ranges: *
+ - Destination: IP Addresses
+ - Destination IP addresses/CIDR ranges: 20.63.8.49
+ - Service: HTTPS
+ - Destination port ranges: 443
+ - Protocol: TCP
+ - Action: Allow
+ - Priority: 400
+ - Name: AllowToBackendTarget
+
+Rule 2:
+ - Source: IP Addresses
+ - Source IP addresses/CIDR ranges: 10.10.4.0/24 
+ - Source port ranges: *
+ - Destination: IP Addresses
+ - Destination IP addresses/CIDR ranges: 10.13.0.4
+ - Service: HTTP
+ - Destination port ranges: 80
+ - Protocol: TCP
+ - Action: Allow
+ - Priority: 401
+ - Name: AllowToPeeredVnetVM
+
+ Rule 3:
+ - Source: Any
+ - Source port ranges: *
+ - Destination: Any
+ - Service: Custom
+ - Destination port ranges: *
+ - Protocol: Any
+ - Action: Deny
+ - Priority: 4096
+ - Name: DenyAll
+
+Select **Refresh** to review all rules when provisioning is complete.
+
+[ ![View example outbound security group rules](./media/application-gateway-private-deployment/outbound-example.png) ](./media/application-gateway-private-deployment/outbound-example.png#lightbox)
+
+The last step is to [associate the network security group to the subnet](../virtual-network/tutorial-filter-network-traffic.md#associate-network-security-group-to-subnet) that contains your Application Gateway.
+
+![Associate NSG to subnet](./media/application-gateway-private-deployment/nsg-subnet.png)
+
 Result:
 
---image
+[ ![View the NSG overview](./media/application-gateway-private-deployment/nsg-overview.png) ](./media/application-gateway-private-deployment/nsg-overview.png#lightbox)
 
-  Be careful when defining DenyAll rules as you may inadvertently deny inbound traffic from clients you intend to allow access to; or similarly, you may inadvertently deny outbound traffic to the backend target, causing backend health to fail, ultimately leading to 5XX responses.
+> [!IMPORTANT] Be careful when defining **DenyAll** rules as you may inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
 
 ## Route Table Control
 
