@@ -62,6 +62,8 @@ Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ E
 
 5. Servers configured with logical replication slots aren't supported. 
 
+6. MVU is currently not supported for PgBouncer enabled servers.
+
 ## How to Perform in-place major version upgrade: 
 
 It's recommended to perform a dry run of the in-place major version upgrade in a non-production environment before upgrading the production server. It allows you to identify any application incompatibilities and validate that the upgrade completes successfully before upgrading the production environment. You can perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment. Addressing these issues before the production upgrade minimizes downtime and ensures a smooth upgrade process. 
