@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/17/2022
+ms.date: 02/10/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,6 +27,9 @@ recommendations: false
 
     > [!NOTE]
     > We will also use a Python built-in package called json. It's used to work with JSON data.
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
 
 ## Translate all documents in a storage container
 
@@ -109,3 +112,6 @@ for key, value in response_headers.items():
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 * The translated documents will be listed in your target container.
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue translating documents.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
