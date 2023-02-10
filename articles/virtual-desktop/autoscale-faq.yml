@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
-  ms.date: 04/14/2022
+  ms.date: 02/09/2023
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
@@ -99,3 +99,8 @@ sections:
          Does autoscale consider availability zones during scaling operations if session hosts are created in multiple zones within a region?
         answer: |
          No. Autoscale does not know what availability zone a VM was created in and so may not perform scaling operations across all zones equally. 
+
+      - question: |
+         Can autoscale turn off all VMs in a host pool and still work properly?
+        answer: |
+         Autoscale can turn off all VMs in a host pool if the minimum percentage of hosts is set to 0% and there are no active user sessions in the host pool. However, if the last session host that’s been turned on in the host pool still has active user sessions on it, those users won’t be forced to sign out. The final VM won’t turn off until after those users sign out.
