@@ -7,13 +7,13 @@ ms.subservice: forms-recognizer
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 01/23/2023
+ms.date:02/10/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
 
-# Use Form Recognizer containers in disconnected environments
+# Form Recognizer containers in disconnected environments
 
 **This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
