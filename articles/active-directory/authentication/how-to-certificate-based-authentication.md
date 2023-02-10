@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 02/09/2023
 
 ms.author: justinha
 author: justinha
@@ -128,6 +128,9 @@ For more information, see [Understanding the certificate revocation process](./c
 [!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
 ## Step 2: Enable CBA on the tenant
+
+>[!IMPORTANT]
+>A user is considered capable for MFA when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
 
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 

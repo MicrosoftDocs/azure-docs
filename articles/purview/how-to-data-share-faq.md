@@ -56,7 +56,7 @@ You can access shared data from storage clients, Azure Synapse Analytics Spark a
 
 ## Does the recipient of the share need to be a user's email address or can I share data with an application?
 
-Through the UI, you can only share data with recipient's Azure sign in email. 
+Through the UI, you can share data with recipient's Azure sign in email or using service principal's object ID and tenant ID. 
 
 Through API and SDK, you also send invitation to object ID of a user principal or service principal. Also, you can optionally specify a tenant ID for which you want the share to be received into.  
 
