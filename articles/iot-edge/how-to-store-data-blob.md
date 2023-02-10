@@ -198,6 +198,8 @@ You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storag
 1. Download and install Azure Storage Explorer
 
 1. Connect to Azure Storage using a connection string
+   > [!NOTE]
+   > The latest version of Azure Storage Explorer uses a newer storage API version by default than the blob storage module supports. After Storage Explorer starts, select the Edit menu, and check to see if Target Azure Stack Hub APIs is selected. If it isn't, select Target Azure Stack Hub, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your IoT Edge environment.
 
 1. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
