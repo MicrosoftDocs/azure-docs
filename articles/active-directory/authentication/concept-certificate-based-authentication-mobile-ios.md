@@ -1,23 +1,40 @@
 ---
-title: Azure Active Directory certificate-based authentication on iOS devices - Azure Active Directory
-description: Learn about Azure Active Directory certificate-based authentication on iOS devices
+title: Azure Active Directory certificate-based authentication on Apple devices - Azure Active Directory
+description: Learn about Azure Active Directory certificate-based authentication on Apple devices that run macOS or iOS
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 02/09/2023
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on iOS
+# Azure Active Directory certificate-based authentication on Apple devices 
 
+This topic covers Azure Active Directory (Azure AD) certificate-based authentication (CBA) support for macOS and iOS devices.
+
+## Azure Active Directory certificate-based authentication on macOS devices
+
+Devices that run macOS can use CBA to authenticate against Azure AD by using their X.509 client certificate. Azure AD CBA is supported with certificates on-device and external hardware protected security keys. On macOS, Azure AD CBA is supported on all browsers and on Microsoft first-party applications.
+
+**Browsers supported on macOS**
+
+|Edge | Chrome | Safari | Firefox |
+|--------|---------|------|-------|
+|&#x2705; |&#x2705; | &#x2705; |&#x2705; |
+
+**macOS device sign in with Azure AD CBA**
+
+Azure AD CBA today is not supported for device based sign into macOS machines. While the certificate used to sign-into the device may be the same certificate used to subsequently authenticate to Azure AD from a browser/desktop application, the device sign-in itself is not supported against Azure AD yet. 
+
+## Azure Active Directory certificate-based authentication on iOS devices
 Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
@@ -25,16 +42,16 @@ Devices that run iOS can use certificate-based authentication (CBA) to authentic
 
 Azure AD CBA is supported for certificates on-device on native browsers and on Microsoft first-party applications on iOS devices. 
 
-## Prerequisites
+### Prerequisites
 
 - iOS version must be iOS 9 or later.
 - Microsoft Authenticator is required for Office applications and Outlook on iOS.
 
-## Support for on-device certificates and external storage
+### Support for on-device certificates and external storage
 
 On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. Since iOS doesn't support hardware protected keys out of the box, customers can use external storage devices for certificates.
 
-## Supported platforms
+### Supported platforms
 
 - Only native browsers are supported 
 - Applications using latest MSAL libraries or Microsoft Authenticator can do CBA
@@ -47,7 +64,7 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 |--------|---------|------|-------|
 |&#10060; | &#10060; | &#x2705; |&#10060; |
 
-## Microsoft mobile applications support
+### Microsoft mobile applications support
 
 | Applications | Support | 
 |:---------|:------------:|
@@ -63,7 +80,7 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 |Word / Excel / PowerPoint	 |  &#x2705; |
 |Yammer	 |  &#x2705; |
 
-## Support for Exchange ActiveSync clients
+### Support for Exchange ActiveSync clients
 
 On iOS 9 or later, the native iOS mail client is supported. 
 
@@ -74,7 +91,7 @@ To determine if your email application supports Azure AD CBA, contact your appli
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. 
 Microsoft's mobile certificate-based solution coupled with the hardware security keys is a simple, convenient, FIPS (Federal Information Processing Standards) certified phishing-resistant MFA method. 
 
-As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 will see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or 3rd party apps. Azure AD CBA will work on these USB-A or USB-C, or Lightning connected CCID-compliant smart cards. 
+As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 will see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or third-party apps. Azure AD CBA will work on these USB-A or USB-C, or Lightning connected CCID-compliant smart cards. 
 
 
 ### Advantages of certificates on hardware security key 
