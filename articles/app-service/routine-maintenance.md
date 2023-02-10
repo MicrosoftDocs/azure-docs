@@ -27,7 +27,7 @@ Since a typical cloud solution consists of multiple applications, databases, sto
 
 [Safe deployment practices - Azure DevOps | Microsoft Learn](/devops/operate/safe-deployment-practices)
 
-:::image type="content" source="./media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure Portal":::
+:::image type="content" source="./media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure Portal.":::
 
 In order from top to bottom we see:
 - A descriptive title of the maintenance event
