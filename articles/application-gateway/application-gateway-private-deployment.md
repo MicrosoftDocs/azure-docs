@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 02/10/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -26,7 +26,7 @@ Application Gateway v2 can now address each of these items to further eliminate 
 1. Private IP address only frontend IP configuration
    - No public IP address resource required
 2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
-3. Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet
+3. Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
 4. Ability to override the default route to the internet (0.0.0.0/0)
 5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
@@ -206,7 +206,7 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 
 ## Network Security Group Control
 
-Network security groups (NSGs) associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
+Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
 The following is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
@@ -225,7 +225,11 @@ This example will walk through creation of an NSG using the Azure portal with th
 - Allow outbound traffic to a backend target that is Internet accessible
 - Deny all other outbound traffic
 
-First, [create a network security group](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). Three inbound [default rules](../virtual-network/network-security-groups-overview.md#default-security-rules) are created with the security group. See the following example:
+First, [create a network security group](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). This security group will contain your inbound and outbound rules.
+
+#### Inbound rules
+
+Three inbound [default rules](../virtual-network/network-security-groups-overview.md#default-security-rules) are already provisioned in the security group. See the following example:
 
  [ ![View default security group rules](./media/application-gateway-private-deployment/default-rules.png) ](./media/application-gateway-private-deployment/default-rules.png#lightbox)
 
@@ -292,13 +296,17 @@ Select **Refresh** to review all rules when provisioning is complete.
 
  [ ![View example inbound security group rules](./media/application-gateway-private-deployment/inbound-example.png) ](./media/application-gateway-private-deployment/inbound-example.png#lightbox)
 
-Next, create the following outbound security rules:
+#### Outbound rules
+
+Three default outbound rules with priority 65000, 65001, and 65500 are already provisioned.
+
+Create the following three new outbound security rules:
 
 - Allow TCP 443 from 10.10.4.0/24 to backend target 20.62.8.49
 - Allow TCP 80 from source 10.10.4.0/24 to destination 10.13.0.4
 - DenyAll traffic rule
 
-These rules are assigned a priority of 400 and 401, above the three default outbound rules with priority 65000, 65001, and 65500.
+These rules are assigned a priority of 400, 401, and 4096, respectively.
 
 > [!NOTE]
 > - 10.10.4.0/24 is the Application Gateway subnet address space.
@@ -353,6 +361,8 @@ Select **Refresh** to review all rules when provisioning is complete.
 
 [ ![View example outbound security group rules](./media/application-gateway-private-deployment/outbound-example.png) ](./media/application-gateway-private-deployment/outbound-example.png#lightbox)
 
+#### Associate NSG to the subnet
+
 The last step is to [associate the network security group to the subnet](../virtual-network/tutorial-filter-network-traffic.md#associate-network-security-group-to-subnet) that contains your Application Gateway.
 
 ![Associate NSG to subnet](./media/application-gateway-private-deployment/nsg-subnet.png)
@@ -370,7 +380,30 @@ In the current offering of Application Gateway, association of a route table wit
 
 After registration of the public preview feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule defining 0.0.0.0/0 with a next hop to Virtual Appliance.
 
-Forced Tunneling, learning of 0.0.0.0/0 route through BGP advertising, will not affect Application Gateway health and be honored for traffic flow. This scenario may be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
+Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising will not affect Application Gateway health, and will be honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
+
+### Example scenario
+
+In the following example, we will create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is considered:
+- The Application Gateway is in spoke virtual network
+- There is a network virtual appliance (a virtual machine) in the hub network
+- A route table with a default route (0.0.0.0/0) to the virtual pppliance is associated to Application Gateway subnet
+
+![Diagram for example route table](./media/application-gateway-private-deployment/route-table-diagram.svg)
+
+To create a route table and associate it to the Application Gateway subnet:
+
+1.	[Create a route table](../virtual-network/manage-route-table.md#create-a-route-table):
+
+ ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
+
+2.	Select **Routes** and create the next hop rule for 0.0.0.0/0 and configure the destination to be the IP address of your VM:
+
+ [ ![View of adding default route to network applicance](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
+
+3. Select **Subnets** and associate the route table to the Application Gateway subnet:
+
+ [ ![View of associating the route to the AppGW subnet](./media/application-gateway-private-deployment/associate-route-to-subnet.png) ](./media/application-gateway-private-deployment/associate-route-to-subnet.png#lightbox)
 
 ## Limitations / Known Issues
 
@@ -394,9 +427,10 @@ AGIC does not currently support private IP frontend only deployments.
 
 ### Backend Health status typo
 
-If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need an NSG and to eliminate route tables. The message to require NSG rules or eliminate the UDR is incorrect and can be ignored. This issue will be fixed in a future release.
+If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need an NSG and to eliminate route tables. The message to require NSG rules or eliminate the user-defined route (UDR) is incorrect and can be ignored. This issue will be fixed in a future release.
 
 ### Tags in Route Table Rules
+
 If a tag is defined via Route Table, this may lead to provisioning failure of Application Gateway.
 
 ## Next steps
