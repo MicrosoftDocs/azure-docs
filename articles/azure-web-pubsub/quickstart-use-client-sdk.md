@@ -42,7 +42,7 @@ Install both the .NET Core SDK and dotnet runtime.
 
 # [JavaScript](#tab/javascript)
 
-The SDK is available as an [NPM module](https://www.npmjs.com/package/@azure/web-pubsub-client)
+The SDK is available as an [npm module](https://www.npmjs.com/package/@azure/web-pubsub-client)
 
 ```bash
 npm install @azure/web-pubsub-client
@@ -66,7 +66,7 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
-![The diagram shows how to get client access url](./media/howto-websocket-connect/generate-client-url.png)
+![The diagram shows how to get client access url.](./media/howto-websocket-connect/generate-client-url.png)
 
 As shown in the diagram above, the client has the permissions to send messages to and join a specific group named `group1`.
 
