@@ -87,7 +87,7 @@ You can require that users enter a support ticket when they activate the eligibl
 
 You can require approval for activation of eligible assignment. Approver doesn’t have to be group member or owner. When using this option, you have to select at least one approver (we recommend to select at least two approvers), there are no default approvers.
 
-To learn more about approvals, see [Approve activation requests for privileged access group members and owners (preview)](groups-approval-workflow.md).
+To learn more about approvals, see [Approve activation requests for PIM for Groups members and owners (preview)](groups-approval-workflow.md).
 
 ### Assignment duration
 
