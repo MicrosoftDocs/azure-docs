@@ -541,7 +541,13 @@ Use `output-path` to configure any folder in an Azure Machine Learning registere
 
 # [Python](#tab/python)
 
-Use `output_path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. Use `output_file_name=<your-file-name>` to configure a new output file name.
+Use `params_override` to configure any folder in an Azure Machine Learning registered data store. Only registered data stores are supported as output paths. In this example we will use the default data store:
+
+```python
+batch_ds = ml_client.datastores.get_default()
+```
+
+Once you identified the data store you want to use, configure the output as follows:
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -549,30 +555,38 @@ job = ml_client.batch_endpoints.invoke(
     inputs={ 
         "input": Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist", type=AssetTypes.URI_FOLDER) 
     },
-    output_path={ 
-        "score": Input(path=f"azureml://datastores/workspaceblobstore/paths/{endpoint_name}") 
-    },
-    output_file_name="predictions.csv"
+    params_override=[
+        { "output_dataset.datastore_id": f"azureml:{batch_ds.id}" },
+        { "output_dataset.path": "/mnist-batch-results" }
+        { "output_file_name": "mnist-predictions.csv" },
+    ]
 )
 ```
 
 # [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
+
 1. Select the tab __Batch endpoints__.
+
 1. Select the batch endpoint you just created.
+
 1. Select __Create job__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
+
 1. Select __Next__.
+
 1. Check the option __Override deployment settings__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. You can now configure __Output file name__ and some extra properties of the deployment execution. Just this execution will be affected.
+
 1. On __Select data source__, select the data input you want to use.
+
 1. On __Configure output location__, check the option __Enable output configuration__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
