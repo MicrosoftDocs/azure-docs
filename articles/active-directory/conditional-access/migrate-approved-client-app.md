@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 02/10/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 In this article, you’ll learn how to migrate from the approved client app Conditional Access grant to the application protection policy grant. App protection policies provide the same data loss and protection as approved client app policies, but with other benefits. For more information about the benefits of using app protection policies, see the article [App protection policies overview](/mem/intune/apps/app-protection-policy). 
 
-The approved client app grant will be retired in March 2026. Organizations must transition all current Conditional Access policies that use only the Require Approved Client App grant to Require Approved Client App or Application Protection Policy by March 2026. Additionally, for any new Conditional Access policy, only apply the Require application protection policy grant. 
+The approved client app grant will be retired in early March 2026. Organizations must transition all current Conditional Access policies that use only the Require Approved Client App grant to Require Approved Client App or Application Protection Policy by March 2026. Additionally, for any new Conditional Access policy, only apply the Require application protection policy grant. 
 
 After March 2026, Microsoft will stop enforcing require approved client app control, and it will be as if this grant isn't selected. Use the following steps before March 2026 to protect your organization’s data. 
 
-## Edit an existing Conditional Access policy 
+## Edit an existing Conditional Access policy
 
 Require approved client apps or app protection policy with mobile devices 
 
@@ -47,7 +47,7 @@ Repeat the previous steps on all of your policies that use the approved client a
 > [!WARNING] 
 > Not all applications that are supported as approved applications or support application protection policies. For a list of some common client apps, see [App protection policy requirement](concept-conditional-access-grant#require-app-protection-policy.md). If your application is not listed there, contact the application developer. 
 
-## Create a Conditional Access policy 
+## Create a Conditional Access policy
 
 Require app protection policy with mobile devices 
 
@@ -75,7 +75,10 @@ Organizations can choose to deploy this policy using the following steps.
 
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
-## Next steps 
+> [!NOTE] 
+> If an app does not support **Require app protection policy**, end users trying to access resources from that app will be blocked.
+
+## Next steps
 
 For more information on application protection policies, see: 
 
