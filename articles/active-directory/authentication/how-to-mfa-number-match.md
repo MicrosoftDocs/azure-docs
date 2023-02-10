@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 02/09/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. We will remove the admin controls and enforce the number match experience tenant-wide for all users starting February 27, 2023.<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. We will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023.<br> 
 >We highly recommend enabling number matching in the near term for improved sign-in security. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
 
 ## Prerequisites
@@ -37,7 +37,7 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [AD FS adapter](#ad-fs-adapter)
 - [NPS extension](#nps-extension)
 
-Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching isn't supported for push notifications for Apple Watch or Android wearable devices. Wearable device users need to use their phone to approve notifications when number matching is enabled.  
 
 ### Multifactor authentication
 
