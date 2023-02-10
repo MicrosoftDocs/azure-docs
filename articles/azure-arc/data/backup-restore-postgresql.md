@@ -13,9 +13,9 @@ ms.topic: how-to
 
 # Back up and restore Azure Arc-enabled PostgreSQL servers
 
-Automated backups can be enabled by including the `--storage-class-backups` argument when creating an Azure Arc-enabled PostgreSQL server. Specify the retention period for backups with the `--retention-days` parameter, when creating or updating an Arc-enabled PostgreSQL server. The retention period can be between 0 and 35 days. If backups are enabled but no retention period is specified, the default is 7 days.
+Automated backups can be enabled by including the `--storage-class-backups` argument when creating an Azure Arc-enabled PostgreSQL server. Specify the retention period for backups with the `--retention-days` parameter, when creating or updating an Arc-enabled PostgreSQL server. The retention period can be between 0 and 35 days. If backups are enabled but no retention period is specified, the default is seven days.
 
-Restoring an Azure Arc-enable PostgreSQL server creates a new server by copying the configuration of the existing server (e.g. resource requests/limits, extensions etc.). Conflicting configurations (e.g. primary endpoint port) are not copied. The storage configuration for the new resource can be defined by passing `--storage-class*` and `--volume-size-*` parameters to the `restore` command.
+Restoring an Azure Arc-enable PostgreSQL server creates a new server by copying the configuration of the existing server (for example resource requests/limits, extensions etc.). Configurations that could cause conflicts, (for example primary endpoint port) aren't copied. The storage configuration for the new resource can be defined by passing `--storage-class*` and `--volume-size-*` parameters to the `restore` command.
 
 Restore an Azure Arc-enabled PostgreSQL server to a new server with the `restore` command:
 ```azurecli
