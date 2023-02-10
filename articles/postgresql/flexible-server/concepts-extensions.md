@@ -439,7 +439,7 @@ There is a tradeoff between the query execution information pg_stat_statements p
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 [Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 ## Installing TimescaleDB
-To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To install TimescaleDB, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
 
@@ -520,6 +520,31 @@ Example:
      ORDER BY a.aid;
 ```
 The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
+
+To install pg_hint_plan, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+
+Using the [Azure portal](https://portal.azure.com/):
+
+1. Select your Azure Database for PostgreSQL server.
+
+2. On the sidebar, select **Server Parameters**.
+
+3. Search for the `shared_preload_libraries` parameter.
+
+4. Select **pg_hint_plan**.
+
+5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
+
+6. After the notification, **restart** the server to apply these changes. 
+
+
+You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
+```sql
+CREATE EXTENSION IF NOT EXISTS pg_hint_plan CASCADE;
+```
+> [!TIP]
+> If you see an error, confirm that you [restarted your server](how-to-restart-server-portal.md) after saving shared_preload_libraries. 
+
 ## Next steps
 
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
