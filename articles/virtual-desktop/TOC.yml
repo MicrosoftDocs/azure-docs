@@ -18,12 +18,14 @@
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
       href: whats-new-webrtc.md
+    - name: Multimedia redirection (MMR)
+      href: whats-new-multimedia-redirection.md
     - name: Remote Desktop clients
       items:
       - name: Windows Desktop client
         href: whats-new-client-windows.md
       - name: Web client
-        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        href: whats-new-client-web.md
       - name: macOS client
         href: whats-new-client-macos.md
       - name: iOS/iPadOS client
@@ -145,7 +147,7 @@
         href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: multimedia-redirection-intro.md
   - name: Security
     items:
@@ -205,16 +207,14 @@
         href: ./users/client-features-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
     - name: Configure device redirections
       href: configure-device-redirections.md
-  - name: Set up the PowerShell module
-    href: powershell-module.md
+  - name: Use Azure CLI and Azure PowerShell
+    href: cli-powershell.md
   - name: Create a host pool and session hosts
     items:
       - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
       - name: Deploy an Azure AD-joined session host
         href: deploy-azure-ad-joined-vm.md
-      - name: Deploy a Windows 7 virtual machine
-        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a Windows Server-based virtual machine
         href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
@@ -249,12 +249,12 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
+  - name: Administrative template
+    href: administrative-template.md
   - name: Move resources between regions
     href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
-  - name: Screen capture protection
-    href: screen-capture-protection.md
   - name: Customize session host image
     items:
       - name: Set up golden image in Azure
@@ -297,7 +297,7 @@
           href: app-attach-azure-portal.md
         - name: Set up MSIX app attach with PowerShell
           href: app-attach-powershell.md
-        - name: Create PowerShell scripts
+        - name: Test and troubleshoot packages
           href: app-attach.md
         - name: Prepare an MSIX image
           href: app-attach-image-prep.md
@@ -317,9 +317,15 @@
         href: configure-adfs-sso.md
       - name: Set up the KDC proxy
         href: key-distribution-center-proxy.md
+  - name: Security
+    items:
+    - name: Screen capture protection
+      href: screen-capture-protection.md
+    - name: Watermarking
+      href: watermarking.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
-  - name: Set up multimedia redirection (preview)
+  - name: Set up multimedia redirection
     href: multimedia-redirection.md
   - name: Install language packages
     items:
@@ -409,7 +415,7 @@
     href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
   - name: Teams on Azure Virtual Desktop
     href: troubleshoot-teams.md

@@ -18,7 +18,7 @@ keywords: text to speech
 
 In this overview, you learn about the benefits and capabilities of the text-to-speech feature of the Speech service, which is part of Azure Cognitive Services.
 
-Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text-to-speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text-to-speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 ## Core features
 
@@ -26,7 +26,7 @@ Text-to-speech includes the following features:
 
 | Feature | Summary | Demo |
 | --- | --- | --- |
-| Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Highly natural out-of-the-box voices. Create an Azure account and Speech service subscription, and then use the [Speech SDK](./get-started-text-to-speech.md) or visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select prebuilt neural voices to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs. |
+| Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Highly natural out-of-the-box voices. Create an Azure account and Speech service subscription, and then use the [Speech SDK](./get-started-text-to-speech.md) or visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select prebuilt neural voices to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. |
 | Custom Neural Voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Easy-to-use self-service for creating a natural brand voice, with limited access for responsible use. Create an Azure account and Speech service subscription (with the S0 tier), and [apply](https://aka.ms/customneural) to use the custom neural feature. After you've been granted access, visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select **Custom Voice** to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://aka.ms/customvoice). |
 
 ### More about neural text-to-speech features
@@ -37,7 +37,7 @@ The patterns of stress and intonation in spoken language are called _prosody_. T
 
 Here's more information about neural text-to-speech features in the Speech service, and how they overcome the limits of traditional text-to-speech systems:
 
-* **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech by using [prebuilt neural voices](language-support.md?tabs=stt-tts) or [custom neural voices](custom-neural-voice.md).
+* **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech by using [prebuilt neural voices](language-support.md?tabs=tts) or [custom neural voices](custom-neural-voice.md).
 
 * **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) (Preview) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
@@ -47,7 +47,7 @@ Here's more information about neural text-to-speech features in the Speech servi
   - Convert digital texts such as e-books into audiobooks.
   - Enhance in-car navigation systems.
 
-  For a full list of platform neural voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+  For a full list of platform neural voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 * **Fine-tuning text-to-speech output with SSML**: Speech Synthesis Markup Language (SSML) is an XML-based markup language that's used to customize text-to-speech outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document.
 
@@ -55,7 +55,7 @@ Here's more information about neural text-to-speech features in the Speech servi
 
 * **Visemes**: [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw, and tongue in producing a particular phoneme. Visemes have a strong correlation with voices and phonemes.
 
-  By using viseme events in Speech SDK, you can generate facial animation data. This data can be used to animate faces in lip-reading communication, education, entertainment, and customer service. Viseme is currently supported only for the `en-US` (US English) [neural voices](language-support.md?tabs=stt-tts).
+  By using viseme events in Speech SDK, you can generate facial animation data. This data can be used to animate faces in lip-reading communication, education, entertainment, and customer service. Viseme is currently supported only for the `en-US` (US English) [neural voices](language-support.md?tabs=tts).
 
 > [!NOTE]
 > We plan to retire the traditional/standard voices and non-neural custom voice in 2024. After that, we'll no longer support them. 

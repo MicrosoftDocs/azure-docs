@@ -4,7 +4,7 @@ description: Learn how to gain comprehensive visibility and insights over extern
 titleSuffix: Defender EASM and External Attack Surface Management (EASM) and Defender for Cloud
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/10/2023
+ms.date: 01/24/2023
 ---
 
 # What is an external attack surface?
@@ -21,6 +21,7 @@ Defender EASM applies Microsoft’s crawling technology to discover assets that 
 - Gain visibility into third-party attack surfaces
 
 EASM collects data for publicly exposed assets (“outside-in”). That data can be used by MDC CSPM (“inside-out”) to assist with internet-exposure validation and discovery capabilities to provide better visibility to customers.
+
 
 ## Learn more
 

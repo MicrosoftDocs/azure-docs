@@ -9,8 +9,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/18/2021
-ms.author: sama
+ms.date: 01/25/2023
+ms.author: owinfrey
 ms.collection: M365-identity-device-management
 
 

@@ -26,7 +26,7 @@ During Azure Synapse Link connection creation, the link creation process may han
 
 3. An incorrect managed identity was provided in the Synapse Link creation, for example, by manually providing an incorrect principal ID or Azure Key vault information.
 
-To confirm these potential causes, query the [changefeed.change_feed_errors](/sql/relational-databases/system-tables/changefeed-change-feed-errors-transact-sql) dynamic management view and look for error number 22739. 
+To confirm these potential causes, query the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors) dynamic management view and look for error number 22739. 
    ```sql
    SELECT session_id, error_number, error_message, source_task, entry_time 
    FROM  sys.dm_change_feed_errors
@@ -47,7 +47,7 @@ If the SAMI is not enabled, enable the SAMI. Regardless, refresh the Synapse Lin
     2.    Provide the desired subscription of the source database. Select **Next**.
     3.    For **Service type**, select **SQL Database**.
     4.    For **Resource**, select the source database where the initial snapshot is failing.
-    5.    For **Summary**, provide any error numbers from `changefeed.change_feed_errors`.
+    5.    For **Summary**, provide any error numbers from `sys.dm_change_feed_errors`.
     6.    For **Problem type**, select **Data Sync, Replication, CDC and Change Tracking**.
     7.    For **Problem subtype**, select **Transactional Replication**.
 
@@ -98,4 +98,4 @@ Disable and re-enable the SAMI for the Azure SQL logical server.
  - [Managed identities in Azure AD for Azure SQL](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
  - [Azure Synapse Link for SQL FAQ](../faq.yml)
  - [Known limitations and issues with Azure Synapse Link for SQL](../synapse-link-for-sql-known-issues.md)
- - [changefeed.change_feed_errors (Transact-SQL)](/sql/relational-databases/system-tables/changefeed-change-feed-errors-transact-sql)
+ - [sys.dm_change_feed_errors (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors)

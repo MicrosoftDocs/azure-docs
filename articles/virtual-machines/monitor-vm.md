@@ -95,7 +95,6 @@ Using recommended alerts, a separate alert rule is created for each VM. You can 
 For more information about the various alerts for Azure virtual machines, see the following resources:
 
 - See [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md) for common alert rules for virtual machines. 
-- See [Monitor virtual machines with Azure Monitor: Workloads](../azure-monitor/vm/monitor-virtual-machine-workloads.md) for data you can collect from VM workloads that you can use to create alerts.
 - See [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md) for a tutorial on creating a log query alert rule.
 - For common log alert rules, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
 

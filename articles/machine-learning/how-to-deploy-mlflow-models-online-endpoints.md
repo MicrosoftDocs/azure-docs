@@ -251,7 +251,7 @@ version = registered_model.version
     
     __endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+    <!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -295,7 +295,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+    <!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -322,7 +322,7 @@ version = registered_model.version
 
     __sklearn-deployment.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+    <!--    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -375,7 +375,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+    <!--    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment"::: -->
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -410,13 +410,11 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-1. Assign all the traffic to the deployment
-    
-    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+1. Assign all the traffic to the deployment: So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -446,7 +444,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -473,7 +471,7 @@ Once your deployment completes, your deployment is ready to serve request. One o
 
 **sample-request-sklearn.json**
 
-:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+<!-- :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json"::: -->
 
 > [!NOTE]
 > Notice how the key `input_data` has been used in this example instead of `inputs` as used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. See [Differences between models deployed in Azure Machine Learning and MLflow built-in server](how-to-deploy-mlflow-models.md#differences-between-models-deployed-in-azure-machine-learning-and-mlflow-built-in-server) for details about expected input format.
@@ -482,7 +480,7 @@ To submit a request to the endpoint, you can do as follows:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+<!-- :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment"::: -->
 
 # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -551,7 +549,19 @@ You will typically select this workflow when:
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create a scoring script:
+1. Identify the folder where your MLflow model is placed.
+
+    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+    b. Go to the section __Models__.
+
+    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+    d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
     __score.py__
 
@@ -709,7 +719,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     **sample-request-sklearn.json**
     
-    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+    <!--    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json"::: -->
 
     To submit a request to the endpoint, you can do as follows:
     
@@ -766,7 +776,7 @@ Once you're done with the endpoint, you can delete the associated resources:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+<!-- :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint"::: -->
 
 # [Python (Azure ML SDK)](#tab/sdk)
     

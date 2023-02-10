@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/10/2023
 ms.author: jammart
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
@@ -61,7 +61,6 @@ None.
 None.
 
 ---
-
 Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
@@ -95,7 +94,6 @@ N/A
 N/A
 
 ---
-
 ## Create a storage account
 
 A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
@@ -128,7 +126,7 @@ The following table describes the fields on the **Basics** tab.
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
 | Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
-| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul><br /><br />Microsoft recommends creating a general-purpose v2, premium block blob, or premium file share account for most scenarios. To select a legacy account type, use the link provided beneath **Instance details**. For more information about legacy account types, see [Legacy storage account types](storage-account-overview.md#legacy-storage-account-types). |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul><br />Microsoft recommends creating a general-purpose v2, premium block blob, or premium file share account for most scenarios. To select a legacy account type, use the link provided beneath **Instance details**. For more information about legacy account types, see [Legacy storage account types](storage-account-overview.md#legacy-storage-account-types). |
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 The following image shows a standard configuration of the basic properties for a new storage account.
@@ -148,9 +146,10 @@ The following table describes the fields on the **Advanced** tab.
 | Security | Enable storage account key access | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md). |
 | Security | Default to Azure Active Directory authorization in the Azure portal | Optional | When enabled, the Azure portal authorizes data operations with the user's Azure AD credentials by default. If the user does not have the appropriate permissions assigned via Azure role-based access control (Azure RBAC) to perform data operations, then the portal will use the account access keys for data access instead. The user can also choose to switch to using the account access keys. For more information, see [Default to Azure AD authorization in the Azure portal](../blobs/authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal). |
 | Security | Minimum TLS version | Required | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md). |
+| Security | Permitted scope for copy operations (preview) | Required | Select the scope of storage accounts from which data can be copied to the new account. The default value is `From any storage account`. When set to the default value, users with the appropriate permissions can copy data from any storage account to the new account.<br /><br />Select `From storage accounts in the same Azure AD tenant` to only allow copy operations from storage accounts within the same Azure AD tenant.<br />Select `From storage accounts that have a private endpoint to the same virtual network` to only allow copy operations from storage accounts with private endpoints on the same virtual network.<br /><br /> For more information, see [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md). |
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Blob storage | Enable SFTP | Optional | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer of data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md). |
-| Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
+| Blob storage | Enable network file system (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Azure AD tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Azure AD tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
 | Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
@@ -435,7 +434,6 @@ To learn how to modify this template or create new ones, see:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
 ## Delete a storage account
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
@@ -502,7 +500,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ```
 
 ---
-
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Next steps
@@ -511,3 +508,6 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+- [Migrate a classic storage account](storage-account-migrate-classic.md)
+   
+

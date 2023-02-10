@@ -4,7 +4,7 @@ description: Learn about the availability of Microsoft Defender for Cloud contai
 ms.topic: overview
 author: bmansheim
 ms.author: benmansheim
-ms.date: 10/24/2022
+ms.date: 12/29/2022
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -21,8 +21,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Compliance | Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds |
-| Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
-| Hardening | Control plane recommendations | ACR, AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Vulnerability Assessment | View vulnerabilities for running images | AKS | GA | GA | Defender profile | Defender for Containers | Commercial clouds |
+| Hardening | Control plane recommendations | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Hardening | Kubernetes data plane recommendations | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Runtime protection| Threat detection (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Runtime protection| Threat detection (workload) | AKS | GA | - | Defender profile | Defender for Containers | Commercial clouds |
@@ -57,8 +57,10 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
+For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
 > [!NOTE]
-> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+>Adding the Defender agent on a cluster with the [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to a cluster with Defender agent installed) is currently not supported. 
 
 ### Network restrictions
 
@@ -183,7 +185,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Compliance | Docker CIS | Arc enabled VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
 | Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers |
-| Vulnerability Assessment  | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Vulnerability Assessment  | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
@@ -222,8 +224,10 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
+For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
 > [!NOTE]
-> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+> Adding the Defender agent on a cluster with [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to a cluster with Defender agent installed) is currently not supported.
 
 ### Supported host operating systems
 

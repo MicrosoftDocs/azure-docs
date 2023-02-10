@@ -73,7 +73,7 @@ To set custom prices in an individual market, export, modify, and then import th
 1. Select the exportedPrice.xlsx file you updated, and then click **Open**.
 
 > [!NOTE]
-> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies).
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md).
 
 ## Choose who can see your plan
 
