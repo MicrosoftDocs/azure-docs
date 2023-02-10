@@ -67,7 +67,7 @@ To enforce this requirement, you need to:
 1.	Configure Conditional Access policy that would enforce requirements for this authentication context.
 1.	Configure authentication context in PIM settings for the role.
 
-:::image type="content" source="media/pim-how-to-change-default-settings/role-settings-page.png" alt-text="Screenshot of the Edit role setting - Attribute Definition Administrator page." lightbox="media/pim-how-to-change-default-settings/role-settings-page.png":::
+:::image type="content" source="media/pim-how-to-change-default-settings/role-settings-page.png" alt-text="Screenshot of the Edit role setting Attribute Definition Administrator page." lightbox="media/pim-how-to-change-default-settings/role-settings-page.png":::
 
 To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
