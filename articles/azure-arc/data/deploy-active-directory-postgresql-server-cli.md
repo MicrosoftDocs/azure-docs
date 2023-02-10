@@ -5,7 +5,7 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
 author: hasani-h
-ms.author: hasani-h
+ms.author: hasaniholder
 ms.reviewer: mikeray
 ms.date: 02/10/2023
 ms.topic: how-to
