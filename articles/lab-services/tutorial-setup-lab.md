@@ -30,7 +30,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- To create labs, you Azure account must have either of the following Azure AD roles at the lab plan or resource group level. Learn more about the [Azure Lab Services roles](./administrator-guide.md#rbac-roles).
+- You have access to an existing lab plan. If you don't have access to a lab plan, ask an administrator to [create a lab plan and grant you access](./quick-create-resources.md).
+
+- To create labs, your Azure account must have either of the following Azure AD roles at the lab plan or resource group level. Learn more about the [Azure Lab Services roles](./administrator-guide.md#rbac-roles).
     - Lab Creator
     - Lab Operator
     - Owner
@@ -38,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Create a lab
 
-Next, you use the Azure Lab Services website to create a customizable lab (lab template) in the lab plan. In Azure Lab Services, a lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical. In the next section, you'll customize the lab template for the classroom training.
+You use the Azure Lab Services website to create a customizable lab (lab template) in the lab plan. In Azure Lab Services, a lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical. In the next section, you'll customize the lab template for the classroom training.
 
 Follow these steps to add a lab to the lab plan you created earlier:
 
