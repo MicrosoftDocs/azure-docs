@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 02/10/2023
 ms.author: ankitadutta
 #Customer intent: As an Azure admin,  I want to move Azure resources to a different Azure region.
 ---
