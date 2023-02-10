@@ -28,22 +28,23 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 - Associate a Schedule with a VM suppresses the auto patching to ensure that patching on the VM(s) runs as per the schedule you've defined.
 
 
-## Create groups to update
+## Create groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
 1. Select **Overview** > **Schedule updates**.
-1. In the **Create a maintenance configuration** page, go to **Machines** > **Create groups to update** to group of machines based on a criteria.
-1. In the **Create group to update** page, select subscriptions, Resource group, Resource type, Location, Tags, and OS type.
+1. In the **Create a maintenance configuration** page, go to **Machines** and under **Group to update**, select **Add a group**.
+1. In the **Add a group to update** page, provide a group name, and select subscriptions.
+1. In **Other criteria**, choose **Select** and in the **Select other criteria** page, specify the Resource group, Resource type, Location, Tags, and OS type and select **Select**.
 
     > [!NOTE]
     > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
 
-1. Select **Preview of selected machines** to view the list of machines for the selected criteria at that current time and select **Add**.
+1. In the **Preview of machines based on above criteria** you can view the list of machines for the selected criteria at that current time and select **Add**.
    > [!NOTE]
    > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
 
 ## Provide consent
-Obtaining consent to apply updates is an important step in the workflow of scheduled patching and listed are the various options to provide permission to do so.
+Obtaining consent to apply updates is an important step in the workflow of scheduled patching and listed are the various ways to provide consent.
 
 #### [From Virtual Machine](#tab/vm)
 
@@ -56,14 +57,12 @@ Obtaining consent to apply updates is an important step in the workflow of sched
     The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
 
 1. Complete the details under **Monitoring**, **Advanced** and **Tags** tabs.
-1. Select **Review + Create**
+1. Select **Review + Create**.
    
 
 #### [From Schedule updates](#tab/sc)
 
-1. In **Update management center**, go to **Overview** > **Schedule updates**.
-1. Select **Create new schedule**, in **Attach existing maintenance configuration**, select **Create a group**.
-1. In **Create a group to update** page, select your subscription, specify the criteria, preview the machines and select **Add**.
+1. Follow the steps from 1 to 5 listed in [Create groups](#create-groups).
 1. In **Prerequisite for schedule updates**, select **Continue with supported machines only** option to confirm that:
 
    - *Patch Orchestration is set to Azure orchestration*
@@ -75,7 +74,7 @@ Obtaining consent to apply updates is an important step in the workflow of sched
 
 1. In **Update management center**, go to **Overview** > **Update settings**.
 1. In **Change Update settings**, select **+Add machine** to add the machines.
-1. In the list of machines sorted as per the operating system, go to the **Patch orchestration** option and select **Azure-orchestrated with user managed schedules (Preview)** to confirm 
+1. In the list of machines sorted as per the operating system, go to the **Patch orchestration** option and select **Azure-orchestrated with user managed schedules (Preview)** to confirm that:
 
    - *Patch Orchestration is set to Azure orchestration* 
    - *Set the Bypass platform safety checks on user schedule = True*
@@ -84,15 +83,17 @@ Obtaining consent to apply updates is an important step in the workflow of sched
    The selection made in this workflow automatically applies the update settings and no consent is explicitly obtained.  
 ---
 
-## Define dynamic group
+## Create schedule
 
 >[!NOTE]
 >You can use one schedule to link to a single machine or a multiple dynamic groups or a combination of dynamic and static groups. However, one dynamic group cannot have more than one schedule.
 
 To define a dynamic group, follow these steps:
 1. Follow the procedure from step 1 to 4 listed in [Provide consent](#provide-consent) > **From Schedule Updates** tab.
+1. In the **Create maintenance configuration** > **Machines** tab, review the list of machines to update and select **Next Updates**.
+1. In **Updates** tab, select the updates to include and select **Add**.
 1. In the **Define or select from dynamic group** > **Machines** tab, select the group.
-1. Complete the details in the **Updates** and **Tags** tabs.
+1. Complete the details   **Tags** tabs.
 1. Select  **Review + Create**.
 
 ## Next steps

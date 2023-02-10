@@ -12,6 +12,10 @@
     href: quickstart-on-demand.md
   - name: Schedule updates for groups
     href: quickstart-dynamic-grouping.md
+- name: Tutorials
+  items:
+  - name: Apply updates dynamically and at scale
+    href: tutorial-dynamic-grouping-for-scheduled-patching.md
 - name: Concepts
   items:
   - name: Update and maintenance options
