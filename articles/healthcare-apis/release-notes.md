@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 01/25/2023
-ms.author: kgaddam10
+ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
 
