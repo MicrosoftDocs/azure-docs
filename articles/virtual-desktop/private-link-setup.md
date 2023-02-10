@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 02/09/2023
 ms.author: helohr
 manager: femila
 ---
@@ -23,6 +23,9 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 - An Azure account with an active subscription.
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
+
+>[!IMPORTANT]
+>There's currently a bug in version 1.2.3918 of the Remote Desktop client for Windows that causes a client regression when you use Private Link. In order to use Private Link in your deployment, you must use [version 1.2.3667](whats-new-client-windows.md#updates-for-version-123667) until we can resolve the bug.
 
 ### Re-register your resource provider
 
@@ -85,7 +88,7 @@ To configure Private Link in the Azure portal:
 
 1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
 
-1. Select **Add a private endpoint**.
+1. Select **New private endpoint**.
 
 1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
 
@@ -115,7 +118,7 @@ To configure Private Link in the Azure portal:
 
 1. When you're finished, select **Next: DNS >**.
 
-1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 1. When you're done, select **Next: Tags >**.
 

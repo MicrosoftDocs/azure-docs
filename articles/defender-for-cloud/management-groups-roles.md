@@ -2,7 +2,7 @@
 title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
 description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/24/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -16,7 +16,7 @@ For visibility into the security posture of all subscriptions linked to an Azure
 
 ### Overview of management groups
 
-Use management groups to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
+Use management groups to efficiently manage access, policies, and reporting on groups of subscriptions, and effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
 
 Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
 

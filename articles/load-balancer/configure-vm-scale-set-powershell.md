@@ -27,14 +27,14 @@ In this article, you'll learn how to configure a Virtual Machine Scale Set with 
 
 ## Sign in to Azure CLI
 
-Sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount.md#example-1-connect-to-an-azure-account)
+Sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount#example-1-connect-to-an-azure-account)
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
 
 ## Deploy a Virtual Machine Scale Set with existing load balancer
-Deploy a Virtual Machine Scale Set with [`New-AzVMss`](/powershell/module/az.compute/new-azvmss.md). Replace the values in brackets with the names of the resources in your configuration.
+Deploy a Virtual Machine Scale Set with [`New-AzVMss`](/powershell/module/az.compute/new-azvmss). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurepowershell-interactive
 

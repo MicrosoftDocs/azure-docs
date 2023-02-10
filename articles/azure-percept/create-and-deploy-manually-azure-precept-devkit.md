@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: keithke
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-how-to 
+ROBOTS: NOINDEX
 ---
 
 
@@ -21,7 +22,7 @@ The following guide is to help customers manually deploy a factory fresh IoT Edg
 - Highly recommended: Update your Azure Percept DK to the [latest version](./software-releases-usb-cable-updates.md)
 - Create an Azure account with an IoT Hub 
 - Install [VSCode](https://code.visualstudio.com/Download)
-- Install the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension for VSCode
+- Install the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) Extension for VSCode
 - Find the software image version running on your Azure Percept Devkit (see below)
 
 ## Identify your Azure Percept DK software version 
@@ -63,7 +64,7 @@ The deployment.json files are a representation of all default modules necessary 
 1. Download the appropriate deployment.json from [GitHub](https://github.com/microsoft/azure-percept-advanced-development/tree/main/default-configuration) for your reported software version. Refer to the [Identify your Azure Percept DK software version](#identify-your-azure-percept-dk-software-version) section above.
    1. For 2021.111.124.xxx and later, use [default-deployment-2112.json](https://github.com/microsoft/azure-percept-advanced-development/blob/main/default-configuration/default-deployment-2112.json)
    2. For 2021.109.129.xxx and lower, use [default-deployment-2108.json](https://github.com/microsoft/azure-percept-advanced-development/blob/main/default-configuration/default-deployment-2108.json)
-2. Launch VSCode and Sign into Azure. Be sure you've installed the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension.  
+2. Launch VSCode and Sign into Azure. Be sure you've installed the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) Extension.  
    
    ![Sign into Azure in VScode.](./media/manually-deploy-azure-precept-devkit-images/azure-sign-in.png)
 

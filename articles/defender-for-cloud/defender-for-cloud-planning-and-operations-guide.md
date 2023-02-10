@@ -3,7 +3,7 @@ title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/08/2023
+ms.date: 02/06/2023
 ---
 
 # Planning and operations guide
@@ -36,38 +36,45 @@ Defender for Cloud enables these individuals to meet these various responsibilit
 
 **Jeff (Workload Owner)**
 
-- Manage a cloud workload and its related resources
-- Responsible for implementing and maintaining protections in accordance with company security policy
+- Manage a cloud workload and its related resources.
+
+- Responsible for implementing and maintaining protections in accordance with company security policy.
 
 **Ellen (CISO/CIO)**
 
-- Responsible for all aspects of security for the company
-- Wants to understand the company's security posture across cloud workloads
-- Needs to be informed of major attacks and risks
+- Responsible for all aspects of security for the company.
+
+- Wants to understand the company's security posture across cloud workloads.
+
+- Needs to be informed of major attacks and risks.
 
 **David (IT Security)**
 
-- Sets company security policies to ensure the appropriate protections are in place
-- Monitors compliance with policies
-- Generates reports for leadership or auditors
+- Sets company security policies to ensure the appropriate protections are in place.
+
+- Monitors compliance with policies.
+
+- Generates reports for leadership or auditors.
 
 **Judy (Security Operations)**
 
-- Monitors and responds to security alerts 24/7
-- Escalates to Cloud Workload Owner or IT Security Analyst
+- Monitors and responds to security alerts at any time.
+
+- Escalates to Cloud Workload Owner or IT Security Analyst.
 
 **Sam (Security Analyst)**
 
-- Investigate attacks
-- Work with Cloud Workload Owner to apply remediation
+- Investigate attacks.
 
-Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
+- Work with Cloud Workload Owner to apply remediation.
+
+Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
 
 - **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
 
 - **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
 
-The personas explained in the previous diagram need these Azure RBAC roles:
+The personas explained in the previous diagram need these Azure Role-based access control roles:
 
 **Jeff (Workload Owner)**
 
@@ -93,7 +100,7 @@ The personas explained in the previous diagram need these Azure RBAC roles:
 
 - Subscription Owner/Contributor required to dismiss alerts.
 
-- Access to the workspace may be required
+- Access to the workspace may be required.
 
 Some other important information to consider:
 
@@ -101,7 +108,7 @@ Some other important information to consider:
 
 - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
 
-When planning access control using Azure RBAC for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure RBAC properly.
+When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure Role-based access control properly.
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
@@ -140,7 +147,7 @@ Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to c
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the current installed agent. The agent's process is designed to be non-invasive and have minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the current installed agent. The agent's process is designed to be non-invasive and have minimal effect on VM performance.
 
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent may be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. You can manually uninstall the agent if needed.
 

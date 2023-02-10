@@ -9,14 +9,13 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
-
 ---
+
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](expressroute-howto-linkvnet-cli.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -51,14 +50,12 @@ You can link a virtual network to an ExpressRoute circuit by using the following
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 Provisioned
 ```
-    
 ## Remove a virtual network link to a circuit
 You can remove a virtual network link to an ExpressRoute circuit by using the following cmdlet. Make sure that the current subscription is selected for the given virtual network. 
 
 ```powershell
 Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 ```
- 
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
@@ -98,13 +95,13 @@ New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
   Return:
 
-  ```powershell
-  Description         : Dev-Test Links
-  Limit               : 2
-  LinkAuthorizationId : **********************************
-  MicrosoftIds        : devtest@contoso.com
-  Used                : 0
-  ```
+```powershell
+Description         : Dev-Test Links
+Limit               : 2
+LinkAuthorizationId : **********************************
+MicrosoftIds        : devtest@contoso.com
+Used                : 0
+```
 
 **Reviewing authorizations**
 
@@ -115,25 +112,25 @@ Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "***********************
 ```
   Return:
 
-  ```powershell
-  Description         : EngineeringTeam
-  Limit               : 3
-  LinkAuthorizationId : ####################################
-  MicrosoftIds        : engadmin@contoso.com
-  Used                : 1
+```powershell
+Description         : EngineeringTeam
+Limit               : 3
+LinkAuthorizationId : ####################################
+MicrosoftIds        : engadmin@contoso.com
+Used                : 1
 
-  Description         : MarketingTeam
-  Limit               : 1
-  LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  MicrosoftIds        : marketingadmin@contoso.com
-  Used                : 0
+Description         : MarketingTeam
+Limit               : 1
+LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+MicrosoftIds        : marketingadmin@contoso.com
+Used                : 0
 
-  Description         : Dev-Test Links
-  Limit               : 2
-  LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-  MicrosoftIds        : salesadmin@contoso.com
-  Used                : 2
-  ```
+Description         : Dev-Test Links
+Limit               : 2
+LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+MicrosoftIds        : salesadmin@contoso.com
+Used                : 2
+```
 
 **Updating authorizations**
 
@@ -145,13 +142,13 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
   Return:
 
-  ```powershell
-  Description         : Dev-Test Links
-  Limit               : 5
-  LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-  MicrosoftIds        : devtest@contoso.com
-  Used                : 0
-  ```
+```powershell
+Description         : Dev-Test Links
+Limit               : 5
+LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+MicrosoftIds        : devtest@contoso.com
+Used                : 0
+```
 
 **Deleting authorizations**
 
@@ -173,17 +170,17 @@ Get-AzureAuthorizedDedicatedCircuit
 
   Return:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : ContosoIT
-  Location                         : Washington DC
-  MaximumAllowedLinks              : 2
-  ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  UsedLinks                        : 0
-  ```
+```powershell
+Bandwidth                        : 200
+CircuitName                      : ContosoIT
+Location                         : Washington DC
+MaximumAllowedLinks              : 2
+ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ServiceProviderName              : equinix
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+UsedLinks                        : 0
+```
 
 **Redeeming link authorizations**
 
@@ -195,11 +192,11 @@ New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –Vnet
 
   Return:
 
-  ```powershell
-  State VnetName
-  ----- --------
-  Provisioned SalesVNET1
-  ```
+```powershell
+State VnetName
+----- --------
+Provisioned SalesVNET1
+```
 
 Run this command in the newly linked subscription for the virtual network:
 
@@ -210,3 +207,4 @@ New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetN
 ## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+

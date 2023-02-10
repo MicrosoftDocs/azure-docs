@@ -28,7 +28,7 @@ For complete release version information, see [Version log](version-log.md#janua
 New for this release:
 
 - Arc data services:
-   - Kafka separate mode - Description of this change and all customer and developer impacts are enumerated in the linked feature.
+   - Kafka separate mode
 
 - Arc-SQL MI
    - Time series functions are available.
@@ -66,9 +66,6 @@ New for this release:
 For complete release version information, see [Version log](version-log.md#november-8-2022).
 
 New for this release:
-
-- Azure Arc data controller
-  - Support database as resource in Azure Arc data resource provider 
 
 - Arc-enabled PostgreSQL server
   - Add support for automated backups
