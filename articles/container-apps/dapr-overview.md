@@ -40,6 +40,9 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 
+> [!NOTE]
+> The above table covers stable Dapr APIs. To learn more about using alpha/preview Dapr APIs, [see limitations](#unsupported-dapr-capabilities).
+
 ## Dapr concepts overview
 
 The following example based on the Pub/sub API is used to illustrate core concepts related to Dapr in Azure Container Apps.
@@ -339,6 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
+- **Alpha/Preview APIs**: [Dapr API components in alpha/preview status][dapr-supported-specs] are available to use on a self-service, opt-in basis. Preview APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha/preview APIs are not covered by customer support.
 
 ### Known limitations
 
@@ -370,3 +374,4 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-supported-specs]: https://docs.dapr.io/reference/components-reference/
