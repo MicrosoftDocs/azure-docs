@@ -93,7 +93,7 @@ export IP_ADDRESS=$(az vm show --show-details --resource-group $RESOURCE_GROUP_N
 
 To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package. The following command uses run-command to run `sudo apt-get update && sudo apt-get install -y nginx` on the VM:
 
-```bash
+```azurecli-interactive
 az vm run-command invoke \
    --resource-group $RESOURCE_GROUP_NAME \
    --name $VM_NAME \
@@ -116,12 +116,14 @@ Use a web browser of your choice to view the default NGINX welcome page. Use the
 
 Or Run the following command to see the NGINX welcome page in terminal
 
-```bash
+```azurecli-interactive
  curl $IP_ADDRESS
 ```
 
+The following example shows the successful the default NGINX web site in HTML as successful output:
+
 <!--expected_similarity=0.8-->
-```HTML
+```output
 <!DOCTYPE html>
 <html>
 <head>
