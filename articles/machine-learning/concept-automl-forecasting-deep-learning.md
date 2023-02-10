@@ -24,33 +24,37 @@ In this article, we go over deep learning approaches to forecasting in AutoML. W
 
 ## ForecastTCN
 
-ForecastTCN is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a deep neural network architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up-to a given horizon. The following image shows the essential ForecastTCN architecture:
+ForecastTCN is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a deep neural network architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up-to a given horizon. The following image shows the major components of the ForecastTCN architecture:
+
 :::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
-ForecastTCN has three main components: a **pre-mix** layer, a stack of **dilated convolution** layers, and a collection of **forecast head** units that each give a horizon of forecasts for a quantile of the prediction distribution. The pre-mix layer mixes the input time series data into an array of signal **channels** that the convolutional stack will process. The stack processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output is a mixture of convolution-filtered signals from the input channels. Finally, the forecast heads coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. 
+ForecastTCN has three main components: a **pre-mix** layer, a stack of **dilated convolution** layers, and a collection of **forecast head** units that each give a horizon of forecasts for a quantile of the prediction distribution. The pre-mix layer mixes the input time series and feature data into an array of signal **channels** that the convolutional stack will process. The stack processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output contains a mixture of convolution-filtered signals from the input channels. Finally, the forecast heads coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. 
 
 ### Dilated causal convolution
 
-The central operation of a TCN is a dilated, causal convolution along the time dimension of an input signal. Intuitively, convolution mixes together values from nearby time points in the input. The proportions in the mixture are the **kernel**, or the weights, of the convolution while the separation between points in the mixture is the **dilation**. The output signal is generated from the input by sliding the kernel forward in time along the input and accumulating the mixture at each position. A **causal** convolution is one in which the kernel only mixes input values in the past relative to each output point, preventing the output from "looking" into the future.
+The central operation of a TCN is a dilated, causal convolution along the time dimension of an input signal. Intuitively, convolution mixes together values from nearby time points in the input. The proportions in the mixture are the **kernel**, or the weights, of the convolution while the separation between points in the mixture is the **dilation**. The output signal is generated from the input by sliding the kernel in time along the input and accumulating the mixture at each position. A **causal** convolution is one in which the kernel only mixes input values in the past relative to each output point, preventing the output from "looking" into the future.
 
 Stacking dilated convolutions gives the TCN the ability to model correlations over long durations in input signals with relatively few kernel weights. For example, the following image shows three stacked layers with a two-weight kernel in each layer and exponentially increasing dilation factors:
 
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-dilated-conv.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
-The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input.
+The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of look-back in a convolutional network is called the **receptive field** and it is determined completely by the TCN architecture.   
 
-### Details of the TCN architecture
+### ForecastTCN architecture
+
+The core of the ForecastTCN architecture is the stack of convolutional layers between the pre-mix and the forecast heads. The stack is logically divided into repeating units called **blocks** that are, in turn, composed of **residual cells**. A residual cell applies causal convolutions at a set dilation along with normalization and nonlinear activation. Importantly, each residual cell adds its output to its input using a so-called residual connection. These connections have been shown to benefit DNNs, perhaps because they facilitate more efficient information flow through the network. The following image shows the convolutional architecture for an example network with two blocks and three residual cells in each block:
 
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-detail.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
-The architectural parameters of a ForecastTCN are as follows:
+The number of blocks and cells, along with the number of signal channels in each layer, control the size of the network.  The architectural parameters of a ForecastTCN are summarized in the following table:
+
 |Parameter|Description|
 |--|--|
 |$n_{b}$|Number of blocks in the network; also called the _depth_|
 |$n_{c}$|Number of cells in each block|
-|$n_{\text{ch}}$|Number of channels in each hidden layer|
+|$n_{\text{ch}}$|Number of channels in the hidden layers|
 
-The maximum number of past observations that a TCN requires to make a forecast is called the _receptive field_. The receptive field is a function of the TCN architecture and is given by,
+The **receptive field** depends on the depth parameters and is given by the following formula,
 
 $\begin{align} \notag t_{\text{rf}} = 4n_{b}\left(2^{n_{c}} - 1\right) + 1.\end{align}$
 
@@ -60,13 +64,19 @@ $\begin{align} \notag \begin{split} H_{0} & = \text{pre-mix}\left(\begin{bmatrix
  H_{k} & = H_{k-1} + \text{cell}_{k}(H_{k-1}), \hspace{2mm} k \in [1, \ldots, n_{l}], \\ \\
 f_{q} & = \text{forecast\_head}_{q}\left(\begin{bmatrix} H_{1} \\ \vdots \\ H_{n_{l}}\end{bmatrix}\right), \hspace{2mm} q \in [0.1, 0.25, 0.5, 0.75, 0.9] \end{split} \end{align}$
 
-where $W_{e}$ is an embedding matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of convolutional layers, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution.
+where $W_{e}$ is an embedding matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the shapes of the these variables are in the following table:
 
-|Variable|Shape|
-|--|--|
-|$X$|$n_{\text{features}} \times t_{\text{rf}}$
-|$H_{i}$|$n_{\text{ch}} \times t_{\text{rf}}$|
-|$f_{q}$|$h$|
+|Variable|Description|Shape|
+|--|--|--|
+|$X$|Input array|$n_{\text{input}} \times t_{\text{rf}}$
+|$H_{i}$|Hidden layer output for $i=0,1,\ldots,n_{l}$|$n_{\text{ch}} \times t_{\text{rf}}$|
+|$f_{q}$|Forecast output for quantile $q$|$h$|
 
-### ForecastTCN training and selection in AutoML
+In the table, $n_{\text{input}} = n_{\text{features}} + 1$, the number of predictor/feature variables plus the target quantity. The forecast heads generate all forecasts up to the maximum horizon, $h$, in a single pass, so ForecastTCN is a [direct forecaster](./concept-automl-forecasting-methods.md).
+
+### Training and selection in AutoML
+
+ForecastTCN is an optional model in AutoML. To enable it, see [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).
+
+## Next steps
 
