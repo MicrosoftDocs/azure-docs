@@ -92,7 +92,7 @@ The following table compares features available in the managed gateway versus th
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
 | [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
-| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
+| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ✔️<sup>1</sup> | ❌ |
 | [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
@@ -106,7 +106,6 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
-| [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>

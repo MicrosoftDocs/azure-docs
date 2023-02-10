@@ -6,15 +6,17 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/07/2022
+ms.date: 02/09/2023
 ms.author: danlep
 ---
 
-# Set GraphQL resolver
+# Set GraphQL resolver (deprecated)
+
+> [!IMPORTANT]
+> This policy is deprecated. Preview customers who used the `set-graphql-resolver` policy must migrate to the [managed resolvers](graphql-apis-overview.md#resolvers) for GraphQL APIs, which provide similar functionality.
+
 
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
-
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
