@@ -552,9 +552,10 @@ Once you identified the data store you want to use, configure the output as foll
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    inputs={ 
-        "input": Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", type=AssetTypes.URI_FOLDER) 
-    },
+    input=Input(
+        path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", 
+        type=AssetTypes.URI_FOLDER
+    ),
     params_override=[
         { "output_dataset.datastore_id": f"azureml:{batch_ds.id}" },
         { "output_dataset.path": "/mnist-batch-results" }
@@ -618,7 +619,9 @@ Some settings can be overwritten when invoke to make best use of the compute res
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/"),
+    input=Input(
+        path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/"
+    ),
     params_override=[
         { "mini_batch_size": "20" },
         { "compute.instance_count": "5" }
