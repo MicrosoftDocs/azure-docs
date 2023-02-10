@@ -36,7 +36,7 @@ The specific prerequisites for Core Tools depend on the features you plan to use
 
 There are four versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required.
 
-Choose a version tab below to learn about each specific version and for detailed installation instructions:
+Choose one of the following version tabs to learn about each specific version and for detailed installation instructions:
 
 # [Version 4.x](#tab/v4)
 
@@ -216,7 +216,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
-This example creates a Functions project in a new `MyFunctionProj` folder. You are prompted to choose a default language for your project. 
+This example creates a Functions project in a new `MyFunctionProj` folder. You're prompted to choose a default language for your project. 
 
 The following considerations apply to project initialization:
 
@@ -226,13 +226,13 @@ The following considerations apply to project initialization:
 
 + If you plan to publish your project to a custom Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
-Certain languages may have additional considerations:
+Certain languages may have more considerations:
 
 # [C\#](#tab/csharp)
 
 + Core Tools lets you create function app projects for the .NET runtime as both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
 
-+ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These are the same files you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
++ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These files are the same ones you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
 # [Java](#tab/java)
 
@@ -244,7 +244,7 @@ Certain languages may have additional considerations:
 
 # [PowerShell](#tab/powershell)
 
-There are no additional considerations for PowerShell.
+There are no other considerations for PowerShell.
 
 # [Python](#tab/python)
 
@@ -260,11 +260,11 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you're using. HTTP bindings and timer triggers don't require extensions. 
 
 To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET SDK and having to deal with the extensions.csproj file. 
 
-Extension bundles is the recommended approach for functions projects other than C# complied projects, as well as C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
+Extension bundles is the recommended approach for functions projects other than C# complied projects, and for C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
@@ -274,9 +274,9 @@ There may be cases in a non-.NET project when you can't use extension bundles, s
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
+By default, these settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
 
-The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
 
 * [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
@@ -582,7 +582,7 @@ func extensions install
 
 The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but doesn't update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
-If your function app uses bindings or NuGet packages that Core Tools does not recognize, you must manually install the specific extension.
+If your function app uses bindings or NuGet packages that Core Tools doesn't recognize, you must manually install the specific extension.
 
 ### Install a specific extension
 
@@ -612,7 +612,7 @@ This type of streaming logs requires that Application Insights integration be en
 
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
-If you are using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
+If you're using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
 
 ## Next steps
 
