@@ -543,7 +543,7 @@ Enabled DICOM service to work with workspaces that have names beginning with a l
 
 **MedTech service normalized improvements with calculations to support and enhance health data standardization.** 
 
-See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Content Templates](./../healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md)  
+See [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [CalculatedContent](./../healthcare-apis/iot/how-to-use-calculatedcontent-mappings.md)  
 
 
 

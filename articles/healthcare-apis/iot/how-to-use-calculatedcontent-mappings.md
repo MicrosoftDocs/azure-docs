@@ -13,7 +13,7 @@ ms.author: jasteppe
 
 This article describes how to use CalculatedContent mappings with MedTech service device mappings.
 
-## CalculatedContent
+## CalculatedContent mappings
 
 The MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
 
@@ -67,7 +67,7 @@ The default expression language to use for a MedTech service device mappings can
     }
 ```
 
-The CalculatedContentTemplate allows matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
+The CalculatedContent mappings allow matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
 
 |Property|Description|Example|
 |--------|-----------|-------|
@@ -92,13 +92,13 @@ When specifying the language to use for the expression, the below values are val
 | JMESPath            | **JmesPath** |
 
 >[!TIP]
-> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). [CalculatedContent](#calculatedcontent) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). CalculatedContent mappings use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
-> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). [CalculatedContent](#calculatedcontent) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
+> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). CalculatedContent mappings use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
 ### Custom functions
 
-A set of MedTech service custom functions is also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
+A set of MedTech service custom functions are also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -547,6 +547,6 @@ In this article, you learned how to configure the MedTech service device mapping
 To learn how to configure FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to configure the FHIR destination mappings](how-to-configure-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
