@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/20/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -48,11 +48,13 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 # [Vaulted backup](#tab/vaulted-backup)
 
+The vaulted backup is currently in preview in the following regions: France Central, Canada Central, Canada East, US East, US South.
+
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
 - You can back up storage accounts with *up to 1000 containers*. You can also select a subset of containers to back up (up to 1000 containers).
   - If your storage account contains more than 1000 containers, you need to select *up to 1000 containers* to back up.
-  - To be back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed-up automatically.
+  - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed-up automatically.
 - The storage account(s) to be backed-up must contain *a minimum of 1 container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Currently, you can perform only *1 backup* per day (that includes scheduled and on-demand backups). Backup fails, if you attempt to perform more than one backup operation a day.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
