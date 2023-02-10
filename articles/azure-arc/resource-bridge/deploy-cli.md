@@ -33,7 +33,7 @@ Checks the configuration files for a valid schema, cloud and core validations (s
 
 Downloads the OS images from Microsoft and uploads them to the on-premises cloud image gallery to prepare for the creation of the appliance VM.
 
-This command can take up to 30 minutes to complete, depending on the network download speed. Allow the command to complete before continuing with the deployment.
+This command can take about 15-30+ minutes to complete, depending on the network speed. Allow the command to complete before continuing with the deployment.
 
 ## az arcappliance deploy
 
@@ -43,11 +43,19 @@ Deploys an on-premises instance of Arc resource bridge as an appliance VM, boots
 
 Creates Arc resource bridge in Azure as an ARM resource, then establishes the connection between the ARM resource and on-premises appliance VM.
 
-Running this command is the last step in the deployment process.  
+Once the `create` command initiates the connection, it will return in the terminal even though the connection between the ARM resource and on-premise appliance VM is not yet complete. The resource bridge needs about 5 minutes to establish the connection between the ARM resource and the on-premise VM. 
 
 ## az arcappliance show
 
-Gets the ARM resource information for Arc resource bridge. This information helps you monitor the status of the appliance. Successful appliance creation results in `ProvisioningState = Succeeded` and `Status = Running`.
+Gets the status of the Arc resource bridge and ARM resource information. 
+
+While the Arc resource bridge is connecting the ARM resource to the on-premise VM, the resource bridge will progress through the stages below:
+
+`ProvisioningState` will be `Creating`, `Created`, `Failed`, `Deleting`, or `Succeeded`.
+
+`Status` will transition between `WaitingForHeartbeat` -> `Validating` -> `Connected` -> `Running`.
+
+Successful Arc resource bridge creation results in `ProvisioningState = Succeeded` and `Status = Running`.
 
 ## az arcappliance delete
 
