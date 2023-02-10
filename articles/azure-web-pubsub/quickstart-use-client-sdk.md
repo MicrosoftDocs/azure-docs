@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Pub-sub using Web PubSub client SDK
-description: Quickstart showing how to use the Web PubSub client SDK
+title: Quickstart - Pub-sub using Azure Web PubSub client SDK
+description: Quickstart showing how to use the Azure Web PubSub client SDK
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Pub-sub using Web PubSub client SDK
 
-This quickstart guide will demonstrate how to construct a project using the Web PubSub client SDK, connect to the Web PubSub, subscribe to messages from groups and publish a message to the group.
+This quickstart guide demonstrates how to construct a project using the Web PubSub client SDK, connect to the Web PubSub, subscribe to messages from groups and publish a message to the group.
 
 > [!NOTE] 
 > The client SDK is still in preview version. The interface may change in later versions
@@ -66,7 +66,7 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
-![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
+![The diagram shows how to get client access url](./media/howto-websocket-connect/generate-client-url.png)
 
 As shown in the diagram above, the client has the permissions to send messages to and join a specific group named `group1`.
 
@@ -132,7 +132,7 @@ await client.JoinGroupAsync("group1");
 
 ## Publish a message to a group
 
-Then you can send messages to the group and as the client has joined the group before, you'll receive the message you've sent.
+Then you can send messages to the group and as the client has joined the group before, you can receive the message you've sent.
 
 # [JavaScript](#tab/javascript)
 
@@ -170,6 +170,6 @@ await client.SendToGroupAsync("group1", BinaryData.FromString("Hello World"), We
 
 ## Next steps
 
-This quickstart provides you a basic idea of how to connect to the Web PubSub with client SDK and how to subscribe to group messages and publish messages to groups.
+This quickstart provides you with a basic idea of how to connect to the Web PubSub with client SDK and how to subscribe to group messages and publish messages to groups.
 
 [!INCLUDE [next step](includes/include-next-step.md)]
