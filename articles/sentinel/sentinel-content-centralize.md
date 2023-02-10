@@ -51,7 +51,7 @@ For Microsoft Sentinel GitHub, OOTB content packaged in solutions in content hub
 
 
 ### What's not changing?
-The active or custom items created in any manner (from templates or otherwise) are **NOT** impacted by this change. This specifically means the following are **NOT** affected by this change: 
+The active or custom items created in any manner (from templates or otherwise) are **NOT** impacted by this change. More specifically, the following are **NOT** affected by this change: 
 
 - Data Connectors with *Status = Connected*. 
 - Alert rules or detections (enabled or disabled) in the *'Active rules'* tab in the Analytics gallery. 
@@ -78,15 +78,15 @@ Here's an example of an Analytics rule before and after the centralization chang
 - The active Analytics rule won't change at all. We can see it's based on an Analytics rule template that will be retired.
     :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-active.png" alt-text="This screenshot shows an active Analytics rule before centralization changes.":::
 
-- This is the Analytics rule template before the change that will be retired.
+- This screenshot shows the Analytics rule template before the change that will be retired.
     :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-template.png" alt-text="This screenshot shows the Analytics rule template that will be retired.":::
 
-- This is the Analytics rule template after the tool has been run to reinstate it.
+- Here is the Analytics rule template after the tool has been run to reinstate it.
     :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template.png" alt-text="This screenshot shows the Analytics rule template after being reinstated.":::
 
 ## Action needed
 - Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of the templates. 
-- For existing gallery content templates you are using, get future updates by installing the respective solutions or standalone content items from Content hub. The gallery content in the feature galleries may be out-of-date.
+- For existing gallery content templates in use, get future updates by installing the respective solutions or standalone content items from Content hub. The gallery content in the feature galleries may be out-of-date.
 - If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the solutions folder in addition to existing content folders.  
 - Plan with your organization who and when will run the tool when you see the warning banner and the change goes live in Q2 2023. The tool needs to be run once in a workspace to reinstate all `IN USE` retired templates from the Content hub. 
 - Review the FAQs section to learn more details that may be applicable to your environment. 
@@ -96,7 +96,7 @@ Here's an example of an Analytics rule before and after the centralization chang
 No, there's no impact to active alert rules or detections, or active playbooks, or cloned hunting queries, or saved workbooks. The OOTB content centralization change won't impact your current incident generation and management processes.  
 
 #### Are there exceptions on impacts to some of the gallery content templates as part of this centralization? 
-Analytic rule templates of the following types will be un-impacted with this change: 
+Analytics rule templates of the following types won't be impacted by this change: 
 
 - Fusion templates 
 - Anomalies templates 
@@ -105,11 +105,11 @@ Analytic rule templates of the following types will be un-impacted with this cha
 - BBTI (Blackbox Threat intelligence) templates 
 
 #### Will any of the APIs be impacted with this change? 
-Currently only alert rule template Get and List APIs exists for content template management. These APIs will continue to surface gallery-content templates.   
+Currently the only Sentinel REST API calls that exist for content template management are the `Get` and `List` operations for alert rule templates. These operations only surface gallery content templates and won't be updated.   
 
-New content hub APIs will be available soon to enable OOTB content management scenarios for OOTB content types (data connectors, playbook templates, workbook templates, analytic rule templates, hunting queries) and this includes a mechanism to get up-to-date analytics rule templates installed on the workspace. 
+New content hub API operations will be available soon to enable OOTB content management scenarios more broadly. This API update will include operations for the same content types scoped in the centralization changes (data connectors, playbook templates, workbook templates, analytic rule templates, hunting queries). A mechanism to update analytics rule templates installed on the workspace is on the roadmap as well. 
 
-**Action needed:** Plan to update your applications and processes to leverage the new content hub OOTB content management APIs when those are available in Q2 2023.  
+**Action needed:** Plan to update your applications and processes to utilize the new content hub OOTB content management APIs when those are available in Q2 2023.  
 
 #### How will the central tool identify my in-use OOTB content templates? 
 The tool will look for data connectors with "status = connected" to build a list of solutions and standalone content that you can review and install to get the content hub OOTB content templates in all the impacted feature galleries. There is a specific check for `IN USE` playbook templates. Since this process installs solutions, you might get more OOTB content items that match the connected data source than you might be actually using.  
