@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 02/10/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -14,7 +14,7 @@ ms.subservice: files
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that have multiple on-premises Active Directory Domain Services (AD DS) forests. This is a common IT scenario, especially following mergers and acquisitions, where the acquired company's AD forests are isolated from the parent company's AD forests. This article explains how forest trust relationships work and provides step-by-step instructions for multi-forest setup and validation.
 
 > [!IMPORTANT]
-> Azure Files only supports identity-based authentication across multiple forests for [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you must create these accounts in Active Directory and sync them to Azure AD using [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). Cloud-only identities aren't supported.
+> If you want to set share-level permissions for specific Azure AD users or groups using Azure role-based access control (RBAC), then you must first sync the on-premises AD accounts to Azure AD using [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md). Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -27,7 +27,7 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 
 - Two AD DS domain controllers with different forests and on different virtual networks (VNETs)
 - Sufficient AD permissions to perform administrative tasks (for example, Domain Admin)
-- Both forests must be reachable by a single Azure AD Connect sync server
+- If using Azure RBAC, both forests must be reachable by a single Azure AD Connect sync server
 
 ## How forest trust relationships work
 
@@ -89,9 +89,10 @@ Once the trust is established, follow these steps to create a storage account an
 1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 1. [Enable AD DS authentication](storage-files-identity-ad-ds-enable.md) on the storage account associated with **Forest 1**, for example **onprem1sa**. This will create a computer account in your on-premises AD called **onprem1sa** to represent the Azure storage account and join the storage account to the **onpremad1.com** domain. You can verify that the AD identity representing the storage account was created by looking in **Active Directory Users and Computers** for **onpremad1.com**. In this example, you'd see a computer account called **onprem1sa**.
 1. Create a user account by navigating to **Active Directory > onpremad1.com**. Right-click on **Users**, select **Create**, enter a user name (for example, **onprem1user**), and check the **Password never expires** box (optional).
-1. Sync the user to Azure AD using Azure AD Connect. Normally Azure AD Connect sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the AzureAD Sync module first by running `Import-Module ADSync`.
-1. To verify that the user has been synced to Azure AD, log in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Azure Active Directory**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
-1. Grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+1. Optional: If you want to use Azure RBAC to assign share-level permissions, you must sync the user to Azure AD using Azure AD Connect. Normally Azure AD Connect sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the AzureAD Sync module first by running `Import-Module ADSync`. To verify that the user has been synced to Azure AD, sign in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Azure Active Directory**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
+1. Set share-level permissions using either Azure RBAC roles or a default share-level permission. 
+   - If the user is synced to Azure AD, you can grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions for specific Azure AD users or groups](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-specific-azure-ad-users-or-groups).
+   - Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
 1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) (Windows ACLs) using the icacls command-line utility. In a multi-forest environment, you shouldn't use Windows File Explorer to configure ACLs. Use icacls instead.
 
 Repeat steps 4-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
