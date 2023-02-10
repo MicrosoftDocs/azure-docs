@@ -49,7 +49,7 @@ Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-
 
 You can choose to create a customizable lab, which enables you to modify the base image for the [lab VMs](#lab-virtual-machine). For example, to install additional software components are modify operating system settings. In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize.
 
-When you [publish the lab](./tutorial-setup-lab-plan.md#publish-lab), Azure Lab Services creates the lab VMs, based on the the template VM image. If you modify the template VM at a later stage, the lab VMs will be updated to match the new template.
+When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the the template VM image. If you modify the template VM at a later stage, the lab VMs will be updated to match the new template.
 
 With the [introduction of lab plans](lab-services-whats-new.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery.
 
@@ -87,4 +87,4 @@ A lab can use either quota time, [scheduled time](#schedule), or a combination o
 ## Next steps
 
 - [Create the resources to get started](./quick-create-resources.md)
-- [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab-plan.md)
+- [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab.md)

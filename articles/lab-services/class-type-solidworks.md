@@ -21,7 +21,7 @@ In this article, we’ll show how to set up a class that uses SOLIDWORKS 2019 an
 
 SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premises network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SOLIDWORKS install guide.  Remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they'll be needed in later steps.
 
-After your license server is set up, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) in your [lab plan](./tutorial-setup-lab-plan.md)
+After your license server is set up, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) in your lab plan.
 
 > [!IMPORTANT]
 > [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.

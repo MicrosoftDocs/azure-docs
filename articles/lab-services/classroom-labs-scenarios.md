@@ -78,4 +78,4 @@ A student or training attendee registers to the lab by using the registration li
 
 ## Next steps
 
-- Get started by following the steps in the tutorial [Set up a lab for classroom training](./tutorial-setup-lab-plan.md).
+- Get started by following the steps in the tutorial [Set up a lab for classroom training](./tutorial-setup-lab.md).

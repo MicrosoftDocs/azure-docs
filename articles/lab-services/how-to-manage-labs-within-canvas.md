@@ -27,7 +27,7 @@ For more information about adding lab plans to Canvas, see [Configure Canvas to 
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Set up a lab plan with Azure Lab Services](quick-create-resources.md).
 - The Azure Lab Services Canvas app is enabled. Learn how to [configure Canvas for Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
 - To create and manage labs, your account should have the Lab Creator, or Lab Contributor role on the lab plan.
 
@@ -110,7 +110,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For example, educators can be added as a **Lab Creator** to the resource group that contains their lab.
+  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](quick-create-resources.md#add-a-user-to-the-lab-creator-role). For example, educators can be added as a **Lab Creator** to the resource group that contains their lab.
 
 - Message that there isn't enough capacity to create lab VMs.
 

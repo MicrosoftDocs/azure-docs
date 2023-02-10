@@ -137,4 +137,4 @@ You've successfully created a lab virtual machine for experimenting inside the V
 Azure Lab Services supports different Azure AD roles to delegate specific tasks and responsibilities to different people in your organization. In the next tutorial, you learn how to set up a lab for classroom teaching, where you assign permissions to lab creators and invite lab users to connect to the lab VMs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a lab for classroom training](./tutorial-setup-lab-plan.md)
+> [Tutorial: Create a lab for classroom training](./tutorial-setup-lab.md)

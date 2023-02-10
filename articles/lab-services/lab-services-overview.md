@@ -62,4 +62,4 @@ See the following resources to get started:
 
 - Learn more about the [key concepts for Azure Lab Services](./classroom-labs-concepts.md)
 - [Create the resources to get started](./quick-create-resources.md)
-- [Tutorial: set up a lab for classroom training](./tutorial-setup-lab-plan.md)
+- [Tutorial: set up a lab for classroom training](./tutorial-setup-lab.md)
