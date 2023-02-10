@@ -384,6 +384,8 @@
         href: cakehr-tutorial.md
       - name: Campus Café
         href: campus-cafe-tutorial.md
+      - name: Canva
+        href: canva-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -694,6 +696,8 @@
         href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
+      - name: DojoNavi
+        href: dojonavi-tutorial.md
       - name: Domo
         href: domo-tutorial.md
       - name: dominKnow|ONE
@@ -1255,6 +1259,8 @@
         href: iserver-portal-tutorial.md
       - name: i-Sight
         href: isight-tutorial.md
+      - name: IT-Conductor
+        href: it-conductor-tutorial.md
       - name: ITRP
         href: itrp-tutorial.md
       - name: itslearning
@@ -1359,12 +1365,16 @@
         href: klaxoon-saml-tutorial.md
       - name: Klue
         href: klue-tutorial.md
+      - name: Kno2fy
+        href: kno2fy-tutorial.md
       - name: KnowBe4 Security Awareness Training
         href: knowbe4-tutorial.md
       - name: Knowledge Anywhere LMS
         href: knowledge-anywhere-lms-tutorial.md
       - name: KnowledgeOwl
         href: knowledgeowl-tutorial.md
+      - name: Knowledge Work
+        href: knowledge-work-tutorial.md
       - name: Kontiki
         href: kontiki-tutorial.md
       - name: Korn Ferry 360
