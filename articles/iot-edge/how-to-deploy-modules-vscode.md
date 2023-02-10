@@ -141,7 +141,7 @@ You deploy modules to your device by applying the deployment manifest that you c
 
    ![Select Edge Deployment Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
+The results of your deployment are printed in the Visual Studio Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
 
 ## View modules on your device
 

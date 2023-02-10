@@ -172,6 +172,9 @@ The streamed logs look like this:
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+
+> [!div class="nextstepaction"]
 > [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 
 Or, check out other resources:
