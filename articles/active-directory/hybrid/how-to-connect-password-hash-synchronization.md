@@ -27,7 +27,7 @@ To synchronize your password, Azure AD Connect sync extracts your password hash 
 
 The actual data flow of the password hash synchronization process is similar to the synchronization of user data. However, passwords are synchronized more frequently than the standard directory synchronization window for other attributes. The password hash synchronization process runs every 2 minutes. You cannot modify the frequency of this process. When you synchronize a password, it overwrites the existing cloud password.
 
-The first time you enable the password hash synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords that you want to synchronize. However, if there are multiple connectors, it is possible to disable password hash sync for some connectors but not others using the [Set-ADSyncAADPasswordSyncConfiguration](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md) cmdlet.
+The first time you enable the password hash synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. [Staged Rollout](how-to-connect-staged-rollout.md) allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. You cannot explicitly define a subset of user passwords that you want to synchronize. However, if there are multiple connectors, it is possible to disable password hash sync for some connectors but not others using the [Set-ADSyncAADPasswordSyncConfiguration](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md) cmdlet.
 
 When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
 The password hash synchronization feature automatically retries failed synchronization attempts. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
@@ -35,7 +35,7 @@ The password hash synchronization feature automatically retries failed synchroni
 The synchronization of a password has no impact on the user  who is currently signed in.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs, while you are signed in, to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by turning on [Seamless SSO](how-to-connect-sso.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
+A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
@@ -108,7 +108,8 @@ Once enabled, Azure AD does not go to each synchronized user to remove the `Disa
 
 After the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature is enabled, new users are provisioned without a PasswordPolicies value.
 
-It is recommended to enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
+>[!TIP]
+>It is recommended to enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
 The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
@@ -202,7 +203,7 @@ If you use Azure AD Domain Services to provide legacy authentication for applica
 ## Enable password hash synchronization
 
 >[!IMPORTANT]
->If you are migrating from AD FS (or other federation technologies) to Password Hash Synchronization, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstophsdpdownload).
+>If you are migrating from AD FS (or other federation technologies) to Password Hash Synchronization, view [Resources for migrating applications to Azure AD](../manage-apps/migration-resources.md).
 
 When you install Azure AD Connect by using the **Express Settings** option, password hash synchronization is automatically enabled. For more information, see [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md).
 
@@ -240,4 +241,4 @@ If you have problems with password hash synchronization, see [Troubleshoot passw
 ## Next steps
 * [Azure AD Connect sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
-* [Get a step-by-step deployment plan for migrating from ADFS to Password Hash Synchronization](https://aka.ms/authenticationDeploymentPlan)
+* [Resources for migrating applications to Azure AD](../manage-apps/migration-resources.md)
