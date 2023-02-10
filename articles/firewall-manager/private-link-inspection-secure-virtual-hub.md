@@ -18,7 +18,7 @@ ms.author: kumud
 
 Private endpoints allow resources access to the private link service deployed in a virtual network. Access to the private endpoint through virtual network peering and on-premises network connections extend the connectivity.
 
-You may need to filter traffic from clients either on premises or in Azure destined to services exposed via private endpoints in a Virtual WAN connected virtual network. This article walks you through this task using [secured virtual hub](../firewall-manager/secured-virtual-hub.md) with [Azure Firewall](../firewall/overview.md) as the security provider.
+You may need to filter traffic from clients either on-premises or in Azure destined to services exposed via private endpoints in a Virtual WAN connected virtual network. This article walks you through this task using [secured virtual hub](../firewall-manager/secured-virtual-hub.md) with [Azure Firewall](../firewall/overview.md) as the security provider.
 
 Azure Firewall filters traffic using any of the following methods:
 
@@ -143,9 +143,9 @@ In most cases, these problems are caused by one of the following issues:
    ```azurecli-interactive
    az network nic show-effective-route-table --name <Network Interface Name> --resource-group <Resource Group Name> -o table
    ```
-5. Inspect the routing tables of your on premises routing devices. Make sure you're learning the address spaces of the virtual networks where the private endpoints are deployed.
+5. Inspect the routing tables of your on-premises routing devices. Make sure you're learning the address spaces of the virtual networks where the private endpoints are deployed.
 
-   Azure virtual WAN doesn't advertise the prefixes configured under **Private traffic prefixes** in firewall policy **Security configuration** to on premises. It's expected that the /32 entries won't show in the routing tables of your on premises routing devices.
+   Azure virtual WAN doesn't advertise the prefixes configured under **Private traffic prefixes** in firewall policy **Security configuration** to on-premises. It's expected that the /32 entries won't show in the routing tables of your on-premises routing devices.
 
 6. Inspect **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
 
