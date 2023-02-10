@@ -97,7 +97,17 @@
     },
     {
       "source_path": "articles/lab-services/quick-create-lab-portal.md",
-      "redirect_url": "/azure/lab-services/quick-create-lab-plan-portal",
+      "redirect_url": "/azure/lab-services/quick-create-windows-lab",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/tutorial-setup-lab-plan.md",
+      "redirect_url": "/azure/lab-services/quick-create-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-portal.md",
+      "redirect_url": "/azure/lab-services/quick-create-resources",
       "redirect_document_id": false
     }
   ]
