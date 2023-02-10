@@ -5,14 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 01/25/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-
 ---
+
 # Use deployment scripts in ARM templates
 
-Learn how to use deployment scripts in Azure Resource templates (ARM templates). With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Bicep. With the [`deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts) resource, users can execute scripts in Bicep deployments and review execution results.
+
+These scripts can be used for performing custom steps such as:
 
 - Add users to a directory.
 - Perform data plane operations, for example, copy blobs or seed database.
@@ -31,7 +33,7 @@ The benefits of deployment script:
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
+> The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically-created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
@@ -106,7 +108,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "6.4",  // or "azCliVersion": "2.28.0",
+    "azPowerShellVersion": "8.3",  // or "azCliVersion": "2.40.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -171,8 +173,10 @@ Property value details:
 - `primaryScriptUri`: Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).
 - `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
-- `cleanupPreference`. Specify the preference of cleaning up deployment resources when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
-- `retentionInterval`: Specify the interval for which the service retains the deployment script resources after the deployment script execution reaches a terminal state. The deployment script resources will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+- `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+- `retentionInterval`: Specify the interval for which the service retains the deployment script resource after the deployment script execution reaches a terminal state. The deployment script resource will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+
+
 
 ### Additional samples
 
@@ -386,10 +390,10 @@ SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 3.0
-StartTime           : 6/18/2020 7:46:45 PM
-EndTime             : 6/18/2020 7:49:45 PM
-ExpirationDate      : 6/19/2020 7:49:45 PM
+AzPowerShellVersion : 8.3
+StartTime           : 6/18/2022 7:46:45 PM
+EndTime             : 6/18/2022 7:49:45 PM
+ExpirationDate      : 6/19/2022 7:49:45 PM
 CleanupPreference   : OnSuccess
 StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
 ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
@@ -417,13 +421,13 @@ The list command output is similar to:
 [
   {
     "arguments": "-name \\\"John Dole\\\"",
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "8.3",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20200625T025902Z",
+    "forceUpdateTag": "20220625T025902Z",
     "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
@@ -448,19 +452,19 @@ The list command output is similar to:
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "endTime": "2022-06-25T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
-      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "expirationTime": "2022-06-26T03:00:16.796923+00:00",
+      "startTime": "2022-06-25T02:59:07.595140+00:00",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
     "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdAt": "2022-06-25T02:59:04.750195+00:00",
       "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedAt": "2022-06-25T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
@@ -509,15 +513,15 @@ The output is similar to:
   "systemData": {
     "createdBy": "someone@contoso.com",
     "createdByType": "User",
-    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "createdAt": "2022-06-25T02:59:04.7501955Z",
     "lastModifiedBy": "someone@contoso.com",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+    "lastModifiedAt": "2022-06-25T02:59:04.7501955Z"
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "forceUpdateTag": "20200625T025902Z",
-    "azPowerShellVersion": "3.0",
+    "forceUpdateTag": "20220625T025902Z",
+    "azPowerShellVersion": "8.3",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -526,9 +530,9 @@ The output is similar to:
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
-      "startTime": "2020-06-25T02:59:07.5951401Z",
-      "endTime": "2020-06-25T03:00:16.7969234Z",
-      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+      "startTime": "2022-06-25T02:59:07.5951401Z",
+      "endTime": "2022-06-25T03:00:16.7969234Z",
+      "expirationTime": "2022-06-26T03:00:16.7969234Z"
     },
     "outputs": {
       "text": "Hello John Dole"
@@ -556,22 +560,22 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Clean up deployment script resources
 
-A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are deleted by the script service when the deployment script execution gets in a terminal state. You're billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+The two automatically created supporting resources can never outlive the `deploymentScript` resource, unless there are failures deleting them. The life cycle of the supporting resources is controlled by the `cleanupPreference` property, the life cycle of the `deploymentScript` resource is controlled by the `retentionInterval` property:
 
-The life cycle of these resources is controlled by the following properties in the template:
+- `cleanupPreference`: Specify the clean-up preference of the two supporting resources when the script execution gets in a terminal state. The supported values are:
 
-- `cleanupPreference`: Clean up preference when the script execution gets in a terminal state. The supported values are:
+  - **Always**: Delete the two supporting resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created by the service. Because the `deploymentScripts` resource may still be present after the supporting resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, and return value before the resources are deleted.
+  - **OnSuccess**: Delete the two supporting resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful.
 
-  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the `deploymentScripts` resource may still be present after the resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, and return value before the resources are deleted.
-  - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
-  - **OnExpiration**: Delete the automatically created resources only when the `retentionInterval` setting is expired. If an existing storage account is used, the script service removes the file share, but retains the storage account.
+    If the script execution is not successful, the script service waits until the `retentionInterval` expires before it cleans up the supporting resources and then the deployment script resource.
+  - **OnExpiration**: Delete the two supporting resources only when the `retentionInterval` setting is expired. If an existing storage account is used, the script service removes the file share, but retains the storage account.
 
-- `retentionInterval`: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
+  The container instance and storage account are deleted according to the `cleanupPreference`. However, if the script fails and `cleanupPreference` isn't set to **Always**, the deployment process automatically keeps the container running for one hour or until the container is cleaned up. You can use the time to troubleshoot the script. If you want to keep the container running after successful deployments, add a sleep step to your script. For example, add [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) to the end of your script. If you don't add the sleep step, the container is set to a terminal state and can't be accessed even if it hasn't been deleted yet.
+
+- `retentionInterval`: Specify the time interval that a `deploymentScript` resource will be retained and after which will be expired and deleted.
 
 > [!NOTE]
 > It is not recommended to use the storage account and the container instance that are generated by the script service for other purposes. The two resources might be removed depending on the script life cycle.
-
-The container instance and storage account are deleted according to the `cleanupPreference`. However, if the script fails and `cleanupPreference` isn't set to **Always**, the deployment process automatically keeps the container running for one hour. You can use this hour to troubleshoot the script. If you want to keep the container running after successful deployments, add a sleep step to your script. For example, add [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) to the end of your script. If you don't add the sleep step, the container is set to a terminal state and can't be accessed even if it hasn't been deleted yet.
 
 The automatically created storage account and container instance can't be deleted if the deployment script is deployed to a resource group with a [CanNotDelete lock](../management/lock-resources.md). To solve this problem, you can deploy the deployment script to another resource group without locks. See Sample 4 and Sample 5 in [Sample templates](#sample-templates).
 
@@ -636,6 +640,10 @@ When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMe
 ### Permissions
 
 The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your template deployment, such as by pre-creating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
+
+## Access private virtual network
+
+The supporting resources including the container instance can't be deployed to a private virtual network. To access a private virtual network from your deployment script, you can create another virtual network with a publicly accessible virtual machine or a container instance, and create a peering from this virtual network to the private virtual network.
 
 ## Next steps
 

@@ -1,20 +1,21 @@
 ---
-title: Copy a blob with .NET - Azure Storage
+title: Copy a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the .NET client library.
-services: storage
 author: pauljewellmsft
+
 ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp,
-ms.custom: "devx-track-csharp"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Copy a blob with Azure Storage using the .NET client library
+# Copy a blob with .NET
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
+This article shows how to copy a blob in a storage account using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). It also shows how to abort an asynchronous copy operation.
 
 ## About copying blobs
 
@@ -26,7 +27,7 @@ The destination blob can't be modified while a copy operation is in progress. A 
 
 The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
 
-When a blob is copied, it's system properties are copied to the destination blob with the same values.
+When a blob is copied, its system properties are copied to the destination blob with the same values.
 
 A copy operation can take any of the following forms:
 
@@ -57,14 +58,22 @@ Aborting a copy operation results in a destination blob of zero length. However,
 
 Check the BlobProperties.CopyStatus property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/azure.storage.blobs.models.copystatus).
 
 The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing copy operation.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
 
-## See also
+## Resources
 
-- [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+To learn more about copying blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for copying blobs use the following REST API operations:
+
+- [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
+- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
+- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

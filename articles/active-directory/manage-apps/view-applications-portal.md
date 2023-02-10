@@ -2,14 +2,15 @@
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 03/24/2022
-ms.author: alamaral
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---

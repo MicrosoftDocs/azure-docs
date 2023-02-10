@@ -7,8 +7,9 @@ ms.service: frontdoor
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 10/28/2022
 ms.author: duau
+ms.custom: template-tutorial, engagement-fy23
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
 ---
 

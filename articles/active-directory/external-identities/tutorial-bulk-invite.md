@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 10/24/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
@@ -136,8 +136,6 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 
 ## Next steps
 
-In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works, and how to enforce multi-factor authentication for guest users.
-
-
 - [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
+- [Billing model for guest user collaboration usage](external-identities-pricing.md#about-monthly-active-users-mau-billing)

@@ -103,7 +103,7 @@ AzureML allows you to either use a curated (or ready-made) environment or create
 In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
 
 ### Obtain the training data
-You'll use data that is stored on a public blob as a [zip file](https://azureopendatastorage.blob.core.windows.net/testpublic/temp/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). We'll download and extract the dataset as part of our training script `pytorch_train.py`.
+You'll use data that is stored on a public blob as a [zip file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). We'll download and extract the dataset as part of our training script `pytorch_train.py`.
 
 ### Prepare the training script
 
@@ -140,7 +140,7 @@ It's now time to submit the job to run in AzureML. This time, you'll use `create
 Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in AzureML studio.
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory.
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
 
 ### What happens during job execution
 As the job is executed, it goes through the following stages:

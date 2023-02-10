@@ -15,10 +15,12 @@ ms.reviewer: edbaynash
 
 This article shows you how to create a Logic App and integrate it with an Azure Monitor Alert.
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) allows you to build and customize workflows for integration. Use Logic Apps to customize your alert notifications.
+[Azure Logic Apps](../../logic-apps/logic-apps-overview.md) allows you to build and customize workflows for integration. Use Logic Apps to customize your alert notifications.
  
 + Customize the alerts email, using your own email subject and body format. 
-+ Customize the alert metadata by looking up tags for affected resources or fetching a log query search result. 
++ Customize the alert metadata by looking up tags for affected resources or fetching a log query search result. For information on how to access the search result rows containing alerts data, see: 
+  + [Azure Monitor Log Analytics API response format](../logs/api/response-format.md)
+  + [Query/management HTTP response](/azure/data-explorer/kusto/api/rest/response)
 + Integrate with external services using existing connectors like Outlook, Microsoft Teams, Slack and PagerDuty, or by configuring the Logic App for your own services.
 
 In this example, we'll use the following steps to create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:
@@ -179,7 +181,7 @@ To trigger your Logic app, create an action group, then create an alert that use
 1. Select **OK**.
 1. Enter a name in the **Name** field.
 1. Select **Review + create**, the **Create**.
-:::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="A screenshot showing the Logic Apps blade of a create action group, actions tab.":::
+:::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="A screenshot showing the Logic Apps pane of a create action group, actions tab.":::
 
 ## Test your action group
 
@@ -204,7 +206,7 @@ The following email will be sent to the specified account:
 1. Select your action group from the list.
 1. Select **Select**.
 1. Finish the creation of your rule.
- :::image type="content" source="./media/alerts-logic-apps/select-action-groups.png" alt-text="A screenshot showing the actions tab of the create rules page and the select action groups blade.":::
+ :::image type="content" source="./media/alerts-logic-apps/select-action-groups.png" alt-text="A screenshot showing the actions tab of the create rules page and the select action groups pane.":::
 
 ## Next steps
 

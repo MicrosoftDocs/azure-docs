@@ -1,10 +1,8 @@
 ---
-title: 'Tutorial: Implement CI/CD with GitOps (Flux v2)'
-description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps article.
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
+title: "Tutorial: Implement CI/CD with GitOps (Flux v2)"
+description: "This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters."
 author: eedorenko
 ms.author: iefedore
-ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli

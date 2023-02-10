@@ -27,7 +27,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
    * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. They use the same metrics and logs that are collected in Azure Monitor and shows an aggregated view for your account.
 
-1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
+1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for every container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
@@ -41,7 +41,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
    * **Availability** - This tab shows the percentage of successful requests over the total requests per hour. The success rate is defined by the Azure Cosmos DB SLAs.
 
-   * **Latency** - This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
+   * **Latency** - This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also view server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
 
    * **System** - This tab shows how many metadata requests are served by the primary partition. It also helps to identify the throttled requests.
 
@@ -104,7 +104,7 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
-*QueryMetrics* provides details on how long each component of the query took to execution. The most common root cause for long running queries is scans, meaning the query was unable to leverage the indexes. This problem can be resolved with a better filter condition.
+*QueryMetrics* provides details on how long each component of the query took to execute. The most common root cause for long running queries is scans, meaning the query was unable to leverage the indexes. This problem can be resolved with a better filter condition.
 
 ## Next steps
 

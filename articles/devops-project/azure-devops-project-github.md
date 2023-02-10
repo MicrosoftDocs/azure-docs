@@ -6,8 +6,7 @@ documentationcenter: vs-devops-build
 ms.author: gwallace
 ms.manager: gwallace
 ms.workload: web
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020

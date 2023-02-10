@@ -25,6 +25,8 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
+* **Email message ID**: This ID is used to identify Send Email requests.
+* **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
@@ -75,26 +77,16 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access your server call ID
-When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you'll need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
+## Access IDs required for Call Automation
+When troubleshooting issues with the Call Automation SDK, like call management or recording problems, you'll need to collect the IDs that help identify the failing call or operation. You can provide either of the two IDs mentioned here. 
+- From the header of API response, locate the field `X-Ms-Skype-Chain-Id`.
+ 
+    ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png) 
+- From the callback events your application receives after executing an action e.g. `CallConnected` or `PlayFailed`, locate the correlationID.
 
-#### JavaScript
-```
-callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
-    e.added.forEach((addedCall) => {
-        addedCall.on('stateChanged', (): void => {
-            if (addedCall.state === 'Connected') {
-                addedCall.info.getServerCallId().then(result => {
-                    dispatch(setServerCallId(result));
-                }).catch(err => {
-                    console.log(err);
-                });
-            }
-        });
-    });
-});
-```
+    ![Screenshot of call disconnected event showing correlation ID.](media/troubleshooting/correlation-id-in-callback-event.png)
 
+In addition to one of these IDs, please provide the details on the failing use case and the timestamp for when the failure was observed. 
 
 ## Access your client call ID
 
@@ -145,6 +137,16 @@ console.log(result); // your message ID will be in the result
 The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
 
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+
+---
+
+## Access your email message ID
+When troubleshooting send email or email message status requests, you may be asked to provide a `message ID`. This can be accessed in the response:
+
+# [.NET](#tab/dotnet)
+```csharp
+Console.WriteLine($"MessageId = {emailResult.MessageId}");
+```
 ---
 
 ## Enable and access call logs
@@ -325,6 +327,31 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 
+## Call Automation SDK error codes 
+The below error codes are exposed by Call Automation SDK.
+
+| Error Code | Description | Actions to take |
+|--|--|--|
+| 400 | Bad request           | The input request is invalid. Look at the error message to determine which input is incorrect.
+| 400 | Play Failed           | Ensure your audio file is WAV, 16KHz, Mono and make sure the file url is publicly accessible. |
+| 400 | Recognize Failed      | Check the error message. The message will highlight if this is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
+| 401 | Unauthorized          | HMAC authentication failed. Verify whether the connection string used to create CallAutomationClient is correct.
+| 403 | Forbidden             | Request is forbidden. Make sure that you can have access to the resource you are trying to access. 
+| 404 | Resource not found    | The call you are trying to act on doesn't exist. For example, transferring a call that has already disconnected.
+| 429 | Too many requests     | Retry after a delay suggested in the Retry-After header, then exponentially backoff.
+| 500 | Internal server error | Retry after a delay. If it persists, raise a support ticket.
+| 500 | Play Failed           | File a support request through the Azure portal. |
+| 500 | Recognize Failed      | Check error message and confirm the audio file format is valid (WAV, 16KHz, Mono), if the file format is valid then file a support request through Azure portal. |
+| 502 | Bad gateway           | Retry after a delay with a fresh http client.
+
+Consider the below tips when troubleshooting certain issues. 
+- Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription will be marked as succeeded if the validation was successful. 
+- Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the callback url you provide supports HTTPS.
+- PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
+- Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
+
+Refer to [this article](./known-issues.md) to learn about any known issues being tracked by the product team. 
+
 ## Chat SDK error codes
 
 The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
@@ -353,10 +380,11 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
 | 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
+| 4010 | Message was blocked due to the toll-free number not being verified | [Review unverified sending limits](./sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible |
 | 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
 | 5002 | Message Delivery Timeout|  Try resending the message |
-| 9999 | Message failed to deliver due to unknown error/failure|  Try resending the message |
+| 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
 ## Related information

@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 11/02/2022
 ms.author: greglin
 
 ---
@@ -15,7 +15,7 @@ ms.author: greglin
 Today, you can deploy your critical workloads securely behind Application Gateway, gaining the flexibility of Layer 7 load balancing features. Access to the backend workloads is possible in two ways:
 
 - Public IP address - your workloads are accessible over the Internet. 
-- Private IP address- your workloads are accessible via a private IP address, but within the same VNet as the Application Gateway.
+- Private IP address- your workloads are accessible privately via your virtual network / connected networks
 
 Private Link for Application Gateway allows you to connect workloads over a private connection spanning across VNets and subscriptions. When configured, a private endpoint will be placed into a defined virtual network's subnet, providing a private IP address for clients looking to communicate to the gateway. For a list of other PaaS services that support Private Link functionality, see [What is Azure Private Link?](../private-link/private-link-overview.md).
 

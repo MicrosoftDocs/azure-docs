@@ -5,8 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/31/2022
 tags: connectors
+## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 
 # Connect to an SQL database from workflows in Azure Logic Apps
@@ -36,13 +37,13 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use the SQL managed connector trigger or a different trigger. <br><br>- The built-in version can connect directly to an SQL database and access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector, which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use the SQL managed connector trigger or a different trigger. <br><br>- The built-in version can connect directly to an SQL database and access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
-## Limitations
+### Limitations
 
-For more information, review the [SQL Server managed connector reference](/connectors/sql/) or the [SQL Server built-in connector reference](#built-in-connector-operations).
+For more information, review the [SQL Server managed connector reference](/connectors/sql/) or the [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/).
 
 ## Prerequisites
 
@@ -87,7 +88,9 @@ For more information, review the [SQL Server managed connector reference](/conne
 
     You can use the SQL Server built-in connector or managed connector.
 
-    * To use the built-in connector, you can authenticate your connection with either a managed identity, Active Directory OAuth, or a connection string. You can adjust connection pooling by specifying parameters in the connection string. For more information, review [Connection Pooling](/dotnet/framework/data/adonet/connection-pooling).
+    * To use Azure Active Directory authentication or managed identity authentication with your logic app, you have to set up your SQL Server to work with these authentication types. For more information, see [Authentication - SQL Server managed connector reference](/connectors/sql/#authentication).
+
+    * To use the built-in connector, you can authenticate your connection with either a managed identity, Azure Active Directory, or a connection string. You can adjust connection pooling by specifying parameters in the connection string. For more information, review [Connection Pooling](/dotnet/framework/data/adonet/connection-pooling).
 
     * To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps. For other connector requirements, review the [SQL Server managed connector reference](/connectors/sql/).
 
@@ -165,14 +168,6 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
 When you save your workflow, this step automatically publishes your updates to your deployed logic app, which is live in Azure. With only a trigger, your workflow just checks the SQL database based on your specified schedule. You have to [add an action](#add-sql-action) that responds to the trigger.
 
-<a name="trigger-recurrence-shift-drift"></a>
-
-## Trigger recurrence shift and drift (daylight saving time)
-
-Recurring connection-based triggers where you need to create a connection first, such as the SQL Server managed connector trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). For recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
-
-To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-for-connection-based-triggers).
-
 <a name="add-sql-action"></a>
 
 ## Add a SQL Server action
@@ -231,7 +226,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the **Choose an operation** search box, select either of the following options:
 
-      * **Built-in** when you want to use SQL Server [built-in actions](#built-in-connector-operations) such as **Execute query**
+      * **Built-in** when you want to use SQL Server [built-in actions](/azure/logic-apps/connectors/built-in/reference/sql/) such as **Execute query**
 
         ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Built-in" selected underneath.](./media/connectors-create-api-sqlazure/select-built-in-category-standard.png)
 
@@ -243,7 +238,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. From the actions list, select the SQL Server action that you want.
 
-      * [Built-in actions](#built-in-connector-operations)
+      * [Built-in actions](/azure/logic-apps/connectors/built-in/reference/sql/)
 
         This example selects the built-in action named **Execute query**.
 
@@ -446,263 +441,6 @@ When you call a stored procedure by using the SQL Server connector, the returned
 1. When you're done, save your workflow.
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
-
-<a name="built-in-connector-app-settings"></a>
-
-## Built-in connector app settings
-
-In a Standard logic app resource, the SQL Server built-in connector includes app settings that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the query timeout value from 30 seconds. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
-
-<a name="built-in-connector-operations"></a>
-
-## SQL built-in connector operations
-
-The SQL Server built-in connector is available only for Standard logic app workflows and provides the following actions, but no triggers:
-
-| Action | Description |
-|--------|-------------|
-| [**Delete rows**](#delete-rows) | Deletes and returns the table rows that match the specified **Where condition** value. |
-| [**Execute query**](#execute-query) | Runs a query on an SQL database. |
-| [**Execute stored procedure**](#execute-stored-procedure) | Runs a stored procedure on an SQL database. |
-| [**Get rows**](#get-rows) | Gets the table rows that match the specified **Where condition** value. |
-| [**Get tables**](#get-tables) | Gets all the tables from the database. |
-| [**Insert row**](#insert-row) | Inserts a single row in the specified table. |
-| [**Update rows**](#update-rows) | Updates the specified columns in all the table rows that match the specified **Where condition** value using the **Set columns** column names and values. |
-
-<a name="delete-rows"></a>
-
-### Delete rows
-
-Operation ID: `deleteRows`
-
-Deletes and returns the table rows that match the specified **Where condition** value.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values used for selecting the rows to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to delete. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An array object that returns all the deleted rows. Each row contains the column name and the corresponding deleted value. |
-| **Result Item** | An array object that returns one deleted row at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding deleted value. |
-
-*Example*
-
-The following example shows sample parameter values for the **Delete rows** action:
-
-**Sample values**
-
-| Parameter | JSON name | Sample value |
-|-----------|-----------|--------------|
-| **Table name** | `tableName` | tableName1 |
-| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
-
-**Parameters in the action's underlying JSON definition**
-
-```json
-"parameters": {
-   "tableName": "tableName1",
-   "columnValuesForWhereCondition": {
-      "columnName1": "columnValue1",
-      "columnName2": "columnValue2"
-   }
-},
-```
-
-<a name="execute-query"></a>
-
-### Execute query
-
-Operation ID: `executeQuery`
-
-Runs a query on an SQL database.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Query** | `query` | True | Dynamic | The body for your SQL query |
-| **Query parameters** | `queryParameters` | False | Objects | The parameters for your query. <br><br>**Note**: If the query requires input parameters, you must provide these parameters. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An array object that returns all the query results. Each row contains the column name and the corresponding value. |
-| **Result Item** | An array object that returns one query result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. Each row contains the column name and the corresponding value. |
-
-<a name="execute-stored-procedure"></a>
-
-### Execute stored procedure
-
-Operation ID: `executeStoredProcedure`
-
-Runs a stored procedure on an SQL database.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Procedure name** | `storedProcedureName` | True | String | The name for your stored procedure |
-| **Parameters** | `storedProcedureParameters` | False | Dynamic | The parameters for your stored procedure. <br><br>**Note**: If the stored procedure requires input parameters, you must provide these parameters. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An object that contains the result sets array, return code, and output parameters |
-| **Result Result Sets** | An object array that contains all the result sets from the stored procedure, which might return zero, one, or multiple result sets. |
-| **Result Return Code** | An integer that represents the status code from the stored procedure |
-| **Result Stored Procedure Parameters** |  An object that contains the final values of the stored procedure's output and input-output parameters |
-| **Status Code** | The status code from the **Execute stored procedure** operation |
-
-<a name="get-rows"></a>
-
-### Get rows
-
-Operation ID: `getRows`
-
-Gets the table rows that match the specified **Where condition** value.
-
-#### Parameters
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | False | Dynamic | This object contains the column names and corresponding values used for selecting the rows to get. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to get. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An array object that returns all the row results. |
-| **Result Item** | An array object that returns one row result at a time. A **For each** loop is automatically added to your workflow to iterate through the array. |
-
-*Example*
-
-The following example shows sample parameter values for the **Get rows** action:
-
-**Sample values**
-
-| Parameter | JSON name | Sample value |
-|-----------|-----------|--------------|
-| **Table name** | `tableName` | tableName1 |
-| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
-
-**Parameters in the action's underlying JSON definition**
-
-```json
-"parameters": {
-   "tableName": "tableName1",
-   "columnValuesForWhereCondition": {
-      "columnName1": "columnValue1",
-      "columnName2": "columnValue2"
-   }
-},
-```
-
-<a name="get-tables"></a>
-
-### Get tables
-
-Operation ID: `getTables`
-
-Gets a list of all the tables in the database.
-
-#### Parameters
-
-None.
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An array object that contains the full names and display names for all tables in the database. |
-| **Result Display Name** | An array object that contains the display name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result Full Name** | An array object that contains the full name for each table in the database. A **For each** loop is automatically added to your workflow to iterate through the array. |
-| **Result Item** | An array object that returns the full name and display name one at time for each table. A **For each** loop is automatically added to your workflow to iterate through the array. |
-
-<a name="insert-row"></a>
-
-### Insert row
-
-Operation ID: `insertRow`
-
-Inserts a single row in the specified table.
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Table name** | `tableName` | True | String | The name for the table |
-| **Set columns** | `setColumns` | False | Dynamic | This object contains the column names and corresponding values to insert. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. If the table has columns with default or autogenerated values, you can leave this field empty. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | The inserted row, including the names and values of any autogenerated, default, and null value columns. |
-
-<a name="update-rows"></a>
-
-### Update rows
-
-Operation ID: `updateRows`
-
-Updates the specified columns in all the table rows that match the specified **Where condition** value using the **Set columns** column names and values.
-
-| Name | Key | Required | Type | Description |
-|------|-----|----------|------|-------------|
-| **Table name** | `tableName` | True | String | The name for the table |
-| **Where condition** | `columnValuesForWhereCondition` | True | Dynamic | This object contains the column names and corresponding values for selecting the rows to update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*, which also lets you specify single or specific rows to update. |
-| **Set columns** | `setColumns` | True | Dynamic | This object contains the column names and the corresponding values to use for the update. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Result** | An array object that returns all the columns for the updated rows. |
-| **Result Item** | An array object that returns one column at a time from the updated rows. A **For each** loop is automatically added to your workflow to iterate through the array. |
-
-*Example*
-
-The following example shows sample parameter values for the **Update rows** action:
-
-**Sample values**
-
-| Parameter | JSON name | Sample value |
-|-----------|-----------|--------------|
-| **Table name** | `tableName` | tableName1 |
-| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
-
-**Parameters in the action's underlying JSON definition**
-
-```json
-"parameters": {
-   "tableName": "tableName1",
-   "columnValuesForWhereCondition": {
-      "columnName1": "columnValue1",
-      "columnName2": "columnValue2"
-   }
-},
-```
-
-## Troubleshoot problems
-
-<a name="connection-problems"></a>
-
-### Connection problems
-
-Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). The following list provides some examples:
-
-* **A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.**
-
-* **(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)**
-
-* **(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)**
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 10/24/2022
+ms.date: 01/24/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -21,23 +21,26 @@ Defender for DevOps uses a central console to empower security teams with the ab
 Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
 
 ## Availability
+  > [!Note] 
+  > During the preview, the maximum number of GitHub repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
+  > 
+  > If your organization is interested in onboarding more than 2,000 GitHub repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
 
 | Aspect | Details |
 |--|--|
 | Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 | Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-| Regions: | Central US |
-| Source Code Management | [Azure DevOps](https://ms.portal.azure.com/#home) |
-| Systems | [GitHub](https://github.com/) | 
+| Regions: | Australia East, Central US, West Europe |
+| Source Code Management Systems | [Azure DevOps](https://portal.azure.com/#home) <br>[GitHub](https://github.com/) supported versions: GitHub Free, Pro, Team, and GitHub Enterprise Cloud | 
 | Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |
 
 ## Manage your DevOps environments in Defender for Cloud
 
-Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for DevOps console](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
+Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for DevOps console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
 
 :::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
 
-Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](tutorial-enable-pull-request-annotations.md).
+Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](enable-pull-request-annotations.md).
 
 ### Understanding your DevOps security
 
@@ -76,6 +79,9 @@ On this part of the screen you see:
 
 - **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
 
+    > [!NOTE]
+    > Currently, this information is available only for GitHub repositories.
+
 ## Learn more
 
 - You can learn more about DevOps from our [DevOps resource center](/devops/).
@@ -88,6 +94,6 @@ On this part of the screen you see:
 
 ## Next steps
 
-[Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
+[Configure the Microsoft Security DevOps GitHub action](github-action.md).
 
-[Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
+[Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)

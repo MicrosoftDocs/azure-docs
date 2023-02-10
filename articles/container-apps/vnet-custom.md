@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> Network address prefixes requires a CIDR range of `/23` or larger (`/23`, `/22` etc.).
+> Network address prefixes requires a CIDR range of `/23` or larger.
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -59,7 +59,23 @@ The following example shows you how to create a Container Apps environment in an
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-Next, declare a variable to hold the VNET name.
+Register the `Microsoft.ContainerService` provider.
+
+# [Bash](#tab/bash)
+
+```bash
+az provider register --namespace Microsoft.ContainerService
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
+```
+
+---
+
+Declare a variable to hold the VNET name.
 
 # [Bash](#tab/bash)
 
@@ -95,7 +111,7 @@ az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name infrastructure-subnet \
-  --address-prefixes 10.0.0.0/23
+  --address-prefixes 10.0.0.0/21
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -103,7 +119,7 @@ az network vnet subnet create \
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
-    AddressPrefix = '10.0.0.0/23'
+    AddressPrefix = '10.0.0.0/21'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
@@ -320,7 +336,7 @@ You must either provide values for all three of these properties, or none of the
 
 | Parameter | Description |
 |---|---|
-| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
+| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/23` and `/12`. |
 | `VnetConfigurationPlatformReservedDnsIP` | An IP address from the `VnetConfigurationPlatformReservedCidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `VnetConfigurationPlatformReservedCidr` is set to `10.2.0.0/16`, then `VnetConfigurationPlatformReservedDnsIP` can't be `10.2.0.0` (the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
 | `VnetConfigurationDockerBridgeCidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
 
