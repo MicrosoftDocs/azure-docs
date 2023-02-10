@@ -61,8 +61,6 @@ To learn more about creating and managing client objects, see [Create and manage
 
 You can authorize a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
 
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
-
 ## [Azure AD](#tab/azure-ad)
 
 To authorize with Azure AD, you'll need to use a security principal. The type of security principal you need depends on where your application runs. Use this table as a guide.
@@ -93,6 +91,28 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 
 If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
 
+## [SAS token](#tab/sas-token)
+
+Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
+
+```csharp
+public static void GetBlobServiceClientSAS(ref BlobServiceClient blobServiceClient,
+    string accountName, string sasToken)
+{
+    string blobUri = "https://" + accountName + ".blob.core.windows.net";
+
+    blobServiceClient = new BlobServiceClient
+    (new Uri($"{blobUri}?{sasToken}"), null);
+}
+```
+
+To learn more about generating and managing SAS tokens, see the following articles:
+
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
+- [Create a service SAS for a container or blob](sas-service-create.md)
+- [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+
 ## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
@@ -119,30 +139,8 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-## [SAS token](#tab/sas-token)
-
-Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
-
-```csharp
-public static void GetBlobServiceClientSAS(ref BlobServiceClient blobServiceClient,
-    string accountName, string sasToken)
-{
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-
-    blobServiceClient = new BlobServiceClient
-    (new Uri($"{blobUri}?{sasToken}"), null);
-}
-```
-
-To generate and manage SAS tokens, see any of these articles:
-
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
-
-- [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
-
-- [Create a service SAS for a container or blob](sas-service-create.md)
-
-- [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
