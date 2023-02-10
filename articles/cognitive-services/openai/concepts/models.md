@@ -185,6 +185,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 ### Embeddings Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |

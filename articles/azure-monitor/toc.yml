@@ -690,26 +690,22 @@ items:
         href: app/opentelemetry-overview.md
       - name: Enable OpenTelemetry (.NET, Node.js, Python and Java)
         href: app/opentelemetry-enable.md
-      - name: JavaScript
-        items:
-        - name: Browser
-          href: app/javascript.md
-      - name: Java
+      - name: Java (supplemental)
         items:
         - name: Spring Boot
           href: app/java-spring-boot.md
-        - name: Java Profiler
+        - name: Profiler
           href: app/java-standalone-profiler.md
-        - name: Configuration options
-          href: app/java-standalone-config.md
-        - name: Advanced configurations
+        - name: Configuration
           items:
-            - name: JMX metrics
-              href: app/java-jmx-metrics-configuration.md
-            - name: Sampling overrides
-              href: app/java-standalone-sampling-overrides.md
-            - name: Telemetry processors
-              items:
+          - name: General
+            href: app/java-standalone-config.md
+          - name: JMX metrics
+            href: app/java-jmx-metrics-configuration.md
+          - name: Sampling overrides
+            href: app/java-standalone-sampling-overrides.md
+          - name: Telemetry processors
+            items:
               - name: Overview
                 href: app/java-standalone-telemetry-processors.md
               - name: Examples
