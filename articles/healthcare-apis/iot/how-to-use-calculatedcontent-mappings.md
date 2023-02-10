@@ -1,21 +1,21 @@
 ---
-title: How to use CalculatedContentTemplate mappings with the MedTech service device mappings - Azure Health Data Services
-description: This article describes how to use CalculatedContentTemplate mappings with the MedTech service device mappings. 
+title: How to use CalculatedContentT mappings with the MedTech service device mappings - Azure Health Data Services
+description: This article describes how to use CalculatedContent mappings with the MedTech service device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 1/12/2023
+ms.date: 02/09/2023
 ms.author: jasteppe
 ---
 
-# How to use CalculatedContentTemplate mappings
+# How to use CalculatedContent mappings
 
-This article describes how to use CalculatedContentTemplate mappings with MedTech service device mapping template.
+This article describes how to use CalculatedContent mappings with MedTech service device mappings.
 
-## CalculatedContentTemplate
+## CalculatedContent
 
-MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
+The MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
 
 > [!NOTE]
 > If an expression language isn't defined, the default expression language configured for the template will be used. The default is JSONPath but can be overwritten if needed.
@@ -44,7 +44,7 @@ In the example below, *typeMatchExpression* is defined as:
 ```
 
 > [!TIP]
-> The default expression language to use for a MedTech service device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
+> The default expression language to use for a MedTech service device mappings is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
 
 ```json
 "templateType": "CalculatedContent",
@@ -55,7 +55,7 @@ In the example below, *typeMatchExpression* is defined as:
     }
 ```
 
-The default expression language to use for a MedTech service device template can be explicitly set using the `defaultExpressionLanguage` parameter:
+The default expression language to use for a MedTech service device mappings can be explicitly set using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -92,9 +92,9 @@ When specifying the language to use for the expression, the below values are val
 | JMESPath            | **JmesPath** |
 
 >[!TIP]
-> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). [CalculatedContent](#calculatedcontent) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
-> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
+> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). [CalculatedContent](#calculatedcontent) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
 ### Custom functions
 
@@ -542,11 +542,11 @@ In the below example, height data arrives in either inches or meters. We want al
 
 ## Next steps
 
-In this article, you learned how to configure the MedTech service device mappings using CalculatedContentTemplate mappings. 
+In this article, you learned how to configure the MedTech service device mappings using CalculatedContent mappings. 
 
 To learn how to configure FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
+> [How to configure the FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
