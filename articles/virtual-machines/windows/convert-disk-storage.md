@@ -5,12 +5,12 @@ author: roygara
 ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/09/2023
 ms.author: albecker 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Update the storage type of a managed disk
+# Change the disk type of an Azure managed disk - PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
