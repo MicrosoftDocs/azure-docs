@@ -40,7 +40,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
 1. Select **New lab**.  
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/new-lab-button.png" alt-text="Screenshot of the Azure Lab Services website, highlighting the New lab button.":::
+    :::image type="content" source="./media/quick-create-windows-lab/new-lab-button.png" alt-text="Screenshot of the Azure Lab Services website, highlighting the New lab button.":::
 
 1. On the **New Lab** page, enter the following information, and then select **Next**:
 
@@ -58,7 +58,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/new-lab-credentials.png" alt-text="Screenshot of the Virtual machine credentials page in the Azure Lab Services website.":::
+    :::image type="content" source="./media/quick-create-windows-lab/new-lab-credentials.png" alt-text="Screenshot of the Virtual machine credentials page in the Azure Lab Services website.":::
 
 1. On the **Lab policies** page, leave the default values and select **Next**.
 
@@ -66,13 +66,13 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
     In this quickstart, you use the VM image as-is, known as a *templateless VM*. Azure Lab Services also supports creating a *template VM*, which lets you make configuration changes or install software on top of the VM image.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/templateless-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings page, with the option selected to create a templateless VM."::: 
+    :::image type="content" source="./media/quick-create-windows-lab/templateless-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings page, with the option selected to create a templateless VM."::: 
 
 1. Select **Finish** to start the lab creation. It might take several minutes for the lab creation to finish.
 
 1. When the lab creation finishes, you can see the lab details in the **Template** page.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/templateless-template.png" alt-text="Screenshot of Template page for a templateless lab.":::
+    :::image type="content" source="./media/quick-create-windows-lab/templateless-template.png" alt-text="Screenshot of Template page for a templateless lab.":::
 
 ## Publish lab
 
@@ -82,22 +82,22 @@ To publish the lab and create one lab VM:
 
 1. On the **Template** page, select **Publish** on the toolbar.
 
-   :::image type="content" source="./media/quick-create-lab-plan-portal/template-page-publish-button.png" alt-text="Screenshot of Azure Lab Services template page. The Publish template menu button is highlighted."::: 
+   :::image type="content" source="./media/quick-create-windows-lab/template-page-publish-button.png" alt-text="Screenshot of Azure Lab Services template page. The Publish template menu button is highlighted."::: 
 
    > [!WARNING]
    > Publishing is an irreversible action, and can't be undone.
 
 1. On the **Publish template** page, enter *1* for the number of VMs, and then select **Publish**.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
+    :::image type="content" source="./media/quick-create-windows-lab/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
 
 1. Wait until the publishing finishes. You can track the publishing status on the **Template** page.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing in progress message is highlighted.":::  
+    :::image type="content" source="./media/quick-create-windows-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing in progress message is highlighted.":::  
 
 1. On the **Virtual machine pool** page, confirm that there's one lab VM, named **Unassigned**, that is in the **Stopped** state.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
+    :::image type="content" source="./media/quick-create-windows-lab/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
 
 ## Start and connect to lab VM
 
@@ -107,11 +107,11 @@ After you publish the lab, you can now start the lab VM and connect to it by usi
 
     Starting the lab VM can take a few minutes.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-start.png" alt-text="Screenshot that shows how to start a lab VM by toggling the state in the list of virtual machines.":::
+    :::image type="content" source="./media/quick-create-windows-lab/virtual-machines-start.png" alt-text="Screenshot that shows how to start a lab VM by toggling the state in the list of virtual machines.":::
 
 1. When the lab VM is in the **Running** state, select the **Connect** icon to download the remote desktop connection file to your computer.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-connect.png" alt-text="Screenshot that shows how to get the connection details for the lab VM in the list of virtual machines.":::
+    :::image type="content" source="./media/quick-create-windows-lab/virtual-machines-connect.png" alt-text="Screenshot that shows how to get the connection details for the lab VM in the list of virtual machines.":::
 
 1. Open the downloaded remote desktop connection file to connect to the lab VM.
 
