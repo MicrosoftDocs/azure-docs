@@ -18,6 +18,8 @@
     href: updates-maintenance-schedules.md
   - name: Assessment options
     href: assessment-options.md
+  - name: Schedule patching through dynamic grouping
+    href: dynamic-group-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
