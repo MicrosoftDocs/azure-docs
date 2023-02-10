@@ -28,7 +28,7 @@ Watch the video for quick introduction
 
 This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features.
 
-**deviceToCloudUpload** is a configurable functionality. This function automatically uploads the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
+The **deviceToCloudUpload** feature is a configurable functionality. This function automatically uploads the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 
 * Turn ON/OFF the deviceToCloudUpload feature.
 * Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst.
@@ -296,4 +296,4 @@ Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-az
 
 Learn how to [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
 
-Stay up-to-date with recent updates and announcement in the [Azure Blob Storage on IoT Edge blog](https://aka.ms/abs-iot-blogpost)
+Stay up-to-date with recent updates and announcement on the [Azure Blob Storage on IoT Edge release notes](https://hub.docker.com/_/microsoft-azure-blob-storage) page.

@@ -114,7 +114,7 @@ The resource ID takes the following format:
 
 You can find the resource ID in the **Properties** page of the IoT hub in the Azure portal.
 
-:::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/hub-id.png" alt-text="Retrieve resource ID from the IoT Hub properties." lightbox="./media/how-to-collect-and-transport-metrics/hub-id.png":::
 
 Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
@@ -222,7 +222,7 @@ Label-based selectors (`{quantile=0.5,otherLabel=~Re[ge]*|x}`).
   * `!=` Match labels not exactly equal to the provided string.
   * `=~` Match labels to a provided regex. ex: `label=~CPU|Mem|[0-9]*`
   * `!~` Match labels that don't fit a provided regex.
-  * Regex is fully anchored (A ^ and $ are automatically added to the start and end of each regex)
+  * Regex is fully anchored (A `^` and `$` are automatically added to the start and end of each regex)
   * This component is optional in a metrics selector.
 
 Endpoint selector (`[http://VeryNoisyModule:9001/metrics]`).
@@ -263,14 +263,14 @@ Set `NO_PROXY` value to a comma-separated list of hostnames that should be exclu
 
 # [IoT Hub](#tab/iothub)
 
-Sometimes it's necessary to ingest metrics though IoT Hub instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with outbound network access only to IoT Hub.
+Sometimes it's necessary to ingest metrics though IoT Hub instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with *outbound network access only* to IoT Hub.
 
 To enable monitoring in this scenario, the metrics-collector module can be configured to send metrics as device-to-cloud (D2C) messages via the edgeHub module. The capability can be turned on by setting the `UploadTarget` environment variable to `IoTMessage` in the collector [configuration](#metrics-collector-configuration).
 
 >[!TIP]
 >Remember to add an edgeHub route to deliver metrics messages from the collector module to IoT Hub. It looks like `FROM /messages/modules/replace-with-collector-module-name/* INTO $upstream`.
 
-This option does require [extra setup](how-to-collect-and-transport-metrics.md#sample-cloud-workflow) to deliver metrics messages arriving at IoT Hub to the Log Analytics workspace. Without this set up, the other portions of the integration such as [curated visualizations](how-to-explore-curated-visualizations.md) and [alerts](how-to-create-alerts.md) won't work.
+This option does require extra setup, a cloud workflow, to deliver metrics messages arriving at IoT Hub to the Log Analytics workspace. Without this set up, the other portions of the integration such as [curated visualizations](how-to-explore-curated-visualizations.md) and [alerts](how-to-create-alerts.md) won't work.
 
 >[!NOTE]
 >Be aware of additional costs with this option. Metrics messages will count against your IoT Hub message quota. You will also be charged for Log Analytics ingestion and cloud workflow resources.
@@ -281,7 +281,7 @@ A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is
 
 # [IoT Central](#tab/iotcentral)
 
-Sometimes it's necessary to ingest metrics though IoT Central instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with outbound network access only to IoT Central.
+Sometimes it's necessary to ingest metrics through IoT Central instead of sending them directly to Log Analytics. For example, when monitoring [IoT Edge devices in a nested configuration](tutorial-nested-iot-edge.md) where child devices have access only to the IoT Edge hub of their parent device. Another example is when deploying an IoT Edge device with *outbound network access only* to IoT Central.
 
 To enable monitoring in this scenario, the metrics-collector module can be configured to send metrics as device-to-cloud (D2C) messages via the edgeHub module. The capability can be turned on by setting the `UploadTarget` environment variable to `IoTMessage` in the collector [configuration](#metrics-collector-configuration).
 
@@ -386,11 +386,11 @@ To view the metrics from your IoT Edge device in your IoT Central application:
 
 * Add the **IoT Edge Metrics standard interface** as an inherited interface to your [device template](../iot-central/core/concepts-device-templates.md):
 
-    :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface.":::
 
 * Use the telemetry values defined in the interface to build any [dashboards](../iot-central/core/howto-manage-dashboards.md) you need to monitor your IoT Edge devices:
 
-    :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry.":::
 
 >[!NOTE]
 >Be aware of additional costs with this option. Metrics messages will count against your IoT Central message quota.
