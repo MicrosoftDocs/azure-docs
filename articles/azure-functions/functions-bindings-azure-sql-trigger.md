@@ -9,12 +9,12 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-::: zone pivot="programming-language-csharp"
-
 # Azure SQL trigger for Functions (preview)
 
+::: zone pivot="programming-language-csharp"
+
 > [!NOTE]
-> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported.
+> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not currently supported.
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted.
 
@@ -106,10 +106,6 @@ Isolated worker process isn't currently supported.
 
 -->
 ---
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
 
 ## Attributes
 
