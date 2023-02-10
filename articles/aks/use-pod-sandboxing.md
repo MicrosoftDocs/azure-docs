@@ -71,13 +71,15 @@ az provider register --namespace "Microsoft.ContainerService"
 
 ## Limitations
 
-IO performance limitation: Kata containers may not reach the IOPS that traditional containers can reach on Azure Files and high performance local SSD.
+The following are constraints with this preview of Pod Sandboxing (preview):
 
-Microsoft Defender for Containers addon
+* Kata containers may not reach the IOPS performance limits that traditional containers can reach on Azure Files and high performance local SSD.
 
-Azure Monitor addon
+* [Microsoft Defender for Containers][defender-for-containers] is not supported
 
-Existing [Kata](https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network) Limitations
+* [Container Insights][container-insights] is not supported
+
+* [Kata][kata-network-limitations](https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network) host-network is not supported.
 
 ## How it works
 
@@ -292,6 +294,7 @@ kubectl delete pod pod-name
 [container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azu
@@ -308,3 +311,5 @@ kubectl delete pod pod-name
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
 [cvm-on-aks]: use-cvm.md
 [azure-dedicated-hosts]: use-azure-dedicated-hosts.md
+[container-insights]: ../azure-monitor/containers/container-insights-overview.md
+[defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
