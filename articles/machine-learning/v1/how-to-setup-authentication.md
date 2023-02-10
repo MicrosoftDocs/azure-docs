@@ -253,7 +253,7 @@ ws = Workspace(subscription_id="your-sub-id",
 ## Use Conditional Access
 
 > [!IMPORTANT]
-> [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) is __not__ supported with Azure Machine Learning.
+> [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) is __not__ supported with Azure Machine Learning.
 
 ## Next steps
 

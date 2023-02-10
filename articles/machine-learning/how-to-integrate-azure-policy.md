@@ -55,7 +55,7 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 ## Conditional access policies
 
 > [!IMPORTANT]
-> [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) is __not__ supported with Azure Machine Learning.
+> [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) is __not__ supported with Azure Machine Learning.
 
 ## Enable self-service using landing zones
 
