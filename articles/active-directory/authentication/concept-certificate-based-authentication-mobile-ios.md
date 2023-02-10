@@ -16,7 +16,23 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on iOS
+# Azure Active Directory certificate-based authentication on iOS and macOS
+
+## Azure Active Directory certificate-based authentication on macOS devices
+
+macOS Devices can use certificate-based authentication (CBA) to authenticate against Azure Active Directory (Azure AD) using their X.509 client certificate. Azure AD CBA is supported with certificates on-device as well as external hardware protected security keys. On macOS, Azure AD CBA is supported on all browsers and on Microsoft first-party applications.
+
+**Browsers supported on macOS**
+
+|Edge | Chrome | Safari | Firefox |
+|--------|---------|------|-------|
+|&#x2705; |&#x2705; | &#x2705; |&#x2705; |
+
+**macOS device sign in with Azure AD CBA**
+
+Azure AD CBA today is not supported for device based sign into macOS machines. While the certificate used to sign-into the device can be the same certificate used to subsequently authenticate to Azure AD from a browser/desktop application, the device sign-in itself is not supported against Azure AD yet. 
+
+## Azure Active Directory certificate-based authentication on iOS devices
 
 Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
 
