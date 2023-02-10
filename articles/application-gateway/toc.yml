@@ -95,7 +95,7 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
-    - name: Private Deployment (Preview)
+    - name: Private Deployment
       href: application-gateway-private-deployment.md
     - name: Private Link
       href: private-link.md
