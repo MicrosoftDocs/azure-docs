@@ -125,7 +125,9 @@
     - name: About HANA database backup
       href: sap-hana-database-about.md
     - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md      
+      href: azure-backup-architecture-for-sap-hana-backup.md
+  - name: Azure Blob backup
+    href: blob-backup-overview.md          
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -348,10 +350,8 @@
         href: backup-azure-dataprotection-use-rest-api-backup-disks.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-disks.md
-  - name: Azure Blobs backup
+  - name: Azure Blob backup
     items:
-    - name: Overview
-      href: blob-backup-overview.md
     - name: From the Azure portal
       items:
       - name: Configure and manage

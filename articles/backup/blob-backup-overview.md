@@ -16,7 +16,7 @@ This article gives you an understanding about configuring the following types of
 
 - **Continuous backups**: You can configure operational backup, a managed local data protection solution, to protect your block blobs from accidental deletion or corruption. The data is stored locally within the source storage account  and not transferred to the backup vault. You don’t need to define any schedule for backups. All changes are retained, and you can restore them from the state at a selected point in time. 
 
-- **Periodic backups (preview)**: You can configure vaulted backup, a managed offsite data protection solution to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
+- **Periodic backups (preview)**: You can configure vaulted backup, a managed offsite data protection solution, to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
 
 You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Backup center](backup-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
@@ -81,7 +81,7 @@ Operational backup gives you the option to restore all block blobs in the storag
 
 ## Pricing
 
-### For operational backup
+### Operational backup
 
 You won't incur any management charges or instance fee when using operational backup for blobs. However, you'll incur the following charges:
 
@@ -89,7 +89,7 @@ You won't incur any management charges or instance fee when using operational ba
 
 - Retention of data because of [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), and [Blob versioning](../storage/blobs/versioning-overview.md).
 
-### For vaulted backup (preview)
+### Vaulted backup (preview)
 
 Vaulted backup currently doesn't incur any charges with preview release.
 

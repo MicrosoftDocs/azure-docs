@@ -56,11 +56,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now enables you to perform a vaulted backup of block blob data in *general-purpose v2 storage accounts* to protect data against ransomware attacks or source data loss due to malicious or rogue admin. You can define the backup schedule to create recovery points and the retention settings that determine how long backups will be retained in the vault. You can configure and manage the vaulted and operational backups using a single backup policy. 
 
-Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an off-site copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
+Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an offsite copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
 
 If you're currently using operational backups, we recommend you to switch to vaulted backups for complete protection against different data loss scenarios.
 
-For more information, see [Azure Blobs backup for Azure Blobs](blob-backup-overview.md).
+For more information, see [Azure Blob backup overview](blob-backup-overview.md).
 
 
 

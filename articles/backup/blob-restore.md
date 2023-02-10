@@ -25,7 +25,7 @@ This article describes how to use the Azure portal to perform restores for Azure
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-- Vaulted backups only support restoring data to another storage account, which is different from the one that was backed-up.
+- Vaulted backups only support restoring data to another storage account, which is different from the one that was backed up.
 - Ensure that the Backup vault has the *Storage account backup contributor* role assigned to the target storage account to which the backup data needs to be restored.
 
 ---
@@ -44,7 +44,7 @@ To initiate a restore through the Backup center, follow these steps:
 
 1. On the **Select recovery point** tab, select the type of backup you want to restore.
 
-   - For operational backup, choose the date and time you want to restore your data. You can also use the slider to choose the point-in-time to restore from. The details appear next to the date shows the valid duration from which you can restore your data. Operational backup for blobs is a continuous backup and gives granular control over points to recover data from.
+   - For operational backup, choose the date and time you want to restore your data. You can also use the slider to choose the point-in-time to restore from. The restoration details appear next to the date, which shows the valid duration from which you can restore your data. Operational backup for blobs is a continuous backup and gives granular control over points to recover data from.
 
    - For vaulted backup, choose a recovery point from which you want to perform the restore.
  
@@ -70,7 +70,7 @@ To initiate a restore through the Backup center, follow these steps:
 
    For vaulted backup, choose one of these options:
 
-   - **Restore all backed-up containers**: Use this option, restores all backed-up containers in the storage account.
+   - **Restore all backed-up containers**: Use this option to restore all backed-up containers in the storage account.
    - **Browse and select containers to restore**: Use this option to browse and select up to **100** containers to restore. You must have sufficient permission to view the containers in the storage account, or you can't see the contents of the storage account. Select the target storage account (and its subscription), that is, the storage account where the data needs to be restored.
 
      >[!Note]

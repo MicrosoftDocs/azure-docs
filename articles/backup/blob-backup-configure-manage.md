@@ -95,7 +95,7 @@ To create a backup policy, follow these steps:
 
 ## Configure backups
 
-You can configure backup for one or more storage accounts in an Azure region, if you want them to back up to the same vault using a single backup policy.
+You can configure backup for one or more storage accounts in an Azure region if you want them to back up to the same vault using a single backup policy.
 
 To configure backup for storage accounts, follow these steps:
 
@@ -132,10 +132,10 @@ To configure backup for storage accounts, follow these steps:
         >[!Note]
         >The template contains details for selected storage accounts only. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
 
-    1. Validates that the number of containers to be backed-up is less than *100*. By default, all containers are selected; however, you can exclude containers that shouldn't be backed-up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
+    1. Validates that the number of containers to be backed up is less than *100*. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
 
       >[!Note]
-      >The storage accounts to be backed-up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
+      >The storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
 
 7. Once validation succeeds, open the **Review and configure** tab.
 
@@ -251,7 +251,7 @@ You can configure backup for blobs in a storage account directly from the ‘Dat
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-In storage accounts (for which you've configured vaulted backups), the object replication rules gets created under the **Object replication** item in the left pane.
+In storage accounts (for which you've configured vaulted backups), the object replication rules get created under the **Object replication** item in the left pane.
 
 # [Operational backup](#tab/operational-backup)
 
