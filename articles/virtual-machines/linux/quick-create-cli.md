@@ -52,7 +52,7 @@ az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 
 Create a VM with the [az vm create](/cli/azure/vm) command.
 
-The following example creates a VM with the name defined in $VM_NAME and adds a user account name defined in $ADMIN_USERNAME. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
+The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
 
 ```azurecli-interactive
 az vm create \
