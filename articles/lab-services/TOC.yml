@@ -13,9 +13,9 @@
     - name: Set up resources to create labs
       displayName: get started, lab plan, lab, quickstart, getting started, lab creator, admin
       href: quick-create-resources.md
-    - name: Create a Windows-based lab
+    - name: Create and connect to a lab
       displayName: get started, lab plan, lab, quickstart, lab VM, virtual machine, getting started, admin, lab creator, create lab
-      href: quick-create-windows-lab.md
+      href: quick-create-connect-lab.md
 - name: Tutorials
   items:
   - name: Set up a lab for classroom training

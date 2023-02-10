@@ -48,4 +48,4 @@ You've successfully created an Azure Lab Services lab plan and granted a user pe
 You can now use this resource to create a lab or let lab creators do this.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Windows-based lab](./quick-create-windows-lab.md)
+> [Quickstart: Create a Windows-based lab](./quick-create-connect-lab.md)
