@@ -19,9 +19,23 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
 
-> [!IMPORTANT]
-> The FLUSHALL and FLUSHDB commands are blocked when using active geo-replication to prevent accidental data loss across replicated cache instances.
->
+## Scope of availability
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Available  | No         | No       |  Yes  |
+
+The Premium tier of Azure Cache for Redis offers a version of geo-replication called [_passive geo-replication_](cache-how-to-geo-replication.md) which only supports an active-passive configuration.
+
+## Active geo-replication prerequisites
+
+There are a few restrictions when using active geo replication:
+- Only the [RediSearch](cache-redis-modules.md#redisearch) and [RedisJSON](cache-redis-modules.md#redisjson) modules are supported
+- Only the _No Eviction_ eviction policy can be used
+- Data persistence is not supported, as active geo-replication provides a superior experience.
+- An existing (i.e. running) cache cannot be added to a geo-replication group. A cache can only be added to a geo-replication group at create time.
+- All caches within a geo-replication group must have the same configuration. (e.g. same SKU, capacity, clustering policy, modules, and TLS setting.) 
+- The `FLUSHALL` and `FLUSHDB` commands are blocked within Redis when using active geo-replication to prevent unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
 
 ## Create or join an active geo-replication group
 
@@ -118,6 +132,16 @@ New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -
 ```
 
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
+
+## Flush operation
+
+Due to the potential for inadvertent data loss, the `FLUSHALL` and `FLUSHDB` Redis commands are blocked for any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** blade. 
+
+> [!IMPORTANT]
+> Be careful when using the Flush Caches feature. This button will remove all data from both the current cache and from ALL caches in the geo-replication group. 
+>
+
+Access to this feature can be managed using [Azure role-based access control](../role-based-access-control/overview.md). It is recommended that only authorized users are given access to flush all caches.
 
 ## Next steps
 
