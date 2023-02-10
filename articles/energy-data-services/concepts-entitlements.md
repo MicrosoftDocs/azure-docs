@@ -5,7 +5,7 @@ author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitaliza
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/19/2022
+ms.date: 02/10/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 

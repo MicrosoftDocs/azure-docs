@@ -5,7 +5,7 @@ author: vivekkalra #Required; your GitHub user alias, with correct capitalizatio
 ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/23/2022
+ms.date: 02/10/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.

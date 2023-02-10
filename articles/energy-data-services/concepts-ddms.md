@@ -42,19 +42,19 @@ OSDU&trade; Technical Standard defines the following types of OSDU&trade; applic
 
 ## Who did we build this for?
 
-**IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Azure Data Manager for Energy helps automate these workflows and eliminates time spent managing updates.
+**IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Azure Data Manager for Energy Preview helps automate these workflows and eliminates time spent managing updates.
 
-**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU&trade; compatible applications (for example, Petrel) connected to Azure Data Manager for Energy.
+**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU&trade; compatible applications (for example, Petrel) connected to Azure Data Manager for Energy Preview.
 
 **Data managers** spend a significant number of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
 
 ## Platform landscape
 
-Azure Data Manager for Energy is an OSDU&trade; compatible product, meaning that its landscape and release model are dependent on OSDU&trade;.
+Azure Data Manager for Energy Preview is an OSDU&trade; compatible product, meaning that its landscape and release model are dependent on OSDU&trade;.
 
-Currently, OSDU&trade; certification and release process are not fully defined yet and this topic should be defined as a part of the Azure Data Manager for Energy Foundation Architecture.
+Currently, OSDU&trade; certification and release process are not fully defined yet and this topic should be defined as a part of the Azure Data Manager for Energy Preview Foundation Architecture.
 
-OSDU&trade; R3 M8 is the base for the scope of the Azure Data Manager for Energy Foundation Private Preview – as a latest stable, tested version of the platform.
+OSDU&trade; R3 M8 is the base for the scope of the Azure Data Manager for Energy Preview Foundation Private Preview – as a latest stable, tested version of the platform.
 
 ## Learn more: OSDU&trade; DDMS community principles
 
