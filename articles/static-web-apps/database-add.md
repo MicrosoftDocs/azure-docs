@@ -31,13 +31,15 @@ Begin by configuring your database to work with Azure Static Web Apps database c
 
 ## Configure database security
 
-To work in a development environment, you need to allowlist your IP address for access to the database.
+To work in a development environment, you need to allowlist your IP address for access to the database. You also need to allowlist Azure resources so that Static Web Apps workers can access your database when you deploy.
 
 1. Go to your Azure SQL Server the [Azure portal](https://portal.azure.com).
 
 1. Under the *Security* section, select **Networking**.
 
 1. Select the **Add your client IPv4 address** button.
+
+1. Select the **Allow Azure services and resources to access this server** checkbox.
 
 1. Select **Save**.
 
@@ -103,19 +105,6 @@ Create a sample table and seed it with some sample data to match the tutorial.
 
 Now that you have sample data in the database, you can configure your static web app to connect to the database.
 
-## Add environment variable to web app
-
-The next step is to configure your static web app. The first step is to save your database connection string as an environment variable.
-
-1. Open your static web app in the Azure portal.
-
-1. Under the *Settings* section, select **Configuration**.
-
-1. Under the *Application settings* tab, select the **Add** button.
-
-1. For the *Name* field, enter `DATABASE_CONNECTION_STRING`.
-
-1. For the *Value* field, enter the connection string you set aside in your text editor.
 
 ## Create the database configuration file
 

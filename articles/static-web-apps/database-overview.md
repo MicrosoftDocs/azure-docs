@@ -58,8 +58,8 @@ Examples, not an exhaustive list of scenarios.
 
 ## Constraints
 
-The database must be accessible by Azure's infrastructure. What is the IP address range/domain range to allowlist? Sajeetharan Sinnathurai
-During public preview, the Database connections will scale from 0 to 1 worker.
+* The database must be accessible by Azure's infrastructure. 
+* During public preview, the Database connections will scale from 0 to 1 worker.
 
 ## Next steps
 

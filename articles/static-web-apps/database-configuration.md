@@ -10,12 +10,12 @@ ms.date: 02/02/2023
 
 # Database connection configuration in Azure Static Web Apps (preview)
 
-Each database requires configuration to work with Static Web Apps database connections.
+Your database must be configured to work with Static Web Apps database connections.
 
 You need to:
 
 - Configure your database's firewall to accept network access from the Static Web Apps workers.
-- Allow network access from Azure resources.
+- Configure your Static Web App managed identity to access your database if you are using the managed identity authentication type.
 
 Use this table for details about firewall and Managed Identity configuration for your database.
 
