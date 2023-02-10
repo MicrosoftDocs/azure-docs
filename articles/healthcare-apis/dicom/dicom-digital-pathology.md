@@ -73,7 +73,7 @@ curl -X GET \
     --output {fileName}
 ```
 
-We have tested supporting <b>download of 60Kb tile in around 60-70ms</b> from client.
+We have tested supporting **download of 60Kb tile in around 60-70ms** from client.
 
 ### Viewers
 
