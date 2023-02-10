@@ -139,10 +139,23 @@ To complete the configuration modification, do the following steps:
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
 
 1. Here's the screenshot that shows Ambari configuration UI with these changes.
+   
+   > [!Note] 
+   > 1.	ssl.keystore.location and ssl.truststore.location is the complete path of your keystore, truststore location in Certificate Authority (hn0)
+   > 1.	ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example, `MyServerPassword123`
+   > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
+
 
     For HDI version 4.0 or 5.0
+    
+   1. If you are setting up authentication and encryption, then the screenshot will look like
 
-     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+           
+   1. If you are setting up encryption only, then the screenshot will look like   
+      
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Editing kafka-env template property in Ambari for encryption only" border="true":::
+ 
 
 1. Restart all Kafka brokers.
 
