@@ -1,5 +1,5 @@
 ---
-title: Script Sample - Create a data collection rule in Change Tracking.
+title: Script sample - Create a data collection rule in change tracking.
 description: Learn about how to create a data collection rule
 ms.topic: sample
 ms.date: 02/06/2023

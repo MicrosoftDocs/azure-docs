@@ -29,13 +29,13 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
-1. In the search enter **Change tracking** to view the change tracking and inventory page.
+1. In the search,, enter **Change tracking** to view the change tracking and inventory page.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
 
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
-   This will initiate the deployment and the notification appears on the top right corner of the screen.
+   It will initiate the deployment and the notification appears on the top right corner of the screen.
    
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
@@ -75,7 +75,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In Azure portal, select **Policy**.
 1. In the **Policy|Definitions** page, in **Authoring**, select **Definitions**
 1. In the **Definition Type** category, select **Initiative** and in **Category**, select **ChangeTracking andInventory**
-   You will see a list of three policies:
+   You'll see a list of three policies:
     - Enable ChangeTracking and inventory for Virtual Machine Scale Sets
     - Enable ChangeTracking and inventory for virtual machines
     - Enable ChangeTracking and inventory for Arc-enabled virtual machines
@@ -93,11 +93,11 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In the **Enable ChangeTracking and Inventory for virtual machines** page, enter the following options:
    1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
    1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource id after you create the Data collection rule](#create-data-collection-rule).
+   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](#create-data-collection-rule).
    1. Select **Review + create**.
 
 
-### Create Data Collection Rule
+### Create data collection rule
 1. Download [CtDcrCreation.json](change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
