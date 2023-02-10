@@ -379,7 +379,6 @@ New-AzGalleryImageVersion \
    -Location "West US 2" \
    -Name 1.0.0 \
    -SourceImageId $sourceImageID
-```ource-group <<resource group name>> --image-version "resource id of the source image"
 ```
 
 ---
