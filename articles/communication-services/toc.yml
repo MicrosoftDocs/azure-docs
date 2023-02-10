@@ -11,9 +11,9 @@ items:
       href: overview.md
     - name: Create a Communication Services resource
       href: quickstarts/create-communication-resource.md
-    - name: Create and manage access tokens
+    - name: Create an access tokens
       href: quickstarts/access-tokens.md
-    - name: Get and manage phone numbers
+    - name: Get a phone numbers
       href: quickstarts/telephony/get-phone-number.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
