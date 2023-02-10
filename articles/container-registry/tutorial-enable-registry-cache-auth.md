@@ -22,29 +22,29 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 1. Navigate to your Azure Container Registry. 
 
-2. In the side **Menu**, under the **Services**, select **Cache**(Preview).
+2. In the side **Menu**, under the **Services**, select **Cache** (Preview).
 
 
     :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview blade.":::
 
 
-3. Select on **Create Rule**.
+3. Select **Create Rule**.
 
 
     :::image type="content" source="./media/container-registry-registry-cache/cache-blade-02.png" alt-text="Screenshot for Create Rule.":::
 
 
-4. A window for **New cache rule** pops up.
+4. A window for **New cache rule** appears.
 
 
     :::image type="content" source="./media/container-registry-registry-cache/new-cache-rule-03.png" alt-text="Screenshot for new Cache Rule.":::
 
 
-5. Specify the **Rule name**.
+5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu options. Currently ACR supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. Currently ACR supports **Docker Hub** and **Microsoft Artifact Registry**. 
 
-7. Specify the **Repository Path** from where to cache the artifacts."
+7. Enter the **Repository Path** to the artifacts you want to cache.
 
 8. For adding authentication to the repository, check the **Authentication** box. 
 
@@ -52,7 +52,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 10. If you have the credentials ready, **Select credentials** from the drop-down menu.
 
-11. Under the **Destination**, specify the name of the **New ACR repository path** to store cached artifacts.
+11. Under the **Destination**, Enter the name of the **New ACR repository path** to store cached artifacts.
 
 
     :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png.png" alt-text="Screenshot to save Cache Rule.":::
@@ -73,7 +73,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
     :::image type="content" source="./media/container-registry-registry-cache/create-credential-set-06.png" alt-text="Screenshot for create new credential set.":::
 
 
-1. Specify **Name** for the new credentials for your source registry.
+1. Enter **Name** for the new credentials for your source registry.
 
 1. Select a **Source Authentication**. Caching for ACR currently supports **Select from Key Vault** and **Enter secret URI's**.
 

@@ -37,7 +37,7 @@ Implementing Caching for ACR provides the following benefits:
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
-- Caching for ACR is only available via the Azure Portal. The Azure CLI will be released in the coming weeks.   
+- Caching for ACR is only available by using the Azure Portal. The Azure CLI will be released in the coming weeks.   
 
 ## Terminology 
 
@@ -59,7 +59,7 @@ Implementing Caching for ACR provides the following benefits:
 
         2. A Source registry Login Server - The login server of your source registry. Only `docker.io` is supported. 
 
-        3. A Source Authentication - The source to store and grant permissions. We support **Secret URI** or **Key Vault** only.
+        3. A Source Authentication - The key vault locations to store credentials. 
         
         4. Username and Password secrets: The secrets containing the username and password. 
 

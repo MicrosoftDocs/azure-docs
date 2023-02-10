@@ -51,16 +51,16 @@ The Azure portal autofills these fields for you. However, many Docker repositori
 
 We recommend before creating a credential set inside the Azure portal, ensure both the Username and Password secrets are associated with a Key Vault or secret URIs.
 
-- Credential sets can be stored using Azure Key Vault or by secret URIs. 
+- Credential sets can be stored using Azure Key Vault.
 - When using Azure Key vault you must have a Key Vault name and Secret for both the Username and Password secrets. 
 
 Caching for ACR allows you to cache images from private Docker Hub repositories. In-order to store the credentials needed to access the private repository. You must create a credential set. 
 
 ## Unhealthy Credential Set
 
-Credential sets are a set of secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. Inside, the Azure portal you can select the credential set, to edit and apply changes.
+Credential sets are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. Inside the Azure portal you can select the credential set, to edit and apply changes.
 
-- Verify the secrets in Azure Key Vault aren't old. 
+- Verify the secrets in Azure Key Vault have not expired. 
 - Verify the secrets in Azure Key Vault are valid.
 
 Learn more about [Key Vaults][create-and-store-keyvault-credentials].
