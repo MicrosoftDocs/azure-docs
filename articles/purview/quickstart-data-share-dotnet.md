@@ -7,9 +7,10 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/17/2022
+ms.date: 02/10/2023
 ms.custom: mode-api, references-regions
 ---
+
 # Quickstart: Share and receive data with the Microsoft Purview Data Sharing .NET SDK
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
@@ -28,7 +29,10 @@ The walkthrough in this article uses Visual Studio 2019. The procedures for Visu
 
 Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
-## Create an application in Azure Active Directory
+## Use a service principal
+
+In the code snippits in this tutorial you can authenticate either using your own credentials or using a service principal.
+To set up a service principal, follow these instructions:
 
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application), get the **application ID**,**tenant ID**, and **object ID**, and note down these values that you use later in this tutorial.
@@ -52,14 +56,11 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/1.0.3-beta.20).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/2.0.0-beta.x).
 
     ```powershell
-    Install-Package Microsoft.Azure.Purview.Share.ManagementClient
-    Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-    Install-Package Azure.Analytics.Purview.Share
-    Install-Package Azure.Analytics.Purview.Account
+    Install-Package Azure.Analytics.Purview.Share -IncludePrerelease
+    Install-Package Azure.Identity
     ```
 
 ## Create a sent share
@@ -80,7 +81,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
@@ -183,7 +184,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string RecipientUserEmailId = "<Target User's Email Id>";
@@ -266,7 +267,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string RecipientApplicationTenantId = "<Target Application's Tenant Id>";
@@ -355,7 +356,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
@@ -399,7 +400,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
@@ -444,7 +445,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
@@ -499,7 +500,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
@@ -536,6 +537,7 @@ public static class ShareNetSample20
 ```
 
 ## Delete sent share
+
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
 using Azure.Analytics.Purview.Share;
@@ -544,7 +546,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
@@ -597,7 +599,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
@@ -705,7 +707,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
@@ -801,7 +803,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string ReceiverStorageResourceId = "<Storage Account Resource Id For Reattaching Recieved Share>";
@@ -845,7 +847,7 @@ using Azure.Identity;
 using System.ComponentModel;
 using System.Text.Json;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
@@ -899,7 +901,7 @@ using System.Text.Json;
 
 namespace ShareNetSample;
 
-public static class ShareNetSample20
+public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
