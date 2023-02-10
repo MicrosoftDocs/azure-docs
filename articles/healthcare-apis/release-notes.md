@@ -566,7 +566,7 @@ See [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md
 
 
 
-# Next steps
+## Next steps
 
 
 In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, see
