@@ -81,8 +81,7 @@ Teams differentiates between external users (outside your organization) and gues
 
 Learn more: [Use guest access and external access to collaborate with people outside your organization](/microsoftteams/communicate-with-users-from-other-organizations). 
 
-> [!NOTE]
-> The External Identities collaboration feaure in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
+The External Identities collaboration feaure in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
 
 Learn more:
 
@@ -109,8 +108,7 @@ Learn more:
 * [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration)
 * [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-> [!NOTE]
-> If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
+If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
 
 ### Sharing policies in SharePoint and OneDrive
 
