@@ -141,7 +141,7 @@ items:
         - name: Create and connect
           items:
             - name: Create with CLI
-              href: create-sql-managed-instance.md?tab=directly-connected-mode
+              href: create-sql-managed-instance.md
             - name: Create with Azure Data Studio
               href: create-sql-managed-instance-azure-data-studio.md
             - name: Create using Kubernetes tools
