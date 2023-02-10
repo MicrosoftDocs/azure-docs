@@ -28,7 +28,8 @@ This release corresponds to the software version:
 
 This release contains the following bug fixes:
 
-- **MSRC Fixes (security fixes)**
+- **Update Agent SDK** - An update to SaaS agent SDK to fix the expired certificate issue.
+- **MSRC Fixes** - Security fixes.
 
 This release also contains the following updates:
 
