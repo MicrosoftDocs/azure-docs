@@ -61,7 +61,7 @@ Implementing Caching for ACR provides the following benefits:
 
         3. A Source Authentication - The key vault locations to store credentials. 
         
-        4. Username and Password secrets: The secrets containing the username and password. 
+        4. Username and Password secrets- The secrets containing the username and password. 
 
 ## Next steps
 
