@@ -1,7 +1,7 @@
 ---
 title: Apache Spark core concepts
 description: Introduction to core concepts for Apache Spark in Azure Synapse Analytics.
-ms.service:  synapse-analytics 
+ms.service: synapse-analytics 
 ms.subservice: spark
 ms.topic: overview
 author: guyhay
@@ -31,7 +31,7 @@ Spark instances are created when you connect to a Spark pool, create a session, 
 
 When you submit a second job, if there's capacity in the pool, the existing Spark instance also has capacity. Then, the existing instance will process the job. Otherwise, if capacity is available at the pool level, then a new Spark instance will be created.
 
-Billing for the instances starts when the Azure VM(s) starts.  Billing for the Spark pool instances stops when pool instances changes to terminating. For more details on how Azure VMs are started, de-allocated see [States and billing status of Azure Virtual Machines](../virtual-machines/states-billing)
+Billing for the instances starts when the Azure VM(s) starts. Billing for the Spark pool instances stops when pool instances changes to terminating. For more details on how Azure VMs are started, de-allocated see [States and billing status of Azure Virtual Machines](../virtual-machines/states-billing)
 
 ## Examples
 
@@ -41,10 +41,10 @@ Billing for the instances starts when the Azure VM(s) starts.  Billing for the S
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1 is created to process the job
 - You now submit another job, J2, that uses 10 nodes because there's still capacity in the pool and the instance, the J2, is processed by SI1
 - If J2 had asked for 11 nodes, there wouldn't have been capacity in SP1 or SI1. In this case, if J2 comes from a notebook, then the job will be rejected; if J2 comes from a batch job, then it will be queued.
-- Billing starts at the submission of notebook job J1.  
+- Billing starts at the submission of notebook job J1.
   - The Spark pool is instantiated with 20 medium nodes, each with 8 vCores, and typically takes ~3 minutes to start. 20 x 8 = 160 vCores.
   - Depending on the exact Spark pool start-up time, idle timeout and the runtime of the two notebook jobs; the pool is likely to run for between 18 and 20 minutes (Spark pool instantiation time + notebook job runtime + idle timeout).
-  - Assuming 20-minute runtime, 160 x 0.3 hours = 48 vCore hours.  
+  - Assuming 20-minute runtime, 160 x 0.3 hours = 48 vCore hours.
   - Note: vCore hours are billed per second, vCore pricing varies by Azure region. For more information, see [Azure Synapse Pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing)
 
 ### Example 2
@@ -54,7 +54,7 @@ Billing for the instances starts when the Azure VM(s) starts.  Billing for the S
 - You now submit another job J2 that uses 10 nodes; because there's still capacity in the pool the instance autoscales to 20 nodes and processes J2.
 - Billing starts at the submission of notebook job J1.
   - The Spark pool is instantiated with 10 medium nodes, each with 8 vCores, and typically takes ~3 minutes to start. 10 x 8, 80 vCores.
-  - At the submission of J2, the pool autoscales by adding another 10 medium nodes, and typically takes 4 minutes to autoscale.  Adding 10 x 8, 80 vCores for a total of 160 vCores.
+  - At the submission of J2, the pool autoscales by adding another 10 medium nodes, and typically takes 4 minutes to autoscale. Adding 10 x 8, 80 vCores for a total of 160 vCores.
   - Depending on the Spark pool start-up time, runtime of the first notebook job J1, the time to scale-up the pool, runtime of the second notebook, and finally the idle timeout; the pool is likely to run between 22 and 24 minutes (Spark pool instantiation time + J1 notebook job runtime all at 80 vCores) + (Spark pool autoscale-up time + J2 notebook job runtime + idle timeout all at 160 vCores).
   - 80 vCores for 4 minutes + 160 vCores for 20 minutes = 58.67 vCore hours.
   - Note: vCore hours are billed per second, vCore pricing varies by Azure region. For more information, see [Azure Synapse Pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing)
