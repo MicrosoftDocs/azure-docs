@@ -99,7 +99,7 @@ If you have already installed Azure AD Connect by using the [express installatio
 
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Hybrid Identity Administratoristrator credentials for your tenant.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Hybrid Identity Administrator credentials for your tenant.
 2. Select **Azure Active Directory** in the left pane.
 3. Select **Azure AD Connect**.
 4. Verify that the **Pass-through authentication** feature appears as **Enabled**.

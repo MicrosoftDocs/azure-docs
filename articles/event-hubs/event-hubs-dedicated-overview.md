@@ -2,14 +2,16 @@
 title: Overview of Azure Event Hubs dedicated tier
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
-ms.date: 06/29/2022
+ms.date: 02/07/2023
 ---
 
 # Overview of Azure Event Hubs dedicated tier
 
-*Event Hubs clusters* offer **single-tenant** deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the premium offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost. The Event Hubs Capture feature allows you to automatically batch and log data streams to Azure Storage or Azure Data Lake Storage. 
+Event Hubs clusters offer **single-tenant deployments** for customers with the most demanding streaming needs. This offering has a guaranteed **99.99%** SLA, which is available only in our dedicated pricing tier. An [Event Hubs cluster](event-hubs-dedicated-overview.md) can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within a cluster include all features of the premium offering and more, but without any ingress limits. The dedicated offering also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
 
-Clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on various factors, such as the following ones: 
+Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase up to 10 CUs for a cluster in the Azure portal. If you need a cluster larger than 10 CU, you can submit an Azure support request to scale up your cluster after its creation. 
+
+How much you can ingest and stream per CU depends on various factors, such as the following ones: 
 
 - Number of producers and consumers
 - Payload shape
@@ -19,7 +21,7 @@ Clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated
 > All Event Hubs clusters are Kafka-enabled by default and support Kafka endpoints that can be used by your existing Kafka based applications. Having Kafka enabled on your cluster does not affect your non-Kafka use cases. There is no option or need to disable Kafka on a cluster.
 
 ## Why dedicated tier?
-The dedicated tier of Event Hubs offers three compelling benefits for customers who need enterprise-level capacity:
+The dedicated tier of Event Hubs offers three compelling benefits to customers who need enterprise-level capacity:
 
 ### Single-tenancy guarantees capacity for better performance
 A dedicated cluster guarantees capacity at full scale. It can ingress up to gigabytes of streaming data with fully durable storage and subsecond latency to accommodate any burst in traffic. 

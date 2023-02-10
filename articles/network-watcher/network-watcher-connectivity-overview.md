@@ -1,6 +1,7 @@
 ---
-title: Introduction to Azure Network Watcher Connection Troubleshoot
-description: This page provides an overview of the Network Watcher connection troubleshooting capability
+title: Introduction to connection troubleshoot
+titleSuffix: Azure Network Watcher
+description: This page provides an overview of Azure Network Watcher connection troubleshoot capability.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -10,7 +11,7 @@ ms.date: 11/10/2022
 ms.author: halkazwini
 ---
 
-# Introduction to connection troubleshoot in Azure Network Watcher
+# Introduction to Azure Network Watcher connection troubleshoot in Azure Network Watcher
 
 The connection troubleshoot feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they're implemented using network security groups, firewalls, user-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
