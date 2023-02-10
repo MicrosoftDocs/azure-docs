@@ -96,15 +96,23 @@ These steps are included in AutoML's transform pipelines, so they are automatica
 
 #### Training
 
-ForecastTCN training follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into examples that are shuffled and combined into batches. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a loss function.
+ForecastTCN training follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into **examples** that are shuffled and combined into **batches**. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a **loss function**. Training may require many passes through the full training data; each pass is called an **epoch**.
 
-|Training parameter|Description|Value|
+The following table lists and describes input settings and parameters for ForecastTCN training:
+
+|Training input|Description|Value|
 |--|--|--|
-|Loss function|The quantity optimized during training.|[Quantile loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html) averaged over 10th, 25th, 50th, 75th, and 90th percentile forecasts.|
-|Network architecture|Parameters that control the size of the network: $n_{b}$, $n_{c}$, $n_{\text{ch}}$.|Determined by model search.|
-|Network weights|Parameters controlling signal mixtures, categorical embeddings, convolution kernel weights, and mappings to forecast values.|Determined during training by optimizing the loss function.
-|Learning rate|Controls how much the network weights can be adjusted in each iteration of back propagation.|Determined by model search.|
-|   
+|Validation data|A portion of data that is held out from training to guide the network optimization and mitigate over fitting.| Provided by the user or automatically created from training data if not provided.|
+|Primary metric|Metric computed from median-value forecasts on the validation data at the end of each training epoch; used for early stopping and model selection.|Chosen by the user; normalized root mean squared error or normalized mean absolute error.|
+|Early stopping patience|Number of epochs to wait for primary metric improvement before training is stopped.|20|
+|Loss function|The objective function for network weight optimization.|[Quantile loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html) averaged over 10th, 25th, 50th, 75th, and 90th percentile forecasts.|
+|Batch size|Number of examples in a batch. Each example has dimensions $n_{\text{input}} \times t_{\text{rf}}$ for input and $h$ for output.|Determined from the total number of examples in the training data; maximum value of 1024.|
+|Network architecture*|Parameters that control the size and shape of the network: depth, number of cells, and number of channels.|Determined by model search.|
+|Network weights|Parameters controlling signal mixtures, categorical embeddings, convolution kernel weights, and mappings to forecast values.|Randomly initialized, then optimized with respect to the loss function.
+|Learning rate*|Controls how much the network weights can be adjusted in each iteration of gradient descent; [dynamically reduced](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html) as the model converges.|Determined by model search.|
+|Dropout ratio*|Controls the degree of [dropout regularization](https://en.wikipedia.org/wiki/Dilution_(neural_networks)) applied to the network weights.|Determined by model search.|
+
+Inputs marked with an asterisk (*) are determined by a hyperparameter search that is described in the next section.    
 
 #### Model search 
 
