@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 
 # Supported versions of PostgreSQL with Azure Arc-enabled PostgreSQL server
-The list of supported versions evolves over time as we progress on ensuring parity with Postgres managed services in Azure PaaS. Today, the major versions that is supported is PostgreSQL 14.
+The list of supported versions evolves over time as we progress on ensuring parity with PostgreSQL managed services in Azure PaaS. Today, the major versions that is supported is PostgreSQL 14.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -22,8 +22,7 @@ To learn more, read about each version on the official PostgreSQL site:
 - [PostgreSQL 14 (default)](https://www.postgresql.org/docs/14/index.html)
 
 ## How to create a particular version in Azure Arc-enabled PostgreSQL server?
-At creation time, you have the possibility to indicate what version to create by passing the _--engine-version_ parameter. 
-If you do not indicate a version information, by default, a server group of PostgreSQL version 14 will be created.
+Currently only PostgreSQL version 14 is supported.
 
 Note that there is only one PostgreSQL Custom Resource Definition (CRD) in your Kubernetes cluster no matter what versions we support.
 For example, run the following command:
