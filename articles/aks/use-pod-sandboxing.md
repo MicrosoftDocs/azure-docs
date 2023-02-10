@@ -294,7 +294,7 @@ kubectl delete pod pod-name
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- INTERNAL LINKS -->
-[install-azure-cli]: /cli/azu[az-feature-register]: /cli/azure/feature#az_feature_register
+[install-azure-cli]: /cli/azu
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
