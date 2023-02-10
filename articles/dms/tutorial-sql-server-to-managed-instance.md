@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 02/08/2023
 ---
 
-# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS (classic)
+# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS
 
 > [!NOTE]
 > This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-offline-ads.md). 

@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 01/25/2023
-ms.author: mikaelw
+ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
 
@@ -21,11 +21,11 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ## January 2023
 
-### MedTech service
+### Azure Health Data Services
 
-**Qatar Central region is Generally Available (GA)**
+**Azure Health Data services General Available (GA) in new regions**
 
-Customers in Qatar Central can now access the MedTech service.
+General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
 
 
 ### DICOM service
@@ -47,13 +47,7 @@ One new sample app has been released in the [Health Data Services samples repo](
 
 ## **December 2022**
 
-#### Azure Health Data Services
 
-**Azure Health Data services General Available (GA) in new regions**
-
-General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
-
-   
 #### DICOM service
 
 
@@ -543,7 +537,7 @@ Enabled DICOM service to work with workspaces that have names beginning with a l
 
 **MedTech service normalized improvements with calculations to support and enhance health data standardization.** 
 
-See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Content Templates](./../healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md)  
+See [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [CalculatedContent](./../healthcare-apis/iot/how-to-use-calculatedcontent-mappings.md)  
 
 
 

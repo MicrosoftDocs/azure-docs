@@ -19,7 +19,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is will be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-will-be-deprecated) | February 2023 |
-| [Three alerts in Defender for Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
+| [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
@@ -31,7 +31,7 @@ The built-in policy [`[Preview]: Private endpoint should be configured for Key V
 
 The related [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1) will also be replaced by this new policy in all standards displayed in the regulatory compliance dashboard.
 
-### Three alerts in Defender for Three alerts in Defender for Azure Resource Manager plan will be deprecated
+### Three alerts in Defender for Azure Resource Manager plan will be deprecated
 
 **Estimated date for change: March 2023**
 
