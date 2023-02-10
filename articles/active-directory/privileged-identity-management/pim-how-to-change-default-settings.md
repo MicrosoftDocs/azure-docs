@@ -125,7 +125,7 @@ You can turn off emails sent to default recipients by clearing the default recip
 -	**Send emails to both default recipients and more recipients**</br>
 You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
 -	**Critical emails only**</br>
-For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while emails requiring admins to approve an extension request will be triggered.
 
 ## Manage role settings through Microsoft Graph
 
