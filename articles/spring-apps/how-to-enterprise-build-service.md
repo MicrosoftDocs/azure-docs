@@ -43,6 +43,10 @@ The following table shows the build agent pool scale set sizes available:
 | S3        | 4 vCPU, 8 Gi  |
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
+| S6        | 8 vCPU, 16 Gi |
+| S7        | 16 vCPU, 32 Gi |
+| S8        | 32 vCPU, 64 Gi |
+| S9        | 64 vCPU, 128 Gi |
 
 We allow at most one pool-sized build tasks to build and twice the pool-sized build tasks to queue. If the quota of agent pool is insufficient for the build task, the request for this build will get an error -- "The usage of build results in Building or Queuing status are (cpu: xxx, memory: xxxMi) and the remained quota is insufficient for this build. please retry with smaller size of build resourceRequests, retry after the previous build process completed or increased your build agent pool size".  
 
