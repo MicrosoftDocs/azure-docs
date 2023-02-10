@@ -611,7 +611,7 @@
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
-            - name: Inference HTTP server
+            - name: Debug scoring script with inference HTTP server
               href: how-to-inference-server-http.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
