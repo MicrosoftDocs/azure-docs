@@ -6,6 +6,7 @@ author: kimforss
 manager: kimforss
 keywords: 'Azure, SAP'
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/17/2021
