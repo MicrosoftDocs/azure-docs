@@ -23,8 +23,8 @@ You can become a Microsoft-compatible FIDO2 security key vendor through the foll
 
 1. First, your authenticator needs to have a FIDO2 certification. We won't be able to work with providers who don't have a FIDO2 certification. To learn more about the certification, please visit the [FIDO Alliance Certification Overview website](https://fidoalliance.org/certification/).
 2. After you have a FIDO2 certification, please [submit a request form](https://forms.office.com/r/NfmQpuS9hF). Our engineering team will only confirm the features supported by your FIDO2 devices. We won't retest features already tested as part of the above FIDO2 certification or evaluate the security of your solutions. The process usually takes a few weeks to complete. 
-3. Upon successful passing of all tests by Microsoft Engineering team, Microsoft will confirm vendor's device is listed in [the FIDO MDS](https://fidoalliance.org/metadata/).
-4. Microsoft will add your FIDO2 Security Key on Azure AD backend and to our list of approved FIDO2 vendors.
+3. Upon successfully confirming feature list by Microsoft Engineering team, Microsoft will confirm vendor's device is listed in [the FIDO MDS](https://fidoalliance.org/metadata/).
+4. Microsoft will add your FIDO2 Security Key on Azure Active Directory backend and to our list of approved FIDO2 vendors.
 
 ## Current partners
 
