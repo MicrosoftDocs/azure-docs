@@ -215,16 +215,20 @@ The isolated worker process supports parameter types according to the table belo
 | Binding | Parameter types | Preview parameter types<sup>1</sup> |
 |-|-|-| 
 | Blob trigger | `string` | `Byte[]`<br/>[Stream]<br/>[BlobClient]<br/>[BlockBlobClient]<br/>[PageBlobClient]<br/>[AppendBlobClient]<br/>[BlobBaseClient]<br/>[BlobContainerClient]<br/>JSON serializable types<sup>2</sup>|
-| Blob input | `string` | `Byte[]`<br/>[Stream]<br/>[BlobClient]<br/>[BlockBlobClient]<br/>[PageBlobClient]<br/>[AppendBlobClient]<br/>[BlobBaseClient]<br/>[BlobContainerClient]<br/>JSON serializable types<sup>2</sup>|
-| Blob output | `string` | No preview types<sup>3</sup> |
+| Blob input | `string` | `Byte[]`<br/>[Stream]<br/>[BlobClient]<br/>[BlockBlobClient]<br/>[PageBlobClient]<br/>[AppendBlobClient]<br/>[BlobBaseClient]<br/>[BlobContainerClient]<sup>3</sup><br/>JSON serializable types<sup>2</sup>|
+| Blob output | `string` | No preview types<sup>4</sup> |
 
-<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs 5.1.0-preview1 or later][sdk-types-version]. Collections of preview types, such as arrays and `IEnumerable<T>`, are not supported.When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported. 
+<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs 5.1.0-preview1 or later][sdk-types-extension-version], [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version], and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. When developing on your local machine, you will need [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). Collections of preview types, such as arrays and `IEnumerable<T>`, are not supported. When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported.
 
-[sdk-types-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/5.1-0-preview1
+[sdk-types-extension-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/5.1.0-preview1
+[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
+[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
 
 <sup>2</sup> Blobs containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-<sup>3</sup> Support for SDK type bindings does not presently extend to output bindings.
+<sup>3</sup> The `BlobPath` configuration for an input binding to [BlobContainerClient] currently requires the presence of a blob name. It is not sufficient to provide just the container name. A placeholder value may used and will not change the behavior. For example, setting `[BlobInput("samples-workitems/placeholder.txt")] BlobContainerClient containerClient` does not consider whether any `placeholder.txt` exists or not, and the client will work with the overall "samples-workitems" container.
+
+<sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
