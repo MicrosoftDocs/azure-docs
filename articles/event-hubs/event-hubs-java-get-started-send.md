@@ -1,13 +1,13 @@
 ---
 title: Send or receive events from Azure Event Hubs using Java (latest)
-description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the latest azure-messaging-eventhubs package.
+description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
 ms.date: 02/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, mode-api, passwordless-java
 ---
 
-# Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)
+# Use Java to send events to or receive events from Azure Event Hubs
 
 This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
 
@@ -30,9 +30,9 @@ This section shows you how to create a Java application to send events an event 
 
 ### Add reference to Azure Event Hubs library
 
-First, create a new **Maven** project for a console/shell application in your favorite Java development environment. Update the `pom.xml` file with the following dependency. The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). 
+First, create a new **Maven** project for a console/shell application in your favorite Java development environment. Update the `pom.xml` file as follows. The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). 
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
 		<dependency>
@@ -69,7 +69,7 @@ First, create a new **Maven** project for a console/shell application in your fa
 
 ### Write code to send messages to the event hub
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 Add a class named `Sender`, and add the following code to the class:
 
 > [!IMPORTANT]
@@ -83,7 +83,6 @@ import com.azure.messaging.eventhubs.*;
 import java.util.Arrays;
 import java.util.List;
 
-import com.azure.core.credential.TokenCredential;
 import com.azure.identity.*;
 
 public class SenderAAD {
@@ -104,11 +103,12 @@ public class SenderAAD {
      * @throws IllegalArgumentException if the EventData is bigger than the max batch size.
      */
     public static void publishEvents() {
-        // create a producer client
-        TokenCredential credential = new DefaultAzureCredentialBuilder()
+        // create a token using the default Azure credential        
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
                 .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
-        
+
+        // create a producer client        
         EventHubProducerClient producer = new EventHubClientBuilder()        
             .fullyQualifiedNamespace(namespaceName)
             .eventHubName(eventHubName)
@@ -231,19 +231,20 @@ Follow these steps to create an Azure Storage account.
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container
     
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
+
 ## [Connection String](#tab/connection-string)
 
 [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
-Note down the **connection string** and the **container name**. You'll use them in the receive code. 
+Note down the **connection string** and the **container name**. You use them in the receive code. 
 
 ---
 ### Add Event Hubs libraries to your Java project
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 Add the following dependencies in the pom.xml file.
 
@@ -297,9 +298,9 @@ Add the following dependencies in the pom.xml file.
 ---
 
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
-1. Add the following **import** statements at the top of the Java file.
+1. Add the following `import` statements at the top of the Java file.
 
     ```java
     import com.azure.messaging.eventhubs.*;
@@ -308,7 +309,6 @@ Add the following dependencies in the pom.xml file.
     import com.azure.storage.blob.*;
     import java.util.function.Consumer;
     
-    import com.azure.core.credential.TokenCredential;
     import com.azure.identity.*;
     ```
 2. Create a class named `Receiver`, and add the following string variables to the class. Replace the placeholders with the correct values.
@@ -331,7 +331,7 @@ Add the following dependencies in the pom.xml file.
 
     ```java
     // create a token using the default Azure credential
-    TokenCredential credential = new DefaultAzureCredentialBuilder()
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
             .build();
 
