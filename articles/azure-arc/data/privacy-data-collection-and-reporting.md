@@ -8,7 +8,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual 
 ms.date: 07/30/2021
-ms.custom: template-concept 
+ms.custom: template-concept
 ---
 
 # Azure Arc-enabled data services data collection and reporting
@@ -21,14 +21,13 @@ Neither Azure Arc-enabled data services nor any of the applicable data services 
 
 Azure Arc-enabled data services may use some or all of the following products:
 
-- SQL MI – Azure Arc 
+- Azure Arc-enabled SQL Managed Instance 
 - Azure Arc-enabled PostgreSQL
 - Azure Data Studio
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 - Azure CLI (az)
-- Azure Data CLI (`azdata`) 
 
 ## Directly connected
 
@@ -84,45 +83,16 @@ There are three resource types:
 
 - Azure Arc-enabled SQL Managed Instance 
 - Azure Arc-enabled PostgreSQL server 
-- Azure Arc-enabled SQL Server 
-- Data controller 
+- Data controller
 
 The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
-
-### Azure Arc-enabled SQL Server
-- SQL Server edition. 
-   - `string: Edition` 
-- Resource ID of the container resource (Azure Arc for Servers). 
-   - `string: ContainerResourceId` 
-- Time when the resource was created. 
-   - `string: CreateTime` 
-- The number of logical processors used by the SQL Server instance.
-   - `string: VCore` 
-- Cloud connectivity status. 
-   - `string: Status` 
-- SQL Server update level. 
-   - `string: PatchLevel` 
-- SQL Server collation. 
-   - `string: Collation`
-- SQL Server current version.
-   - `string: CurrentVersion`
-- SQL Server instance name. 
-   - `string: InstanceName`
-- Dynamic TCP ports used by SQL Server. 
-   - `string: TcpDynamicPorts`
-- Static TCP ports used by SQL Server.
-   - `string: TcpStaticPorts` 
-- SQL Server product ID.
-   - `string: ProductId`
-- SQL Server provisioning state.
-   - `string: ProvisioningState`
 
 ### Data controller 
 
 - Location information
    - `public OnPremiseProperty OnPremiseProperty` 
 - The raw Kubernetes information (`kubectl get datacontroller`) 
-   - `object: K8sRaw` 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
 - Last uploaded date from on-premises cluster.
    - `System.DateTime: LastUploadedDate` 
 - Data controller state
@@ -137,7 +107,7 @@ The following sections show the properties, types, and descriptions that are col
 - Username and password for basic authentication
    - `public: BasicLoginInformation BasicLoginInformation` 
 - The raw Kubernetes information (`kubectl get postgres12`) 
-   - `object: K8sRaw` 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
 - Last uploaded date from on premises cluster. 
    - `System.DateTime: LastUploadedDate` 
 - Group provisioning state
@@ -154,7 +124,7 @@ The following sections show the properties, types, and descriptions that are col
 - The instance end time 
    - `string: EndTime` 
 - The raw kubernetes information (`kubectl get sqlmi`) 
-   - `object: K8sRaw` 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
 - Username and password for basic authentication. 
    - `public: BasicLoginInformation BasicLoginInformation`
 - Last uploaded date from on-premises cluster. 
@@ -259,3 +229,4 @@ In support situations, you may be asked to provide database instance logs, Kuber
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
+
