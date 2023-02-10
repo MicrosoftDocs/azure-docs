@@ -83,7 +83,7 @@ For this preview, the following standard [`contrib`](https://www.postgresql.org/
 Updates to this list will be posted as it evolves over time.
 
 ## Create an Arc-enabled PostgreSQL server with extensions enabled
-You can create an Arc-enabled PostgreSQL server with any of the supported extensions enabled by passing a comma separated list of extensions to the `--extensions` parameter of the `create` command:
+You can create an Arc-enabled PostgreSQL server with any of the supported extensions enabled by passing a comma separated list of extensions to the `--extensions` parameter of the `create` command. *NOTE:* Extensions are enabled on the database for the admin user that was supplied when the server was created:
 ```azurecli
 az postgres server-arc create -n <name> --k8s-namespace <namespace> --extensions "pgaudit,pg_partman" --use-k8s
 ```
