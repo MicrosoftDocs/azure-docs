@@ -50,7 +50,7 @@ spec:
         enableOpenTelemetry: true
 ```
 
-This feature flag requirement will be removed on a future release.
+This feature flag requirement will be removed in a future release.
 
 ### Create the Data Controller
 
