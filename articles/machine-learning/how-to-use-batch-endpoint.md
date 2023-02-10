@@ -493,7 +493,7 @@ Invoking a batch endpoint triggers a batch scoring job. A job `name` will be ret
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    inputs=Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist", type=AssetTypes.URI_FOLDER)
+    inputs=Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", type=AssetTypes.URI_FOLDER)
 )
 ```
 
@@ -511,7 +511,7 @@ job = ml_client.batch_endpoints.invoke(
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
 
 1. Select __Next__.
-1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Notice that this only works because the given path has public access enabled. In general, you'll need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
+1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://azuremlexampledata.blob.core.windows.net/data/mnist/sample`. Notice that this only works because the given path has public access enabled. In general, you'll need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
 
@@ -553,7 +553,7 @@ Once you identified the data store you want to use, configure the output as foll
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
     inputs={ 
-        "input": Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist", type=AssetTypes.URI_FOLDER) 
+        "input": Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", type=AssetTypes.URI_FOLDER) 
     },
     params_override=[
         { "output_dataset.datastore_id": f"azureml:{batch_ds.id}" },
@@ -618,7 +618,7 @@ Some settings can be overwritten when invoke to make best use of the compute res
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    input=Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist"),
+    input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/"),
     params_override=[
         { "mini_batch_size": "20" },
         { "compute.instance_count": "5" }
