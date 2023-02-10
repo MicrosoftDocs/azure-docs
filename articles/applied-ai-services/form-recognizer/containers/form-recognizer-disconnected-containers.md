@@ -7,7 +7,7 @@ ms.subservice: forms-recognizer
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date:02/10/2023
+ms.date: 02/10/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
