@@ -23,7 +23,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 2. In the side **Menu**, under the **Services**, select **Cache** (Preview).
 
 
-    :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview blade.":::
+    :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview.":::
 
 
 3. Select **Create Rule**.
@@ -44,7 +44,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 
-8. You have an option to skip **Authentication**.
+8. You can skip **Authentication**, if you aren't accessing a private repository or performing an authenticated pull.
 
 9. Under the **Destination**, Enter the name of the **New ACR repository path** to store cached artifacts.
 

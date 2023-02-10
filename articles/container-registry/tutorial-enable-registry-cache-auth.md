@@ -10,7 +10,7 @@ ms.author: tejaswikolli
 
 This article is part three of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. 
 
-This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure portal. You will require to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure portal. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 2. In the side **Menu**, under the **Services**, select **Cache** (Preview).
 
 
-    :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview blade.":::
+    :::image type="content" source="./media/container-registry-registry-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache preview.":::
 
 
 3. Select **Create Rule**.
