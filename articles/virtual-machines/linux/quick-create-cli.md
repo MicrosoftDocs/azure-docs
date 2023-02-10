@@ -30,7 +30,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Define Environment Variables
-Environment variables are commonly used in Linux documentation to centralize configuration data, improving consistency and maintainability of the system. The following defines environment variables which specify the names of resources which will be created in this tutorial:
+Environment variables are commonly used in Linux to centralize configuration data to improve consistency and maintainability of the system. Create the following environment variables to specify the names of resources that will be created later in this tutorial:
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME=myResourceGroup
