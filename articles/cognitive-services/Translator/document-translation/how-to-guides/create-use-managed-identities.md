@@ -13,6 +13,8 @@ ms.author: lajanuar
 
 # Managed identities for Document Translation
 
+:::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
+
 > [!IMPORTANT]
 >
 > * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
@@ -34,7 +36,6 @@ Managed identities for Azure resources are service principals that create an Azu
 >
 > * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
-:::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
 ## Prerequisites
 
