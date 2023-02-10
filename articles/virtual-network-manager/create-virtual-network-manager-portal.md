@@ -124,6 +124,7 @@ Virtual Network Manager applies configurations to groups of VNets by placing the
 ## Define membership for a mesh configuration
 
 Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
+
 ### Manually add membership
 
 In this task, you'll manually add three virtual networks for your Mesh configuration to your network group using the steps below:
@@ -140,6 +141,7 @@ In this task, you'll manually add three virtual networks for your Mesh configura
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ### Create Azure Policy for dynamic membership
+
 Using [Azure Policy](concept-azure-policy-integration.md), you'll define a condition to dynamically add three virtual networks tagged as **Prod** to your network group using the steps below.
 
 1. From the list of network groups, select **myNetworkGroup** and select **Create Azure Policy** under *Create policy to dynamically add members*.
@@ -164,7 +166,9 @@ Using [Azure Policy](concept-azure-policy-integration.md), you'll define a condi
 1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
-## Create  a configuration
+    
+## Create a configuration
+
 Now that the Network Group is created, and has the correct VNets, create a mesh network topology configuration. Replace <subscription_id> with your subscription and follow the steps below:
 
 1. Select **Configurations** under **Settings**, then select **+ Create**.
