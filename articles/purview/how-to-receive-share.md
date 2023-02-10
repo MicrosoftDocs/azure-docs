@@ -110,6 +110,10 @@ When a share is attached, a new asset of type received share is ingested into th
 
 Once you attached a share, you can edit the received share name, or stop the sharing relationship by deleting the received share.
 
+You can find a received asset one of two ways:
+
+* [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) the data catalog for data share assets and select your received share.
+
 You can also re-attach a received share to a different storage account or to a different path in the storage account to which it is already attached to. To re-attach, first select the received share, and then specify a target data store, path and folder where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the attach activity to complete, and then you will see the shared data in your target data store. 
 
 > [!NOTE]
@@ -145,13 +149,16 @@ Here are some common issues for receiving share and how to troubleshoot them.
 If you're getting an error related to *quota* when creating a Microsoft Purview account, it means your organization has exceeded [Microsoft Purview service limit](how-to-manage-quotas.md). If you require an increase in limit, contact support.
 
 ### Can't find my Storage account asset in the Catalog
+
 * Data source is not registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan is not necessary.
 * Data source is registered to a Microsoft Purview collection that you do not have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
 
 ### Can't view list of shares in the storage account asset
+
  * Permission issue to the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
 ### Can't view received share in the storage account asset
+
 * You may have selected a different storage account to attach the share to, that may not be registered in Microsoft Purview or maybe registered to a collection you don't have permissions to. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access to collections.
 
 ### Can't view share invite

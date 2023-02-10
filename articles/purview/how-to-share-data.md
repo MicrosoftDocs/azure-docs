@@ -124,7 +124,7 @@ You can find your sent shares one of two ways:
 
    :::image type="content" source="./media/how-to-share-data/select-share-to-edit.png" alt-text="Screenshot of the Manage data shares page with a share selected and the edit button highlighted." border="true":::
 
-* You can search for the share in the data catalog, and narrow results to only data shares. Then select the **Edit** button.
+* You can [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for the share in the data catalog, and narrow results to only data shares. Then select the **Edit** button.
 
    :::image type="content" source="./media/how-to-share-data/search-for-share.png" alt-text="Screenshot of the data catalog search, showing the data share filter selected and a share highlighted." border="true":::
 
