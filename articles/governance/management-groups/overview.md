@@ -28,9 +28,7 @@ You can build a flexible structure of management groups and subscriptions to org
 into a hierarchy for unified policy and access management. The following diagram shows an example of
 creating a hierarchy for governance using management groups.
 
-:::image type="complex" source="./media/sub-org.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
-   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
-:::image-end:::
+[!Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.](./media/mg-org.png)
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations to the
 West US region in the management group called "Corp". This policy will inherit onto all the Enterprise
@@ -194,9 +192,7 @@ when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
-:::image type="complex" source="./media/mg-org-sub.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
-   The diagram focuses on the root management group with child Landing zones and Sandbox management groups. The Landing zones management group has two child management groups named Corp and Online while the Sandbox management group has two child subscriptions.
-:::image-end:::
+[!The diagram focuses on the root management group with child Landing zones and Sandbox management groups. The Landing zones management group has two child management groups named Corp and Online while the Sandbox management group has two child subscriptions.](./media/mg-org-sub.png)
 
 Let's say there's a custom role defined on the Sandbox management group. That custom role is then
 assigned on the two Sandbox subscriptions.
