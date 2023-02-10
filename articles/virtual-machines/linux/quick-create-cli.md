@@ -56,20 +56,12 @@ The following example creates a VM and adds a user account. The `--generate-ssh-
 
 ```azurecli-interactive
 az vm create \
-<<<<<<< HEAD
   --resource-group $RESOURCE_GROUP_NAME \
   --name $VM_NAME \
   --image $VM_IMAGE \
   --admin-username $ADMIN_USERNAME \
   --generate-ssh-keys \
   --public-ip-sku Standard
-=======
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image Debian \
-  --admin-username azureuser \
-  --generate-ssh-keys
->>>>>>> main
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
@@ -89,7 +81,6 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Make a note of the `publicIpAddress` to use later.
 
-<<<<<<< HEAD
 You can retrieve and store the IP address in the variable IP_ADDRESS with the following command:
 
 ```azurecli-interactive
@@ -106,34 +97,15 @@ To see your VM in action, install the NGINX web server. Update your package sour
 az vm run-command invoke \
    --resource-group $RESOURCE_GROUP_NAME \
    --name $VM_NAME \
-=======
-## Install web server
-
-To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
-
-```azurecli-interactive
-az vm run-command invoke \
-   -g myResourceGroup \
-   -n myVM \
->>>>>>> main
    --command-id RunShellScript \
    --scripts "sudo apt-get update && sudo apt-get install -y nginx"
 ```
 ## Open port 80 for web traffic
 
-<<<<<<< HEAD
 By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group $RESOURCE_GROUP_NAME --name $VM_NAME
-=======
-## Open port 80 for web traffic
-
-By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
-
-```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM
->>>>>>> main
 ```
 
 ## View the web server in action
