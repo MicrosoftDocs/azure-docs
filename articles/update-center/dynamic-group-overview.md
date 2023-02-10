@@ -23,7 +23,7 @@ Dynamic grouping allows you to group any number of virtual machines and apply up
 For dynamic scope and configuration assignment, ensure that you have write permissions to create or modify a schedule.
 
 ## Prerequisites
-- **Patch Orchestration must be set to Azure orchestration** - It enables Auto patching on the VM, else the schedule updates wouldn't be applied.
+- **Patch Orchestration is set to Azure orchestration** - It enables Auto patching on the VM, else the schedule updates wouldn't be applied.
 - **Set the Bypass platform safety checks on user schedule = *True*** - It allows you to define your own patching methods such as time, duration, and type of patching. This VM property ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
 - **Associate a Schedule with a VM** - This suppresses the auto patching to ensure that patching on the VM(s) runs as per the schedule you've defined.
 
