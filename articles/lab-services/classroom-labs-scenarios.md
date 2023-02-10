@@ -41,7 +41,7 @@ Get started as an administrator with the [Quickstart: set up the resources for c
 
 Get started as an educator with the [Tutorial: set up a lab for classroom training](./tutorial-setup-lab.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario1.png" alt-text="Diagram that shows the different steps for creating a lab in Azure Lab Services, and how the steps map to administrator, educator, and student organizational roles.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario1.png" alt-text="Diagram that shows the steps for creating a lab the organization mapping above it. Administrators own the lab plan creation, and educators create and configure the lab. Students access their lab VM.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
@@ -64,7 +64,7 @@ Get started as an administrator with the [Quickstart: create and connect to a la
 
 Get started as an educator and [add students to a lab](./how-to-configure-student-usage.md), or [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario2.png" alt-text="Diagram that shows the different steps for creating a lab in Azure Lab Services, and how the steps map to administrator, educator, and student organizational roles.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario2.png" alt-text="Diagram that shows the steps for creating a lab the organization mapping above it. Administrators own the entire lab plan and lab creation, and educators manage lab config and adding students. Students access their lab VM.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
@@ -83,7 +83,7 @@ In this scenario, the educator manages their Azure subscription and manages the 
 
 Get started as an administrator with the [Quickstart: create and connect to a lab](./quick-create-connect-lab.md) and then [add students to a lab](./how-to-configure-student-usage.md), and [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario3.png" alt-text="Diagram that shows the different steps for creating a lab in Azure Lab Services, and how the steps map to administrator, educator, and student organizational roles.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario3.png" alt-text="Diagram that shows the steps for creating a lab the organization mapping above it. Educators own the entire lab plan and lab creation process. Students access their lab VM.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
