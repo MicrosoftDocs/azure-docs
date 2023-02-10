@@ -294,7 +294,7 @@ You can [assign eligibility to members or owners of the PIM for Groups.](groups-
 >[!NOTE] 
 >You can assign the group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
-![Assign eligibility for PIM for Groups](media/pim-deployment-plan/pim-for-groups.png)
+![Diagram of assign eligibility for PIM for Groups.](media/pim-deployment-plan/pim-for-groups.png)
 
 
 When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
