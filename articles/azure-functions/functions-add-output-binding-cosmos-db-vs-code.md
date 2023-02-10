@@ -109,7 +109,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
 
-Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
+Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -119,7 +119,7 @@ Now, you can add the Azure Cosmos DB output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -168,7 +168,7 @@ To create a binding, right-click (Ctrl+select on macOS) the *function.json* file
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
-A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present
+A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present
 
 ```json
 {
