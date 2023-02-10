@@ -36,7 +36,7 @@ DICOM service supports unique digital pathology requirements like:
 
 Although the [DICOM standard now supports whole-slide images (WSI)](https://dicom.nema.org/dicom/dicomwsi/), many acquisition scanners don't capture images in the DICOM format. The DICOM service only supports images in the DICOM format, therefore a format conversion is required for WSI in other formats. Several commercial and open-source solutions exist to perform these format conversions.
 
-Here are samples open source tools to build your own converter:
+Here are some samples open source tools to build your own converter:
 
 - [Orthanc - DICOM Server (orthanc-server.com)](https://www.orthanc-server.com/static.php?page=wsi)
 - [OpenSlide](https://github.com/openslide/openslide)
