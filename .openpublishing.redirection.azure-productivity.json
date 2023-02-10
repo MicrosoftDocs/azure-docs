@@ -92,7 +92,7 @@
     },
     {
       "source_path": "articles/lab-services/quick-create-lab-portal.md",
-      "redirect_url": "/azure/lab-services/quick-create-windows-lab",
+      "redirect_url": "/azure/lab-services/quick-create-connect-lab",
       "redirect_document_id": true
     },
     {
