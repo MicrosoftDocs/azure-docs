@@ -19,16 +19,102 @@ ms.custom: template-how-to
 
 ## What are Exporters and Pipelines?
 
-Exporters and Pipelines are two of the main components of the telemetry router. Exporters describe how to send data to a destination system such as Kafka. When creating an exporter, you associate it with a pipeline in order to route that type of telemetry data to that destination. You can have multiple exporters for each telemetry type.
+Exporters and Pipelines are two of the main components of the telemetry router. Exporters describe how to send data to a destination system such as Kafka. When creating an exporter, you associate it with a pipeline in order to route that type of telemetry data to that destination. You can have multiple exporters for each pipeline.
 
 This article provides examples of how you can set up your own exporters and pipelines to route monitoring telemetry data to your own supported exporter.
 
 ### Supported Exporters
 
+|  Exporter     | Supported Pipeline Types |
+|--------------|-----------|
+| Kafka       | logs, metrics      |
+| Elasticsearch       | logs      |
+
+## Configurations
+
+All configurations are specified through the telemetry router's custom resource specification and support the configuration of exporters and pipelines.
+
+### Exporters
+
+For the Public Preview, exporters are partially configurable and support the following solutions:
+
 |  Exporter     | Supported Telemetry Types |
 |--------------|-----------|
 | Kafka       | logs, metrics      |
 | Elasticsearch       | logs      |
+
+The following properties are currently configurable during the Public Preview:
+
+#### General Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| certificateName     | The client certificate in order to export to the monitoring solution  |
+| caCertificateName      | The cluster's Certificate Authority or customer-provided certificate for the Exporter  |
+
+#### Kafka Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| topic       | Name of the topic to export |
+| brokers      | List of brokers to connect to  |
+| encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
+
+#### Elasticsearch Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| index       | This setting can be the name of an index or datastream name to publish events      |
+| endpoint | Endpoint of the Elasticsearch to export to |
+
+### Pipelines
+
+The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  All exporters within pipeline must be prefixed with the type of exporter being used. For example, `elasticsearch/mylogs`
+
+#### Pipeline Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| logs       | Can only declare new logs pipelines       |
+| metrics | Can only declare new metrics pipelines |
+| exporters       | List of exporters. Can be multiple of the same type     |
+
+### Credentials
+
+#### Credentials Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| certificateName       | Name of the certificate must correspond to the certificate name specified in the exporter declaration       |
+| secretName       | Name of the secret provided through Kubernetes      |
+| secretNamespace       | Namespace with secret provided through Kubernetes      |
+
+## Example TelemetryRouter Specification
+
+```yaml
+apiVersion: arcdata.microsoft.com/v1beta4
+kind: TelemetryRouter
+metadata:
+  name: arc-telemetry-router
+  namespace: <namespace>
+spec:
+  credentials:
+    certificates:
+    - certificateName: arcdata-msft-elasticsearch-exporter-internal
+    - certificateName: cluster-ca-certificate
+  exporters:
+    elasticsearch:
+    - caCertificateName: cluster-ca-certificate
+      certificateName: arcdata-msft-elasticsearch-exporter-internal
+      endpoint: https://logsdb-svc:9200
+      index: logstash-otel
+      name: arcdata/msft/internal
+  pipelines:
+    logs:
+      exporters:
+      - elasticsearch/arcdata/msft/internal
+```
+
 
 ## Example 1: Adding a Kafka exporter for a metrics pipeline
 
@@ -36,7 +122,7 @@ You can test creating a Kafka exporter for a metrics pipeline that can send metr
   
 1. Provide your client and CA certificates in the `credentials` section through Kubernetes secrets
 2. Declare the new Exporter in the `exporters` section with the needed settings - name, certificates, broker, and index. Be sure to list the new exporter under the applicable type ("kakfa:")
-3. Add your new metrics pipeline to the exporters list in the `pipelines` section of the spec. Be sure to use the same exporter name from the previous step and prepend the type of exporter to the front of the exporter name. For example, `kafka/myMetrics`
+3. List your exporter in the `pipelines` section of the spec as a metrics pipelines. The exporter name needs to be prefixed with the type of exporter. For example, `kafka/myMetrics`
 
 In this example, we've added a metrics pipeline (`kafka/myMetrics`) that routes to your instance of Kafka.
 
@@ -51,8 +137,6 @@ metadata:
 spec:
   credentials:
     certificates:
-    - certificateName: arcdata-msft-kafka-exporter-internal
-    - certificateName: cluster-ca-certificate
     # Step 1. Provide your client and ca certificates through Kubernetes secrets
     # where the name of the secret and its namespace are specified.
     - certificateName: <kafka-client-certificate-name>
@@ -73,15 +157,9 @@ spec:
       broker: <kafka_broker>
       # Index can be the name of an index or datastream name to publish events to
       index: <kafka_index>
-    - name: arcdata/msft/internal
-      caCertificateName: cluster-ca-certificate
-      certificateName: arcdata-msft-kafka-exporter-internal
-      broker: https://logsdb-svc:9200
-      index: metricsstash-otel
   pipelines:
     metrics:
       exporters:
-      - kafka/arcdata/msft/internal
       # Step 3. Assign your kafka exporter to the list
       # of exporters for the metrics pipeline.
       - kafka/myMetrics
@@ -99,7 +177,7 @@ Your telemetry router deployment can export to multiple destinations by configur
 
 1. Provide your client and CA certificates in the `credentials` section through Kubernetes secrets
 2. Declare the new Exporter beneath the `exporters` section with the needed settings - name, certificates, endpoint, and index. Be sure to list the new exporter under the applicable type ("Elasticsearch:").
-3. Add your new metrics pipeline to the exporters list in the `pipelines` section of the spec. Be sure to use the same exporter name from the previous step and prepend the exporter type. For example, `elasticsearch/myLogs`
+3. List your exporter in the `pipelines` section of the spec as a logs pipelines. The exporter name needs to be prefixed with the type of exporter. For example, `elasticsearch/myLogs`
 
 This example builds on the previous example by adding an Elasticsearch exporter to a logs pipeline (`elasticsearch/myLogs`). At the end of the example, we have two exporters with each exporter added to a different pipeline.
 
@@ -114,10 +192,6 @@ metadata:
 spec:
   credentials:
     certificates:
-    - certificateName: arcdata-msft-elasticsearch-exporter-internal
-    - certificateName: cluster-ca-certificate
-    - certificateName: arcdata-msft-kafka-exporter-internal
-    - certificateName: cluster-ca-certificate
     # Step 1. Provide your client and ca certificates through Kubernetes secrets
     # where the name of the secret and its namespace are specified.
     - certificateName: <elasticsearch-client-certificate-name>
@@ -141,32 +215,20 @@ spec:
       endpoint: <elasticsearch_endpoint>
       # Index can be the name of an index or datastream name to publish events to
       index: <elasticsearch_index>
-    - name: arcdata/msft/internal
-      caCertificateName: cluster-ca-certificate
-      certificateName: arcdata-msft-elasticsearch-exporter-internal
-      endpoint: https://logsdb-svc:9200
-      index: logstash-otel   
     kafka:
     - name: myMetrics
       caCertificateName: <ca-certificate-name>
       certificateName: <kafka-client-certificate-name>
       broker: <kafka_broker>
       index: <kafka_index>
-    - name: arcdata/msft/internal
-      caCertificateName: cluster-ca-certificate
-      certificateName: arcdata-msft-kafka-exporter-internal
-      endpoint: https://logsdb-svc:9200
-      index: metricsstash-otel  
   pipelines:
     logs:
       exporters:
-      - elasticsearch/arcdata/msft/internal
         # Step 3. Add your Elasticsearch exporter to 
         # the exporters list of a logs pipeline.
       - elasticsearch/myLogs
     metrics:
       exporters:
-      - kafka/arcdata/msft/internal
       - kafka/myMetrics
 ```
 
