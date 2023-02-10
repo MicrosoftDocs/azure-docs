@@ -15,7 +15,11 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), Mobility Optimized Networking (MON). HCX Enterprise is now automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/install-vmware-hcx).
 
-**AV36P and AV52 nodes availability**
+**Log analytics**
+
+The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
+
+**New SKU availability - AV36P and AV52 nodes**
 
 The AV36P is now available in the West US Region.  This node size is used for memory and storage workloads by offering increased Memory and NVME based SSDs.  
 
@@ -28,10 +32,6 @@ You can use customer-managed keys to bring and manage your master encryption key
 **Azure NetApp Files**    
 
 You can use Azure NetApp Files volumes as a file share for Azure VMware Solution workloads using Network File System (NFS) or Server Message Block (SMB).
-
-**Log analytics**
-
-The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
 **Stretched clusters**
 
