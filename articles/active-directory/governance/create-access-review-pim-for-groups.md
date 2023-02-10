@@ -44,7 +44,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 5. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
 
-     ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-privileged-access-groups-review.png)
+     ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-pim-review.png)
 
 > [!NOTE]  
 > When a PIM for Groups is selected, the users under review for the group will include all eligible users and active users in that group. 
