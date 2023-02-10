@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 02/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in Azure Arc-enabled SQL Server 2022
