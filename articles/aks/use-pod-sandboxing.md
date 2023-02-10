@@ -25,7 +25,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
 
-- If you want to run `kubectl` locally on your Windows system, you can install it using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+- If you want to run `kubectl` locally on your Windows system, you can install it using the `Install-AzAksKubectl` cmdlet:
 
     ```azurepowershell
     Install-AzAksKubectl
