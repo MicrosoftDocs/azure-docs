@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 02/10/2023
 
 ms.author: gasinh
 author: gargi-sinha
@@ -31,17 +31,17 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 
 * A working Azure AD tenant with Azure AD Premium P1, P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
    * Azure AD Premium P2 is required to include Identity Protection risk in Conditional Access policies.
-* Conditional Access policies can be created or modified by anyone assigned the following roles:
-   * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
-   * [Security Administrator](../roles/permissions-reference.md#security-administrator)
-   * [Global Administrator](../roles/permissions-reference.md#global-administrator)
-* Conditional Access policies and configuration can be read by anyone assigned the following roles:
-   * [Security Reader](../roles/permissions-reference.md#security-reader)
-   * [Global Reader](../roles/permissions-reference.md#global-reader)
-* A test user (non-administrator) that allows you to verify policies work as expected before you affect real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+* Administrators who interact with Conditional Access must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to just-in-time activate privileged role assignments.
+   * Read Conditional Access policies and configurations 
+      * [Security Reader](../roles/permissions-reference.md#security-reader)
+      * [Global Reader](../roles/permissions-reference.md#global-reader)
+   * Create or modify Conditional Access policies 
+      * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
+      * [Security Administrator](../roles/permissions-reference.md#security-administrator)
+* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
-### Communication plan
+### Communicating change
 
 Communication is critical to the success of any new functionality. You should proactively communicate with your users how their experience will change, when it will change, and how to get support if they experience issues.
 
