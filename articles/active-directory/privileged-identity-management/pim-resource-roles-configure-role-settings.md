@@ -4,7 +4,7 @@ description: Learn how to configure Azure resource role settings in Azure AD Pri
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -30,6 +30,8 @@ Follow these steps to open the settings for an Azure resource role.
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Select **Azure resources**.
+    >[!NOTE]
+    > Approver doesn't have to have any Azure or Azure AD role assigned.
 
 1. Select the resource you want to manage, such as a subscription or management group.
 

@@ -5,8 +5,8 @@ author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 07/13/2022
-ms.author: wamota
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
@@ -17,7 +17,8 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To collect telemetry during the contact create an event hub. [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md)
+- Must be a Contributer at the subscription level.
+- To collect telemetry during the contact, create an event hub. [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md)
 - An IP address (private or public) for data retrieval/delivery. [Create a VM and use its private IP](../virtual-machines/windows/quick-create-portal.md)
 
 ## Sign in to Azure
@@ -60,9 +61,9 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | IP Address | Specify the IP Address for data retrieval/delivery |
    | Port | Specify the Port for data retrieval/delivery |
    | Protocol | Select TCP or UDP protocol for data retrieval/delivery |
-   | Demodulation Configuration (Downlink only) | If applicable, paste your modem demodulation configuration |
+   | Demodulation Configuration (Downlink only) | Refer to [configure the modem chain](modem-chain.md) for options. |
    | Decoding Configuration (Downlink only)| If applicable, paste your decoding configuration |
-   | Modulation Configuration (Uplink only) | If applicable, paste your modem modulation configuration |
+   | Modulation Configuration (Uplink only) | Refer to [configure the modem chain](modem-chain.md) for options. |
    | Encoding Configuration (Uplink only)| If applicable, paste your encoding configuration |
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
@@ -74,5 +75,6 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 ## Next steps
 
 - [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
+- [Configure the RF chain](modem-chain.md)
 - [Schedule a contact](schedule-contact.md)
 - [Cancel a contact](delete-contact.md)

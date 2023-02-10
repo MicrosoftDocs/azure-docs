@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/26/2022
 ms.author: jricketts
-ms.reviewer: baselden
+ms.reviewer: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---

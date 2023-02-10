@@ -16,7 +16,7 @@ ms.subservice: chat
 
 Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support. 
 
-The Chat APIs provide an **auto-scaling** service for persistently storied text and data communication. Other key features include:
+The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:
 
 - **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
@@ -88,7 +88,7 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
 
 ## Push notifications 	
 To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
- - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
+ - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
  - Connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
     IOS and Android SDK can support the below event:
@@ -106,7 +106,7 @@ To send push notifications for messages missed by your users while they were awa
 For more details, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
-> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in public preview for iOS version 1.3.0-beta.1.
+> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in IOS version 1.3.0.
 
 ## Build intelligent, AI powered chat experiences
 

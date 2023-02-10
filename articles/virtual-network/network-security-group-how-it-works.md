@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how network security groups help you filter network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
-ms.author: mbender
+ms.author: allensu
 ms.reviewer: kumud
 ---
 
@@ -42,7 +42,7 @@ For outbound traffic, Azure processes the rules in a network security group asso
 
 - **VM1**: The security rules in *NSG2* are processed. Unless you create a security rule that denies port 80 outbound to the internet, the traffic is allowed by the [AllowInternetOutbound](./network-security-groups-overview.md#allowinternetoutbound) default security rule in both *NSG1* and *NSG2*. If *NSG2* has a security rule that denies port 80, the traffic is denied, and never evaluated by *NSG1*. To deny port 80 from the virtual machine, either, or both of the network security groups must have a rule that denies port 80 to the internet.
 - **VM2**: All traffic is sent through the network interface to the subnet, since the network interface attached to *VM2* doesn't have a network security group associated to it. The rules in *NSG1* are processed.
-- **VM3**: If *NSG2* has a security rule that denies port 80, the traffic is denied. If *NSG2* has a security rule that allows port 80, then port 80 is allowed outbound to the internet, since a network security group isn't associated to *Subnet2*.
+- **VM3**: If *NSG2* has a security rule that denies port 80, the traffic is denied. If not, the traffic is allowed by the [AllowInternetOutbound](./network-security-groups-overview.md#allowinternetoutbound) default security rule in NSG2, since a network security group isn't associated to Subnet2.
 - **VM4**: All network traffic is allowed from *VM4,* because a network security group isn't associated to the network interface attached to the virtual machine, or to *Subnet3*.
 
 

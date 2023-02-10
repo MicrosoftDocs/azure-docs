@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Red Hat OpenShift egress lockdown
 description: Overview of egress lockdown for Azure Red Hat OpenShift clusters
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: egress lockdown, aro cluster, aro, networking, azure, openshift, red hat
 ms.topic: conceptual

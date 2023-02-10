@@ -3,13 +3,13 @@ title: How to perform Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to extract named entities from text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
-ms.author: aahi
+ms.date: 01/10/2023
+ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021
 ---
 
@@ -17,6 +17,10 @@ ms.custom: language-service-ner, ignite-fall-2021
 # How to use Named Entity Recognition(NER)
 
 The NER feature can evaluate unstructured text, and extract named entities from text in several pre-defined categories, for example: person, location, event, product, and organization.  
+
+## Development options
+
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 

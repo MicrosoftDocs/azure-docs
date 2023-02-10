@@ -17,13 +17,10 @@ IP services are a collection of IP address related services that enable communic
 IP services consist of:
 
 * Public IP addresses
-
 * Public IP address prefixes
-
+* Custom IP address prefixes (BYOIP)
 * Private IP addresses
-
 * Routing preference
-
 * Routing preference unmetered
 
 ## Public IP addresses

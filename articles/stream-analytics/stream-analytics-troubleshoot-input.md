@@ -1,12 +1,11 @@
 ---
 title: Troubleshooting Inputs for Azure Stream Analytics
 description: This article describes techniques to troubleshoot your input connections in Azure Stream Analytics jobs.
-author: sidramadoss
-ms.author: sidram
-
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 04/08/2022
+ms.date: 01/17/2023
 ms.custom: seodec18
 ---
 
@@ -47,6 +46,12 @@ Other common reasons that result in input deserialization errors are:
 2. Strings instead of array of objects or line separated objects. Valid example : *[{'a':1}]*. Invalid example : *"'a' :1"*. 
 3. Using Event Hub capture blob in Avro format as input in your job.
 4. Having two columns in a single input event that differ only in case. Example: *column1* and *COLUMN1*.
+
+## Partition count changes
+Partition count of Event Hub can be changed. The Stream Analytics job needs to be stopped and started again if the partition count of Event Hub is changed. 
+
+The following errors are shown when the partition count of Event Hub is changed when the job is running.
+Microsoft.Streaming.Diagnostics.Exceptions.InputPartitioningChangedException
 
 ## Job exceeds maximum Event Hub receivers
 

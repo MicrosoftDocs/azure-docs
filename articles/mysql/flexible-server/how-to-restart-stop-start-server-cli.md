@@ -4,8 +4,8 @@ description: This article describes how to restart/stop/start operations in Azur
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 03/30/2021
 ---
 
@@ -84,6 +84,9 @@ az mysql flexible-server start
 
 ## Restart a server
 To restart a server, run  ```az mysql flexible-server restart``` command. If you are using [local context](/cli/azure/config/param-persist), you don't need to provide any arguments.
+
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 **Usage:**
 ```azurecli

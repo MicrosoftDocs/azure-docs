@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory architecture overview
+title: Microsoft Entra Verified ID architecture overview
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barclayn
@@ -14,6 +14,7 @@ ms.author: barclayn
 # Microsoft Entra Verified ID architecture overview
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 
 It’s important to plan your verifiable credential solution so that in addition to issuing and or validating credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t reviewed them already, we recommend you review  [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) and the [FAQs](verifiable-credentials-faq.md), and then complete the [Getting Started](get-started-verifiable-credentials.md) tutorial. 
 
@@ -44,7 +45,7 @@ However, there are scenarios where using a decentralized architecture with verif
 
 * accessing resources outside the trust boundary, such as accessing partners’ resources, with a portable credential issued by the organization.
 
- 
+
 
 ### Decentralized identity systems
 

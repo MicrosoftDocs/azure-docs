@@ -4,7 +4,7 @@ description: Describes the licensing requirements to use Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory

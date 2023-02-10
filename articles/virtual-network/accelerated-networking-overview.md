@@ -3,7 +3,7 @@ title: Accelerated Networking overview
 description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
 documentationcenter: ''
-author: steveesp
+author: asudbring
 manager: gedegrac
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/15/2022
-ms.author: steveesp
+ms.author: allensu
 ---
 
 # What is Accelerated Networking?
@@ -44,6 +44,7 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 The following versions of Windows are supported:
 
+- **Windows Server 2022**
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
@@ -72,6 +73,9 @@ Support for Accelerated Networking can be found in the individual [virtual machi
 
 The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
 
+> [!NOTE]
+> Although NC and NV sizes will show in the command below, they do not support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs will have no effect.
+
 ```azurecli-interactive
 az vm list-skus \
   --location westus \
@@ -81,7 +85,7 @@ az vm list-skus \
   --output table
 ```
 
-### Custom images
+### Custom images (or) Azure compute gallery images
 
 If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 

@@ -2,7 +2,7 @@
 title: Compare Azure Event Hubs tiers
 description: This article compares supported tiers of Azure Event Hubs.    
 ms.topic: article
-ms.date: 07/20/2021
+ms.date: 10/19/2022
 ---
 
 # Compare Azure Event Hubs tiers 

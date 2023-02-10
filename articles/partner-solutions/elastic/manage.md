@@ -1,5 +1,5 @@
 ---
-title: Manage an Elastic integration with Azure - Azure partner solutions
+title: Manage an Elastic integration with Azure
 description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
 ms.date: 09/02/2021

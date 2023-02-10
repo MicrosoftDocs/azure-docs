@@ -3,7 +3,7 @@ title: Understand Device Update for Azure IoT Hub resources | Microsoft Docs
 description: Understand Device Update for Azure IoT Hub resources
 author: vimeht
 ms.author: vimeht
-ms.date: 06/14/2022
+ms.date: 11/02/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -23,11 +23,9 @@ you can select the region where your Device Update account will be created. You 
 After an account has been created, you need to create a Device Update instance. An instance is a logical container that contains
 updates and deployments associated with a specific IoT hub. Device Update uses IoT Hub as a device directory and a communication channel with devices.
 
-During public preview, two Device update accounts can be created per subscription. Additionally, two device update instance can be created per account.
-
 ## Configure the linked IoT hub
 
-In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the built-in Event Hubs. Clicking the "Configure IoT Hub" button within your instance configures the required message routes, consumer groups, and access policy required to communicate with IoT devices.
+In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the built-in Event Hubs. The IoT Hub will be configured automatically as part of the resource creation process with the required message routes, consumer groups, and access policy required to communicate with IoT devices.
 
 ### Message Routing
 
@@ -45,19 +43,9 @@ The following Message Routes are automatically configured in your linked IoT hub
 
 ### Consumer group
 
-Configuring the IoT hub also creates an event hub consumer group called **adum** that is required by the Device Update management services.
+ The IoT hub also creates an event hub consumer group called **adum** that is required by the Device Update management services. This should be added automatically as part of the resource creation process. 
 
 :::image type="content" source="media/device-update-resources/consumer-group.png" alt-text="Screenshot of consumer groups." lightbox="media/device-update-resources/consumer-group.png":::
-
-### Access policy
-
-A shared access policy named **deviceupdateservice** is used by the Device Update Management services to query for update-capable devices. The **deviceupdateservice** policy is created and given the following permissions as part of configuring the IoT Hub:
-
-- Registry read
-- Service connect
-- Device connect
-
-:::image type="content" source="media/device-update-resources/access-policy.png" alt-text="Screenshot of access policy." lightbox="media/device-update-resources/access-policy.png":::
 
 ## Next steps
 

@@ -128,7 +128,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
-## default action and public network access 
+## Default action and public network access 
 
 ### REST API
 

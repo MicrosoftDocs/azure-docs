@@ -47,6 +47,9 @@ The various load balancer configurations provide the following metrics:
 
 The Azure portal exposes the load balancer metrics via the Metrics page. This page is available on both the load balancer's resource page for a particular resource and the Azure Monitor page. 
 
+ >[!NOTE]
+  > Azure Load Balancer does not send health probes to deallocated virtual machines. When virtual machines are deallocated, the load balancer will stop reporting metrics for that instance. Metrics that are unavailable will appear as a dashed line in Portal, or display an error message indicating that metrics cannot be retrieved.
+
 To view the metrics for your standard load balancer resources:
 
 1. Go to the metrics page and do either of the following tasks:
@@ -282,7 +285,7 @@ To configure alerts:
 
 2. Create new alert rule
     
-    1.  Configure alert condition
+    1.  Configure alert condition (Note: to avoid noisy alerts, we recommend configuring alerts with the Aggregation type set to Average, looking back on a 5 minute window of data, and with a threshold of 95%)
     
     2.  (Optional) Add action group for automated repair
     

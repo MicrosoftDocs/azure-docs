@@ -30,12 +30,14 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
+
 ## Run a query
 
 Use the following request to run a query:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=2022-10-31-preview
 ```
 
 The query is in the request body and looks like the following example:
@@ -117,13 +119,15 @@ If your device template uses components such as the **Device information** compo
 
 You can find the component name in the device template:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name." lightbox="media/howto-query-with-rest-api/show-component-name.png":::
 
 The following limits apply in the `SELECT` clause:
 
 - There's no wildcard operator.
 - You can't have more than 15 items in the select list.
 - In a single query, you either select telemetry or properties but not both. A property query can include both reported properties and cloud properties.
+- A property-based query returns a maximum of 1,000 records.
+- A telemetry-based query returns a maximum of 10,000 records.  
 
 ### Aliases
 
@@ -169,7 +173,7 @@ Use the `TOP` to limit the number of results the query returns. For example, the
 }
 ```
 
-If you don't use `TOP`, the query returns a maximum of 10,000 results.
+If you don't use `TOP`, the query returns a maximum of 10,000 results for a telemetry-based query and a maximum of 1,000 results for a property-based query.
 
 To sort the results before `TOP` limits the number of results, use [ORDER BY](#order-by-clause).
 
@@ -179,9 +183,9 @@ The `FROM` clause must contain a device template ID. The `FROM` clause specifies
 
 To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID on the devices page." lightbox="media/howto-query-with-rest-api/show-device-template-id.png":::
 
-You can also use the [Devices - Get](/rest/api/iotcentral/1.2-previewdataplane/devices/get) REST API call to get the device template ID for a device.
+You can also use the [Devices - Get](/rest/api/iotcentral/2022-07-31dataplane/devices/get) REST API call to get the device template ID for a device.
 
 ## WHERE clause
 
@@ -234,6 +238,8 @@ The following limits apply in the `WHERE` clause:
 - You can use a maximum of 10 operators in a single query.
 - In a telemetry query, the `WHERE` clause can only contain telemetry and device metadata filters.
 - In a property query, the `WHERE` clause can only contain reported properties, cloud properties, and device metadata filters.
+- In a telemetry query, you can retrieve up to 10,000 records.
+- In property query, you can retrieve up to 1,000 records.
 
 ## Aggregations and GROUP BY clause
 
@@ -295,9 +301,10 @@ The current limits for queries are:
 
 - No more than 15 items in the `SELECT` clause list.
 - No more than 10 logical operations in the `WHERE` clause.
-- Queries return a maximum of 10,000 records.
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
+- Telemetry-based queries can retrieve up to 10,000 records.
+- Property-based queries can retrieve up to 1,000 records.
 
 ## Next steps
 

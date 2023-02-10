@@ -2,7 +2,7 @@
 title: Build your own client-side disaster recovery for Azure Event Grid topics
 description: This article describes how you can build your own client-side disaster recovery for Azure Event Grid topics. 
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 09/07/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -23,13 +23,12 @@ To test your failover configuration, you'll need an endpoint to receive your eve
 To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. [Deploy the solution](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json) to your subscription. In the Azure portal, provide values for the parameters.
-1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
+1. The deployment may take a few minutes to complete. After the deployment has succeeded, navigate to the resource group, select the **App Service**, and then select **URL** to navigate to your web app. 
 `https://<your-site-name>.azurewebsites.net`
 Make sure to note this URL as you'll need it later.
-
 1. You see the site but no events have been posted to it yet.
 
-   ![Screenshot showing your web site with no events.](./media/blob-event-quickstart-portal/view-site.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot showing the Event Grid Viewer sample web app.":::
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -40,37 +39,41 @@ First, create two Event Grid topics. These topics will act as primary and second
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-1. From the upper left corner of the main Azure menu, 
-   choose **All services** > search for **Event Grid** > select **Event Grid topics**.
+1. In the search bar at the top, enter **Event Grid topics**, and then select **Event Grid topics** in the results. 
 
-   ![Screenshot showing the Event Grid topics menu.](./media/custom-disaster-recovery/select-topics-menu.png)
+    :::image type="content" source="./media/custom-disaster-recovery/select-topics-menu.png" lightbox="./media/custom-disaster-recovery/select-topics-menu.png" alt-text="Screenshot showing the search bar in the Azure portal.":::
+1. On the **Event Grid topics** page, select **+Create** to create the primary topic.
 
-    Select the star next to Event Grid topics to add it to resource menu for easier access in the future.
+    :::image type="content" source="./media/custom-disaster-recovery/create-primary-topic-menu.png" lightbox="./media/custom-disaster-recovery/create-primary-topic-menu.png" alt-text="Screenshot showing the selection of the Create button on the Event Grid topics page.":::
+1. On the **Create topic** page, follow these steps:
+    1. Select the **Azure subscription** where you want to create a topic.
+    1. Select an existing **Azure resource group** or create a resource group.
+    1. Enter a **name** for the topic. Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
+    1. Select a **region** for the topic. This topic's region will be your primary region.
+    1. Select **Review + create** at the bottom of the page.
 
-1. In the Event Grid topics Menu, select **+ADD** to create the primary topic.
+        :::image type="content" source="./media/custom-disaster-recovery/create-primary-topic.png" lightbox="./media/custom-disaster-recovery/create-primary-topic.png" alt-text="Screenshot showing the Create topic page.":::
+    1. On the **Review + create** page, select **Create** at the bottom of the page. 
+1. Once the topic has been created, select **Go to resource** to navigate to it and copy the **topic endpoint**. you'll need the URI later.
 
-   * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
-   * This topic's region will be your primary region.
-
-     ![Screenshot showing the Create primary topic page.](./media/custom-disaster-recovery/create-primary-topic.png)
-
-1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
-
-    ![Screenshot showing the topic endpoint.](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
-
+    :::image type="content" source="./media/custom-disaster-recovery/get-primary-topic-endpoint.png" lightbox="./media/custom-disaster-recovery/get-primary-topic-endpoint.png" alt-text="Screenshot showing the Event Grid topic page.":::
 1. Get the access key for the topic, which you'll also need later. Click on **Access keys** in the resource menu and copy Key 1.
 
-    ![Screenshot showing the topic's access key.](./media/custom-disaster-recovery/get-primary-access-key.png)
+    :::image type="content" source="./media/custom-disaster-recovery/get-primary-access-key.png" lightbox="./media/custom-disaster-recovery/get-primary-access-key.png" alt-text="Screenshot showing the access key of a primary topic.":::
+1. Switch back to the **Overview** page, and click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
 
-1. In the **Topic** page, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
-
-   * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
-   * Select Endpoint Type Web Hook.
-   * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
-
-     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
-
-1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../availability-zones/cross-region-replication-azure.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
+    :::image type="content" source="./media/custom-disaster-recovery/create-event-subscription-link.png" lightbox="./media/custom-disaster-recovery/create-event-subscription-link.png" alt-text="Screenshot showing the selection of the Create event subscription link.":::
+1. On the **Create Event Subscription** page, follow these steps:
+   1. Give the event subscription a logical **name** and add "-primary" as a suffix to make it easy to track.
+   1. For **Endpoint Type**, select **Web Hook**.
+   
+        :::image type="content" source="./media/custom-disaster-recovery/create-event-subscription-page.png" lightbox="./media/custom-disaster-recovery/create-event-subscription-page.png" alt-text="Screenshot showing the selection of the Create Event Subscription page.":::
+    1. Click **Select an endpoint**. 
+    1. On the **Select Web Hook** page, set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`, and then select **Confirm Selection**. Remember to add `/api/updates` to the URL of the web app.
+    
+        :::image type="content" source="./media/custom-disaster-recovery/select-webhook.png" lightbox="./media/custom-disaster-recovery/select-webhook.png" alt-text="Screenshot showing the selection of the Select Web Hook page.":::        
+    1. Now, back on the **Create Event Subscription** page, select **Create** at the bottom pf the page.
+1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a **different Azure Region**. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../availability-zones/cross-region-replication-azure.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
 You should now have:
 
@@ -186,7 +189,7 @@ Now that you have all of your components in place, you can test out your failove
 
 Try running the event publisher. You should see your test events land in your Event Grid viewer like below.
 
-![Screenshot showing the Event Grid Viewer app.](./media/custom-disaster-recovery/event-grid-viewer.png)
+:::image type="content" source="./media/custom-disaster-recovery/event-grid-viewer.png" alt-text="Screenshot showing the Event Grid Viewer app with posted events.":::
 
 To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
 

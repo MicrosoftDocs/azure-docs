@@ -1,6 +1,7 @@
 ---
 title: Create and deploy VM application packages
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
+author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
@@ -16,8 +17,6 @@ ms.custom:
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
 
-> [!IMPORTANT]
-> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 ## Prerequisites

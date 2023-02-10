@@ -68,10 +68,8 @@ For more information, see:
 - [Monitoring and alerting for Azure Key Vault](../general/alert.md)
 
 ## Backup and purge protection
-Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against forced deletion of the secret. Take regular backups of your vault when you update, delete, or create secrets within a vault.
-
-- To read about the Azure PowerShell backup command, see [Backup secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret).
-- To read about the Azure CLI backup command, see [Backup secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup).
+Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against malicious or accidental deletion of the secrets. 
+In scenarios when purge protection is not a possible option, we recommend [backup](../general/backup.md) secrets, which can't be recreated from other sources.
 
 ## Learn more
 - [About Azure Key Vault secrets](about-secrets.md)

@@ -63,7 +63,7 @@ For individual device, you can complete tasks such as [block or unblock it](howt
 
 You can also set writable properties and cloud properties that are defined in the device template, and call commands on the device.
 
-To manage IoT Edge devices, you can use the IoT Central UI to[create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
+To manage IoT Edge devices, you can use the IoT Central UI to create and edit [deployment manifests](concepts-iot-edge.md), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
 
 Use the **Jobs** page to manage your devices in bulk. Jobs can update properties, run commands, or assign a new device template on multiple devices. To learn more, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
@@ -84,7 +84,7 @@ You can further customize the device management and monitoring experience using 
 
 - Create more views to display on the **Devices** page for individual devices by adding view definitions to your [device templates](concepts-device-templates.md).
 - Customize the text that describes your devices in the application. To learn more, see [Change application text](howto-customize-ui.md#change-application-text).
-- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-analytics-to-dashboard) from the **Data explorer**.
+- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-data-explorer-query-to-dashboard) from the **Data explorer**.
 
 ## Automate
 

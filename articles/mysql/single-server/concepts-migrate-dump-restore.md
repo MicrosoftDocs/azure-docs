@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common ways to back up and restore databases in your Azure Database for MySQL
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
@@ -57,7 +59,6 @@ To optimize performance, take notice of these considerations when dumping large 
 -	Use partitioned tables when appropriate.
 -	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal.
 -	Use the `defer-table-indexes` option in mysqldump when dumping databases, so that index creation happens after tables data is loaded.
--   Use the `skip-definer` option in mysqldump to omit definer and SQL SECURITY clauses from the create statements for views and stored procedures.  When you reload the dump file, it creates objects that use the default DEFINER and SQL SECURITY values.
 -   Copy the backup files to an Azure blob/store and perform the restore from there, which should be a lot faster than performing the restore across the Internet.
 
 ## Create a database on the target Azure Database for MySQL server

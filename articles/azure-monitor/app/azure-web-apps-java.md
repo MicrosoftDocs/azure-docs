@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Java | Microsoft Docs
 description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: "devx-track-java"
 ms.reviewer: abinetabate
@@ -16,11 +16,13 @@ Monitoring of your Java web applications running on [Azure App Services](../../a
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
-You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./java-in-process-agent.md#modify-telemetry) if needed.
+You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-enable.md?tabs=java#modify-telemetry) if needed.
 
 ### Auto-instrumentation through Azure portal
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java) and you will get the telemetry auto-collected.
+
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
@@ -78,7 +80,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
 1. Sometimes the latest version of the Application Insights Java agent is not available in App Service - it takes a couple of months for the latest versions to roll out to all regions. In case you need the latest version of Java agent to monitor your app in App Service, you can upload the agent manually: 
     * Upload the Java agent jar file to App Service
         * Get the latest version of [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli)
-        * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
+        * Get the latest version of [Application Insights Java agent](./opentelemetry-enable.md?tabs=java)
         * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#3---configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS, and set its value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`
     * Disable Application Insights via Application Insights tab
@@ -87,8 +89,9 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     > [!NOTE]
     > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the JAVA_OPTS variable in App Service configurations settings. 
 
-
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

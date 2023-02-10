@@ -2,13 +2,14 @@
 title: View analytic information about active tasks in Permissions Management
 description: How to view analytic information about active tasks in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 02/08/2023
+ms.author: jfields
 ---
 
 # View analytic information about active tasks
@@ -47,11 +48,10 @@ When you select **Active Tasks**, the **Analytics** dashboard provides a high-le
 The **Active Tasks** table displays the results of your query.
 
 - **Task Name**: Provides the name of the task.
-    - To view details about the task, select the down arrow in the table.
+    - To view details about the task, select the down arrow next to the task in the table.
 
-        - A **Normal Task** icon displays to the left of the task name if the task is normal (that is, not risky).
-        - A **Deleted Task** icon displays to the left of the task name if the task involved deleting data.
-        - A **High-Risk Task** icon displays to the left of the task name if the task is high-risk.
+        - An icon (![Image of task icon](media/usage-analytics-active-tasks/normal-task.png)) displays to the left of the task name if the task is a **Normal Task** (that is, not risky).
+        - A highlighted icon (![Image of highlighted task icon](media/usage-analytics-active-tasks/high-risk-deleted-task.png)) displays to the left of the task name if the task involved deleting data &mdash; a **High-Delete Task** &mdash; or if the task is a **High-Risk Task**.
 
 - **Performed on (resources)**: The number of resources on which the task was used.
 

@@ -4,7 +4,7 @@ description: In this tutorial, learn how to grant a user access to Azure resourc
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: role-based-access-control

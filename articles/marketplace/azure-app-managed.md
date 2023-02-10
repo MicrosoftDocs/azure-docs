@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 08/18/2022
 ---
 
 # Configure a managed application plan
@@ -72,6 +72,9 @@ To set custom prices in an individual market, export, modify, and then import th
 1. In the dialog box that appears, click **Yes**.
 1. Select the exportedPrice.xlsx file you updated, and then click **Open**.
 
+> [!NOTE]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md).
+
 ## Choose who can see your plan
 
 You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private audience using Azure subscription IDs with the option to include a description of each subscription ID you assign. You can add a maximum of 10 subscription IDs manually or up to 10,000 subscription IDs using a .CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
@@ -118,6 +121,8 @@ On the **Technical configuration** tab, you’ll upload the deployment package t
 In the **Version** box provide the current version of the technical configuration. Increment this version each time you publish a change to this page. The version number must be in the format: integer.integer.integer. For example, `1.0.2`.
 
 ### Upload a package file
+
+Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before uploading the package file.
 
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 

@@ -55,7 +55,7 @@ To set up a managed identity in the portal, first create an app, and then enable
 3. Select **Identity**.
 4. Within the **System assigned** tab, switch **Status** to *On*. Select **Save**.
 
-:::image type="content" source="media/enterprise/msi/msi-enable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application." lightbox="media/enterprise/msi/msi-enable.png":::
+:::image type="content" source="media/how-to-enable-system-assigned-managed-identity/msi-enable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application." lightbox="media/how-to-enable-system-assigned-managed-identity/msi-enable.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -107,7 +107,7 @@ To remove system-assigned managed identity from an app that no longer needs it:
 1. Navigate to the desired application and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then select **Save**:
 
-:::image type="content" source="media/enterprise/msi/msi-disable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application, with the Status switch set to Off." lightbox="media/enterprise/msi/msi-disable.png":::
+:::image type="content" source="media/how-to-enable-system-assigned-managed-identity/msi-disable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application, with the Status switch set to Off." lightbox="media/how-to-enable-system-assigned-managed-identity/msi-disable.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 

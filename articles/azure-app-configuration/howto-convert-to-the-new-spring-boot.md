@@ -71,7 +71,7 @@ This command will list all of the keys you are about to delete so you can verify
 
 ## Which configurations are loaded
 
-The default case of loading configuration matching `/applicaiton/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
+The default case of loading configuration matching `/application/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=/${spring.application.name}/*

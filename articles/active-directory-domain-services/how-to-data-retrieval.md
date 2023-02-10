@@ -3,7 +3,7 @@ title: Instructions for data retrieval from Azure Active Directory Domain Servic
 description: Learn how to retrieve data from Azure Active Directory Domain Services (Azure AD DS).
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

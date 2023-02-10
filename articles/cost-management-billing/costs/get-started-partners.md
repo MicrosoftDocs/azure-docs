@@ -75,7 +75,7 @@ Partners also filter costs in a specific billing currency across customers in th
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
-Use the [amortized cost view](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
+Use the [amortized cost view](customize-cost-analysis-views.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
 ### Billing profile scope
 
@@ -155,7 +155,7 @@ To view or change policies:
 
 1. In the Azure portal, navigate to **Cost Management** (not Cost Management + Billing).
 1. In the left menu under **Settings**, select **Configuration**.
-1. The billing profile configuration is shown. Polices are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
+1. The billing profile configuration is shown. Policies are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
     :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="Screenshot showing the billing profile configuration page where you can view and edit policy settings." lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
 1. If needed, change the policy settings, and then select **Save**.
 
@@ -198,7 +198,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer's subscription. | Customer Azure Active Directory tenant domain. |
 | **PartnerTenantID** | Identifier for the partner's Azure Active Directory tenant. | Partner Azure Active Directory Tenant ID called as Partner ID, in GUID format. |
 | **PartnerName** | Name of the partner Azure Active Directory tenant. | Partner name. |
-| **ResellerMPNID** | MPNID for the reseller associated with the subscription. | MPN ID of the reseller on record for the subscription. Not available for current activity. |
+| **ResellerMPNID** | ID for the reseller associated with the subscription. | ID of the reseller on record for the subscription. Not available for current activity. |
 | costCenter | Cost center associated to the subscription. | N/A |
 | billingPeriodStartDate | Billing period start date, as shown on the invoice. | N/A |
 | billingPeriodEndDate | Billing period end date, as shown on the invoice. | N/A |

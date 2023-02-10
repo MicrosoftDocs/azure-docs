@@ -4,7 +4,7 @@ description: Add users in bulk in the Azure admin center.
 services: active-directory 
 author: barclayn
 ms.author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: active-directory

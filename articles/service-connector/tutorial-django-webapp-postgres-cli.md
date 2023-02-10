@@ -3,8 +3,8 @@ title: 'Tutorial: Using Service Connector to build a Django app with Postgres on
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
 ms.custom: event-tier1-build-2022
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
@@ -355,7 +355,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database matches with your code.
 
-1. Run `az webpp ssh` to open an SSH session for the web app in the browser:
+1. Run `az webapp ssh` to open an SSH session for the web app in the browser:
 
     ```azurecli
     az webapp ssh

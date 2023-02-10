@@ -61,7 +61,8 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
     > - Redundancy options: LRS, GRS, RA-GRS
  
 * You'll need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
-* If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
+* If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It is automatically registered at the time of share consumer mapping the asset and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 
+This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 * A storage account needs to be registered in the collection where you'll receive the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages.
 * Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later. 
 
@@ -180,7 +181,6 @@ If you can't access shared data, it's likely due to the following reasons:
 * After asset mapping is successful, it may take some time for the data to appear in the target data store. Try again in a few minutes. Likewise, after you delete asset mapping, it may take a few minutes for the data to disappear in the target data store.
 * You're accessing shared data using a storage API version prior to February 2020. Only storage API version February 2020 and later are supported for accessing shared data. Ensure you're using the latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer.
 * You're accessing shared data using an analytics tool which uses a storage API version prior to February 2020. You can access shared data from Azure Synapse Analytics Spark and Databricks. You won't be able to access shared data using Azure Data Factory, Power BI or AzCopy.
-* You’re accessing shared data using ACLs. ACL is not supported for accessing shared data. You can use RBAC instead.
 
 ## Next steps
 

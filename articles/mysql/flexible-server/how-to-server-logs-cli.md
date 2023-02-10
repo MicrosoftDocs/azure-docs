@@ -44,10 +44,10 @@ Here are the details for the above command
 
 LastModifiedTime | Name  | ResourceGroup | SizeInKb  | TypePropertiesType  | Url
 ---|---|---|---|---|---|
-2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?
-2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?
-2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?
-2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?
+2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?`
+2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?`
+2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?`
+2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?`
 
 
 Above list shows LastModifiedTime, Name, ResourceGroup, SizeInKb and Download Url of the Server Logs available.

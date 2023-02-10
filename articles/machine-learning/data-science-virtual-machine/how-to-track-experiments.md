@@ -201,4 +201,4 @@ Delete the Inference Compute you created in Step 1 so that you don't incur ongoi
 
 ## Next Steps
 
-* Learn more about [deploying models in AzureML](../how-to-deploy-and-where.md)
+* Learn more about [deploying models in AzureML](../v1/how-to-deploy-and-where.md)

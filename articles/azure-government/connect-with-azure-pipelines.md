@@ -71,7 +71,7 @@ Review one of the following quickstarts to set up a build for your specific type
     $isAzureModulePresent = Get-Module -Name Az -ListAvailable
     if ([String]::IsNullOrEmpty($isAzureModulePresent) -eq $true)
     {
-        Write-Output "Script requires Azure PowerShell modules to be present. Obtain Azure PowerShell from https://docs.microsoft.com//powershell/azure/install-az-ps" -Verbose
+        Write-Output "Script requires Azure PowerShell modules to be present. Obtain Azure PowerShell from https://learn.microsoft.com//powershell/azure/install-az-ps" -Verbose
         return
     }
 

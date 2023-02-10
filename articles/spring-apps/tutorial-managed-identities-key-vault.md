@@ -93,14 +93,13 @@ export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringclou
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`.
+First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration below.
 
-:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Principle I D' and 'Client I D' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
+:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
 ```azurecli
 export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
 export USER_IDENTITY_RESOURCE_ID={resource ID of user-assigned managed identity}
-export USER_IDENTITY_CLIENT_ID={client ID of user-assigned managed identity}
 ```
 
 The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
@@ -143,7 +142,7 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
    ```azurecli
-   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE -d javaVersion=1.8 | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.2 -d javaVersion=1.8 | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.
@@ -158,16 +157,16 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
 ```properties
-azure.keyvault.enabled=true
-azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
 ```
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
 ```properties
-azure.keyvault.enabled=true
-azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
-azure.keyvault.client-id={Client ID of user-assigned managed identity}
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-name>.vault.azure.net
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Client ID of user-assigned managed identity}
 ```
 
 ---
@@ -209,19 +208,19 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
    }
    ```
 
-   If you open the *pom.xml* file, you'll see the dependency of `azure-keyvault-secrets-spring-boot-starter`. Add this dependency to your project in your *pom.xml* file.
+   If you open the *pom.xml* file, you'll see the dependency of `spring-cloud-azure-starter-keyvault`.
 
    ```xml
    <dependency>
-       <groupId>com.microsoft.azure</groupId>
-       <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-keyvault</artifactId>
    </dependency>
    ```
 
 1. Use the following command to package your sample app.
 
    ```azurecli
-   mvn clean package
+   ./mvnw clean package -DskipTests
    ```
 
 1. Now you can deploy your app to Azure with the following command:
@@ -231,7 +230,7 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
        --resource-group <your-resource-group-name> \
        --name "springapp" \
        --service <your-Azure-Spring-Apps-instance-name> \
-       --jar-path target/demo-0.0.1-SNAPSHOT.jar
+       --artifact-path target/demo-0.0.1-SNAPSHOT.jar
    ```
 
 1. To test your app, access the public endpoint or test endpoint by using the following command:
@@ -241,76 +240,6 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
    ```
 
    You'll see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
-
-## Build the sample Spring Boot app with Java SDK
-
-This sample can set and get secrets from Azure Key Vault. The [Azure Key Vault Secret client library for Java](/java/api/overview/azure/security-keyvault-secrets-readme) provides Azure Active Directory token authentication support across the Azure SDK. The library provides a set of `TokenCredential` implementations that you can use to construct Azure SDK clients to support Azure AD token authentication.
-
-The Azure Key Vault Secret client library enables you to securely store and control the access to tokens, passwords, API keys, and other secrets. The library offers operations to create, retrieve, update, delete, purge, back up, restore, and list the secrets and its versions.
-
-To build the sample, use the following steps:
-
-1. Clone the sample project.
-
-   ```azurecli
-   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-   ```
-
-1. Specify your key vault in your app.
-
-   ```azurecli
-   cd Azure-Spring-Cloud-Samples/managed-identity-keyvault
-   vim src/main/resources/application.properties
-   ```
-
-   To use managed identity for Azure Spring Apps apps, add properties with the following content to *src/main/resources/application.properties*.
-
-   ```properties
-   azure.keyvault.enabled=true
-   azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
-   ```
-
-1. Include [ManagedIdentityCredentialBuilder](/java/api/com.azure.identity.managedidentitycredentialbuilder) to get a token from Azure Active Directory and [SecretClientBuilder](/java/api/com.azure.security.keyvault.secrets.secretclientbuilder) to set or get secrets from Key Vault in your code.
-
-   Get the example from the [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) file of the cloned sample project.
-
-   Include `azure-identity` and `azure-security-keyvault-secrets` as a dependency in your *pom.xml* file. Get the example from the [pom.xml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/pom.xml#L21) file of the cloned sample project.
-
-1. Use the following command to package your sample app.
-
-   ```azurecli
-   mvn clean package
-   ```
-
-1. Now deploy the app to Azure with the following command:
-
-   ```azurecli
-   az spring app deploy \
-       --resource-group <your-resource-group-name> \
-       --name "springapp" \
-       --service <your-Azure-Spring-Apps-instance-name> \
-       --jar-path target/asc-managed-identity-keyvault-sample-0.1.0.jar
-   ```
-
-1. Access the public endpoint or test endpoint to test your app.
-
-   First, get the value of your secret that you set in Azure Key Vault.
-
-   ```azurecli
-   curl https://myspringcloud-springapp.azuremicroservices.io/secrets/connectionString
-   ```
-
-   You'll see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
-
-   Now create a secret and then retrieve it using the Java SDK.
-
-   ```azurecli
-   curl -X PUT https://myspringcloud-springapp.azuremicroservices.io/secrets/test?value=success
-
-   curl https://myspringcloud-springapp.azuremicroservices.io/secrets/test
-   ```
-
-   You'll see the message `Successfully got the value of secret test from Key Vault https://<your-keyvault-name>.vault.azure.net: success`.
 
 ## Next steps
 

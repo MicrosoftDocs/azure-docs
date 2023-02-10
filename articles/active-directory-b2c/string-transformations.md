@@ -1062,7 +1062,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
 | InputParameter | length | int | The number of characters in the substring. |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+| OutputClaim | outputClaim | string | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
 ### Example of StringSubstring
 

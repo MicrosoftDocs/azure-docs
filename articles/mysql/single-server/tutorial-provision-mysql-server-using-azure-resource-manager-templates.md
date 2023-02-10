@@ -14,6 +14,8 @@ ms.custom: mvc, devx-track-azurepowershell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 The [Azure Database for MySQL REST API](/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 
 Azure Resource Manager leverages the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) or [Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/resources/templates/webapp-managed-mysql/) from the GitHub gallery.

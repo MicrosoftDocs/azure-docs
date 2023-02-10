@@ -19,7 +19,11 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 1. Select **Create a resource** found on the upper left-hand corner of the Azure portal.
 
-1. Search for **Front Door** using the search bar and once you find the resource type, select **Create**.
+1. Search for **Front Door and CDN profiles** using the search bar and once you find the resource type, select **Create**.
+
+1. Select **Explore other offerings**, then select **Azure Front Door (classic)**. Select **Continue** to begin configuring the profile.
+
+    :::image type="content" source="./media/front-door-url-redirect/compare-offerings.png" alt-text="Screenshot of the compare offerings page.":::
 
 1. Choose a *subscription* and then either use an existing resource group or create a new one. Select **Next** to enter the configuration tab.
 

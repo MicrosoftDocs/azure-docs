@@ -9,7 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 
 <a name="HOLTop"></a>
@@ -54,7 +54,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 
     ### Install the client library
 
-    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
+    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` npm package:
 
     ```console
     npm install @azure/cognitiveservices-computervision
@@ -125,4 +125,3 @@ In this quickstart, you learned how to install the Image Analysis client library
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ImageAnalysisQuickstart.js).
-

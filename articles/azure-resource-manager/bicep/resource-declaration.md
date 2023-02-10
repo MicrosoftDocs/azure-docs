@@ -2,12 +2,12 @@
 title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 09/28/2022
 ---
 
 # Resource declaration in Bicep
 
-This article describes the syntax you use to add a resource to your Bicep file.
+This article describes the syntax you use to add a resource to your Bicep file. You are limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Declaration
 

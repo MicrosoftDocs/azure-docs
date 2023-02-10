@@ -1,15 +1,18 @@
 ---
 title: Azure Percept Vision AI module
 description: An overview of the azureeyemodule, which is the module responsible for running the AI vision workload on the Azure Percept DK.
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: overview 
-ms.date: 08/09/2021
+ms.date: 02/07/2023
 ms.custom: template-overview 
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept Vision AI module
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azureeyemodule is the name of the edge module responsible for running the AI vision workload on the Azure Percept DK. It's part of the Azure IoT suite of edge modules and is deployed to the Azure Percept DK during the [setup experience](./quickstart-percept-dk-set-up.md). This article provides an overview of the module and its architecture.
 

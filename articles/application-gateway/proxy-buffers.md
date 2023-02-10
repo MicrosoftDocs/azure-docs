@@ -2,11 +2,11 @@
 title: Configure Request and Response Buffers
 description: Learn how to configure Request and Response buffers for your Azure Application Gateway.
 services: application-gateway
-author: jaesoni
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 08/03/2022
-ms.author: jaysoni
+ms.author: greglin
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
 ---
 

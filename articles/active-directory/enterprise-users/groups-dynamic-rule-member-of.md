@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Group membership in a dynamic group (preview) in Azure Active Directory
 
-This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
+This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups and administrative units that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
  
 :::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the memberOf attribute works.":::
 

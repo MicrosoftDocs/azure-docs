@@ -5,7 +5,7 @@ keywords: SHA1,SHA256,M365,federation,aadconnect,adfs,ad fs,change sha,federatio
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.author: billmath
 
 ms.collection: M365-identity-device-management

@@ -25,7 +25,7 @@ Policies can be associated with one or more virtual hubs or VNets. The firewall 
 
 ## Classic rules and policies
 
-Azure Firewall supports both Classic rules and policies, but policies is the recommenced configuration. The following table compares policies and classic rules:
+Azure Firewall supports both Classic rules and policies, but policies is the recommended configuration. The following table compares policies and classic rules:
 
 
 | Subject | Policy  | Classic rules |

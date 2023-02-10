@@ -3,7 +3,7 @@ title: Retrieve Azure Kinect image data
 description: Learn how to retrieve Azure Kinect image data using the Kinect Sensor SDK.
 author: cdedmonds
 ms.author: cedmonds
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, color, capture, resolution, buffer

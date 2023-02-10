@@ -1,14 +1,18 @@
 ---
 title: Azure Percept DK datasheet
 description: Check out the Azure Percept DK datasheet for detailed device specifications
-author: nkhuyent
+author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 02/07/2023
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept DK datasheet
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 
 |Product Specification           |Value     |
 |--------------------------------|--------|

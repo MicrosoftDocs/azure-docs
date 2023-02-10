@@ -4,7 +4,7 @@ description: Explains how to add new users or delete existing users in Azure Act
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 09/16/2021
+ms.date: 02/06/2022
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,29 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid.
+
+### Workaround
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
+
+### Resolution
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -47,19 +70,15 @@ When you receive errors during runbook execution in Azure Automation, you can us
 ## Scenario: Unable to create new Automation job in West Europe region
 
 ### Issue
-When creating new Automation jobs, you might experience a delay or failure of job creation.
+When creating new Automation jobs, you might experience a delay or failure of job creation. Scheduled jobs will automatically be retired, and jobs executed through the portal can be retired if you see a failure. 
 
 ### Cause
-This is because of scalability limits with the Automation service in the West Europe region.
+This is because of the high load from customers' runbooks using the Automation service in the West Europe region.
 
 ### Resolution
-Do one of the following actions if it is feasible as per your requirement and environment to reduce the chance of failure: 
+Perform the following action if it is feasible as per your requirement and environment to reduce the chance of failure: 
 
-- During the peak hours of job creation, typically on the hour, and half hour, move the job start time to five minutes before or after the hour/half hour.
-- Run the Automation jobs from alternate data centres until the transition work is complete.
-
->[!NOTE]
-> The optimization of existing load and transitioning the load to a new design by the product group is in progress.
+- If you’re using the top of the hour for the job creation (at 12:00, 1:00, 2:00, and so on.), typically on the hour, or half hour, we recommend that you move the job start time to five minutes before or after the hour/half hour. This is because a most of the customers use the beginning of the hour for job execution which drastically increases the load on the service, while the load is relatively low at the other time slots.
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 

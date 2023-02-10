@@ -1,9 +1,9 @@
 ---
-title: Understand the Digital Twins model parser | Microsoft Docs
+title: Understand the Azure Digital Twins model parser | Microsoft Docs
 description: As a developer, learn how to use the DTDL parser to validate models.
 author: rido-min
 ms.author: rmpablos
-ms.date: 10/21/2020
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
@@ -13,7 +13,7 @@ services: iot-develop
 
 # Understand the digital twins model parser
 
-The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification](https://github.com/Azure/opendigitaltwins-dtdl). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a model defined in multiple files.
+The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a DTDL model. The DTDL model may be defined in multiple files.
 
 ## Install the DTDL model parser
 
@@ -28,7 +28,7 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
 
 ## Use the parser to validate a model
 
-A model can be composed of one or more interfaces described in JSON files. You can use the parser to load all the files in a given folder and use the parser to validate all the files as a whole, including any references between the files:
+A model can be composed of one or more interfaces described in JSON files. You can use the parser to load all the files in a given folder and then validate all the files as a whole, including any references between the files:
 
 1. Create an `IEnumerable<string>` with a list of all model contents:
 
@@ -73,7 +73,7 @@ A model can be composed of one or more interfaces described in JSON files. You c
     }
     ```
 
-1. Inspect the `Model`. If the validation succeeds, you can use the model parser API to inspect the model. The following code snippet shows how to iterate over all the models parsed and displays the existing properties:
+1. Inspect the `Model`. If the validation succeeds, you can use the model parser API to inspect the model. The following code snippet shows how to iterate over all the models parsed and display the existing properties:
 
     ```csharp
     foreach (var item in parseResult)

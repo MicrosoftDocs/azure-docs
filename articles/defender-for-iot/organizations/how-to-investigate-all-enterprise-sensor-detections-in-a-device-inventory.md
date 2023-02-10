@@ -10,8 +10,7 @@ ms.date: 07/12/2022
 
 Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
-
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
@@ -19,7 +18,7 @@ For more information, see [What is a Defender for IoT committed device?](archite
 
 ## View the device inventory
 
-To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**. 
+To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**.
 
 For example:
 
@@ -47,9 +46,9 @@ To export device inventory data, select the **Import/Export file** :::image type
 
 Save the exported file locally.
 
-## Enhance device inventory data
+## Add to and enhance device inventory data
 
-Enhance the data in your device inventory with information from other sources, such as CMDBs, DNS, firewalls, and Web APIs. Use enhanced data to learn things such as:
+Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs, to enhance the data shown in your device inventory. For example, use enhanced data to present information about the following items:
 
 - Device purchase dates and end-of-warranty dates
 - Users responsible for each device
@@ -59,9 +58,9 @@ Enhance the data in your device inventory with information from other sources, s
 - Devices running active antivirus applications
 - Users signed in to devices
 
-Enhancement data is shown as extra columns in the on-premises management console **Device inventory** page.
+Added and enhancement data is shown as extra columns, in addition to the existing columns available in the on-premises management console **Device inventory** page.
 
-Enhance data by adding it manually or by running customized scripts from Defender for IoT. You can also work with Defender for IoT support to set up your system to receive Web API queries.
+Enhance data by adding it manually or by running a customized version of our [automation script sample](custom-columns-sample-script.md). You can also open a support ticket to set up your system to receive Web API queries.
 
 For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
@@ -95,7 +94,7 @@ The new data appears in the **Device Inventory** grid.
 
 To enhance your data using automation scripts:
 
-1. Contact [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) to obtain the relevant scripts.
+1. Copy the [sample automation script](custom-columns-sample-script.md) to a local file and modify it as needed.
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
@@ -105,7 +104,7 @@ To enhance your data using automation scripts:
 
 1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd received from [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd customized earlier and saved locally.
 
 The new data appears in the **Device Inventory** grid.
 
@@ -160,9 +159,11 @@ The following table describes the device properties shown in the **Device invent
 | **Last Activity** | The last activity that the device performed. |
 | **Discovered** | When this device was first seen in the network. |
 | **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
+
 ## Next steps
 
 For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods).

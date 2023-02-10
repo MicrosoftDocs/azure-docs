@@ -11,7 +11,7 @@ ms.date: 5/24/2022
 
 # What is the Microsoft commercial marketplace?
 
-The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed together with our Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world.
+The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Cloud Partner Program, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed together with our Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world.
 
 The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
 
@@ -88,7 +88,7 @@ When you create a commercial marketplace offer in Partner Center, it may be list
 
 ## Next steps
 
-- Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/).
+- Get an [Introduction to the Microsoft commercial marketplace](/training/modules/intro-commercial-marketplace/).
 - Find videos and hands-on labs at [Mastering the marketplace](https://go.microsoft.com/fwlink/?linkid=2195692)
 - For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).

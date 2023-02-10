@@ -1,26 +1,26 @@
 ---
-title: Download a blob with .NET - Azure Storage
+title: Download a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the .NET client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Download a blob in Azure Storage using the .NET client library
+# Download a blob with .NET
 
-You can download a blob by using any of the following methods:
+This article shows how to download a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can download a blob by using any of the following methods:
 
 - [DownloadTo](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto)
 - [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync)
 - [DownloadContent](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontent)
--[DownloadContentAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontentasync)
+- [DownloadContentAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontentasync)
 
 You can also open a stream to read from a blob. The stream will only download the blob as the stream is read from. Use either of the following methods:
 
@@ -32,25 +32,43 @@ You can also open a stream to read from a blob. The stream will only download th
  
 ## Download to a file path
 
-The following example downloads a blob by using a file path:
+The following example downloads a blob by using a file path. If the specified directory does not exist, handle the exception and notify the user.
 
 ```csharp
 public static async Task DownloadBlob(BlobClient blobClient, string localFilePath)
 {
-    await blobClient.DownloadToAsync(localFilePath);
+    try
+    {
+        await blobClient.DownloadToAsync(localFilePath);
+    }
+    catch (DirectoryNotFoundException ex)
+    {
+        // Let the user know that the directory does not exist
+        Console.WriteLine($"Directory not found: {ex.Message}");
+    }
 }
 ```
 
+If the file already exists at `localFilePath`, it will be overwritten by default during subsequent downloads.
+
 ## Download to a stream
 
-The following example downloads a blob by creating a [Stream](/dotnet/api/system.io.stream) object and then downloading to that stream.
+The following example downloads a blob by creating a [Stream](/dotnet/api/system.io.stream) object and then downloads to that stream. If the specified directory does not exist, handle the exception and notify the user.
 
 ```csharp
 public static async Task DownloadToStream(BlobClient blobClient, string localFilePath)
 {
-    FileStream fileStream = File.OpenWrite(localFilePath);
-    await blobClient.DownloadToAsync(fileStream);
-    fileStream.Close();
+    try
+    {
+        FileStream fileStream = File.OpenWrite(localFilePath);
+        await blobClient.DownloadToAsync(fileStream);
+        fileStream.Close();
+    }
+    catch (DirectoryNotFoundException ex)
+    {
+        // Let the user know that the directory does not exist
+        Console.WriteLine($"Directory not found: {ex.Message}");
+    }
 }
 ```
 
@@ -83,8 +101,14 @@ public static async Task DownloadfromStream(BlobClient blobClient, string localF
 
 ```
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
-- [DownloadStreaming](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadstreaming) / [DownloadStreamingAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadstreamingasync)
+To learn more about how to download blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for downloading blobs use the following REST API operation:
+
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

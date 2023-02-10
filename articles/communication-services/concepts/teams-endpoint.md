@@ -14,8 +14,6 @@ ms.subservice: teams-interop
 ---
 # Communication as Teams user
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
 You can use Azure Communication Services and Graph API to integrate communication as Teams users into your products. Teams users can communicate with other people in and outside their organization. The benefits for enterprises are:
 - No requirement to download Teams desktop, mobile or web clients for Teams users
 - Teams users don't lose context by switching between applications for day-to-day work and Teams client for communication
@@ -75,7 +73,7 @@ Use Graph API to integrate 1:1 chat, group chat, meeting chat, and channel capab
 The following articles will guide you in implementing the chat for Teams users:
 - [Authenticate as Teams user](/graph/auth-v2-user) 
 - [Send message as Teams user](/graph/api/chat-post-messages)
-- [Receive message as Teams user on webhook](/graph/teams-changenotifications-chatMessage) and then push message to the client with, for example, [SignalR](/azure/azure-signalr/signalr-overview).
+- [Receive message as Teams user on webhook](/graph/teams-changenotifications-chatMessage) and then push message to the client with, for example, [SignalR](../../azure-signalr/signalr-overview.md).
 - [Poll messages for Teams user](/graph/api/chat-list-messages)
 
 ## Supported use cases

@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 12/13/2022
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -133,9 +133,16 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan migration
 
-You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. The specific commands depend on the direction of the migration. Direct migration to a Dedicated (App Service) plan isn't currently supported.
+You can use either the Azure portal or Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
 
-This migration isn't supported on Linux.
++ Direct migration to a Dedicated (App Service) plan isn't currently supported.
++ Migration isn't supported on Linux. 
++ The source plan and the target plan must be in the same resource group and geographical region. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
++ The specific CLI commands depend on the direction of the migration.
+
+### Migration in the portal
+
+In the Azure portal, navigate to your Consumption or Premium plan app and choose **Change App Service plan** under **App Service plan**. Select the other **Plan type**, create a new App Service plan of the new type, and select **OK**. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 
 ### Consumption to Premium
 
@@ -189,7 +196,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Note that if the plan isn't deleted, you'll still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -265,7 +272,7 @@ The Functions editor built into the Azure portal lets you update your function c
 Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu).
 
 1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
-1. If promoted, sign-in to the SCM site with your Azure credentials.
+1. If prompted, sign-in to the SCM site with your Azure credentials.
 1. From the **Debug console** menu, choose **CMD**.
 1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
 1. Name the file, such as `extensions.csproj` and press Enter.

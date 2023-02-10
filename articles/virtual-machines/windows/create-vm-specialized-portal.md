@@ -21,14 +21,13 @@ There are several ways to create a virtual machine (VM) in Azure:
 
 - You can create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although creating a snapshot takes a few more steps, it preserves the original VHD and provides you with a fallback.
 
-- Take a classic VM and use the VHD to create a new VM that uses the Resource Manager deployment model and managed disks. For the best results, **Stop** the classic VM in the Azure portal before creating the snapshot.
-
 - You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd).
 
 > [!IMPORTANT]
 >
-> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
-> Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
+> When you use a [specialized](shared-image-galleries.md#generalized-and-specialized-images) disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> Don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, create an image and then use that image to create multiple VMs. 
+> For more information, see [Store and share images in an Azure Compute Gallery](shared-image-galleries.md).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD.
 

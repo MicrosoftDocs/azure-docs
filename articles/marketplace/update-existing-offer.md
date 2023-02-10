@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 06/01/2022
+ms.date: 08/29/2022
 ms.custom: contperf-fy21q2
 ---
 
@@ -154,7 +154,7 @@ Remember to republish your offer after making updates for the changes to take ef
 
 ## Stop distribution of an offer or plan
 
-You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
+You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it but they can’t re-download or redeploy. Also, they won't get updates if you decide to republish the offer or plan at a later time.
 
 - To stop distribution of an offer after you've published it, select **Stop distribution** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
 

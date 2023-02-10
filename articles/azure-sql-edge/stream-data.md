@@ -1,14 +1,13 @@
 ---
 title: Data streaming in Azure SQL Edge
 description: Learn about data streaming in Azure SQL Edge.
-keywords:
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 07/08/2022
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 07/08/2022
+services: sql-edge
 ---
 
 # Data streaming in Azure SQL Edge

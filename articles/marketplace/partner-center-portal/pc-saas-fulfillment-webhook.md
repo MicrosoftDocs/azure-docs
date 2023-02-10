@@ -4,7 +4,7 @@ description: Learn how to implement a webhook on the SaaS service by using the f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/14/2022
+ms.date: 08/24/2022
 author: arifgani
 ms.author: argani
 ---
@@ -16,12 +16,12 @@ When creating a transactable SaaS offer in Partner Center, the partner provides 
 * When the SaaS subscription is in *Subscribed* status:
     * ChangePlan
     * ChangeQuantity
-    * Renew
-    * Suspend
-    * Unsubscribe
+    * Renew (notify only, no ACK needed)
+    * Suspend (notify only, no ACK needed)
+    * Unsubscribe (notify only, no ACK needed)
 * When SaaS subscription is in *Suspended* status:
     * Reinstate
-    * Unsubscribe
+    * Unsubscribe (notify only, no ACK needed)
 
 The publisher must implement a webhook in the SaaS service to keep the SaaS subscription status consistent with the Microsoft side.  The SaaS service is required to call the Get Operation API to validate and authorize the webhook call and payload data before taking action based on the webhook notification. The publisher should return HTTP 200 to Microsoft as soon as the webhook call is processed. This value acknowledges that the webhook call has been received successfully by the publisher.
 
@@ -231,6 +231,8 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 ```
 
 *Webhook payload example of unsubscribe event:*
+
+This is a notify only event. There is no send to ACK for this event.
 
 ```json
 {

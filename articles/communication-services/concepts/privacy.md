@@ -38,9 +38,6 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
-> [!NOTE]
-> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
-
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 

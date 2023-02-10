@@ -8,7 +8,7 @@ manager: rloutlaw
 editor: ''
 
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
-ms.service: multiple
+ms.prod: azure-nodejs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: javascript

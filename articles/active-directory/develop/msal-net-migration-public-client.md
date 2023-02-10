@@ -2,7 +2,7 @@
 title: Migrate public client applications to MSAL.NET
 description: Learn how to migrate a public client application from Azure Active Directory Authentication Library for .NET to Microsoft Authentication Library for .NET.
 services: active-directory
-author: CelesteDG
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2021
-ms.author: celested
-ms.reviewer: saeeda, shermanouko, jmprieur
+ms.author: dmwendia
+ms.reviewer: celested, saeeda, shermanouko, jmprieur
 ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to migrate my public client app from ADAL.NET to MSAL.NET.
 ---
@@ -89,7 +89,7 @@ var pca = PublicClientApplicationBuilder.Create("client_id")
               .WithBroker()
               .Build();
 
-// Add a token cache, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
+// Add a token cache, see https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
 // 2. GetAccounts
 var accounts = await pca.GetAccountsAsync();
@@ -448,7 +448,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
     {
         // If you use a CancellationToken, and call the Cancel() method on it, then this *may* be triggered
         // to indicate that the operation was cancelled.
-        // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
+        // See https://learn.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
         // for more detailed information on how C# supports cancellation in managed threads.
     }
     catch (MsalClientException ex)

@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Learn how to use the Azure CLI to set up and manage data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for Azure CLI

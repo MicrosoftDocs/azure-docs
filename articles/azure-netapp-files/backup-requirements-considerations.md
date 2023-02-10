@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 12/12/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -27,6 +27,8 @@ You need to be aware of several requirements and considerations before using Azu
 Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume that is located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage that is located also in West US 2. Azure NetApp Files does not support backups or backup replication to a different region.  
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
+
+* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
 
 * Currently, the Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups are not currently supported.
 
@@ -46,6 +48,11 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Reverting a volume using snapshot revert](snapshots-revert-volume.md) is not supported on Azure NetApp Files volumes that have backups. 
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
+
+* [Disabling backups](backup-disable.md) for a volume will delete all the backups stored in the Azure storage for that volume. If you delete a volume, the backups will remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
+
+* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription will not delete the backups. You can remove backups by [disabling backups](backup-disable.md) or [manually deleting the backups](backup-disable.md).
+
 
 ## Next steps
 

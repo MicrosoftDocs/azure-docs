@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 06/14/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -17,11 +17,17 @@ ms.author: lajanuar
 
 # What's new in Azure Cognitive Services Translator?
 
-Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## November 2022
+
+### Custom Translator stable GA v2.0 release
+
+Custom Translator version v2.0 is generally available and ready for use in your production applications!
 
 ## June 2022
 
@@ -61,7 +67,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
 
-* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
+* Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
 
 ## April 2022
 
@@ -95,7 +101,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 * The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
 
-* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
+* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 
@@ -124,7 +130,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-client-sdks.md)—now available in prerelease
 
 ## May 2021
 

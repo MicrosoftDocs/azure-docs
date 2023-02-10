@@ -1,17 +1,18 @@
 ---
-title: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using MongoDB native tools
+title: Migrate MongoDB offline to Azure Cosmos DB for MongoDB, using MongoDB native tools
 description: Learn how MongoDB native tools can be used to migrate small datasets from MongoDB instances to Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 08/26/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using MongoDB native tools
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your migration steps.
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 > * Verify that migration was successful.
 
-In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. Since Azure Cosmos DB exposes a Mongo API, the MongoDB native tools are able to insert data into Azure Cosmos DB. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
+In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. Since Azure Cosmos DB exposes an API for MongoDB, the MongoDB native tools are able to insert data into Azure Cosmos DB. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
 The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
@@ -44,11 +45,11 @@ If you don't have a MongoDB source set up already, see the article [Install and 
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
-* [Create an Azure Cosmos DB API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
+* [Create an Azure Cosmos DB for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
         * **Ensure that your MongoDB native tools version matches your existing MongoDB instance.**
-        * If your MongoDB instance has a different version than Azure Cosmos DB Mongo API, then **install both MongoDB native tool versions and use the appropriate tool version for MongoDB and Azure Cosmos DB Mongo API, respectively.**
+        * If your MongoDB instance has a different version than Azure Cosmos DB for MongoDB, then **install both MongoDB native tool versions and use the appropriate tool version for MongoDB and Azure Cosmos DB for MongoDB, respectively.**
     * Add a user with `readWrite` permissions, unless one already exists. Later in this tutorial, provide this username/password to the *mongoexport* and *mongodump* tools.
 
 ## Configure Azure Cosmos DB Server Side Retries
@@ -74,14 +75,14 @@ And if it is *Disabled*, then we recommend you enable it as shown below
 * *mongodump/mongorestore* is the best pair of migration tools for migrating your entire MongoDB database. The compact BSON format will make more efficient use of network resources as the data is inserted into Azure Cosmos DB.
     * *mongodump* exports your existing data as a BSON file.
     * *mongorestore* imports your BSON file dump into Azure Cosmos DB.
-* As an aside - if you simply have a small JSON file that you want to import into Azure Cosmos DB Mongo API, the *mongoimport* tool is a quick solution for ingesting the data.
+* As an aside - if you simply have a small JSON file that you want to import into Azure Cosmos DB for MongoDB, the *mongoimport* tool is a quick solution for ingesting the data.
 
-## Collect the Azure Cosmos DB Mongo API credentials
+## Collect the Azure Cosmos DB for MongoDB credentials
 
-Azure Cosmos DB Mongo API provides compatible access credentials which MongoDB native tools can utilize. You will need to have these access credentials on-hand in order to migrate data into Azure Cosmos DB Mongo API. To find these credentials:
+Azure Cosmos DB for MongoDB provides compatible access credentials which MongoDB native tools can utilize. You will need to have these access credentials on-hand in order to migrate data into Azure Cosmos DB for MongoDB. To find these credentials:
 
 1. Open the Azure portal
-1. Navigate to your Azure Cosmos DB Mongo API account
+1. Navigate to your Azure Cosmos DB for MongoDB account
 1. In the left nav, select the *Connection String* blade, and you should see a display similar to the below:
 
     ![Screenshot of Azure Cosmos DB credentials.](media/tutorial-mongotools-cosmos-db/cosmos-mongo-credentials.png)
@@ -132,7 +133,7 @@ The rest of this section will guide you through using the pair of tools you sele
 
 1. Finally, examine Azure Cosmos DB to **validate** that migration was successful. Open the Azure Cosmos DB portal and navigate to Data Explorer. You should see (1) that an *edx* database with an *importedQuery* collection has been created, and (2) if you exported only a subset of data, *importedQuery* should contain *only* docs matching the desired subset of the data. In the example below, only one doc matched the filter `{"field1":"value1"}`:
 
-    ![Screenshot of Cosmos DB data verification.](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos.png)    
+    ![Screenshot of Azure Cosmos DB data verification.](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos.png)    
 
 ### *mongodump/mongorestore*
 
@@ -158,7 +159,7 @@ The rest of this section will guide you through using the pair of tools you sele
 
 1. Finally, examine Azure Cosmos DB to **validate** that migration was successful. Open the Azure Cosmos DB portal and navigate to Data Explorer. You should see (1) that an *edx* database with an *importedQuery* collection has been created, and (2) *importedQuery* should contain the *entire* dataset from the source collection:
 
-    ![Screenshot of verifying Cosmos DB mongorestore data.](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos-restore.png)    
+    ![Screenshot of verifying Azure Cosmos DB mongorestore data.](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos-restore.png)    
 
 ## Post-migration optimization
 
@@ -166,7 +167,7 @@ After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API
 
 ## Additional resources
 
-* [Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+* [Azure Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
 * [MongoDB database tools documentation](https://docs.mongodb.com/database-tools/)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

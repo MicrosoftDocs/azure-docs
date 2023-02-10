@@ -4,7 +4,7 @@ description: Recommendations on when to use user-assigned versus system-assigned
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi

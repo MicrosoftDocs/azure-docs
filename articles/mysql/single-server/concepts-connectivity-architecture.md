@@ -3,8 +3,8 @@ title: Connectivity architecture - Azure Database for MySQL
 description: Describes the connectivity architecture for your Azure Database for MySQL server.
 ms.service: mysql
 ms.subservice: single-server
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.topic: conceptual
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Connectivity architecture in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains the Azure Database for MySQL connectivity architecture and how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 
@@ -62,7 +64,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  Germany North         |  51.116.56.0                                               |                                  |                                               |
 |  Germany North East    |  51.5.144.179                                              |                  |                                               |
 |  Germany West Central  |  51.116.152.0                                              |             |                                               |
-|  India Central         |  104.211.96.159                                            |                      |                                               |
+|  India Central         |  20.192.96.33                                            |  104.211.96.159                    |                                               |
 |  India South           |  104.211.224.146                                           |                     |                                               |
 |  India West            |  104.211.160.80                                            |           |                                               |
 |  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196           |                                               |
@@ -80,7 +82,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  UAE Central           |  20.37.72.64                                               |                      |                                               |
 |  UAE North             |  65.52.248.0                                               |                         |                                               |
 |  UK   South            |  51.140.144.32, 51.105.64.0                 |  51.140.184.11                                |                                               |
-|  UK   West             |  51.141.8.11                                               |                                 |                                               |
+|  UK   West             |  51.140.208.98                                               | 51.141.8.11                                |                                               |
 |  West Central US       |  13.78.145.25, 52.161.100.158                              |                       |                                               |
 |  West Europe           |  13.69.105.208, 104.40.169.187                             |  40.68.37.158                                 |  191.237.232.75                               |
 |  West US               |  13.86.216.212, 13.86.217.212                              |  104.42.238.205                               |  23.99.34.75                                  |

@@ -1,15 +1,18 @@
 ---
 title: Connect to Azure Percept DK over serial
 description: How to set up a serial connection to your Azure Percept DK with a USB to TTL serial cable
-author: nkhuyent
+author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 02/07/2023
 ms.custom: template-how-to, ignite-fall-2021
+ROBOTS: NOINDEX
 ---
 
 # Connect to Azure Percept DK over serial
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Follow the steps below to set up a serial connection to your Azure Percept DK through [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 

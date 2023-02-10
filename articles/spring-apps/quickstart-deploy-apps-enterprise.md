@@ -21,7 +21,7 @@ This quickstart shows you how to build and deploy applications to Azure Spring A
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
@@ -248,7 +248,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name payment-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern payment/default \
-       --source-path apps/acme-payment
+       --source-path apps/acme-payment \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the catalog service:
@@ -259,7 +260,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern catalog/default \
-       --source-path apps/acme-catalog
+       --source-path apps/acme-catalog \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the order service:

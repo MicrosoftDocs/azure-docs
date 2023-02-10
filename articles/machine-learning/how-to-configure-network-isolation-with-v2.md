@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 05/13/2022
+ms.date: 09/07/2022
 ---
 
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
@@ -19,7 +19,7 @@ In this article, you'll learn about network isolation changes with our new v2 AP
 
 ## Prerequisites
 
-* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
 
     > [!IMPORTANT]
     > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
@@ -44,15 +44,17 @@ The Azure Machine Learning CLI v2 uses our new v2 API platform. New features suc
 
 As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
-With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/2022-05-01/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/2022-10-01/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
 
-> [!TIP]
-> * Public ARM operations do not surface data in your storage account on public networks. 
-> * Your communication with public ARM is encrypted using TLS 1.2.
+> [!IMPORTANT]
+> For most people, using the public ARM communications is OK:
+> * Public ARM communications is the standard for management operations with Azure services. For example, creating an Azure Storage Account or Azure Virtual Network uses ARM.
+> * The Azure Machine Learning operations do not expose data in your storage account (or other storage in the VNet) on public networks. For example, a training job that runs on a compute cluster in the VNet, and uses data from a storage account in the VNet, would securely access the data directly using the VNet.
+> * All communication with public ARM is encrypted using TLS 1.2.
 
 If you need time to evaluate the new v2 API before adopting it in your enterprise solutions, or have a company policy that prohibits sending communication over public networks, you can enable the *v1_legacy_mode* parameter. When enabled, this parameter disables the v2 API for your workspace.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Enabling v1_legacy_mode may prevent you from using features provided by the v2 API. For example, some features of Azure Machine Learning studio may be unavailable.
 
 ## Scenarios and Required Actions
@@ -87,7 +89,7 @@ After the parameter has been implemented, the default value of the flag depends 
 
 To update v1_legacy_mode, use the following steps:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 
@@ -95,7 +97,7 @@ To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azure
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
-ws.update(v1_legacy_mode=false)
+ws.update(v1_legacy_mode=False)
 ```
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
@@ -115,10 +117,10 @@ The return value of the `az ml workspace update` command may not show the update
 az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
 ```
 
+---
+    
 > [!IMPORTANT]
 > Note that it takes about 30 minutes to an hour or more for changing v1_legacy_mode parameter from __true__ to __false__ to be reflected in the workspace. Therefore, if you set the parameter to __false__ but receive an error that the parameter is __true__ in a subsequent operation, please try after a few more minutes.
-
----
 
 ## Next steps
 

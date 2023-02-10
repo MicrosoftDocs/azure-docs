@@ -41,7 +41,7 @@ landingContent:
         - text: LUIS developer resources
           url: ../luis/developer-reference-resource.md
         - text: Language support
-          url: ../luis/luis-language-support.md#languages-supported
+          url: ../luis/luis-language-support.md
         - text: Intent recognition pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
 - title: Help and feedback
