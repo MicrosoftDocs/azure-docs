@@ -13,18 +13,18 @@ ms.collection: M365-identity-device-management
 
 # Become a Microsoft-compatible FIDO2 security key vendor
 
-Most hacking related breaches use either stolen or weak passwords. Often, IT will enforce stronger password complexity or frequent password changes to reduce the risk of a security incident. However, this increases help desk costs and leads to poor user experiences as users are required to memorize or store new, complex passwords.
+Most hacking related breaches use either stolen or weak passwords. Often, IT enforce stronger password complexity or frequent password changes to reduce the risk of a security incident. However, this increases help desk costs and leads to poor user experiences as users are required to memorize or store new, complex passwords.
 
-FIDO2 security keys offer an alternative. FIDO2 security keys can replace weak credentials with strong hardware-backed public/private-key credentials which can't be reused, replayed, or shared across services. Security keys support shared device scenarios, allowing you to carry your credential with you and safely authenticate to an Azure Active Directory joined Windows 10 device that’s part of your organization.
+FIDO2 security keys offer an alternative. FIDO2 security keys can replace weak credentials with strong hardware-backed public/private-key credentials that can't be reused, replayed, or shared across services. Security keys support shared device scenarios, allowing you to carry your credential with you and safely authenticate to an Azure Active Directory joined Windows 10 device that’s part of your organization.
 
-Microsoft partners with FIDO2 security key vendors to ensure that security devices work on Windows, the Microsoft Edge browser, and online Microsoft accounts, to enable strong password-less authentication.
+Microsoft partners with FIDO2 security key vendors to ensure that security devices work on Windows, the Microsoft Edge browser, and online Microsoft accounts. FIDO2 security keys enable strong password-less authentication.
 
-You can become a Microsoft-compatible FIDO2 security key vendor through the following process.  Microsoft doesn't commit to do go-to-market activities with the partner and will evaluate partner priority based on customer demand.
+You can become a Microsoft-compatible FIDO2 security key vendor through the following process.  Microsoft doesn't commit to do go-to-market activities with the partner and evaluates partner priority based on customer demand.
 
-1. First, your authenticator needs to have a FIDO2 certification. We won't be able to work with providers who don't have a FIDO2 certification. To learn more about the certification, please visit the [FIDO Alliance Certification Overview website](https://fidoalliance.org/certification/).
-2. After you have a FIDO2 certification, please [submit a request form](https://forms.office.com/r/NfmQpuS9hF). Our engineering team will only confirm the features supported by your FIDO2 devices. We won't retest features already tested as part of the above FIDO2 certification or evaluate the security of your solutions. The process usually takes a few weeks to complete. 
-3. Upon successfully confirming feature list by Microsoft Engineering team, Microsoft will confirm vendor's device is listed in [the FIDO MDS](https://fidoalliance.org/metadata/).
-4. Microsoft will add your FIDO2 Security Key on Azure Active Directory backend and to our list of approved FIDO2 vendors.
+1. First, your authenticator needs to have a FIDO2 certification. We aren't able to work with providers who don't have a FIDO2 certification. To learn more about the certification, visit the [FIDO Alliance Certification Overview website](https://fidoalliance.org/certification/).
+2. After you have a FIDO2 certification, [submit a request form](https://forms.office.com/r/NfmQpuS9hF) to become a Microsoft-compatible FIDO2 security key vendor. Our engineering team only confirms the features supported by your FIDO2 devices. Our engineering team doesn't retest features already tested as part of the FIDO2 certification or evaluate the security of your solutions. The process usually takes a few weeks to complete.
+3. After Microsoft's engineering successfully confirmed the feature list, we'll confirm vendor's device is listed in the [FIDO Alliance Metadata Service](https://fidoalliance.org/metadata/).
+4. Microsoft adds your FIDO2 Security Key on Azure Active Directory backend and to our list of approved FIDO2 vendors.
 
 ## Current partners
 
@@ -58,14 +58,10 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | VinCSS                    | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://passwordless.vincss.net                                                                     |
 | Yubico                    | ![y]              | ![y]| ![y]| ![n]| ![y]           | https://www.yubico.com/solutions/passwordless/                                                      |
 
-
-
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png
 [n]: ./media/fido2-compatibility/no.png
 
-
 ## Next steps
 
 [FIDO2 Compatibility](fido2-compatibility.md)
-
