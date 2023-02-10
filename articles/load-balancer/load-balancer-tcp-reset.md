@@ -48,6 +48,19 @@ The setting works for inbound connections only. To avoid losing the connection, 
 
 TCP keep-alive works for scenarios where battery life isn't a constraint. It isn't recommended for mobile applications. Using a TCP keep-alive in a mobile application can drain the device battery faster.
 
+## Order of precedence
+
+It is important to take into account how the idle timeout values set for different IPs could potentially interact.
+
+### Inbound
+
+- If there is an (inbound) load balancer rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer idle timeout will take precedence.
+- If there is an inbound NAT rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer idle timeout will take precedence.
+
+### Outbound
+
+- If there is an outbound rule with an idle timeout value different than 4 minutes (which is what public IP outbound idle timeout is locked at), the outbound rule idle timeout will take precedence.
+- Because a NAT gateway will always take precedence over load balancer outbound rules (and over public IP addresses assigned directly to VMs), the idle timeout value assigned to the NAT gateway will be used.  (Along the same lines, the locked public IP outbound idle timeouts of 4 minutes of any IPs assigned to the NAT GW are not considered.) 
 
 ## Limitations
 

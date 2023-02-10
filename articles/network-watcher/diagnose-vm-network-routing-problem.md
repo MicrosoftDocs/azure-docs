@@ -6,8 +6,6 @@ services: network-watcher
 documentationcenter: network-watcher
 author: halkazwini
 tags: azure-resource-manager
-# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-
 ms.service: network-watcher
 ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
@@ -15,7 +13,7 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: halkazwini
 ms.custom: mvc
-
+# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
