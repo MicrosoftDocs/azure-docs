@@ -31,7 +31,9 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 ### Prerequisite check
 
