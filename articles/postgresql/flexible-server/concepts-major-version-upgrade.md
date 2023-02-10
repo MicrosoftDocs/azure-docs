@@ -124,8 +124,17 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 :::image type="content" source="media/concepts-major-version-upgrade/upgrade- verification.png" alt-text="Diagram of Upgraded version to Flexible server after major version upgrade.":::
 
 
+## Post Upgrade
+
+Run the **ANALYZE** operation to refresh the pg_statistic table. You should do this for every database on all your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows
 
 
+```
+ANALYZE VERBOSE
+```
+[!NOTE]  
+
+The VERBOSE flag is optional, but using it shows you the progress. 
 
 ## Next steps
 
