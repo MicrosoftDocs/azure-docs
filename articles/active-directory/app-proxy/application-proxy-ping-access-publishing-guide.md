@@ -225,6 +225,6 @@ When you've completed all these steps, your application should be up and running
 
 ## Next steps
 
-- [Configuring PingAccess for Azure AD](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure)
+- [Configuring PingAccess to use Azure AD as the token provider](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pa_to_use_azure_ad_as_the_token_provider)
 - [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
