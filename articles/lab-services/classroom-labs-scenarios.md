@@ -45,8 +45,8 @@ The following table shows an example organizational mapping:
 |               | Lab Contributor | Create and manage all labs (when assigned at the resource group level). |
 |               | Lab Operator | Optionally, assign to other educators to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
 |               | Lab Assistant | Optionally, assign to other educators to help support labsstudents by allowing reset/start/stop/connect lab VMs. |
-| Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 | Student       |  | Students don't require Azure AD roles and are assigned access to the lab. Leanr how you can [add lab users to a lab](./how-to-configure-student-usage.md). |
+| Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 
 ## Create the lab plan as a lab plan administrator
 
