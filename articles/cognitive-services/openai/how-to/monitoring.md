@@ -39,8 +39,7 @@ Azure OpenAI is a part of Cognitive Services. For a list of all platform metrics
 
 For the current subset of Metrics available in Azure OpenAI:
 
-## Microsoft.CognitiveServices/accounts  
-<!-- Data source : naam-->
+### Azure OpenAI Metrics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -106,7 +105,7 @@ AzureDiagnostics
 
 Here we are take a sampling of 100 entries and are displaying a subset of the available columns of data in the logs. The results will appear as follows:
 
-:::image type="content" source="../media/monitoring/kusto-results.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="./media/monitoring/kusto-results":::
+:::image type="content" source="../media/monitoring/kusto-results.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/monitoring/kusto-results":::
 
 If you wish to see all available columns of data you can remove the scoping that is provided by the `| project` line:
 
@@ -125,7 +124,7 @@ AzureMetrics
 | project TimeGenerated, MetricName, Total, Count, TimeGrain, UnitName
 ```
 
-:::image type="content" source="../media/monitoring/metric-results.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="./media/monitoring/metric-results":::
+:::image type="content" source="../media/monitoring/metric-result.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/monitoring/metric-result":::
 
 ## Alerts
 
