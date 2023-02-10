@@ -7,7 +7,7 @@ ms.author: tejaswikolli
 ---
 # Caching for Azure Container Registry
 
-Azure Container Registry (ACR) introduces its new feature Caching for ACR. This feature will allow users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
+Azure Container Registry (ACR) introduces its new feature Caching for ACR. This feature allows users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
 This article is part one in a four-part tutorial series. The tutorial covers:
 
@@ -27,17 +27,17 @@ Implementing Caching for ACR provides the following benefits:
 
 ***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Docker Rate Limit:***  Docker has updated their terms of services to limit anonymous users to 100 pull operations every six hours, free Docker account users to 200 pull operations every six hours, and paid Docker subscription to 5000 pull operations per 24 hours. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more docker hub rate limit [here][docker-rate-limit]. 
+***Docker Rate Limit:***  Docker has updated their terms of services. The new limits allow anonymous users to 100 pull operations every six hours. Free Docker account users have 200 pull operations limit for every six hours. The Docker subscription users have 5000 pull operations limit for every 24 hours. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more docker hub rate limit [here][docker-rate-limit]. 
 
 ## Preview Limitations
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but aren't included in this release.
 
-- Caching will only occur after the container image is requested at least once. When a new image is available a new pull request must be made. Caching for ACR doesn't automatically pull new version of images when a new version is available. This is on the roadmap but isn't supported in this release. 
+- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR doesn't automatically pull new version of images when a new version is available. This is on the roadmap but isn't supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
-- Caching for ACR is only available by using the Azure Portal. The Azure CLI will be released in the coming weeks.   
+- Caching for ACR is only available by using the Azure portal. The Azure CLI is released in the coming weeks.   
 
 ## Terminology 
 
@@ -50,7 +50,7 @@ Implementing Caching for ACR provides the following benefits:
 
         3. A Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
 
-        4. An ACR Repository Path - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository cannot already exist inside the ACR instance. 
+        4. An ACR Repository Path - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
 
 - Credential Set
     - A credential set is a username and password for the source registry. A credential set is needed if you wish to authenticate with a public or private repository. A credential set contains four parts
