@@ -57,7 +57,7 @@ curl -X POST \
     --data-binary {dcmFile}.dcm
 ```
 
-We have tested supporting <b>tens of GBs upload in few seconds</b>. 
+We have tested supporting **tens of GBs upload in few seconds**. 
 
 ### Retrieving
 
