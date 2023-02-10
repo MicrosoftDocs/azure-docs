@@ -47,7 +47,7 @@ The following table shows the corresponding mapping of organization roles to Azu
 
 | Org. role | Azure AD role | Description |
 | --- | --- | --- |
-| Administrator | Subscription Owner<br/>Subscription Contributor | Create lab plan in Azure portal. |
+| Administrator | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. |
 |               | Lab Operator | Optionally, assign to other administrator to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
 | Educator      | Lab Creator | Create and manage the labs they created. |
 |               | Lab Contributor | Optionally, assign to an educator to create and manage all labs (when assigned at the resource group level). |
@@ -70,7 +70,7 @@ The following table shows the corresponding mapping of organization roles to Azu
 
 | Org. role | Azure AD role | Description |
 | --- | --- | --- |
-| Administrator | Subscription Owner<br/>Subscription Contributor | Create lab plan in Azure portal. |
+| Administrator | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. |
 |               | Lab Operator | Optionally, assign to other administrator to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
 | Educator      | Lab Operator | Manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
 |               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reset/start/stop/connect lab VMs. |
@@ -89,7 +89,7 @@ The following table shows the corresponding mapping of organization roles to Azu
 
 | Org. role | Azure AD role | Description |
 | --- | --- | --- |
-| Educator      | Subscription Owner<br/>Subscription Contributor | Create lab plan in Azure portal. As an Owner, you can also fully manage all labs.  |
+| Educator      | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. As an Owner, you can also fully manage all labs.  |
 |               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reset/start/stop/connect lab VMs. |
 | Student       |  | Students don't need an Azure account or Azure AD role. Educators grant students access in the lab configuration. Learn how you can [add students to a lab](./how-to-configure-student-usage.md). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
