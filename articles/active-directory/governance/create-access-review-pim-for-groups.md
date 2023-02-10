@@ -1,6 +1,6 @@
 ---
-title: Create an access review of Privileged Access Groups - Azure AD (preview)
-description: Learn how to create an access review of Privileged Access Groups in Azure Active Directory. 
+title: Create an access review of PIM for Groups - Azure AD (preview)
+description: Learn how to create an access review of PIM for Groups in Azure Active Directory. 
 services: active-directory
 author: amsliu
 manager: amycolannino
@@ -16,18 +16,18 @@ ms.reviewer: jgangadhar
 ms.collection: M365-identity-device-management
 ---
  
-# Create an access review of Privileged Access Groups in Azure AD (preview)
+# Create an access review of PIM for Groups in Azure AD (preview)
 
-This article describes how to create one or more access reviews for Privileged Access Groups, which will include the active members of the group as well as the eligible members. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
+This article describes how to create one or more access reviews for PIM for Groups, which will include the active members of the group as well as the eligible members. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
 
 ## Prerequisites
 
 - Azure AD Premium P2.
-- Only Global administrators and Privileged Role administrators can create reviews on Privileged Access Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
+- Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-## Create a Privileged Access Group access review
+## Create a PIM for Groups access review
 
 ### Scope
 1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
@@ -44,10 +44,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 5. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
 
-     ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-privileged-access-groups-review.png)
+     ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-pim-review.png)
 
 > [!NOTE]  
-> When a Privileged Access Group (PAG) is selected, the users under review for the group will include all eligible users and active users in that group. 
+> When a PIM for Groups is selected, the users under review for the group will include all eligible users and active users in that group. 
 
 6. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
@@ -64,9 +64,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md#next-reviews) article to complete your access review.
 
 > [!NOTE]
-> Review of Privileged Access Groups will only assign active owner(s) as the reviewers. Eligible owners are not included. At least one fallback reviewer is required for a Privileged Access Groups review. If there are no active owner(s) when the review begins, the fallback reviewer(s) will be assigned to the review.
+> Review of PIM for Groups will only assign active owner(s) as the reviewers. Eligible owners are not included. At least one fallback reviewer is required for a PIM for Groups review. If there are no active owner(s) when the review begins, the fallback reviewer(s) will be assigned to the review.
 
 ## Next steps
 
 - [Create an access review of groups or applications](create-access-review.md)
-- [Approve activation requests for privileged access group members and owners (preview)](../privileged-identity-management/groups-approval-workflow.md)
+- [Approve activation requests for PIM for Groups members and owners (preview)](../privileged-identity-management/groups-approval-workflow.md)
