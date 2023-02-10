@@ -49,7 +49,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 9. Under the **Destination**, Enter the name of the **New ACR repository path** to store cached artifacts.
 
 
-    :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png.png" alt-text="Screenshot to save Cache Rule.":::
+    :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png" alt-text="Screenshot to save Cache Rule.":::
 
 
 10. Select on **Save** 
