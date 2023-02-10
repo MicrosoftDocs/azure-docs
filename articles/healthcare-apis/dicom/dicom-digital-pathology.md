@@ -1,5 +1,5 @@
 ---
-title: Digital Pathology using Azure Health Data Services DICOM service
+title: Digital pathology using Azure Health Data Services DICOM service
 description: This guide is on using DICOM service for digital pathology
 services: healthcare-apis
 author: smithasa
@@ -10,7 +10,7 @@ ms.date: 02/09/2023
 ms.author: smithasa
 ---
 
-# Digital Pathology using DICOM service
+# Digital pathology using DICOM service
 
  ## Overview
 
@@ -21,7 +21,7 @@ Digital imaging is becoming increasingly popular in the field of pathology as a 
 
 Today, digital pathology scanners generally output imaging into proprietary formats. This complicates sharing and AI/ML model training, blunting many of the advantages of digitization. To ease this transformation, many organizations are beginning to convert [Whole Slide Imaging (WSI)](https://dicom.nema.org/Dicom/DICOMWSI/) digital slides to DICOM-standard format. Once these images are in DICOM format, these images can be stored in commercially available PACS systems, where they can be managed using tools and processes that have been perfected over decades by radiologists.
 
-## DICOM Service for Digital Pathology 
+## DICOM service for digital pathology 
 
 DICOM service supports unique digital pathology requirements like:
 
