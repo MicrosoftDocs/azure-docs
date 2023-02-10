@@ -273,3 +273,9 @@ Azure AD B2C doesn't natively support the use of groups to create collections of
 Fortunately, Azure AD B2C is highly customizable, so you can configure the SAML tokens it sends to IAS to include any custom information. For various options on supporting authorization claims, see the documentation accompanying the [Azure AD B2C App Roles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles), but in summary: through its [API Connector](../../active-directory-b2c/api-connectors-overview.md) extensibility mechanism you can optionally still use groups, app roles, or even a custom database to determine what the user is allowed to access.
 
 Regardless of where the authorization information comes from, it can then be emitted as the `Groups` attribute inside the SAML token by configuring that attribute name as the [default partner claim type on the claims schema](../../active-directory-b2c/claimsschema.md#defaultpartnerclaimtypes) or by overriding the [partner claim type on the output claims](../../active-directory-b2c/relyingparty.md#outputclaims). Note however that BTP allows you to [map Role Collections to User Attributes](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/b3fbb1a9232d4cf99967a0b29dd85d4c.html), which means that *any* attribute name can be used for authorization decisions, even if you don't use the `Groups` attribute name.
+
+## Next Steps
+
+- Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
+- Discover additional [SAP integration scenarios with Azure AD](../../sap/workloads/integration-get-started#azure-ad) and beyond
+
