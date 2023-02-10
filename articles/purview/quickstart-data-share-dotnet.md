@@ -31,7 +31,7 @@ Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on
 
 ## Use a service principal
 
-In the code snippits in this tutorial you can authenticate either using your own credentials or using a service principal.
+In the code snippets in this tutorial you can authenticate either using your own credentials or using a service principal.
 To set up a service principal, follow these instructions:
 
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
