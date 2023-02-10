@@ -122,7 +122,7 @@ To rotate the Kerberos keys of a storage account, see [Update the password of yo
 # [Portal](#tab/azure-portal)
 Navigate to the desired storage account in the Azure portal. In the table of contents for the desired storage account, select **Access keys** under the **Security + networking** heading. In the **Access key** pane, select **Rotate key** above the desired key. 
 
-![A screenshot of the access key pane](./media/storage-troubleshoot-windows-file-connection-problems/access-keys-1.png)
+![A screenshot of the access key pane](./media/files-troubleshoot-smb-authentication/access-keys-1.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
@@ -174,7 +174,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 2. Select **App registrations** in the left pane.
 3. Select **All Applications** in the right pane.
 
-   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png":::
+   :::image type="content" source="media/files-troubleshoot-smb-authentication/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/files-troubleshoot-smb-authentication/azure-portal-azuread-app-registrations.png":::
 
 4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
@@ -189,7 +189,7 @@ You might encounter the following errors when trying to enable Azure AD Kerberos
 
 In some cases, Azure AD admin may disable the ability to grant admin consent to Azure AD applications. Below is the screenshot of what this may look like in the Azure portal.
 
-   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png" alt-text="Screenshot of the Azure portal configured permissions blade displaying a warning that some actions may be disabled due to your permissions." lightbox="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png":::
+   :::image type="content" source="media/files-troubleshoot-smb-authentication/grant-admin-consent-disabled.png" alt-text="Screenshot of the Azure portal configured permissions blade displaying a warning that some actions may be disabled due to your permissions." lightbox="media/files-troubleshoot-smb-authentication/grant-admin-consent-disabled.png":::
 
 If this is the case, ask your Azure AD admin to grant admin consent to the new Azure AD application. To find and view your administrators, select **roles and administrators**, then select **Cloud application administrator**.
 

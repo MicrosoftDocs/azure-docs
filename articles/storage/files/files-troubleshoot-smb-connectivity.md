@@ -4,7 +4,7 @@ description: Troubleshoot problems connecting to and accessing SMB Azure file sh
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/09/2023
+ms.date: 02/10/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -512,7 +512,7 @@ Make sure the snapshot you're attempting to mount exists. For more information o
 
 
 
-## Too many open handles
+## Disk quota or network errors from too many open handles
 
 Select the Windows or Linux tab depending on the client operating system you're using to access Azure file shares.
 
