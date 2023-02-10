@@ -118,7 +118,7 @@ After you understand the requirements for your class's lab, you're ready to set 
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
-   - [Set a schedule](./tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+   - [Set a schedule](./tutorial-setup-lab.md#add-a-lab-schedule)
 
         > [!NOTE]
         > Depending on the operating system you've installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start it 30 minutes in advance.
