@@ -3,7 +3,7 @@ title: 'Azure Virtual WAN FAQ | Microsoft Docs'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 10/13/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.

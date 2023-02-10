@@ -29,4 +29,6 @@ ms.topic: include
 |19 |2300 |215K |9500 |889K |
 |20 |2300 |215K |10000 |936K|
 
-* All numbers are based on GCM algorithm
+>[!NOTE]
+> All numbers are based on GCM algorithm.
+> 
