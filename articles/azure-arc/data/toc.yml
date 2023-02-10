@@ -252,6 +252,10 @@ items:
       items:
         - name: Manage
           items:
+            - name: Active Directory
+              items:
+                - name: Deploy PostgresSQL server - CLI
+                  href: deploy-active-directory-postgresql-server-cli.md
             - name: Back up and restore
               href: backup-restore-postgresql.md
             - name: Change PostgreSQL port
