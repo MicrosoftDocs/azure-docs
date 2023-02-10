@@ -17,7 +17,7 @@ ms.collection:
 
 # Scenario - Using Azure Active Directory to secure access to SAP platforms and applications
 
-This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
+This document provides advice on the **technical design and configuration** of SAP platforms and applications when using Azure Active Directory as the primary user authentication service. Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md).
 
 ## Terminology used in this guide
 

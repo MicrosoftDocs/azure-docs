@@ -21,6 +21,9 @@ In this tutorial, you'll learn how to integrate SAP Cloud Identity Services with
 * Enable your users to be automatically signed-in to SAP Cloud Identity Services with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
+> [!TIP]
+> Follow the recommendations and best-practice guide "[Using Azure Active Directory to secure access to SAP platforms and applications](../fundamentals/scenario-azure-first-sap-identity-integration.md)" to operationalize the setup.
+
 ## Prerequisites
 
 To get started, you need the following items:
