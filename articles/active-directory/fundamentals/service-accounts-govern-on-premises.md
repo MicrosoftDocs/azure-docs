@@ -52,10 +52,10 @@ When you create service accounts, consider the information in the following tabl
 
 For user accounts used as service accounts, apply the following settings:
 
-* Account expiration - set the service account to automatically expire, after its review period, unless the account can continue
-* LogonWorkstations - restrict service account sign-in permissions
+* **Account expiration** - set the service account to automatically expire, after its review period, unless the account can continue
+* **LogonWorkstations** - restrict service account sign-in permissions
   * If it runs locally and accesses resources on the machine, restrict it from signing in elsewhere
-* Can't change password - set the parameter to **true** to prevent the service account from changing its own password
+* **Can't change password** - set the parameter to **true** to prevent the service account from changing its own password
  
 ## Lifecycle management process
 
@@ -171,7 +171,7 @@ To deprovision:
 5. Create a business policy that determines the amount of time that accounts are disabled.
 6. Delete the service account.
 
-  * **MSAs** - see, [Uninstall-ADServiceAccount](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). 
+  * **MSAs** - see, [Uninstall-ADServiceAccount](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true)
     * Use PowerShell, or delete it manually from the managed service account container
   * **Computer or user accounts** - manually delete the account from Active Directory
 
