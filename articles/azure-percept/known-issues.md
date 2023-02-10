@@ -5,7 +5,8 @@ author: yvonne-dq
 ms.author: juniem
 ms.service: azure-percept
 ms.topic: reference
-ms.date: 10/04/2022
+ms.date: 02/07/2023
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept known issues

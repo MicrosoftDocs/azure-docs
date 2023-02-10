@@ -383,6 +383,9 @@
               href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
+            - name: CLI
+              displayName: device management, status updates, device maintenance windows
+              href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md
@@ -397,6 +400,9 @@
               href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
+            - name: CLI
+              displayName: jobs
+              href: schedule-jobs-cli.md
             - name: .NET
               displayName: jobs
               href: iot-hub-csharp-csharp-schedule-jobs.md
@@ -612,13 +618,13 @@
         href: https://github.com/Azure/azure-iot-sdk-csharp#samples
       - name: Node.js
         displayName: samples, azure-iot-samples-node
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
         displayName: samples, azure-iot-samples-java
         href: https://github.com/Azure/azure-iot-sdk-java#samples
       - name: Python
         displayName: samples, azure-iot-samples-python 
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+        href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/

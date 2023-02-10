@@ -155,11 +155,13 @@ Lifecycle management supports tiering and deletion of current versions, previous
 | Action                      | Current Version                            | Snapshot      | Previous Versions
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
-| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
+| enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported |
 | tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| delete<sup>2</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
 
-<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+<sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
+
+<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
@@ -319,7 +321,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
 ```
 
 > [!NOTE]
-> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
+> Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ### Expire data based on age
 

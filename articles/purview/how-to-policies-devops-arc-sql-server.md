@@ -1,6 +1,6 @@
 ---
-title: Provision access to Azure Arc-enabled SQL Server for DevOps actions
-description: Step-by-step guide on provisioning access to Azure Arc-enabled SQL Server through Microsoft Purview DevOps policies
+title: Provision access to database system health and performance through Microsoft Purview DevOps policies for Azure Arc-enabled SQL Server 2022 (RBAC policies).
+description: Use Microsoft Purview DevOps policies to provision access for IT operations personnel to database system metadata, so that they can monitor performance, health and audit security, while limiting the insider threat. This guide explains the configuration of RBAC policies for SQL Server 2022 (Arc-enabled).
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
