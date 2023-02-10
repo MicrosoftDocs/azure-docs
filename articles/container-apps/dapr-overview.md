@@ -41,7 +41,7 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 
 > [!NOTE]
-> The above table covers stable Dapr APIs. To learn more about using alpha/preview Dapr APIs, [see limitations](#unsupported-dapr-capabilities).
+> The above table covers stable Dapr APIs. To learn more about using alpha APIs and components, [see limitations](#unsupported-dapr-capabilities).
 
 ## Dapr concepts overview
 
@@ -342,7 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
-- **Alpha/Preview APIs**: [Dapr API components in alpha/preview status][dapr-supported-specs] are available to use on a self-service, opt-in basis. Preview APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha/preview APIs are not covered by customer support.
+- **Alpha APIs and components**: [Dapr alpha APIs and components][dapr-supported-specs] are available to use on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
 
 ### Known limitations
 
