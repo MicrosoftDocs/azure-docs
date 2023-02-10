@@ -96,7 +96,7 @@ These steps are included in AutoML's transform pipelines, so they are automatica
 
 #### Training
 
-ForecastTCN training follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into **examples** that are shuffled and combined into **batches**. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a **loss function**. Training may require many passes through the full training data; each pass is called an **epoch**.
+The ForecastTCN follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into **examples** that are shuffled and combined into **batches**. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a **loss function**. Training may require many passes through the full training data; each pass is called an **epoch**.
 
 The following table lists and describes input settings and parameters for ForecastTCN training:
 
@@ -107,9 +107,10 @@ The following table lists and describes input settings and parameters for Foreca
 |Early stopping patience|Number of epochs to wait for primary metric improvement before training is stopped.|20|
 |Loss function|The objective function for network weight optimization.|[Quantile loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html) averaged over 10th, 25th, 50th, 75th, and 90th percentile forecasts.|
 |Batch size|Number of examples in a batch. Each example has dimensions $n_{\text{input}} \times t_{\text{rf}}$ for input and $h$ for output.|Determined from the total number of examples in the training data; maximum value of 1024.|
+|Embedding dimensions|Dimensions of the embedding spaces for categorical features.|For a feature $C$, $d_{C}=\text{ceil}\left(\sqrt[4]{\#C}\right)$. Thresholds are applied at a minimum value of 3 and maximum value of 100.
 |Network architecture*|Parameters that control the size and shape of the network: depth, number of cells, and number of channels.|Determined by model search.|
 |Network weights|Parameters controlling signal mixtures, categorical embeddings, convolution kernel weights, and mappings to forecast values.|Randomly initialized, then optimized with respect to the loss function.
-|Learning rate*|Controls how much the network weights can be adjusted in each iteration of gradient descent; [dynamically reduced](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html) as the model converges.|Determined by model search.|
+|Learning rate*|Controls how much the network weights can be adjusted in each iteration of gradient descent; [dynamically reduced](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html) near convergence.|Determined by model search.|
 |Dropout ratio*|Controls the degree of [dropout regularization](https://en.wikipedia.org/wiki/Dilution_(neural_networks)) applied to the network weights.|Determined by model search.|
 
 Inputs marked with an asterisk (*) are determined by a hyperparameter search that is described in the next section.    
