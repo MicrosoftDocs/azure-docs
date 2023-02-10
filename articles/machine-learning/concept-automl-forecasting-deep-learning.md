@@ -108,14 +108,34 @@ The following table lists and describes input settings and parameters for Foreca
 |Loss function|The objective function for network weight optimization.|[Quantile loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html) averaged over 10th, 25th, 50th, 75th, and 90th percentile forecasts.|
 |Batch size|Number of examples in a batch. Each example has dimensions $n_{\text{input}} \times t_{\text{rf}}$ for input and $h$ for output.|Determined from the total number of examples in the training data; maximum value of 1024.|
 |Embedding dimensions|Dimensions of the embedding spaces for categorical features.|For a feature $C$, $d_{C}=\text{ceil}\left(\sqrt[4]{\#C}\right)$. Thresholds are applied at a minimum value of 3 and maximum value of 100.
-|Network architecture*|Parameters that control the size and shape of the network: depth, number of cells, and number of channels.|Determined by model search.|
+|Network architecture*|Parameters that control the size and shape of the network: depth, number of cells, and number of channels.|Determined by [model search](#model-search).|
 |Network weights|Parameters controlling signal mixtures, categorical embeddings, convolution kernel weights, and mappings to forecast values.|Randomly initialized, then optimized with respect to the loss function.
 |Learning rate*|Controls how much the network weights can be adjusted in each iteration of gradient descent; [dynamically reduced](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html) near convergence.|Determined by model search.|
 |Dropout ratio*|Controls the degree of [dropout regularization](https://en.wikipedia.org/wiki/Dilution_(neural_networks)) applied to the network weights.|Determined by model search.|
 
-Inputs marked with an asterisk (*) are determined by a hyperparameter search that is described in the next section.    
+Inputs marked with an asterisk (*) are determined by a hyper-parameter search that is described in the next section.    
 
-#### Model search 
+#### Model search
 
+AutoML uses model search methods to find values for the following hyper-parameters:
+
+* Network depth, or the number of [convolutional blocks](#forecasttcn-architecture),
+* Number of cells per block,
+* Number of channels in each hidden layer,
+* Dropout ratio for network regularization,
+* Learning rate.
+
+Optimal values for these parameters can vary significantly depending on the problem scenario and training data, so AutoML trains several different models within the space of hyper-parameter values and picks the best one according to the primary metric score on the validation data.
+
+The model search has two phases:
+
+1. AutoML performs a search over 12 "landmark" models. The landmark models are static and chosen to reasonably span the hyper-parameter space.
+2. AutoML continues searching through the hyper-parameter space using a random search.
+  
+The search terminates when stopping criteria are met. The stopping criteria depend on the [forecast training job configuration](./how-to-auto-train-forecast.md#configure-experiment), but some examples include time limits, limits on number of search trials to perform, and early stopping logic when the validation metric is not improving.
+ 
 ## Next steps
 
+* Learn how to [set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
+* Learn about [forecasting methodology in AutoML](./concept-automl-forecasting-methods.md).
+* Browse [frequently asked questions about forecasting in AutoML](./how-to-automl-forecasting-faq.md).
