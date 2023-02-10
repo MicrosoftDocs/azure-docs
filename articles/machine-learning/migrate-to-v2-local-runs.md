@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: johnwu0604
-ms.author: johwu
+ms.author: balapv
+author: balapv
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration

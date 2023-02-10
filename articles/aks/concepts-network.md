@@ -245,7 +245,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 [k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
@@ -268,5 +268,5 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [nginx-ingress]: ingress-basic.md
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
-[azure-cni-aks]: /configure-azure-cni.md
-[kubenet-aks]: /configure-kubenet.md
+[azure-cni-aks]: configure-azure-cni.md
+[kubenet-aks]: configure-kubenet.md

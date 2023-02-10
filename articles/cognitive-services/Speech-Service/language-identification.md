@@ -424,6 +424,9 @@ endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint=endpoint_string)
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
+# Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
+speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='Continuous')
+
 auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
     languages=["en-US", "de-DE", "zh-CN"])
 

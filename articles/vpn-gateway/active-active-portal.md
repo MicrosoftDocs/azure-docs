@@ -2,9 +2,7 @@
 title: 'Configure active-active VPN gateways: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active virtual network gateways using the Azure portal.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/22/2021

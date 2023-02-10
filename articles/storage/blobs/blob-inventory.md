@@ -114,6 +114,9 @@ Several filters are available for customizing a blob inventory report:
 | excludePrefix | Array of up to 10 strings for prefixes to be excluded. | Specifies the blob paths to exclude from the inventory report.<br><br>An *excludePrefix* must be a container name prefix or a container name. An empty *excludePrefix* would mean that all blobs with names matching any *prefixMatch* string will be listed.<br><br>If you want to include a certain prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. For example, if you want to include all blobs under `container-a` except those under the folder `container-a/folder`, then *prefixMatch* should be set to `container-a` and *excludePrefix* should be set to `container-a/folder`. | No |
 | includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
 | includeBlobVersions | boolean | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
+| includeDeleted | boolean | Specifies whether the inventory should include deleted blobs. Default is `false`. In accounts that have a hierarchical namespace, this filter includes folders as well as blobs that are in a soft deleted state. <br><br>Only the folders and files (blobs) that are explicitly deleted appear in reports. Child folders and files that are deleted as a result of deleting a parent folder are not included in the report. | No |
+
+
 
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
@@ -215,6 +218,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | EncryptionScope | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
+
+> [!NOTE]
+> 
 
 ### Custom schema fields supported for container inventory
 

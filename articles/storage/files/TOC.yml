@@ -35,6 +35,8 @@
     href: storage-snapshots-files.md
   - name: Performance and scale
     items:
+    - name: Understanding performance
+      href: understand-performance.md
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
     - name: Scalability and performance targets

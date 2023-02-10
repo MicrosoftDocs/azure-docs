@@ -80,12 +80,10 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 No additional cost to existing VM pricing.
 
 **The following features are not supported**:
-- Azure Site Recovery
-- Shared disk
-- Ultra disk
+- Azure Site Recovery (coming soon)
+- Ultra disk (coming soon)
 - Managed image
-- Nested Virtualization
-- Azure Automanage
+- Nested Virtualization (most v5 VM sizes supported; other sizes coming soon)
 
 ## Secure boot
 
