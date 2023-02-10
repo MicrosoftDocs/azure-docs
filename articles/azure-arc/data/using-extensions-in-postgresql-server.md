@@ -82,10 +82,6 @@ For this preview, the following standard [`contrib`](https://www.postgresql.org/
 
 Updates to this list will be posted as it evolves over time.
 
-> [!IMPORTANT]
-> While you may bring to your server an extension other than those listed above, in this Preview, it will not be persisted to your system. It means that it will not be available after a restart of the system and you would need to bring it again.
-
-
 ## Create an Arc-enabled PostgreSQL server with extensions enabled
 You can create an Arc-enabled PostgreSQL server with any of the supported extensions enabled by passing a comma separated list of extensions to the `--extensions` parameter of the `create` command:
 ```azurecli
@@ -99,12 +95,12 @@ First describe the server to get the current list of extensions:
 ```console
 kubectl describe postgresqls <server-name> -n <namespace>
 ```
-If there are extensions enabled the output will contain a section like this:
+If there are extensions enabled the output contains a section like this:
 ```yml
   config:
     postgreSqlExtensions: pgaudit,pg_partman
 ```
-Add new extensions by appending them to the existing list, or remove extensions by removing them from the existing list. Pass the desired list to the update command. For example, if we wanted to add `pgcrypto` and remove `pg_partman` from the server in the example above:
+Add new extensions by appending them to the existing list, or remove extensions by removing them from the existing list. Pass the desired list to the update command. For example, to add `pgcrypto` and remove `pg_partman` from the server in the example above:
 ```azurecli
 az postgres server-arc update -n <name> --k8s-namespace <namespace> --extensions "pgaudit,pgrypto" --use-k8s
 ```

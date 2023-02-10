@@ -24,13 +24,13 @@ To learn more, read about each version on the official PostgreSQL site:
 ## How to create a particular version in Azure Arc-enabled PostgreSQL server?
 Currently only PostgreSQL version 14 is supported.
 
-Note that there is only one PostgreSQL Custom Resource Definition (CRD) in your Kubernetes cluster no matter what versions we support.
+There is only one PostgreSQL Custom Resource Definition (CRD) in your Kubernetes cluster no matter what versions we support.
 For example, run the following command:
 ```console
 kubectl get crds
 ```
 
-It will return an output like:
+It returns an output like:
 ```console
 NAME                                                             CREATED AT
 dags.sql.arcdata.microsoft.com                                   2021-10-12T23:53:40Z
@@ -46,7 +46,7 @@ sqlmanagedinstances.sql.arcdata.microsoft.com                    2021-10-12T23:5
 In this example, this output indicates there are one CRD related to PostgreSQL: postgresqls.arcdata.microsoft.com, shortname postgresqls. The CRD is not a PostgreSQL server. The presence of a CRD is not an indication that you have - or not - created a server. The CRD is an indication of what kind of resources can be created in the Kubernetes cluster.
 
 ## How can I be notified when other versions are available?
-Come back and read this article. It will be updated as appropriate.
+Come back and read this article. It is updated as appropriate.
 
 
 ## Next steps:

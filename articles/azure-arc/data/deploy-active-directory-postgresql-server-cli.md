@@ -4,8 +4,8 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: hasaniholder
-ms.author: hasaniholder
+author: hasani-h
+ms.author: hasani-h
 ms.reviewer: mikeray
 ms.date: 02/10/2023
 ms.topic: how-to
