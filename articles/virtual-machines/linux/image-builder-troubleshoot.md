@@ -88,6 +88,39 @@ The template already exists.
 
 If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
 
+### Updating or resetting MSI on image templates
+
+#### Error
+
+```text
+The assigned managed identity cannot be used. Please re-assign an identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts
+```
+
+#### Cause
+
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+
+1. MSI is deleted before the image template is deleted (custom rg scenario) 
+1. MSI credentials URL is lost and therefore can't get credentials for the MSI
+1. Other cases where the assigned MSI doesn't work 
+
+
+#### Solution
+
+Use Azure CLI to reset identity on the image template. Ensure you [update](/azure/update-azure-cli) Azure CLI to the latest 2.45.0 version.
+
+Remove the managed identity from the target image builder template
+
+```azurecli-interactive
+az image bulider identity remove -g <template rg> -n <template name> -- user-assigned <identity resource id>
+```
+
+Re-assign identity to the target image builder template
+
+```azurecli-interactive
+az image bulider identity assign -g <template rg> -n <template name> -- user-assigned <identity resource id>
+```
+
 ### The resource operation finished with a terminal provisioning state of "Failed"
 
 #### Error
