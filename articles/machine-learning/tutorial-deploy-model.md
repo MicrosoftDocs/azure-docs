@@ -136,7 +136,7 @@ latest_model_version = max(
 print(latest_model_version)
 ```
 
-Now that you have a registered model, you can create an endpoint and deployment. The next section will briefly cover some key details about these topics.
+Now that you have a registered model, you can create an endpoint and deployment. The next section will briefly cover some key details about endpoints and deployments.
 
 ## Endpoints and deployments
 
@@ -155,7 +155,7 @@ A single endpoint can contain multiple deployments. Endpoints and deployments ar
 
 Azure Machine Learning allows you to implement [online endpoints](concept-endpoints.md#what-are-online-endpoints) for real-time inferencing on client data. You can also use AzureML to implement [batch endpoints](concept-endpoints.md#what-are-batch-endpoints) for inferencing on large volumes of data asynchronously or at given time periods.
 
-In this tutorial, we'll walk you through the steps of implementing a _managed online endpoint_. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. This helps to free you from the overhead of setting up and managing the underlying deployment infrastructure.
+In this tutorial, we'll walk you through the steps of implementing a _managed online endpoint_. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way to free you from the overhead of setting up and managing the underlying deployment infrastructure.
 
 ## Create an online endpoint
 
@@ -228,7 +228,7 @@ The key aspects of a deployment include:
     
 ### Deployment using an MLflow model
 
-AzureML supports no-code deployment of a model created and logged with MLflow. Thus, you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model. If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment.
+AzureML supports no-code deployment of a model created and logged with MLflow. As a result, you don't have to provide a scoring script or an environment during model deployment. Instead, the scoring script and environment are automatically generated when training an MLflow model. However, if using a custom model, you'd have to specify the environment and scoring script during deployment.
 
 > [!IMPORTANT]
 > If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-deploy-mlflow-models.md).
@@ -422,7 +422,7 @@ If you open the metrics for the online endpoint, you can set it up to see metric
 
 :::image type="content" source="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png" alt-text="View online endpoint metrics in the Azure portal." lightbox="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png":::
 
-For more details on how to view online endpoint metrics, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#metrics).
+For more information on how to view online endpoint metrics, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#metrics).
 
 ### Send all traffic to the new deployment
 Once you're fully satisfied with your `green` deployment, switch all traffic to it.
@@ -463,9 +463,9 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 ## Next Steps
 
-- Learn about all of the [deployment options](how-to-deploy-online-endpoints.md) for Azure Machine Learning.
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 - [Test the deployment with mirrored traffic (preview)](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
 - [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
-- [Customizing MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)
+- [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
