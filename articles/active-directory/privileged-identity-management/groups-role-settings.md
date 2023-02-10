@@ -71,7 +71,7 @@ To enforce this requirement, you need to:
 1.	Configure Conditional Access policy that would enforce requirements for this authentication context.
 1.	Configure authentication context in PIM settings for the role.
 
-:::image type="content" source="media/pim-for-groups/pim-group-21.png" alt-text="Screenshot of the Edit role settings - Member page." lightbox="media/pim-for-groups/pim-group-21.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-21.png" alt-text="Screenshot of the Edit role settings Member page." lightbox="media/pim-for-groups/pim-group-21.png":::
 
 To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
