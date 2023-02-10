@@ -5,7 +5,7 @@ description: Learn about configuring an IPv6 frontend in a virtual network scrip
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: sample
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: allensu 
