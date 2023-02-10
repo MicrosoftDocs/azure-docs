@@ -16,7 +16,7 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on Apple devices 
+# Azure Active Directory certificate-based authentication on iOS and macOS
 
 This topic covers Azure Active Directory (Azure AD) certificate-based authentication (CBA) support for macOS and iOS devices.
 
