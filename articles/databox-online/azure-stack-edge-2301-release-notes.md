@@ -28,11 +28,14 @@ This release corresponds to software version:
 This release contains the following bug fixes:
 
 - **Update Agent SDK** - An update to SaaS agent SDK to fix the expired certificate issue.
+- **MSRC Fixes** - Security fixes.
 
 This release also contains the following updates:
 
-- Updated Nuget Package References for enhanced security.
-- All cumulative Windows updates and .NET framework updates released through November 2022.
+- **Monitoring agent update**
+- **SAAS agent SDK update** - Provides certificate rotation.
+- **Updated Nuget Package References** - Enhances security.
+- **Other updates** - All cumulative updates and .NET framework updates through November 2022.
 
 ## Known issues in this release
 
