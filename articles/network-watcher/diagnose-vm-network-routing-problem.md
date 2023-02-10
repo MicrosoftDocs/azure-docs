@@ -189,7 +189,7 @@ To further analyze routing, review the effective routes for **myVM** network int
 
 1. Under **Help**, select **Effective routes** to see the all routes associated with the network interface of **myVM**. 
 
-    :::image type="content" source="./media/diagnose-vm-network-routing-problem/effective-routes-default.png" alt-text="Screenshot showing Azure default system routes associated with the virtual machine network interface.":::
+    :::image type="content" source="./media/diagnose-vm-network-routing-problem/effective-routes-default.png" alt-text="Screenshot showing Azure default system routes associated with the virtual machine network interface." lightbox="./media/diagnose-vm-network-routing-problem/effective-routes-default-expanded.png":::
 
     In the previous section, when you ran the test using **13.107.21.200**, the route with 0.0.0.0/0 address prefix was used to route traffic to the address since no other route has the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
