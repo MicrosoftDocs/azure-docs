@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    b. Open the downloaded **Certificate (PEM)** from the Azure portal into Notepad and paste the content into the **SAML Signing Certificate** textbox.
+    b. Upload the **Certificate (PEM)** you downloaded from the Azure portal into the **Signing certificate** field.
 
     c. Click **Complete setup**.
 
