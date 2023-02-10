@@ -293,7 +293,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you created a virtual machine and used Network Watcher next hop to diagnose routing to different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+In this tutorial, you created a virtual machine and used Network Watcher next hop to diagnose routing to different destinations. To learn more about routing in Azure, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 For outbound VM connections, you can also determine the latency, allowed and denied network traffic between the VM and an endpoint, and the route used to an endpoint, using Network Watcher [connection troubleshoot](network-watcher-connectivity-portal.md) capability.
 
