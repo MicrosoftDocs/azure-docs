@@ -21,9 +21,9 @@ In Azure Active Directory (Azure AD), you can customize the role claim in the ac
 ## Prerequisites
 
 - An Azure AD subscription with a set up tenant. For more information, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
-- An enterprise application that has been added to the tenent. For more information, see [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md).
+- An enterprise application that has been added to the tenant. For more information, see [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md).
 - Single sign-on (SSO) configured for the application. For more information, see [Enable single sign-on for an enterprise application](../manage-apps/add-application-portal-setup-sso.md).
-- A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
+- A user account that will be assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
 
 > [!NOTE]
 > This article explains how to create, update, or delete application roles on the service principal using APIs in Azure AD. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
@@ -68,17 +68,6 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
           "isEnabled": true,
           "origin": "Application",
           "value": null
-        },
-        {
-          "allowedMemberTypes": [
-            "User"
-          ],
-          "description": "User",
-          "displayName": "User",
-          "id": "e18f0405-fdec-4ae8-a8a0-d8edb98b061f",
-          "isEnabled": true,
-          "origin": "Application",
-          "value": null
         }
       ]
     }
@@ -105,17 +94,6 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
           "allowedMemberTypes": [
             "User"
           ],
-          "description": "User",
-          "displayName": "User",
-          "id": "e18f0405-fdec-4ae8-a8a0-d8edb98b061f",
-          "isEnabled": true,
-          "origin": "Application",
-          "value": null
-        },
-        {
-          "allowedMemberTypes": [
-            "User"
-          ],
           "description": "Administrators Only",
           "displayName": "Admin",
           "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
@@ -133,6 +111,7 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
 
 Update the attributes to define the role claim that is included in the token.
 
+1. Locate the application in the Azure portal, and then select **Single sign-on** in the left menu.
 1. In the **Attributes & Claims** section, select **Edit**.
 1. Select **Add new claim**.
 1. In the **Name** box, type the attribute name. This example uses **Role Name** as the claim name.
