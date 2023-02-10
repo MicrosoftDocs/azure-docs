@@ -28,9 +28,9 @@ Separate IT teams are responsible for operations and maintenance of these networ
 
 ## Azure architecture
 
-Azure is a cloud computing platform and infrastructure for building, deploying, and managing applications and services through a network of datacenters. Microsoft manages these datacenters. Based on the number of resources you specify, Azure creates virtual machines (VMs) based on resource need. These VMs run on an Azure hypervisor, which is designed for use in the cloud and is not accessible to the public.
+Azure is a cloud computing platform and infrastructure for building, deploying, and managing applications and services through a network of datacenters. Microsoft manages these datacenters. Based on the number of resources you specify, Azure creates virtual machines (VMs) based on resource need. These VMs run on an Azure hypervisor, which is designed for use in the cloud and isn't accessible to the public.
 
-On each Azure physical server node, there is a hypervisor that runs directly over the hardware. The hypervisor divides a node into a variable number of guest VMs. Each node also has one root VM, which runs the host operating system. Windows Firewall is enabled on each VM. You define which ports are addressable by configuring the service definition file. These ports are the only ones open and addressable, internally or externally. All traffic and access to the disk and network is mediated by the hypervisor and root operating system.
+On each Azure physical server node, there's a hypervisor that runs directly over the hardware. The hypervisor divides a node into a variable number of guest VMs. Each node also has one root VM, which runs the host operating system. Windows Firewall is enabled on each VM. You define which ports are addressable by configuring the service definition file. These ports are the only ones open and addressable, internally or externally. All traffic and access to the disk and network is mediated by the hypervisor and root operating system.
 
 At the host layer, Azure VMs run a customized and hardened version of the latest Windows Server. Azure uses a version of Windows Server that includes only those components necessary to host VMs. This improves performance and reduces attack surface. Machine boundaries are enforced by the hypervisor, which doesn't depend on the operating system security.
 
@@ -53,10 +53,10 @@ The operating system team provides images, in the form of Virtual Hard Disks, de
 There are three types of fabric-managed operating system images:
 
 - Host: A customized operating system that runs on host VMs.
-- Native: A native operating system that runs on tenants (for example, Azure Storage). This operating system does not have any hypervisor.
+- Native: A native operating system that runs on tenants (for example, Azure Storage). This operating system doesn't have any hypervisor.
 - Guest: A guest operating system that runs on guest VMs.
 
-The host and native FC-managed operating systems are designed for use in the cloud, and are not publicly accessible.
+The host and native FC-managed operating systems are designed for use in the cloud, and aren't publicly accessible.
 
 #### Host and native operating systems
 
@@ -72,7 +72,7 @@ The Microsoft Cloud Infrastructure and Operations (MCIO) team manages the physic
 
 ## Service management and service teams
 
-Various engineering groups, known as service teams, manage the support of the Azure service. Each service team is responsible for an area of support for Azure. Each service team must make an engineer available 24x7 to investigate and resolve failures in the service. Service teams do not, by default, have physical access to the hardware operating in Azure.
+Various engineering groups, known as service teams, manage the support of the Azure service. Each service team is responsible for an area of support for Azure. Each service team must make an engineer available 24x7 to investigate and resolve failures in the service. Service teams don't, by default, have physical access to the hardware operating in Azure.
 
 The service teams are:
 
@@ -92,7 +92,7 @@ Employees (or contractors) of Microsoft are considered to be internal users. All
 
 | Role | Internal or external | Sensitivity level | Authorized privileges and functions performed | Access type
 | --- | --- | --- | --- | --- |
-| Azure datacenter engineer | Internal | No access to customer data | Manage the physical security of the premises. Conduct patrols in and out of the datacenter, and monitor all entry points. Escort into and out of the datacenter certain non-cleared personnel who provide general services (such as dining or cleaning) or IT work within the datacenter. Conduct routine monitoring and maintenance of network hardware. Perform incident management and break-fix work by using a variety of tools. Conduct routine monitoring and maintenance of the physical hardware in the datacenters. Access to environment on demand from property owners. Capable to perform forensic investigations, log incident reports, and require mandatory security training and policy requirements. Operational ownership and maintenance of critical security tools, such as scanners and log collection. | Persistent access to the environment. |
+| Azure datacenter engineer | Internal | No access to customer data | Manage the physical security of the premises. Conduct patrols in and out of the datacenter, and monitor all entry points. Escort into and out of the datacenter certain non-cleared personnel who provide general services (such as dining or cleaning) or IT work within the datacenter. Conduct routine monitoring and maintenance of network hardware. Perform incident management and break-fix work by using various tools. Conduct routine monitoring and maintenance of the physical hardware in the datacenters. Access to environment on demand from property owners. Capable to perform forensic investigations, log incident reports, and require mandatory security training and policy requirements. Operational ownership and maintenance of critical security tools, such as scanners and log collection. | Persistent access to the environment. |
 | Azure incident triage (rapid response engineers) | Internal | Access to customer data | Manage communications among MCIO, support, and engineering teams. Triage platform incidents, deployment issues, and service requests. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
 | Azure deployment engineers | Internal | Access to customer data | Deploy and upgrade platform components, software, and scheduled configuration changes in support of Azure. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
 | Azure customer outage support (tenant) | Internal | Access to customer data | Debug and diagnose platform outages and faults for individual compute tenants and Azure accounts. Analyze faults. Drive critical fixes to the platform or customer, and drive technical improvements across support. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
