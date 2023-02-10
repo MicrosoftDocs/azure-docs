@@ -3,9 +3,9 @@ title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: conceptual
 ms.date: 02/14/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Configure Azure Backup reports
 
@@ -40,7 +40,7 @@ Set up one or more Log Analytics workspaces to store your Backup reporting data.
 
 To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](../azure-monitor/logs/manage-cost-storage.md).
+By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
 ### 2. Configure diagnostics settings for your vaults
 

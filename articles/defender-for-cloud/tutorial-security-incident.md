@@ -3,16 +3,15 @@ title: Alert response tutorial - Microsoft Defender for Cloud
 description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.custom: ignite-2022
+ms.date: 01/17/2023
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Defender for Cloud. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
 
-In this tutorial, you will learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Triage security alerts
@@ -22,7 +21,9 @@ In this tutorial, you will learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
+To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. To learn more about Defender for Cloud's pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+
+The quickstart, [Get started with Defender for Cloud](get-started.md) walks you through the upgrade process.
 
 
 ## Triage security alerts
@@ -79,7 +80,7 @@ After you've investigated a security alert and understood its scope, you can res
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Setting an alert's status":::
 
-    This removes the alert from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
+    The alert is then removed from the main list of alerts. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
 1.	We encourage you to provide feedback about the alert to Microsoft:
     1. Marking the alert as **Useful** or **Not useful**.
@@ -90,7 +91,7 @@ After you've investigated a security alert and understood its scope, you can res
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.
 
-## End the tutorial
+## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Defender for Cloud's enhanced security features enabled. 
 
@@ -109,15 +110,16 @@ If you don't plan to continue, or you want to disable either of these features:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Select **Auto provisioning**.
+1. In the Monitoring coverage column of the Defender plan, select **Settings**.
 1. Disable the relevant extensions.
 
     >[!NOTE]
-    > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
+    > Disabling extensions does not remove the Log Analytics agent from Azure VMs that already have the agent, but does limits security monitoring for your resources.
 
 ## Next steps
-In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:
+
+In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material, see:
 
 - [Respond to Microsoft Defender for Key Vault alerts](defender-for-key-vault-usage.md)
 - [Security alerts - a reference guide](alerts-reference.md)
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)

@@ -19,7 +19,11 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 1. Select **Create a resource** found on the upper left-hand corner of the Azure portal.
 
-1. Search for **Front Door** using the search bar and once you find the resource type, select **Create**.
+1. Search for **Front Door and CDN profiles** using the search bar and once you find the resource type, select **Create**.
+
+1. Select **Explore other offerings**, then select **Azure Front Door (classic)**. Select **Continue** to begin configuring the profile.
+
+    :::image type="content" source="./media/front-door-url-redirect/compare-offerings.png" alt-text="Screenshot of the compare offerings page.":::
 
 1. Choose a *subscription* and then either use an existing resource group or create a new one. Select **Next** to enter the configuration tab.
 
@@ -54,7 +58,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Front Door configuration designer routing rule":::
 
-1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Ensure that the *Redirect type* get set to **Found (302)** and *Redirect protocol* get set to **HTTPS only**. 
+1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Set the *Redirect type* to **Moved (301)** and *Redirect protocol* get set to **HTTPS only**. 
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Add an HTTP to HTTPS redirect route":::
 

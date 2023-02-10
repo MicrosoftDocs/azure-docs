@@ -1,13 +1,16 @@
 ---
 title: Deployment Center for Azure Kubernetes
 description: Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
-ms.author: puagarw
+ms.author: rayoflores
 ms.topic: tutorial
 ms.date: 07/12/2019
-author: pulkitaggarwl
+author: rayoef
 ---
 
 # Deployment Center for Azure Kubernetes
+
+> [!IMPORTANT]
+> Deployment Center for Azure Kubernetes Service will be retired on March 31, 2023. [Learn more](#retirement)
 
 Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: the ability to gain approval before deploying, provision additional Azure resources, run scripts, upgrade your application, and even run more validation tests.
 
@@ -135,3 +138,29 @@ You can delete the related resources that you created when you don't need them a
 ## Next steps
 
 You can modify these build and release pipelines to meet the needs of your team. Or, you can use this CI/CD model as a template for your other pipelines.
+
+## Retirement
+
+Deployment Center for Azure Kubernetes will be retired on March 31, 2023 in favor of [Automated deployments](./automated-deployments.md). We encourage you to switch for enjoy similar capabilities.
+
+#### Migration Steps
+
+There is no migration required as AKS Deployment center experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure. Moving forward, the recommended way for users to get started on CI/CD for AKS will be using [Automated deployments](./automated-deployments.md) feature. 
+
+For existing pipelines, users will still be able to perform all operations from GitHub Actions or Azure DevOps after the retirement of this experience. Only the ability to create and view pipelines from Azure portal will be removed. See [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how to get started. 
+
+For new application deployments to AKS, instead of using Deployment center users can get the same capabilities by using Automated deployments. 
+
+#### FAQ  
+
+1. Where can I manage my CD pipeline after this experience is deprecated?  
+
+Post retirement, you will not be able to view or create CD pipelines from Azure portal’s AKS blade. However, as with the current experience, you can go to GitHub Actions or Azure DevOps portal and view or update the configured pipelines there. 
+
+2. Will I lose my earlier configured pipelines? 
+
+No.  All the created pipelines will still be available and functional in GitHub or Azure DevOps. Only the experience of creating and viewing pipelines from Azure portal will be retired. 
+
+3. How can I still configure CD pipelines directly through Azure portal? 
+
+You can use Automated deployments available in the AKS blade in Azure portal.

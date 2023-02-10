@@ -3,11 +3,11 @@ title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 10/19/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -329,14 +329,22 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 
 ## REST API
 
+### Prerequisites
+
+You must use the following version:
+
+- `2015-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ### List role definitions
 
-To list role definitions, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To refine your results, you specify a scope and an optional filter.
+To list role definitions, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definitions.
@@ -362,7 +370,7 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
 The following request lists custom role definitions at subscription scope:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter=type+eq+'CustomRole'
 ```
 
 The following shows an example of the output:
@@ -392,11 +400,13 @@ The following shows an example of the output:
                         ],
                         "notActions": [
                             "Microsoft.CostManagement/exports/delete"
-                        ]
+                        ],
+                        "dataActions": [],
+                        "notDataActions": []
                     }
                 ],
-                "createdOn": "2020-02-21T04:49:13.7679452Z",
-                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdOn": "2021-05-22T21:57:23.5764138Z",
+                "updatedOn": "2021-05-22T21:57:23.5764138Z",
                 "createdBy": "{createdByObjectId1}",
                 "updatedBy": "{updatedByObjectId1}"
             },
@@ -410,18 +420,18 @@ The following shows an example of the output:
 
 ### List a role definition
 
-To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - Get By Id](/rest/api/authorization/roledefinitions/getbyid) REST API.
+To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) or [Role Definitions - Get By ID](/rest/api/authorization/role-definitions/get-by-id) REST API.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
     For a directory-level role definition, you can use this request:
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
@@ -439,7 +449,7 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 The following request lists the [Reader](built-in-roles.md#reader) role definition:
 
 ```http
-GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
 ```
 
 The following shows an example of the output:
@@ -449,7 +459,7 @@ The following shows an example of the output:
     "properties": {
         "roleName": "Reader",
         "type": "BuiltInRole",
-        "description": "Lets you view everything, but not make any changes.",
+        "description": "View all resources, but does not allow you to make any changes.",
         "assignableScopes": [
             "/"
         ],
@@ -458,11 +468,13 @@ The following shows an example of the output:
                 "actions": [
                     "*/read"
                 ],
-                "notActions": []
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
             }
         ],
         "createdOn": "2015-02-02T21:55:09.8806423Z",
-        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "updatedOn": "2021-11-11T20:13:47.8628684Z",
         "createdBy": null,
         "updatedBy": null
     },

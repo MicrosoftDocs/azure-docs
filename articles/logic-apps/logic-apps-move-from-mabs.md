@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/30/2017
+ms.date: 08/20/2022
 ---
 
 # Migrate your apps and solutions from BizTalk Services to Azure Logic Apps

@@ -1,5 +1,5 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in an Azure Functions app | Microsoft Docs
+title: Tutorial for using Azure App Configuration dynamic configuration in an Azure Functions app
 description: In this tutorial, you learn how to dynamically update the configuration data for Azure Functions apps
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/17/2019
+ms.date: 09/14/2022
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
@@ -32,17 +32,20 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload
-- [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
+- [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload
+- [Azure Functions tools](../azure-functions/functions-develop-vs.md), if it's not installed already with Visual Studio.
 - Finish quickstart [Create an Azure functions app with Azure App Configuration](./quickstart-azure-functions-csharp.md)
 
 ## Reload data from App Configuration
 
-1. Open *Startup.cs*, and update the `ConfigureAppConfiguration` method. 
+Azure Functions support running [in-process](../azure-functions/functions-dotnet-class-library.md) or [isolated-process](../azure-functions/dotnet-isolated-process-guide.md). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
 
-   The `ConfigureRefresh` method registers a setting to be checked for changes whenever a refresh is triggered within the application, which you will do in the later step when adding `_configurationRefresher.TryRefreshAsync()`. The `refreshAll` parameter instructs the App Configuration provider to reload the entire configuration whenever a change is detected in the registered setting.
+1. Update the code that connects to App Configuration and add the data refreshing conditions.
 
-    All settings registered for refresh have a default cache expiration of 30 seconds. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
+    ### [In-process](#tab/in-process)
+    
+    Open *Startup.cs*, and update the `ConfigureAppConfiguration` method. 
+
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -50,17 +53,59 @@ In this tutorial, you learn how to:
         builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                   // Load all keys that start with `TestApp:`
-                   .Select("TestApp:*")
-                   // Configure to reload configuration if the registered sentinel key is modified
-                   .ConfigureRefresh(refreshOptions =>
-                      refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+                    // Load all keys that start with `TestApp:` and have no label
+                    .Select("TestApp:*")
+                    // Configure to reload configuration if the registered sentinel key is modified
+                    .ConfigureRefresh(refreshOptions =>
+                        refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
     }
     ```
 
-   > [!TIP]
-   > When you are updating multiple key-values in App Configuration, you would normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and only update it when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+    ### [Isolated process](#tab/isolated-process)
+    
+    Open *Program.cs*, and update the `Main` method.
+
+    ```csharp
+    public static void Main()
+    {
+        var host = new HostBuilder()
+            .ConfigureAppConfiguration(builder =>
+            {
+                builder.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                            // Load all keys that start with `TestApp:` and have no label
+                            .Select("TestApp:*")
+                            // Configure to reload configuration if the registered sentinel key is modified
+                            .ConfigureRefresh(refreshOptions =>
+                                refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+                });
+            })
+            .ConfigureFunctionsWorkerDefaults()
+            .Build();
+
+        host.Run();
+    }
+    ```
+    ---
+
+    The `ConfigureRefresh` method registers a setting to be checked for changes whenever a refresh is triggered within the application. The `refreshAll` parameter instructs the App Configuration provider to reload the entire configuration whenever a change is detected in the registered setting.
+
+    All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
+
+    > [!TIP]
+    > When you are updating multiple key-values in App Configuration, you normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and update it only when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+    >
+    > You may also do the following to minimize the risk of inconsistencies:
+    >
+    > * Design your application to be tolerable for transient configuration inconsistency
+    > * Warm-up your application before bringing it online (serving requests)
+    > * Carry default configuration in your application and use it when configuration validation fails
+    > * Choose a configuration update strategy that minimizes the impact to your application, for example, a low traffic timing.
+
+
+### [In-process](#tab/in-process)
 
 2. Update the `Configure` method to make Azure App Configuration services available through dependency injection.
 
@@ -78,7 +123,7 @@ In this tutorial, you learn how to:
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-   Update the constructor to obtain the instance of `IConfigurationRefresherProvider` through dependency injection, from which you can obtain the instance of `IConfigurationRefresher`.
+    Update the constructor to obtain the instance of `IConfigurationRefresherProvider` through dependency injection, from which you can obtain the instance of `IConfigurationRefresher`.
 
     ```csharp
     private readonly IConfiguration _configuration;
@@ -109,6 +154,35 @@ In this tutorial, you learn how to:
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
     }
     ```
+
+### [Isolated process](#tab/isolated-process)
+2. Add a `ConfigureServices` call to the `HostBuilder` to make Azure App Configuration services available through dependency injection. Then update the `ConfigureFunctionsWorkerDefaults` to use App Configuration middleware for configuration data refresh.
+    
+    ```csharp
+    public static void Main()
+    {
+        var host = new HostBuilder()
+            .ConfigureAppConfiguration(builder =>
+            {
+                // Omitted the code added in the previous step.
+                // ... ...
+            })
+            .ConfigureServices(services =>
+            {
+                // Make Azure App Configuration services available through dependency injection.
+                services.AddAzureAppConfiguration();
+            })
+            .ConfigureFunctionsWorkerDefaults(app =>
+            {
+                // Use Azure App Configuration middleware for data refresh.
+                app.UseAzureAppConfiguration();
+            })
+            .Build();
+
+        host.Run();
+    }
+    ```
+---
 
 ## Test the function locally
 
@@ -171,4 +245,4 @@ In this tutorial, you learn how to:
 In this tutorial, you enabled your Azure Functions app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Access App Configuration using managed identity](./howto-integrate-azure-managed-service-identity.md)

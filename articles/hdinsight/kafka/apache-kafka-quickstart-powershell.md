@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 10/19/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -94,18 +94,18 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 Create an Apache Kafka on HDInsight cluster with [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```azurepowershell-interactive
-# Create a Kafka 1.1 cluster
+# Create a Kafka 2.4.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
 $sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
-$clusterVersion = "3.6"
+$clusterVersion = "5.0"
 $clusterType="Kafka"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.1")
+$kafkaConfig.Add("kafka", "2.4.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `

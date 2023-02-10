@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to create and manage read re
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -19,7 +20,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/21/2021
-
-
+ms.date: 10/20/2022
+ms.custom: cliv1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -26,11 +25,11 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create workspace resources](quickstart-create-resources.md) article.
 
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
-* The [Azure Machine Learning CLI extension v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension v1](v1/reference-azure-machine-learning-cli.md).
 
 > [!NOTE]
 > The code snippets in this document were tested with version 1.0.83 of the Python SDK.
@@ -128,7 +127,9 @@ To update Azure Machine Learning to use the new key, use the following steps:
         
         ```
     
-    1. **To re-register datastores via the studio**, select **Datastores** from the left pane of the studio. 
+    1. **To re-register datastores via the studio**
+        1. In the studio, select **Data** on the left pane under **Assets**.
+        1. At the top, select **Datastores**.
         1. Select which datastore you want to update.
         1. Select the **Update credentials** button on the top left. 
         1. Use your new access key from step 1 to populate the form and click **Save**.

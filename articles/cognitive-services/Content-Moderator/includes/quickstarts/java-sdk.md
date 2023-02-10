@@ -27,7 +27,7 @@ Use the Content Moderator client library for Java to:
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Create a Content Moderator resource"  target="_blank">create a Content Moderator resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to Content Moderator. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -93,17 +93,17 @@ Navigate to the new folder and create a file called *ContentModeratorQuickstart.
 
 In the application's **ContentModeratorQuickstart** class, create variables for your resource's key and endpoint.
 
+> [!IMPORTANT]
+> Go to the Azure portal. If the Content Moderator resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
+
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Content Moderator resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these methods later.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_maincalls)]
-
 
 ## Object model
 

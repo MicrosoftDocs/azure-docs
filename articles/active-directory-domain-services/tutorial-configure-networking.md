@@ -2,13 +2,13 @@
 title: Tutorial - Configure virtual networking for Azure AD Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/07/2022
+ms.date: 06/16/2022
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain

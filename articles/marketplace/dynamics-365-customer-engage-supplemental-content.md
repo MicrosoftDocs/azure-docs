@@ -4,8 +4,8 @@ description: Set up DDynamics 365 apps on Dataverse and Power Apps offer supplem
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: trkeya
+ms.author: trkeya
 ms.date: 12/03/2021
 ---
 

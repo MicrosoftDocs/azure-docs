@@ -5,9 +5,9 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/22/2021
-author: swinarko
-ms.author: sawinark
+ms.date: 09/26/2022
+author: chugugrace
+ms.author: chugu
 ---
 
 # Provision the Azure-SSIS integration runtime in Azure Data Factory
@@ -45,13 +45,13 @@ In this tutorial, you complete the following steps:
   
     If you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Create an Azure-SSIS IR in a virtual network](./create-azure-ssis-integration-runtime.md).
 
-  - Confirm that the **Allow access to Azure services** setting is enabled for the database server. This setting is not applicable when you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB. For more information, see [Secure Azure SQL Database](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). To enable this setting by using PowerShell, see [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
+  - Confirm that the **Allow access to Azure services** setting is enabled for the database server. This setting isn't applicable when you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB. For more information, see [Secure Azure SQL Database](/azure/azure-sql/database/secure-database-tutorial#create-firewall-rules). To enable this setting by using PowerShell, see [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
 
-  - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../azure-sql/database/firewall-configure.md).
+  - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](/azure/azure-sql/database/firewall-configure).
 
   - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
 
-  - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
+  - Confirm that your database server doesn't have an SSISDB instance already. The provisioning of an Azure-SSIS IR doesn't support using an existing SSISDB instance.
 
 > [!NOTE]
 > For a list of Azure regions in which Data Factory and an Azure-SSIS IR are currently available, see [Data Factory and SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -60,7 +60,7 @@ In this tutorial, you complete the following steps:
 
 To create your data factory via the Azure portal, follow the step-by-step instructions in [Create a data factory via the UI](./quickstart-create-data-factory-portal.md#create-a-data-factory). Select **Pin to dashboard** while doing so, to allow quick access after its creation. 
 
-After your data factory is created, open its overview page in the Azure portal. Select the **Author & Monitor** tile to open the **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR.
+After your data factory is created, open its overview page in the Azure portal. Select the **Open Azure Data Factory Studio** tile to open the **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR.
 
 ## Create an Azure-SSIS integration runtime
 
@@ -68,7 +68,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 1. On the home page, select the **Configure SSIS** tile. 
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
+   :::image type="content" source="./media/doc-common-process/configure-ssis-button.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure-SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section. 
 
@@ -242,7 +242,7 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 On the **Summary** page of **Integration runtime setup** pane, review all provisioning settings, bookmark the recommended documentation links, and select **Create** to start the creation of your integration runtime. 
 
    > [!NOTE]
-   > Excluding any custom setup time, this process should finish within 5 minutes.
+   > Excluding any custom setup time, and SSIS IR is not using standard VNet injection, this process will finish within 5 minutes in most cases.
    >
    > If you use SSISDB, the Data Factory service will connect to your database server to prepare SSISDB. 
    > 

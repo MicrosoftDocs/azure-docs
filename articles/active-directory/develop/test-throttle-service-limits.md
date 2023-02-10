@@ -1,6 +1,5 @@
 ---
 title: Test environments, throttling, and service limits
-titleSuffix: Microsoft identity platform
 description: Learn about the throttling and service limits to consider while deploying an Azure Active Directory test environment and testing an app integrated with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/17/2021
+ms.date: 11/09/2022
 ms.author: ryanwi
 ms.reviewer: arcrowe
 #Customer intent: As a developer, I want to understand the throttling and service limits I might hit so that I can test my app without interruption.

@@ -2,11 +2,11 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 11/15/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of Archive tier in Azure Backup
@@ -23,8 +23,10 @@ Archive tier supports the following workloads:
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-atandard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
 | SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
+
+A recovery point becomes archivable only if all the above conditions are met.
 
 >[!Note]
 >- Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
@@ -42,8 +44,8 @@ Archive tier supports the following clients:
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, UAE North, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South, UAE North, Germany West Central, Norway East. | Australia East, South Central US, West Central US, Southeast Asia, Central India. |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
+| Azure Virtual Machines | US Gov Virginia, US Gov Texas, US Gov Arizona, China North 2, China East 2. | All public regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
 
 ## How Azure Backup moves recovery points to the Vault-archive tier?
 
@@ -72,15 +74,13 @@ Azure Backup offers two ways to modify protection for a data-source:
 
 In both scenarios, the new policy is applied to all older recovery points, which are in standard tier and archive tier. So, older recovery points might get deleted if there's a policy change.
 
-When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it incurs cost equivalent to 180 minus the number of days it has spent in standard tier.
-
-If you delete recovery points that haven't stayed in archive for a minimum of 180 days,  they incur early deletion cost.
+When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If you delete a recovery point that hasn't stayed in vault-archive for 180 days, then you're charged for the remaining retention period selected at vault-archive tier price.
 
 ## Stop protection and delete data
 
 Stop protection and delete data deletes all recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points leads to early deletion cost.
 
-## Archive Tier pricing
+## Archive tier pricing
 
 You can view the Archive tier pricing from our [pricing page](azure-backup-pricing.md).
 

@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ms.topic: how-to
 ---
 
@@ -33,7 +33,10 @@ Before signing in to the sensor console, administrator users should have access 
 
 - The activation file associated with this sensor. The file was generated and downloaded during sensor onboarding by Defender for IoT.
 
+
 - An SSL/TLS CA-signed certificate that your company requires.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ### About activation files
 
@@ -76,7 +79,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign in page.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign-in page.":::
 
 
 1. Enter the credentials defined during the sensor installation, or select the **Password recovery** option. If you purchased a preconfigured sensor from Arrow, generate a password first. For more information on password recovery, see [Investigate password failure at initial sign-in](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
@@ -108,7 +111,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Approve the terms and conditions.
 
-1. Select **Activate**. The SSL/TLS certificate tab opens. Before defining certificates, see [About certificates](#about-certificates). 
+1. Select **Activate**. The SSL/TLS certificate tab opens. Before defining certificates, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
     It is **not recommended** to use a locally generated certificate in a production environment.
 
@@ -117,7 +120,7 @@ For more information about working with certificates, see [Manage certificates](
 1. Enable the **Import trusted CA certificate (recommended)** toggle.
 1. Define a certificate name.
 1. Upload the Key, CRT, and PEM files.
-1. Enter a passphrase and upload a PEM file if required.
+1. Enter a passphrase and upload a PEM file if necessary.
 1. It's recommended to select **Enable certificate validation** to validate the connections between management console and connected sensors.
 
 1. Select **Finish**.  
@@ -125,6 +128,17 @@ For more information about working with certificates, see [Manage certificates](
 You might need to refresh your screen after uploading the CA-signed certificate.
 
 For information about uploading a new certificate, supported certificate parameters, and working with CLI certificate commands, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+
+### Activation expirations
+
+After activating a sensor, you'll need to apply new activation files as follows:
+
+|Location  |Activation process  |
+|---------|---------|
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](update-ot-software.md#download-and-apply-a-new-activation-file) from a legacy version to version 22.2.x.        |
+|  **Locally managed**   |   Apply a new activation file to locally managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+
+For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
 
 ### Activate an expired license (versions under 10.0)
@@ -153,15 +167,15 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 After first-time activation, the Microsoft Defender for IoT sensor console opens after sign-in without requiring an activation file or certificate definition. You only need your sign-in credentials.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign in page after the initial activation.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign-in page after the initial activation.":::
 
-After your sign in, the Microsoft Defender for IoT sensor console opens.
+After your sign-in, the Microsoft Defender for IoT sensor console opens.
 
   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png" alt-text="Screenshot of the initial sensor console dashboard Overview page." lightbox="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png":::
 
 ## Initial setup and learning (for administrators)
 
-After your first sign in, the Microsoft Defender for IoT sensor starts to monitor your network automatically. Network devices will appear in the device map and device inventory sections. Microsoft Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
+After your first sign-in, the Microsoft Defender for IoT sensor starts to monitor your network automatically. Network devices will appear in the device map and device inventory sections. Microsoft Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
 
 Initially this activity is carried out in the Learning mode, which instructs your sensor to learn your network's usual activity. For example, the sensor learns devices discovered in your network, protocols detected in the network, and file transfers that occur between specific devices. This activity becomes your network's baseline activity.
 
@@ -198,7 +212,7 @@ Before you sign in, verify that you have:
 - The sensor IP address.
 - Sign in credentials that your administrator provided.
  
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign in page after the initial setup.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign-in page after the initial setup.":::
 
 
 ## Console tools: Overview
@@ -217,8 +231,8 @@ You can access console tools from the side menu.  Tools help you:
 | -----------|--|
 | Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. |
 | Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate sensor detections in the Device Map](how-to-work-with-the-sensor-device-map.md#investigate-sensor-detections-in-the-device-map). |
-| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#investigate-sensor-detections-in-an-inventory).|
-| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that require your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
+| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md).|
+| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).|
 
 ### Analyze
 
@@ -227,16 +241,16 @@ You can access console tools from the side menu.  Tools help you:
 | Event timeline | View a timeline with information about alerts, network events, and user operations. For more information, see [Track sensor activity](how-to-track-sensor-activity.md).|
 | Data mining | Generate comprehensive and granular information about your network's devices at various layers. For more information, see [Sensor data mining queries](how-to-create-data-mining-queries.md).|
 | Trends and Statistics |  View trends and statistics about an extensive range of network traffic and activity.  As a small example, display charts and graphs showing top traffic by port, connectivity drops by hours, S7 traffic by control function, number of devices per VLAN, SRTP errors by day, or Modbus traffic by function. For more information, see [Sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md).
-| Risk Assessment | Proactively address vulnerabilities,  identify risks such as missing patches or unauthorized applications. Detect changes to device configurations, controller logic, and firmware. Prioritize fixes based on risk scoring and automated threat modeling.  For more information, see [Risk assessment reporting](how-to-create-risk-assessment-reports.md#risk-assessment-reporting).|
-| Attack Vector |  Display a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target. For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md#attack-vector-reporting).|
+| Risk Assessment | Proactively address vulnerabilities,  identify risks such as missing patches or unauthorized applications. Detect changes to device configurations, controller logic, and firmware. Prioritize fixes based on risk scoring and automated threat modeling.  For more information, see [Risk assessment reporting](how-to-create-risk-assessment-reports.md#create-risk-assessment-reports).|
+| Attack Vector |  Display a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target. For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md#create-attack-vector-reports).|
 
 ### Manage
 
 | Tools| Description |
 |---|---|
 | System settings | Configure the system settings. For example, define DHCP settings, provide mail server details, or create port aliases.   |
-| Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules). |
-| Users |  Define users and roles with various access levels. For more information, see [About Defender for IoT console users](how-to-create-and-manage-users.md#about-defender-for-iot-console-users).  |
+| Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor). |
+| Users |  Define users and roles with various access levels. For more information, see [Create and manage users on an OT network sensor](manage-users-sensor.md).  |
 | Forwarding |  Forward alert information to partners that integrate with Defender for IoT, for example, Microsoft Sentinel, Splunk, ServiceNow. You can also send to email addresses, webhook servers, and more. <br /> See [Forward alert information](how-to-forward-alert-information-to-partners.md) for details. |
 
 
@@ -248,12 +262,13 @@ You can access console tools from the side menu.  Tools help you:
 
 ## Review system messages
 
- System messages provide general information about your sensor that may require your attention, for example if:
-  - your sensor activation file is expired or will expire soon
-  - your sensor isn't detecting traffic
+System messages provide general information about your sensor that may require your attention, for example if:
+
+- your sensor activation file is expired or will expire soon
+- your sensor isn't detecting traffic
 - your sensor SSL certificate is expired or will expire soon
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/system-messages.png" alt-text="Screenshot of the System messages area on the sensor console page, displayed after selecting the bell icon.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/system-messages.png" alt-text="Screenshot of the System messages area on the sensor console page, displayed after selecting the bell icon.":::
  
 **To review system messages:**
 1. Sign into the sensor
@@ -264,9 +279,9 @@ You can access console tools from the side menu.  Tools help you:
 
 For more information, see:
 
-- [Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
-- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
 - [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

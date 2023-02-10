@@ -3,7 +3,7 @@ title: Azure Application Insights Telemetry Data Model - Event Telemetry | Micro
 description: Application Insights data model for event telemetry
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.reviewer: sergkanz
+ms.reviewer: mmcc
 ---
 
 # Event telemetry: Application Insights data model
@@ -30,5 +30,5 @@ Max length: 512 characters
 
 - See [data model](data-model.md) for Application Insights types and data model.
 - [Write custom event telemetry](./api-custom-events-metrics.md#trackevent)
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

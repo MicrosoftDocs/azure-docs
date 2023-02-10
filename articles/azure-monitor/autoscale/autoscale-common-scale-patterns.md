@@ -1,58 +1,87 @@
 ---
 title: Overview of common autoscale patterns
 description: Learn some of the common patterns to auto scale your resource in Azure.
+author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 05/07/2017
+ms.date: 11/17/2022
 ms.subservice: autoscale
+ms.author: edbaynash
+ms.reviewer: akkumari
 ---
 # Overview of common autoscale patterns
-This article describes some of the common patterns to scale your resource in Azure.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
+Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. 
 
-## Lets get started
+Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
-This article assumes that you are familiar with auto scale. You can [get started here to scale your resource][1]. The following are some of the common scale patterns.
+This article describes some of the common patterns you can use to scale your resources in Azure.
+## Prerequisites
 
-## Scale based on CPU
+This article assumes that you're familiar with auto scale. [Get started here to scale your resource](./autoscale-get-started.md). 
 
-You have a web app (/VMSS/cloud service role) and
+## Scale based on metrics
 
-- You want to scale out/scale in based on CPU.
-- Additionally, you want to ensure there is a minimum number of instances.
-- Also, you want to ensure that you set a maximum limit to the number of instances you can scale to.
+Scale your resource based on metrics produce by the resource itself or any other resource.
+For example:
+* Scale your Virtual Machine Scale Set based on the CPU usage of the virtual machine.
+* Ensure a minimum number of instances.
+* Set a maximum limit on the number of instances.  
 
-![Scale based on CPU][2]
+The image below shows a default scale condition for a Virtual Machine Scale Set
+ * The **Scale rule** tab shows that the metric source is the scale set itself and the metric used is Percentage CPU.
+ * The minimum number of instances running is set to 2.
+ * The maximum number of instances is set to 10.
+ * When the scale set starts, the default number of instances is 3.
 
-## Scale differently on weekdays vs weekends
+:::image type="content" source="./media/autoscale-common-scale-patterns/scale-based-on-cpu.png" alt-text="A screenshot showing an autoscale setting, scaling by CPU %." lightbox="./media/autoscale-common-scale-patterns/scale-based-on-cpu.png":::
 
-You have a web app (/VMSS/cloud service role) and
+## Scale based on another resource's metric
 
-- You want 3 instances by default (on weekdays)
-- You don't expect traffic on weekends and hence you want to scale down to 1 instance on weekends.
+Scale a resource based on the metrics from a different resource.  
+The image below shows a scale rule that is scaling a Virtual Machine Scale Set based on the number of allocated ports on a load balancer.  
 
-![Scale differently on weekdays vs weekends][3]
+:::image type="content" source="./media/autoscale-common-scale-patterns/scale-rule-other-resource.png" alt-text="A screenshot showing autoscale rule based on load balancer metrics." lightbox="./media/autoscale-common-scale-patterns/scale-rule-other-resource.png":::
 
-## Scale differently during holidays
+## Scale differently on weekends
 
-You have a web app (/VMSS/cloud service role) and
+You can scale your resources differently on different days of the week.
+For example, you have a Virtual Machine Scale Set and want to:
+- Set a minimum of 3 instances on weekdays, scaling based on inbound flows.
+- Scale-in to a fixed 1 instance on weekends when there's less traffic.
 
-- You want to scale up/down based on CPU usage by default
-- However, during holiday season (or specific days that are important for your business) you want to override the defaults and have more capacity at your disposal.
+In this example:
++ The weekend profile starts at 00:01, Saturday morning and ends at 04:00 on Monday morning.
++ The end times are left blank. The weekday profile will end when the weekend profile starts and vice-versa.
++ The default profile is irrelevant as there's no time that isn't covered by the other profiles.
 
-![Scale differently on holidays][4]
+>[!Note]
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates. For more information on creating recurring profiles with ARM templates, see [Add a recurring profile using ARM templates](./autoscale-multiprofile.md?tabs=templates#add-a-recurring-profile-using-arm-templates).
+> If the end-time is not included in the CLI command, a default end-time of 23:59 will be implemented by creating a copy of the default profile with the naming convention `"name": {\"name\": \"Auto created default scale condition\", \"for\": \"<non-default profile name>\"}`
+ 
+:::image type="content" source="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png" alt-text="A screenshot showing two autoscale profiles, one default and one for weekends." lightbox="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png":::
 
-## Scale based on custom metric
+## Scale differently during specific events
 
-You have a web front end and an API tier that communicates with the backend.
+You can set your scale rules and instance limits differently for specific events.  
+For example: 
+- Set a minimum of 3 instances by default
+- For the week of Back Friday, set the minimum number of instances to 10 to handle the anticipated traffic.
 
-- You want to scale the API tier based on custom events in the front end (example: You want to scale your checkout process based on the number of items in the shopping cart)
+:::image type="content" source="./media/autoscale-common-scale-patterns/scale-for-event.png" alt-text="A screenshot showing two autoscale profiles, one default and one for a specific date range." lightbox="./media/autoscale-common-scale-patterns/scale-for-event.png":::
 
-![Scale based on custom metric][5]
+## Scale based on custom metrics
+Scale by custom metrics generated by your application.  
+For example, you have a web front end and an API tier that communicates with the backend, and you want to scale the API tier based on custom events in the front end.
 
-<!--Reference-->
-[1]: ./autoscale-get-started.md
-[2]: ./media/autoscale-common-scale-patterns/scale-based-on-cpu.png
-[3]: ./media/autoscale-common-scale-patterns/weekday-weekend-scale.png
-[4]: ./media/autoscale-common-scale-patterns/holidays-scale.png
-[5]: ./media/autoscale-common-scale-patterns/custom-metric-scale.png
+:::image type="content" source="./media/autoscale-common-scale-patterns/custom-metric-scale.png" alt-text="A screenshot showing an autoscale profile, and rule scaling by a custom metric." lightbox="./media/autoscale-common-scale-patterns/custom-metric-scale.png":::
+
+Next steps
+
+Learn more about autoscale by referring to the following articles:
+
+* [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
+* [Azure Monitor autoscale custom metrics](./autoscale-custom-metric.md)
+* [Autoscale with multiple profiles](./autoscale-multiprofile.md)
+* [Flapping in Autoscale](./autoscale-custom-metric.md)
+* [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
+* [Autoscale REST API](/rest/api/monitor/autoscalesettings)

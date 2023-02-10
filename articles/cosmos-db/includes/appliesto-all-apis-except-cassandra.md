@@ -1,1 +1,0 @@
-APPLIES TO: :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL API :::image type="icon" source="../media/applies-to/yes.png" border="false":::Table API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Gremlin API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Cosmos DB API for MongoDB

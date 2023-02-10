@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Manager service to manage access control records
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established. The access control records in the **Configuration** section of your StorSimple Device Manager service blade display all the access control records with the corresponding IQNs of the hosts.

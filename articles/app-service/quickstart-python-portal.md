@@ -149,7 +149,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](/azure/developer/python/tutorial-python-postgresql-app-portal)
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)
@@ -159,3 +159,6 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

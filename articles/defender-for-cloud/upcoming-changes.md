@@ -2,132 +2,74 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/20/2022
+ms.date: 02/09/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
 If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
-
 
 ## Planned changes
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
-| [AWS and GCP recommendations to GA](#aws-and-gcp-recommendations-to-ga) | March 2022 |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
+| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is will be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-will-be-deprecated) | February 2023 |
+| [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
+| [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
+| [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
-### Changes to recommendations for managing endpoint protection solutions
+### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault will be deprecated
 
-**Estimated date for change:** March 2022
+**Estimated date for change: February 2023**
 
-In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
+The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
 
-When the recommendations are released to general availability, they will replace the following existing recommendations:
+The related [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1) will also be replaced by this new policy in all standards displayed in the regulatory compliance dashboard.
 
-- **Endpoint protection should be installed on your machines** will replace:
-    - [Install endpoint protection solution on virtual machines (key: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
-    - [Install endpoint protection solution on your machines (key: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
+### Three alerts in Defender for Azure Resource Manager plan will be deprecated
 
-- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
-    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
-    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
+**Estimated date for change: March 2023**
 
-Learn more:
-- [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
-- [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
+As we continue to improve the quality of our alerts, the following three alerts from the Defender for ARM plan will be deprecated:
+1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
+1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
+1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
 
-### AWS and GCP recommendations to GA
+You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
 
-**Estimated date for change:** March 2022
+In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for ARM plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
 
-There are currently AWS and GCP recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices and GCP default standards which are assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
+### Alerts automatic export to Log Analytics workspace will be deprecated
 
-When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
+**Estimated date for change: March 2023**
 
-#### AWS recommendations
+Currently, Defender for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
 
-**To find these recommendations**:
+You can export your security alerts to a dedicated Log Analytics workspace with the [Continuous Export](continuous-export.md#set-up-a-continuous-export) feature. 
+If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
 
-1. Navigate to **Environment settings** > **`AWS connector`** > **Standards (preview)**.
-1. Right click on **AWS Foundational Security Best Practices (preview)**, and select **view assessments**.
+### Deprecation and improvement of selected alerts for Windows and Linux Servers
 
-:::image type="content" source="media/release-notes/aws-foundational.png" alt-text="Screenshot showing the location of the AWS Foundational Security Best Practices (preview).":::
+**Estimated date for change: April 2023**
 
-#### GCP recommendations
+The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
 
-**To find these recommendations**:
+If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
 
-1. Navigate to **Environment settings** > **`GCP connector`** > **Standards (preview)**.
-1. Right click on **GCP Default (preview)**, and select **view assessments**.
+If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
 
-:::image type="content" source="media/release-notes/gcp-foundational.png" alt-text="Screenshot showing the location of the GCP Default (preview).":::
+All Defender for Server customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-### Relocation of custom recommendations
+You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
-**Estimated date for change:** March 2022
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
 
-Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
-
-When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
-
-Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
-
-### Multiple changes to identity recommendations
-
-**Estimated date for change:** May 2022
-
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
-
-- **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
-
-- **Account exemption capability** - Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
-
-    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
-
-    > [!TIP]
-    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
-
-    |Recommendation| Assessment key|
-    |-|-|
-    |[MFA should be enabled on accounts with owner permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
-    |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
-    |[MFA should be enabled on accounts with write permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
-    |[External accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
-    |[External accounts with read permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
-    |[External accounts with write permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
-    |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
-    |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
-
- 
-- **Recommendations rename** - From this update, we're renaming two recommendations. We're also revising their descriptions. The assessment keys will remain unchanged. 
-
-
-    |Property  |Current value  | From the update|
-    |---------|---------|---------|
-    |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        | Unchanged|
-    |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
-    |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
-
-
-    |Property  |Current value  | From the update|
-    |---------|---------|---------|
-    |Assessment key     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Unchanged|
-    |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
-    |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
-
-
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
 ## Next steps
 
-For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).

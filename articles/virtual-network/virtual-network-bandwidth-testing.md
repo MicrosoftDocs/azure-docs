@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
-author: steveesp
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
-ms.author: steveesp
+ms.author: allensu
 
 ---
 
@@ -50,9 +50,7 @@ Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 #### Get NTTTCP onto the VMs.
 
 Download the latest version:
-https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
-
-Or view the top-level GitHub Page: <https://github.com/microsoft/ntttcp>\
+https://github.com/microsoft/ntttcp/releases/latest
 
 Consider putting NTTTCP in separate folder, like c:\\tools
 
@@ -73,16 +71,16 @@ netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" 
 
 Start NTTTCP on the RECEIVER (**run from CMD**, not from PowerShell):
 
-ntttcp -r –m [2\*\#num\_cores],\*,a.b.c.r -t 300
+ntttcp -r -m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
 If the VM has four cores and an IP address of 10.0.0.4, it would look like this:
 
-ntttcp -r –m 8,\*,10.0.0.4 -t 300
+ntttcp -r -m 8,\*,10.0.0.4 -t 300
 
 
 Start NTTTCP on the SENDER (**run from CMD**, not from PowerShell):
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s -m 8,\*,10.0.0.4 -t 300 
 
 Wait for the results.
 

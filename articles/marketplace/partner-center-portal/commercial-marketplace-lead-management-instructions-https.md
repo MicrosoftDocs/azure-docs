@@ -4,9 +4,9 @@ description: Learn how to use Power Automate and an HTTPS endpoint to manage lea
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 05/21/2021
+author: spadmanabhan
+ms.author: spadmanabhan
+ms.date: 08/19/2022
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
@@ -20,7 +20,7 @@ This article explains how to create a new flow in Power Automate to generate the
 
 ## Create a flow by using Power Automate
 
-1. Open the [Power Automate](https://flow.microsoft.com/) webpage. Select **Sign in**. If you don't already have an account, select **Sign up free** to create one.
+1. Open the [Power Automate](https://make.powerautomate.com/) webpage. Select **Sign in**. If you don't already have an account, select **Sign up free** to create one.
 
 1. Sign in, select **My flows**, and switch the Environment from **Microsoft (default)** to your Dataverse (CRM) Environment.
 
@@ -202,7 +202,7 @@ You can test your configuration with [Postman](https://app.getpostman.com/app/do
 
    ![Paste the HTTP POST URL](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
-1. Go back to [Power Automate](https://flow.microsoft.com/). Find the flow you created to send leads by going to **My Flows** from the Power Automate menu bar. Select the ellipsis next to the flow name to see more options, and select **Edit**.
+1. Go back to [Power Automate](https://make.powerautomate.com/). Find the flow you created to send leads by going to **My Flows** from the Power Automate menu bar. Select the ellipsis next to the flow name to see more options, and select **Edit**.
 
 
 1. Select **Test** in the upper-right corner, select **I'll perform the trigger action**, and then select **Test**. You'll see an indication at the top of the screen that the test has started.

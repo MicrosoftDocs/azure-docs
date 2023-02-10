@@ -4,7 +4,7 @@ description: Remove users, groups, or devices from an administrative unit in Azu
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

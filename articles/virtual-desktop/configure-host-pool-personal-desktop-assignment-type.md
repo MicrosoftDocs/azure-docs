@@ -70,7 +70,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 
 To directly assign a user to a session host in the Azure portal:
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
@@ -86,20 +86,8 @@ To directly assign a user to a session host in the Azure portal:
 
 ## How to unassign a personal desktop
 
-To unassign a personal desktop, run the following PowerShell cmdlet:
-
-```powershell
-Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser "" -Force
-```
-
->[!IMPORTANT]
-> - Azure Virtual Desktop will not delete any VHD or profile data for unassigned personal desktops.
-> - You must include the _-Force_ parameter when running the PowerShell cmdlet to unassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
-> - There must be no existing user sessions on the session host when you unassign the user from the personal desktop. If there's an existing user session on the session host while you're unassigning it, you won't be able to unassign the personal desktop successfully.
-> - If the session host has no user assignment, nothing will happen when you run this cmdlet.
-
 To unassign a personal desktop in the Azure portal:
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
@@ -117,21 +105,8 @@ To unassign a personal desktop in the Azure portal:
 
 ## How to reassign a personal desktop
 
-To reassign a personal desktop, run the following PowerShell cmdlet:
-
-```powershell
-Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn> -Force
-```
-
->[!IMPORTANT]
-> - Azure Virtual Desktop will not delete any VHD or profile data for reassigned personal desktops.
-> - You must include the _-Force_ parameter when running the PowerShell cmdlet to reassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
-> - There must be no existing user sessions on the session host when you reassign a personal desktop. If there's an existing user session on the session host while you're reassigning it, you won't be able to reassign the personal desktop successfully.
-> - If the user principal name (UPN) you enter for the _-AssignedUser_ parameter is the same as the UPN currently assigned to the personal desktop, the cmdlet won't do anything.
-> - If the session host currently has no user assignment, the personal desktop will be assigned to the provided UPN.
-
 To reassign a personal desktop in the Azure portal:
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
@@ -152,8 +127,8 @@ To reassign a personal desktop in the Azure portal:
 
 Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These articles will show you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-- [Connect with the web client](./user-documentation/connect-web.md)
-- [Connect with the Android client](./user-documentation/connect-android.md)
-- [Connect with the iOS client](./user-documentation/connect-ios.md)
-- [Connect with the macOS client](./user-documentation/connect-macos.md)
+- [Connect with the Windows Desktop client](./users/connect-windows.md)
+- [Connect with the web client](./users/connect-web.md)
+- [Connect with the Android client](./users/connect-android-chrome-os.md)
+- [Connect with the iOS client](./users/connect-ios-ipados.md)
+- [Connect with the macOS client](./users/connect-macos.md)

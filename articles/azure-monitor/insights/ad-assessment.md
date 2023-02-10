@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
+ms.reviewer: shijain
 
 ---
 
@@ -43,7 +44,7 @@ To perform the health check against your domain controllers that are members of 
 
 1. Install the [Log Analytics agent for Windows](../agents/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the domain controller can be multi-homed with Azure Monitor to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connect-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
@@ -107,7 +108,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 1. On the **Overview** page, click the **Active Directory Health Check** tile.
 
-2. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+2. On the **Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 
 3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.
 
@@ -159,7 +160,7 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## AD Health Check solutions FAQ
+## Frequently asked questions
 
 *What checks are performed by the AD Assessment solution?*
 

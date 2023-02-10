@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using PowerShell'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
 services: healthcare-apis
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
-ms.author: zxue 
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -89,3 +89,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

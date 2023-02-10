@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: vicancy
   ms.author: lianwei
-  ms.date: 03/11/2020
+  ms.date: 05/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -22,6 +22,16 @@ landingContent:
         links:
           - text: What is Azure SignalR Service?
             url: signalr-overview.md
+      - linkListType: concept
+        links:
+          - text: Service mode
+            url: concept-service-mode.md
+          - text: Messages and connections
+            url: signalr-concept-messages-and-connections.md
+          - text: Service internals
+            url: signalr-concept-internals.md
+          - text: Azure SignalR service FAQ
+            url: signalr-resource-faq.yml
 
   # Card
   - title: Get started
@@ -40,10 +50,12 @@ landingContent:
             url: signalr-quickstart-azure-functions-java.md
           - text: Azure Functions - Python
             url: signalr-quickstart-azure-functions-python.md
+          - text: Broadcast real-time messages from console app
+            url: signalr-quickstart-rest-api.md
+      - linkListType: deploy
+        links:
           - text: Azure SignalR Service deployment - ARM template
             url: signalr-quickstart-azure-signalr-service-arm-template.md
-          - text: REST API
-            url: signalr-quickstart-rest-api.md            
 
   # Card
   - title: Build Azure SignalR Service apps
@@ -54,9 +66,85 @@ landingContent:
             url: signalr-concept-authenticate-oauth.md
           - text: Build a Serverless Real-time App with Authentication
             url: signalr-tutorial-authenticate-azure-functions.md
+          - text: Build a Blazor server chat app
+            url: signalr-tutorial-build-blazor-server-chat-app.md
       - linkListType: sample
         links:
           - text: Azure SignalR Code Samples
             url: https://github.com/aspnet/AzureSignalR-samples
+  
+  # Card
+  - title: High availability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Performance consideration
+            url: signalr-concept-performance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Resiliency and disaster recovery
+            url: signalr-concept-disaster-recovery.md
+          - text: Autoscale
+            url: signalr-howto-scale-autoscale.md
+          - text: Server graceful shutdown
+            url: server-graceful-shutdown.md
+          - text: Availability Zones
+            url: availability-zones.md
+
+  # Card
+  - title: Serverless
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Serverless scenarios
+            url: signalr-concept-azure-functions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop and configure with Azure Functions
+            url: signalr-concept-serverless-development-config.md
+          - text: Upstream endpoints
+            url: concept-upstream.md
+      - linkListType: reference
+        links:
+          - text: Azure Functions bindings
+            url: ../azure-functions/functions-bindings-signalr-service.md
+
+  # Card
+  - title: Common tasks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Metrics
+            url: concept-metrics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use private endpoints
+            url: howto-private-endpoints.md
+          - text: Manage network acess
+            url: howto-network-access-control.md
+          - text: Custom domain
+            url: howto-custom-domain.md
+          - text: Managed identites
+            url: howto-use-managed-identity.md
+          - text: Availability Zones
+            url: availability-zones.md
+
+  # Card
+  - title: More resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Choose between Azure SignalR service and Azure Web PubSub service
+            url: signalr-resource-faq.yml#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service-
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting guide
+            url: signalr-howto-troubleshoot-guide.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/signalr/
           - text: Azure CLI
-            url: signalr-reference-cli.md
+            url: /cli/azure/signalr?view=azure-cli-latest
+          - text: ASP.NET Core SignalR
+            url: /aspnet/core/signalr/introduction

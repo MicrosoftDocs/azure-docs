@@ -13,16 +13,9 @@ services: iot-edge
 
 # Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
->[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
-:::moniker-end
-<!-- end 1.2 -->
 
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
@@ -50,10 +43,10 @@ The tasks are as follows:
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 > [!NOTE]
 > TPM 2.0 is required when you use TPM attestation with the device provisioning service.
@@ -61,7 +54,7 @@ The tasks are as follows:
 > You can only create individual, not group, device provisioning service enrollments when you use a TPM.
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](includes/iot-edge-install-linux-on-windows.md)]
 
 There are some steps to prepare your device for provisioning with TPM. Leave your deployment open while you prepare your device. You'll return to your deployment later in the article.
 
@@ -127,11 +120,6 @@ Simulated TPM samples:
 
 ## Provision the device with its cloud identity
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-# [PowerShell](#tab/powershell)
-
 1. Open an elevated PowerShell session on the Windows device.
 
 1. Provision your device by using the **Scope ID** that you collected from your instance of the device provisioning service.
@@ -139,36 +127,12 @@ Simulated TPM samples:
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. On the **Connect** step, provision your device.
-
-   1. Select the **DpsTpm** provisioning method.
-   1. Provide the **Scope ID** that you retrieve from your instance of the device provisioning service.
-
-      ![Screenshot that shows provisioning your device with the device provisioning service and TPM attestation.](./media/how-to-auto-provision-tpm-linux-on-windows/tpm-provision.png)
-
-1. Select **Provisioning with the selected method**.
-
-1. After IoT Edge has successfully been installed and provisioned on your device, select **Finish** to exit the deployment wizard.
-
----
-
-:::moniker-end
-<!-- end 1.1 -->
-
-:::moniker range=">=iotedge-2020-11"
-
-1. Open an elevated PowerShell session on the Windows device.
-
-1. Provision your device by using the **Scope ID** that you collected from your instance of the device provisioning service.
-
+   
+   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
+   
    ```powershell
-   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
    ```
-
-:::moniker-end
 
 ## Verify successful installation
 
@@ -178,58 +142,6 @@ If the runtime started successfully, you can go into your IoT hub and start depl
 
 You can verify that the individual enrollment that you created in the device provisioning service was used. Go to your device provisioning service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-# [PowerShell](#tab/powershell)
-
-Use the following commands on your device to verify that the IoT Edge installed and started successfully.
-
-1. Connect to your IoT Edge for Linux on Windows VM by using the following command in your PowerShell session:
-
-   ```powershell
-   Connect-EflowVm
-   ```
-
-   >[!NOTE]
-   >The only account allowed to SSH to the VM is the user who created it.
-
-1. After you're signed in, you can check the list of running IoT Edge modules by using the following Linux command:
-
-   ```bash
-   sudo iotedge list
-   ```
-
-1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
-
-    1. If you need to troubleshoot the service, retrieve the service logs.
-
-       ```bash
-       sudo journalctl -u iotedge
-       ```
-
-    2. Use the `check` tool to verify configuration and connection status of the device.
-
-       ```bash
-       sudo iotedge check
-       ```
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
-
-1. The device overview page displays some information about the device:
-
-   * The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any other modules that you deploy to your device.
-   * The **IoT Edge Status** section shows the service status and should be reporting **active (running)**.
-
----
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
 
@@ -262,11 +174,18 @@ Use the following commands on your device to verify that the IoT Edge installed 
        sudo iotedge check
        ```
 
-:::moniker-end
-<!-- end 1.2 -->
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

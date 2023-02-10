@@ -6,7 +6,7 @@ ms.date: 03/28/2022
 ms.author: larryfr
 ---
 
-* If your Azure Machine Learning workspace uses a private endpoint to communicate with a virtual network, you must enable public network access. Enabling public network access allows you to access the workspace over the internet, while keeping communications between the workspace and resources in the virtual network secure.
+* If your Azure Machine Learning workspace uses a private endpoint to communicate with a virtual network and you want to use the CLI v2, you must enable public network access. Enabling public network access allows you to access the workspace over the internet, while keeping communications between the workspace and resources in the virtual network secure.
 
     Public network access can be enabled using one of the following methods:
 

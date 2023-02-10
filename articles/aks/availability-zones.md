@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 12/10/2021
+ms.date: 03/31/2022
 
 ---
 
@@ -22,30 +22,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 ## Limitations and region availability
 
-AKS clusters can currently be created using availability zones in the following regions:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Central India
-* Central US
-* East Asia
-* East US 
-* East US 2
-* France Central
-* Germany West Central
-* Japan East
-* Korea Central
-* North Europe
-* Norway East
-* Southeast Asia
-* South Central US
-* Sweden Central
-* UK South
-* US Gov Virginia
-* West Europe
-* West US 2
-* West US 3
+AKS clusters can be created using availability zones in any Azure region that has availability zones.
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
@@ -204,7 +181,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-overview]: ../availability-zones/az-overview.md
+[az-overview]: ../reliability/availability-zones-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

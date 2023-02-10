@@ -1,18 +1,16 @@
 ---
 title: 'Quickstart: Create an Azure Data Catalog'
 description: This quickstart describes how to create an Azure Data Catalog using the Azure portal.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 02/25/2022
+ms.date: 12/07/2022
 ms.custom: mode-ui
 #Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
 # Quickstart: Create an Azure Data Catalog via the Azure portal
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
 

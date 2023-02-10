@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 04/15/2022
 ms.author: franlanglois
 
 ---
@@ -78,7 +78,16 @@ While you can connect from outside of Azure, it isn't recommended *especially wh
 
 ## Rely on hostname not public IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
+The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address. Here are the recommended forms for the various tiers:
+
+|Tier | Form |
+|----|----|
+| Basic, Standard, Premium | `<cachename>.redis.cache.windows.net` |
+| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net.`  |
+
+## Choose an appropriate Redis version
+
+The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## Use TLS encryption
 
@@ -138,17 +147,9 @@ If your application validates certificate in code, you need to modify it to reco
 
 ## Client library-specific guidance
 
-- [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
-- [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
-- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
-- [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-- [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
 
 ## Next steps
 
-- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)

@@ -5,9 +5,9 @@ description: Ensure that your organization's administrative access and administr
 services: active-directory 
 keywords: 
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.author: rolyon
-ms.date: 11/04/2021
+ms.date: 04/19/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
@@ -110,7 +110,7 @@ Evaluate the accounts that are assigned or eligible for the Global Administrator
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated administrator accounts
 
-Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your administrator accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guidance at [Enforce multifactor authentication on your administrators](../authentication/how-to-authentication-find-coverage-gaps.md#enforce-multifactor-authentication-on-your-administrators) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect user and device access in Microsoft 365](/microsoft-365/compliance/protect-access-to-data-and-services). 
 
 ## Stage 2: Mitigate frequently used attacks
 
@@ -252,7 +252,7 @@ Attackers might try to target privileged accounts so that they can disrupt the i
 * Impersonation attacks
 * Credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket
 
-By deploying privileged access workstations, you can reduce the risk that administrators enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
+By deploying privileged access workstations, you can reduce the risk that administrators enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](/security/compass/overview).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents
 

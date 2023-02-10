@@ -7,8 +7,8 @@ manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample
 ms.service: azure-cdn
-ms.devlang: azurecli 
-ms.custom: devx-track-azurecli
+ms.devlang: azurecli
+ms.tool: azure-cli
 ---
 
 # Create an Azure CDN profile and endpoint using the Azure CLI
@@ -21,7 +21,7 @@ As an alternative to the Azure portal, you can use these sample Azure CLI script
 - Create a CDN origin.
 - Create a custom domain and enable HTTPS.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample scripts
 

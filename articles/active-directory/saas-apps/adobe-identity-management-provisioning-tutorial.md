@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/30/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -79,6 +79,9 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 ## Step 5. Configure automatic user provisioning to Adobe Identity Management 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+
+> [!VIDEO https://www.youtube.com/embed/k2_fk7BY8Ow]
+
 
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
 

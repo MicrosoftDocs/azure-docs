@@ -32,7 +32,7 @@ The Content Moderator's video moderation capability is available as a free publi
 
 ### Create an Azure Media Services account
 
-Follow the instructions in [Create an Azure Media Services account](/media-services/previous/media-services-portal-create-account) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
+Follow the instructions in [Create an Azure Media Services account](/azure/media-services/previous/media-services-portal-create-account) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
 
 ### Create an Azure Active Directory application
 
@@ -42,7 +42,7 @@ In the **Azure AD app** section, select **Create New** and name your new Azure A
 
 Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Click **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
 
-For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](/media-services/previous/media-services-portal-get-started-with-aad).
+For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](/azure/media-services/previous/media-services-portal-get-started-with-aad).
 
 Once you've done this, you can use the video moderation media processor in two different ways.
 
@@ -117,6 +117,9 @@ private const string OUTPUT_FOLDER = "";
 private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
+
+> [!IMPORTANT]
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 If you wish to use a local video file (simplest case), add it to the project and enter its path as the `INPUT_FILE` value (relative paths are relative to the execution directory).
 

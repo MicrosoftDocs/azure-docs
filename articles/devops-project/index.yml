@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: DevOps Starter documentation to deploy to Azure
-summary: DevOps Starter presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline or workflow to Azure. DevOps Starter now supports creating GitHub actions workflows.
+summary: DevOps Starter presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline or workflow to Azure. DevOps Starter now supports creating GitHub Actions workflows.
 
 metadata:
   title: DevOps Starter documentation
@@ -22,6 +22,10 @@ landingContent:
         links:
           - text: What is DevOps Starter?
             url: overview.md
+      - linkListType: overview
+        links:
+          - text: Retirement and Migration
+            url: retirement-and-migration.md
       - linkListType: video
         links:
           - text: Create CI/CD with the DevOps Starter using Azure DevOps (8:53)
@@ -32,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Node.js using GitHub actions
+          - text: Node.js using GitHub Actions
             url: ./devops-starter-gh-nodejs.md
           - text: .NET
             url: ./azure-devops-project-aspnet-core.md
@@ -54,7 +58,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy your app to Azure Web App using GitHub actions
+          - text: Deploy your app to Azure Web App using GitHub Actions
             url: devops-starter-gh-web-app.md
           - text: Bring your own code with GitHub
             url: azure-devops-project-vms.md

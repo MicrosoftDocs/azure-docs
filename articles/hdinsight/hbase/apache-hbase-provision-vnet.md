@@ -4,7 +4,7 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/23/2019
+ms.date: 09/15/2022
 ---
 
 # Create Apache HBase clusters on HDInsight in Azure Virtual Network

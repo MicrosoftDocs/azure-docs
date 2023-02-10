@@ -5,16 +5,17 @@ author: alkohli
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/19/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Provision in VMware
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![Diagram showing the steps needed to deploy a virtual array. The second part of the second step is labeled Provision on VMware and is highlighted.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## Overview
-
-[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, 6.0 or 6.5. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and the Microsoft Azure Government Cloud.
 

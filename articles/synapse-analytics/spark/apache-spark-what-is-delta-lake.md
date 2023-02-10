@@ -7,15 +7,15 @@ ms.author: jovanpop
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 02/15/2022
+ms.date: 12/06/2022
 ms.reviewer: euang
 ---
 
 # What is Delta Lake
 
-Azure Synapse Analytics is compatible with Linux Foundation Delta Lake. Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
+Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
 
-The current version of Delta Lake included with Azure Synapse has language support for Scala, PySpark, and .NET. There are links at the bottom of the page to more detailed examples and documentation.
+The current version of Delta Lake included with Azure Synapse has language support for Scala, PySpark, and .NET and is compatible with Linux Foundation Delta Lake. There are links at the bottom of the page to more detailed examples and documentation. You can learn more from the [Introduction to Delta Tables video](https://www.youtube.com/watch?v=B_wyRXlLKok).
 
 ## Key features
 

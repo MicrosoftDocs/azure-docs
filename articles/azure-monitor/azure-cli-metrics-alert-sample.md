@@ -4,7 +4,7 @@ description: Learn how to create metric alerts in Azure Monitor with Azure CLI c
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 08/06/2021
+ms.date: 04/05/2022
 ms.custom: devx-track-azurecli
 
 ---
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 These samples create metric alert monitors in Azure Monitor by using Azure CLI commands. The first sample creates an alert for a virtual machine. The second command creates an alert that includes a dimension for an App Service Plan.  
 
-[!INCLUDE [Prepare your Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create an alert
 

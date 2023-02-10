@@ -32,7 +32,7 @@ To complete this tutorial, you'll need:
 
 - [Git](https://git-scm.com/)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create Azure resources
 
@@ -74,7 +74,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md?tabs=cli#create-diagnostic-settings) for more information on this command.
 >
 
 ```azurecli
@@ -95,7 +95,7 @@ Browse to `http://<app-name>.azurewebsites.net`.
 
 The sample app, ImageConverter, converts included images from `JPG` to `PNG`. A bug has been deliberately placed in the code for this tutorial. If you select enough images, the the app produces a HTTP 500 error during image conversion. Imagine this scenario wasn't considered during the development phase. You'll use Azure Monitor to troubleshoot the error.
 
-### Verify the app is works
+### Verify the app works
 
 To convert images, click `Tools` and select `Convert to PNG`.
 

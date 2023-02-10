@@ -4,16 +4,19 @@ description: Learn how to get the latest restorable timestamp for accounts enabl
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.date: 11/18/2021
+ms.subservice: nosql
+ms.custom: ignite-2022
+ms.date: 04/08/2022
 ms.topic: how-to
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Get the latest restorable timestamp for continuous backup accounts
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and response format for the PowerShell and CLI commands.
+This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time using Azure PowerShell and Azure CLI, and provides the request and response format for the PowerShell and CLI commands. 
+
+This feature is supported for Azure Cosmos DB API for NoSQL containers and Azure Cosmos DB API for MongoDB collections. This feature is in preview for API for Table tables and API for Gremlin graphs. 
 
 ## SQL container
 
@@ -38,7 +41,7 @@ Get-AzCosmosDBSqlContainerBackupInformation -ResourceGroupName "rg" `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -66,7 +69,7 @@ az cosmosdb sql retrieve-latest-backup-time -g "rg" \
   -l "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 {
@@ -156,7 +159,7 @@ Get-LatestRestorableTimestampForSqlDatabase `
   -Location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying containers
@@ -248,7 +251,7 @@ Get-LatestRestorableTimestampForSqlAccount `
   -location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying containers
@@ -280,7 +283,7 @@ Get-AzCosmosDBMongoDBCollectionBackupInformation `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -396,7 +399,7 @@ Import-Module .\LatestRestorableTimestampForMongoDBDatabase.ps1
 Get-LatestRestorableTimestampForMongoDBDatabase -ResourceGroupName rg -accountName mongopitracc -databaseName db1 -location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying collections
@@ -487,17 +490,143 @@ Get-LatestRestorableTimestampForMongoDBAccount `
   -Location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying collections
 Wednesday, November 3, 2021 8:33:49 PM
 ```
 
+## Gremlin graph backup information
+
+### PowerShell
+
+```powershell
+Get-AzCosmosDBGremlinGraphBackupInformation  `
+  -AccountName <System.String> `
+  -GremlinDatabaseName  <System.String> `
+  [-DefaultProfile <Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer>] `
+  -Location <System.String> `
+  -Name <System.String> `
+  -ResourceGroupName <System.String> [<CommonParameters>]
+```
+
+**Sample request:**
+
+```powershell
+Get-AzCosmosDBGremlinGraphBackupInformation  `
+  -ResourceGroupName "rg" `
+  -AccountName "amisigremlinpitracc1" `
+  -GremlinDatabaseName  "db1" `
+  -Name "graph1" `
+  -Location "eastus"
+```
+
+**Sample response (in UTC format):**
+
+```console
+LatestRestorableTimestamp
+-------------------------
+3/1/2022 2:19:14 AM 
+```
+
+### CLI
+
+```azurecli
+az cosmosdb gremlin retrieve-latest-backup-time \
+  -g {resourcegroup} \
+  -a {accountname} \
+  -d {db_name} \
+  -c {graph_name} \
+  -l {location}
+```
+
+**Sample request:**
+
+```azurecli
+az cosmosdb gremlin retrieve-latest-backup-time \
+  -g "rg" \
+  -a "amisigremlinpitracc1" \
+  -d "db1" \
+  -c "graph1" \
+  -l "eastus"
+```
+
+**Sample response:**
+
+```console
+{
+  "continuousBackupInformation": {
+    "latestRestorableTimestamp": "3/2/2022 5:31:13 AM"
+  }
+}
+```
+
+## Table backup information
+
+### PowerShell
+
+```powershell
+Get-AzCosmosDBTableBackupInformation   `
+  -AccountName <System.String> `
+  [-DefaultProfile <Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer>] `
+  -Location <System.String> `
+  -Name <System.String> `
+  -ResourceGroupName <System.String> [<CommonParameters>]
+```
+
+**Sample request:**
+
+```powershell
+Get-AzCosmosDBTableBackupInformation   `
+  -ResourceGroupName "rg" `
+  -AccountName "amisitablepitracc1" `
+  -Name "table1" `
+  -Location "eastus"
+```
+
+**Sample response (in UTC format):**
+
+```console
+LatestRestorableTimestamp
+-------------------------
+3/2/2022 2:19:15 AM 
+```
+
+### CLI
+
+```azurecli
+az cosmosdb table retrieve-latest-backup-time \
+  -g {resourcegroup} \
+  -a {accountname} \
+  -c {table_name} \
+  -l {location}
+```
+
+**Sample request:**
+
+```azurecli
+az cosmosdb table retrieve-latest-backup-time \
+  -g "rg" \
+  -a "amisitablepitracc1" \
+  -c "table1" \
+  -l "eastus"
+```
+
+**Sample response:**
+
+```console
+{
+  "continuousBackupInformation": {
+    "latestRestorableTimestamp": "3/2/2022 5:33:47 AM"
+  }
+}
+```
+
 ## Next steps
 
-* [Introduction to continuous backup mode with point-in-time restore.](continuous-backup-restore-introduction.md)
+* [Introduction to continuous backup mode with point-in-time restore](continuous-backup-restore-introduction.md)
 
-* [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
+* [Continuous backup mode resource model](continuous-backup-restore-resource-model.md)
 
 * [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal.

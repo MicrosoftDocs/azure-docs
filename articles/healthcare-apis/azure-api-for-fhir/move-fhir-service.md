@@ -1,12 +1,12 @@
 ---
 title: Move Azure API for FHIR instance to a different subscription or resource group
 description: This article describes how to move Azure an API for FHIR instance  
-author: zxue
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Move Azure API for FHIR to a different subscription or resource group
@@ -55,4 +55,6 @@ In this article, you've learned how to move the Azure API for FHIR instance. For
 
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

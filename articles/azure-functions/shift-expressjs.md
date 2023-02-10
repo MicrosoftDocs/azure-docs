@@ -1,10 +1,8 @@
 ---
 title: Shifting from Express.js to Azure Functions
 description: Learn to refactor Express.js endpoints to Azure Functions.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.author: cshoe
 ms.devlang: javascript
 ---
 
@@ -23,7 +21,7 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 - **Configuration and conventions**: A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). By default, the folder name that which contains the function files defines the endpoint name, but you can change the name via the `route` property in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
 
 > [!TIP]
-> Learn more through the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/).
+> Learn more through the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/training/modules/shift-nodejs-express-apis-serverless/).
 
 ## Example
 
@@ -134,4 +132,4 @@ By defining `get` in the `methods` array, the function is available to HTTP `GET
 
 ## Next steps
 
-- Learn more with the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/)
+- Learn more with the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/training/modules/shift-nodejs-express-apis-serverless/)

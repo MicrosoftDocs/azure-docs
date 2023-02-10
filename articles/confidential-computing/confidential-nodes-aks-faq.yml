@@ -3,10 +3,9 @@ metadata:
   title: Frequently asked questions for confidential nodes support on Azure Kubernetes Service (AKS)
   description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) nodes support.
   author: agowdamsft
-  ms.service: container-service
-  ms.subservice: confidential-computing
+  ms.service: confidential-computing
   ms.topic: faq
-  ms.date: 06/30/2021
+  ms.date: 05/10/2022
   ms.author: amgowda
 title: Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
 summary: |
@@ -20,11 +19,11 @@ sections:
             Yes, for Intel SGX enclave nodes.
       - question: Can I enable Accelerated Networking with Azure confidential computing AKS Clusters?
         answer: |
-          No. Accelerated Networking is not supported on DCSv2 Virtual machines that makeup confidential computing nodes on AKS.
+          Yes, DCSv3 VM nodes support accelerated networking. DCSv2 Virtual machines do not.
 
       - question: What version of Intel SGX Driver version is on the AKS Image for confidential nodes?  
         answer: |
-          Currently, Azure confidential computing DCSv2 VMs are installed with Intel SGX DCAP 1.33. 
+          Currently, Azure confidential computing DCSv2/DCSv3 VMs are installed with Intel SGX DCAP 1.33.2
 
       - question: Can I inject post install scripts/customize drivers to the Nodes provisioned by AKS?
         answer: |
@@ -48,8 +47,7 @@ sections:
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
           Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).
-          
-       
+                 
       - question: What Ubuntu version and VM generation is supported? 
         answer: |
           18.04 on Gen 2. 
@@ -66,10 +64,6 @@ sections:
         answer: |
           Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).
           
-   
-      - question: What Ubuntu version and VM generation is supported?
-        answer: |
-          18.04 on Gen 2. 
           
   
   - name: Development & Deploy

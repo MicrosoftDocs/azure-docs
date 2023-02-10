@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to view and manage jobs (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 The **Jobs** blade provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Device Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format.

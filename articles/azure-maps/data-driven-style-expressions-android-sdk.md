@@ -207,7 +207,7 @@ This video provides an overview of data-driven styling in Azure Maps.
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 ## Data expressions
 
@@ -930,7 +930,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 The `interpolate` expression has the following formats:
 

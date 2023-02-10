@@ -2,14 +2,14 @@
 title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
-author: asudbring
+author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2021
-ms.author: allensu
+ms.author: greglin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
@@ -24,7 +24,7 @@ In this quickstart, you'll create two instances of a web application. Each of th
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -156,7 +156,7 @@ Make note of ID displayed in output and use in the following command to add the 
 ```azurecli-interactive
 
 az network traffic-manager endpoint create \
-    --name <app1name_westeurope> \
+    --name <app2name_westeurope> \
     --resource-group myResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \

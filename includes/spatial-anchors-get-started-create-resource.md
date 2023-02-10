@@ -7,8 +7,6 @@ ms.author: pamistel
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-## Create a Spatial Anchors resource
-
 ### [Portal](#tab/azure-portal)
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
@@ -56,7 +54,7 @@ Under **Settings**, select **Access Key**. Copy the **Primary key** value, **Acc
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. After you sign in, use the [az account set](/cli/azure/account#az-account-set) command to select the subscription in which to set up the spatial anchors account:
 

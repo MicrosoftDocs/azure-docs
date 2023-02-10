@@ -1,21 +1,20 @@
 ---
-title: Introduction to resource troubleshooting
+title: Introduction to VPN troubleshoot
 titleSuffix: Azure Network Watcher
-description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
+description: This page provides an overview of Azure Network Watcher VPN troubleshoot capability.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 06/19/2017
-ms.author: damendo
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/31/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
-# Introduction to resource troubleshooting in Azure Network Watcher
+# Introduction to virtual network gateway troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
+Virtual network gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
 ![Screenshot shows Network Watcher V P N Diagnostics.][2]
 
@@ -98,7 +97,7 @@ The resource troubleshooting log files are stored in a storage account after res
 
 > [!NOTE]
 > 1. In some cases, only a subset of the logs files is written to storage.
-> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by a IkeLogs.txt file that contains the whole IKE activity (not just errors).
+> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
@@ -228,5 +227,5 @@ Elapsed Time            330 sec
 To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
-[1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[1]: ./media/network-watcher-troubleshoot-overview/gateway-tenant-worker-logs-new.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png

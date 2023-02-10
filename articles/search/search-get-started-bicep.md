@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy using Bicep'
 titleSuffix: Azure Cognitive Search
 description: You can quickly deploy an Azure Cognitive Search service instance using Bicep.
-author: schaffererin
-ms.author: v-eschaffer
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 03/18/2022
+ms.date: 05/16/2022
 ---
 
 # Quickstart: Deploy Cognitive Search using Bicep
@@ -15,6 +15,8 @@ ms.date: 03/18/2022
 This article walks you through the process for using a Bicep file to deploy an Azure Cognitive Search resource in the Azure portal.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can update the service as a post-deployment task. To customize an existing service with the fewest steps, use [Azure CLI](search-manage-azure-cli.md) or [Azure PowerShell](search-manage-powershell.md). If you're evaluating preview features, use the [Management REST API](search-manage-rest.md).
 
 ## Prerequisites
 

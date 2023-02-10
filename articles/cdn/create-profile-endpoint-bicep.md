@@ -3,13 +3,13 @@ title: 'Quickstart: Create a profile and endpoint - Bicep'
 titleSuffix: Azure Content Delivery Network
 description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint by using a Bicep file
 services: cdn
-author: schaffererin
+author: duongau
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 03/14/2022
-ms.author: v-eschaffer
+ms.author: duau
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint - Bicep
@@ -83,9 +83,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-### Azure CLI
-
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the VM and all of the resources in the resource group.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 

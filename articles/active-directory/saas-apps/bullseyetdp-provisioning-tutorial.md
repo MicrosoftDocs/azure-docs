@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/03/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -102,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |userName|String|&check;|&check;
    |externalId|String|&check;|&check;
    |userType|String||&check;
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference||
    |active|Boolean||
    |title|String||&check;
    |emails[type eq "work"].value|String||&check;  

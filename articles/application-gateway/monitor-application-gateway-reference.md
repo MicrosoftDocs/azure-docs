@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Application Gateway data reference  
 description: Important reference material needed when you monitor Application Gateway 
-author: vhorne
-ms.author: victorh
+author: greg-lindsay
+ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
@@ -111,7 +111,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+<!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 Azure Application Gateway supports dimensions for some of the metrics in Azure Monitor. Each metric includes a description that explains the available dimensions specifically for that metric.
 
@@ -128,7 +128,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
 
-For more information, see [Back-end health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
+For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
 
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
@@ -143,7 +143,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 |:---------|:-------------|------------------|
 | **Activitylog**   | Activity log | Activity log entries are collected by default. You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. |
 |**ApplicationGatewayAccessLog**|Access log| You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP address, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.|
-| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.|
+| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.|
 |**ApplicationGatewayFirewallLog**|Firewall log|You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.|
 
 
@@ -153,7 +153,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Application Gateway and available for query by Log Analytics. 
 
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->

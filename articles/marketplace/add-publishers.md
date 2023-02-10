@@ -4,8 +4,8 @@ description: How to add new publishers to the commercial marketplace program for
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.custom: contperf-fy21q2
 ms.date: 01/20/2022
 ---
@@ -19,8 +19,8 @@ ms.date: 01/20/2022
 
 An organization can have multiple publishers associated with a commercial marketplace account. A user who is part of an existing publisher account can add publishers.
 
->[!NOTE]
->Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-menu, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
+> [!NOTE]
+> Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-menu, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
 
 ## Add new publishers
 
@@ -28,10 +28,10 @@ An organization can have multiple publishers associated with a commercial market
 1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 1. Under **Organization Profile**, select **Identifiers**.
 1. In the **Publisher** section, select **Add publisher**.
-1. Choose the MPN ID that you want to associate with the publisher.
+1. Choose the PartnerID (formerly MPN ID) that you want to associate with the publisher.
 1. Update the **Publisher details** on the form.
 
-    - **Publisher location**: Select the MPN ID you want to use for this new user.
+    - **Publisher location**: Select the PartnerID you want to use for this new user.
     - **Publisher name**: The name that's displayed in the commercial marketplace with the offer.  
     - **PublisherID**: An identifier that's used by Partner Center to uniquely identify the publisher. The default value for this field maps to an existing and unique Publisher ID in the system. Because the Publisher ID can't be reused, this field needs to be updated.  
     - **Contact information**: Update the contact information when necessary.

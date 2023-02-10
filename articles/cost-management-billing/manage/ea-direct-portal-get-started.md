@@ -1,26 +1,33 @@
 ---
-title: Get started with the Azure portal for direct Enterprise Agreement customers
-description: This article explains how Azure direct Enterprise Agreement (Azure EA) customers use the Azure portal.
+title: Get started with your Enterprise Agreement billing account
+description: This article explains how Azure Enterprise Agreement (Azure EA) customers can use the Azure portal to manage their billing.
 author: bandersmsft
 ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 12/16/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
 
-# Get started with the Azure portal for direct Enterprise Agreement customers
+# Get started with your Enterprise Agreement billing account
 
-This article helps direct Azure Enterprise Agreement (Azure EA) customers start to use the [Azure portal](https://portal.azure.com). Get basic information about:
+This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers with their billing administration on the [Azure portal](https://portal.azure.com). Get basic information about:
 
-- Roles used to manage the Enterprise billing account in the Azure portal.
-- Subscription creation.
-- Cost analysis in the Azure portal.
+- Roles used to manage the Enterprise billing account in the Azure portal
+- Subscription creation
+- Cost analysis in the Azure portal
 
-We have several videos that walk you through getting started with the Azure portal for direct Enterprise Agreements. Check out the series at [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
+
+We have several videos that walk you through getting started with the Azure portal for Enterprise Agreements. Check out the series at [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
 
 Here's the first video.
 
@@ -40,7 +47,7 @@ Each role has a varying degree of user limits and permissions. For more informat
 
 ## Activate your enrollment, create a subscription, and other administrative tasks
 
-For more information about activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure direct EA administration](direct-ea-administration.md).
+For more information about activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA billing administration](direct-ea-administration.md).
 
 If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](ea-transfers.md).
 
@@ -60,7 +67,7 @@ To view a usage summary, price sheet, and download reports, see [Review usage ch
 
 ## View and download invoice
 
-You view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of an enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
+As a direct EA customer, you can view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of a direct EA enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
 
 ## View Microsoft Azure Consumption Commitment (MACC)
 
@@ -81,6 +88,6 @@ For explanations about the common tasks that a partner EA administrator accompli
 
 ## Next steps
 
-- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about getting started with the EA portal.
-- Azure direct Enterprise administrators should read [Azure direct EA administration](direct-ea-administration.md) to learn about common administrative tasks.
+- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about getting started with the EA billing administration.
+- Azure Enterprise administrators should read [Azure EA billing administration](direct-ea-administration.md) to learn about common administrative tasks.
 - If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](ea-portal-troubleshoot.md).

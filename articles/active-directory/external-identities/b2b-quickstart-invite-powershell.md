@@ -2,8 +2,8 @@
 title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user. You'll use the Microsoft Graph Identity Sign-ins and the Microsoft Graph Users PowerShell modules.
 services: active-directory
-author: msmimart
-ms.author: mimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.date: 02/16/2022
 ms.topic: quickstart
@@ -23,7 +23,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 ### PowerShell Module
-Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta) (Microsoft.Graph.Users).
+Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Users).
 
 ### Get a test email account
 
