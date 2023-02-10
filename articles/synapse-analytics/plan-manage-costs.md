@@ -7,8 +7,7 @@ ms.service: synapse-analytics
 ms.subservice: overview
 ms.author: guyhay
 author: guyhay
-ms.reviewer: jasonh
-ms.date: 08/15/2022
+ms.date: 02/09/2023
 ---
 
 
