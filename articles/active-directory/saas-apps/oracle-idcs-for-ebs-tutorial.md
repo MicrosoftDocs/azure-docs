@@ -64,10 +64,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     a. In the **Identifier** textbox, type a URL using the following pattern: ` https://<SUBDOMAIN>.oraclecloud.com/`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.oraclecloud.com/v1/saml/<UNIQUEID>>`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.oraclecloud.com/v1/saml/<UNIQUEID>`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
     ` https://<SUBDOMAIN>.oraclecloud.com/`
+    
+    >[!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle IDCS for E-Business Suite support team](https://www.oracle.com/support/advanced-customer-services/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your Oracle IDCS for E-Business Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Oracle IDCS for E-Business Suite expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -79,11 +82,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Oracle IDCS for E-Business Suite SSO
 
-To configure single sign-on on Oracle IDCS for E-Business Suite side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle IDCS for E-Business Suite support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Oracle IDCS for E-Business Suite side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle IDCS for E-Business Suite support team](https://www.oracle.com/support/advanced-customer-services/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Oracle IDCS for E-Business Suite test user
 
-In this section, you create a user called Britta Simon at Oracle IDCS for E-Business Suite. Work with [Oracle IDCS for E-Business Suite support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to add the users in the Oracle IDCS for E-Business Suite platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Oracle IDCS for E-Business Suite. Work with [Oracle IDCS for E-Business Suite support team](https://www.oracle.com/support/advanced-customer-services/) to add the users in the Oracle IDCS for E-Business Suite platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
