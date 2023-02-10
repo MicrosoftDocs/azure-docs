@@ -59,10 +59,10 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. a. In the **Identifier** textbox, type a URL using the following pattern:
+	a. In the **Identifier** textbox, type a URL using the following pattern:
 	`https://<SUBDOMAIN>.beable.com` 
 
-	b. b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	`https://prod-literacy-backend-alb-12049610218161332941.beable.com/login/ssoVerification/?providerId=1466658d-11ae-11ed-b1a0-b9e58c7ef6cc&identifier=<DOMAIN>`
 
 	> [!Note]
