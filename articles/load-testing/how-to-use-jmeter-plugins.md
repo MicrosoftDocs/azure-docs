@@ -64,9 +64,22 @@ Follow these steps to upload a JAR file by using the Azure portal:
 
 1. Select the **Test plan** tab.
 
+1. Create a Java project on your computer on vscode/eclipse or any other IDE. For sample we have used the below class with some general functions
+![image](https://user-images.githubusercontent.com/7430218/218116730-e2f9a764-73a3-4274-a448-58146666915a.png)
+Now Create Jar If you are using Maven, go to the Java project location and open cmd and type command **mvn clean compile assembly:single** 
+your Jar will be create in target folder.
+
+1. Now import this Jar in JMeter Test Suite.
+![image](https://user-images.githubusercontent.com/7430218/218119392-0b228ecc-7407-44da-8f4b-97980816534c.png)
+**Note** - Avoid using the complete path in library Since this is going to be used in Azure load test it will simply need the name of the Jar file.
+
+1. Use JSR223 or Beanshell Sample for calling the class function we had created in our Java projects.
+![image](https://user-images.githubusercontent.com/7430218/218118267-1af180d1-62ba-4b1f-808f-fa71c2c598d7.png)
+
 1. Select the JAR file from your computer, and then select **Upload** to upload the file to Azure.
 
     :::image type="content" source="media/how-to-use-jmeter-plugins/edit-test-upload-jar.png" alt-text="Screenshot that shows the steps to upload a J A R file in the 'Test plan' tab on the 'Edit test' pane.":::
+
 
 1. Select **Apply** to modify the test, or select **Review + create** to create the test.
 
