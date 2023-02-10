@@ -342,7 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
-- **Alpha APIs and components**: [Dapr alpha APIs and components][dapr-supported-specs] are available to use on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
+- **Alpha APIs and components**: Dapr alpha APIs and components are available to use on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
 
 ### Known limitations
 
@@ -374,4 +374,3 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
-[dapr-supported-specs]: https://docs.dapr.io/reference/components-reference/
