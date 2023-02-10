@@ -690,10 +690,6 @@ items:
         href: app/opentelemetry-overview.md
       - name: Enable OpenTelemetry (.NET, Node.js, Python and Java)
         href: app/opentelemetry-enable.md
-      - name: JavaScript
-        items:
-        - name: Browser
-          href: app/javascript.md
       - name: Java
         items:
         - name: Spring Boot
