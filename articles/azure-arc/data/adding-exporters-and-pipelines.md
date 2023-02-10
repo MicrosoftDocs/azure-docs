@@ -69,7 +69,7 @@ The following properties are currently configurable during the Public Preview:
 
 ### Pipelines
 
-The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  All exporters within pipeline must be prefixed with the type of exporter being used. For example, `elasticsearch/mylogs`
+The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.
 
 #### Pipeline Settings
 
@@ -124,7 +124,7 @@ You can test creating a Kafka exporter for a metrics pipeline that can send metr
 2. Declare the new Exporter in the `exporters` section with the needed settings - name, certificates, broker, and index. Be sure to list the new exporter under the applicable type ("kakfa:")
 3. List your exporter in the `pipelines` section of the spec as a metrics pipelines. The exporter name needs to be prefixed with the type of exporter. For example, `kafka/myMetrics`
 
-In this example, we've added a metrics pipeline (`kafka/myMetrics`) that routes to your instance of Kafka.
+In this example, we've added a metrics pipeline called "metrics" with a single exporter (`kafka/myMetrics`) that routes to your instance of Kafka.
 
 **arc-telemetry-router.yaml**
 
@@ -179,7 +179,7 @@ Your telemetry router deployment can export to multiple destinations by configur
 2. Declare the new Exporter beneath the `exporters` section with the needed settings - name, certificates, endpoint, and index. Be sure to list the new exporter under the applicable type ("Elasticsearch:").
 3. List your exporter in the `pipelines` section of the spec as a logs pipelines. The exporter name needs to be prefixed with the type of exporter. For example, `elasticsearch/myLogs`
 
-This example builds on the previous example by adding an Elasticsearch exporter to a logs pipeline (`elasticsearch/myLogs`). At the end of the example, we have two exporters with each exporter added to a different pipeline.
+This example builds on the previous example by adding a logs pipeline for an Elasticsearch exporter (`elasticsearch/myLogs`). At the end of the example, we have two exporters with each exporter added to a different pipeline.
 
 **arc-telemetry-router.yaml**
 
