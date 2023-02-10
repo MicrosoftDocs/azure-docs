@@ -48,7 +48,7 @@ When you configure backup for a storage account and assign a backup policy with 
 
 - **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that is max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
 
-- **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, max(n+5,y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
+- **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, maximum (n+5, y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
 
 - **Versioning for blobs and blob change feed**: Versioning and change feed are enabled for storage accounts that have been configured for operational backup.
 
@@ -71,7 +71,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Backup Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Backup Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to backup and restore of data.
+Both operational and vaulted backups integrate directly with Backup Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Backup Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ## Restore
 
@@ -83,7 +83,7 @@ Operational backup gives you the option to restore all block blobs in the storag
 
 ### For operational backup
 
-You won't incur any management charges or instance fee when using operational backup for blobs. However, you will incur the following charges:
+You won't incur any management charges or instance fee when using operational backup for blobs. However, you'll incur the following charges:
 
 - Restores are done using blob point-in-time restore and attract charges based on the amount of data processed. For more information, see [point-in-time restore pricing](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
