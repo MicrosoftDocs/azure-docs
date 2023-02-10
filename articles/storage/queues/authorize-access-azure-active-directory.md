@@ -31,7 +31,7 @@ When a security principal (a user, group, or application) attempts to access a q
 
     The authorization step requires that one or more Azure RBAC roles be assigned to the security principal making the request. For more information, see [Assign Azure roles for access rights](#assign-azure-roles-for-access-rights).
 
-### Use an Azure AD account with Azure portal, PowerShell, or Azure CLI
+### Use an Azure AD account with portal, PowerShell, or Azure CLI
 
 To learn about how to access data in the Azure portal with an Azure AD account, see [Data access from the Azure portal](#data-access-from-the-azure-portal). To learn how to call Azure PowerShell or Azure CLI commands with an Azure AD account, see [Data access from PowerShell or Azure CLI](#data-access-from-powershell-or-azure-cli).
 
