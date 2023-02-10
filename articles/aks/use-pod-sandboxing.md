@@ -291,10 +291,15 @@ kubectl delete pod pod-name
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- INTERNAL LINKS -->
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: /cli/azu[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 [connect-to-aks-cluster-nodes]: node-access.md
 [dv3-series]: ../virtual-machines/dv3-dsv3-series.md#dsv3-series
