@@ -132,21 +132,22 @@ items:
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
-      - name: Authorizing data operations
+      - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Authorize with Azure AD
           items:
-          - name: Authorize with Azure roles
+          - name: Authorize with Azure AD and Azure RBAC
             href: authorize-access-azure-active-directory.md
-          - name: Authorize with conditions
+          - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
-          - name: Actions and attributes for conditions
-            href: storage-auth-abac-attributes.md
-          - name: Security for conditions
-            href: storage-auth-abac-security.md
-          - name: Example conditions
-            href: storage-auth-abac-examples.md
+            items:
+            - name: Actions and attributes for conditions
+              href: storage-auth-abac-attributes.md
+            - name: Security for conditions
+              href: storage-auth-abac-security.md
+            - name: Example conditions
+              href: storage-auth-abac-examples.md
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)
@@ -1090,7 +1091,7 @@ items:
     items:
     - name: Authorization
       items:
-      - name: Authorizing data operations
+      - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Authorize with Azure AD
