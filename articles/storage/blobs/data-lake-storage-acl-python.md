@@ -73,7 +73,7 @@ First, you'll have to assign one of the following [Azure role-based access contr
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-Next, create an [azure.storage.filedatalake.DataLakeServiceClient class](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class.
+Next, create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
