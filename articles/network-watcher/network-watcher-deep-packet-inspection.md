@@ -1,6 +1,6 @@
 ---
-title: Packet inspection with Azure Network Watcher | Microsoft Docs
-description: This article describes how to use Network Watcher to perform deep packet inspection collected from a VM
+title: Packet inspection with Azure Network Watcher
+description: This article describes how to use Azure Network Watcher to perform deep packet inspection collected from a VM.
 services: network-watcher
 author: halkazwini
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
