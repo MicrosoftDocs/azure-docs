@@ -307,3 +307,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [aks-auto-upgrade]: auto-upgrade-cluster.md
 [release-tracker]: release-tracker.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
+[k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement
