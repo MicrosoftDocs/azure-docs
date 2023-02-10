@@ -6,7 +6,7 @@ author: asudbring
 manager: carmonm
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: allensu

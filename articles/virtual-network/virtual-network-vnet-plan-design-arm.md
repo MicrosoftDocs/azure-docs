@@ -5,7 +5,7 @@ services: virtual-network
 author: asudbring
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: allensu

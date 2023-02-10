@@ -5,7 +5,7 @@ services: virtual-network
 author: asudbring
 tags: azure-resource-manager
 ms.service: virtual-network
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: allensu

@@ -1,5 +1,5 @@
 ---
-title: Container networking with Azure Virtual Network | Microsoft Docs
+title: Container networking with Azure Virtual Network
 description: Learn about the Azure Virtual Network container network interface (CNI) plug-in and how to enable containers to use an Azure Virtual Network.
 services: virtual-network
 author: asudbring
@@ -7,12 +7,9 @@ manager: NarayanAnnamalai
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: allensu
-ms.custom: 
-
 ---
 
 # Enable containers to use Azure Virtual Network capabilities
