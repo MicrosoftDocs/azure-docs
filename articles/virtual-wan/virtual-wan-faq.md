@@ -306,7 +306,7 @@ Yes. Customers can now create more than one hub in the same region for the same 
 If a virtual hub learns the same route from multiple remote hubs, the order in which it decides is as follows:
 1.	Select routes with Longest Prefix Match (LPM).
 2.	Prefer static routes learned from the virtual hub route table over BGP routes.
-3.	Select best path based on the [Virtual hub routing preference](https://learn.microsoft.com/azure/virtual-wan/about-virtual-hub-routing-preference) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
+3.	Select best path based on the [Virtual hub routing preference](about-virtual-hub-routing-preference.md) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
 
     * **ExpressRoute** (This is the default setting)
         1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
