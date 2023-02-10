@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/09/2023
+ms.date: 02/10/2023
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to software version:
 
-- **Azure Stack Edge 2301 (1.6.2225.773)**
+- **Azure Stack Edge 2301 (1.6.2225.773)** - KB 5023528
 
 > [!NOTE]
 > Update 2301 can be applied only to devices that are running 2101 versions of the software or later. If you are running a version earlier than 2101, update your device to 2101 and then update to 2301. 
@@ -27,10 +27,11 @@ This release corresponds to software version:
 
 This release contains the following bug fixes:
 
-- **Bug fix.1** - This release...
+- **Update Agent SDK** - An update to SaaS agent SDK to fix the expired certificate issue.
 
 This release also contains the following updates:
 
+- Updated Nuget Package References for enhanced security.
 - All cumulative Windows updates and .NET framework updates released through November 2022.
 
 ## Known issues in this release
