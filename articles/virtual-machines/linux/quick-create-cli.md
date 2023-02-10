@@ -42,7 +42,7 @@ export ADMIN_USERNAME=azureuser
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group with the name defined in $RESOURCE_GROUP_NAME and in the location defined in $LOCATION:
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```azurecli-interactive
 az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
