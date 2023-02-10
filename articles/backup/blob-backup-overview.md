@@ -8,7 +8,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Overview of Azure Blobs backup for Azure Blobs
+# Overview of Azure Blob backup
 
 Azure Backup provides a simple, secure, cost-effective, and cloud-based backup solution to protect your business or application-critical data stored in Azure Blob.
 
@@ -61,7 +61,7 @@ To allow Backup to enable these properties on the storage accounts to be protect
 
 ### Protection using vaulted backup (in preview)
 
-Vaulted backup is configured at the storage account level. However, you can exclude containers that don't need backup. If your storage account has *>1000* containers, you need to mandatorily exclude containers to reduce the count to *1000* or below. For vaulted backups, the schedule and retention are managed via backup policy. You can set the frequency as *daily* or *weekly*, and specify when the backup recovery points need to be created. You can also configure different retention values for backups taken every day, week, month, or year. The retention rules are evaluated in a pre-determined order of priority. The *yearly* rule has the priority compared to *monthly* and *weekly* rule. Default retention settings are applied if other rules don't qualify.
+Vaulted backup is configured at the storage account level. However, you can exclude containers that don't need backup. If your storage account has *>100* containers, you need to mandatorily exclude containers to reduce the count to *100* or below. For vaulted backups, the schedule and retention are managed via backup policy. You can set the frequency as *daily* or *weekly*, and specify when the backup recovery points need to be created. You can also configure different retention values for backups taken every day, week, month, or year. The retention rules are evaluated in a pre-determined order of priority. The *yearly* rule has the priority compared to *monthly* and *weekly* rule. Default retention settings are applied if other rules don't qualify.
 
 In storage accounts (for which vaulted backups are configured), the object replication rules get created under the *object replication* item on the *TOC* blade of the source storage account.
 
@@ -89,7 +89,9 @@ You won't incur any management charges or instance fee when using operational ba
 
 - Retention of data because of [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), and [Blob versioning](../storage/blobs/versioning-overview.md).
 
-### For vaulted backup
+### For vaulted backup (preview)
+
+Vaulted backup currently doesn't incur any charges with preview release.
 
 ## Next steps
 
