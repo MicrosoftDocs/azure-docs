@@ -22,6 +22,11 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 > [!IMPORTANT] 
 > Azure NetApp Files currently does not support resource migration between subscriptions.
 
+## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
+The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
+
+![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
+
 ## <a name="azure_netapp_files_account"></a>NetApp accounts
 
 - A NetApp account serves as an administrative grouping of the constituent capacity pools.  
@@ -74,11 +79,6 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
-The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
-
-![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 
 ## Next steps
 
