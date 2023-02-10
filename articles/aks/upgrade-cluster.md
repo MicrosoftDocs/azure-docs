@@ -235,6 +235,10 @@ You can also manually upgrade your cluster in the Azure portal.
 4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
 5. In **Kubernetes version**, select your desired version and then select **Save**.
 
+The Azure portal also highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see [the Kubernetes API Removal and Deprecation process][k8s-deprecation].
+
+:::image type="content" source="./media/upgrade-cluster/portal-upgrade.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'patch' selected, and several APIs deprecated between the selected Kubernetes version and the cluster's current version are described.":::
+
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
 
 To confirm that the upgrade was successful, navigate to your AKS cluster in the Azure portal. On the **Overview** page, select the **Kubernetes version**.
