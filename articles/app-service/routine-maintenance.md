@@ -27,7 +27,7 @@ Since a typical cloud solution consists of multiple applications, databases, sto
 
 [Safe deployment practices - Azure DevOps | Microsoft Learn](/devops/operate/safe-deployment-practices)
 
-:::image type="content" source="/media/routine-maintenance/routine-maintenance.png" alt-text="A sample maintenance event in the Azure Portal":::
+:::image type="content" source="./media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure Portal":::
 
 In order from top to bottom we see:
 - A descriptive title of the maintenance event
@@ -46,7 +46,7 @@ A typical scenario is that customers have multiple applications, and they are up
 
 ### How is routine maintenance related to SLA?
 
-Platform maintenance isn't expected to impact application uptime or availability. Applications continue to stay online while platform maintenance occurs. Platform maintenance may cause applications to be cold started on new virtual machines, which can lead to cold start delays. An application is still considered to be online, , even while cold-starting. For best practices to minimize/avoid cold starts, consider using [local cache for Windows apps](overview-local-cache.md) as well as [Health check](monitor-instances-health-check.md). It's not expected that sites would incur any SLA violation during maintenance windows.
+Platform maintenance isn't expected to impact application uptime or availability. Applications continue to stay online while platform maintenance occurs. Platform maintenance may cause applications to be cold started on new virtual machines, which can lead to cold start delays. An application is still considered to be online, even while cold-starting. For best practices to minimize/avoid cold starts, consider using [local cache for Windows apps](overview-local-cache.md) as well as [Health check](monitor-instances-health-check.md). It's not expected that sites would incur any SLA violation during maintenance windows.
 
 ### How does the upgrade work how does it ensure the smooth operation of my apps?
 
@@ -58,7 +58,7 @@ Maintenance operations are optimized to run outside standard business hours (9-5
 
 ### What are my options to control routine maintenance?
 
-If you run your workloads in Isolated SKU via App Service Environment v3, you can also schedule the upgrades when needed. This is described with details at Control and automate planned maintenance for App Service Environment v3 - Azure App Service .
+If you run your workloads in Isolated SKU via App Service Environment v3, you can also schedule the upgrades when needed. This is described with details at Control and automate planned maintenance for App Service Environment v3 - Azure App Service.
 
 ### Can I prepare my apps better for restarts?
 
@@ -68,7 +68,7 @@ If your applications need extra time during restarts to come online (a typical p
 
 Updates and maintenance events have been happening to the platform since its inception. The frequency of updates decreased over time, so the number of interruptions also decreased and uptime increases. However, there is an increased level of visibility into all changes which can cause the perception that more changes are being made.
 
-## Links
+## Next steps
 
 [Control and automate planned maintenance for App Service Environment v3 - Azure App Service](https://azure.github.io/AppService/2022/09/15/Configure-automation-for-upgrade-preferences-in-App-Service-Environment.html)
 
