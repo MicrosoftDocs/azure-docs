@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/09/2023
+ms.date: 02/10/2023
 ms.author: alkohli
 ---
 
@@ -19,9 +19,10 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to the software version:
 
-- **Data Box Gateway 2301 (1.6.2225.773)** - KB 5023528
+- **Data Box Gateway 2301 (1.6.2225.773)** - KB 5023529
 
-Update 2301 can be applied only to devices that are running 2105 versions of the software or later. If you are running a version earlier than 2105, update your device to 2105 and then update to 2301.
+> [!NOTE]
+> Update 2301 can be applied only to devices that are running 2105 versions of the software or later. If you are running a version earlier than 2105, update your device to 2105 and then update to 2301.
 
 ## What's new
 
