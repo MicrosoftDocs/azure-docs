@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/07/2023
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -32,7 +32,7 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural` (Female)<br/>`bn-BD-PradeepNeural` (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-BashkarNeural` (Male)<br/>`bn-IN-TanishaaNeural` (Female) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-GoranNeural` (Male)<br/>`bs-BA-VesnaNeural` (Female) |
-| `ca-ES` | Catalan | `ca-ES-AlbaNeural`<sup>4,5,6</sup> (Female)<br/>`ca-ES-EnricNeural`<sup>4,5,6</sup> (Male)<br/>`ca-ES-JoanaNeural`<sup>4,5,6</sup> (Female) |
+| `ca-ES` | Catalan (Spain) | `ca-ES-AlbaNeural`<sup>4,5,6</sup> (Female)<br/>`ca-ES-EnricNeural`<sup>4,5,6</sup> (Male)<br/>`ca-ES-JoanaNeural`<sup>4,5,6</sup> (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-AntoninNeural`<sup>4,5,6</sup> (Male)<br/>`cs-CZ-VlastaNeural`<sup>4,5,6</sup> (Female) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-AledNeural` (Male)<br/>`cy-GB-NiaNeural` (Female) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural`<sup>4,5,6</sup> (Female)<br/>`da-DK-JeppeNeural`<sup>4,5,6</sup> (Male) |

@@ -232,7 +232,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2, unl
 | Azure App Services  | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Azure Function Apps | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supported, Long Term Support (LTS). | For detailed configuration information, refer to [these instructions](/dotnet/framework/network-programming/tls). |
-|Status Monitor | Supported, configuration required. | Status Monitor relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
+|Application Insights Agent| Supported, configuration required. | Application Insights Agent relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration might be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
@@ -277,7 +277,7 @@ The SDKs vary between platforms, and there are several components that you can i
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
-| [Install Status Monitor on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Install Application Insights Agent on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Add Application Insights SDK to a Java web app][java] |ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users |
 | [Add JavaScript SDK to webpage][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Define default properties][apiproperties] |**Properties** on all standard and custom events |
@@ -304,7 +304,7 @@ For [SDKs for other platforms][platforms], see their documents.
 | Client perf |URL/page name, browser load time |
 | Ajax |HTTP calls from webpage to server |
 | Requests |URL, duration, response code |
-| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Status Monitor) |
+| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Application Insights Agent) |
 | Exceptions |Type, message, call stacks, source file, line number, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; application patch, `id`, build; exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type |
 | Trace |Message and severity level |

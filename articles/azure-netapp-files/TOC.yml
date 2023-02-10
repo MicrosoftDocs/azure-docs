@@ -161,6 +161,10 @@
             href: faq-security.md
           - name: Integration FAQs
             href: faq-integration.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 - name: How-to guides
   items: 
   - name: Register and set up

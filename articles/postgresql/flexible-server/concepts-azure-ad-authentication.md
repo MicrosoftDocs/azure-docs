@@ -41,7 +41,7 @@ The following table provides a list of high-level Azure AD features and capabili
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
 | Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | March 2023 |
+| PG bouncer support | No | Yes  (New Servers) |
 
 ## How Azure AD Works In Flexible Server
 
@@ -95,7 +95,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 - GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
 
-- 
+
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).

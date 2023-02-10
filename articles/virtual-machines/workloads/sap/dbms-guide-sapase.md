@@ -4,7 +4,7 @@ description: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 manager: patfilot
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/30/2022

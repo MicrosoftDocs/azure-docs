@@ -12,7 +12,7 @@ services: iot-edge
 
 # Understand how Azure IoT Edge uses certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 IoT Edge uses different types of certificates for different purposes. This article walks you through the different ways that IoT Edge uses certificates with Azure IoT Hub and IoT Edge gateway scenarios.
 
@@ -130,7 +130,7 @@ sequenceDiagram
 In this case, *EdgeGateway* provides its **IoT Edge device identity certificate**. From *ContosoIotHub* perspective, it checks both that the thumbprint of the provided certificate matches its record and *EdgeGateway* has the private key paired with the certificate it presented. When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. The thumbprint is what IoT Hub uses to verify the certificate.
 
 > [!TIP]
-> IoT Hub requires two thumprints when registering and IoT Edge device. For best practice, prepare two different device identity certificates with different expiration dates. This way, if one certificate expires, the other is still valid and gives you time to rotate the expired certificate. However, it's also possible to use only one certificate for registration by putting the same thumbprint for both fields.
+> IoT Hub requires two thumbprints when registering an IoT Edge device. A best practice is to prepare two different device identity certificates with different expiration dates. This way, if one certificate expires, the other is still valid and gives you time to rotate the expired certificate. However, it's also possible to use only one certificate for registration. Use a single certificate by setting the same certificate thumbprint for both the primary and secondary thumbprints when registering the device.
 
 For example, we can use the following command to get the identity certificate's thumbprint on *EdgeGateway*:
 

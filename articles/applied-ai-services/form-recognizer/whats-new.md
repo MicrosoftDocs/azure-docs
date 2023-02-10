@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/30/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -26,6 +26,46 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+
+## January 2023
+
+> [!TIP]
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
+
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
+
+   The **prebuilt receipt model** now has added support for the following languages:
+
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
+
+* **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
+
+  The **prebuilt invoice model** now has added support for the following languages:
+
+  * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
+  * Portuguese - Brazil (pt-br)
+
+  The **prebuilt invoice model** now has added support for the following field extractions:
+
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-in only)
+
+* **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
+
+  The **prebuilt ID document model** now has added support for the following document types:
+
+  * Passport, driver's license, and residence permit ID expansion
+  * US military ID cards and documents
+  * India ID cards and documents
+  * Australia ID cards and documents
+  * Canada ID cards and documents
+  * United Kingdom ID cards and documents
 
 ## December 2022
 

@@ -1,7 +1,7 @@
 ---
 title: Policy control
-titleSuffix: Azure Private 5G Core Preview
-description: Information on Azure Private 5G Core Preview's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
+titleSuffix: Azure Private 5G Core
+description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Policy control
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+Azure Private 5G Core provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 ## 5G quality of service (QoS) and QoS flows
 
@@ -85,13 +85,21 @@ You can specify the following QoS settings on a service:
 
 Each SIM policy includes:
 
-- Top-level settings that are applied to every SIM using the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
+- Top-level settings that are applied to every SIM using the SIM policy. These settings include the default network slice, the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
 - A *network scope*, which defines the network slice and data network that the SIM policy applies to. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
+
+## Network slicing
+
+Network slicing allows you to host multiple independent logical networks in the same Azure Private 5G Core deployment by segmenting a common shared physical network into multiple virtual *network slices*. Slices play an important role in Azure Private 5G Core's flexible traffic handling by letting you apply different policies, QoS characteristics, priorities, and/or network connections to your UEs.
+
+Network slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized with different bandwidth and latency requirements for supporting different use cases. You can create and configure separate slices to suit, for example, the handling of 5G enhanced mobile broadband, ultra-reliable low latency communications, and massive IoT applications.
+
+You may wish to provision separate slices for devices that are physically or administratively different. For example, you can grant higher priority for emergency calls, or lower latency for autonomous vehicles.
 
 ## Designing your policy control configuration
 

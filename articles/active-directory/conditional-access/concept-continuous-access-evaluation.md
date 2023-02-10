@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 01/31/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -85,11 +85,14 @@ This process enables the scenario where users lose access to organizational file
 
 > \* Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
 
+> [!NOTE]
+> Teams is made up of multiple services and among these the calls and chat services don't adhere to IP-based Conditional Access policies.
+
 ## Client Capabilities
 
 ### Client-side claim challenge
 
-Before continuous access evaluation, clients would replay the access token from its cache as long as it hadn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest version of the following applications below support claim challenge:
+Before continuous access evaluation, clients would replay the access token from its cache as long as it hadn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest version of the following applications support claim challenge:
 
 | | Web | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -195,8 +198,8 @@ The following table summarizes Conditional Access and CAE feature behaviors and 
 | Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable CA Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
 |---|---|---|---|---|---|---|---|
 | 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If CA Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
-| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x) into Trusted Named Location CA rules as it can weaken security |
-| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |
+| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or non-enumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |
 
 Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 
@@ -239,9 +242,11 @@ If you enable a user right after disabling, there's some latency before the acco
 
 ### Push notifications
 
-An IP address policy isn't evaluated before push notifications are released. This scenario exists because push notifications are outbound and don't have an associated IP address to be evaluated against. If a user clicks into that push notification, for example an email in Outlook, CAE IP address policies are still enforced before the email can display. Push notifications display a message preview, which isn't protected by an IP address policy. All other CAE checks are done before the push notification being sent. If a user or device has its access removed, enforcement occurs within the documented period. 
+An IP address policy isn't evaluated before push notifications are released. This scenario exists because push notifications are outbound and don't have an associated IP address to be evaluated against. If a user selects that push notification, for example an email in Outlook, CAE IP address policies are still enforced before the email can display. Push notifications display a message preview, which isn't protected by an IP address policy. All other CAE checks are done before the push notification being sent. If a user or device has its access removed, enforcement occurs within the documented period. 
 
-## FAQs
+### Guest users
+
+Guest user accounts aren't supported by CAE. CAE revocation events and IP based Conditional Access policies aren't enforced instantaneously.
 
 ### How will CAE work with Sign-in Frequency?
 

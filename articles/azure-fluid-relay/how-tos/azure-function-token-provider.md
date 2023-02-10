@@ -30,7 +30,7 @@ The complete solution has two pieces:
 
 ### Create an endpoint for your TokenProvider using Azure Functions
 
-Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint. The example below implements that pattern in a class called **AzureFunctionTokenProvider**. It accepts the URL to your Azure Function, `userId` and`userName`. This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
+Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint. The example below implements that pattern in a class called [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class). It accepts the URL to your Azure Function, `userId` and`userName`. 
 
 This example demonstrates how to create your own **HTTPTrigger Azure Function** that fetches the token by passing in your tenant key.
 

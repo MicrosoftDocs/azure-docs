@@ -25,7 +25,7 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
-  - name: Monitor communication with Virtual Machine Scale Set
+  - name: Monitor communication with virtual machine scale set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
@@ -252,6 +252,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=network-watcher
   - name: SLA
-    href: https://azure.microsoft.com/en-us/support/legal/sla/network-watcher/
+    href: https://azure.microsoft.com/support/legal/sla/network-watcher/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher

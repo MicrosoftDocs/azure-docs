@@ -12,7 +12,7 @@ ms.date: 01/20/2023
 ---
 
 # How to capture changed data from ADLS Gen2 to SQL DB using a Change data capture resource
-[!INCLUDE[appliesto-adf-asa-md]]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you will use the Azure Data Factory user interface (UI) to create a new Change data capture resource that picks up changed data from an Azure Data Lake Storage (ADLS) Gen2 source to a SQL Database. The configuration pattern in this tutorial can be modified and expanded upon. 
 

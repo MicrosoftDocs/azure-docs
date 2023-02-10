@@ -8,7 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: how-to
 ms.custom: kr2b-contr-experiment
 ms.tgt_pltfrm: vm-windows

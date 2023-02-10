@@ -62,9 +62,9 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.  The user who initiates the verification must have one of the required roles in both Azure AD and Partner Center.
 
-  - In Azure AD, this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin.
+  - In Azure AD, this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator.
 
-  - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or Global Admin (a shared role that's mastered in Azure AD).
+  - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or Global Administrator (a shared role that's mastered in Azure AD).
   
 - The user who initiates verification must sign in by using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
 

@@ -54,7 +54,7 @@ az resource move \
 	--destination-group "myDestinationResourceGroup"
 ```
 
-If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId** parameter to specify the destination subscription.
+If you want to move the VM and its resources to a different subscription, add the **--destination-subscription-id** parameter to specify the destination subscription.
 
 When you are asked to confirm that you want to move the specified resources, enter **Y** to confirm.
 

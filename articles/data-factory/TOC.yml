@@ -442,6 +442,9 @@ items:
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
       displayName: polybase
+    - name: Azure Synapse Analytics (Artifacts)
+      href: connector-azure-synapse-analytics-artifacts.md
+      displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
       displayName: timeout
@@ -725,6 +728,8 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Notebook activity
+      href: transform-data-synapse-notebook.md
     - name: Synapse Spark job definition activity
       href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow
@@ -1286,6 +1291,24 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+- name: Managed Airflow
+  items:
+  - name: Tutorials
+    items:
+    - name: Run an existing pipeline with Airflow
+      href: tutorial-run-existing-pipeline-with-airflow.md
+    - name: Refresh a Power BI dataset with Airflow
+      href: tutorial-refresh-power-bi-dataset-with-airflow.md
+  - name: Concepts
+    href: concept-managed-airflow.md
+  - name: How-to
+    items:
+    - name: How does Managed Airflow work
+      href: how-does-managed-airflow-work.md
+    - name: How to change the Airflow password
+      href: password-change-airflow.md
+  - name: Pricing
+    href: airflow-pricing.md
 - name: Reference
   items:
   - name: Data flow script

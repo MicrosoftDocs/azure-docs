@@ -12,6 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/11/2021
 ms.author: davidmu
+ms.reviewer: jeedes
 ---
 
 # Configure the role claim issued in the SAML token for enterprise applications
@@ -54,14 +55,14 @@ Use this feature if your application expects custom roles in the SAML response r
 
 6. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
 
-    1. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
+    1. Sign in to the Graph Explorer site by using the Global Administrator or coadmin credentials for your tenant.
 
     1. You need sufficient permissions to create the roles. Select **modify permissions** to get the permissions.
 
         ![The "modify permissions" button](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
         > [!NOTE]
-        > Cloud App Administrator and App Administrator role will not work in this scenario as we need the Global Admin permissions for Directory Read and Write.
+        > Cloud App Administrator and App Administrator role will not work in this scenario as we need the Global Administrator permissions for Directory Read and Write.
 
     1. Select the following permissions from the list (if you don't have these already) and select **Modify Permissions**.
 
@@ -178,7 +179,7 @@ To update an existing role, perform the following steps:
 
 1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-1. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
+1. Sign in to the Graph Explorer site by using the Global Administrator or coadmin credentials for your tenant.
 
 1. Change the version to **beta**, and fetch the list of service principals from your tenant by using the following query:
 
@@ -216,7 +217,7 @@ To delete an  existing role, perform the following steps:
 
 1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
-1. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
+1. Sign in to the Graph Explorer site by using the Global Administrator or coadmin credentials for your tenant.
 
 1. Change the version to **beta**, and fetch the list of service principals from your tenant by using the following query:
 

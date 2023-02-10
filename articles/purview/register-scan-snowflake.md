@@ -18,7 +18,7 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) | No|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes](#lineage) | No|
 
 When scanning Snowflake source, Microsoft Purview supports:
 
@@ -204,6 +204,8 @@ To create and run a new scan, follow these steps:
         :::image type="content" source="media/register-scan-snowflake/scan.png" alt-text="scan Snowflake" border="true":::
 
 1. Select **Continue**.
+
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 

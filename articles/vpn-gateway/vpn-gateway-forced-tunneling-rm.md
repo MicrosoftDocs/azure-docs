@@ -89,7 +89,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 4. Set Route Table Configuration.
    
    ```powershell 
-   New-AzRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
    ```
 5. Assign Route Table to the subnets
 

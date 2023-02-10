@@ -109,8 +109,6 @@ items:
     href: reference-audit-activities.md
   - name: Data retention policies
     href: reference-reports-data-retention.md
-  - name: Reporting latencies
-    href: reference-reports-latencies.md
   - name: Frequently asked questions
     href: reports-faq.yml
   - name: Sign-in log schema

@@ -1,9 +1,10 @@
 ---
 title: Install SAP software (preview)
-description: Learn how to install software on your SAP system created using Azure Center for SAP solutions.
-ms.service: azure-center-sap-solutions
+description: Learn how to install SAP software on an SAP system that you created using Azure Center for SAP solutions. You can either install the SAP software with  Azure Center for SAP solutions, or install the software outside the service and detect the installed system.
+ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
@@ -13,307 +14,60 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
-In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#option-1-upload-software-components-with-script) or [manually upload the components](#option-2-upload-software-components-manually). Then, you can [run the software installation wizard](#install-software).
+In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
+
+- [Install the SAP software through Azure Center for SAP solutions directly using the installation wizard](#install-sap-with-azure-center-for-sap-solutions).
+- [Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service](#install-sap-through-outside-method).
 
 ## Prerequisites
 
+Review the prerequisites for your preferred installation method: [through the Azure Center for SAP solutions installation wizard](#prerequisites-for-wizard-installation) or [through an outside method](#prerequisites-for-outside-installation)
+
+### Prerequisites for wizard installation
+
 - An Azure subscription.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
+- A user-assigned managed identity with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
-- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
-    
-    To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
+- If you are installing an SAP System through Azure Center for SAP solutions, you should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
+- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
+    - For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
+    - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
 
-## Supported software
+### Prerequisites for outside installation
 
-Azure Center for SAP solutions supports the following SAP software version: **S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00**.
-Following is the operating system (OS) software versions compatibility with SAP Software Version:
+- An Azure subscription.
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
+- A user-assigned managed identity that you created during infrastructure deployment with **Contributor** role access on the subscription, or on all resource groups (compute, network and storage) that the SAP System is a part of.
+- Infrastructure for the SAP system that you previously created through Azure Center for SAP solution. Don't make any changes to this infrastructure. 
+- An SAP System (and underlying infrastructure resources) that is up and running.
+- Optionally, you can add fully installed application servers to the system before detecting the SAP software; then, the SAP system with additional application servers will also be detected. 
+    - If you add additional application servers to this Virtual Instance for SAP solutions after infrastructure deployment, the previously created user-assigned managed identity also needs **Contributor** role access on the subscription or on the resource group under which this new application server exists.
+    - The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in Azure Center for SAP solutions. You can still detect additional application servers.
 
-| Publisher | Version | Generation SKU | Patch version name | Supported SAP Software Version |
-| --------- | ------- | -------------- | ------------------ | ------------------------------ |
-| Red Hat | RHEL-SAP-HA (8.2 HA Pack) | 82sapha-gen2 | 8.2.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| Red Hat | RHEL-SAP-HA (8.4 HA Pack) | 84sapha-gen2 | 8.4.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-15-sp3 | gen2 | 2022.01.26 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-12-sp4 | gen2 | 2022.02.01 | S/4HANA 1909 SPS 03 |
+Only the following scenarios are supported for this installation method:
 
-## Required components
+- Infrastructure for S4/HANA was created through Azure Center for SAP solutions. The S4/HANA application was installed outside Azure Center for SAP solutions through a different tool.
+- Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
+- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
 
-The following components are necessary for the SAP installation. 
+## Install SAP with Azure Center for SAP solutions
 
-- SAP software installation media (part of the `sapbits` container described later in this article)
-    - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
-    - SAP software (for example, *S/4HANA 2021 ISS 00*)
-- Supporting software packages for the installation process which will be downloaded automatially and used by ACSS during the installation). 
-    - `pip3` version `pip-21.3.1.tar.gz`
-    - `wheel` version 0.37.1
-    - `jq` version 1.6
-    - `ansible` version 2.9.27
-    - `netaddr` version 0.8.0
-- The SAP Bill of Materials (BOM), as generated by Azure Center for SAP solutions. These YAML files list all required SAP packages for the SAP software installation. There's a main BOM (`S41909SPS03_v0011ms.yaml`, `S42020SPS03_v0003ms.yaml`, `S4HANA_2021_ISS_v0001ms.yaml`) and there are dependent BOMs (`HANA_2_00_059_v0004ms.yaml`, `HANA_2_00_064_v0001ms.yaml` `SUM20SP15_latest.yaml`, `SWPM20SP13_latest.yaml`). They provide the following information:
-    - The full name of the SAP package (`name`)
-    - The package name with its file extension as downloaded (`archive`)
-    - The checksum of the package as specified by SAP (`checksum`)
-    - The shortened filename of the package (`filename`)
-    - The SAP URL to download the software (`url`)
-- Template or INI files, which are stack XML files required to run the SAP packages.
-
-## Option 1: Upload software components with script
-
-You can use the following method to upload the SAP components to your Azure account using scripts. Then, you can [run the software installation wizard](#install-software) to install the SAP software. We recommend using this method.
-
-You also can [upload the components manually](#option-2-upload-software-components-manually) instead.
-
-### Set up storage account
-
-Before you can download the software, set up an Azure Storage account for storing the software.
-
-1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
-
-1. Create a container within the Azure Storage account named `sapbits`.
-
-    1. On the storage account's sidebar menu, select **Containers** under **Data storage**.
-
-    1. Select **+ Container**.
-
-    1. On the **New container** pane, for **Name**, enter `sapbits`.
-
-    1. Select **Create**.
-    
- 1. Grant the **User-assigned managed identity**, which was used during infrastructure deployment, **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
-
-
-### Download SAP media
-
-You can download the SAP installation media required to install the SAP software, using a script as described in this section.
-
-1. Create an Ubuntu 20.04 VM in Azure
-
-1. Sign in to the VM.
-
-1. Install the Azure CLI on the VM.
-
-    ```bash
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-    ```
-
-1. [Update the Azure CLI](/cli/azure/update-azure-cli) to version 2.30.0 or higher.
-
-
-1. Sign in to Azure:
-
-    ```azurecli
-    az login
-    ```
-
-1. Install Ansible 2.9.27 on the ubuntu VM 
-
-    ```bash
-    sudo pip3 install ansible==2.9.27
-    ```
-    
-1. Clone the SAP automation repository from GitHub.
-
-    ```git bash
-    git clone https://github.com/Azure/sap-automation.git
-    ```
-
-1. Change the branch to main
-
-    ```git bash
-    git checkout main
-    ```
-    
-1. [Optional] : Verify if the current branch is "main"
-
-
-    ```git bash
-    git status
-    ```
-
-1. Run the Ansible script **playbook_bom_download** with your own information.
-
-    - When asked if you have a storage account, enter `Y`.
-    - For `<username>`, use your SAP username.
-    - For `<password>`, use your SAP password. 
-	- For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-    - For `<storageAccountAccessKey>`, use your storage account's access key. To find the storage account's key:
-
-
-    1. Find the storage account in the Azure portal that you created.
-
-    1. On the storage account's sidebar menu, select **Access keys** under **Security + networking**.
-
-    1. For **key1**, select **Show key and connection string**.
-
-    1. Copy the **Key** value.
-        
-       - For `<containerBasePath>`, use the path to your `sapbits` container. To find the container path:
-
-    1. Find the storage account that you created in the Azure portal.
-
-    1. Find the container named `sapbits`.
-
-    1. On the container's sidebar menu, select **Properties** under **Settings**.
-
-    1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
-      The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
-    
-    
-    - Ansible command to run
-      
-
-
-    ```azurecli
-    ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=<password>" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>" 
-    ```
-
-
-Now, you can [install the SAP software](#install-software) using the installation wizard.
-
-## Option 2: Upload software components manually
-
-You can use the following method to download and upload the SAP components to your Azure storage account manually. Then, you can [run the software installation wizard](#install-software) to install the SAP software.
-
-You also can [run scripts to automate this process](#option-1-upload-software-components-with-script) instead.
-
-1. Create a new Azure storage account for storing the software components.
-1. Grant the roles **Storage Blob Data Reader** and **Reader and Data Access** to the user-assigned managed identity, which you used during infrastructure deployment.
-1. Create a container within the storage account. You can choose any container name; for example, **sapbits**. 
-1. Create a folder within the container, named **sapfiles**. 
-    > [!WARNING]
-    > Don't change the folder name structure for any steps in this process. Otherwise, the installation process can fail.
-1. Go to the **sapfiles** folder.
-1. Create two subfolders named **archives** and **boms**. 
-1. In the **boms** folder, create four subfolders as follows. 
-
-
-    - For S/4HANA 1909 SPS 03, make following folders
-    1. **HANA_2_00_059_v0003ms**
-    1. **S41909SPS03_v0011ms**
-    1. **SWPM20SP12_latest**
-    1. **SUM20SP14_latest**
-	
-    
-    - For S/4HANA 2020 SPS 03, make following folders
-    1. **HANA_2_00_064_v0001ms**
-    1. **S42020SPS03_v0003ms**
-    1. **SWPM20SP12_latest**
-    1. **SUM20SP14_latest**
-	
-    
-    - For S/4HANA 2021 ISS 00, make following folders
-    1. **HANA_2_00_064_v0001ms**
-    1. **S4HANA_2021_ISS_v0001ms**
-    1. **SWPM20SP12_latest**
-    1. **SUM20SP14_latest**
-	
-1. Upload the following YAML files to the folders with the same name.
-
-    - For S/4HANA 1909 SPS 03, 
-    1. [S41909SPS03_v0011ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
-    1. [HANA_2_00_059_v0004ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-
-    - For S/4HANA 2020 SPS 03, 
-    1. [S42020SPS03_v0003ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
-    1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-    - For S/4HANA 2021 ISS 00,
-    1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
-    1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-1. Depending upon the SAP product version you are installing go to **S41909SPS03_v0011ms** or **S42020SPS03_v0003ms** or **S4HANA_2021_ISS_v0001ms** folder and create a subfolder named **templates**.
-1. Download the following files. Then, upload all the files to the **templates** folder.
-    - For S/4HANA 1909 SPS 03, 
-    1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/HANA_2_00_055_v1_install.rsp.j2)
-    1. [S41909SPS03_v0011ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-app-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-dbload-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-ers-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-generic-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-pas-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scs-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scsha-inifile-param.j2)
-    1. [S41909SPS03_v0011ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-web-inifile-param.j2)
-	
-    - For S/4HANA 2020 SPS 03, 
-	1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_055_v1_install.rsp.j2)
-	1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_install.rsp.j2)
-	1. [S42020SPS03_v0003ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-app-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-dbload-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-ers-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-generic-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-pas-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scs-inifile-param.j2)
-	1. [S42020SPS03_v0003ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scsha-inifile-param.j2)
-	
-    - For S/4HANA 2021 ISS 00,
-	1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_055_v1_install.rsp.j2)
-	1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_install.rsp.j2)
-	1. [NW_ABAP_ASCS_S4HANA2021.CORE.HDB.AB](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_ASCS_S4HANA2021.CORE.HDB.ABAP_Distributed.params)
-	1. [NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
-	1. [NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
-	1. [NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params)
-	1. [NW_Users_Create-GENERIC.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_Users_Create-GENERIC.HDB.PD_Distributed.params)
-	1. [S4HANA_2021_ISS_v0001ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-app-inifile-param.j2)
-	1. [S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2)
-	1. [S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2)	
-	1. [S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2)
-	1. [S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2)
-	1. [S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2)	
-	1. [S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2)
-	1. [S4HANA_2021_ISS_v0001ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-web-inifile-param.j2)
-	
-1. Go back to the **sapfiles** folder, then go to the **archives** subfolder.
-1. Download all packages that aren't labeled as `download: false` in the main BOM URL shown below. You can use the URL mentioned in the BOM to download each package. Make sure to download the exact package versions listed in each BOM. Repeat this step for the main and dependent BOM files.
-    - For S/4HANA 1909 SPS 03, 
-    1. [S41909SPS03_v0011ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
-    1. [HANA_2_00_059_v0004ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-    - For S/4HANA 2020 SPS 03,	
-    1. [S42020SPS03_v0003ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
-    1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-    - For S/4HANA 2021 ISS 00,
-    1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
-    1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
-    1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
-    1. [SUM20SP15_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SUM20SP15_latest/SUM20SP15_latest.yaml)
-	
-1. Upload all the packages that you downloaded to the **archives** folder. Don't rename the files.
-1. Optionally, you can install other packages that aren't required.
-    1. Download the package files.
-    1. Upload the files to the **archives** folder.
-    1. Open the `S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms` YAML file for the BOM.
-    1. Edit the information for each optional package to `download:true`.
-    1. Save the YAML file and reupload the yaml file. There shall be only one yaml file in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the "boms" folder 
-
-Now, you can [install the SAP software](#install-software) using the installation wizard.
-
-##  Install software
-
-To install the SAP software on Azure, use the Azure Center for SAP solutions installation wizard.
+To install the SAP software directly, use the Azure Center for SAP solutions installation wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Virtual Instance for SAP solutions**.
 
-1. Select your Virtual Instance for SAP solutions (VIS) instance.
+1. Select your Virtual Instance for SAP solutions instance.
 
-1. On the **Overview** page for the VIS resource, select **Install SAP software**.
+1. On the **Overview** page for the Virtual Instance for SAP solutions resource, select **Install SAP software**.
 
 1. In the **Prerequisites** tab of the wizard, review the prerequisites. Then, select **Next**.
 
@@ -337,19 +91,36 @@ To install the SAP software on Azure, use the Azure Center for SAP solutions ins
 
 1. Wait for the installation to complete. The process takes approximately three hours. You can see the progress, along with estimated times for each step, in the wizard.
 
-1. After the installation completes, sign in with your SAP system credentials. Refer to [this section](manage-virtual-instance.md) to find the SAP system and HANA DB credentials for the newly installed system.
+1. After the installation completes, sign in with your SAP system credentials. To find the SAP system and HANA DB credentials for the newly installed system, see [how to manage a Virtual Instance for SAP solutions](manage-virtual-instance.md).
+
+## Install SAP through outside method
+
+If you install the SAP software elsewhere, you need to detect the software installation and update your Virtual Instance for SAP solutions metadata.
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Contributor** role access to the subscription or resource groups where the SAP system exists.
+
+1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
+
+1. Select **Virtual Instances for SAP solutions**. Then select the Virtual Instance for SAP solutions resource that you want to detect.
+
+1. On the resource's overview page, select **Confirm already installed software**. Read all the instructions, then select **Confirm**. Extensions will now be installed on ASCS, APP and DB virtual machines and start discovering SAP metadata.
+
+1. Wait for the Virtual Instance for SAP solutions resource to be detected and populated with the metadata. The process completes after all SAP system components have been detected. 
+
+1. Review the Virtual Instance for SAP solutions resource in the Azure portal. The resource page now shows the SAP system resources, and information about the system.
+
 
 ## Limitations
 
 The following are known limitations and issues.
 
-### Application Servers
+### Application servers
 
 You can install a maximum of 10 Application Servers, excluding the Primary Application Server. 
 
 ### SAP package version changes
 
-1. When SAP changes the version of packages for a component in the BOM, you might encounter problems with the automated installation shell script. It's recommended to download your SAP installation media as soon as possible to avoid issues.
+When SAP changes the version of packages for a component in the BOM, you might encounter problems with the automated installation shell script. It's recommended to download your SAP installation media as soon as possible to avoid issues.
 
 If you encounter this problem, follow these steps: 
 
@@ -366,32 +137,33 @@ If you encounter this problem, follow these steps:
     - `permissions` to `0755`
     - `url` to the new SAP download URL
 
-1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the "boms" folder 
+1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the `boms` folder 
 
 ### Special characters like $ in S-user password is not accepted while downloading the BOM. 
 
-1. Follow the step by step instructions upto cloning the 'SAP Automation repository from GitHub' in **Download SAP media** section.
+1. Clone the SAP automation repository. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
 
-1. Before running the Ansible playbook set the SPASS environment variable below. Single quotes should be present in the below command
+    ```git bash
+    git clone https://github.com/Azure/sap-automation.git
+    ```
+
+1. Before running the Ansible playbook set the SPASS environment variable below. Single quotes should be present in the command.
 
     ```bash
     export SPASS='password_with_special_chars'
     ```
-1. Then run the ansible playbook
+1. Run the Ansible playbook:
 
-```azurecli
+    ```azurecli
     ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=$SPASS" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>"
- ```
+     ```
   
-- For `<username>`, use your SAP username.
-- For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
-- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section.
+    - For `<username>`, use your SAP username.
+    - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
+    - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
+    - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 
-  The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
-
-This should resolve the problem and you can proceed with next steps as described in the section.
 ## Next steps
 
 - [Monitor SAP system from Azure portal](monitor-portal.md)
-- [Manage a VIS](manage-virtual-instance.md)
+- [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)

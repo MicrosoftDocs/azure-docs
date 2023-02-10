@@ -48,7 +48,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
-- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/)
+- [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
 ### Security analytics, network/application performance management
 

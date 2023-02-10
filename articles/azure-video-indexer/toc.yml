@@ -68,7 +68,7 @@
   - name: Using at scale 
     href: considerations-when-use-at-scale.md
   - name: Insights
-    href: insights-overview.md          
+    href: insights-overview.md
   - name: Customizing content models
     items:
     - name: Overview
@@ -114,6 +114,8 @@
       href: odrv-download.md        
   - name: Use insights
     items:
+    - name: Detect textual logo
+      href: detect-textual-logo.md
     - name: View and edit insights
       href: video-indexer-view-edit.md    
     - name: Find exact moments within videos

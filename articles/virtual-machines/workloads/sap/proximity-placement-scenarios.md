@@ -4,7 +4,7 @@ description: Describes SAP deployment scenarios with Azure proximity placement g
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 12/18/2022

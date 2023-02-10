@@ -1,9 +1,10 @@
 ---
 title: Deploy S/4HANA infrastructure (preview)
 description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -12,6 +13,8 @@ author: lauradolan
 # Deploy S/4HANA infrastructure with Azure Center for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
@@ -94,13 +97,13 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Dont include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares are supported.
 
-    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system wil be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesnt support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside ACSS with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
+    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system will be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesn't support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside ACSS with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
    
-    1. If you choose to **Use an existing SAP transport Directory**, select the pre - existing NFS fileshare under **File share name** option. The existing transport fileshare will be only mounted on this SID. The selected fileshare shall be in the same region as that of SAP system being created . Currently, file shares existing in a different region can not be selected. Provide the associated privated endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
+    1. If you choose to **Use an existing SAP transport Directory**, select the pre - existing NFS fileshare under **File share name** option. The existing transport fileshare will be only mounted on this SID. The selected fileshare shall be in the same region as that of SAP system being created. Currently, file shares existing in a different region can not be selected. Provide the associated privated endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
     
-    1. You can skip the creation of transport file share by selecting **Dont include SAP transport directory** option . The transport fileshare will neither be created or mounted for this SID.
+    1. You can skip the creation of transport file share by selecting **Dont include SAP transport directory** option. The transport fileshare will neither be created or mounted for this SID.
     
-1. Under **Configuration Details**, enter the FQDN for you SAP System .
+1. Under **Configuration Details**, enter the FQDN for your SAP System.
 
     1. For **SAP FQDN**, provide only the domain name for you system such "sap.contoso.com"
 

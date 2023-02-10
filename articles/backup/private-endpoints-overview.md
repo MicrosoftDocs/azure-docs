@@ -4,9 +4,9 @@ description: Understand the use of private endpoints for Azure Backup and the sc
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview and concepts of private endpoints for Azure Backup

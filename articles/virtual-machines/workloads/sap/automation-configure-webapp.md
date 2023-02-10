@@ -6,7 +6,7 @@ ms.author: akashdubey
 ms.reviewer: wsheehan
 ms.date: 10/19/2022
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ---
 
 # Configure the Control Plane Web Application
