@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network (VNet).
+In this section, you create a virtual network.
 
 1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
 
@@ -84,7 +84,7 @@ In this section, you'll create a virtual network (VNet).
 
 ## Create virtual machines
 
-In this section, you'll create two virtual machines: **myVM** and **myNVA**. You'll use **myVM** virtual machine to test the communication from. **myNVA** virtual machine will be used as a network virtual appliance in the scenario.
+In this section, you create two virtual machines: **myVM** and **myNVA**. You use **myVM** virtual machine to test the communication from. **myNVA** virtual machine is used as a network virtual appliance in the scenario.
 
 
 ### Create first virtual machine
@@ -144,7 +144,7 @@ In this section, you'll create two virtual machines: **myVM** and **myNVA**. You
 
 ### Create second virtual machine
 
-Follow the steps that you used to create **myVM** virtual machine and enter *myNVA* for the virtual machine name.
+Follow the previous steps that you used to create **myVM** virtual machine and enter *myNVA* for the virtual machine name.
 
 
 ## Test network communication using Network Watcher next hop
@@ -153,7 +153,7 @@ Use the next hop capability of Network Watcher to determine which route Azure is
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
-1. Under **Network diagnostic tools**, select **Next hop**. Enter or select the following:
+1. Under **Network diagnostic tools**, select **Next hop**. Enter or select the following information:
 
     | Setting | Value  |
     | ------- | ------ |
@@ -162,7 +162,7 @@ Use the next hop capability of Network Watcher to determine which route Azure is
     | Virtual machine | Select **myVM**. |
     | Network interface | Leave the default. |
     | Source IP address | Enter *10.0.0.4* or the IP of your VM if it's different. |
-    | Destination IP address | Enter *13.107.21.200* to test the communication to **`www.bing.com`**. |
+    | Destination IP address | Enter *13.107.21.200* to test the communication to `www.bing.com`. |
 
 1. Select **Next hop** button to start the test. The test result shows information about the next hop like the next hop type, its IP address, and the route table ID used to route traffic. The result of testing **13.107.21.200** shows that the next hop type is **Internet** and the route table ID is **System Route** which means traffic destined to `www.bing.com` from **myVM** is routed to the internet using Azure default system route.
 
@@ -200,12 +200,12 @@ To further analyze routing, review the effective routes for **myVM** network int
 
 ## Test a routing problem due to custom routes
 
-You'll create a static custom route to override Azure default system routes and cause a routing problem to **myVM** virtual machine that prevents it from directly communicating with `www.bing.com`. Then, you'll use Network Watcher next hop to troubleshoot and diagnose the problem.
+Next, you'll create a static custom route to override Azure default system routes and cause a routing problem to **myVM** virtual machine that prevents it from directly communicating with `www.bing.com`. Then, you'll use Network Watcher next hop to troubleshoot and diagnose the problem.
 
 
 ### Create a custom route
 
-In this section, you'll create a static custom route (user-defined route) in a route table, that will force all traffic destined outside the virtual network to a specific IP address. This is a common scenario to force traffic to a virtual network appliance for inspection.
+In this section, you create a static custom route (user-defined route) in a route table that forces all traffic destined outside the virtual network to a specific IP address. Forcing traffic to a virtual network appliance is a common scenario.
 
 1. In the search box at the top of the portal, enter *route table*. Select **Route tables** in the search results.
 
@@ -244,7 +244,7 @@ In this section, you'll create a static custom route (user-defined route) in a r
 
 ### Associate the route table with the subnet
 
-In this section, you'll associate the route table that you created in the previous section with **mySubnet** subnet.
+In this section, you associate the route table that you created in the previous section with **mySubnet** subnet.
 
 1. Under **Settings**, select **Subnets**, and then select **+ Associate** to associate **myRouteTable** with **mySubnet** subnet. 
 
@@ -260,20 +260,20 @@ In this section, you'll associate the route table that you created in the previo
 
 ### Go to `www.bing.com`
 
-In **myVM**, open the web browser and go to `www.bing.com` to verify if it's still reachable. The custom route that you created and associated with subnet of **myVM** forces the traffic to go to **myNVA**. The traffic is dropped as **myNVA** is not set up to forward the traffic for the purposes of this tutorial to demonstrate a routing problem.
+In **myVM**, open the web browser and go to `www.bing.com` to verify if it's still reachable. The custom route that you created and associated with subnet of **myVM** forces the traffic to go to **myNVA**. The traffic is dropped as **myNVA** isn't set up to forward the traffic for the purposes of this tutorial to demonstrate a routing problem.
 
-:::image type="content" source="./media/diagnose-vm-network-routing-problem/bing-blocked.png" alt-text="Screenshot showing Bing page is not reachable in a web browser.":::
+:::image type="content" source="./media/diagnose-vm-network-routing-problem/bing-blocked.png" alt-text="Screenshot showing Bing page isn't reachable in a web browser.":::
 
 
 ###  Test network communication using next hop
 
-Repeat the steps you used in [Test network communication using Network Watcher next hop](#test-network-communication-using-network-watcher-next-hop) section using **13.107.21.200** to test the communication to **`www.bing.com`** 
+Repeat the steps you used in [Test network communication using Network Watcher next hop](#test-network-communication-using-network-watcher-next-hop) section using **13.107.21.200** to test the communication to `www.bing.com`.
 
 :::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-virtual-appliance.png" alt-text="Screenshot showing virtual appliance as the next hop after applying a custom route.":::
 
 ## View effective routes
 
-Repeat the steps you used in [View details of a route](view-details-of-a-route) to check the effective routes after using the custom route that caused an issue in reaching `www.bing.com`.
+Repeat the steps you used in [View details of a route](#view-details-of-a-route) to check the effective routes after using the custom route that caused an issue in reaching `www.bing.com`.
 
 The custom route with prefix 0.0.0.0/0 overrode Azure default route and caused all traffic destined outside **myVNet** virtual machine to go to 10.0.0.5. 
 
@@ -293,9 +293,10 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+In this tutorial, you created a virtual machine and used Network Watcher next hop to diagnose routing to different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-For outbound VM connections, you can also determine the latency, allowed and denied network traffic between the VM and an endpoint, and the route used to an endpoint, using Network Watcher's [connection troubleshoot](network-watcher-connectivity-portal.md) capability. Learn how you can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability.
+For outbound VM connections, you can also determine the latency, allowed and denied network traffic between the VM and an endpoint, and the route used to an endpoint, using Network Watcher [connection troubleshoot](network-watcher-connectivity-portal.md) capability.
 
+To learn how to monitor communication between two virtual machines, advance to the next tutorial.
 > [!div class="nextstepaction"]
 > [Monitor a network connection](connection-monitor.md)
