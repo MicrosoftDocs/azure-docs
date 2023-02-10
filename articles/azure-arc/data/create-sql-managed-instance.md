@@ -31,7 +31,7 @@ If no storage class is specified for backups, the default storage class in Kuber
 
 
 
-### [Indirectly connected mode](#tab/indirectly)
+### [Indirectly connected mode](#tab/indirectly-connected-mode)
 
 ```azurecli
 az sql mi-arc create -n <instanceName> --storage-class-backups <RWX capable storageclass>  --k8s-namespace <namespace> --use-k8s
@@ -43,7 +43,7 @@ Example:
 az sql mi-arc create -n sqldemo --storage-class-backups mybackups --k8s-namespace my-namespace --use-k8s
 ```
 
-### [Directly connected mode](#tab/directly)
+### [Directly connected mode](#tab/directly-connected-mode)
 
 ```azurecli
 az sql mi-arc create --name <name> --resource-group <group> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
