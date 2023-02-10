@@ -190,7 +190,7 @@ The following considerations pertain to legacy Log Analytics tiers and how usage
 - If the workspace is in the legacy Per Node tier, Microsoft Defender for Cloud is billed using the current [Microsoft Defender for Cloud node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/).
 - In other pricing tiers (including commitment tiers), if Microsoft Defender for Cloud was enabled before June 19, 2017, Microsoft Defender for Cloud is billed only for Log Analytics data ingestion. Otherwise, Microsoft Defender for Cloud is billed using the current Microsoft Defender for Cloud node-based pricing model.
 
-More information on pricing tier limitations is available at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
+More information on pricing tier limitations is available at [Azure subscription and service limits, quotas, and constraints](../service-limits.md#log-analytics-workspaces).
 
 None of the legacy pricing tiers have regional-based pricing.
 
@@ -211,6 +211,8 @@ Use the following query to make a recommendation for the optimal pricing tier ba
 // Set these parameters before running query
 // For pay-as-you-go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
 // You can see your per-node costs in your Azure usage and charge data. For more information, see https://learn.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage.  
+let workspaceHasSecurityCenter = true;
+let daysToEvaluate = 7;
 let PerNodePrice = 15.; // Monthly price per monitored node
 let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter the pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)

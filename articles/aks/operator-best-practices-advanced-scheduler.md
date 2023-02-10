@@ -18,9 +18,11 @@ As you manage clusters in Azure Kubernetes Service (AKS), you often need to isol
 This best practices article focuses on advanced Kubernetes scheduling features for cluster operators. In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Use taints and tolerations to limit what pods can be scheduled on nodes.
 > * Give preference to pods to run on certain nodes with node selectors or node affinity.
 > * Split apart or group together pods with inter-pod affinity or anti-affinity.
+> * Restrict scheduling of workloads that require GPUs only on nodes with schedulable GPUs.
 
 ## Provide dedicated nodes using taints and tolerations
 
@@ -28,7 +30,7 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 >
 > Limit access for resource-intensive applications, such as ingress controllers, to specific nodes. Keep node resources available for workloads that require them, and don't allow scheduling of other workloads on the nodes.
 
-When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. You can use these nodes for large data processing workloads such as machine learning (ML) or artificial intelligence (AI).
+When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. For more information, see [Use GPUs on AKS][use-gpus-aks]. You can use these nodes for large data processing workloads such as machine learning (ML) or artificial intelligence (AI).
 
 Because this node resource hardware is typically expensive to deploy, limit the workloads that can be scheduled on these nodes. Instead, dedicate some nodes in the cluster to run ingress services and prevent other workloads.
 
@@ -245,3 +247,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[use-gpus-aks]: gpu-cluster.md

@@ -55,7 +55,7 @@ To create an Azure AD Admin user, follow the following steps.
     - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
     - [Application.Read.ALL](/graph/permissions-reference#application-resource-permissions): Allows access to Azure AD service principal (application) information.
 
-For guidance about how to grant and use the permissions, refer to [Microsoft Graph permissions](/graph/permissions-reference)
+For guidance about how to grant and use the permissions, refer to [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 
 After you grant the permissions to the UMI, they're enabled for all servers or instances created with the UMI assigned as a server identity.
 
@@ -160,7 +160,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 - Launch MySQL Workbench and Select the Database option, then select **Connect to database**.
 - In the hostname field, enter the MySQL FQDN for example, mysql.database.azure.com.
-- In the username field, enter the MySQL Azure Active Directory administrator name and append this with the MySQL server name, not the FQDN for example, user@tenant.onmicrosoft.com.
+- In the username field, enter the MySQL Azure Active Directory administrator name. For example, user@tenant.onmicrosoft.com.
 - In the password field, select **Store in Vault** and paste in the access token from the file for example, C:\temp\MySQLAccessToken.txt.
 - Select the advanced tab and ensure that you check **Enable Cleartext Authentication Plugin**.
 - Select OK to connect to the database.

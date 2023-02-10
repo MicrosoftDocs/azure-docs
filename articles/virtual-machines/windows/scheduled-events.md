@@ -205,6 +205,8 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
 
+> [!Note] 
+> Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
 
 #### Bash sample
 ```

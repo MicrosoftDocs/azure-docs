@@ -40,6 +40,12 @@ The following table shows how both the OT team, on the Defender for IoT side, an
 |SOC teams respond with OT playbooks and notebooks     |  **OT incident response**       |  OT teams either suppress the alert or learn it for next time, as needed       |
 |After the threat is mitigated, SOC teams close the incident     |  **OT incident closure**       | After the threat is mitigated, OT teams close the alert        |
 
+### Alert status synchronizations
+
+Alert status changes are synchronized from Microsoft Sentinel to Defender for IoT only, and not from Defender for IoT to Microsoft Sentinel.
+
+If you integrate Defender for IoT with Microsoft Sentinel, we recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel.
+
 ## Microsoft Sentinel incidents for Defender for IoT
 
 After you've configured the Defender for IoT data connector and have IoT/OT alert data streaming to Microsoft Sentinel, use one of the following methods to create incidents based on those alerts:
@@ -72,41 +78,48 @@ For example, use SOAR playbooks to:
 
 - Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail may be sent to OT personnel, such as a control engineer responsible on the related production line.
 
-
-
 ## Comparing Defender for IoT events, alerts, and incidents
 
 This section clarifies the differences between Defender for IoT events, alerts, and incidents in Microsoft Sentinel. Use the listed queries to view a full list of the current events, alerts, and incidents for your OT networks.
 
 You'll typically see more Defender for IoT *events* in Microsoft Sentinel than *alerts*, and more Defender for IoT *alerts* than *incidents*.
 
+### Defender for IoT events in Microsoft Sentinel
 
-- **Events**: Each alert log that streams to Microsoft Sentinel from Defender for IoT is an *event*. If the alert log reflects a new or updated alert in Defender for IoT, a new record is added to the **SecurityAlert** table. 
+Each alert log that streams to Microsoft Sentinel from Defender for IoT is an *event*. If the alert log reflects a new or updated alert in Defender for IoT, a new record is added to the **SecurityAlert** table.
 
-    To view all Defender for IoT events in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
+To view all Defender for IoT events in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
 
-    ```kql
-    SecurityAlert
-    | where ProviderName == 'IoTSecurity' or ProviderName == 'CustomAlertRule'
-    Instead
-    ```
+```kql
+SecurityAlert
+| where ProviderName == 'IoTSecurity' or ProviderName == 'CustomAlertRule'
+Instead
+```
 
-- **Alerts**: Microsoft Sentinel creates alerts based on your current analytics rules and the alert logs listed in the **SecurityAlert** table. If you don't have any active analytics rules for Defender for IoT, Microsoft Sentinel considers each alert log as an *event*.
+### Defender for IoT alerts in Microsoft Sentinel
 
-    To view alerts in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
+Microsoft Sentinel creates alerts based on your current analytics rules and the alert logs listed in the **SecurityAlert** table. If you don't have any active analytics rules for Defender for IoT, Microsoft Sentinel considers each alert log as an *event*.
 
-    ```kql
-    SecurityAlert
-    | where ProviderName == 'ASI Scheduled Alerts' or ProviderName == 'CustomAlertRule'
-    ```
+To view alerts in Microsoft Sentinel, run the following query on the**SecurityAlert** table:
+```kql
+SecurityAlert
+| where ProviderName == 'ASI Scheduled Alerts' or ProviderName =='CustomAlertRule'
+```
 
-- **Incidents**. Microsoft Sentinel creates incidents based on your analytics rules. You might have several alerts grouped in the same incident, or you may have analytics rules configured to *not* create incidents for specific alert types.
+After you've installed the Microsoft Defender for IoT solution and deployed the [AD4IoT-AutoAlertStatusSync](iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot) playbook, alert status changes are synchronized from Microsoft Sentinel to Defender for IoT. Alert status changes are *not* synchronized from Defender for IoT to Microsoft Sentinel.
 
-    To view incidents in Microsoft Sentinel, run the following query:
+> [!IMPORTANT]
+> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](../../sentinel/work-with-tasks.md).
+>
 
-    ```kql
-    SecurityIncident
-    ```
+### Defender for IoT incidents in Microsoft Sentinel
+
+Microsoft Sentinel creates incidents based on your analytics rules. You might have several alerts grouped in the same incident, or you may have analytics rules configured to *not* create incidents for specific alert types.
+
+To view incidents in Microsoft Sentinel, run the following query:
+```kql
+SecurityIncident
+```
 
 ## Next steps
 

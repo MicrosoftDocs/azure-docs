@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/05/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you'll learn how to:
 > - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 > [!TIP]
-> To learn more about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+> To learn more about Bicep, see [What is Bicep?](../../azure-resource-manager/bicep/overview.md?tabs=bicep)
 
 ## Prerequisites
 
@@ -34,11 +34,11 @@ To begin your deployment and complete the quickstart, you must have the followin
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Azure PowerShell](/powershell/azure/install-az-ps) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
-  - For Azure PowerShell, you'll also need to install [Bicep CLI](/azure/azure-resource-manager/bicep/install#windows) to deploy the Bicep file used in this quickstart.
+  - For Azure PowerShell, you'll also need to install [Bicep CLI](../../azure-resource-manager/bicep/install.md#windows) to deploy the Bicep file used in this quickstart.
 
 When you have these prerequisites, you're ready to deploy the Bicep file.
 
-## Review the Bicep file
+## Review the Bicep file - Optional
 
 The Bicep file used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
@@ -56,7 +56,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    Connect-AzAccount
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurepowershell
    Set-AzContext <AzureSubscriptionId>
@@ -93,6 +93,17 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
+
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -103,7 +114,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    az login
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurecli
    az account set <AzureSubscriptionId>
@@ -140,38 +151,49 @@ Complete the following five steps to deploy the MedTech service using the Azure 
 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
 
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   > 
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
+
 ## Review deployed resources and access permissions
 
 When deployment is completed, the following resources and access roles are created in the Bicep file deployment:
 
 - Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
 
-- An event hub consumer group. In this deployment, the consumer group is named *$Default*.
+  - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-- The Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender*.
+  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). 
 
 - A Health Data Services workspace.
 
 - A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
-- An instance of the MedTech service for Health Data Services, with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+- A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
 > [!IMPORTANT]
-   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
-   >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+>
+> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+- To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
 
-- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ## Clean up Azure PowerShell deployed resources
 
@@ -198,17 +220,11 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+In this quickstart, you learned about how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
-To learn more about other methods of deploying the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

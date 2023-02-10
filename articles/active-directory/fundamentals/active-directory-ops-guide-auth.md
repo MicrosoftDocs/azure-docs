@@ -315,6 +315,7 @@ To avoid this scenario, you should refer to [detect and remediate illicit consen
 
 #### Consent grants recommended reading
 
+- [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 - [Microsoft Graph API permissions](/graph/permissions-reference)
 
 ### User and group settings

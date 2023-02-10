@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 ## List of Partner solutions that can be deployed in Azure public MEC
 
-The table in this article provides information on Partner solutions that can be deployed in Public MEC using ARM templates. 
+The table in this article provides information on Partner solutions that can be deployed in Public MEC. 
 
 
 >
@@ -35,7 +35,6 @@ The table in this article provides information on Partner solutions that can be 
 | **VMware** | [SDWAN Edge](https://sase.vmware.com/products/component-network-edge)| [VMware SD-WAN - Virtual Edge](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.sol-42222-bbj?tab=Overview) |
 |  |  |  |
 
-For details on how to use ARM templates to deploy a solution, and which variables in the ARM template to modify for each solution, please open a CSS ticket for Azure Public MEC product.
 
 Currently, the solutions can be deployed at the following locations:
 

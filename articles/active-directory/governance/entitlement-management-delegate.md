@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 7/6/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,17 +21,17 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegation and roles in Microsoft Entra entitlement management
+# Delegation and roles in entitlement management
 
 In Azure AD, you can use role models to manage access at scale through identity governance.
 
- * You can use access packages to represent organizational roles in your organization, such as "sales representative". An access package representing that enterprise role would include all the access rights that a sales representative might typically need, across multiple resources.
+ * You can use access packages to represent [organizational roles](identity-governance-organizational-roles.md) in your organization, such as "sales representative". An access package representing that organizational role would include all the access rights that a sales representative might typically need, across multiple resources.
  * Applications [can define their own roles](../develop/howto-add-app-roles-in-azure-ad-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
  * You can use roles for delegating administrative access.  If you have a catalog for all the access packages needed by sales, you could assign someone to be responsible for that catalog, by assigning them a catalog-specific role.
 
-This article discusses how to use roles to manage aspects within Microsoft Entra entitlement management.
+This article discusses how to use roles to manage aspects within Microsoft Entra entitlement management, for controlling access to the entitlement management resources.
 
-By default, Global administrators and Identity governance administrators can create and manage all aspects of Microsoft Entra entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
+By default, Global administrators and Identity governance administrators can create and manage all aspects of entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
 
 This video provides an overview of how to delegate access governance from IT administrator to users who aren't administrators.
 

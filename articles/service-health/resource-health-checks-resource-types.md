@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/23/2023
 ---
 
 # Resource types and health checks in Azure resource health
@@ -139,6 +139,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are core services available on the HDInsight cluster?</li><li>Can the HDInsight cluster access the key for BYOK encryption at rest?</li></ul>|
+
+## Microsoft.HybridCompute/machines
+|Executed Checks|
+|---|
+|<ul><li>Is the agent on your server connected to Azure and sending heartbeats?</li></ul>|
 
 ## Microsoft.IoTCentral/IoTApps
 |Executed Checks|

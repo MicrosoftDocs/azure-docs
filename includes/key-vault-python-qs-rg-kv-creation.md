@@ -27,7 +27,7 @@ ms.author: msmbaldwin
 
     Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
 
-# [Azure PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 1. Use the `New-AzResourceGroup` command to create a resource group:
 

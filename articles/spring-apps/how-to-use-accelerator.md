@@ -205,14 +205,6 @@ Use to following steps to create and maintain your own accelerators:
 First, create a file named *accelerator.yaml* in the root directory of your Git repository.
 
 You can use the *accelerator.yaml* file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an *accelerator.yaml* file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html).
-
-You can also use **Template Editor** in Dev Tools Portal to edit your *accelerator.yaml* file for visualization and syntax check.
-
-:::image type="content" source="media/how-to-use-accelerator/template-editor-entry.png" alt-text="Screenshot of the Application Accelerators page in Dev Tools Portal." lightbox="media/how-to-use-accelerator/template-editor-entry.png":::
-
-You can use Template Editor to preview the input options and steps of accelerators. During creation of a new accelerator, you can confirm that the input options and steps are correct and the YAML file is valid. You can also copy and paste the content of an existing *accelerator.yaml* file and edit it to see the updated view.
-
-:::image type="content" source="media/how-to-use-accelerator/template-editor.png" alt-text="Screenshot of the Template Editor." lightbox="media/how-to-use-accelerator/template-editor.png":::
   
 Next, publish the new accelerator.
 

@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Entra Identity Governance?
+          - text: What is Identity Governance?
             url: identity-governance-overview.md
       - linkListType: video
         links:
@@ -34,7 +34,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Entra entitlement management?
+          - text: What is entitlement management?
             url: entitlement-management-overview.md
       - linkListType: tutorial
         links:
@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Microsoft Entra access reviews?
+          - text: What are access reviews?
             url: access-reviews-overview.md
       - linkListType: how-to-guide
         links:
@@ -86,7 +86,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Entra Privileged Identity Management?
+          - text: What is Privileged Identity Management?
             url: ../privileged-identity-management/pim-configure.md
   
   # Card

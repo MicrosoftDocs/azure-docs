@@ -16,6 +16,10 @@ You may also have [integrated your AKS cluster with Azure Active Directory (Azur
 
 Alternatively, you can use a managed identity for permissions instead of a service principal. Managed identities are easier to manage than service principals and do not require updates or rotations. For more information, see [Use managed identities](use-managed-identity.md).
 
+> [!NOTE]
+> - When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command
+> - If you don't specify a service principal with Azure CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used
+
 ## Before you begin
 
 You need the Azure CLI version 2.0.65 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].

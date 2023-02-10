@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: nitinarora
 ms.topic: troubleshooting
-ms.date: 09/20/2021
+ms.date: 12/06/2022
 ---
 
 # Troubleshoot reservation type not available
