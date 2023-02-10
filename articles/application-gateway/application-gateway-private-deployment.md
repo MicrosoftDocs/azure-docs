@@ -384,7 +384,7 @@ Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising will not
 
 ### Example scenario
 
-In the following example, we will create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is summarized in figure 1:
+In the following example, we will create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is summarized in Figure 1 below:
 - The Application Gateway is in spoke virtual network
 - There is a network virtual appliance (a virtual machine) in the hub network
 - A route table with a default route (0.0.0.0/0) to the virtual pppliance is associated to Application Gateway subnet
