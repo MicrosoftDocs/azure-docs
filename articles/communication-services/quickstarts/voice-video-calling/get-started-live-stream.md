@@ -24,7 +24,6 @@ attendees while enabling some attendees to share their live audio and video, int
 
 - [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role-based streaming.
 - The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quick start.
-- Please contact with ACS Support team to enable live streaming for your resource.
 
 ## Live Streaming with Rooms
 Room participants can be assigned one of the following roles: **Presenter**, **Attendee** and **Consumer**. By default, a user is assigned an **Consumer** role, if no other role is assigned.
