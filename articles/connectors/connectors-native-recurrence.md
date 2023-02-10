@@ -104,7 +104,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
    > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
    > provide a start date and time for when you want the first recurrence to run.
    >
-   > If you deploy a disabled workflow that has a Recurrence trigger using an ARM template, the trigger 
+   > If you deploy a disabled Consumption workflow that has a Recurrence trigger using an ARM template, the trigger 
    > instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
    > upon 'Enable' unless the 'Start time' parameter is configured before deployment.
    >
