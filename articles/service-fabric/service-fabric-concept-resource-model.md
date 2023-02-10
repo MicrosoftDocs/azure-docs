@@ -183,7 +183,7 @@ To delete an application that was deployed by using the application resource mod
 
 ## Common questions and answers
 
-1. Error:  “Application name must be a prefix of service name”
+Error:  "Application name must be a prefix of service name"
     Answer:  Make sure the service name is formatted as follows: ProfileVetSF~CallTicketDataWebApi.
 
 ## Next steps
