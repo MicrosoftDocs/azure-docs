@@ -21,7 +21,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ## January 2023
 
-#### Azure Health Data Services
+### Azure Health Data Services
 
 **Azure Health Data services General Available (GA) in new regions**
 
