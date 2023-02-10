@@ -30,7 +30,7 @@ DICOM service supports unique digital pathology requirements like:
 3. A cost effective way to store images long-term post diagnosis for archival and research use.
 
 ## End to End reference solution
-![DICOM service for digital pathology reference solution](media/dicom-digital-pathology.png)
+:::image type="content" source="media/dicom-digital-pathology.png" alt-text="Diagram showing whole-slide imaging digitization and cloud storage." lightbox="media/dicom-digital-pathology.png":::
 
 ### Digitization
 
