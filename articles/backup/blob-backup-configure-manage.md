@@ -85,7 +85,7 @@ To create a backup policy, follow these steps:
  
 4. On the **Schedule + retention** tab, enter the *backup details* of the data store, schedule, and retention for these data stores, as applicable.
 
-   1. To use the backup policy for vaulted backups, operational backups, or both, select the corresponding check boxes.
+   1. To use the backup policy for vaulted backups, operational backups, or both, select the corresponding checkboxes.
    1. For each data store you selected, add or edit the schedule and retention settings:
       - **vaulted backups**: Choose the frequency of backups between *daily* and *weekly*, specify the schedule when the backup recovery points need to be created, and then edit the default retention rule (selecting **Edit**) or add new rules to specify the retention of recovery points using a *grandparent-parent-child* notation.
       - **Operational backups**: These are continuous and don't require a schedule. Edit the default rule for operational backups to specify the required retention.
@@ -214,7 +214,8 @@ You can configure backup for blobs in a storage account directly from the ‘Dat
 
     ![Operational backup using Azure Backup](./media/blob-backup-configure-manage/operational-backup-using-azure-backup.png)
 
-1. Select the check box corresponding to **Enable operational backup with Azure Backup**. Then select the Backup vault and the Backup policy you want to associate.<br><br>You can select the existing vault and policy, or create new ones, as required.
+1. Select the checkbox corresponding to **Enable operational backup with Azure Backup**. Then select the Backup vault and the Backup policy you want to associate.
+   You can select the existing vault and policy, or create new ones, as required.
 
     >[!IMPORTANT]
     >You should have assigned the **Storage account backup contributor** role to the selected vault. Learn more about [Grant permissions to the Backup vault on storage accounts](#grant-permissions-to-the-backup-vault-on-storage-accounts).
