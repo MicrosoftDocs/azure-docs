@@ -47,8 +47,8 @@ Below are some common issues that may occur during the process.
     1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
         - The MPN ID is correct. 
         - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
-    3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Admin, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
+    2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+    3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
@@ -235,7 +235,7 @@ Most commonly caused when the verification is being performed via Graph API, and
 
 This feature isn't supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported.
 
-Occurs when a consumer account (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
+Occurs when a consumer account is used for app registration (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
 
 ### InteractionRequired
 
@@ -247,11 +247,11 @@ The error message displayed will be: "Due to a configuration change made by your
 
 When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the user risk state is determined to be ‘AtRisk’, an error, “You're unable to add a verified publisher to this application. Contact your administrator for assistance” will be returned. Please investigate the user risk and take the appropriate steps to remediate the risk (guidance below): 
 
-> [Investigate risk](/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk#risky-users)
+> [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users)
 
-> [Remediate risk/unblock users](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+> [Remediate risk/unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
 
-> [Self-remediation guidance](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+> [Self-remediation guidance](../identity-protection/howto-identity-protection-remediate-unblock.md)
 
 > Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
 

@@ -14,7 +14,7 @@ ms.author: abell
 ---
 # Azure DDoS Rapid Response
 
-During an active attack, Azure DDoS Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
+During an active attack, Azure DDoS Network Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
 
 ## Prerequisites
 

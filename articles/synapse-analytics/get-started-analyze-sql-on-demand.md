@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.custom: ignite-2022
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 11/18/2022
 ---
 
 # Analyze data with a serverless SQL pool

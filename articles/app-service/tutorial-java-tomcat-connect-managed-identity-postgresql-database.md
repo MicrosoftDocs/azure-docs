@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 09/26/2022
 author: KarlErickson
 ms.author: karler
-ms.custom: passwordless-java
+ms.custom: passwordless-java, service-connector
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/Passwordless-Connections-for-Java-App
 cd Passwordless-Connections-for-Java-Apps/Tomcat/
 ```
 
-## Create an Azure Postgres DB
+## Create an Azure Database for PostgreSQL
 
 Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
@@ -57,7 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Postgres Database server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
 
    ### [Flexible Server](#tab/flexible)
 
@@ -162,11 +162,14 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
        --type war
    ```
 
-## Connect Postgres Database with identity connectivity
-
-Next, connect your app to a Postgres Database with a system-assigned managed identity using Service Connector. 
+## Connect the Postgres database with identity connectivity
 
 ### [Flexible Server](#tab/flexible)
+
+> [!NOTE]  
+> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
+
+Next, connect your app to a Postgres database with a system-assigned managed identity using Service Connector. 
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
@@ -216,3 +219,8 @@ Learn more about running Java apps on App Service on Linux in the developer guid
 
 > [!div class="nextstepaction"]
 > [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+
+Learn how to secure your app with a custom domain and certificate.
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

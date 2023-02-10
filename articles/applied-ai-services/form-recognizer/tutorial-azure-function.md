@@ -95,7 +95,7 @@ In this tutorial, you learn how to:
 
     * **Select subscription** → choose your Azure subscription with the storage account you created → select your storage account → then select the name of the storage input container (in this case, `input/{name}`). Press **Enter** to confirm.
 
-    * **Select how your would like to open your project** → choose **Open the project in the current window** from the dropdown window.
+    * **Select how your would like to open your project** → choose **Open the project in the current window** from the dropdown menu.
 
 1. Once you've completed these steps, VS Code will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **input** storage container:
 

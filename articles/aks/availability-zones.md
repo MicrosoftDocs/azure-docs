@@ -22,32 +22,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 ## Limitations and region availability
 
-AKS clusters can currently be created using availability zones in the following regions:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Central India
-* Central US
-* East Asia
-* East US 
-* East US 2
-* France Central
-* Germany West Central
-* Japan East
-* Korea Central
-* North Europe
-* Norway East
-* Southeast Asia
-* South Africa North
-* South Central US
-* Sweden Central
-* Switzerland North
-* UK South
-* US Gov Virginia
-* West Europe
-* West US 2
-* West US 3
+AKS clusters can be created using availability zones in any Azure region that has availability zones.
 
 The following limitations apply when you create an AKS cluster using availability zones:
 

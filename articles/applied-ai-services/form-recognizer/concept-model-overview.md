@@ -53,7 +53,7 @@ recommendations: false
 
 [:::image type="icon" source="media/studio/read-card.png" :::](https://formrecognizer.appliedai.azure.com/studio/read)
 
-The Read API analyzes and extracts ext lines, words, their locations, detected languages, and handwritten style if detected.
+The Read API analyzes and extracts lines, words, their locations, detected languages, and handwritten style if detected.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 
@@ -227,9 +227,9 @@ Learn how to use Form Recognizer v3.0 in your applications by following our [**F
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents.
 
-***Sample document processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
+***Sample document processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the sample labeling tool.":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the Sample Labeling tool.":::
 
 > [!div class="nextstepaction"]
 >
@@ -239,9 +239,9 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
-***Sample invoice processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+***Sample invoice processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
 
-:::image type="content" source="./media/overview-invoices.jpg" alt-text="Screenshot of a sample invoice analysis using the sample labeling tool.":::
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="Screenshot of a sample invoice analysis using the Sample Labeling tool.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: invoice model](concept-invoice.md)
@@ -250,7 +250,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 * The receipt model analyzes and extracts key information from printed and handwritten sales receipts.
 
-***Sample receipt processed using [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+***Sample receipt processed using [Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
 
 :::image type="content" source="./media/receipts-example.jpg" alt-text="Screenshot of a sample receipt." lightbox="./media/overview-receipt.jpg":::
 
@@ -265,7 +265,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 * Biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts
 
-***Sample U.S. Driver's License processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+***Sample U.S. Driver's License processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="Screenshot of a sample identification card.":::
 
@@ -276,7 +276,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 The business card model analyzes and extracts key information from business card images.
 
-***Sample business card processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+***Sample business card processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
 
 :::image type="content" source="./media/business-card-example.jpg" alt-text="Screenshot of a sample business card.":::
 
@@ -287,7 +287,7 @@ The business card model analyzes and extracts key information from business card
 
 * Custom models analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-***Sample custom model processing using the [sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
+***Sample custom model processing using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
@@ -298,7 +298,7 @@ The business card model analyzes and extracts key information from business card
 
 A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
 
-***Composed model dialog window using the [sample labeling tool](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Composed model dialog window using the [Sample Labeling tool](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
 :::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
 
@@ -333,7 +333,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -341,7 +341,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

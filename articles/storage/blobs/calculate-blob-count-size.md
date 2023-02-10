@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.author: normesta
-ms.date: 08/16/2021
+ms.date: 12/02/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -15,8 +15,6 @@ ms.custom: subject-rbac-steps
 # Calculate blob count and total size per container using Azure Storage inventory
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when optimizing blob usage per container.
-
-Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn't support snapshots, '$' containers, and so on.
 
 ## Enable inventory reports
 
@@ -67,4 +65,5 @@ After you create your Azure Synapse workspace, do the following steps.
 ## Next steps
 
 - [Use Azure Storage blob inventory to manage blob data](blob-inventory.md)
+- [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate the total billing size of a blob container](../scripts/storage-blobs-container-calculate-billing-size-powershell.md)

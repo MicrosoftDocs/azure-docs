@@ -1,7 +1,7 @@
 ---
 title: Private mobile network design requirements
-titleSuffix: Azure Private 5G Core Preview
-description: Learn how to design a private mobile network for Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: Learn how to design a private mobile network for Azure Private 5G Core.
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
@@ -94,7 +94,7 @@ Being able to build enterprise networks using automation and other programmatic 
 
 You should adopt a programmatic, *infrastructure as code* approach to your deployments. You can use templates or the Azure REST API to build your deployment using parameters as inputs with values that you have collected during the design phase of the project. You should save provisioning information such as SIM data, switch/router configuration, and network policies in machine-readable format so that, in the event of a failure, you can reapply the configuration in the same way as you originally did. Another best practice to recover from failure is to deploy a spare Azure Stack Edge server to minimize recovery time if the first unit fails; you can then use your saved templates and inputs to quickly recreate the deployment. For more information on deploying a network using templates, refer to [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md).
 
-You must also consider how you'll integrate other Azure products and services with the private enterprise network. These products include [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and [role-based access control (RBAC)](/azure/role-based-access-control/overview), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, as well as your own approach to customer system management. For example, you might use [Azure Blueprints](/azure/governance/blueprints/overview) to set up the subscriptions and resource group model that works best for your organization.
+You must also consider how you'll integrate other Azure products and services with the private enterprise network. These products include [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and [role-based access control (RBAC)](../role-based-access-control/overview.md), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, as well as your own approach to customer system management. For example, you might use [Azure Blueprints](../governance/blueprints/overview.md) to set up the subscriptions and resource group model that works best for your organization.
 
 ## Next steps
 

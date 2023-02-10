@@ -10,7 +10,7 @@ ms.author: diberry
 1. Find the API for MongoDB **connection string** from the list of connection strings for the account with the [``az cosmosdb keys list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
-    cosmosdb keys list --type connection-strings \
+    az cosmosdb keys list --type connection-strings \
         --resource-group $resourceGroupName \
         --name $accountName 
     ```

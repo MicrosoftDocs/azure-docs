@@ -2,7 +2,7 @@
 title: Create and run custom availability tests by using Azure Functions
 description: This article explains how to create an Azure function with TrackAvailability() that will run periodically according to the configuration given in a TimerTrigger function. 
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 01/06/2023
 ms.devlang: csharp
 ---
 
@@ -82,8 +82,16 @@ To create a new file, right-click under your timer trigger function (for example
     } 
     ```
 
-1. Copy the following code into the **run.csx** file. (You'll replace the preexisting code.)
+1. Define the `REGION_NAME` environment variable as a valid Azure availability location.
 
+    Run the following command in the [Azure CLI](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions.
+
+    ```azurecli
+    az account list-locations -o table
+    ```
+
+1. Copy the following code into the **run.csx** file. (You'll replace the preexisting code.)
+   
     ```csharp
     #load "runAvailabilityTest.csx" 
     

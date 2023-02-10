@@ -13,6 +13,10 @@ ms.author: duau
 
 Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users with the Microsoft global network. This article will guide you through the migration process to migrate your Front Door (classic) profile to either a Standard or Premium tier profile to begin using these latest features.
 
+> [!IMPORTANT]
+> Migration capability for Azure Front Door is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * Review the [About Front Door tier migration](tier-migration.md) article.
@@ -106,6 +110,10 @@ Select **Grant** to add managed identities from the last section to all the Key 
 
     > [!NOTE]
     > If you cancel the migration, only the new Front Door profile will get deleted. Any new WAF policy copies will need to be manually deleted.
+
+    > [!WARNING]
+    > Deleting the new profile will delete the production configuration once the **Migrate** step is initiated, which is an irreversible change. 
+
 
 1. Once the migration completes, you can select the banner the top of the page or the link from the successful message to go to the new Front Door profile.
 

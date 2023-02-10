@@ -1,13 +1,14 @@
 ---
-title: Workflow Versioning - Azure Active Directory
+title: Workflow Versioning
 description: An article discussing Lifecycle workflow versioning and history
 author: owinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual 
-ms.date: 07/06/2022
+ms.date: 01/26/2023
 ms.custom: template-concept
 ---
 
@@ -47,7 +48,7 @@ Properties that will trigger the creation of a new version are as follows:
  
 
 
-While new versions of these workflows are made as soon as you make the updates in the Azure portal, making a new version of a workflow using the API with Microsoft Graph requires running the workflow creation call again with the changes included. For a step by step guide for updating either tasks, or execution conditions, see: [Manage Workflow Versions](manage-workflow-tasks.md).
+While new versions of these workflows are made as soon as you make the updates in the Azure portal, creating a new version of a workflow using the API with Microsoft Graph requires running the createNewVersion method. For a step by step guide for updating either tasks, or execution conditions, see: [Manage Workflow Versions](manage-workflow-tasks.md).
 
 > [!NOTE]
 > If the workflow is on-demand, the configure information associated with execution conditions will not be present.

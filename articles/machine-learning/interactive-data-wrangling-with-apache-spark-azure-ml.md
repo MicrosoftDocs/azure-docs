@@ -1,14 +1,14 @@
----
+--- 
 title: Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Apache Spark to wrangle data with Azure Machine Learning
 author: ynpandey
 ms.author: franksolomon
-ms.reviewer: scottpolly
+ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 10/25/2022
+ms.date: 12/01/2022
 ms.custom: template-how-to 
 ---
 
@@ -24,12 +24,16 @@ In this article, you will learn how to perform data wrangling using
 - Attached Synapse Spark pool
 
 ## Prerequisites
-
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
-- A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
+- To enable this feature:
+  1. Navigate to Azure Machine Learning studio UI.
+  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
+  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+- (Optional): An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+- (Optional): A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 Before starting data wrangling tasks, you will need familiarity with the process of storing secrets
@@ -39,6 +43,9 @@ Before starting data wrangling tasks, you will need familiarity with the process
 - Azure Data Lake Storage (ADLS) Gen 2 service principal information
 
 in the Azure Key Vault. You will also need to know how to handle role assignments in the Azure storage accounts. The following sections review these concepts. Then, we will explore the details of interactive data wrangling using the Spark pools in Azure Machine Learning Notebooks.
+
+> [!TIP]
+> If you access data in your storage accounts using user identity passthrough, you can skip to [Add role assignments in Azure storage accounts](#add-role-assignments-in-azure-storage-accounts).
 
 ## Store Azure storage account credentials as secrets in Azure Key Vault
 
@@ -110,37 +117,29 @@ assign **Reader** and **Storage Blob Data Reader** roles. However, in certain sc
 
 Data in the Azure storage account should become accessible once the user identity or service principal has appropriate roles assigned.
 
+> [!NOTE]
+> If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access. 
+
 ## Interactive Data Wrangling with Apache Spark
 
-Azure Machine Learning offers Managed (Automatic) Spark compute, and [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md), for interactive data wrangling with Apache Spark, in Azure Machine Learning Notebooks. The Managed (Automatic) Spark compute does not require creation of resources in the Azure Synapse workspace. Instead, a fully managed automatic Spark compute becomes directly available in the Azure Machine Learning Notebooks.
+Azure Machine Learning offers Managed (Automatic) Spark compute, and [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md), for interactive data wrangling with Apache Spark, in Azure Machine Learning Notebooks. The Managed (Automatic) Spark compute does not require creation of resources in the Azure Synapse workspace. Instead, a fully managed automatic Spark compute becomes directly available in the Azure Machine Learning Notebooks. Using a Managed (Automatic) Spark compute is the easiest approach to access a Spark cluster in Azure Machine Learning.
 
-### Create and configure Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
+### Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
 
-We can create a Managed (Automatic) Spark compute from the Machine Learning Notebooks user interface. To create a notebook, a first-time user should select **Notebooks** from the left panel in Azure Machine Learning studio, and then select **Start with an empty notebook**. Azure Machine Learning studio offers additional options to upload existing notebooks, and to clone notebooks from a git repository.
+A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, select **AzureML Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu.
 
-:::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/start-with-an-empty-notebook.png" alt-text="Screenshot showing the Azure Notebooks tab.":::
-
-To create and configure a Managed (Automatic) Spark compute in an open notebook:
-
-1. Select the ellipses **(…)** next to the **Compute** selection menu.
-1. Select **+ Create Azure ML compute**. Sometimes, the ellipses may not appear. In this case, directly select the **+** icon next to the **Compute** selection menu.
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/create-azure-ml-compute-resource-in-a-notebook.png" alt-text="Screenshot highlighting the Create Azure ML compute option of a specific Azure Notebook tab.":::
-
-1. Select **Azure Machine Learning Spark**.
-1. Select **Create**.
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/add-azure-machine-learning-spark-compute-type.png" alt-text="Screenshot highlighting the Azure Machine Learning Spark option at the Add new compute type screen.":::
-
-1. Under **Azure Machine Learning Spark**, select **AzureML Spark Compute** from the **Compute** selection menu
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Add new compute type screen.":::
+:::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Compute selection menu.":::
 
 The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
 
 1. Select **Configure session** at the bottom of the screen.
 1. Select a version of **Apache Spark** from the dropdown menu.
-1. Select **Instance type** from the dropdown menu.
+1. Select **Instance type** from the dropdown menu. The following instance types are currently supported:
+    - `Standard_E4s_v3`
+    - `Standard_E8s_v3`
+    - `Standard_E16s_v3`
+    - `Standard_E32s_v3`
+    - `Standard_E64s_v3`
 1. Input a Spark **Session timeout** value, in minutes.
 1. Select the number of **Executors** for the Spark session.
 1. Select **Executor size** from the dropdown menu.
@@ -182,7 +181,6 @@ To start interactive data wrangling with the user identity passthrough:
 - This Titanic data wrangling code sample shows use of a data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>` with `pyspark.pandas` and `pyspark.ml.feature.Imputer`.
 
     ```python
-
     import pyspark.pandas as pd
     from pyspark.ml.feature import Imputer
 
@@ -201,8 +199,10 @@ To start interactive data wrangling with the user identity passthrough:
         "abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/data/wrangled",
         index_col="PassengerId",
     )
-
     ```
+
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 To wrangle data by access through a service principal:
 
@@ -217,7 +217,6 @@ To wrangle data by access through a service principal:
        - Tenant ID value: `https://login.microsoftonline.com/<TENANT_ID>/oauth2/token`
 
         ```python
-
         from pyspark.sql import SparkSession
 
         sc = SparkSession.builder.getOrCreate()
@@ -248,7 +247,6 @@ To wrangle data by access through a service principal:
             "fs.azure.account.oauth2.client.endpoint.<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net",
             "https://login.microsoftonline.com/" + tenant_id + "/oauth2/token",
         )
-
         ```
 
 1. Import and wrangle data using data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>` as shown in the code sample using the Titanic data.
@@ -265,7 +263,6 @@ To start interactive data wrangling:
      - For the access key, set property `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net` as shown in this code snippet:
 
         ```python
-
         from pyspark.sql import SparkSession
 
         sc = SparkSession.builder.getOrCreate()
@@ -278,7 +275,6 @@ To start interactive data wrangling:
      - For the SAS token, set property `fs.azure.sas.<BLOB_CONTAINER_NAME>.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net` as shown in this code snippet:
    
         ```python
-
         from pyspark.sql import SparkSession
 
         sc = SparkSession.builder.getOrCreate()
@@ -288,7 +284,6 @@ To start interactive data wrangling:
             "fs.azure.sas.<BLOB_CONTAINER_NAME>.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net",
             sas_token,
         )
-
         ```
         > [!NOTE]
         > The `get_secret()` calls in the above code snippets require the name of the Azure Key Vault, and the names of the secrets created for the Azure Blob storage account access key or SAS token
@@ -296,7 +291,6 @@ To start interactive data wrangling:
 2. Execute the data wrangling code in the same notebook. Format the data URI as `wasbs://<BLOB_CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<PATH_TO_DATA>` similar to this code snippet
 
     ```python
-
     import pyspark.pandas as pd
     from pyspark.ml.feature import Imputer
 
@@ -315,8 +309,10 @@ To start interactive data wrangling:
         "wasbs://<BLOB_CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/data/wrangled",
         index_col="PassengerId",
     )
-
     ```
+
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 ### Import and wrangle data from Azure Machine Learning Datastore
 
@@ -326,7 +322,6 @@ To access data from [Azure Machine Learning Datastore](how-to-datastore.md), def
 2. This code sample shows how to read and wrangle Titanic data from an Azure Machine Learning Datastore, using `azureml://` datastore URI, `pyspark.pandas` and `pyspark.ml.feature.Imputer`.
 
     ```python
-
     import pyspark.pandas as pd
     from pyspark.ml.feature import Imputer
 
@@ -345,8 +340,10 @@ To access data from [Azure Machine Learning Datastore](how-to-datastore.md), def
         "azureml://datastores/workspaceblobstore/paths/data/wrangled",
         index_col="PassengerId",
     )
-
     ```
+
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 The Azure Machine Learning datastores can access data using Azure storage account credentials 
 
@@ -374,17 +371,25 @@ The default file share is mounted to both Managed (Automatic) Spark compute and 
 In Azure Machine Learning studio, files in the default file share are shown in the directory tree under the **Files** tab. Notebook code can directly access files stored in this file share with `file://` protocol, along with the absolute path of the file, without any additional configurations. This code snippet shows how to access a file stored on the default file share:
 
 ```python
-
 import os
 import pyspark.pandas as pd
+from pyspark.ml.feature import Imputer
 
 abspath = os.path.abspath(".")
 file = "file://" + abspath + "/Users/<USER>/data/titanic.csv"
 print(file)
-df = pd.read_csv(file)
-df.head()
-
+df = pd.read_csv(file, index_col="PassengerId")
+imputer = Imputer(
+    inputCols=["Age"],
+    outputCol="Age").setStrategy("mean") # Replace missing values in Age column with the mean value
+df.fillna(value={"Cabin" : "None"}, inplace=True) # Fill Cabin column with value "None" if missing
+df.dropna(inplace=True) # Drop the rows which still have any missing value
+output_path = "file://" + abspath + "/Users/<USER>/data/wrangled"
+df.to_csv(output_path, index_col="PassengerId")
 ```
+
+> [!NOTE]
+> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 ## Next steps
 

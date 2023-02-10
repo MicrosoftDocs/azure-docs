@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync networking considerations | Microsoft Docs
+title: Azure File Sync networking considerations
 description: Learn how to configure networking to use Azure File Sync to cache files on-premises.
 author: khdownie
 ms.service: storage

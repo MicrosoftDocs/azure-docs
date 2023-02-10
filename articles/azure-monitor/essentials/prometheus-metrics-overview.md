@@ -29,15 +29,18 @@ The only requirement to enable Azure Monitor managed service for Prometheus is t
 - To configure remote-write to collect data from your self-managed Prometheus server, see [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md).
 
 ## Grafana integration
-The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](azure-monitor-workspace-overview.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
+The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](./azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
 ## Rules and alerts
-Azure Monitor managed service for Prometheus supports recording rules and alert rules using PromQL queries. Metrics recorded by recording rules are stored back in the Azure Monitor workspace and can be queried by dashboard or by other rules. Alerts fired by alert rules can trigger actions or notifications, as defined in the [action groups](/azure/azure-monitor/alerts/action-groups) configured for the alert rule. You can also view fired and resolved Prometheus alerts in the Azure portal along with other alert types. For your AKS cluster, a set of [predefined Prometheus alert rules](/azure/azure-monitor/containers/container-insights-metric-alerts) and [recording rules ](/azure/azure-monitor/essentials/prometheus-metrics-scrape-default#recording-rules)is provided to allow easy quick start.
+Azure Monitor managed service for Prometheus supports recording rules and alert rules using PromQL queries. Metrics recorded by recording rules are stored back in the Azure Monitor workspace and can be queried by dashboard or by other rules. Alert rules and recording rules can be created and managed using [Azure Managed Prometheus rule groups](prometheus-rule-groups.md). For your AKS cluster, a set of [predefined Prometheus alert rules](../containers/container-insights-metric-alerts.md) and [recording rules](./prometheus-metrics-scrape-default.md#recording-rules) is provided to allow easy quick start.
+
+Alerts fired by alert rules can trigger actions or notifications, as defined in the [action groups](../alerts/action-groups.md) configured for the alert rule. You can also view fired and resolved Prometheus alerts in the Azure portal along with other alert types. 
 
 ## Limitations
-See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
-- Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
+See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor workspaces.
+
 - Azure monitor managed service for Prometheus is only supported in public clouds.
+- Private Links aren't supported for data collection into Azure monitor workspace.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
 
@@ -58,4 +61,3 @@ Following are links to Prometheus documentation.
 - [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
-

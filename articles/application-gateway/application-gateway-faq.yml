@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 10/19/2022
+  ms.date: 02/08/2023
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -118,7 +118,9 @@ sections:
           
       - question: How does application gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. As each update domain's instances are being updated, the remaining instances in other update domains will continue to serve traffic. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway will temporarily run at reduced max capacity, which is determined by the number of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains will continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway will temporarily run at reduced max capacity, which is determined by the number of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
+          
+          <sup>1</sup> A minimum instance count of 2 is recommended to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic may flow through Application Gateway, however WAF exclusions may be required if using WAF sku.
@@ -388,7 +390,7 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
           
-      - question: How do I configure HTTPS listeners for .com and .net sites? 
+      - question: How do I configure HTTPS listeners for .com and .NET sites? 
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).
           
@@ -404,7 +406,7 @@ sections:
           
           As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
           
-          To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://misissued.com/#revoked). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+          To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
           
           For Application Gateway specific information, see below -
           
@@ -433,7 +435,7 @@ sections:
           
           1. In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which are associated with the Application Gateway.
           2. Add/import the reissued certificate in your store. See documentation [here](../key-vault/certificates/quick-create-portal.md) for more information on how-to.
-          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop down and choose the recently added certificate
+          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop-down and choose the recently added certificate
           4. Click Save
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
           

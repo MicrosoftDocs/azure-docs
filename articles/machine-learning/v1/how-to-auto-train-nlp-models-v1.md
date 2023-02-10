@@ -221,5 +221,5 @@ https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/auto
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
 
 ## Next steps
-+ Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 + [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 

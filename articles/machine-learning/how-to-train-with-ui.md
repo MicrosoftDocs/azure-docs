@@ -10,7 +10,7 @@ ms.custom: devplatv2, event-tier1-build-2022
 author: wenxwei
 ms.author: wenxwei
 ms.date: 11/04/2022
-ms.reviewer: laobri
+ms.reviewer: ssalgado
 ---
 
 # Create a training job with the job creation UI (preview)
@@ -146,6 +146,6 @@ To launch the job, choose **Create**. Once the job is created, Azure will show y
 
 ## Next steps
 
-* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
 * [Train models (create jobs) with the CLI, SDK, and REST API](how-to-train-model.md)

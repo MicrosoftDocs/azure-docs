@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2022
+ms.date: 01/17/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial walks you through creating a hybrid identity environment using Azure Active Directory (Azure AD) Connect cloud sync.
 
-![Diagram that shows the Azure AD Connect cloud sync flow](media/tutorial-single-forest/diagram-2.png)
+![Diagram that shows the Azure AD Connect cloud sync flow.](media/tutorial-single-forest/diagram-2.png)
 
 You can use the environment you create in this tutorial for testing or for getting more familiar with cloud sync.
 
@@ -48,84 +48,13 @@ You can use the environment you create in this tutorial for testing or for getti
 
 ## Install the Azure AD Connect provisioning agent
 
-1. Sign in to the domain joined server.  If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
+If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1. To install the agent, follow these steps: 
 
-1. Sign in to the Azure portal using cloud-only global admin credentials.
-
-1. On the left, select **Azure Active Directory**. 
-
-1. Select **Azure AD Connect**, and in the center select **Manage Azure AD cloud sync**.
-
-   ![Screenshot that shows how to download the Azure AD cloud sync.](media/how-to-install/install-6.png)
-
-1. Select **Download agent**, and select **Accept terms & download**.
-
-   [![Screenshot that shows how to accept the terms and start the download of Azure AD cloud sync.](media/how-to-install/install-6a.png)](media/how-to-install/install-6a.png#lightbox)
-
-1. Run the **Azure AD Connect Provisioning Agent Package** AADConnectProvisioningAgentSetup.exe in your downloads folder.
-
-1. On the splash screen, select **I agree to the license and conditions**, and select **Install**.
-
-   ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
-
-1. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
-
-1. On the **Connect Active Directory** screen, select **Authenticate** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account shouldn't have password change requirements. If the password expires or changes, you'll need to reconfigure the agent with the new credentials. 
-
-   ![Screenshot of the "Connect Active Directory" screen.](media/how-to-install/install-3.png)
-
-1. On the **Configure Service Account screen**, select  **Create gMSA** and enter the Active Directory domain administrator credentials to create the group Managed Service Account. This account will be used to run the agent service. To continue, select **Next**.
-
-    [![Screenshot that shows create service account.](media/how-to-install/new-install-7.png)](media/how-to-install/new-install-7.png#lightbox)
-
-1. On the **Connect Active Directory** screen, select **Next**.  Your current domain has been added automatically.  
-
-    [![Screenshot that shows connecting to the Active Directory.](media/how-to-install/new-install-8.png)](media/how-to-install/new-install-8.png#lightbox)
-
-1. On the **Configuration complete** screen, select **Confirm**.  This operation will register and restart the agent.
-
-   ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install-4a.png)
-
-1. Once this operation completes, you should see a notice: **Your agent configuration was successfully verified.**  You can select **Exit**.
-
-    ![Screenshot that shows the "configuration complete" screen.](media/how-to-install/install-5.png)
-
-1. If you still get the initial splash screen, select **Close**.
-
+[!INCLUDE [active-directory-cloud-sync-how-to-install](../../../includes/active-directory-cloud-sync-how-to-install.md)]
 
 ## Verify agent installation
 
-Agent verification occurs in the Azure portal and on the local server that is running the agent.
-
-### Azure portal agent verification
-
-To verify the agent is being registered by Azure AD, follow these steps:
-
-1. Sign in to the Azure portal.
-1. On the left, select **Azure Active Directory**, select **Azure AD Connect** and in the center select **Manage Azure AD cloud sync**.
-
-    ![Screenshot that shows how to manage the Azure AD could sync.](media/how-to-install/install-6.png)
-
-1. On the **Azure AD Connect cloud sync** screen, select 
-**Review all agents**.
-    
-   [![Screenshot that shows the Azure AD provisioning agents.](media/how-to-install/install-7.png)](media/how-to-install/install-7.png#lightbox)
- 
-1. On the **On-premises provisioning agents screen**, you'll see the agents you've installed.  Verify that the agent in question is there and is marked **active**.
-
-    [![Screenshot that shows the status of a provisioning agent.](media/how-to-install/verify-1.png)](media/how-to-install/verify-1.png#lightbox)
-
-### On the local server
-
-To verify that the agent is running, follow these steps:
-
-1. Log on to the server with an administrator account
-
-1. Open **Services** by either navigating to it or by going to Start/Run/Services.msc.
-
-1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are present and the status is **Running**.
-
-    [![Screenshot that shows the Windows services.](media/how-to-install/troubleshoot-1.png)](media/how-to-install/troubleshoot-1.png#lightbox)
+[!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
 ## Configure Azure AD Connect cloud sync
 

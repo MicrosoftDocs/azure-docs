@@ -4,7 +4,7 @@ description: Learn about how to configure custom networking for Azure IoT Edge f
 author: PatAltimore
 manager: kgremban
 ms.author: fcabrera
-ms.date: 03/21/2022
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Networking configuration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article will help you decide which networking option is best for your scenario and provide insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
 
