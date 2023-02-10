@@ -54,7 +54,7 @@ This feature flag requirement will be removed in a future release.
 
 ### Create the Data Controller
 
-After creating the custom configuration profile and setting the feature flag, you're ready to [create the data controller using indirect connectivity mode](create-data-controller-indirect-cli.md?tabs=linux). Be sure to replace the `--profile-name` parameter with a `--path` parameter that points to your custom control.json file (see [use custom control.json file to deploy Azure Arc-enabled data controller](custom-configuration-template.md))
+After creating the custom configuration profile and setting the feature flag, you're ready to [create the data controller using indirect connectivity mode](create-data-controller-indirect-cli.md?tabs=linux). Be sure to replace the `--profile-name` parameter with a `--path` parameter that points to your custom control.json file (see [use custom control.json file to deploy Azure Arc-enabled data controller](create-custom-configuration-template.md))
 
 ### Verify Telemetry Router Deployment
 
