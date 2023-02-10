@@ -1,5 +1,5 @@
 ---
-title: Dicom 
+title: Digital Pathology using Azure Health Data Services DICOM service
 description: This guide is on using DICOM service for digital pathology
 services: healthcare-apis
 author: smithasa
