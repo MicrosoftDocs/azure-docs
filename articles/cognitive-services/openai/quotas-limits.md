@@ -34,6 +34,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Total size of all files per resource | 1 GB | 
 | Max training job time (job will fail if exceeded) | 120 hours |
 | Max training job size (tokens in training file * # of epochs) | **Ada**: 40-M tokens <br> **Babbage**: 40-M tokens <br> **Curie**: 40-M tokens <br> **Cushman**: 40-M tokens <br> **Davinci**: 10-M |
+
 *The limits are subject to change without notice. If have specific requirements or needs you can apply for a quota increase here: <https://aka.ms/oai/quotaincrease>
 
 ### General best practices to mitigate throttling during autoscaling
