@@ -29,7 +29,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`kafkas.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3|
 |`monitors.arcdata.microsoft.com`| v1beta1, v1, v2|
-|`postgresqls.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4|
+|`postgresqls.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
 |`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
 |`redis.arcdata.microsoft.com`| v1beta1, v1beta2|
 |`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v10|
