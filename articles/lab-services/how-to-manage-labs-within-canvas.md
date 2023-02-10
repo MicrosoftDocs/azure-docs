@@ -51,7 +51,7 @@ Azure Lab Services automatically synchronizes the course membership with the lab
 
 :::image type="content" source="./media/how-to-manage-labs-within-canvas/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
 
-Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-a-lab) or not.
+Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-lab) or not.
 
 If the lab has *not* been published at least once:
 
@@ -118,7 +118,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Student sees warning that the lab isn't available yet.
 
-  In Canvas, you'll see the following message if the educator hasn't published the lab yet. Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you'll see the following message if the educator hasn't published the lab yet. Educators must [publish the lab](tutorial-setup-lab.md#publish-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-manage-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet.":::
 

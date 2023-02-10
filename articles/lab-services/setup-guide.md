@@ -96,7 +96,7 @@ After you understand the requirements for your class's lab, you're ready to set 
     - [Create a lab in Canvas](how-to-configure-canvas-for-lab-plans.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
-    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-a-lab)
+    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-lab)
     - [Use a compute gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
