@@ -105,7 +105,7 @@ AzureDiagnostics
 
 Here we are take a sampling of 100 entries and are displaying a subset of the available columns of data in the logs. The results will appear as follows:
 
-:::image type="content" source="../media/monitoring/kusto-results.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/monitoring/kusto-results":::
+:::image type="content" source="../media/monitoring/kusto-results.png" alt-text="Screenshot of results of Kusto query of Azure Diagnostics table." lightbox="../media/monitoring/kusto-results.png":::
 
 If you wish to see all available columns of data you can remove the scoping that is provided by the `| project` line:
 
@@ -124,7 +124,7 @@ AzureMetrics
 | project TimeGenerated, MetricName, Total, Count, TimeGrain, UnitName
 ```
 
-:::image type="content" source="../media/monitoring/metric-result.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/monitoring/metric-result":::
+:::image type="content" source="../media/monitoring/metric-result.png" alt-text="Screenshot of Kusto query results for the Azure Metrics table." lightbox="../media/monitoring/metric-result.png":::
 
 ## Alerts
 
