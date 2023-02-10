@@ -119,14 +119,12 @@ The [C# library](functions-dotnet-class-library.md) uses the [SqlTrigger](https:
 ## Configuration
 
 <!-- ### for another day ###
-::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
-
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
 
-::: zone-end -->
+-->
 
 In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
 

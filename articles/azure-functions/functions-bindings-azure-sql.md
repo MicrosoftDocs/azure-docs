@@ -125,15 +125,9 @@ Azure SQL bindings for Azure Functions aren't available for the v3 version of th
 
 ---
 
-## Update packages
+## Configure Python Worker
 
-Support for the SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
-
-```
-azure-functions==1.11.3b1
-```
-
-Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+Currently, you will need to update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings. Locally, this is set in the `local.settings.json` file as seen below:
 
 ```json
 "PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
