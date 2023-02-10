@@ -618,13 +618,13 @@
         href: https://github.com/Azure/azure-iot-sdk-csharp#samples
       - name: Node.js
         displayName: samples, azure-iot-samples-node
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
         displayName: samples, azure-iot-samples-java
         href: https://github.com/Azure/azure-iot-sdk-java#samples
       - name: Python
         displayName: samples, azure-iot-samples-python 
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+        href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
