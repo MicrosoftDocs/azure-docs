@@ -11,11 +11,11 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, maintenance will occur only during the window you selected.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, upgrades occur only during the window you selected.
 
 There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker]. Another way of accomplishing this using pre-configured windows is detailed at [use Planned Maintenance to schedule weekly releases][pm-weekly]
+- `default` corresponds to a basic configuration that updates your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker]. Another way of accomplishing this behavior, using pre-configured windows, is detailed at [use Planned Maintenance to schedule weekly releases][pm-weekly]
 
 - `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible. For more information on cluster auto-upgrade, see [Automatically an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
@@ -70,7 +70,7 @@ An `aksManagedAutoUpgradeSchedule` has the following properties:
 |Name|Description|Default value|
 |--|--|--|
 |`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|
-|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|
+|`startDate`|The date on which the maintenance window begins to take effect|The current date at creation time|
 |`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
 |`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
 |`intervalWeeks`|The interval in weeks for maintenance runs|N/A|
