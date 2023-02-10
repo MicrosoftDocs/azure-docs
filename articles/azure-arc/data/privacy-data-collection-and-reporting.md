@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
-Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance, Azure Arc-enabled PostgreSQL, and Azure Arc-enabled SQL Server.
+Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL.
 
 ## Related products
 
@@ -40,7 +40,6 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Automatic, when configured to do so|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ## Indirectly connected
 
@@ -53,7 +52,7 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Manual|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+
 
 ## Detailed description of data
 
