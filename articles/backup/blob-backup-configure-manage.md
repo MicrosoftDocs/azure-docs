@@ -241,7 +241,7 @@ You can configure backup for blobs in a storage account directly from the ‘Dat
 
         1. Select **Save** to finish role assignment.
         
-          You'll receive notification through the portal once this completes successfully. You can also see the new role added to the list of existing ones for the selected vault.
+           You'll receive notification through the portal once this completes successfully. You can also see the new role added to the list of existing ones for the selected vault.
 
             ![Finish role assignment](./media/blob-backup-configure-manage/finish-role-assignment.png)
 
