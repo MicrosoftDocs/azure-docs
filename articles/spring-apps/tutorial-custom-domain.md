@@ -118,7 +118,7 @@ You need to grant Azure Spring Apps access to your key vault before you import c
 | Get, List         | Get, List              | Azure Spring Apps Domain-Management  |
 
    > [!NOTE]
-   > If you don't find the "Azure Spring Apps Resource Provider", try to search "Azure Spring Cloud Resource Provider".
+   > If you don't find the "Azure Spring Apps Resource Provider", search for "Azure Spring Cloud Resource Provider".
 
 ![Import certificate 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
