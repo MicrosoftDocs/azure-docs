@@ -48,7 +48,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 8. For adding authentication to the repository, check the **Authentication** box. 
 
-9. Choose **Create new credentials** to create a new set of credentials to store the username and password for your source registry. Learn how to [create new credentials](tutorial-enable-registry-cache-auth.md###Create-new-credentials)
+9. Choose **Create new credentials** to create a new set of credentials to store the username and password for your source registry. Learn how to [create new credentials](tutorial-enable-registry-cache-auth.md###create-new-credentials)
 
 10. If you have the credentials ready, **Select credentials** from the drop-down menu.
 

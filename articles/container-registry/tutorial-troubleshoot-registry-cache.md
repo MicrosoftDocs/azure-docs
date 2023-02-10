@@ -74,7 +74,7 @@ If you're facing issues while creating a Cache rule, we recommend verifying if y
 - The repository path for Docker is `docker.io/library`
 - The repository path for Microsoft Artifact Registry is `mcr.microsoft.com/library`
 
-Learn more about the [Cache Terminology](tutorial-registry-cache.md#Terminology)
+Learn more about the [Cache Terminology](tutorial-registry-cache.md#terminology)
 
 ### Cache rule Limit
 
