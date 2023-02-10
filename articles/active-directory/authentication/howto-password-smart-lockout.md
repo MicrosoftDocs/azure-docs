@@ -34,7 +34,7 @@ Smart lockout is always on, for all Azure AD customers, with these default setti
 
 Using smart lockout doesn't guarantee that a genuine user is never locked out. When smart lockout locks a user account, we try our best to not lock out the genuine user. The lockout service attempts to ensure that bad actors can't gain access to a genuine user account. The following considerations apply:
 
-* Lockout state across Azure AD data centers are synchronized. However, the total number of failed sign-in attempts allowed before an account is locked out will have slight variance from the configured lockout threshold. Once an account is locked out, they will be locked out everywhere across all Azure AD data centers.
+* Lockout state across Azure AD data centers is synchronized. However, the total number of failed sign-in attempts allowed before an account is locked out will have slight variance from the configured lockout threshold. Once an account is locked out, it will be locked out everywhere across all Azure AD data centers.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Both unfamiliar and familiar locations have separate lockout counters.
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.
