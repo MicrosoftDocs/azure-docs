@@ -5,27 +5,27 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/08/2023
+ms.date: 02/11/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
 # Tutorial: Add a database connection in Azure Static Web Apps (preview)
 
-In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you can issue REST or GraphQL commands to manipulate data without having to write data access code.
+In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you issue REST or GraphQL requests to manipulate data without having to write data access code.
 
 > [!div class="checklist"]
-> * Associate a Azure SQL database to your static web app
+> * Link a Azure SQL database to your static web app
 > * Create, read, update, and delete data
 
 ## Prerequisites
 
-To complete this tutorial, you need to have an existing Azure SQL database and static web app, and Azure Data Studio installed.
+To complete this tutorial, you need to have an existing Azure SQL database and static web app. Additionally, you need to install Azure Data Studio.
 
 | Resource | Description |
 |---|---|
-| [Azure Data Studio](https://aka.ms/azuredatastudio) | Data client used to create a sample table and add sample data. |
-| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started guide](getting-started.md).  |
 | [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in to [create a single database guide](/azure/azure-sql/database/single-database-create-quickstart). |
+| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started guide](getting-started.md).  |
+| [Azure Data Studio](https://aka.ms/azuredatastudio) | Data client used to create a sample table and add sample data. |
 
 Begin by configuring your database to work with Azure Static Web Apps database connection feature.
 
@@ -45,9 +45,7 @@ To work in a development environment, you need to allowlist your IP address for 
 
 ## Get database connection string
 
-Next, create an environment variable for the database connection string in an upcoming step. For now, get the connection string and set it aside in a text editor.
-
-From the Azure SQL Server window in the Azure portal
+You need the database connection string to set up your development environment.
 
 1. Under the *Settings* section, select **SQL databases**.
 
@@ -61,7 +59,7 @@ From the Azure SQL Server window in the Azure portal
 
 ## Create sample data
 
-Create a sample table and seed it with some sample data to match the tutorial.
+Create a sample table and seed it with sample data to match the tutorial.
 
 1. From the *Overview* window of your SQL database, select **Connect with...** to open the connection drop-down.
 
@@ -81,7 +79,7 @@ Create a sample table and seed it with some sample data to match the tutorial.
 
 1. Select <kbd>CMD/CTRL</kbd> + <kbd>N</kbd> to open a new query window.
 
-1. Run the following script to create a new table named *MyTestPeopleTable*.
+1. Run the following script to create a new table named `MyTestPeopleTable`.
 
     ```sql
     CREATE TABLE [dbo].[MyTestPeopleTable] (
@@ -103,12 +101,50 @@ Create a sample table and seed it with some sample data to match the tutorial.
     VALUES ('Dheeraj');
     ```
 
+## Link the database to your static web app
+
 Now that you have sample data in the database, you can configure your static web app to connect to the database.
 
+1. Open your static web app in the Azure portal.
+
+1. In the *Settings* section, select **Database connection**.
+
+1. Under the *Production* section, select the **Link existing database** link.
+
+1. In the *Link existing database* window, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Database Type | Select your database type from the dropdown list. |
+    | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Name | Select the database server name that has your desired database. |
+    | Database Name | Select the name of the database you want to link to your static web app. |
+    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
+
+1. Select **OK**.
+
+## Configure the static web app
+
+The rest this tutorial focuses on working with local files in your static web app.
+
+> [!IMPORTANT]
+> The following steps assume you are working with the static web app created in the [getting started guide](getting-started.md). If you are using a different project, make sure to adjust the following git commands to match your branch names.
+
+1. Switch to the `main` branch.
+
+    ```bash
+    git checkout main
+    ```
+
+1. Ensure your local version is synchronized with what's on GitHub by synchronizing with the server.
+
+    ```bash
+    git pull origin main
+    ```
 
 ## Create the database configuration file
 
-Now switch to your local machine to work with the files in your static web app.
+Next, create a configuration file that your static web app uses to interface with the database.
 
 1. In the local repository of your static web app, create a new folder named **db-config**.
 
@@ -169,7 +205,21 @@ Before moving on to the next step, review the following table that explains diff
 
 With the static web app configured to connect to the database, you can now verify the connection.
 
+## Update build configuration
+
+1. From the *.github/workflows* folder, open the workflow YAML file.
+
+1. On a new line after the `output_location` entry, add the following line:
+
+    ```yml
+    data_api_location: "db-config"
+    ```
+
+1. Save and close the file.
+
 ## Start the application locally
+
+Now you can run your website and manipulate data in the database directly.
 
 1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 
@@ -380,10 +430,9 @@ This example uses a `PUT` verb to do the update.
 
 ```javascript
 (() => {
-  const endpoint = "http://localhost:4280/data-api/graphql";
   
   async function update(id, newValues) {
-  
+    
     const mutation = `
       mutation updatePeople($id: Int!, $item: UpdatePeopleInput!) {
         updatePeople(Id: $id, item: $item) {
@@ -400,11 +449,10 @@ This example uses a `PUT` verb to do the update.
       } 
     };
   
+    const endpoint = "http://localhost:4280/data-api/graphql";
     const res = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(query)
     });
 
@@ -423,7 +471,6 @@ The browser's console window now displays a table showing the updated data.
 | ID | Name |
 |---|---|
 | 1 | Molly |
-| 2 | Dheeraj |
 
 ### Create
 
@@ -439,9 +486,7 @@ Run the following code in the browser's console window to create a new record.
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
       const result = await response.json();
@@ -476,10 +521,7 @@ Run the following code in the browser's console window to create a new record.
   
     const res = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Length": query.length,
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query })
     });
   
@@ -511,11 +553,10 @@ Run the following code in the browser's console window to delete a record.
   async function del(id) {
     try {
       const endpoint = 'http://localhost:4280/data-api/api/people/Id';
-
       const response = await fetch(`${endpoint}/${id}`, {
         method: "DELETE"
       });
-      console.log(`Record deleted: ${result.ok}`)
+      console.log(`Record deleted: ${response.ok}`)
     } catch (error) {
       console.error(error);
     }
@@ -531,25 +572,28 @@ Run the following code in the browser's console window to delete a record.
 
 ```javascript
 (() => {
-  const endpoint = "http://localhost:4280/data-api/graphql";
   
   async function del(id) {
-  
-    const query = `mutation {
+    
+    const mutation = `mutation {
       deletePerson(id: ${id})
     }`;
-  
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Length": query.length,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ query })
-    });
 
-    const data = await res.json();
-    console.table(data);
+    try {
+
+      const endpoint = "http://localhost:4280/data-api/graphql";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: mutation })
+      });
+  
+      const result = await response.json();
+      console.table(result.data.deletePeople.Id);
+
+    } catch(error) {
+        console.error(error);
+    }
   }
   
   del(1);
@@ -564,6 +608,14 @@ The browser's console window now displays a table showing the response from the 
 |---|---|
 | 2 | Dheeraj |
 | 3 | Pedro |
+
+## Clean up resources
+
+If you want to remove the resources created during this tutorial, you need to unlink the database and remove sample data.
+
+1. **Unlink database**: Open your static web app in the Azure portal. Under the *Settings* section, select **Database connection**. Next to the linked database, select **View details**. In the *Database connection details* window, select the **Unlink** button.
+
+1. **Remove sample data**: In your database, delete the table named `MyTestPeopleTable`.
 
 ## Next steps
 

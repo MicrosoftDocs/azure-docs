@@ -5,28 +5,38 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/02/2023
+ms.date: 02/11/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
 
- The Azure Static Web Apps database connection feature allows you to access your database without writing custom server-side code.
+ The Azure Static Web Apps database connection feature allows you to access a database from your static web app without writing custom server-side code.
 
-The database is exposed via the `/data-api` endpoint.
-The feature supports REST and GraphQL, and you can control whether they're enabled
+Built on the [Azure Data API Builder](https://github.com/Azure/data-api-builder),  REST and GraphQL requests and converts them to database queries
+
+Data API Builder is responsible for converting REST and GraphQL requests into database queries
+
+are available off the `/data-api` endpoint.
+
+define connection context
+
+entities with permissions
+
+Linking an existing Azure database to your static web app
+
+The same role-based security used to secure routes is available for API endpoints.
+
+Built-in integration with Azure Static Web Apps authentication and authorization security model.
+
+file *staticwebapp.database.config.json*
+
+Supports database relationships
 
 Integrated security
 Secured connections to your database
-
-out-of-the-box CRUD access to your database
+Full CRUD-based operations 
 
 Serverless
-
-[Azure Data API Builder](https://github.com/Azure/data-api-builder)
-
-[configuration file](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)
-
-## Use cases
 
 Examples, not an exhaustive list of scenarios.
 
@@ -35,6 +45,25 @@ Examples, not an exhaustive list of scenarios.
 | Content management systems (CMS) |  |
 | Marketing sites |  |
 | Line-of-business applications |  |
+
+Supported by the SWA CLI for local development
+
+
+| Path | Description |
+|---|---|
+| `example.com/*` | Static content |
+| `example.com/api/*` | API functions |
+| `example.com/data-api/*` | Database connection endpoints. |
+
+data-api is the base and then you configure the REST and/or GraphQL endpoints in the [configuration file](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)
+
+
+
+## SWA CLI
+
+Provisions the data-api endpoint and proxies requests to 4280 to the appropriate port for the database access
+
+
 
 ## Supported databases
 
@@ -54,14 +83,17 @@ Examples, not an exhaustive list of scenarios.
 | System-assigned Managed Identity |  |
 | User-assigned Managed Identity |  |
 
-## Big picture
-
 ## Constraints
 
-* The database must be accessible by Azure's infrastructure. 
+* The database must be accessible by Azure's infrastructure.
 * During public preview, the Database connections will scale from 0 to 1 worker.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure your database](database-configuration.md)
+> [Configure your database](database-configuration.md) 
+
+allows you to access an Azure databases without needing to implement a server side api
+Works with SQL and NoSQL datqabases
+Omtegrated security
+Local and cloud development
