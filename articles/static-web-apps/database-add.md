@@ -573,11 +573,21 @@ Run the following code in the browser's console window to delete a record.
 ```javascript
 (() => {
   
-  async function del(id) {
+  async function del(personId) {
     
-    const mutation = `mutation {
-      deletePerson(id: ${id})
-    }`;
+    const mutation = `
+        mutation deletePeople($id: Int!) {
+          deletePeople(Id: $id) {
+            Id
+          }
+        }`;
+
+    const query = {
+        query: mutation,
+        variables: {
+            id: personId
+        }
+    };
 
     try {
 
@@ -585,11 +595,11 @@ Run the following code in the browser's console window to delete a record.
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: mutation })
+        body: JSON.stringify(query)
       });
   
       const result = await response.json();
-      console.table(result.data.deletePeople.Id);
+      console.log(`Record deleted: ${result.data.deletePeople.Id}`);
 
     } catch(error) {
         console.error(error);
