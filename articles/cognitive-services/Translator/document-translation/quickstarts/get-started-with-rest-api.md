@@ -172,4 +172,4 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 Learn more about Document Translation:
 
 > [!div class="nextstepaction"]
->[Document Translation REST API guide](../reference/rest-api-guide.md) [Language support](../../language-support.md)
+>[Document Translation REST API guide](../reference/rest-api-guide.md) </br></br>[Language support](../../language-support.md)
