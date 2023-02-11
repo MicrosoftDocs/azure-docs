@@ -13,7 +13,7 @@ ms.date: 02/10/2023
 
 # Plan to manage costs for Azure OpenAI Service
 
-This article describes how you plan for and manage costs for Azure OpenAI Service. Before you deploy the service, you can use the Azure pricing calculator to estimate costs for Azure OpenAI. Later, as you deploy Azure resources, review the estimated costs. After you've started using Azure OpenAI Service resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure OpenAI Service are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure OpenAI, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+This article describes how you plan for and manage costs for Azure OpenAI Service. Before you deploy the service, you can use the Azure pricing calculator to estimate costs for Azure OpenAI. Later, as you deploy Azure resources, review the estimated costs. After you've started using Azure OpenAI resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure OpenAI Service are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure OpenAI, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 ## Estimate costs before using Azure OpenAI Service
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs of using Azure OpenAI.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of using Azure OpenAI.
 
 ## Understand the full billing model for Azure OpenAI Service
 
@@ -31,9 +31,9 @@ Azure OpenAI Service runs on Azure infrastructure that accrues costs when you de
 
 ### Base series and Codex series models
 
-Azure OpenAI base series and Codex series models are charged per 1,000 tokens. Costs will vary depending on which model series you choose: Ada, Babbage, Curie, Davinci, or Code-Cushman.
+Azure OpenAI base series and Codex series models are charged per 1,000 tokens. Costs vary depending on which model series you choose: Ada, Babbage, Curie, Davinci, or Code-Cushman.
 
-Our models understand and process text by breaking it down into tokens. For reference, each token is roughly 4 characters for typical English text.
+Our models understand and process text by breaking it down into tokens. For reference, each token is roughly four characters for typical English text.
 
 ### Base Series and Codex series fine-tuned models
 
@@ -43,11 +43,11 @@ Azure OpenAI fine-tuned models are charged based on three factors:
 - Hosting hours
 - Inference per 1,000 tokens
 
-The hosting hours cost is particularly important to be aware of since once a fine-tuned model is deployed it will continue to incur an hourly cost regardless of whether you are actively using it. Fine-tuned model costs should be monitored closely and evaluated often.
+The hosting hours cost is important to be aware of since once a fine-tuned model is deployed it continues to incur an hourly cost regardless of whether you're actively using it. Fine-tuned model costs should be monitored closely.
 
 ### Other costs that might accrue with Azure OpenAI Service
 
-Keep in mind that enabling capabilities like sending data to Azure Monitor Logs, alerting, etc. will incur additional costs for those services. These costs will be visible under those other services and at the subscription level, but will not be visible when scoped just to your Azure OpenAI resource.
+Keep in mind that enabling capabilities like sending data to Azure Monitor Logs, alerting, etc. incurs additional costs for those services. These costs are visible under those other services and at the subscription level, but aren't visible when scoped just to your Azure OpenAI resource.
 
 ### Using Azure Prepayment with Azure OpenAI Service
 
@@ -64,21 +64,21 @@ To view Azure OpenAI costs in cost analysis:
 1. Sign in to the Azure portal.
 2. Select one of your Azure OpenAI resources.
 3. Under **Resource Management** select **Cost analysis**
-4. By default cost analysis will be scoped to the individual Azure OpenAI resource.
+4. By default cost analysis is scoped to the individual Azure OpenAI resource.
 
 :::image type="content" source="../media/manage-costs/resource-view.png" alt-text="Screenshot of cost analysis dashboard scoped to an Azure OpenAI resource." lightbox="../media/manage-costs/resource-view.png":::
 
-To understand the breakdown of what makes up that cost it can help to modify **Group by** to **Meter** and in this case switching the chart type to **Line**. You can now see that for this particular resource the source of the costs is from three different model series with **Text-Davinci Tokens** representing the bulk of the costs.  
+To understand the breakdown of what makes up that cost, it can help to modify **Group by** to **Meter** and in this case switching the chart type to **Line**. You can now see that for this particular resource the source of the costs is from three different model series with **Text-Davinci Tokens** representing the bulk of the costs.  
 
 :::image type="content" source="../media/manage-costs/grouping.png" alt-text="Screenshot of cost analysis dashboard with group by set to meter." lightbox="../media/manage-costs/grouping.png":::
 
-It is important to understand scope when evaluating cost associated with Azure OpenAI. If your resources are part of the same resource group you can scope Cost Analysis at that level to understand the impact on costs. If your resources are spread across multiple resource groups you can scope to the subscription level.
+It's important to understand scope when evaluating costs associated with Azure OpenAI. If your resources are part of the same resource group you can scope Cost Analysis at that level to understand the effect on costs. If your resources are spread across multiple resource groups you can scope to the subscription level.
 
-However, when scoped at a higher level you will likely need to add additional filters to be able to zero in on Azure OpenAI usage. When scoped at the subscription level we see a number of other resources that we may not care about in the context of Azure OpenAI cost management:
+However, when scoped at a higher level you often need to add additional filters to be able to zero in on Azure OpenAI usage. When scoped at the subscription level we see a number of other resources that we may not care about in the context of Azure OpenAI cost management. When scoping at the subscription level, we recommend navigating to the full **Cost analysis tool** under the **Cost Management** service. Search for **"Cost Management"** in the top Azure search bar to navigate to the full service experience, which includes more options like creating budgets.
 
 :::image type="content" source="../media/manage-costs/subscription.png" alt-text="Screenshot of cost analysis dashboard with scope set to subscription." lightbox="../media/manage-costs/subscription.png":::
 
-If you try to add a filter by service you will find that you can't find Azure OpenAI in the list. This is because technically Azure OpenAI is part of Cognitive Services so service level filter is **Cognitive Services**, but if you want to see all Azure OpenAI resources across a subscription without any other type of Cognitive Services resources you need to instead scope to **Service tier: Azure OpenAI**:
+If you try to add a filter by service, you'll find that you can't find Azure OpenAI in the list. This is because technically Azure OpenAI is part of Cognitive Services so the service level filter is **Cognitive Services**, but if you want to see all Azure OpenAI resources across a subscription without any other type of Cognitive Services resources you need to instead scope to **Service tier: Azure OpenAI**:
 
 :::image type="content" source="../media/manage-costs/service-tier.png" alt-text="Screenshot of cost analysis dashboard with service tier highlighted." lightbox="../media/manage-costs/service-tier.png":::
 
@@ -93,11 +93,11 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 ## Export cost data
 
-You can also [export your cost data](../../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../../../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](https://learn.microsoft.com/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
