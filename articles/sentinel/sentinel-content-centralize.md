@@ -23,7 +23,7 @@ Microsoft Sentinel Content hub enables discovery and on-demand installation of o
 In order to centralize all out-of-the-box content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content is kept up to date. Content hub also provides update workflows for solutions and automatic updates for standalone content. To facilitate this transition, we're going to publish a central tool to reinstate corresponding **IN USE** retired templates from corresponding Content hub solutions. 
 
 ## Sentinel GitHub changes
-Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions vetted by Microsoft and the community. It is the source for most of the content items in Content hub. For consistent discovery of this content, the OOTB content centralization changes have already been extended to the Sentinel GitHub repo.
+Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions vetted by Microsoft and the community. It's the source for most of the content items in Content hub. For consistent discovery of this content, the OOTB content centralization changes have already been extended to the Sentinel GitHub repo.
 
  - All OOTB content packaged from content hub solutions is now stored in the GitHub repo [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). 
  - All standalone OOTB content will continue to remain in their respective locations. 
@@ -40,7 +40,7 @@ The centralization change in the Sentinel portal is expected to go live in all S
 ## Scope of change
 This change is only scoped to *gallery content* type templates. All these same templates and more OOTB content are available in *Content hub* as solutions or standalone content. 
 
-For Microsoft Sentinel GitHub, OOTB content packaged in solutions in content hub is now only listed under the GitHub repo [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). The other existing GitHub content is scoped to the following folders and only contains standalone content items. Content in the remaining GitHub folders not called out in this list do not have any changes.
+For Microsoft Sentinel GitHub, OOTB content packaged in solutions in content hub is now only listed under the GitHub repo [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). The other existing GitHub content is scoped to the following folders and only contains standalone content items. Content in the remaining GitHub folders not called out in this list don't have any changes.
 
 - [DataConnectors folder](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors)
 - [Detections folder](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) (Analytics rules)
@@ -116,12 +116,12 @@ The tool builds a list of solutions based on two criteria: data connectors with 
 
 Please note that this central tool is a best-effort to get your **IN USE** OOTB content templates reinstated from Content hub. You can install OOTB content omitted directly from Content hub. 
 
-#### What if I am using APIs to connect data sources in my Sentinel workspace?  
+#### What if I'm using APIs to connect data sources in my Sentinel workspace?  
 Currently, if an API data connection matches the data connector data type, it will show up as `Status = "Connected"` in the Data connectors gallery. After the centralization changes go live, the specific data connector needs to be installed from a respective solution to get the same behavior.  
 
 **Action needed:** Plan to update processes or tooling for your data connector deployments to install from Content hub solution(s) before the connecting with data ingestion APIs. The REST API operator for installing a solution will be coming in Q2 2023 with the OOTB content management APIs.    
 
-#### What if I am working with content using Repositories feature in Microsoft Sentinel? 
+#### What if I'm working with content using Repositories feature in Microsoft Sentinel? 
 Repositories specifically deploy custom or active content in Microsoft Sentinel. Content deployed through the Repositories feature won't be impacted by the OOTB content centralization changes. 
 
 ## Next steps
