@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 2/10/2023
 ---
 
 
@@ -46,7 +46,10 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Access management
 
-While you're creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create more [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
+Best way to manage PostgreSQL database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users, moreover roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It is also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
+PostgreSQL lets you grant permissions directly to the database users. As a good security practice, it can be recommended that you create roles with specific sets of permissions based on minimum application and access requirements and then assign the appropriate roles to each user.
+
+While you're creating the Azure Database for PostgreSQL server, you provide credentials for an **administrator role**. This administrator role can be used to create more [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
 
 For example,
 
