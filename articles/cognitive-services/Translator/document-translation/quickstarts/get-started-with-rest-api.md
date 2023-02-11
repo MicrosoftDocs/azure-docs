@@ -84,7 +84,7 @@ Requests to the Translator service require a read-only key and custom endpoint t
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
   > [!div class="nextstepaction"]
-  > [I ran into issues retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
+  > [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
 
 ## Create Azure blob storage containers
 
@@ -108,7 +108,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
 
   > [!div class="nextstepaction"]
-  > [I ran into issues creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers)
+  > [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers)
 
 ### Sample document
 

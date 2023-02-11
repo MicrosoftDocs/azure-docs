@@ -113,7 +113,7 @@ for key, value in response_headers.items():
 
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents will be listed in your target container.
+* The translated documents are listed in your target container.
 
   > [!div class="nextstepaction"]
-  > [I successfully translated my document](#next-steps)[I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
