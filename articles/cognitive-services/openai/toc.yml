@@ -46,6 +46,8 @@ items:
       href: ./how-to/business-continuity-disaster-recovery.md
     - name: Monitor Azure OpenAI
       href: ./how-to/monitoring.md
+    - name: Plan and manage costs
+      href: manage-costs.md
 - name: Tutorials
   items:
     - name: Embeddings

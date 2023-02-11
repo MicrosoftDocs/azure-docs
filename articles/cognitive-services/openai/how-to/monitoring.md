@@ -5,6 +5,7 @@ author: mrbullwinkle
 ms.author: mbullwin 
 ms.service: cognitive-services
 ms.subservice: openai
+ms.topic: how-to
 ms.custom: subject-monitoring
 ms.date: 02/13/2023
 ---
@@ -76,7 +77,6 @@ For the current subset of metrics available in Azure OpenAI:
 |TokenTransaction |Yes |Processed Inference Tokens |Count |Total |Number of Inference Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls. |ApiName, OperationName, Region, RatelimitKey |
 |TotalErrors |Yes |Total Errors |Count |Total |Total number of calls with error response (HTTP response code 4xx or 5xx). |ApiName, OperationName, Region, RatelimitKey |
-|TotalTokenCalls |Yes |Total Token Calls |Count |Total |Total number of token calls. |ApiName, OperationName, Region |
 
 ## Analyzing logs
 
@@ -110,7 +110,7 @@ If you wish to see all available columns of data you can remove the scoping that
 ```kusto
 AzureDiagnostics
 | take 100
-``` 
+```
 
 You can also select the arrow next to the table name to view all available columns and associated data types.
 
@@ -137,3 +137,4 @@ Depending on what type of application you are developing in conjunction with you
 ## Next steps
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- Read [Understand log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
