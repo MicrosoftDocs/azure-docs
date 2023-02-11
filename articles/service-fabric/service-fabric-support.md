@@ -78,6 +78,18 @@ Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
 
+## Service Fabric community Q & A schedule 
+Join community call on the following days to hear about new feature releases, key updates and get answers to the questions from SF team:
+
+| Schedule	| 
+|---------	|
+| 30 Mar 2023 | 
+| 25 May 2023 |
+| 27 July 2023|
+| 28 Sept 2023| 
+| 25 Jan 2024	|
+| 28 Mar 2024 |
+
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
