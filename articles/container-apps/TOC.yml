@@ -48,6 +48,8 @@
       items: 
       - name: Architecture overview
         href: networking.md
+      - name: Ingress
+        href: ingress-concept.md
       - name: Deploy with an external environment
         href: vnet-custom.md
       - name: Deploy with an internal environment
@@ -96,12 +98,14 @@
         href: managed-identity-image-pull.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: ingress
+    - name: Ingress
       items:
       - name: Set up HTTPS or TCP ingress
         href: ingress.md
-      - name: IP restrictions
+      - name: Configure IP restrictions
         href: ip-restrictions.md
+      - name: Add client certificates
+        href: client-certificate-authorization-howto.md
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain

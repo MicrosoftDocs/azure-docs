@@ -12,47 +12,12 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Set up HTTPS or TCP ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Ingress is a feature that works on a set of configurable rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
-
-> [!NOTE]
-> Add diagram here
-
+This article shows you how to enable ingress features for your container app.  Azure Container Apps supports two types of ingress: HTTPS and TCP.
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
-## <a name="scenarios"></a>Ingress Scenarios
+>[!NOTE]
+> Are the container apps referenced in this article in the same enviornment?
 
-### Public Container Apps environment
-
-### Private Container Apps VNET environment
-
-## Ingress types
-
-Container Apps supports two types of ingress: HTTPS and TCP.
-
-### HTTPS
-
-With HTTPS ingress enabled, your container app features the following characteristics:
-
-- Supports TLS termination
-- Supports HTTP/1.1 and HTTP/2
-- Supports WebSocket and gRPC
-- HTTPS endpoints always use TLS 1.2, terminated at the ingress point
-- Endpoints always expose ports 80 (for HTTP) and 443 (for HTTPS)
-  - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
-- The container app is accessed via its fully qualified domain name (FQDN)
-- Request timeout is 240 seconds
-
-### <a name="tcp"></a>TCP (preview) 
-
-TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. [Configure ingress](#configure-ingress)
-
-> [!NOTE]
-> TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
-
-With TCP ingress enabled, your container app features the following characteristics:
-
-- The container app is accessed via its fully qualified domain name (FQDN) and exposed port number.
-- Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 
 ## Fully qualified domain name
 
@@ -82,6 +47,8 @@ You can get access to the environment's unique identifier by querying the enviro
 
 Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
 
+#[ARM template](#tab/arm-template)
+
 The ingress configuration section of the container app template has the following form:
 
 ```json
@@ -96,6 +63,71 @@ The ingress configuration section of the container app template has the followin
   }
 }
 ```
+
+#[CLI](#tab/cli)
+
+Enable ingress for your container app by using the `az containerapp ingress` command.
+
+```bash
+az containerapp ingress enable \
+    --name <app-name> \
+    --resource-group <resource-group> \
+    --target-port <target-port> \
+    --transport <transport> \
+    --external <external>
+```
+
+#[Portal](#tab/portal)
+
+Enable ingress for your container app by using the portal.
+
+
+---
+
+## How to disable ingress
+
+#[ARM template](#tab/arm-template)
+
+Disable ingress for your container app by using the `ingress` configuration property.  Set the `external` property to `false`:
+
+```json
+{
+  ...
+  "configuration": {
+      "ingress": {
+          "external": false
+      }
+  }
+}
+```
+
+#[CLI](#tab/cli)
+
+Disable ingress for your container app by using the `az containerapp ingress` command.
+
+```bash
+az containerapp ingress disable \
+    --name <app-name> \
+    --resource-group <resource-group> \
+```
+
+#[Portal](#tab/portal)
+
+Disable ingress for your container app by using the portal.
+
+---
+
+## Configure ingress settings
+
+You can configure ingress settings for your container app by using the `ingress` configuration property.  Using these settings you can configure the following:
+
+- Whether your ingress-enabled app is accessible outside its Container Apps environment.
+- The transport type. (HTTP/1, HTTP/2, TCP)
+- The port your container listens to for incoming requests.
+- The port used to access the app.
+- Traffic splitting between revisions.
+- IP address restrictions. For more information, see [IP address restrictions](./ip-restrictions.md).
+- Client certificate authentication. For more information see [Client certificate authentication](./client-certificate-authentication-howto.md).
 
 The following settings are available when configuring ingress:
 
