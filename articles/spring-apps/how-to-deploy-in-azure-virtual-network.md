@@ -154,7 +154,7 @@ Select the virtual network **azure-spring-apps-vnet** you previously created.
    > [!NOTE]
    > If you don't find the "Azure Spring Apps Resource Provider", search for "Azure Spring Cloud Resource Provider".
 
-    ![Screenshot that shows owner assignment to resource provider.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
+   :::image type="content" source="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignmnet pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png":::
 
     You can also do this step by running the following Azure CLI command:
 
