@@ -71,7 +71,7 @@ Successful Arc resource bridge creation results in `ProvisioningState = Succeede
 
 ## az arcappliance delete
 
-Tis command deletes the appliance VM and Azure resources. It doesn't clean up the OS image, which remains in the on-premises cloud gallery.
+This command deletes the appliance VM and Azure resources. It doesn't clean up the OS image, which remains in the on-premises cloud gallery.
 
 If a deployment fails, run this command to clean up the environment before you attempt to deploy again.
 
