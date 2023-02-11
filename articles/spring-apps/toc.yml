@@ -7,8 +7,6 @@ items:
   items:
   - name: What is Azure Spring Apps?
     href: overview.md
-  - name: Pricing
-    href: pricing.md
 - name: Quickstarts
   expanded: true
   items:
@@ -76,6 +74,8 @@ items:
       href: tutorial-managed-identities-functions.md
 - name: Concepts
   items:
+  - name: Cost management
+    href: managed-cost.md
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
   - name: Blue-green deployment strategies
