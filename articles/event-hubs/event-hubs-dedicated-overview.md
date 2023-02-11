@@ -73,7 +73,7 @@ With Legacy cluster, you can purchase up to 20 CUs.
 > Event Hubs Dedicated clusters require at least 8 Capacity Units(CUs) to enable availability zones. Clusters with self-serve scaling does not support availability zones yet. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 > [!IMPORTANT] 
-> Migrating an existing Legacy cluster to a Self-Serve Cluster isn't currently support. For more information, see [migrating a Legacy cluster to Self-Serve Scalable cluster.](#Can-I-migrate-from-a-Legacy-cluster-to-a-Self-Serve-Scalable-cluster). 
+> Migrating an existing Legacy cluster to a Self-Serve Cluster isn't currently support. For more information, see [migrating a Legacy cluster to Self-Serve Scalable cluster.](#can-i-migrate-my-standard-or-premium-namespaces-to-a-dedicated-tier-cluster). 
 
 ## Determining cluster type 
 
