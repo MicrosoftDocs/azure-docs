@@ -19,7 +19,7 @@ You must declare that the `ZipDeploy` resource depends on the site. Dependencies
 
 The following example shows declaration of the `dependsOn` element in the site extension: 
 
-:::code language="JSON" source="~/function-app-arm-templates//function-app-premium-plan/azuredeploy.json" range="194-204":::
+:::code language="JSON" source="~/function-app-arm-templates/function-app-premium-plan/azuredeploy.json" range="194-204":::
 
 ### Updating application settings in the deployment template
 

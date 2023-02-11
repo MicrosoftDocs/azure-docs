@@ -1,22 +1,25 @@
 ---
 title: Automate function app resource deployment to Azure
 description: Learn how to build a Bicep file or an Azure Resource Manager template that deploys your function app.
-
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 08/30/2022
 ms.custom: fasttrack-edit, devx-track-azurepowershell
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+<a name="top"></a>You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 For sample Bicep files and ARM templates, see:
 
 - [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
+
+>[!IMPORTANT]
+>Deployment code differs between Windows and Linux. Choose your operating system at the top of the article to see the correct example code.
 
 ## Required resources
 
@@ -54,39 +57,19 @@ A storage account is required for a function app. You need a general purpose acc
 
 # [Bicep](#tab/bicep)
 
-```bicep
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
-  name: storageAccountName
-  location: location
-  kind: 'StorageV2'
-  sku: {
-    name: storageAccountType
-  }
-}
-```
+:::code language="bicep" source="~/function-app-arm-templates/function-app-linux-consumption/main.bicep" range="37-44":::
+
+For a complete example, see [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) in the templates repository.
 
 # [JSON](#tab/json)
 
-```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2021-09-01",
-    "name": "[parameters('storageAccountName')]",
-    "location": "[parameters('location')]",
-    "kind": "StorageV2",
-    "sku": {
-      "name": "[parameters('storageAccountType')]"
-    }
-  }
-]
-```
+:::code language="json" source="~/function-app-arm-templates/function-app-linux-consumption/azuredeploy.json" range="77-86":::
+
+For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L77) in the templates repository.
 
 ---
 
-You must also specify the `AzureWebJobsStorage` property as an app setting in the site configuration. If the function app doesn't use Application Insights for monitoring, it should also specify `AzureWebJobsDashboard` as an app setting.
-
-The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  When Application Insights isn't enabled, the runtime uses the `AzureWebJobsDashboard` connection string to log to Azure Table storage and power the **Monitor** tab in the portal.
+You must also specify the `AzureWebJobsStorage` property as an app setting in the site configuration. The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  
 
 These properties are specified in the `appSettings` collection in the `siteConfig` object:
 
@@ -398,8 +381,7 @@ A Consumption plan doesn't need to be defined. When not defined, a plan is autom
 
 The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties, as follows:
 
-#### Windows
-
+:::zone pivot="platform-windows"  
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -443,9 +425,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ```
 
 ---
-
-#### Linux
-
+:::zone-end
+:::zone pivot="platform-linux" 
 To run your app on Linux, you must also set the property `"reserved": true` for the `serverfarms` resource:
 
 # [Bicep](#tab/bicep)
@@ -493,15 +474,15 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ```
 
 ---
+:::zone-end
 
 ### Create a function app
 
 When you explicitly define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
 
-The settings required by a function app running in Consumption plan differ between Windows and Linux.
+The settings required by a function app running in Consumption plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
 
-#### Windows
-
+:::zone pivot="platform-windows" 
 On Windows, a Consumption plan requires another two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). This property configures the storage account where the function app code and configuration are stored.
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Windows Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
@@ -609,9 +590,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 > [!IMPORTANT]
 > Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a new deployment slot. This setting is generated for you when the app is created in the deployment slot.
-
-#### Linux
-
+:::zone-end
+:::zone pivot="platform-linux"  
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
 The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
@@ -698,6 +678,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+:::zone-end  
 
 <a name="premium"></a>
 ## Deploy on Premium plan
@@ -708,8 +689,7 @@ The Premium plan offers the same scaling as the Consumption plan but includes de
 
 A Premium plan is a special type of `serverfarm` resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` as shown in the following samples:
 
-#### Windows
-
+:::zone pivot="platform-windows" 
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -752,8 +732,9 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
-#### Linux
 
+:::zone-end
+:::zone pivot="platform-linux" 
 To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
 
 # [Bicep](#tab/bicep)
@@ -799,6 +780,9 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ```
 
 ---
+
+:::zone-end
+
 ### Create a function app
 
 For function app on a Premium plan, you'll need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
@@ -807,10 +791,9 @@ A Premium plan requires another settings in the site configuration: [`WEBSITE_CO
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Premium Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
 
-The settings required by a function app running in Premium plan differ between Windows and Linux.
+The settings required by a function app running in Premium plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
 
-#### Windows
-
+:::zone pivot="platform-windows"  
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -914,8 +897,8 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 
 > [!IMPORTANT]
 > You don't need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting because it's generated for you when the site is first created.
-
-#### Linux
+:::zone-end  
+:::zone pivot="platform-linux"  
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
@@ -1016,6 +999,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
 
 ---
 
+:::zone-end
+
 <a name="app-service-plan"></a>
 ## Deploy on App Service plan
 
@@ -1027,8 +1012,7 @@ For a sample Bicep file/Azure Resource Manager template, see [Function app on Az
 
 In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. You can specify the SKU as follows:
 
-#### Windows
-
+:::zone pivot="platform-windows"  
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -1067,7 +1051,8 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
-#### Linux
+:::zone-end  
+:::zone pivot="platform-linux"  
 
 To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
 
@@ -1115,6 +1100,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
+:::zone-end
+
 ### Create a function app
 
 For function app on a Dedicated plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
@@ -1125,10 +1112,9 @@ The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#websi
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Dedicated Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
 
-The settings required by a function app running in Dedicated plan differ between Windows and Linux.
+The settings required by a function app running in Dedicated plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
 
-#### Windows
-
+:::zone pivot="platform-windows" 
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -1216,8 +1202,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ---
 
-#### Linux
-
+:::zone-end
+:::zone pivot="platform-linux" 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
 
 # [Bicep](#tab/bicep)
@@ -1302,6 +1288,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+
+:::zone-end
 
 ### Custom Container Image
 

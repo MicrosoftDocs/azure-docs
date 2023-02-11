@@ -8,7 +8,7 @@ ms.date: 02/07/2023
 
 # Best practices for Azure Functions deployments
 
-This article details some best practices for creating function app and related resources to Azure and deploying function project code using Azure Resource Manager templates and Bicep files.  
+This article details some best practices for creating function app and related resources to Azure and deploying function project code using Azure Resource Manager templates and Bicep files.   
 
 ### dependsOn  
 
@@ -163,44 +163,7 @@ When apps are built remotely on Linux, they run from package.
 
 ### Validate before deployment 
 
-To prevent validation errors All client tools are syntactically validating the ARM Template. If the validation fails, then a similar error message will be displayed in json format. For example:
+When you manually create your deployment template file, it's important to validate your template before deployment. To learn more, see [Validate your template](./functions-infrastructure-as-code.md#validate-your-template).
 
-```json
-{"error":{"code":"InvalidTemplate","message":"Deployment template validation failed: 'The resource 'Microsoft.Web/sites/func-xyz' is not defined in the template. Please see https://aka.ms/arm-template for usage details.'.","additionalInfo":[{"type":"TemplateViolation","info":{"lineNumber":0,"linePosition":0,"path":""}}]}}
-```
+## Next steps
 
-#### On DevOps:
-
-[Azure Resource Group Deployment task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) can be used for deployment as well as validation. You can add the task with `deploymentMode: 'Validation'` using the following json format to run the same validation independently before deployment and get more information from the error message. For example:
-
-```
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    subscriptionId: # Required subscription ID
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: # Required resource group name
-    location: # Required when action == Create Or Update Resource Group
-    templateLocation: 'Linked artifact'
-    csmFile: # Required when  TemplateLocation == Linked Artifact
-    csmParametersFile: # Optional
-    deploymentMode: 'Validation'
-```
-
-#### On Azure CLI:
-
-Install the latest version of [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-
-You can use the [az deployment group validate](https://docs.microsoft.com/en-us/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-validate) command to validate your ARM Template pre-deployment. For example:
-
-```
-az deployment group validate --resource-group <resource-group-name> --template-file <template-file-location> --parameters functionAppName='<function-app-name>' packageUri='<zip-package-location>'
-```
-
-For further troubleshooting, you can setup a test resource group to look out for [preflight error](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment?tabs=azure-cli#fix-preflight-error) and [deployment error](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment?tabs=azure-cli#fix-deployment-error)
-
-#### On Visual Studio Code:
-
-On [Visual Studio Code](https://code.visualstudio.com/), install the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
-
-This extension catches syntactically errors in your ARM Template pre-deployment. [Here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment?tabs=azure-cli#fix-validation-error) are couple of visual examples of errors.
