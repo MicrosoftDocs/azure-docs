@@ -61,7 +61,7 @@ Azure Health Data Services [Events](events/events-overview.md) now include a pub
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+Bug is now fixed and Resource will be updated if matches the Etag header. For details, see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
 
 
 #### Toolkit and Samples (Open Source)
@@ -139,7 +139,7 @@ The service will now accept the following:
 
 **The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is now in the public preview.** 
 
-The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations.  
+The toolkit is open-source and allows you to easily customize and extend the functionality of their Azure Health Data Services implementations.  
 
 ## **August 2022**
 
@@ -170,7 +170,7 @@ Analytics pipeline can process FHIR extensions to generate parquet data. See [FH
 
 **Fixed issue related to History bundles being sorted with the oldest version first.** 
 
-We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last.This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
+We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
 
 **Fixed issue where Queries were not providing consistent result count after appended with `_sort` operator.**
 The issue is now fixed and queries should provide consistent result count, with and without sort operator. 
@@ -534,7 +534,7 @@ Fixed history with PATCH in STU3 [#2177](https://github.com/microsoft/fhir-serve
 Addressed the delete failure with Custom Search parameters [#2133](https://github.com/microsoft/fhir-server/pull/2133) 
 
 
-Addeded retry logic while Deleting Search parameter  [#2121](https://github.com/microsoft/fhir-server/pull/2121)
+Added retry logic while Deleting Search parameter  [#2121](https://github.com/microsoft/fhir-server/pull/2121)
 
 
 Set max item count in search options in SearchParameterDefinitionManager [#2141](https://github.com/microsoft/fhir-server/pull/2141) 
