@@ -43,13 +43,13 @@ Deploys an on-premises instance of Arc resource bridge as an appliance VM, boots
 
 Creates Arc resource bridge in Azure as an ARM resource, then establishes the connection between the ARM resource and on-premises appliance VM.
 
-Once the `create` command initiates the connection, it will return in the terminal even though the connection between the ARM resource and on-premise appliance VM is not yet complete. The resource bridge needs about 5 minutes to establish the connection between the ARM resource and the on-premise VM. 
+Once the `create` command initiates the connection, it will return in the terminal even though the connection between the ARM resource and on-premises appliance VM is not yet complete. The resource bridge needs about 5 minutes to establish the connection between the ARM resource and the on-premises VM. 
 
 ## az arcappliance show
 
 Gets the status of the Arc resource bridge and ARM resource information. 
 
-While the Arc resource bridge is connecting the ARM resource to the on-premise VM, the resource bridge will progress through the stages below:
+While the Arc resource bridge is connecting the ARM resource to the on-premises VM, the resource bridge will progress through the stages below:
 
 `ProvisioningState` will be `Creating`, `Created`, `Failed`, `Deleting`, or `Succeeded`.
 
