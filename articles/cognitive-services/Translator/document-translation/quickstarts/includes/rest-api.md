@@ -11,6 +11,8 @@ ms.author: lajanuar
 recommendations: false
 ---
 
+<!-- markdownlint-disable MD051 -->
+
 ## Set up your programming environment
 
 In this quickstart we'll, use the cURL command line tool to make Document Translation REST API calls.
@@ -83,4 +85,4 @@ Before you run the **POST** request, replace `{your-source-container-SAS-URL}` a
 * The translated documents are listed in your target container.
 
   > [!div class="nextstepaction"]
-  > [I ran into an issue translating documents.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+  > [I successfully translated my document](#next-steps)[I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

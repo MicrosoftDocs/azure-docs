@@ -11,7 +11,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-
+<!-- markdownlint-disable MD051 -->
 
 ## Set up your Node.js environment
 
@@ -53,7 +53,7 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
     ```
 
  > [!div class="nextstepaction"]
-  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+  > [I successfully translated my document](#next-steps)[I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
 
 ## Translate all documents in a storage container
 
