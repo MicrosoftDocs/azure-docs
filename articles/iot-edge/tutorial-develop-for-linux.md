@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Use Visual Studio Code to develop and deploy code to devices running IoT Edge.
+Use [Visual Studio Code](https://code.visualstudio.com/) to develop and deploy code to devices running IoT Edge.
 
 In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
@@ -53,9 +53,9 @@ Cloud resources:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!TIP]
-> For guidance on interactive debugging in Visual Studio Code or Visual Studio 2019:
+> For guidance on interactive debugging in Visual Studio Code or Visual Studio 2022:
 >* [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md)
->* [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md)
+>* [Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md)
 >
 >This tutorial teaches the development steps for Visual Studio Code.
 
@@ -72,12 +72,12 @@ This tutorial targets devices running IoT Edge with Linux containers. You can us
 
 The following table lists the supported development scenarios for **Linux containers** in Visual Studio Code and Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017/2019 |
+|   | Visual Studio Code | Visual Studio 2019/2022 |
 | - | ------------------ | ------------------ |
 | **Linux device architecture** | Linux AMD64 <br> Linux ARM32 <br> Linux ARM64 | Linux AMD64 <br> Linux ARM32 <br> Linux ARM64 |
 | **Azure services** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Languages** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) <br> [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)| [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) <br> [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)| [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) |
 
 ## Install container engine
 
@@ -116,7 +116,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 9. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT hub that you selected through the command palette.
 
-   ![View devices in your IoT hub](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
+:::image type="content" source="./media/tutorial-develop-for-linux/view-iot-hub-devices.png" alt-text="Screenshot that shows your devices in the Azure IoT Hub section of the Explorer menu.":::
 
 
 [!INCLUDE [iot-edge-create-container-registry](includes/iot-edge-create-container-registry.md)]
