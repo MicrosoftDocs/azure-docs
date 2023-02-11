@@ -1,6 +1,31 @@
 {
     "redirections": [
     {
+      "source_path": "articles/cloudfoundry/cloudfoundry-deploy-your-first-app.md",
+      "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/cloudfoundry-get-started.md",
+      "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/cloudfoundry-oms-nozzle.md",
+      "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-oms-nozzle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/create-cloud-foundry-on-azure.md",
+      "redirect_url": "/previous-versions/azure/cloudfoundry/create-cloud-foundry-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/how-cloud-foundry-integrates-with-azure.md",
+      "redirect_url": "/previous-versions/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
       "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
       "redirect_document_id": false
