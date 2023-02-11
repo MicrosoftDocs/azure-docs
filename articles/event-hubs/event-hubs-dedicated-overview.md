@@ -41,12 +41,12 @@ How much you can ingest and stream per CU depends on various factors, such as th
 - Payload size
 - Egress rate
 
-Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my dedicated cluster](./includes/event-hubs-dedicated-clusters-faq.md#when-to-scale-my-dedicated-cluster). 
+Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my dedicated cluster](#when-to-scale-my-dedicated-cluster). 
 
 ## Cluster Types
 Event Hubs Dedicated Clusters come in two distinct types: Self-serve scalable clusters and Legacy clusters. These two types differ in their support for the number of CUs, the amount of throughput each CU provides, and the regional and zone availability. 
 
-As a dedicated cluster user, you can determine the type of cluster by examining the availability of the capacity scaling feature in the portal. If this capability is present, you're using a self-serve scalable cluster. Conversely, if it isn't available, you're utilizing a legacy dedicated cluster. Alternatively you can look for the [Azure Resource Manager properties](https://learn.microsoft.com/azure/templates/microsoft.eventhub/clusters?pivots=deployment-language-arm-template) related to Dedicated clusters. 
+As a dedicated cluster user, you can determine the type of cluster by examining the availability of the capacity scaling feature in the portal. If this capability is present, you're using a self-serve scalable cluster. Conversely, if it isn't available, you're utilizing a legacy dedicated cluster. Alternatively you can look for the [Azure Resource Manager properties](/azure/templates/microsoft.eventhub/clusters?pivots=deployment-language-arm-template) related to Dedicated clusters. 
 
 ### Self-serve scalable clusters
 Event Hubs Self-serve scalable clusters are based on new infrastructure and allow users to easily scale the number of capacity units allocated to each cluster. By creating a dedicated cluster through the Event Hubs portal or ARM templates, you gain access to a self-service scalable cluster. To learn how to scale your dedicated cluster, see [Scale Event Hubs dedicated clusters](event-hubs-dedicated-cluster-create-portal.md). 
@@ -55,7 +55,7 @@ Event Hubs Self-serve scalable clusters are based on new infrastructure and allo
 Approximately, one capacity unit (CU) in a self-serve scalable cluster provides *ingress capacity ranging from 100 MB/s to 200 MB/s*, although actual throughput may fluctuate depending on various factors.
 
 With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster in the Azure portal. In contrast to traditional clusters, these clusters can be scaled incrementally with CUs ranging from 1 to 10.
-If you need a cluster larger than 10 CU, you can [submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
+If you need a cluster larger than 10 CU, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT] 
 > Event Hubs self-serve scalable dedicated clusters currently does not support [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). If you need to use AZ with your dedicated cluster, then you need to explicitly create a Legacy dedicated cluster. 
@@ -63,7 +63,7 @@ If you need a cluster larger than 10 CU, you can [submit a support request](../e
 ### Legacy clusters 
 Event Hubs dedicated clusters created prior to the availability of self-serve scalable clusters are referred to as legacy clusters. 
 
-To use these legacy clusters, direct creation through the Azure portal or ARM templates isn't possible and you must instead [submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to create one. 
+To use these legacy clusters, direct creation through the Azure portal or ARM templates isn't possible and you must instead [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to create one. 
 
 Approximately, one capacity unit (CU) in a self-serve scalable cluster provides *ingress capacity ranging from 50 MB/s to 100 MB/s*, although actual throughput may fluctuate depending on various factors. 
 
@@ -73,7 +73,7 @@ With Legacy cluster, you can purchase up to 20 CUs.
 > Event Hubs Dedicated clusters require at least 8 Capacity Units(CUs) to enable availability zones. Clusters with self-serve scaling does not support availability zones yet. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 > [!IMPORTANT] 
-> Migrating an existing Legacy cluster to a Self-Serve Cluster isn't currently support. For more information, see [migrating a Legacy cluster to Self-Serve Scalable cluster.](./includes/event-hubs-dedicated-clusters-faq.md#Can-I-migrate-from-a-Legacy-cluster-to-a-Self-Serve-Scalable-cluster). 
+> Migrating an existing Legacy cluster to a Self-Serve Cluster isn't currently support. For more information, see [migrating a Legacy cluster to Self-Serve Scalable cluster.](#Can-I-migrate-from-a-Legacy-cluster-to-a-Self-Serve-Scalable-cluster). 
 
 ## Determining cluster type 
 
