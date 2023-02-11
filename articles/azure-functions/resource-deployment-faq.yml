@@ -65,99 +65,77 @@ sections:
         answer: |
           + If you are restricting access to the storage account through the private endpoints, you will not be able to access the data storage in the storage account through the portal or otherwise. + You can give access to your secured IP address or virtual network for the data storage in the storage account, by [Managing the default network access rule](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule)
 
-      - question: Why `WEBSITE_RUN_FROM_PACKAGE=1` is not working for function app with Consumption plan on Linux?
+      - question: After restricting storage account to a virtual network, why do I get 503 error when trying to reach the function app?
         answer: |
-          
+          Verify and update the Application Settings under Configuration for the function app to the following:
+
+          |Setting name|Value|Comment|
+          |----------------|-----------|-----------|
+          |AzureWebJobsStorage|Storage connection string|This is the connection string for a secured storage account.|
+
+          Verify and update these App setting for Premium plan or Consumption plan on Windows and Premium plan on Linux:
+
+          |Setting name|Value|Comment|
+          |----------------|-----------|-----------|
+          |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|Storage connection string|This is the connection string for a secured storage account.|
+          |WEBSITE_CONTENTSHARE|File share|The name of the file share created in the secured storage account where the project deployment files reside.|
+
+      - question: What application settings are required for a virtual network?
+        answer: |
+          WEBSITE_CONTENTOVERVNET = 1
+          + A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](https://docs.microsoft.com/en-us/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
+          + Supported on Premium and Dedicated (App Service) plans (Standard and higher). Not supported when running on a Consumption plan. 
+
+          WEBSITE_VNET_ROUTE_ALL = 1
+          + A setting value of 1 indicates that all traffic is routed through the virtual network. Indicates whether all outbound traffic from the app is routed through the virtual network.
+          + You need this setting when using features of [Regional virtual network integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#regional-virtual-network-integration). 
+          + It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-nat-gateway).
+
+      - question: Why ARM template deletes and replace application settings for a function app?
+        answer: |
+          This is an expected behavior that the ARM template will delete the existing app settings and replace the app settings for a function app based on the app settings present in the ARM template. The API requires the payload to contains all necessary settings which will replace the existing one entirely. There is no partial remove or patch support with existing AppSettings. For instance, if one you want to add a new setting, one needs to get existing set, add to that collection and update as a whole.
+
+          Therefore, please include all of the existing app settings in the template to preserve them. This does not apply only if the app settings block is not defined in the current template.
+
+      - question: When to set WEBSITE_NODE_DEFAULT_VERSION app setting?
+        answer: |
+          + This setting is for Windows only. This setting is only needed when using the node language stack to specify which node.js version to use. For Example:
+
+          NOTE: Please include rest of the existing app settings in the template to preserve them.
+
+          ```json
+          "properties": {
+              "siteConfig": {
+                  "appSettings": [
+                      {
+                          "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                          "value": "~14"
+                      }
+                  ]
+              }
+          }
+          ```
+      - question: Why WEBSITE_NODE_DEFAULT_VERSION is not working in Linux?
+        answer: |
+          - `WEBSITE_NODE_DEFAULT_VERSION` is Windows only property. [Click here ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#website_node_default_version) for more information. 
+          - Linux apps should use `LinuxFxVersion` setting. 
+
+      - question: How `linuxFxVersion` is added in an ARM template?
+        answer: |
+          - Linux apps should include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of `runtime|runtimeVersion`.
+          - If you are deploying a custom container image, you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in Web App for Containers. Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+          - More information about setting `linuxFxVersion` [using ARM template ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#create-a-function-app-2) and [using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/set-runtime-version?tabs=azurecli#manual-version-updates-on-linux) is available in the documentation. 
+
+      - question: When to enable `alwaysOn` site config?
+        answer: |
+          - If you run on an **App Service plan**, you should enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. The Always on setting is available only on an App Service plan.
+          - When running in a Consumption Plan or Premium Plan you should NOT enable Always On. On a Consumption plan the platform activates function apps automatically and on a Premium plan the platform keeps your desired number of pre-warmed instances always on automatically.
+
+      - question: Why we need to enable Always On when running on dedicated App Service Plan?
+        answer: See the previous answer.
 
 additionalContent: |
     ## Next steps
 
-    To learn more, see [link text](link).
-
-
-### After restricting storage account to a virtual network, why do I get 503 error when trying to reach the function app?
-
-Verify and update the Application Settings under Configuration for the function app to the following:
-
-|Setting name|Value|Comment|
-|----------------|-----------|-----------|
-|AzureWebJobsStorage|Storage connection string|This is the connection string for a secured storage account.|
-
-Verify and update these App setting for Premium plan or Consumption plan on Windows and Premium plan on Linux:
-
-|Setting name|Value|Comment|
-|----------------|-----------|-----------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|Storage connection string|This is the connection string for a secured storage account.|
-|WEBSITE_CONTENTSHARE|File share|The name of the file share created in the secured storage account where the project deployment files reside.|
-
-<br/>
-
-### Which app settings are used with Virtual Network?
-
-Consider the following settings when using Virtual Network:
-
-WEBSITE_CONTENTOVERVNET = 1
-+ A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](https://docs.microsoft.com/en-us/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
-+ Supported on Premium and Dedicated (App Service) plans (Standard and higher). Not supported when running on a Consumption plan. 
-
-WEBSITE_VNET_ROUTE_ALL = 1
-+ A setting value of 1 indicates that all traffic is routed through the virtual network. Indicates whether all outbound traffic from the app is routed through the virtual network.
-+ You need this setting when using features of [Regional virtual network integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#regional-virtual-network-integration). 
-+ It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-nat-gateway).
-
-<br/>
-
-### Why ARM template deletes and replace application settings for a function app?
-
-This is an expected behavior that the ARM template will delete the existing app settings and replace the app settings for a function app based on the app settings present in the ARM template. The API requires the payload to contains all necessary settings which will replace the existing one entirely. There is no partial remove or patch support with existing AppSettings. For instance, if one you want to add a new setting, one needs to get existing set, add to that collection and update as a whole.
-
-Therefore, please include all of the existing app settings in the template to preserve them. This does not apply only if the app settings block is not defined in the current template.
-
-<br/>
-
-### When to set WEBSITE_NODE_DEFAULT_VERSION app setting?
-
-+ This setting is for Windows only. This setting is only needed when using the node language stack to specify which node.js version to use. For Example:
-
-NOTE: Please include rest of the existing app settings in the template to preserve them.
-
-```json
-"properties": {
-    "siteConfig": {
-        "appSettings": [
-            {
-                "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                "value": "~14"
-            }
-        ]
-    }
-}
-```
-
-<br/>
-
-### Why WEBSITE_NODE_DEFAULT_VERSION is not working in Linux?
-
-- `WEBSITE_NODE_DEFAULT_VERSION` is Windows only property. [Click here ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#website_node_default_version) for more information. 
-- Linux apps should use `LinuxFxVersion` setting. 
-
-<br/>
-
-### How `linuxFxVersion` is added in an ARM template?
-
-- Linux apps should include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of `runtime|runtimeVersion`.
-- If you are deploying a custom container image, you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in Web App for Containers. Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
-- More information about setting `linuxFxVersion` [using ARM template ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#create-a-function-app-2) and [using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/set-runtime-version?tabs=azurecli#manual-version-updates-on-linux) is available in the documentation. 
-
-<br/>
-
-### When to enable `alwaysOn` site config?
-OR Why we need to enable Always On when running on dedicated App Service Plan?
-
-- If you run on an **App Service plan**, you should enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. The Always on setting is available only on an App Service plan.
-
-- When running in a Consumption Plan or Premium Plan you should NOT enable Always On. On a Consumption plan the platform activates function apps automatically and on a Premium plan the platform keeps your desired number of pre-warmed instances always on automatically.
-
-<br/>
-
+    To learn more, see [Automate resource deployments for Azure Functions](./functions-infrastructure-as-code.md).
 
