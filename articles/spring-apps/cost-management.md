@@ -3,7 +3,7 @@ title: Manage costs for Azure Spring Apps
 description: Describes overall cost saving plan of Azure Spring Apps.
 author: hangwan97
 ms.service: spring-apps
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/28/2023
 ms.author: hangwan
 ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains the pricing model of azure spring apps. At the end of this overview, you will have a clear understanding of the pricing and how to save your cost.
+This article introduced 4 different ways to save your cost on azure spring apps. At the end of this overview, you will have a clear understanding on how to save your cost.
 
 Azure Spring Apps offers various cost-saving options, including monthly free grants, the ability to start and stop instances, a consumption-based pricing model with the Standard Consumption Plan, and the ability to set up autoscaling rules.
 
