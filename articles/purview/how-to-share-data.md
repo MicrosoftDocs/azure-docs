@@ -104,33 +104,38 @@ This registration is only needed the first time when sharing or receiving data i
 
 You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account. 
 
-When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
+When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [Microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
    > Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update a sent share
 
-Once a share is created, you can update description, assets and recipients.
-
-You'll do this from the Blob Storage or ADLSGen2 asset, just like when you created the data share.
-
-Search for your Blob storage or ADLSGen2 asset in the data catalog, open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset.
+Once a share is created, you can update description, assets, and recipients.
 
 > [!NOTE]
-   > If you have the **Reader** role only on the source storage account, you will be able to view list of sent shares and received shares and not edit. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+> If you only have the **Reader** role on the source storage account, you will be able to view list of sent shares and received shares but not edit. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
-:::image type="content" source="./media/how-to-share-data/manage-data-shares.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Manage data shares button highlighted." border="true":::  
+You can find your sent shares one of two ways:
 
-Select a share, and then select the **Edit** option.
+* Access the blob storage or ADLS Gen2 asset in the data catalog, open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset. Select a share, and then select the **Edit** option.
 
-:::image type="content" source="./media/how-to-share-data/select-share-to-edit.png" alt-text="Screenshot of the Manage data shares page with a share selected and the edit button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/manage-data-shares.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Manage data shares button highlighted." border="true":::
 
-From here you can:
+   :::image type="content" source="./media/how-to-share-data/select-share-to-edit.png" alt-text="Screenshot of the Manage data shares page with a share selected and the edit button highlighted." border="true":::
 
-- [Edit details](#edit-details)
-- [Edit assets](#edit-assets)
-- [Edit recipients](#edit-recipients)
+* You can [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for the share in the data catalog, and narrow results to only data shares. Then select the **Edit** button.
+
+   :::image type="content" source="./media/how-to-share-data/search-for-share.png" alt-text="Screenshot of the data catalog search, showing the data share filter selected and a share highlighted." border="true":::
+
+   :::image type="content" source="./media/how-to-share-data/edit-share-asset.png" alt-text="Screenshot of a data share asset, with the edit button highlighted." border="true":::
+
+
+From either of these places you can:
+
+- [Edit share details](#edit-details)
+- [Edit shared assets](#edit-assets)
+- [Edit share recipients](#edit-recipients)
 - [Delete your share](#delete-share)
 
 ### Edit details
