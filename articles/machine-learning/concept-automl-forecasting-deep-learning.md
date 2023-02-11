@@ -137,3 +137,4 @@ The search terminates when stopping criteria are met. The stopping criteria depe
 * Learn how to [set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
 * Learn about [forecasting methodology in AutoML](./concept-automl-forecasting-methods.md).
 * Browse [frequently asked questions about forecasting in AutoML](./how-to-automl-forecasting-faq.md).
+
