@@ -137,4 +137,4 @@ Depending on what type of application you are developing in conjunction with you
 ## Next steps
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
-- Read [Understand log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
+- Read [Understand log searches in Azure Monitor logs](../../../azure-monitor/logs/log-query-overview.md).
