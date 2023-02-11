@@ -58,7 +58,7 @@ With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster i
 If you need a cluster larger than 10 CU, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT] 
-> Event Hubs self-serve scalable dedicated clusters currently does not support [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). If you need to use AZ with your dedicated cluster, then you need to explicitly create a Legacy dedicated cluster. 
+> Self-serve scalable dedicated clusters currently don't support [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). If you need to use AZ with your dedicated cluster, then you need to explicitly create a Legacy dedicated cluster. 
 
 ### Legacy clusters 
 Event Hubs dedicated clusters created prior to the availability of self-serve scalable clusters are referred to as legacy clusters. 
