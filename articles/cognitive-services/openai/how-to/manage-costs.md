@@ -66,21 +66,21 @@ To view Azure OpenAI costs in cost analysis:
 3. Under **Resource Management** select **Cost analysis**
 4. By default cost analysis will be scoped to the individual Azure OpenAI resource.
 
-    :::image type="content" source="../media/manage-costs/resource-view.png" alt-text="Screenshot of cost analysis dashboard scoped to an Azure OpenAI resource." lightbox="../media/manage-costs/resource-view.png":::
+:::image type="content" source="../media/manage-costs/resource-view.png" alt-text="Screenshot of cost analysis dashboard scoped to an Azure OpenAI resource." lightbox="../media/manage-costs/resource-view.png":::
 
-5. To understand the breakdown of what makes up that cost it can help to modify **Group by** to **Meter** and in this case switching the chart type to **Line**. You can now see that for this particular resource the source of the costs is from three different model series with **Text-Davinci Tokens** representing the bulk of the costs.  
+To understand the breakdown of what makes up that cost it can help to modify **Group by** to **Meter** and in this case switching the chart type to **Line**. You can now see that for this particular resource the source of the costs is from three different model series with **Text-Davinci Tokens** representing the bulk of the costs.  
 
-    :::image type="content" source="../media/manage-costs/grouping.png" alt-text="Screenshot of cost analysis dashboard with group by set to meter." lightbox="../media/manage-costs/grouping.png":::
+:::image type="content" source="../media/manage-costs/grouping.png" alt-text="Screenshot of cost analysis dashboard with group by set to meter." lightbox="../media/manage-costs/grouping.png":::
 
 It is important to understand scope when evaluating cost associated with Azure OpenAI. If your resources are part of the same resource group you can scope Cost Analysis at that level to understand the impact on costs. If your resources are spread across multiple resource groups you can scope to the subscription level.
 
 However, when scoped at a higher level you will likely need to add additional filters to be able to zero in on Azure OpenAI usage. When scoped at the subscription level we see a number of other resources that we may not care about in the context of Azure OpenAI cost management:
 
-    :::image type="content" source="../media/manage-costs/subscription.png" alt-text="Screenshot of cost analysis dashboard with scope set to subscription." lightbox="../media/manage-costs/subscription.png":::
+:::image type="content" source="../media/manage-costs/subscription.png" alt-text="Screenshot of cost analysis dashboard with scope set to subscription." lightbox="../media/manage-costs/subscription.png":::
 
 If you try to add a filter by service you will find that you can't find Azure OpenAI in the list. This is because technically Azure OpenAI is part of Cognitive Services so service level filter is **Cognitive Services**, but if you want to see all Azure OpenAI resources across a subscription without any other type of Cognitive Services resources you need to instead scope to **Service tier: Azure OpenAI**:
 
-        :::image type="content" source="../media/manage-costs/service-tier.png" alt-text="Screenshot of cost analysis dashboard with service tier highlighted." lightbox="../media/manage-costs/service-tier.png":::
+:::image type="content" source="../media/manage-costs/service-tier.png" alt-text="Screenshot of cost analysis dashboard with service tier highlighted." lightbox="../media/manage-costs/service-tier.png":::
 
 ## Create budgets
 
