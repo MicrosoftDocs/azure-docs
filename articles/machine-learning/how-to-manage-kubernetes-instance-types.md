@@ -36,17 +36,17 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 
 By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an AzureML workspace:
 - No `nodeSelector` is applied, meaning the pod can get scheduled on any node.
-- The workload's pods are assigned default resources with 0.1 cpu cores, 500Mi memory and 0 GPU for request.
+- The workload's pods are assigned default resources with 0.1 cpu cores, 2Gi memory and 0 GPU for request.
 - Resource use by the workload's pods is limited to 2 cpu cores and 8 GB memory:
 
 ```yaml
 resources:
   requests:
     cpu: "100m"
-    memory: "500MB"
+    memory: "2Gi"
   limits:
     cpu: "2"
-    memory: "8Gi"
+    memory: "2Gi"
     nvidia.com/gpu: null
 ```
 
