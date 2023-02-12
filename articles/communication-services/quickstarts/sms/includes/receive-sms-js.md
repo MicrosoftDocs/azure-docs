@@ -69,7 +69,21 @@ At this point, you have successfully handled receiving an SMS through events. No
 
 ## Responding to the SMS
 
-1. To respond to the incoming SMS, we use the Azure Communication Service SMS capabilities for sending SMS. We start by invoking the `SmsClient` and initializing it with the `connection string` for our resource. Then we compose an SMS to send based on the `to` and `from` values from the event we got.
+1. To respond to the incoming SMS, we use the Azure Communication Service SMS capabilities for sending SMS. We start by invoking the `SmsClient` and initializing it with the `connection string` for our resource. You can either paste the connection string directly in the code or place it inside your local.settings.json file in your Azure Function directory under values. 
+
+``` json
+
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "ACS_CONNECTION_STRING": "<<CONNECTION STRING>>"
+  }
+}
+
+```
+
+2. Then we compose an SMS to send based on the `to` and `from` values from the event we got.
 
     ```javascript
     import { AzureFunction, Context } from "@azure/functions"
