@@ -126,7 +126,7 @@ In this example, the following steps create a Logic App that uses the [common al
 
     1. Select **+** and **Add an action** to insert another step.
     1. In the **Search** field, search for and select **Azure Resource Manager**, and then **Read a resource**. 
-    1. Populate the array with the tags from the affected resources with this information. In each of the fields, click inside the field, and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
+    1. Populate the fields of the **Read a resource** action with the array values from the `AffectedResources` variable. In each of the fields, click inside the field, and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
 
         |Field|String value|
         |---------|---------|
