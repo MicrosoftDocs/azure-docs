@@ -93,7 +93,7 @@ To disable writeback of all Microsoft 365 groups that were created before these 
   
   ```PowerShell
     #Import-module
-    Import-module Microsoft.Graph
+    Import-Module Microsoft.Graph.Groups
 
     #Connect to MgGraph with necessary scope and select the Beta API Version
     Connect-MgGraph -Scopes Group.ReadWrite.All
