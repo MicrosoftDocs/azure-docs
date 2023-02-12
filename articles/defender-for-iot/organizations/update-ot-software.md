@@ -16,17 +16,6 @@ For more information, see [Which appliances do I need?](ot-appliance-sizing.md),
 > [!NOTE]
 > Update files are available for currently supported versions only. If you have OT network sensors with legacy software versions that are no longer supported, open a support ticket to access the relevant files for your update.
 
-<!--removing this
-## Legacy version updates vs. recent version updates
-
-When downloading your update files from the Azure portal, you’ll see the option to download different files for different types of updates. Update files differ depending on the version you’re updating from and updating to.
-
-Make sure to select the file that matches your upgrade scenario.
-
-Updates from legacy versions may require a series of software updates: If you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version. For example:
-
-:::image type="content" source="media/update-ot-software/legacy.png" alt-text="Screenshot of the multiple download options displayed.":::
--->
 
 ## Prerequisites
 
@@ -164,7 +153,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
     :::image type="content" source="media/update-ot-software/remote-update-step-2.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/remote-update-step-2.png":::
 
-1. In the **Update sensor (Preview)** pane that appears on the right, verify your update details. <!--need to validate this-->
+1. In the **Update sensor (Preview)** pane that appears on the right, verify your update details.
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing** until the update is complete, when the value switches to the new sensor version number instead.
 
@@ -285,66 +274,46 @@ To confirm that the update process completed successfully, check the sensor vers
 
 Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/legacy-upgrade.log`, and are accessible to the *[cyberx_host](roles-on-premises.md#default-privileged-on-premises-users)* user via SSH.
 
-<!--do we want to keep any of the following information for legacy support? in any case, we don't provide those update packages. send to support instead?
-## Download and apply a new activation file
+## Update legacy OT sensor software
 
-**Relevant only when updating from a legacy version to version 22.x or higher**
+Updating to version 22.x from an earlier version essentially onboards a new OT sensor, with all of the details from the legacy sensor. 
 
-This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to activate the sensor before you [update the software](#update-ot-sensors).
+After the update, the newly onboarded, updated sensor requires a new activation file. We also recommend that you remove any resources left from your legacy sensor, such as deleting the sensor from Defender for IoT, and any private IoT Hubs that you'd used.
 
-**To prepare your sensor for update**:
+For more information, see [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions).
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors** on the left.
+**To update a legacy OT sensor version**
 
-1. Select the site where you want to update your sensor, and then browse to the sensor you want to update.
+1. In Defender for IoT on the Azure portal, select **Sites and sensors** and then select the legacy OT sensor you want to update.
 
-1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**. For example:
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
+1. Select the **Prepare to update to 22.X** option from the toolbar or from the options (**...**) from the sensor row.
 
 1. <a name="activation-file"></a>In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
 
-    A new row in the grid is added for sensor you're upgrading. In that added row, select to download the activation file.
+    A new row is added on the **Sites and sensors** page, representing the newly updated OT sensor. In that row, select to download the activation file.
 
-1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+    The status for the new OT sensor switches to **Pending activation**.
 
-> [!NOTE]
-> The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
+1. Sign into your OT sensor and select **System settings > Sensor management > Subscription & Mode Activation**.
 
-**To apply your activation file**:
+1. In the **Subscription & Mode Activation** pane, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#activation-file).
 
-If you're upgrading from a legacy version to version 22.x or higher, make sure to apply the new activation file to your sensor.
+    Monitor the activation status on the **Sites and sensors** page. When the OT sensor is fully activated:
 
-1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
+    - The sensor status and health on the **Sites and sensors** page is updated with the new software version
+    - On the OT sensor, the **Overview** page shows an activation status of **Valid**.
 
-1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#activation-file).
+1. After you've applied your new activation file, make sure to [delete the legacy sensor](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal). On the **Sites and sensors** page, select your legacy sensor, and then from the options (**...**) menu for that sensor, select **Delete sensor**.
 
-1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
+1. (Optional) After updating from a legacy OT sensor version, you may have leftover IoT Hubs that are no longer in use. In such cases:
 
-    - The sensor's **Overview** page shows an activation status of **Valid**.
-    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
+    1. Review your IoT hubs to ensure that it's not being used by other services.
 
-### Remove your previous sensor
+    1. Verify that your sensors are connected successfully.
 
-Your previous sensors continue to appear in the **Sites and sensors** page until you delete them. After you've applied your new activation file and updated sensor software, make sure to delete any remaining, previous sensors from Defender for IoT.
-
-Delete a sensor from the **Sites and sensors** page in the Azure portal. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
-
-### Remove private IoT Hubs
-
-If you've updated from a version earlier than 22.1.x, you may no longer need the private IoT Hubs you'd previously used to connect sensors to Defender for IoT.
-
-In such cases:
-
-1. Review your IoT hubs to ensure that it's not being used by other services.
-
-1. Verify that your sensors are connected successfully.
-
-1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
-
--->
+    1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
 
 ## Next steps
 
