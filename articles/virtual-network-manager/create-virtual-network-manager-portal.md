@@ -188,7 +188,6 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
     | Name | Enter a name for this connectivity configuration. |
     | Description | *(Optional)* Provide a description about this connectivity configuration. |
 
-
 1. On the **Topology** tab, select the **Mesh** topology if not selected, and leave the **Enable mesh connectivity across regions** unchecked.  Cross-region connectivity isn't required for this set up since all the virtual networks are in the same region. 
 
      :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
@@ -197,7 +196,7 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of add a network group to a connectivity configuration.":::
 
-1. Select the **Preview Topology** tab to view the topology of the configuration. The topology will show the network groups you added to the configuration.
+1. Select the **Preview Topology** tab to view the topology of the configuration. This tab will show you a visual representation of the network groups you added to the configuration and how connectivity is established between network groups and their members.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/preview-topology.png" alt-text="Screenshot of preview topology for network group connectivity configuration.":::
 
