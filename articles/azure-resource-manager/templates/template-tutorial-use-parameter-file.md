@@ -82,8 +82,9 @@ To run this deployment command, you need to have the [latest version](/cli/azure
 templateFile="{path-to-the-template-file}"
 devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
-  --name myResourceGroupDev \
-  --location "East US"
+  --location "East-US"
+  --resource-group myResourceGroupDev \
+  
 az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
@@ -114,8 +115,9 @@ New-AzResourceGroupDeployment `
 ```azurecli
 prodParameterFile="{path-to-azuredeploy.parameters.prod.json}"
 az group create \
-  --name myResourceGroupProd \
-  --location "West US"
+  --location "West US" 
+  --resource-group myResourceGroupProd \
+  
 az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
