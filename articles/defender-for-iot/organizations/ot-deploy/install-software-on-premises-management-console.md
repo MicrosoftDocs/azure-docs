@@ -33,7 +33,7 @@ Download on-premises management console software from Defender for IoT in the Az
 Select **Getting started** > **On-premises management console** and select the software version you want to download.
 
 > [!IMPORTANT]
-> If you're updating software from a previous version, use the options from the **Sites and sensors** > **Sensor update** menu. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
+> If you're updating software from a previous version, alternately use the options from the **Sites and sensors** > **Sensor update (Preview)** menu. Especially use this version if you're updating your on-premises management console together with connected OT sensors. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
 ## Install on-premises management console software
 
