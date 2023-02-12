@@ -19,6 +19,12 @@ You can run SAP workloads on the Azure platform using different Azure Virtual Ma
 
 For more information, see the [SAP on Azure VM workloads](workloads/get-started.md) documentation.
 
+## SAP Integration with Microsoft Services
+
+In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers a variety of capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Azure Active Directory, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud and SAP Success Factors to name a few.
+
+For more information, see the [SAP Integration with Microsoft Services](workloads/integration-get-started.md) documentation.
+
 ### SAP HANA on Azure (Large Instances)
 
 SAP HANA on Azure (Large Instances) is a solution that provides VMs for deploying and running SAP HANA. 
@@ -49,12 +55,6 @@ Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP la
 For more information, see the [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md) documentation.
 
 [!INCLUDE [Preview content notice](./monitor/includes/preview-azure-monitor.md)]
-
-### SAP Integration with Microsoft Services
-
-In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers a variety of capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Azure Active Directory, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud and SAP Success Factors to name a few.
-
-For more information, see the [SAP Integration with Microsoft Services](workloads/integration-get-started.md) documentation.
 
 ## Next steps
 
