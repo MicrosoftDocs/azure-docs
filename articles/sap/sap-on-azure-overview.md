@@ -50,7 +50,7 @@ For more information, see the [Azure Monitor for SAP solutions](monitor/about-az
 
 [!INCLUDE [Preview content notice](./monitor/includes/preview-azure-monitor.md)]
 
-## SAP Integration with Microsoft Services
+### SAP Integration with Microsoft Services
 
 In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers a variety of capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Azure Active Directory, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud and SAP Success Factors to name a few.
 
