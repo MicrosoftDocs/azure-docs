@@ -23,17 +23,19 @@ To perform the procedures described in this article, make sure that you have:
 
 - **A list of the OT sensors you'll want to update**, and the update methods you want to use. Each sensor that you want to update must be both [onboarded](onboard-sensors.md) to Defender for IoT and activated.
 
-    - **If you have an on-premises management console**, make sure to update the on-premises management console first.
-    - **Cloud-connected sensors** can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  Remote updates require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.
-    - **Locally-managed sensors** can be updated via an on-premises management console, or directly using a downloaded update package.
+    |Update scenario  |Method details  |
+    |---------|---------|
+    |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to update your on-premises management console before updating your sensors.|
+    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>Remote updates require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.       |
+    |**Locally-managed sensors**     |  Locally-managed sensors can be updated via an on-premises management console, or directly using a downloaded update package.       |
 
 - **Required access permissions**:
 
-    - To download update packages or push updates from the Azure portal, you'll need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), and [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
+    - **To download update packages or push updates from the Azure portal**, you'll need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), and [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
-    - To run updates on an OT sensor or on-premises management console, you'll need access as an **Admin** user.
+    - **To run updates on an OT sensor or on-premises management console**, you'll need access as an **Admin** user.
 
-    - To update an OT sensor via CLI, you'll need access to the sensor as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
+    - **To update an OT sensor via CLI**, you'll need access to the sensor as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
