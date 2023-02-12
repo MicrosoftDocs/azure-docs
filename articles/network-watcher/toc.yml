@@ -243,11 +243,11 @@
     href: /azure/templates/microsoft.network/networkWatchers/
 - name: Resources
   items:
-  - name: Network Watcher FAQs
+  - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Microsoft Q&A question page
+  - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
