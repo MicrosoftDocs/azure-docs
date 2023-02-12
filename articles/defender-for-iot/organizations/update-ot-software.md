@@ -146,7 +146,7 @@ This procedure describes how to send a software version update to one or more OT
 
     For an individual sensor, the **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row. For example:
 
-    :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
+    :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
 1. In the **Send package** pane that appears on the right, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
@@ -158,13 +158,13 @@ This procedure describes how to send a software version update to one or more OT
 
 **To run your sensor update from the Azure portal**:
 
-When the **Sensor version** column for your sensors reads :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**, you're ready to run your update.
+Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
-1. As in the previous step, either select multiple sensors that are ready to update, or select one sensor at a time.
+1. Select one or more sensors to update, and then select **Sensor update (Preview)** > **Remote update** > **Step 2: Update sensor** from the toolbar.
 
-1. Select either **Sensor update (Preview)** > **Remote update** > **Step 2: Update sensor** from the toolbar, or for an individual sensor, select the **...** options menu > **Step 2: Update sensor**. For example:
+    For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu. For example:
 
-    :::image type="content" source="media/update-ot-software/update-sensor.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/update-sensor.png":::
+    :::image type="content" source="media/update-ot-software/remote-update-step-2.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/remote-update-step-2.png":::
 
 1. In the **Update sensor (Preview)** pane that appears on the right, verify your update details. <!--need to validate this-->
 
@@ -184,23 +184,19 @@ This procedure describes how to manually download the new sensor software versio
 
 1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file. For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the Software Update pane on the sensor." lightbox="media/how-to-manage-individual-sensors/upgrade-pane-v2.png":::
+    :::image type="content" source="media/update-ot-software/sensor-upload-file.png" alt-text="Screenshot of the Software Update pane on the sensor." lightbox="media/update-ot-software/sensor-upload-file.png":::
 
-    The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
-
-    Sign in when prompted, and then return to the **System Settings** > **Sensor management** > **Software Update** pane to confirm that the new version is listed. For example:
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in." lightbox="media/how-to-manage-individual-sensors/defender-for-iot-version.png":::
+    The update process starts, and may take about 30 minute and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
 # [From an on-premises management console](#tab/onprem)
 
-This procedure describes how to update several sensors simultaneously from an on-premises management console.
+This procedure describe show to update several OT sensors simultaneously from an on-premises management console.
 
 **To update several sensors**:
 
 1. Make sure that you have the correct update package downloaded from the Azure portal. For more information, see [Download update packages from the Azure portal](#download-update-packages-from-the-azure-portal).
 
-1. Make sure that you've updated your on-premises management console. The sensor update process won't succeed if you don't update the on-premises management console first. For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
+1. Make sure that you've [updated your on-premises management console](#update-an-on-premises-management-console). The sensor update process won't succeed if you haven't updated the on-premises management console first.
 
 1. Sign into your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
@@ -277,7 +273,19 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 ---
 
-Upgrade log files are located on the sensor machine at `/opt/sensor/logs/legacy-upgrade.log`, and are accessible to the *[cyberx_host](roles-on-premises.md#default-privileged-on-premises-users)* user via SSH.
+To confirm that the update process completed successfully, check the sensor version in the following locations for the new version number:
+
+- In the Azure portal, on the **Sites and sensors** page, in the **Sensor version** column
+
+- On the OT sensor console:
+
+    - In the title bar
+    - On the **Overview** page > **General Settings** area
+    - In the **System settings** > **Sensor management** > **Software update** pane
+
+- On a connected on-premises management console, on the **Site Management** page
+
+Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/legacy-upgrade.log`, and are accessible to the *[cyberx_host](roles-on-premises.md#default-privileged-on-premises-users)* user via SSH.
 
 <!--do we want to keep any of the following information for legacy support? in any case, we don't provide those update packages. send to support instead?
 ## Download and apply a new activation file
@@ -344,9 +352,9 @@ In such cases:
 
 For more information, see:
 
-- [Install OT system software](how-to-install-software.md)
-- [Manage individual sensors](how-to-manage-individual-sensors.md)
-- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md)
+- [Manage individual sensors from the OT sensor console](how-to-manage-individual-sensors.md)
+- [Manage OT sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Troubleshoot the OT sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
