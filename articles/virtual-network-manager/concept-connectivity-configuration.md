@@ -59,6 +59,18 @@ See example diagram below:
 
 When you look at effective routes on a VM, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. With the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
 
+### Discovering network group topology with Topology View
+
+To assist you in understanding the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that shows the connectivity between network groups and their member virtual networks.  You can view the topology of your network group during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) with the following steps:
+  
+    1. Navigate to the **Configurations** page and create a connectivity configuration.
+    1. On the **Topology** tab, select your desired topology type, add one or more network groups to the topology, and configure other desired connectivity settings.
+    1. Select the "Preview Topology" tab to test out the Topology View.
+    1. Complete the creation of your connectivity configuration.
+
+> [!NOTE]
+> The Topology View is only available during the creation of your connectivity configuration in the Azure portal. Once the configuration is created, you can no longer view the topology.
+
 ### Use cases
 
 Enabling direct connectivity between spokes virtual networks can be helpful when you want to have an NVA or a common service in the hub virtual network but the hub doesn't need to be always accessed. But rather you need your spoke virtual networks in the network group to communicate with each other. Compared to traditional hub and spoke networks, this topology improves performance by removing the extra hop through the hub virtual network.
