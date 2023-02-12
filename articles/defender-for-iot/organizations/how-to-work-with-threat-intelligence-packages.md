@@ -100,8 +100,6 @@ If you're also working with an on-premises management console, we recommend that
 
 1. In the **Sensor TI update** pane, select **Download** to download the latest threat intelligence file. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/ti-local-update.png" alt-text="Screenshot of the Sensor TI update pane on the Sites and sensors page.":::
-
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 **To update a single sensor:**

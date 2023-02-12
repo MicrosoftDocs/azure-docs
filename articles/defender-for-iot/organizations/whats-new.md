@@ -24,15 +24,21 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Download updates from the Sites and sensors page (Public preview)
 
-If you're running a local software update on your OT sensor or on-premises management console, the **Sites and sensors** page now provides a new wizard, accessed via the **Sensor update (Preview)** menu, to ensure that you get the right software package for your update scenario.
-
-Threat intelligence updates are also now available only from the **Sites and sensors** page > **Threat intelligence update (Preview)** option.
+If you're running a local software update on your OT sensor or on-premises management console, the **Sites and sensors** page now provides a new wizard for downloading your update packages, accessed via the **Sensor update (Preview)** menu.
 
 For example:
 
 :::image type="content" source="media/update-ot-software/local-update-wizard.png" alt-text="Screenshot of the new Local update pane on the Sites and sensors page.":::
 
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md) and [Update threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#update-threat-intelligence-packages).
+- Threat intelligence updates are also now available only from the **Sites and sensors** page > **Threat intelligence update (Preview)** option.
+
+- Update packages for the on-premises management console are also available from the **Getting started** > **On-premises management console** tab.
+
+For more information, see:
+
+- [Update Defender for IoT OT monitoring software](update-ot-software.md)
+- [Update threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#update-threat-intelligence-packages)
+- [OT monitoring software versions](release-notes.md)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
