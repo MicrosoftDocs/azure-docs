@@ -40,7 +40,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
    ![User performs multifactor authentication](./media/how-to-nudge-authenticator-app/user-mfa.png)
 
 1. User taps **Next** and steps through the Authenticator app setup. 
-   1- First download the app.  
+   1. First download the app.  
    ![User downloads Microsoft Authenticator](media/how-to-mfa-registration-campaign/user-downloads-microsoft-authenticator.png)
 
    1. See how to set up the Authenticator app. 
