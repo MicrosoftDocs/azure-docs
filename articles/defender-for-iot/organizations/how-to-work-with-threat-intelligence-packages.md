@@ -60,6 +60,12 @@ Threat intelligence packages can be automatically updated to *cloud connected* s
 
 Ensure automatic package update by onboarding your cloud connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor).
 
+**To change the update mode after you've onboarded your OT sensor**:
+
+1. In Defender for IoT on the Azure portal, select **Sites and sensors**, and then locate the sensor you want to change.
+1. Select the options (**...**) menu for the selected OT sensor > **Edit**.
+1. Toggle on or toggle off the **Automatic Threat Intelligence Updates** option as needed.
+
 ### Manually push updates to cloud-connected sensors
 
 Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it's required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
@@ -77,15 +83,6 @@ The **Threat Intelligence update status** field displays the update progress.
 1. Select **Threat intelligence updates (Preview)** > **Remote update**.
 
 The **Threat Intelligence update status** field displays the update progress for each selected sensor.
-
-#### Change the threat intelligence update mode
-
-You can change the sensor threat intelligence update mode after initial onboarding.
-
-**To change the update mode:**
-
-1. Select the ellipsis (...) for a sensor and then select **Edit**.
-1. Enable or disable the **Automatic Threat Intelligence Updates** toggle.
 
 ### Manually update locally-managed sensors
 

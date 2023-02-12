@@ -22,15 +22,18 @@ Features released earlier than nine months ago are described in the [What's new 
 | **OT networks** | **Cloud features**: <br>- [Download OT on-premises software updates from Sites and sensors (Public preview)](#download-ot-on-premises-software-updates-from-sites-and-sensors-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
-### Download OT on-premises software updates from Sites and sensors (Public preview)
+### Download updates from the Sites and sensors page (Public preview)
 
-If you're running a local software update on your OT sensor or on-premises management console, the **Sites and sensors** page now provides a new wizard, accessed via the **Sensor update (Preview)** menu, which ensures that you get the right software version for your update scenario.
+If you're running a local software update on your OT sensor or on-premises management console, the **Sites and sensors** page now provides a new wizard, accessed via the **Sensor update (Preview)** menu, to ensure that you get the right software package for your update scenario.
+
+Threat intelligence updates are also now available only from the **Sites and sensors** page > **Threat intelligence update (Preview)** option.
 
 For example:
 
 :::image type="content" source="media/update-ot-software/local-update-wizard.png" alt-text="Screenshot of the new Local update pane on the Sites and sensors page.":::
 
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md) and [Update threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#update-threat-intelligence-packages).
+
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
 For sensor versions 22.2.3 and higher, you can now configure selected settings for cloud-connected sensors using the new **Sensor settings (Preview)** page, accessed via the Azure portal's **Sites and sensors** page. For example:
