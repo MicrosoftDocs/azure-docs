@@ -1,8 +1,8 @@
 ---
 title: How to receive shared data
 description: Learn how to receive shared data from Azure Blob Storage and Azure Data Lake Storage using Microsoft Purview Data Sharing.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
@@ -20,7 +20,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 * [A Microsoft Purview account](create-catalog-portal.md).
 * No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
-* Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work.
+* Your data recipient's Azure sign-in email address, which you use to send the invitation to receive a share. The recipient's email alias won't work.
 
 ### Azure Storage account prerequisites
 
@@ -28,7 +28,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     # [Portal](#tab/azure-portal)
 
-    1. In the [Azure portal](https://portal.azure.com), select the Azure subscription that you'll use to create the source and target storage account.
+    1. In the [Azure portal](https://portal.azure.com), select the Azure subscription that you use to create the source and target storage account.
     1. From the left menu, select **Preview features** under *Settings*.
     1. Select **AllowDataSharing** and *Register*. 
     1. Refresh the *Preview features* screen to verify the *State* is **Registered**. It could take 15 minutes to 1 hour for registration to complete.
@@ -47,7 +47,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     ```
     The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see the [register preview feature article](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
-* A target storage account **created after** the registration step is completed. **The target storage account must be in the same Azure region as the source storage account.** If you don't know the Azure region of the source storage account, you'll be able to find out during the share attaching step later in the process. Target storage account can be in a different Azure region from your Microsoft Purview account.
+* A target storage account **created after** the registration step is completed. **The target storage account must be in the same Azure region as the source storage account.** If you don't know the Azure region of the source storage account, you can find out during the share attaching step later in the process. Target storage account can be in a different Azure region from your Microsoft Purview account.
 
     > [!IMPORTANT]
     > The target storage account must be in the same Azure region as the source storage account.
@@ -59,10 +59,10 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     > - Performance: Standard
     > - Redundancy options: LRS, GRS, RA-GRS
  
-* You'll need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
+* You need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
 * If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share consumer attaching the share and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
-* A storage account needs to be registered in the collection where you'll receive the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step is not required to use the SDK.
+* A storage account needs to be registered in the collection where you'll receive the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step isn't required to use the SDK.
 * Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later. 
 
 ## Receive share
@@ -101,26 +101,48 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. You can access shared data from the target storage account through Azure portal, Azure Storage Explorer, Azure Storage SDK, PowerShell or CLI. You can also analyze the shared data by connecting your storage account to Azure Synapse Analytics Spark or Databricks.
 
-When a share is attached, a new asset of type received share is ingested into the Microsoft Purview catalog, in the same collection as the storage account to which you attached the share is registered to. Refer to [microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
+When a share is attached, a new asset of type received share is ingested into the Microsoft Purview catalog, in the same collection as the storage account to which you attached the share is registered to. Refer to [Microsoft Purview Data Sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
    > Shares attached using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update received share
 
-Once you attached a share, you can edit the received share name, or stop the sharing relationship by deleting the received share.
+Once you attached a share, you can edit the received share name, [reattach the share to a new storage account](#reattach-share), or stop the sharing relationship by [deleting the received share](#delete-received-share).
 
-You can also re-attach a received share to a different storage account or to a different path in the storage account to which it is already attached to. To re-attach, first select the received share, and then specify a target data store, path and folder where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the attach activity to complete, and then you will see the shared data in your target data store. 
+You can find and edit received asset one of two ways:
+
+* Access the blob storage or ADLS Gen2 asset where the data was received in the data catalog and open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset. Select the **Received shares** tab, select a share, and then select your share.
+
+    :::image type="content" source="./media/how-to-receive-share/manage-data-shares.png" alt-text="Screenshot of the blob storage account where the share was received, with Data Share select and Manage data shares highlighted." border="true":::
+
+    :::image type="content" source="./media/how-to-receive-share/manage-received-share.png" alt-text="Screenshot of the list of received data shares, showing the name of the share highlighted." border="true":::
+
+* [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) the data catalog for data share assets and select your received share. Then select the **Edit** button.
+
+    :::image type="content" source="./media/how-to-receive-share/search-for-share.png" alt-text="Screenshot of the data catalog search, showing the data share filter selected and a share highlighted." border="true":::
+
+## Reattach share
+
+After you've selected your data share to edit, you can reattach the share to a new storage account or path in your current storage account by selecting a storage account, providing a path, and providing the folder.
+
+:::image type="content" source="./media/how-to-receive-share/reattach-share.png" alt-text="Screenshot of the data share reattachment window, showing a new storage account selected and a path and folder added." border="true":::
+
+If you're updating the target, select **Attach to target** to save your changes. Attaching can take a couple minutes to complete after the process has been started.
 
 > [!NOTE]
-> While re-attaching, if you selected a storage account that is registered to a collection that you don't have permissions to or a storage account that is not registered in Microsoft Purview, you will be shown the appropriate message. You will see the shared data in your target data store. 
+> While re-attaching, if you selected a storage account that is registered to a collection that you don't have permissions to or a storage account that is not registered in Microsoft Purview, you will be shown the appropriate message. You will see the shared data in your target data store.
 
 
 ## Delete received share
 
-To delete a *received share*, select the share and then select **Delete**.
+To delete a *received share*, [select the share](#update-received-share) and then select **Delete**.
 
-Deleting a received share will stop the sharing relationship, and you'll no longer be able to access shared data. Deleting a received share can take a few minutes.
+:::image type="content" source="./media/how-to-receive-share/delete-from-manage.png" alt-text="Screenshot of the list of received shares, with a share selected and the delete button highlighted." border="true":::
+
+:::image type="content" source="./media/how-to-receive-share/delete-from-asset.png" alt-text="Screenshot of a received share asset, with the delete button highlighted." border="true":::
+
+Deleting a received share stops the sharing relationship, and you won't be able to access shared data. Deleting a received share can take a few minutes.
 
 ## Guest user verification
 
@@ -145,13 +167,16 @@ Here are some common issues for receiving share and how to troubleshoot them.
 If you're getting an error related to *quota* when creating a Microsoft Purview account, it means your organization has exceeded [Microsoft Purview service limit](how-to-manage-quotas.md). If you require an increase in limit, contact support.
 
 ### Can't find my Storage account asset in the Catalog
-* Data source is not registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan is not necessary.
-* Data source is registered to a Microsoft Purview collection that you do not have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
+
+* Data source isn't registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan isn't necessary.
+* Data source is registered to a Microsoft Purview collection that you don't have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
 
 ### Can't view list of shares in the storage account asset
+
  * Permission issue to the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
 ### Can't view received share in the storage account asset
+
 * You may have selected a different storage account to attach the share to, that may not be registered in Microsoft Purview or maybe registered to a collection you don't have permissions to. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access to collections.
 
 ### Can't view share invite
@@ -165,7 +190,7 @@ If you've been notified that you've received a share, but can't view share invit
 
 ### Can't see target storage account in the list when attaching a share
 
-When you attach a share to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons: You do not have required permissions to the storage account. Check [prerequisite](#prerequisites-to-receive-shared-data) for details on required storage permissions. 
+When you attach a share to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons: You don't have required permissions to the storage account. Check [prerequisite](#prerequisites-to-receive-shared-data) for details on required storage permissions. 
 
 ### Failed to attach share
 
@@ -183,7 +208,7 @@ If you can't access shared data, it's likely due to the following reasons:
 * After share attaching is successful, it may take some time for the data to appear in the target data store. Try again in a few minutes. Likewise, after you delete a share, it may take a few minutes for the data to disappear in the target data store.
 * You're accessing shared data using a storage API version prior to February 2020. Only storage API version February 2020 and later are supported for accessing shared data. Ensure you're using the latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer.
 * You're accessing shared data using an analytics tool that uses a storage API version prior to February 2020. You can access shared data from Azure Synapse Analytics Spark and Databricks. You won't be able to access shared data using Azure Data Factory, Power BI or AzCopy.
-* You’re accessing shared data using ACLs. ACL isn't supported for accessing shared data. You can use RBAC instead.
+* You’re accessing shared data using ACLs. ACL isn't supported for accessing shared data. You can use RBAC permissions instead.
 
 ## Next steps
 
