@@ -59,7 +59,7 @@ When you look at effective routes on a VM, the route between the hub and the spo
 
 ### Discovering network group topology with Topology View
 
-To assist you in understanding the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that shows the connectivity between network groups and their member virtual networks.  You can view the topology of your network group during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) with the following steps:
+To assist you in understanding the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that shows the connectivity between network groups and their member virtual networks.  You can view the topology of your network group during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create--a-configuration) with the following steps:
   
     1. Navigate to the **Configurations** page and create a connectivity configuration.
     1. On the **Topology** tab, select your desired topology type, add one or more network groups to the topology, and configure other desired connectivity settings.
