@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: IP Flow verify overview
+          - text: IP flow verify overview
             url: network-watcher-ip-flow-verify-overview.md
       - linkListType: quickstart  
         links:
@@ -81,7 +81,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: NSG Flow Log overview
+          - text: NSG flow Log overview
             url: network-watcher-nsg-flow-logging-overview.md
       - linkListType: tutorial  
         links:
@@ -89,7 +89,7 @@ landingContent:
             url: network-watcher-nsg-flow-logging-portal.md           
   
   # Card (optional)
-  - title: Traffic Analytics
+  - title: Traffic analytics
     linkLists:
       - linkListType: concept
         links:
@@ -97,7 +97,7 @@ landingContent:
             url: traffic-analytics.md
       - linkListType: tutorial  
         links:
-          - text: Deploy and manage Traffic analytics
+          - text: Deploy and manage traffic analytics
             url: traffic-analytics-policy-portal.md
 
   # Card (optional)
