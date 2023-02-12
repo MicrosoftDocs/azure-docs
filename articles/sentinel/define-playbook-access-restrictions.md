@@ -40,8 +40,7 @@ Learn more about [using private endpoints to secure traffic between Standard log
 
     :::image type="content" source="media/define-playbook-access-restrictions/select-networking.png" alt-text="Screenshot showing how to select networking settings from the logic app menu.":::
 
-1. In the **Inbound traffic** area, select **Access restriction (preview)**.  
-    (You **must** select the **preview** version.)
+1. In the **Inbound traffic** area, select **Access restriction**.  
 
     :::image type="content" source="media/define-playbook-access-restrictions/select-access-restriction.png" alt-text="Screenshot showing how to select access restriction policy for configuration.":::
 
