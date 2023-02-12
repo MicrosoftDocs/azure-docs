@@ -40,7 +40,7 @@ A *scope* within Azure Virtual Network Manager represents the delegated access g
 
 ### Scope Applicability
 
-When deploying configurations, Network Manager only applies features to resources within its scope. If you attempt to add a resource to a network group that is out of scope, it's added to the group to represent your intent. But the network manager doesn't apply the changes to the configurations.
+When you deploy configurations, Network Manager only applies features to resources within its scope. If you attempt to add a resource to a network group that is out of scope, it's added to the group to represent your intent. But the network manager doesn't apply the changes to the configurations.
 
 The Network Manager's scope can be updated to add or remove scopes from its list. Updates trigger an automatic, scope wide, reevaluation and potentially add features with a scope addition, or remove them with a scope removal.
 ## Features
