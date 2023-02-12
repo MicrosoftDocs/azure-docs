@@ -36,7 +36,7 @@ ngrok http 7071
 
 2. Select the `POST` method.
 
-3. Enter the URL of your Azure Function. Can either be the URL of the Azure Function running in Azure or the ngrok URL if you're running it locally. Ensure that you add the function name at the end of the URL: `?functionName=<<FUNCTION_NAME>>`.
+3. Enter the URL of your Azure Function. Can either be the URL of the Azure Function running in Azure or the ngrok URL if you're running it locally. Ensure that you add the function name at the end of the URL: `/runtime/webhooks/EventGrid?functionName=<<FUNCTION_NAME>>`.
 
 4. Select the `Body` tab and select `raw` and `JSON` from the dropdown. In the body, you add a test schema for the event you want to trigger. For example, if you're testing an Azure Function that is triggered by receiving SMS events, you add the following:
 
