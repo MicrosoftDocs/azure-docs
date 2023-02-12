@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 12/12/2021
-ms.custom: template-tutorial, FY23 content-maintenance
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Load balance multiple IP configurations using the Azure portal 
