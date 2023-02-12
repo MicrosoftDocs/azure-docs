@@ -228,6 +228,39 @@ blue_deployment = KubernetesOnlineDeployment(
 
 In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to deploy the model.
 
+#### Resource section validation
+If you are using the `resource section` to define the resource request and limit of your model deploymention, for example:
+  
+  ```yaml
+  resources:
+    requests:
+      cpu: "1"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      nvidia.com/gpu: 0
+      memory: "1Gi"
+  ```
+
+The valid resource definition need to meet the following rules, otherwise the model deployment will fail due to the invalid resource definition:
+
+| Section | Parameter | If required | Description |
+| --- | --- | --- | --- |
+| requests |`cpu:`| required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
+| requests | `memory:` | required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB. <br>Memory cannot be less than 1 MiB.|
+| limits | `cpu:` | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`. |
+| limits | `memory:` | required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.|
+| limits | `nvidia.com/gpu:` | only required when need GPU | Integer values, which can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If require CPU only, the entire `limits` section can be omitted.|
+
+> [!NOTE]
+  >
+  > The `instance type` is required for model deployment. If the `instance type` is not specified, the `defaultinstancetype` will be used. And the resource section definition of model deployment will be respected above instance type, and must be compared with the instance type for verification, the rules are as follows:
+  > 1. If the resource section definition is invalid, the deployment will fail.
+  > 1. Since the limits section is optional for scenarios that only require CPU, but if the limits section is defined with invalid value(e.g zero or empty), the instance type's limit will be reused.
+  > 1. With a valid resource section definition, the resource limits must be less than instance type limits, otherwise deployment will fail. 
+  > 1. If the user does not define resource section, the instance type will be used to create deployment. 
+
+
 
 ## Next steps
 
