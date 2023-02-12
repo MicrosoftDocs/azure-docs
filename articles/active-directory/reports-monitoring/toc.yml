@@ -109,8 +109,6 @@ items:
     href: reference-audit-activities.md
   - name: Data retention policies
     href: reference-reports-data-retention.md
-  - name: Reporting latencies
-    href: reference-reports-latencies.md
   - name: Frequently asked questions
     href: reports-faq.yml
   - name: Sign-in log schema
@@ -141,10 +139,8 @@ items:
 
 - name: Recommendations
   items:
-    - name: Convert to Conditional Access MFA
+    - name: Switch to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md
-    - name: Integrate your third party apps
-      href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
     - name: Migrate apps from AD FS to Azure AD

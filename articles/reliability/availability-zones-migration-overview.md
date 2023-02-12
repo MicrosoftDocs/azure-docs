@@ -7,10 +7,10 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 11/08/2022
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
-# Availability zone migration guidance overview
+# Availability zone migration guidance overview for Microsoft Azure products and services
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.  For that reason, resources that don't currently have availability zone support, may have an opportunity to gain that support. The Migration Guides section offers a collection of guides for each service that requires certain procedures in order to move a resource from non-availability zone support to availability support. You'll find information on prerequisites for migration, download requirements, important migration considerations and recommendations.
 

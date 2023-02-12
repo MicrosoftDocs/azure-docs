@@ -1,15 +1,15 @@
 ---
 title: Azure Private Endpoint DNS configuration
-description: Learn Azure Private Endpoint DNS configuration
+description: Learn about Azure Private Endpoint DNS configuration.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 05/31/2022
 ms.author: allensu
-ms.custom: fasttrack-edit
-
+ms.custom: template-how-to, fasttrack-edit
 ---
+
 # Azure Private Endpoint DNS configuration
 
 It's important to correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
@@ -46,7 +46,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
 | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | {workspaceName}-ondemand.sql.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 | Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |

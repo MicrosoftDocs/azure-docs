@@ -132,7 +132,7 @@ static class HelloSequence
 
 ## Configure storage
 
-Your app needs a storage for runtime information. To use [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio-code), which is an emulator for Azure Storage, set `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
+Your app needs a storage for runtime information. To use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), which is an emulator for Azure Storage, set `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
 
 ```json
 {
@@ -145,7 +145,7 @@ Your app needs a storage for runtime information. To use [Azurite](https://learn
 ```
 You can install the Azurite extension on Visual Studio Code and start it by running `Azurite: Start` in the command palette. 
 
-There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-storage-providers) to learn more about different storage options and what benefits they provide. 
+There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
 
 ## Test the function locally
@@ -219,7 +219,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps differ.
 
-* Verify that you have the [Azurite Emulator](../../storage/common//storage-use-azurite.md) installed and running.
+* Verify that you have the [Azurite Emulator](../../storage/common/storage-use-azurite.md) installed and running.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -247,7 +247,7 @@ The Azure Functions template creates a project that can be published to a functi
 
 5. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This will use Azurite emulator.
 
-Note that there are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-storage-providers) to learn more about different storage options and what benefits they provide. 
+Note that there are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
 ## Add NuGet package references
 

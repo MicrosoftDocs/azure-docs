@@ -47,7 +47,10 @@ For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tok
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
 
-'npm install @azure/communication-calling-effects –save'
+```console
+npm install @azure/communication-calling-effects --save
+```
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
 
 ## Supported video effects:
 Currently the video effects support the following ability:
@@ -68,12 +71,10 @@ To use video effects with the Azure Communication Calling client library, once y
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/communication-calling-effects'; 
 
-/** Assuming you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
-(reference <link to main SDK npm>) 
-*/ 
+// Ensure you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
 
 // Get the video effects feature api on the LocalVideoStream 
-const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
+const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
 // Subscribe to useful events 
 videoEffectsFeatureApi.on(‘effectsStarted’, () => { 
@@ -98,9 +99,7 @@ const backgroundBlurSupported = await backgroundBlurEffect.isSupported();
 
 if (backgroundBlurSupported) { 
     // Use the video effects feature api we created to start/stop effects 
-
     await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
-
 } 
 
  
@@ -114,9 +113,7 @@ const backgroundImage = 'https://linkToImageFile';
 
 // Create the effect instance 
 const backgroundReplacementEffect = new BackgroundReplacementEffect({ 
-
     backgroundImageUrl: backgroundImage 
-
 }); 
 
 // Recommended: Check if background replacement is supported:
@@ -131,9 +128,7 @@ if (backgroundReplacementSupported) {
 
 const newBackgroundImage = 'https://linkToNewImageFile';
 await backgroundReplacementEffect.configure({ 
-
     backgroundImageUrl: newBackgroundImage 
-
 }); 
 
 //You can switch the effects using the same method on the video effects feature api: 
