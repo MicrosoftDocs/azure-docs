@@ -141,7 +141,7 @@
           href: front-door-route-matching.md?pivots=front-door-standard-premium
         - name: Routing limits
           href: front-door-routing-limits.md
-      - name: Endpoint
+      - name: Endpoints
         href: endpoint.md
       - name: Origins
         items:
