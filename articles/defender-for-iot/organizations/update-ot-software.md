@@ -55,8 +55,10 @@ To perform the procedures described in this article, make sure that you have:
 
 This section describes how to update OT sensors directly from the Azure portal, via an on-premises management console, manually from the OT sensor console, or manually via the sensor's CLI.
 
+Sending or downloading an update package and running the update are two separate steps, which can be done one right after the other or at different times. For example, you might want to first send the update to your sensor or download and update package, and then have an administrator run the update later on, during a planned maintenance window.
+
 > [!IMPORTANT]
-> If you're using an on-premises management console, make sure that you've [updated the on-premises management console](#update-an-on-premises-management-console) before updating any connected sensors.
+> If you're using an on-premises management console, make sure that you've [updated the on-premises management console](#update-an-on-premises-management-console) *before* updating any connected sensors.
 >
 > On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
 
@@ -66,12 +68,7 @@ Select the update method you want to use:
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
 
-> [!TIP]
-> Sending your version update and running the update process are two separate steps, which can be done one right after the other or at different times.
->
-> For example, you might want to first send the update to your sensor and then an administrator to run the installation during a planned maintenance window.
-
-**To send the software update to your OT sensor**:
+### Send the software update to your OT sensor:
 
 1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then locate the OT sensors with legacy, but [supported versions](#prerequisites) installed.
 
@@ -93,7 +90,7 @@ This procedure describes how to send a software version update to one or more OT
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
-**To run your sensor update from the Azure portal**:
+### Run your sensor update from the Azure portal
 
 Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
@@ -113,7 +110,10 @@ If a sensor fails to update for any reason, the software reverts back to the pre
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
-**To download the update package from the Azure portal**:
+> [!IMPORTANT]
+> If your OT sensor is connected to an on-premises management console, make sure to update the on-premises management console before updating any connected sensors.
+
+### Download the update package from the Azure portal
 
 1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor update (Preview)**.
 
@@ -132,7 +132,7 @@ This procedure describes how to manually download the new sensor software versio
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-**To update the OT sensor software from the sensor UI**:
+### Update the OT sensor software from the sensor UI
 
 1. Sign into your OT sensor and select **System Settings** > **Sensor management** > **Software Update**.
 
@@ -144,7 +144,7 @@ This procedure describes how to manually download the new sensor software versio
 
 # [On-premises management console](#tab/onprem)
 
-<a name="update-via-cm"></a>This procedure describes how to update several OT sensors simultaneously from an on-premises management console.
+This procedure describes how to update several OT sensors simultaneously from an on-premises management console.
 
 If you're updating multiple, locally-managed OT sensors, make sure to update the on-premises management console before you update any connected sensors.
 
@@ -152,7 +152,7 @@ If you're updating multiple, locally-managed OT sensors, make sure to update the
 > The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
 >
 
-**To download the update packages from the Azure portal**:
+### Download the update package from the Azure portal
 
 1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor update (Preview)**.
 
@@ -185,7 +185,7 @@ If you're updating multiple, locally-managed OT sensors, make sure to update the
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-**To update an on-premises management console**:
+### Update an on-premises management console
 
 1. Sign into your on-premises management console and select **System Settings** > **Version Update**.
 
@@ -195,7 +195,7 @@ If you're updating multiple, locally-managed OT sensors, make sure to update the
 
     Sign in when prompted and check the version number listed in the bottom-left corner to confirm that the new version is listed.
 
-**To update your OT sensors from the on-premises management console**:
+### Update your OT sensors from the on-premises management console
 
 1. Sign into your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
@@ -223,7 +223,10 @@ If you're updating multiple, locally-managed OT sensors, make sure to update the
 
 This procedure describes how to update OT sensor software via the CLI, directly on the OT sensor.
 
-**To download the update package from the Azure portal**:
+> [!IMPORTANT]
+> If your OT sensor is connected to an on-premises management console, make sure to update the on-premises management console before updating any connected sensors.
+
+### Download the update package from the Azure portal
 
 1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor update (Preview)**.
 
@@ -241,7 +244,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-**To update sensor software directly from the sensor via CLI**:
+### Update sensor software directly from the sensor via CLI
 
 1. Use SFTP or SCP to copy the update package you'd downloaded from the Azure portal to the OT sensor machine.
 
@@ -304,7 +307,9 @@ Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/lega
 
 ## Update an on-premises management console
 
-You may need to update an on-premises management console outside of an OT sensor update process for troubleshooting or fixes only on the on-premises management console.
+This procedure describes how to update an on-premises management console software. You might need these steps before updating OT sensors remotely from the Azure portal or as a standalone update process.
+
+If you're updating the on-premises management console as part of an OT sensor process, you must update your on-premises management console *before* updating your OT sensors.
 
 Updating an on-premises management console takes about 30 minutes.
 
@@ -312,7 +317,7 @@ Updating an on-premises management console takes about 30 minutes.
 > The software version on your on-premises management console must be equal to or greater than that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
 >
 
-**To download the update packages from the Azure portal**:
+### Download the update package from the Azure portal
 
 1. In Defender for IoT on the Azure portal, select **Getting started** > **On-premises management console**.
 
@@ -322,10 +327,7 @@ Updating an on-premises management console takes about 30 minutes.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-> [!TIP]
-> You can also download your update package from the **Sites and sensors** page [as part of an OT sensor update](#update-via-cm).
-
-**To update your on-premises management console**:
+### Update your on-premises management console
 
 1. Sign into your on-premises management console and select **System Settings** > **Version Update**.
 
