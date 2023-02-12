@@ -111,7 +111,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Approve the terms and conditions.
 
-1. Select **Activate**. The SSL/TLS certificate tab opens. Before defining certificates, see [About certificates](#about-certificates). 
+1. Select **Activate**. The SSL/TLS certificate tab opens. Before defining certificates, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
     It is **not recommended** to use a locally generated certificate in a production environment.
 

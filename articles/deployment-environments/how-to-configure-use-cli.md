@@ -259,7 +259,7 @@ az devcenter admin project delete -g <resource-group-name> --name <project-name>
 **Create an environment**
 
 ```azurecli
-az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> \
+az devcenter dev environment create --dev-center-name <devcenter-name> \
     --project-name <project-name> -n <name> --environment-type <environment-type-name> \
     --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> \
     --parameters <deployment-parameters-json-string>

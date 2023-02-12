@@ -88,9 +88,7 @@ You can use any of the following ways to enable enhanced security for your subsc
 
 ### Can I enable Microsoft Defender for Servers on a subset of servers?
 
-No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines will be protected by Defender for Servers.
-
-Another alternative is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
+No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines will be protected by Defender for Servers. This includes servers that don't have the Log Analytics agent or Azure Monitor agent installed.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?
 
@@ -123,7 +121,7 @@ When you enable the Servers plan on the subscription level, Defender for Cloud w
 
 However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that don't have it enabled. 
 
-If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Microsoft Defender for Endpoint, VA solution (TVM/Qualys), and Just-in-Time VM access.
+If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Adaptive Application Controls, File Integrity Monitoring, SQL Protection, ProtectionStatus reports from the Endpoint Protection Antimalware, or the 500-MB free data ingestion allowance.
 
 Enabling the Servers plan on both the subscription and its connected workspaces, won't incur a double charge. The system will identify each unique VM.
 

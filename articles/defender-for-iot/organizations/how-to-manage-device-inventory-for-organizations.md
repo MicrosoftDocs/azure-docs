@@ -123,7 +123,6 @@ On the **Device inventory page**, select **Export** :::image type="icon" source=
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-
 ## Delete a device
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
@@ -193,3 +192,4 @@ For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods).
