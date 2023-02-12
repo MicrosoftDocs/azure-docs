@@ -2,7 +2,7 @@
 title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB for Gremlin to create a console application with the Azure portal and Python
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/29/2021
