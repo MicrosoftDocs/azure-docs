@@ -105,7 +105,7 @@ Yes, the following Analytics rule template types are exempt from this change.
 - Threat Intelligence rule template 
 
 #### Will any of the APIs be impacted with this change? 
-Yes. Currently the only Sentinel REST API calls that exist for content template management are the `Get` and `List` operations for alert rule templates. These operations only surface gallery content templates and won't be updated. For more information on these operations see the current [Alert Rule Templates REST API reference](https://learn.microsoft.com/rest/api/securityinsights/stable/alert-rule-templates).   
+Yes. Currently the only Sentinel REST API calls that exist for content template management are the `Get` and `List` operations for alert rule templates. These operations only surface gallery content templates and won't be updated. For more information on these operations see the current [Alert Rule Templates REST API reference](/rest/api/securityinsights/stable/alert-rule-templates).   
 
 New content hub REST API operations will be available soon to enable OOTB content management scenarios more broadly. This API update will include operations for the same content types scoped in the centralization changes (data connectors, playbook templates, workbook templates, analytic rule templates, hunting queries). A mechanism to update Analytics rule templates installed on the workspace is also on the roadmap. 
 
