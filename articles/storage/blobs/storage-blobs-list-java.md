@@ -14,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# List blobs using the Azure Storage client library for Java
+# List blobs with Java
 
 This article shows how to list blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
@@ -100,9 +100,23 @@ Blob name: folderA/folderB/file3.txt
 > [!NOTE]
 > Blob snapshots cannot be listed in a hierarchical listing operation.
 
-## Next steps
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobList.java)
+To learn more about how to list blobs using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for listing blobs use the following REST API operation:
+
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobList.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+### See also
+
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)

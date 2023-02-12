@@ -4,7 +4,7 @@ description: Operations guide for SAP HANA systems that are deployed on Azure vi
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/30/2022

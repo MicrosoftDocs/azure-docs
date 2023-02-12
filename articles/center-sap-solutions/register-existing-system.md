@@ -1,9 +1,10 @@
 ---
 title: Register existing SAP system (preview)
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through the Azure portal. You can visualize, manage, and monitor your existing SAP system through Azure Center for SAP solutions.
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 02/03/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
@@ -12,6 +13,8 @@ author: lauradolan
 # Register existing SAP system (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
@@ -26,7 +29,7 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
 - Check that your Azure account has **Contributor** role access on the subscription or resource groups where you have the SAP system resources.
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
-- A **User-assigned managed identity** which has **Virtual Machine Contributor** role access to the Compute resource group and **Reader** role access to the Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
+- A **User-assigned managed identity** which has **Virtual Machine Contributor** role access to the Compute resource group and **Reader** and **Tag Contributor** role access to the Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure each virtual machine (VM) in the SAP system is currently running on Azure. These VMs include:
     - The ABAP SAP Central Services (ASCS) Server instance
     - The Application Server instance or instances
@@ -55,10 +58,13 @@ The following SAP system configurations aren't supported in Azure Center for SAP
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
 - Systems using IPv6 addresses
+- SAP system with multiple Application Server Instances on a single Virtual Machine
+- SAP system with [clustered Application Server architecture](../virtual-machines/workloads/sap/high-availability-guide-rhel-with-dialog-instance.md)
+- Multiple SIDs running on same set of Virtual Machines. For example, two or more SIDs sharing a single VM for ASCS instance. 
 
 ## Enable resource permissions
 
-When you register an existing SAP system as a VIS, Azure Center for SAP solutions service needs a **User-assigned managed identity** which has **Virtual Machine Contributor** role access to the Compute resource groups and **Reader** role access to the Network resource groups of the SAP system. Before you register an SAP system with Azure Center for SAP solutions, either [create a new user-assigned managed identity or update role access for an existing managed identity](#setup-user-assigned-managed-identity).
+When you register an existing SAP system as a VIS, Azure Center for SAP solutions service needs a **User-assigned managed identity** which has **Virtual Machine Contributor** role access to the Compute resource groups and **Reader** and **Tag Contributor** role access to the Network resource groups of the SAP system. Before you register an SAP system with Azure Center for SAP solutions, either [create a new user-assigned managed identity or update role access for an existing managed identity](#setup-user-assigned-managed-identity).
 
 Azure Center for SAP solutions uses this user-assigned managed identity to install VM extensions on the ASCS, Application Server and DB VMs. This step allows Azure Center for SAP solutions to discover the SAP system components, and other SAP system metadata. Azure Center for SAP solutions also needs this user-assigned managed identity to enable SAP system monitoring and management capabilities.
 
@@ -67,8 +73,11 @@ Azure Center for SAP solutions uses this user-assigned managed identity to insta
 To provide permissions to the SAP system resources to a user-assigned managed identity:
 
 1. [Create a new user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) if needed or use an existing one.
-1. [Assign **Virtual Machine Contributor** role access](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) to the user-assigned managed identity on the resource group(s) which have the Virtual Machines of the SAP system and **Reader** role on the resource group(s) which have the Network components on the SAP system resources exist.
+1. [Assign **Virtual Machine Contributor** role access](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) to the user-assigned managed identity on the resource group(s) which have the Virtual Machines of the SAP system and **Reader** and **Tag Contributor** role on the resource group(s) which have the Network components of the SAP system.
 1. Once the permissions are assigned, this managed identity can be used in Azure Center for SAP solutions to register and manage SAP systems.
+
+> [!NOTE]
+> User-assigned managed identity requires **Tag Contributor** role on Network resources of the SAP system to enable [Cost Analysis](view-cost-analysis.md) at SAP SID level.
 
 ## Register SAP system
 
@@ -86,7 +95,7 @@ To register an existing SAP system in Azure Center for SAP solutions:
     1. For **SAP product**, select the SAP system product from the drop-down menu.
     1. For **Environment**, select the environment type from the drop-down menu. For example, production or non-production environments.
     1. For **Managed identity source**, select **Use existing user-assigned managed identity** option.
-    1. For **Managed identity name**, select a **User-assigned managed identity** which has **Virtual Machine Contributor** and **Reader** role access to the [respective resources of this SAP system.](#enable-resource-permissions)
+    1. For **Managed identity name**, select a **User-assigned managed identity** which has **Virtual Machine Contributor**, **Reader** and **Tag Contributor** role access to the [respective resources of this SAP system.](#enable-resource-permissions)
     1. Select **Review + register** to discover the SAP system and begin the registration process.
 
         :::image type="content" source="media/register-existing-system/registration-page.png" alt-text="Screenshot of Azure Center for SAP solutions registration page, highlighting mandatory fields to identify the existing SAP system." lightbox="media/register-existing-system/registration-page.png":::
@@ -109,7 +118,7 @@ The process of registering an SAP system in Azure Center for SAP solutions might
     - Command to start up sapstartsrv process on SAP VMs: /usr/sap/hostctrl/exe/hostexecstart -start
 - At least one Application Server and the Database aren't running for the SAP system that you chose. Make sure the Application Servers and Database VMs are in the **Running** state.
 - The user trying to register the SAP system doesn't have **Contributor** role permissions. For more information, see the [prerequisites for registering an SAP system](#prerequisites).
-- The user-assigned managed identity doesn't have **Virtual Machine Contributor** role access to the Compute resources and **Reader** role access to the Network resource groups of the SAP system. For more information, see [how to enable Azure Center for SAP solutions resource permissions](#enable-resource-permissions).
+- The user-assigned managed identity doesn't have **Virtual Machine Contributor** role access to the Compute resources and **Reader** and **Tag Contributor** role access to the Network resource groups of the SAP system. For more information, see [how to enable Azure Center for SAP solutions resource permissions](#enable-resource-permissions).
 
 There's also a known issue with registering *S/4HANA 2021* version SAP systems. You might receive the error message: **Failed to discover details from the Db VM**. This error happens when the Database identifier is incorrectly configured on the SAP system. One possible cause is that the Application Server profile parameter `rsdb/dbid` has an incorrect identifier for the HANA Database. To fix the error:
 

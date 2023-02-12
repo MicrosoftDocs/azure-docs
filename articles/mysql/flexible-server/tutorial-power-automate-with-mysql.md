@@ -18,7 +18,7 @@ Power Automate is a service that helps you create automated workflows between yo
 - Connect to more than 500 data sources or any publicly available API
 - Perform CRUD (create, read, update, delete) operations on data 
 
-In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure database for MySQL connector](/connectors/azuremysql/).
+In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure database for MySQL connector(Preview)](/connectors/azuremysql/).
 
 ## Prerequisites
 

@@ -37,7 +37,6 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Third-party vulnerability assessment                                                                                              |                                                                                                        ✔                                                                                                        |               ✔               |                   No                    |
 | [Network security assessment](protect-network-resources.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   No                    |
 
-
 ### [**Linux machines**](#tab/features-linux)
 
 | **Feature**                                                                                                                       | **Azure Virtual Machines and [Virtual Machine Scale Sets with Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
@@ -85,7 +84,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
-
+| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
 
 --- 
 
@@ -152,6 +151,7 @@ For information about when recommendations are generated for each of these solut
 | - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)                                              | Public Preview | Not Available                  | Not Available                  |
 | - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                      | GA             | GA                             | GA                             |
 | - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                          | Public Preview | Not Available                  | Not Available                  |
+| - [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | Preview | Not Available | Not Available |
 | **Microsoft Defender for Servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |                                |
 | - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [File Integrity Monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |

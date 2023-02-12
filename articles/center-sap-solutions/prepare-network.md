@@ -1,7 +1,8 @@
 ---
 title: Prepare network for infrastructure deployment (preview)
 description: Learn how to prepare a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP solutions through the Azure portal.
-ms.service: azure-center-sap-solutions
+ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
 author: lauradolan

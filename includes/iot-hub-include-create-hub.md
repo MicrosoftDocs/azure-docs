@@ -36,7 +36,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    
       If you're working through a quickstart, select the free tier.
    
-   -  **Daily message limit**: Select the maximum daily quota of messages for your hub. The available options depend on the tier you've selected for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
+   -  **Daily message limit**: Select the maximum daily quota of messages for your hub. The available options depend on the tier you've selected for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
    
    > [!NOTE]
    > Prices shown are for example purposes only.

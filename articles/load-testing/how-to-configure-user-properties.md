@@ -10,9 +10,9 @@ ms.date: 04/27/2022
 ms.topic: how-to
 ---
 
-# Use JMeter user properties with Azure Load Testing Preview
+# Use JMeter user properties with Azure Load Testing
 
-In this article, learn how to configure and use Apache JMeter user properties with Azure Load Testing Preview. With user properties, you can make your test configurable by keeping test settings outside of the JMeter test script. Use cases for user properties include:
+In this article, learn how to configure and use Apache JMeter user properties with Azure Load Testing. With user properties, you can make your test configurable by keeping test settings outside of the JMeter test script. Use cases for user properties include:
 
 - You want to use the JMX test script in multiple deployment environments with different application endpoints.
 - Your test script needs to accommodate multiple load patterns, such as smoke tests, peak load, or soak tests.
@@ -21,9 +21,6 @@ In this article, learn how to configure and use Apache JMeter user properties wi
 Azure Load Testing supports the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and enables you to upload a user properties file. You can configure one user properties file per load test.
 
 Alternately, you can also [use environment variables and secrets in Azure Load Testing](./how-to-parameterize-load-tests.md) to make your tests configurable.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

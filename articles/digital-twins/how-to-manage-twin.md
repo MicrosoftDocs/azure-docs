@@ -100,7 +100,7 @@ Only properties that have been set at least once are returned when you retrieve 
 >[!TIP]
 >The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
-To retrieve multiple twins using a single API call, see the query API examples in [Query the twin graph](how-to-query-graph.md).
+To retrieve multiple twins using a single API call, see the Query API examples in [Query the twin graph](how-to-query-graph.md).
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
 

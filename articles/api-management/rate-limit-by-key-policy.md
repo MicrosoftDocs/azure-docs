@@ -56,6 +56,11 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, self-hosted
 
+### Usage notes
+
+* [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+
+
 ## Example
 
 In the following example, the rate limit of 10 calls per 60 seconds is keyed by the caller IP address. After each policy execution, the remaining calls allowed in the time period are stored in the variable `remainingCallsPerIP`.

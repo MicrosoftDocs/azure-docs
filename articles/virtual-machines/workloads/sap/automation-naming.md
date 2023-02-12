@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ---
 
 # Naming conventions for SAP automation framework

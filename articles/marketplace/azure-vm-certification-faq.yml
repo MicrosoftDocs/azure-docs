@@ -135,7 +135,7 @@ sections:
           |Scenario|Test case|Description|
           |---|---|---|
           |1|Bash history|Bash history files should be cleared before you create the VM image.|
-          |2|Linux Agent version|Azure Linux Agent 2.2.41 or later should be installed.|
+          |2|Linux Agent version|[Minimum supported version of Azure Linux agent, or higher, must be installed.](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)|
           |3|Required kernel parameters|Verifies that the following kernel parameters are set: <br>console=ttyS0<br>earlyprintk=ttyS0|
           |4|Swap partition on OS disk|Verifies that swap partitions aren't created on the OS disk.|
           |5|Root partition on OS disk|Create a single root partition for the OS disk.|
@@ -151,7 +151,7 @@ sections:
           
           | Scenario | Test case | Error | Solution |
           | --- | --- | --- | --- |
-          | 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.241 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
+          | 1 | Linux Agent version test case | Minimum supported version of Azure Linux agent, or higher, must be installed.](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) | Update the Linux agent version. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
           | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash_history` files. |
           | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
           | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
@@ -619,7 +619,7 @@ sections:
           
           Linux VM extension validations require the following to be part of the image:
           
-          - Azure Linux Agent greater 2.2.41
+          - Minimum supported version Azure Linux agent, or higher, must be installed.](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)
           - Python version above 2.6+ 
           
           For more information, please visit [VM Extension](../virtual-machines/extensions/diagnostics-linux.md).

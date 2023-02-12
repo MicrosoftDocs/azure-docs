@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 06/15/2022
+ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
@@ -174,17 +174,7 @@ Because you're using the storage connection string, your function connects to th
 
 ### Connect Storage Explorer to your account
 
-Skip this section if you have already installed Azure Storage Explorer and connected it to your Azure account.
-
-1. Run the [Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, and select **Add an account**.
-
-    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png" alt-text="Screenshot of how to add an Azure account to Microsoft Azure Storage Explorer.":::
-
-1. In the **Connect** dialog, choose **Add an Azure account**, choose your **Azure environment**, and then select **Sign in...**.
-
-    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the sign-in to your Azure account window.":::
-
-After you successfully sign in to your account, you see all of the Azure subscriptions associated with your account.
+[!INCLUDE [functions-storage-explorer-connect.md](../../includes/functions-storage-explorer-connect.md)]
 
 ### Examine the output queue
 

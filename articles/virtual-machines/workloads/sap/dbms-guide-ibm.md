@@ -5,7 +5,7 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: 'Azure, Db2, SAP, IBM'
-ms.service: virtual-machines-sap
+ms.service: sap-on-azure
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/24/2022
