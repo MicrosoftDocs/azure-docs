@@ -14,7 +14,7 @@ ms.custom: template-concept, ignite-fall-2021
 In this article, you'll learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager and hub and spoke connectivity configurations. 
+> Azure Virtual Network Manager is now is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
 >
 > Mesh connectivity configurations and security admin rules remain in Public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -65,7 +65,7 @@ To assist you in understanding the topology of your network group, Azure Virtual
   
     1. Navigate to the **Configurations** page and create a connectivity configuration.
     1. On the **Topology** tab, select your desired topology type, add one or more network groups to the topology, and configure other desired connectivity settings.
-    1. Select the "Preview Topology" tab to test out the Topology View.
+    1. Select the **Preview Topology** tab to test out the Topology View and review your configuration's current connectivity.
     1. Complete the creation of your connectivity configuration.
 
 > [!NOTE]
