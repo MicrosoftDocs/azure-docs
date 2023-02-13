@@ -4,9 +4,10 @@ description: Find answers to frequently asked questions about Azure Route Server
 services: route-server
 author: halkazwini
 ms.service: route-server
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
 # Azure Route Server frequently asked questions (FAQs)
