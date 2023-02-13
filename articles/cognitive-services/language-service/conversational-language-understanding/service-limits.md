@@ -55,6 +55,7 @@ Conversational language understanding is only available in some Azure regions. S
 | North Central US   |           | ✓           |
 | North Europe       | ✓         | ✓           |
 | Norway East        |           | ✓           |
+| Qatar Central      |           | ✓           |
 | South Africa North |           | ✓           |
 | South Central US   | ✓         | ✓           |
 | Southeast Asia     |           | ✓           |
@@ -64,6 +65,9 @@ Conversational language understanding is only available in some Azure regions. S
 | UK South           | ✓         | ✓           |
 | West Central US    |           | ✓           |
 | West Europe        | ✓         | ✓           |
+| West US            |            | ✓           |
+| West US 2          | ✓         | ✓           |
+| West US 3          | ✓         | ✓           |
 
 ## API limits
 
