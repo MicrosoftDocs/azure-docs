@@ -26,7 +26,7 @@ To perform the procedures described in this article, make sure that you have:
     |Update scenario  |Method details  |
     |---------|---------|
     |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to [update your on-premises management console](#update-your-on-premises-management-console) *before* updating your sensors.|
-    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#remote-via-the-azure-portal-public-previewtabportal) require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.       |
+    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#remote-via-the-azure-portal-public-preview) require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.       |
     |**Locally-managed sensors**     |  Locally-managed sensors can be updated via a connected on-premises management console, or directly using a downloaded update package.       |
 
 - **Required access permissions**:
@@ -309,7 +309,7 @@ Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/lega
 
 ## Update an on-premises management console
 
-This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#remote-via-the-azure-portal-public-previewtabportal) or as a standalone update process.
+This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#remote-via-the-azure-portal-public-preview) or as a standalone update process.
 
 Updating an on-premises management console takes about 30 minutes.
 
