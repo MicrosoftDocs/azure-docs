@@ -32,6 +32,9 @@ Some OATH TOTP hardware tokens are programmable, meaning they don't come with a 
 
 Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice. Hardware OATH tokens are available for users with an Azure AD Premium P1 or P2 license.  
 
+>[!IMPORTANT]
+>The preview is only supported in Azure Global and Azure Government clouds.
+
 OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *2-7*, and must be encoded in *Base32*.
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
@@ -58,11 +61,10 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant. 
 
-Make sure to only assign each token to a single user.
+.[!IMPORTANT]
+>Make sure to only assign each token to a single user.
 In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
->[!IMPORTANT]
->The preview is only supported in Azure Global and Azure Government clouds.
 
 ## Determine OATH token registration type in mysecurityinfo 
 Users can manage and add OATH token registrations by accessing https://aka.ms/mysecurityinfo or by selecting Security info from My Account. Specific icons are used to differentiate whether the OATH token registration is hardware or software based.  
