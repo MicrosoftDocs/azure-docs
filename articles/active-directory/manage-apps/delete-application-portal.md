@@ -100,7 +100,7 @@ To delete an enterprise application, you need:
 :::zone pivot="ms-graph"
 
 Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. To get the list of applications in your tenant, run the following query.
+1. To get the list of service principals in your tenant, run the following query.
 
    # [HTTP](#tab/http)
    ```http
@@ -132,7 +132,7 @@ Delete an enterprise application using [Graph Explorer](https://developer.micros
    
    # [HTTP](#tab/http)
    ```http
-   DELETE /servicePrincipals/{id}
+   DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}
    ```
 
    # [C#](#tab/csharp)
