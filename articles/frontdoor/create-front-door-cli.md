@@ -1,13 +1,12 @@
 ---
-title: Create an Azure Front Door Standard/Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium with Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
-ms.topic: sample
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - the Azure CLI'
+description: Learn how to create an Azure Front Door Standard/Premium using Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
+ms.topic: quickstart
 author: duau
 ms.author: duau
 ms.service: frontdoor
 ms.date: 6/13/2022
 ms.custom: devx-track-azurecli
-
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI

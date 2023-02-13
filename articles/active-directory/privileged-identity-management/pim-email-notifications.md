@@ -108,9 +108,9 @@ The following shows an example email that is sent when a user is assigned an Azu
 
 ![New Privileged Identity Management email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
 
-## Notifications for Privileged Access groups
+## Notifications for PIM for Groups
 
-Privileged Identity Management sends emails to Owners only when the following events occur for Privileged Access group assignments:
+Privileged Identity Management sends emails to Owners only when the following events occur for PIM for Groups assignments:
 
 - When an Owner or Member role assignment is pending approval
 - When an Owner or Member role is assigned
@@ -119,7 +119,7 @@ Privileged Identity Management sends emails to Owners only when the following ev
 - When an Owner or Member role is being renewed by an end user
 - When an Owner or Member role activation request is completed
 
-Privileged Identity Management sends emails to end users when the following events occur for Privileged Access group role assignments:
+Privileged Identity Management sends emails to end users when the following events occur for PIM for Groups role assignments:
 
 - When an Owner or Member role is assigned to the user
 - When a user's an Owner or Member role is expired

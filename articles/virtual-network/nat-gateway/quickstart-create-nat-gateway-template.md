@@ -3,14 +3,11 @@ title: 'Create a NAT gateway - Resource Manager Template'
 titleSuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
 services: load-balancer
-documentationcenter: na
 author: asudbring
 manager: KumudD
 # Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
-ms.subservice: nat
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
