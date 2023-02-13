@@ -13,17 +13,17 @@ ms.custom: template-how-to
 
 # Use a managed identity to access Azure Data Manager for Energy Preview from other Azure services
 
-This article describes how to access the data plane or control plane ofAzure Data Manager for Energy Preview from other Microsoft Azure services by using a *managed identity*.
+This article describes how to access the data plane or control plane of Azure Data Manager for Energy Preview from other Microsoft Azure services by using a *managed identity*.
 
-There's a need for services such as Azure Functions to be able to consumeAzure Data Manager for Energy Preview APIs. This interoperability allows you to use the best capabilities of multiple Azure services. 
+There's a need for services such as Azure Functions to be able to consume Azure Data Manager for Energy Preview APIs. This interoperability allows you to use the best capabilities of multiple Azure services. 
 
-For example, you can write a script in Azure Functions to ingest data inAzure Data Manager for Energy Preview. In that scenario, you should assume that Azure Functions is the source service andAzure Data Manager for Energy Preview is the target service. 
+For example, you can write a script in Azure Functions to ingest data in Azure Data Manager for Energy Preview. In that scenario, you should assume that Azure Functions is the source service and Azure Data Manager for Energy Preview is the target service. 
 
-This article walks you through the five main steps for configuring Azure Functions to accessAzure Data Manager for Energy Preview.
+This article walks you through the five main steps for configuring Azure Functions to access Azure Data Manager for Energy Preview.
 
 ## Overview of managed identities 
 
-A managed identity from Azure Active Directory (Azure AD) allows your application to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to accessAzure Data Manager for Energy Preview control plane or data plane for any operation can use a managed identity to do so. 
+A managed identity from Azure Active Directory (Azure AD) allows your application to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to access Azure Data Manager for Energy Preview control plane or data plane for any operation can use a managed identity to do so. 
 
 There are two types of managed identities:
 
@@ -32,9 +32,9 @@ There are two types of managed identities:
 
 To learn more about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-Currently, other services can connect toAzure Data Manager for Energy Preview by using a system-assigned or user-assigned managed identity. However,Azure Data Manager for Energy Preview doesn't support system-assigned managed identities.
+Currently, other services can connect to Azure Data Manager for Energy Preview by using a system-assigned or user-assigned managed identity. However, Azure Data Manager for Energy Preview doesn't support system-assigned managed identities.
 
-For the scenario in this article, you'll use a user-assigned managed identity in Azure Functions to call a data plane API inAzure Data Manager for Energy Preview.
+For the scenario in this article, you'll use a user-assigned managed identity in Azure Functions to call a data plane API in Azure Data Manager for Energy Preview.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Before you begin, create the following resources:
 
 ## Step 1: Retrieve the object ID 
 
-To retrieve the object ID for the user-assigned identity that will access theAzure Data Manager for Energy Preview APIs:
+To retrieve the object ID for the user-assigned identity that will access the Azure Data Manager for Energy Preview APIs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to the managed identity, and then select **Overview**.
@@ -81,7 +81,7 @@ Retrieve the application ID of the user-assigned identity by using the object ID
 
 ## Step 4: Add the application ID to entitlement groups 
 
-Next, add the application ID to the appropriate groups that will use the entitlement service to accessAzure Data Manager for Energy Preview APIs. The following example adds the application ID to two groups:
+Next, add the application ID to the appropriate groups that will use the entitlement service to access Azure Data Manager for Energy Preview APIs. The following example adds the application ID to two groups:
 
 * users@[partition ID].dataservices.energy
 * users.datalake.editors@[partition ID].dataservices.energy
@@ -149,9 +149,9 @@ To add the application ID:
 
 ## Step 5: Generate a token
 
-Now Azure Functions is ready to accessAzure Data Manager for Energy Preview APIs.  
+Now Azure Functions is ready to access Azure Data Manager for Energy Preview APIs.  
 
-The Azure function generates a token by using the user-assigned identity. The function uses the application ID that's present in theAzure Data Manager for Energy Preview instance while generating the token.
+The Azure function generates a token by using the user-assigned identity. The function uses the application ID that's present in the Azure Data Manager for Energy Preview instance while generating the token.
 
 Here's an example of the Azure function code:
 
@@ -164,7 +164,7 @@ from msrestazure.azure_active_directory import MSIAuthentication
 def main(req: func.HttpRequest) -> str:
     logging.info('Python HTTP trigger function processed a request.')
 
-    //To authenticate by using a managed identity, you need to pass theAzure Data Manager for Energy Preview application ID as the resource.     
+    //To authenticate by using a managed identity, you need to pass the Azure Data Manager for Energy Preview application ID as the resource.     
     //To use a user-assigned identity, you should include the   
     //client ID as an additional parameter.
     //Managed identity using user-assigned identity: MSIAuthentication(client_id, resource)
@@ -172,7 +172,7 @@ def main(req: func.HttpRequest) -> str:
     creds = MSIAuthentication(client_id="<client_id_of_managed_identity>”, resource="<meds_app_id>")
     url = "https://<meds-uri>/api/entitlements/v2/groups"
     payload = {}
-    // Passing the data partition ID ofAzure Data Manager for Energy Preview in headers along with the token received using the managed instance.
+    // Passing the data partition ID of Azure Data Manager for Energy Preview in headers along with the token received using the managed instance.
     headers = {
         'data-partition-id': '<data partition id>',
         'Authorization': 'Bearer ' + creds.token["access_token"]
@@ -186,10 +186,10 @@ You should get the following successful response from Azure Functions:
 
 [![Screenshot of a success message from Azure Functions.](media/how-to-use-managed-identity/5-azure-function-success.png)](media/how-to-use-managed-identity/5-azure-function-success.png#lightbox)
  
-With the preceding steps completed, you can now use Azure Functions to accessAzure Data Manager for Energy Preview APIs with appropriate use of managed identities.
+With the preceding steps completed, you can now use Azure Functions to access Azure Data Manager for Energy Preview APIs with appropriate use of managed identities.
 
 ## Next steps
 
 Learn about Lockbox:
 > [!div class="nextstepaction"]
-> [Lockbox inAzure Data Manager for Energy Preview](how-to-create-lockbox.md)
+> [Lockbox in Azure Data Manager for Energy Preview](how-to-create-lockbox.md)
