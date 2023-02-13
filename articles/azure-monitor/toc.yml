@@ -25,6 +25,8 @@ items:
   items:
   - name: Multicloud monitoring
     href: best-practices-multicloud.md
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
   - name: Security
     items:
     - name: Security baseline
@@ -70,8 +72,6 @@ items:
         href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
-  - name: Migrate from Splunk to Azure Monitor Logs
-    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -684,7 +684,7 @@ items:
       items:
       - name: Overview
         href: app/opentelemetry-overview.md
-      - name: Enable OpenTelemetry (.NET, Node.js, Python and Java)
+      - name: Get started (.NET, Node.js, Python and Java)
         href: app/opentelemetry-enable.md
       - name: Java (supplemental)
         items:
