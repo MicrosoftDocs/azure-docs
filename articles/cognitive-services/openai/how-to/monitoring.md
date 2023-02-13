@@ -44,36 +44,15 @@ For the current subset of metrics available in Azure OpenAI:
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AdaFineTunedTokenTransaction |Yes |Processed Ada FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on an Ada FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|AdaFineTunedTrainingHours |Yes |Processed Ada FineTuned Training Hours |Count |Total |Number of Training Hours Processed on an Ada FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|AdaTokenTransaction |Yes |Processed Ada Inference Tokens |Count |Total |Number of Inference Tokens Processed on an Ada Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTokenTransaction |Yes |Processed Babbage FineFuned Inference Tokens |Count |Total |Number of Inference Tokens processed on a Babbage FineFuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTrainingHours |Yes |Processed Babbage FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Babbage FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|BabbageTokenTransaction |Yes |Processed Babbage Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Babbage Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |BlockedCalls |Yes |Blocked Calls |Count |Total |Number of calls that exceeded rate or quota limit. |ApiName, OperationName, Region, RatelimitKey |
 |ClientErrors |Yes |Client Errors |Count |Total |Number of calls with client side error (HTTP response code 4xx). |ApiName, OperationName, Region, RatelimitKey |
-|CodeCushman001FineTunedTokenTransaction |Yes |Processed Code-Cushman-001 FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CodeCushman001FineTunedTrainingHours |Yes |Processed Code-Cushman-001 FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CodeCushman001TokenTransaction |Yes |Processed Code-Cushman-001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CurieFineTunedTokenTransaction |Yes |Processed Curie FineTuned Inference Tokens |Count |Total |Number of Inference Tokens processed on a Curie FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CurieFineTunedTrainingHours |Yes |Processed Curie FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Curie FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CurieTokenTransaction |Yes |Processed Curie Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Curie Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |DataIn |Yes |Data In |Bytes |Total |Size of incoming data in bytes. |ApiName, OperationName, Region |
 |DataOut |Yes |Data Out |Bytes |Total |Size of outgoing data in bytes. |ApiName, OperationName, Region |
-|DavinciFineTunedTokenTransaction |Yes |Processed Davinci FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Davinci FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|DavinciFineTunedTrainingHours |Yes |Processed Davinci FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Davinci FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|DavinciTokenTransaction |Yes |Processed Davinci Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Davinci Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |FineTunedTrainingHours |Yes |Processed FineTuned Training Hours |Count |Total |Number of Training Hours Processed on an OpenAI FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |Latency |Yes |Latency |MilliSeconds |Average |Latency in milliseconds. |ApiName, OperationName, Region, RatelimitKey |
 |Ratelimit |Yes |Ratelimit |Count |Total |The current ratelimit of the ratelimit key. |Region, RatelimitKey |
 |ServerErrors |Yes |Server Errors |Count |Total |Number of calls with service internal error (HTTP response code 5xx). |ApiName, OperationName, Region, RatelimitKey |
 |SuccessfulCalls |Yes |Successful Calls |Count |Total |Number of successful calls. |ApiName, OperationName, Region, RatelimitKey |
-|TextAda001TokenTransaction |Yes |Processed Text Ada 001 Inference Tokens |Count |Total |Number of Inference Tokens processed on a text-ada-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextBabbage001TokenTransaction |Yes |Processed Text Babbage 001 Inference Tokens |Count |Total |Number of Inference Tokens processed on a text-babbage-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextCurie001TokenTransaction |Yes |Processed Text Curie 001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-curie-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextCustomCharactersTranslated |Yes |Text Custom Characters Translated |Count |Total |Number of characters in incoming custom text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextDavinci001TokenTransaction |Yes |Processed Text Davinci 001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-davinci-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextDavinci002TokenTransaction |Yes |Processed Text Davinci 002 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-davinci-002 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TokenTransaction |Yes |Processed Inference Tokens |Count |Total |Number of Inference Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls. |ApiName, OperationName, Region, RatelimitKey |
 |TotalErrors |Yes |Total Errors |Count |Total |Total number of calls with error response (HTTP response code 4xx or 5xx). |ApiName, OperationName, Region, RatelimitKey |
