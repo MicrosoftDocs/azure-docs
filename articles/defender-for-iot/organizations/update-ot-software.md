@@ -315,7 +315,7 @@ Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/lega
 
 ## Update an on-premises management console
 
-This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#remote-via-the-azure-portal-public-preview) or as a standalone update process.
+This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#update-ot-sensors) or as a standalone update process.
 
 Updating an on-premises management console takes about 30 minutes.
 
