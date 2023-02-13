@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create an internal Azure load balancer using Bicep'
+title: 'Quickstart: Create an internal Azure load balancer - Bicep'
 description: This quickstart shows how to create an internal Azure load balancer using Bicep.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
 ms.author: mbender
 ms.date: 04/29/2022
+ms.custom: template-quickstart, subject-armqs, mode-arm
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs by using Bicep
+# Quickstart: Create an internal load balancer to load balance VMs using Bicep
 
 This quickstart describes how to use Bicep to create an internal Azure load balancer.
 

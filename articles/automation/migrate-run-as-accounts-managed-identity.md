@@ -3,7 +3,7 @@ title: Migrate from a Run As account to a managed identity
 description: This article describes how to migrate from a Run As account to a managed identity in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/17/2022
+ms.date: 02/11/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ A managed identity can be [system assigned](enable-managed-identity-for-automati
 
 ## Prerequisites
 
-Before you migrate from a Run As account to a managed identity:
+Before you migrate from a Run As account or Classic Run As account to a managed identity:
 
 1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md) managed identity, or create both types. To learn more about the differences between them, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
@@ -38,9 +38,11 @@ Before you migrate from a Run As account to a managed identity:
 
    For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
+1. If you are using Classic Run As accounts, ensure that you have [migrated](../virtual-machines/classic-vm-deprecation.md) resources deployed through classic deployment model to Azure Resource Manager.
+
 ## Migrate from an Automation Run As account to a managed identity
 
-To migrate from an Automation Run As account to a managed identity for your runbook authentication, follow these steps:
+To migrate from an Automation Run As account or Classic Run As account to a managed identity for your runbook authentication, follow these steps:
    
 1. Change the runbook code to use a managed identity. 
 
