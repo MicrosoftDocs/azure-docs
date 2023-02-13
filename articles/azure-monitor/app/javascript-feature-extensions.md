@@ -1,18 +1,19 @@
 ---
-title: Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
-description: How to install and use Click Analytics Auto-collection plugin for Application Insights JavaScript SDK. 
+title: Feature extensions for Application Insights JavaScript SDK (Click Analytics)
+description: Learn how to install and use JavaScript feature extensions (Click Analytics) for Application Insights JavaScript SDK. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/13/2023
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
+# Feature extensions for Application Insights JavaScript SDK (Click Analytics)
 
-This plugin automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
+App Insights JavaScript SDK feature extensions are additional features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
+
+In this article, we cover the Click Analytics plugin that automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
