@@ -89,6 +89,8 @@
       href: sentinel-solutions-catalog.md
     - name: Manage custom content with repositories
       href: ci-cd-custom-content.md
+    - name: OOTB content centralization changes
+      href: sentinel-content-centralize.md
   - name: Collect data
     items:
     - name: Data collection methods
