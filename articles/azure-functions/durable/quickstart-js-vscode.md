@@ -18,7 +18,7 @@ In this article, you learn how to use the Visual Studio Code Azure Functions ext
 
 
 >[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](functions-reference-node.md).
+>The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](../functions-reference-node.md).
 
 Use the selector at the top to choose the programming model of your choice for completing this quickstart.
 
@@ -62,6 +62,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Following the prompts, provide the following information:
 
+
+
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
@@ -75,6 +77,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
+
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A package.json file is also created in the root folder.
@@ -84,13 +87,13 @@ A package.json file is also created in the root folder.
 To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
 ::: zone pivot="node-model-v4"
 To use programming model V4, you need to install the preview `v3.x` version of `durable-functions`, which is compatible with the V4 model.
-::: end-zone
+::: zone-end
 
 1. Use the *View* menu or Ctrl+Shift+` to open a new terminal in VS Code.
 
 ::: zone pivot="node-model-v3"
 1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
-::: end-zone
+::: zone-end
 ::: zone pivot="nodel-model-v4"
 1. Install the `durable-functions` preview `3.x` npm package by running `npm install durable-functions@preview` in the root directory of the function app.
 ::: zone-end
