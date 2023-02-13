@@ -84,6 +84,9 @@ In **Replicate** > **Target settings**, settings are provided to configure the t
 2. Choose the subscription, resource group and AKS cluster resource on which the app should be deployed.
 3. Click Next.
 
+> [!NOTE]
+> Only AKS clusters with windows nodes are listed.
+
 ### Configure deployment settings
 
 In **Replicate** > **Deployment settings**, settings are provided to configure the application on the AKS cluster.
