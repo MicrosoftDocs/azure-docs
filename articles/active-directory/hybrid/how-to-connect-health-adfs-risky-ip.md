@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Active Directory Federation Services (AD FS) customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. 
 
-It's possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. As of AD FS in Windows Server 2012 R2, AD FS provides the extranet account lockout functionality to prevent these types of attacks. If you're on an earlier version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016.
+It's possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. As of Windows Server 2012 R2, AD FS provides the extranet account lockout functionality to prevent these types of attacks. If you're on an earlier version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016.
 
 Additionally, it's possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user might be under the threshold for account lockout protection in AD FS. 
 
@@ -93,7 +93,7 @@ Like generic alert notification settings in Connect Health, it allows you to cus
 
 You can update the alerting threshold in **Threshold Settings**. The system threshold is set with default values, which are shown in the following screenshot and described in the table. 
 
-The risk IP report threshold settings are separated into four categories, as shown:
+The risk IP report threshold settings are separated into four categories.
 
 ![Screenshot of the Azure AD Connect Health Portal that shows the four categories of threshold settings and their default values.](./media/how-to-connect-health-adfs/report4d.png)
 
