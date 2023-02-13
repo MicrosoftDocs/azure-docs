@@ -30,7 +30,7 @@ Room participants can be assigned one of the following roles: **Presenter**, **A
 
 Participants with `Consumer` role will be receiving only the live stream. They will not be able to speak or share video or screen. Developers should not show the unmute, share video, and screen option to end users/consumers. Live stream supports both open and closed Rooms. In Open Rooms the default role is `Consumer`.
 On the other hand, Participants with other roles will receive both real-time and live stream. Developers can choose either stream to play.
-Pleae check [participant roles and permissions](../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions) to know more about the roles capabilities.
+Please check [participant roles and permissions](../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions) to know more about the roles capabilities.
 
 ### Place a Rooms call (start live streaming)
 Live streaming will start when the Rooms call starts.
@@ -79,7 +79,7 @@ const subscribeToLiveVideoStream = async (liveVideoStream) => {
 ```
 
 ### Count Participants in both Real-time and Streaming Media Lane
-Web SDK already exposes `Call.totalParticipantCount` (available in beta release) which includes all participants count (Presenter, Attendee, Consumer, Participants in the lobby etc.). We have added a new API `Call.feature(Features.LiveStream).participantCount` under the `LiveStream` feature to have the count of streaming participants. `Call.feature(Features.LiveStream).participantCount` represents the number of participants receving the streaming media only.
+Web SDK already exposes `Call.totalParticipantCount` (available in beta release) which includes all participants count (Presenter, Attendee, Consumer, Participants in the lobby etc.). We have added a new API `Call.feature(Features.LiveStream).participantCount` under the `LiveStream` feature to have the count of streaming participants. `Call.feature(Features.LiveStream).participantCount` represents the number of participants receiving the streaming media only.
 
 ```typescript
 call.feature(Features.LiveStream).on('participantCountChanged', e => {
