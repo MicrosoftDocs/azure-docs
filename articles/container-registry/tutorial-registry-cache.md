@@ -44,7 +44,7 @@ Implementing Caching for ACR provides the following benefits:
         4. New ACR Repository Namespace - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
 
 - Credentials
-    - Credentials are a set of username and password for the source registry. Credentials are needed if you wish to authenticate with a public or private repository. Credentials contains four parts
+    - Credentials are a set of username and password for the source registry. Credentials are needed if you wish to authenticate with a public or private repository. Credentials contain four parts
 
         1. Credentials  - The name of your credentials.
 
@@ -58,7 +58,7 @@ Implementing Caching for ACR provides the following benefits:
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but aren't included in this release.
 
-- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR doesn't automatically pull new version of images when a new version is available. This is on the roadmap but isn't supported in this release. 
+- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR doesn't automatically pull new version of images when a new version is available. It is on the roadmap but isn't supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
