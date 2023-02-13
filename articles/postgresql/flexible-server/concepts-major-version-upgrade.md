@@ -25,44 +25,43 @@ Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-pla
 
 Here are some of the important considerations with in-place major version upgrade. 
 
-1. During in-place major version upgrade process,  Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
+•	During in-place major version upgrade process,  Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
 
-2. If the pre-check is successful, then Flexible Server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
+•	If the pre-check is successful, then Flexible Server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
 
-3. Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
+•	Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
 
-4. During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
+•	During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
 
-5. Most extensions are automatically upgraded to higher versions during an in-place major version upgrade, with some exceptions. Refer **limitations** section for more details. 
+•	Most extensions are automatically upgraded to higher versions during an in-place major version upgrade, with some exceptions. Refer **limitations** section for more details. 
 
-6. In-place major version upgrade process for Flexible server automatically deploys the latest supported minor version. 
+•	In-place major version upgrade process for Flexible server automatically deploys the latest supported minor version. 
 
-7. In-place major version upgrade process is an offline operation and it involves a short downtime.  
+•	In-place major version upgrade process is an offline operation and it involves a short downtime.  
 
-8. Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time. 
+•	Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time. 
 
-9. If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of step 2.
+•	If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of step 2.
 
-10. Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous 
-version of the database instance. 
+•	Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous version of the database instance.
 
 ## Limitations:  
 
 During preview, if in-place major version upgrade pre-check operations fail then it aborts with a detailed error message for all the below limitations.
 
-1. In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
+•	In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
 
-2. In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, and **postgres_fdw** are unsupported for all PostgreSQL versions during preview. 
+•	In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, and **postgres_fdw** are unsupported for all PostgreSQL versions during preview. 
 
-3. Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
+•	Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
-4. During preview, in-place major version upgrade is currently available in the following regions.  
+•	During preview, in-place major version upgrade is currently available in the following regions.  
+  Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /West Central US/ West US / West US3/ Qatar  Central
 
-Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /West Central US/ West US / West US3/ Qatar  Central
+•	Servers configured with logical replication slots aren't supported. 
 
-5. Servers configured with logical replication slots aren't supported. 
+•	MVU is currently not supported for PgBouncer enabled servers.
 
-6. MVU is currently not supported for PgBouncer enabled servers.
 
 ## How to Perform in-place major version upgrade: 
 
