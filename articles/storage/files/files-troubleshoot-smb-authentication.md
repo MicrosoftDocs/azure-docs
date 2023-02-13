@@ -14,7 +14,7 @@ ms.subservice: files
 This article lists common problems when using SMB Azure file shares with identity-based authentication. It also provides possible causes and resolutions for these problems.
 
 > [!IMPORTANT]
-> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](files-troubleshoot-nfs.md).
+> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](files-troubleshoot-linx-nfs.md).
 
 ## Applies to
 | File share type | SMB | NFS |

@@ -4,7 +4,7 @@ description: Troubleshoot problems connecting to and accessing SMB Azure file sh
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/10/2023
+ms.date: 02/13/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -13,7 +13,7 @@ ms.subservice: files
 This article lists common problems that might occur when you try to connect to and access SMB Azure file shares from Windows or Linux clients. It also provides possible causes and resolutions for these problems.
 
 > [!IMPORTANT]
-> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](files-troubleshoot-nfs.md).
+> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](files-troubleshoot-linux-nfs.md).
 
 ## Applies to
 | File share type | SMB | NFS |

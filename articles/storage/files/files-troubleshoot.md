@@ -4,7 +4,7 @@ description: Troubleshoot issues with Azure file shares. See common issues and e
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/08/2023
+ms.date: 02/13/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -84,7 +84,8 @@ For more detailed information, choose the subject area that you'd like to troubl
 - [Connecting and accessing Azure Files (SMB)](files-troubleshoot-smb-connectivity.md)
 - [Azure Files identity-based authentication and authorization issues (SMB)](files-troubleshoot-smb-authentication.md)
 - [Azure Files performance issues](files-troubleshoot-performance.md)
-- [Azure Files NFS issues](files-troubleshoot-nfs.md)
+- [Azure Files general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Azure Files general NFS issues on Linux](files-troubleshoot-linux-nfs.md)
 - [Azure File Sync issues](../file-sync/file-sync-troubleshoot.md)
 
 Some issues can be related to more than one subject area (both connectivity and performance, for example).
