@@ -141,11 +141,11 @@ After you've received a successful response from the app provisioning endpoint, 
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform. There are a few different cases:
 
-- [Access token request with a shared secret](#access_token_request_with_shared_secret)
-- [Access token request with a certificate](#access_token_request_with_a_certificate)
-- [Access token request with a federated credential](#access_token_request_with_a_federated credential)
+- [Access token request with a shared secret](#first-case-access-token-request-with-shared_secret)
+- [Access token request with a certificate](#second-case-access-token-request-with-a-certificate)
+- [Access token request with a federated credential](#third-case-access-token-request-with-a-federated-credential)
 
-### Access token request with a shared secret
+### First case: Access token request with a shared secret
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -171,7 +171,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `client_secret` |  Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 |  `grant_type`   |  Required | Must be set to `client_credentials`. |
 
-### Access token request with a certificate
+### Second case: Access token request with a certificate
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -196,7 +196,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 The parameters for the certificate-based request differ in only one way from the shared secret-based request: the `client_secret` parameter is replaced by the `client_assertion_type` and `client_assertion` parameters.
 
-### Access token request with a federated credential
+### Third case: Access token request with a federated credential
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
