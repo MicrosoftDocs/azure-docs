@@ -63,7 +63,7 @@ If you're facing issues while creating a Cache rule, we recommend verifying if y
 - The repository path for Docker is `docker.io/library`
 - The repository path for Microsoft Artifact Registry is `mcr.microsoft.com/library`
 
-Learn more about the [Cache Terminology](tutorial-registry-cache.md##terminology)
+Learn more about the [Cache Terminology](tutorial-registry-cache.md#terminology)
 
 ### Cache rule Limit
 
@@ -73,4 +73,4 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
-[az-keyvault-set-policy]: ../azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
