@@ -7,7 +7,7 @@ ms.date: 02/13/2023
 
 ---
 
-# Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service
+# Using Kubernetes role-based access control with Azure Active Directory in Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (Azure AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based on a user's identity or group membership.
 
