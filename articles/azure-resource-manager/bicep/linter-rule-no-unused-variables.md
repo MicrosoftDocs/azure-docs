@@ -21,7 +21,7 @@ To reduce confusion in your template, delete any variables that are defined but 
 
 You can use **Quick Fix** to remove the unused variables:
 
-:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="The screenshot of No unused variables linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="The screenshot of No unused variables linter rule quick fix.":::
 
 ## Next steps
 
