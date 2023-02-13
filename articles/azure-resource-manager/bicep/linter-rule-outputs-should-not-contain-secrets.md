@@ -2,7 +2,7 @@
 title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 02/10/2023
 ---
 
 # Linter rule - outputs should not contain secrets
@@ -24,7 +24,6 @@ The output from a template is stored in the deployment history, so a user with r
 The following example fails because it includes a secure parameter in an output value.
 
 ```bicep
-
 @secure()
 param secureParam string
 ​
