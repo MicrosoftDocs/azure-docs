@@ -27,7 +27,7 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 
 ### Product Access Update
 
-Beginning on February 15, 2023, customers of Microsoft Energy Data Services can search for and provision an instances of the product without a request for access. Customers can go directly to the Azure Marketplace to create an instance under their selected subscription.
+Beginning on February 15, 2023, customers of Microsoft Energy Data Services can search for and provision their instances of the product without a request for access. Customers can go directly to the Azure Marketplace to create an instance under their selected subscription.
 
 
 ### Product Billing Update
