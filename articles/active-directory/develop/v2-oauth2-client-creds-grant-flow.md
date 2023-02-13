@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/13/2022
+ms.date: 02/13/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
@@ -24,7 +24,7 @@ In the client credentials flow, permissions are granted directly to the applicat
 - [Authorize an application to call an API](#application-permissions)
 - [How to get the tokens needed to call that API](#get-a-token).
 
-This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  You can also refer to the [sample apps that use MSAL](sample-v2-code.md). As a side note, refresh tokens will never be granted with this flow as `client_id` and `client_secret` (which would be required to obtain a refresh token) can be used to obtain an access token instead.
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). You can also refer to the [sample apps that use MSAL](sample-v2-code.md). As a side note, refresh tokens will never be granted with this flow as `client_id` and `client_secret` (which would be required to obtain a refresh token) can be used to obtain an access token instead.
 
 For a higher level of assurance, the Microsoft identity platform also allows the calling service to authenticate using a [certificate](#second-case-access-token-request-with-a-certificate) or federated credential instead of a shared secret.  Because the application's own credentials are being used, these credentials must be kept safe. _Never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
