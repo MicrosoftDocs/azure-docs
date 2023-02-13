@@ -234,8 +234,8 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered [columnstore index](/sql/relational-databases/indexes/columnstore-indexes-design-guidance). Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. When you [create a table](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), choose clustered columnstore if you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
 
-    - Tables with pre-sort data on a sort key(s) could benefit from the segment elimination enabled by ordered clustered columnstore indexes.
-    - - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
+    - Tables with pre-sort data on a sort key(s) could benefit from the segment elimination enabled by *ordered* clustered columnstore indexes.
+    - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
     - Tables with transient data, because columnstore tables might be less efficient than heap or temporary tables.
     - Small tables with less than 100 million rows. Instead, consider using heap tables.
     
