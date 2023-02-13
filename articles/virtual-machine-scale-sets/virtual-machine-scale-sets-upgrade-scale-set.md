@@ -304,7 +304,7 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 > [!NOTE]
-> *az vmss update-instances* command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
+> The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
