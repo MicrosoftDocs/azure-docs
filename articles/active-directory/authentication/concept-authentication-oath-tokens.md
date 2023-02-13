@@ -59,7 +59,7 @@ Once any errors have been addressed, the administrator then can activate each ke
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant. 
 
 Currently, it's possible to assign a single token to multiple users, but be sure to only assign each token to a single user.
-In the future, assignment of a single token to multiple users will stop to prevent security risk.
+In the future, assignment of a single token to multiple users will stop to prevent a security risk.
 
 >[!IMPORTANT]
 >The preview is only supported in Azure Global and Azure Government clouds.
