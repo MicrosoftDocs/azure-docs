@@ -228,13 +228,13 @@ Language| Locale code |
 |English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
+|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | `fr` |
+|French (France) | `fr` |
 |French (Canada)| `fr-ca`|
 |German | `de`|
 |Italian| `it`|
-| Spanish | `es` |
+|Spanish | `es` |
 
 ## Business card model
 

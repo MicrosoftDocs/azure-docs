@@ -46,13 +46,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-AE)
-  * Dutch - Netherlands (nl-NL)
-  * French - Canada (fr-CA)
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
   * German - (de-de)
   * Italian - (it-it)
-  * Japanese - Japan (ja-JP)
-  * Portuguese - Brazil (pt-BR)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
