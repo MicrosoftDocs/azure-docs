@@ -18,7 +18,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](adaptive-application-controls.md)
 |**AAD**| Azure Active Directory (Azure AD) is a cloud-based identity and access management service.| [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md)
 | **ACR Tasks** | A suite of features within Azure container registry | [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml) |
-|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [NSG](#n) rules.|[What is Adaptive Network Hardening?](https://learn.microsoft.com/azure/defender-for-cloud/adaptive-network-hardening#what-is-adaptive-network-hardening) |
+|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [NSG](#n) rules.|[What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening#what-is-adaptive-network-hardening.md) |
 |**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) |
 |**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](/azure-stack/aks-hci/kubernetes-concepts)|
 |**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](alerts-overview.md)|
@@ -35,7 +35,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-|**Bicep**| Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.| [Bicep tutorial](quickstart-automation-alert?tabs=CLI#bicep-tutorial)|
+|**Bicep**| Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.| [Bicep tutorial](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)|
 |**Blob storage**| Azure Blob Storage is the high scale object storage service for Azure and a key building block for data storage in Azure.| [what is Azure blob storage?](../storage/blobs/storage-blobs-introduction.md)|
 
 ## C
@@ -98,7 +98,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-|**Kill Chain**|The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration. Defender for Cloud's supported kill chain intents are based on the MITRE ATT&CK matrix. | [MITRE ATT&CK tactics](alerts-reference#intentions)|
+|**Kill Chain**|The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration. Defender for Cloud's supported kill chain intents are based on the MITRE ATT&CK matrix. | [MITRE Attack Matrix](https://attack.mitre.org/matrices/enterprise/)|
 |**KQL**|Kusto Query Language-a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL Overview](/azure/data-explorer/kusto/query/)|
 
 ## L
@@ -146,7 +146,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-|**SAS**| Shared access signature that provides secure delegated access to resources in your storage account.|[Storage SAS Overview](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)|
+|**SAS**| Shared access signature that provides secure delegated access to resources in your storage account.|[Storage SAS Overview (https://learn.microsoft.com/azure/storage/common/storage-sas-overview)|
 |**SaaS**| Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). SaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider.|[What is SaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas/)|
 |**Secure Score**|Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level.|[Security posture for Microsoft Defender for Cloud](secure-score-security-controls.md)|
 |**Security Alerts**|Security alerts are the notifications generated by Defender for Cloud and Defender for Cloud plans when threats are identified in your cloud, hybrid, or on-premises environment.|[What are security alerts?](../defender-for-cloud/alerts-overview.md#what-are-security-alerts)|
