@@ -10,6 +10,7 @@ ms.custom: ignite-2022
 ms.date: 06/26/2020
 ms.author: allensu
 ---
+
 # Azure Virtual Network frequently asked questions (FAQ)
 
 ## Virtual Network basics
