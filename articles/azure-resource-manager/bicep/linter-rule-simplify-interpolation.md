@@ -43,7 +43,7 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2022-08-08' 
 
 Optionally, you can use **Quick Fix** to remove the string interpolation syntax:
 
-:::image type="content" source="./media/linter-rule-simplify-interpolation/linter-rule-simplify-interpolation-quick-fix.png" alt-text="The screenshot of Simplify interpolation linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-simplify-interpolation/linter-rule-simplify-interpolation-quick-fix.png" alt-text="The screenshot of Simplify interpolation linter rule quick fix.":::
 
 ## Next steps
 
