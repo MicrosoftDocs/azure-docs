@@ -538,12 +538,11 @@ Using the [Azure portal](https://portal.azure.com/):
 6. After the notification, **restart** the server to apply these changes. 
 
 
-You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
+You can now enable pg_hint_plan your Postgres database. Connect to the database and issue the following command:
 ```sql
-CREATE EXTENSION IF NOT EXISTS pg_hint_plan CASCADE;
+CREATE EXTENSION  pg_hint_plan ;
 ```
-> [!TIP]
-> If you see an error, confirm that you [restarted your server](how-to-restart-server-portal.md) after saving shared_preload_libraries. 
+
 
 ## Next steps
 
