@@ -13,7 +13,7 @@ ms.date: 02/13/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides a step-by-step procedure to perform Major Version Upgrade in a flexible server using Azure Portal
+This article provides a step-by-step procedure to perform Major Version Upgrade in a flexible server using Azure portal
 
 > [!NOTE]  
 > Major Version Upgrade action is irreversible. Please perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment.
@@ -29,7 +29,7 @@ Follow these steps to upgrade your flexible server to the major version of your 
    :::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
 
-3. You'll see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade** 
+3. You see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade** 
 
 :::image type="content" source="media/how-to-perform-major-version-upgrade-portal/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade."::: 
 
