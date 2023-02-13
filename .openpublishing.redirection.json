@@ -1,6 +1,31 @@
 {
     "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-post-deployment.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-post-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-prerequisites.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-troubleshooting.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
       "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
       "redirect_document_id": false

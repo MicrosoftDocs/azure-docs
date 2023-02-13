@@ -3,7 +3,7 @@
 - name: Overview
   href: overview.md
 - name: What's new
-  href: whats-new.md  
+  href: whats-new.md
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -127,18 +127,8 @@
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
-    - name: OpenShift Container Platform 3.11 prerequisites
-      href: ./linux/openshift-container-platform-3x-prerequisites.md
-    - name: OpenShift Container Platform 3.11
-      href: ./linux/openshift-container-platform-3x.md
-    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: ./linux/openshift-container-platform-3x-post-deployment.md
-    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
@@ -170,9 +160,9 @@
       - name: Enable InfiniBand
         href: ./workloads/hpc/enable-infiniband.md
       - name: Set up MPI
-        href: ./workloads/hpc/setup-mpi.md 
+        href: ./workloads/hpc/setup-mpi.md
     - name: Scaling applications
-      href: ./workloads/hpc/compiling-scaling-applications.md  
+      href: ./workloads/hpc/compiling-scaling-applications.md
 - name: Instances
   items:
   - name: Sizes
@@ -350,7 +340,7 @@
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
       - name: H-series
-        items: 
+        items:
         - name: H-series
           href: h-series.md
         - name: H-series retirement
@@ -361,7 +351,7 @@
         - name: Overview
           href: ./workloads/hpc/hb-series-overview.md
         - name: Performance
-          href: ./workloads/hpc/hb-series-performance.md  
+          href: ./workloads/hpc/hb-series-performance.md
         - name: HB-series retirement
           href: hb-series-retirement.md
       - name: HBv2-series
@@ -432,13 +422,13 @@
     items:
     - name: Overview
       href: azure-compute-gallery.md
-    - name: What's new 
+    - name: What's new
       href: compute-gallery-whats-new.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
     - name: Share a gallery
-      items: 
+      items:
       - name: RBAC
         href: share-gallery.md
       - name: Direct share
@@ -729,7 +719,7 @@
       href: ./linux/spot-template.md
     - name: Spot Priority Mix (preview)
       href: ../virtual-machine-scale-sets/spot-priority-mix.md?toc=/azure/virtual-machines/toc.json
-    - name: VM size recommendation 
+    - name: VM size recommendation
       href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
@@ -783,10 +773,10 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a scale set - Flexible 
+    - name: Associate a scale set - Flexible
       displayName: on-demand capacity reservation with flexible orchestration
       href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
-    - name: Associate a scale set - Uniform 
+    - name: Associate a scale set - Uniform
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-virtual-machine-scale-set.md
     - name: Remove a scale set
@@ -1085,7 +1075,7 @@
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ./create-portal-availability-zone.md
     - name: Migrate to Availability Zones
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
+      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/migrate-vm.md
   - name: Virtual machine scale sets
     href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
@@ -1351,7 +1341,7 @@
     - name: Create a VM using ephemeral OS disks
       href: ephemeral-os-disks-deploy.md
     - name: FAQ on ephemeral OS disks
-      href: ephemeral-os-disks-faq.md      
+      href: ephemeral-os-disks-faq.md
   - name: Securely import/export a disk
     items:
     - name: Configure private links for disks - CLI
@@ -1757,7 +1747,7 @@
       - name: Portal
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-portal.md
-      - name: ARM Template 
+      - name: ARM Template
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-template.md
   - name: Windows Server in-place upgrade
@@ -2050,9 +2040,9 @@
       - name: Create VM restore points
         href: create-restore-points.md
     - name: Manage VM restore points
-      href: manage-restore-points.md 
+      href: manage-restore-points.md
     - name: Tutorials
-      items: 
+      items:
       - name: CLI
         href: virtual-machines-create-restore-points-cli.md
       - name: PowerShell
@@ -2062,7 +2052,7 @@
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting
-      href: restore-point-troubleshooting.md  
+      href: restore-point-troubleshooting.md
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
