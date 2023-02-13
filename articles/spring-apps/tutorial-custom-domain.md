@@ -31,7 +31,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Key Vault Private Link Considerations
 
-The Azure Spring Apps management IPs are not yet part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Apps to load certificates from a Key Vault protected with Private endpoint connections, you must add the following IPs to Azure Key Vault Firewall:
+The IP addresses for Azure Spring Apps management are not yet part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
 
 * 20.99.204.111
 * 20.201.9.97
