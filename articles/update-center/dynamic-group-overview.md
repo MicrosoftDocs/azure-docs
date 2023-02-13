@@ -27,9 +27,10 @@ For dynamic scope and configuration assignment, ensure that you have write permi
 - **Set the Bypass platform safety checks on user schedule = *True*** - It allows you to define your own patching methods such as time, duration, and type of patching. This VM property ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
 - **Associate a Schedule with a VM** - It suppresses the auto patching to ensure that patching on the VM(s) runs as per the schedule you've defined.
 
-### Common scenarios
 >[!NOTE]
 > Subscription is a mandatory criteria for dynamic grouping.
+
+### Common scenarios
 
 |Scenario  | Patch type  |
 |-----|-----|
@@ -43,9 +44,6 @@ For dynamic scope and configuration assignment, ensure that you have write permi
 
 ## Workflow of scheduled patching through Dynamic grouping
 
-The workflow of scheduled patching through dynamic grouping consists of the following:
-- **Azure Account** - An Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- **Prerequisites** - Ensure that you have the [permissions](quickstart-dynamic-grouping.md#permissions) and met the [prerequisites](quickstart-dynamic-grouping.md#prerequisites) for dynamic grouping.
 - **Maintenance configuration** - In the Update management center (preview) portal, using the create a maintenance configuration option, you schedule updates within a defined maintenance window.
   > [!NOTE]
   > One dynamic group cannot have more than one schedule.
