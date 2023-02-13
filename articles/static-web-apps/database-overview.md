@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/11/2023
+ms.date: 02/13/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -21,17 +21,19 @@ Features supported by database connections include:
 | Feature | Description |
 |---|---|
 | **Integrated security** | Built-in integration with Azure Static Web Apps authentication and authorization security model. The same role-based security used to secure routes is available for API endpoints. |
-| **Database relationships** |  |
 | **Full CRUD-based operations**  | Refer to [Add a database connection in Azure Static Web Apps](database-add.md) for an example on how to manipulate data in your application. |
 | **Supports SQL and NoSQL** | You can use relational and document databases as your application's database. |
-| **Serverless architecture** |  |
+| **Serverless architecture** | Connections scale from 0 to 1 worker (during preview). |
+| **Database relationships** | Supported only via GraphQL the endpoint. |
 
 ## Supported databases
 
+The following relational and NoSQL databases are supported:
+
 | Name | Type | Description |
 |---|---|---|
-| [Cosmos DB](/azure/cosmos-db/distributed-nosql) |  | Globally distributed database platform for both NoSQL and relational databases of any scale.  |
-| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) |  | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. |
+| [Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale.  |
+| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. |
 | [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | Fully managed PostgreSQL database. |
@@ -43,7 +45,7 @@ You can use the following connection types for database access:
 - System-assigned Managed Identity
 
 > [!NOTE]
-> If you use a connection string to authenticate, u the `env()` function to read a connection string from an environment variable.
+> If you use a connection string to authenticate, use the `env()` function to read a connection string from an environment variable.
 
 ## Endpoint location
 
@@ -57,7 +59,7 @@ The following table shows you how requests are routed to different parts of a st
 | `example.com/data-api/*` | Database connection endpoints that support REST and GraphQL requests. |
 | `example.com/*` | Static content |
 
-When you configure database connections on your website, you have control over the endpoint under the `/data-api` path fragment. The `/data-api` path fragment is a convention of Static Web Apps and isn't available for you to change.
+When you configure database connections on your website, you have control over the endpoint past the `/data-api` path fragment. The `/data-api` path fragment is a convention of Static Web Apps and isn't available for you to change.
 
 ## Configuration
 
