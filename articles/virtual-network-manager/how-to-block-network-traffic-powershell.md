@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/15/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -14,9 +14,10 @@ ms.custom: template-how-to, ignite-fall-2021
 This article shows you how to create a security rule to block outbound network traffic to port 80 and 443 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
-> 
-> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -146,7 +147,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Delete security configuration
 
-If you no longer need the security configuration, you'll need to make sure the following criteria is true before you can delete the security configuration itself:
+If you no longer need the security configuration, make sure the following criteria is true so you can delete the security configuration itself:
 
 * There are no deployments of configurations to any region.
 * Delete all security rules in a rule collection associated to the security configuration.

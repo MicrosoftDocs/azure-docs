@@ -4,7 +4,7 @@ description: This article covers common use cases for customers using AVNM
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 1/31/2023
+ms.date: 02/15/2023
 ms.custom: template-overview
 ms.service: virtual-network-manager
 # Customer Intent: As a network admin, I need to know when I should use Azure Virtual Network Manager in my organization for managing virtual networks across my organization in a scalable, flexible, and secure manner with minimal administrative overhead.
@@ -15,9 +15,10 @@ ms.service: virtual-network-manager
 Learn about use cases for Azure Virtual Network Manager including managing connectivity of virtual networks, and securing network traffic.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+> Azure Virtual Network Manager is now is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
 >
-> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Mesh connectivity configurations and security admin rules remain in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -48,7 +49,7 @@ Common uses include:
 - Create security rules that can't be modified and enforce company/organizational level rules.
 - Enforce security protection to prevent users from opening high-risk ports.
 - Create default rules for everyone in the company/organization so that administrators can prevent security threats caused by NSG misconfiguration or forgetting to put necessary NSGs.
-- Create security boundaries using security admin rules as an administrator and let the owners of the virtual networks configure their NSGs so the NSGs won’t break company policies.
+- Create security boundaries using security admin rules as an administrator and let the owners of the virtual networks configure their NSGs so the NSGs don’t break company policies.
 - Force-allow the traffic from and to critical services so that other users can't accidentally block the necessary traffic, such as monitoring services and program updates.
 
 For a walk-through of use cases, see [Securing Your Virtual Networks with Azure Virtual Network Manager - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-networking-blog/securing-your-virtual-networks-with-azure-virtual-network/ba-p/3353366).
