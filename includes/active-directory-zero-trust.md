@@ -1,5 +1,4 @@
 ---
-author: joflore
 ms.service: active-directory
 ms.topic: include
 ms.date: 02/13/2023
