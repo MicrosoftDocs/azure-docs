@@ -15417,45 +15417,6 @@ View and edit a Grafana instance, including its dashboards and alerts. [Learn mo
 
 View a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
 
-> [!div class="mx-tableFixed"
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role.
-> | **NotDataActions** |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Built-in Grafana Viewer role",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/60921a7e-fef1-4a43-9b16-a26c52ad4769",
-  "name": "60921a7e-fef1-4a43-9b16-a26c52ad4769",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Grafana Viewer",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Grafana Admin
-
-Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -15463,85 +15424,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Built-in Grafana admin role",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/22926164-76b3-42b3-bc55-97df8dab3e41",
-  "name": "22926164-76b3-42b3-bc55-97df8dab3e41",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Dashboard/grafana/ActAsGrafanaAdmin/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Grafana Admin",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Grafana Editor
-
-View and edit a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role. |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Built-in Grafana Editor role",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a79a5197-3a5c-4973-a920-486035ffd60f",
-  "name": "a79a5197-3a5c-4973-a920-486035ffd60f",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Dashboard/grafana/ActAsGrafanaEditor/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Grafana Editor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Grafana Viewer
-
-View a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
-
-> [!div class="mx-tableFixed"
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role.
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role.|
 > | **NotDataActions** |
 > | *none* |  |
 
