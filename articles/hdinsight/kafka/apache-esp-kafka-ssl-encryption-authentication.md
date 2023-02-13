@@ -147,11 +147,11 @@ To complete the configuration modification, do the following steps:
    
    For HDI version 4.0 or 5.0
    
-   1. If you are setting up authentication and encryption, then the screenshot will look like
+	a. If you are setting up authentication and encryption, then the screenshot will look like
 
      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Editing kafka-env template property in Ambari authentication as required" border="true":::
      
-   1. If you are setting up encryption only, then the screenshot will look like  
+	b. If you are setting up encryption only, then the screenshot will look like  
    
      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Editing kafka-env template property in Ambari authentication as none" border="true":::
 
@@ -296,7 +296,7 @@ The details of each step are given.
 
     ```bash
     security.protocol=SASL_SSL
-	     sasl.mechanism=GSSAPI
+    sasl.mechanism=GSSAPI
     sasl.kerberos.service.name=kafka
 
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
