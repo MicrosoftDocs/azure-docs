@@ -255,8 +255,7 @@ resources:
     memory: "0.5Gi"
 instance_type: <instance type name>
 ```
-
-#### [Python SDK](#tab/select-instancetype-to-modeldeployment-with-sdk)
+#### [Python SDK](#tab/define-resource-to-modeldeployment-with-sdk)
 
 ```python
 from azure.ai.ml import (
