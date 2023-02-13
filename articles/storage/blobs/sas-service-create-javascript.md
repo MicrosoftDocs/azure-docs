@@ -10,7 +10,7 @@ ms.date: 01/19/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.devlang: csharp
+ms.devlang: javascript
 ms.custom: devx-track-csharp, engagement-fy23
 ---
 
