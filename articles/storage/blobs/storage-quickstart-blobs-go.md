@@ -32,14 +32,14 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 To work with blob and container resources in a storage account, install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) package using the following command:
 
-    ```console
-    go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
-    ```
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
+```
 To authenticate with Azure Active Directory (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
-    ```console
-    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    ```
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+```
 
 ### Download the sample application
 
