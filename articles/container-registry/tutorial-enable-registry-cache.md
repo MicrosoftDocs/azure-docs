@@ -68,4 +68,4 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
-[az-keyvault-set-policy]: ../azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
