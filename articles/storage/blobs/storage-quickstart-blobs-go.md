@@ -90,9 +90,9 @@ The code example performs the following actions:
 - Downloads the blob data into a buffer
 - Deletes the blob and container resources created by the app
 
-Before you run the sample, open the `storage-quickstart.go` file. Replace `<storage-account-name>` with the name of your Azure storage account.
+Before you run the sample, open the *storage-quickstart.go* file. Replace `<storage-account-name>` with the name of your Azure storage account.
 
-Then run the application with the `go run` command:
+Then run the application using the following command:
 
 ```
 go run storage-quickstart.go
