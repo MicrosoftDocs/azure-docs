@@ -14,7 +14,7 @@ This article is part two of a four-part tutorial series. [Part one](tutorial-reg
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
-## Configure Registry Cache - Azure portal
+## Configure Caching for ACR - Azure portal
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -40,13 +40,13 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu. Currently ACR supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. Currently, Caching for ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 
 8. You can skip **Authentication**, if you aren't accessing a private repository or performing an authenticated pull.
 
-9. Under the **Destination**, Enter the name of the **New ACR repository path** to store cached artifacts.
+9. Under the **Destination**, Enter the name of the **New ACR Repository Namespace** to store cached artifacts.
 
 
     :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png" alt-text="Screenshot to save Cache Rule.":::
@@ -54,7 +54,13 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 10. Select on **Save** 
 
-11. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+11. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
+
+```azurecli-interactive
+az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permissions get
+```
+
+12. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
 ## Next steps
 
@@ -62,3 +68,4 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+[az-keyvault-set-policy]: ../azure/key-vault/general/assign-access-policy.md#assign-an-access-policy

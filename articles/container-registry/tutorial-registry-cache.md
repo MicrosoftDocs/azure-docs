@@ -19,7 +19,7 @@ This article is part one in a four-part tutorial series. The tutorial covers:
 
 ## Caching for ACR
 
-Caching for ACR enables you to cache container images from public registries. 
+Caching for ACR enables you to cache container images from public and private repositories. 
 
 Implementing Caching for ACR provides the following benefits:
 
@@ -27,7 +27,32 @@ Implementing Caching for ACR provides the following benefits:
 
 ***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Docker Rate Limit:***  Docker has updated their terms of services. The new limits allow anonymous users to 100 pull operations every six hours. Free Docker account users have 200 pull operations limit for every six hours. The Docker subscription users have 5000 pull operations limit for every 24 hours. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more docker hub rate limit [here][docker-rate-limit]. 
+***Docker Rate Limit:***  Docker has updated their terms of services to rate limit pulls for customers. The rate limit of the pull depends on the  type of account in use. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more docker hub rate limit [here][docker-rate-limit]. 
+
+ 
+## Terminology 
+
+- Cache Rule
+    -  A Cache Rule is a rule you can create to pull artifacts from a supported repository into your cache. A cache rule contains four parts:
+        
+        1. Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
+
+        2. Source - The name of the Source Registry. Currently, we only support **Docker Hub** and **Microsoft Artifact Registry**. 
+
+        3. Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
+
+        4. New ACR Repository Namespace - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
+
+- Credentials
+    - Credentials are a set of username and password for the source registry. Credentials are needed if you wish to authenticate with a public or private repository. Credentials contains four parts
+
+        1. Credentials  - The name of your credentials.
+
+        2. Source registry Login Server - The login server of your source registry. Only `docker.io` is supported. 
+
+        3. Source Authentication - The key vault locations to store credentials. 
+        
+        4. Username and Password secrets- The secrets containing the username and password. 
 
 ## Preview Limitations
 
@@ -37,31 +62,9 @@ Implementing Caching for ACR provides the following benefits:
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
-- Caching for ACR is only available by using the Azure portal. The Azure CLI is released in the coming weeks.   
+- Caching for ACR only supports 50 cache rules.
 
-## Terminology 
-
-- Cache Rule
-    - Cache Rules are a set of rules you can create to pull artifacts from a supported registry into your cache. A cache rule contains four parts:
-        
-        1. A Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
-
-        2. A Source - The name of the Source Registry. Currently, we only support **Docker Hub** and **Microsoft Artifact Registry**. 
-
-        3. A Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
-
-        4. An ACR Repository Path - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
-
-- Credential Set
-    - A credential set is a username and password for the source registry. A credential set is needed if you wish to authenticate with a public or private repository. A credential set contains four parts
-
-        1. A Credential Set Name - The name of your credential set.
-
-        2. A Source registry Login Server - The login server of your source registry. Only `docker.io` is supported. 
-
-        3. A Source Authentication - The key vault locations to store credentials. 
-        
-        4. Username and Password secrets- The secrets containing the username and password. 
+- Caching for ACR is only available by using the Azure portal. The Azure CLI is released in the coming weeks.  
 
 ## Next steps
 

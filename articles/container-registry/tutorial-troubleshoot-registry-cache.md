@@ -6,35 +6,25 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Troubleshoot guide for Registry Cache
+# Troubleshoot guide for Caching for ACR
 
 This article is part four in a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides information about the Caching for ACR feature, its limitations, and benefits of the implementation in your registry. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using the Azure portal.
 
 This article helps you troubleshoot problems you might encounter when attempting to use Caching for ACR.
 
-## Symptoms
+## Symptoms and Causes
 
 May include one or more of the following issues: 
 
-- Cached images don't appear in a live repository 
-
-- Unable to create a Credential set
+- Cached images don't appear in a real repository 
+  - [Cached images don't appear in a live repository](tutorial-troubleshoot-registry-cache.md#cached-images-dont-appear-in-a-live-repository) 
 
 - Credential set has an unhealthy status
+  - [Unhealthy Credential Set](tutorial-troubleshoot-registry-cache.md#unhealthy-credential-set)
 
 - Unable to create a cache rule
-
-## Causes 
-
-- Cache rule doesn't point to a real repository
-
-- URI of secrets is empty 
-
-- Credential set secret is invalid
-
-- The cache rule is trying to pull from an unsupported registry
-
-- 50 cache rules have been created
+  - [Unsupported Registries](tutorial-troubleshoot-registry-cache.md#unsupported-registries)
+  - [Cache rule Limit](tutorial-troubleshoot-registry-cache.md#cache-rule-limit)
 
 ## Potential Solutions
 
@@ -47,23 +37,22 @@ If you're having an issue with cached images not showing up in your repository i
 
 The Azure portal autofills these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
 
-## Unable to create a Credential set
-
-We recommend before creating a credential set inside the Azure portal, ensure both the Username and Password secrets are associated with a Key Vault or secret URIs.
-
-- Credential sets can be stored using Azure Key Vault.
-- When using Azure Key vault, you must have a Key Vault name and Secret for both the Username and Password secrets. 
-
-Caching for ACR allows you to cache images from private Docker Hub repositories. In-order to store the credentials needed to access the private repository. You must create a credential set. 
-
 ## Unhealthy Credential Set
 
 Credential sets are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. Inside the Azure portal you can select the credential set, to edit and apply changes.
 
 - Verify the secrets in Azure Key Vault haven't expired. 
 - Verify the secrets in Azure Key Vault are valid.
+- Verify the access to the Azure Key Vault is assigned.
+
+To assign the access to Azure Key Vault:
+
+```azurecli-interactive
+az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permissions get
+```
 
 Learn more about [Key Vaults][create-and-store-keyvault-credentials].
+Learn more about [Assigning the access to Azure Key Vault][az-keyvault-set-policy].
 
 ## Unable to create a Cache rule
 
@@ -84,3 +73,4 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+[az-keyvault-set-policy]: ../azure/key-vault/general/assign-access-policy.md#assign-an-access-policy

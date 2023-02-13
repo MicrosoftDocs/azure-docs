@@ -6,7 +6,7 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Registry Cache
+# # Enable Caching for ACR with authentication - Azure portal
 
 This article is part three of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. 
 
@@ -16,7 +16,8 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
-## Configure Registry Cache - Azure portal
+
+## Configure Caching for ACR with authentication - Azure portal
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -42,7 +43,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu. Currently ACR supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. Currently, Caching for ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 
@@ -52,7 +53,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 10. If you have the credentials ready, **Select credentials** from the drop-down menu.
 
-11. Under the **Destination**, Enter the name of the **New ACR repository path** to store cached artifacts.
+11. Under the **Destination**, Enter the name of the **New ACR Repository Namespace** to store cached artifacts.
 
 
     :::image type="content" source="./media/container-registry-registry-cache/save-cache-rule-04.png" alt-text="Screenshot to save Cache Rule.":::
@@ -60,7 +61,13 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 12. Select on **Save** 
 
-13. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+13. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
+
+```azurecli-interactive
+az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permissions get
+```
+
+14. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
 ### Create new credentials
 
@@ -88,4 +95,5 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 * Advance to the [next article](tutorial-troubleshoot-registry-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md
+[az-keyvault-set-policy]: ../azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
