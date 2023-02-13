@@ -301,10 +301,10 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
+   > [!NOTE]
+   > The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
 
-> [!NOTE]
-> The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
+- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
@@ -329,11 +329,10 @@ There is one type of modification to global scale set properties that does not f
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
+   > [!NOTE]
+   > The `az vmss reimage` command will reimage the selected instance, restoing him to the initial state. The instance may be restarted, and any local data will be lost.
+
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
-
-> [!NOTE]
-> *az vmss reimage* command will reimage the selected instance, restoing him to the initial state. The instance may be restarted, and any local data will be lost.
-
 
 ## Properties with restrictions on modification
 
