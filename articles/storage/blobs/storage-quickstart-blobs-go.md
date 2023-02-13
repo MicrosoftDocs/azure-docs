@@ -32,12 +32,12 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 - To work with blob and container resources in a storage account, install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) package using the following command:
 
-    ```
+    ```console
     go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
     ```
 - To authenticate with Azure Active Directory (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
-    ```
+    ```console
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
@@ -47,7 +47,7 @@ The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quick
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
-```bash
+```console
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
 ```
 
@@ -79,7 +79,7 @@ You can authorize access to data in your storage account using the following ste
 
 2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command::
 
-    ```
+    ```console
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
@@ -101,13 +101,13 @@ Before you run the sample, open the *storage-quickstart.go* file. Replace `<stor
 
 Then run the application using the following command:
 
-```
+```console
 go run storage-quickstart.go
 ```
 
 The output of the app is similar to the following example:
 
-```
+```console
 Azure Blob storage quick start sample
 Creating a container named quickstart-sample-container
 Uploading a blob named sample-blob
