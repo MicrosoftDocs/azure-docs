@@ -36,13 +36,20 @@ Defender for IoT's device inventory helps you identify details about specific de
 
 The **Device inventory** GA includes the following UI enhancements:
 
-- **Export** device inventory to review offline and compare notes with your teams
+
+|Enhancement |Description  |
+|---------|---------|
+|**Grid-level enhancements**| - **Export the entire device inventory** to review offline and compare notes with your teams   <br>- **Delete irrelevant devices** that no longer exist or are no longer functional <br>- **[Merge devices](xref)** to fine-tune the device list if the sensor has discovered separate network entities that are associated with a single, unique device. For example. a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.<br>- **Edit your table views** to reflect only the data you are interested in viewing  |
+|**Device-level enhancements**| - **Edit device details** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information     |
+|**Filter and search enhancements** |  - **Run deep searches on any device inventory field** to quickly find the devices that matter most<br>- **Filter the device inventory by any field**. For example, filter by *Type* to identify *Industrial* devices, or time fields to determine active and inactive devices.|
+
+Rich security, governance and admin controls also provide the ability to assign admins, restricting who can merge, delete and edit devices on an owner’s behalf
 
 - **Delete irrelevant devices** that no longer exist or are no longer functional
 
 - **[Merge devices](#merge-duplicate-devices-in-the-azure-device-inventory)** to tune your network devices
 
-- **Edit your devices** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information
+- **Edit device details** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information
 
 - **Deep search** on any field to enhance device discovery, enabling the ability to quickly find the devices that matter most
 
