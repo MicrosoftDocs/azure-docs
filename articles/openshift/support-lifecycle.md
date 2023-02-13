@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 02/13/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
