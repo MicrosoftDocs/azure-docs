@@ -40,9 +40,9 @@ Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quick
 
 ### Secret scan didn't run on my code 
 
-To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
-In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
+In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](./azure-devops-extension.md?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
 
 If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
 

@@ -113,7 +113,7 @@ az afd endpoint create \
     --enabled-state Enabled
 ```
 
-For more information about endpoints in Front Door, please read [Endpoints in Azure Front Door](/azure/frontdoor/endpoint).
+For more information about endpoints in Front Door, please read [Endpoints in Azure Front Door](./endpoint.md).
 
 ### Create an origin group
 
@@ -173,7 +173,7 @@ az afd origin create \
     --https-port 443
 ```
 
-For more information about origins, origin groups and health probes, please read [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
+For more information about origins, origin groups and health probes, please read [Origins and origin groups in Azure Front Door](./origin.md)
 
 ### Add a route
 
@@ -194,7 +194,7 @@ az afd route create \
     --link-to-default-domain Enabled 
 ```
 
-To learn more about routes in Azure Front Door, please read [Traffic routing methods to origin](/azure/frontdoor/routing-methods).
+To learn more about routes in Azure Front Door, please read [Traffic routing methods to origin](./routing-methods.md).
 
 ## Create a new security policy
 
@@ -221,7 +221,7 @@ az network front-door waf-policy create \
 > [!NOTE]
 > If you select `Detection` mode, your WAF doesn't block any requests.
 
-To learn more about WAF policy settings for Front Door, please read [Policy settings for Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-policy-settings).
+To learn more about WAF policy settings for Front Door, please read [Policy settings for Web Application Firewall on Azure Front Door](../web-application-firewall/afds/waf-front-door-policy-settings.md).
 
 ### Assign managed rules to the WAF policy
 
@@ -246,7 +246,7 @@ az network front-door waf-policy managed-rules add \
     --version 1.0
 ```
 
-To learn more about managed rules in Front Door, please read [Web Application Firewall DRS rule groups and rules](/azure/web-application-firewall/afds/waf-front-door-drs).
+To learn more about managed rules in Front Door, please read [Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
 ### Create the security policy
 
