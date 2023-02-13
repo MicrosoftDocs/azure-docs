@@ -63,6 +63,10 @@ Based on whether you use the MQ managed connector (Consumption or Standard workf
   | Managed | Server only (one-way) |
   | Built-in | - Server-client (two-way) <br>- Server-only (one-way) |
 
+* Server certificate validation
+
+  The MQ built-in connector doesn't validate the server certificate's expiration date nor certificate chain.
+
 * Character set conversions
 
   - The MQ managed connector doesn't make any character set conversions nor use the message's **Format** field. The connector only copies whatever data appears in the message field and sends the message along.
