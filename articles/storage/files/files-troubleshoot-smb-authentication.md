@@ -4,17 +4,14 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/08/2023
+ms.date: 02/13/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
 
 # Troubleshoot Azure Files identity-based authentication and authorization issues (SMB)
 
-This article lists common problems when using SMB Azure file shares with identity-based authentication. It also provides possible causes and resolutions for these problems.
-
-> [!IMPORTANT]
-> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](files-troubleshoot-linx-nfs.md).
+This article lists common problems when using SMB Azure file shares with identity-based authentication. It also provides possible causes and resolutions for these problems. Identity-based authentication isn't currently supported for NFS Azure file shares.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -23,7 +20,7 @@ This article lists common problems when using SMB Azure file shares with identit
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Error 5 when you mount an Azure file share
+## Error 5 when mounting an Azure file share
 
 When you try to mount a file share, you might receive the following error:
 
@@ -32,6 +29,9 @@ When you try to mount a file share, you might receive the following error:
 ### Cause: Share-level permissions are incorrect
 
 If end users are accessing the Azure file share using Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) authentication, access to the file share fails with "Access is denied" error if share-level permissions are incorrect. 
+
+> [!NOTE]
+> This error might be caused by issues other than incorrect share-level permissions. For information on other possible causes and solutions, see [Troubleshoot Azure Files connectivity and access issues](files-troubleshoot-smb-connectivity.md#error-5-when-you-mount-an-azure-file-share).
 
 ### Solution
 

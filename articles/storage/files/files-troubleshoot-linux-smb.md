@@ -12,10 +12,10 @@ ms.subservice: files
 
 This article lists common problems that are related to SMB Azure file shares when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure file shares.
+In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has the correct prerequisites and automate symptom detection. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure file shares.
 
 > [!IMPORTANT]
-> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).
+> This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -62,7 +62,7 @@ Upgrade the Linux kernel to the following versions that have a fix for this prob
 ## Can't create symbolic links - ln: failed to create symbolic link 't': Operation not supported
 
 ### Cause
-By default, mounting Azure file shares on Linux by using CIFS doesn't enable support for symbolic links (symlinks). You see an error like this:
+By default, mounting Azure file shares on Linux by using CIFS doesn't enable support for symbolic links (symlinks). You might see an error like this:
 
 ```
 ln -s linked -n t
@@ -70,7 +70,7 @@ ln: failed to create symbolic link 't': Operation not supported
 ```
 
 ### Solution
-The Linux CIFS client doesn't support creation of Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
+The Linux CIFS client doesn't support creating Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
 
 To use symlinks, add the following to the end of your CIFS mount command:
 
@@ -88,15 +88,15 @@ You can then create symlinks as suggested on the [wiki](https://wiki.samba.org/i
 
 ## Unable to access folders or files which name has a space or a dot at the end
 
-You are unable to access folders or files from the Azure file share while mounted on Linux, commands like du and ls and/or third-party applications may fail with a "No such file or directory" error while accessing the share, however you are able to upload files to said folders via the portal.
+You're unable to access folders or files from the Azure file share while mounted on Linux. Commands like du and ls and/or third-party applications might fail with a "No such file or directory" error while accessing the share; however, you're able to upload files to said folders via the portal.
 
 ### Cause
 
-The folders or files were uploaded from a system that encodes the characters at the end of the name to a different character, files uploaded from a Macintosh computer may have a "0xF028" or "0xF029" character instead of 0x20 (space) or 0X2E (dot).
+The folders or files were uploaded from a system that encodes the characters at the end of the name to a different character. Files uploaded from a Macintosh computer may have a "0xF028" or "0xF029" character instead of 0x20 (space) or 0X2E (dot).
 
 ### Solution
 
-Use the mapchars option on the share while mounting the share on Linux: 
+Use the mapchars option on the share when mounting the share on Linux: 
 
 instead of :
 
@@ -127,7 +127,7 @@ For capacity load balancing purposes, storage accounts are sometimes live-migrat
 
 ### Workaround
 
-This issue can be mitigated by simply rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
+This issue can be mitigated by rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
 
 ### Solution
 
