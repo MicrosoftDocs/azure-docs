@@ -19,7 +19,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 To increase the readability, update these names with more meaningful names.
 
-The following example fails this test because the two variable names appears to have originated from a naming conflict during a decompilation from JSON.
+The following example fails this test because the two variable names appear to have originated from a naming conflict during a decompilation from JSON.
 
 ```bicep
 var hostingPlanName_var = functionAppName
