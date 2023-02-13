@@ -39,7 +39,7 @@ This article provides step-by-step procedure to perform Major Version Upgrade in
 
 ## Perform Major Version Upgrade
 
-You can run the following command to perform major version upgrade on a existing server.
+You can run the following command to perform major version upgrade on an existing server.
 
 > [!NOTE]  
 > Major Version Upgrade action is irreversible. Please perform a point-in-time recovery (PITR) of your production server and test the upgrade in the non-production environment.
