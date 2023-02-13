@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -49,6 +49,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * English - United Arab Emirates (en-AE)
   * Dutch - Netherlands (nl-NL)
   * French - Canada (fr-CA)
+  * German - (de-de)
+  * Italian - (it-it)
   * Japanese - Japan (ja-JP)
   * Portuguese - Brazil (pt-BR)
 

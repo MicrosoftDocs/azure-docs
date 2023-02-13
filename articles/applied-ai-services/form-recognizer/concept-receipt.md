@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -165,7 +165,9 @@ The receipt model supports all English receipts and the following locales:
 |:-----|:----:|
 |&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
 |&bullet; Dutch| Netherlands (nl)|
-|&bullet; French | France (fr) |
+|&bullet; French | France (fr), Canada (fr-ca) |
+|&bullet; German | Germany (de) |
+|&bullet; Italian | Italy (it) |
 |&bullet; Japanese | Japan (ja)|
 |&bullet; Portuguese| Portugal (-pt), Brazil (-br)|
 |&bullet; Spanish | Spain (es) |
