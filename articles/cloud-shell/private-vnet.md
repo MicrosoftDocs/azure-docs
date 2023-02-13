@@ -1,5 +1,5 @@
 ---
-author: jahelmic
+author: sdwheeler
 description: Deploy Cloud Shell into an Azure virtual network
 manager: mkluck
 ms.author: sewhee
