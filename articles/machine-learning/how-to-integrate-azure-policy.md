@@ -54,8 +54,10 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 ## Conditional access policies
 
+To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
+
 > [!IMPORTANT]
-> [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) is __not__ supported with Azure Machine Learning.
+> Azure Machine Learning studio cannot be added in cloud apps in Azure AD Conditional Access, as the studio UI is a client application.
 
 ## Enable self-service using landing zones
 
