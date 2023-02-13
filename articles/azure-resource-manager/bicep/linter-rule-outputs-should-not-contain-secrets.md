@@ -49,7 +49,7 @@ The following example fails because the output name contains 'password', indicat
 output accountPassword string = '...'
 ```
 
-To fix it, you will need to remove the secret data from the output.  The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated.  Secrets may also be stored in KeyVault for more complex deployment scenarios.
+To fix it, you need to remove the secret data from the output.  The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated.  Secrets may also be stored in KeyVault for more complex deployment scenarios.
 
 The following example shows a secure pattern for retrieving a storageAccount key from a module.
 
@@ -65,14 +65,14 @@ someProperty: listKeys(myStorageModule.outputs.storageId.value, '2021-09-01').ke
 
 ## Silencing false positives
 
-Sometimes this rule will alert on template outputs that do not actually contain secrets. For instance, not all [`list*`](./bicep-functions-resource.md#list) functions actually return sensitive data. In these cases, you can disable the warning for this line by adding `#disable-next-line outputs-should-not-contain-secrets` before the line with the warning.
+Sometimes this rule alerts on template outputs that don't actually contain secrets. For instance, not all [`list*`](./bicep-functions-resource.md#list) functions actually return sensitive data. In these cases, you can disable the warning for this line by adding `#disable-next-line outputs-should-not-contain-secrets` before the line with the warning.
 
 ```bicep
-#disable-next-line outputs-should-not-contain-secrets // Does not contain a password
+#disable-next-line outputs-should-not-contain-secrets // Doesn't contain a password
 output notAPassword string = '...'
 ```
 
-It is good practice to add a comment explaining why the rule does not apply to this line.
+It's good practice to add a comment explaining why the rule doesn't apply to this line.
 
 ## Next steps
 

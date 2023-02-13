@@ -17,7 +17,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-To reduce confusion in your template, delete any dependsOn entries which are not necessary.  Bicep automatically infers most resource dependencies as long as template expressions reference other resources via symbolic names rather than strings with hard-coded IDs or names.
+To reduce confusion in your template, delete any dependsOn entries that aren't necessary.  Bicep automatically infers most resource dependencies as long as template expressions reference other resources via symbolic names rather than strings with hard-coded IDs or names.
 
 The following example fails this test because the dependsOn entry `appServicePlan` is automatically inferred by Bicep implied by the expression `appServicePlan.id` (which references resource symbolic name `appServicePlan`) in the `serverFarmId` property's value.
 
