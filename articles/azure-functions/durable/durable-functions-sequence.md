@@ -94,7 +94,7 @@ The `context` object lets you call other *activity* functions and pass input par
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
 
-[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
+[!code-json[dajusto/add-v2-samples](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
 
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
@@ -105,7 +105,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 Here is the orchestrator function:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples-v2/function_chaining/function_app.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
