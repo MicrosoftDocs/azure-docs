@@ -185,7 +185,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
 ## Create a data collection rule
-The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's send to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
+The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's sent to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
