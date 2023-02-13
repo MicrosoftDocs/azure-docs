@@ -3,7 +3,7 @@ title: Azure Virtual Desktop MSIX app attach portal - Azure
 description: How to set up MSIX app attach for Azure Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 01/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -20,7 +20,7 @@ Here's what you need to configure MSIX app attach:
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
 - A file share in your Azure Virtual Desktop deployment where the MSIX package will be stored.
-- The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
+- [The file share where you uploaded the MSIX image](app-attach-file-share.md) must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - If the certificate isn't publicly trusted, follow the instructions in [Install certificates](app-attach.md#install-certificates).
 
 ## Turn off automatic updates for MSIX app attach applications

@@ -59,4 +59,5 @@ This article describes how to tag glossary terms, classifications, owners and ex
 
 ## Next steps
 
-Follow the [Tutorial: Create and import glossary terms](how-to-create-import-export-glossary.md) to learn more.
+- [How to create and manage glossary terms](how-to-create-manage-glossary-term.md)
+- [How to import and export glossary terms](how-to-import-export-glossary.md)

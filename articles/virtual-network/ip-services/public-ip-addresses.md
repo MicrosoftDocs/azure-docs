@@ -31,11 +31,11 @@ The following resources can be associated with a public IP address:
 
 * Application Gateways
 
-* Azure Firewall
+* Azure Firewalls
 
-* Bastion Host
+* Bastion Hosts
 
-* Route Server
+* Route Servers
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
@@ -133,7 +133,7 @@ Public IP addresses with a standard SKU can be created as non-zonal, zonal, or z
 
 A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
-In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
+In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  A public IP's availability zone can't be changed after the public IP's creation.
 
 > [!NOTE]
 > All basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a basic SKU to standard SKU remains non-zonal.
@@ -178,7 +178,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 
-* Routing Preference and cross-region load balancer aren't supported.
+* Routing Preference Internet isn't supported.
 
 For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 

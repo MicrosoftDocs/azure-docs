@@ -1,8 +1,8 @@
 ---
 title: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 description: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
-author: konghot
-ms.author: pkonghot
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020

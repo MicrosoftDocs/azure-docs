@@ -4,7 +4,7 @@ description: Learn how to create non-interactive authentication Microsoft .NET a
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 12/23/2019
+ms.date: 12/23/2022
 
 ---
 

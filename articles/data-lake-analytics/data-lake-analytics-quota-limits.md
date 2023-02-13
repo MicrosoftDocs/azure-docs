@@ -8,6 +8,8 @@ ms.date: 03/15/2018
 
 # Adjust quotas and limits in Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 Learn how to adjust and increase the quota and limits in Azure Data Lake Analytics (ADLA) accounts. Knowing these limits will help you understand your U-SQL job behavior. All quota limits are soft, so you can increase the maximum limits by contacting Azure support.
 
 ## Azure subscriptions limits

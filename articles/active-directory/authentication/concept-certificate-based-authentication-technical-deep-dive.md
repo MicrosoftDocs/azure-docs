@@ -68,9 +68,55 @@ Now we'll walk through each step:
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
 1. Azure AD verifies the certificate revocation list to make sure the certificate isn't revoked and is valid. Azure AD identifies the user by using the [username binding configured](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the tenant to map the certificate field value to the user attribute value.
-1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If multifactor authentication is required but the certificate satisfies only a single factor, authentication will fail.
+1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If MFA is required but the certificate satisfies only a single factor, either passwordless sign-in or FIDO2 will be offered as a second factor if they are already registered.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
+
+## Single-factor certificate-based authentication
+
+Azure AD CBA supports second factors to meet MFA requirements with single-factor certificates. Users can use either passwordless sign-in or FIDO2 security keys as second factors when the first factor is single-factor CBA. Users need to register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
+For passwordless sign-in to work, users should disable legacy notification through mobile app.
+
+1. Sign in to the Azure portal.
+1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/configure.png" alt-text="Screenshot of how to configure multifactor authentication settings.":::
+
+1. Under **Verification options**, clear the **Notification through mobile app** checkbox and click **Save**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/clear-notification.png" alt-text="Screenshot of how to remove notification through mobile app.":::
+
+## MFA authentication flow using single factor certificates and passwordless sign in
+
+Let's look at an example of a user who has single factor certificates and has configured passwordless sign in. 
+
+1. Enter your User Principal Name (UPN) and click **Next**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-principal-name.png" alt-text="Screenshot of how to enter a user principal name.":::
+
+1. Select **Sign in with a certificate**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of how to sign in with a certificate.":::
+
+   If you enabled other authentication methods like Phone sign-in or FIDO2 security keys, users may see a different sign-in screen.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of alternate way to sign in with a certificate.":::
+
+1. Pick the correct user certificate in the client certificate picker and click **OK**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of how to select a certificate.":::
+
+1. Because the certificate is configured to be single-factor authentication strength, the user needs a second factor to meet MFA requirements. The user will see available second factors, which in this case is passwordless sign-in. Select **Approve a request on my Microsoft Authenticator app**.
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/second-factor-request.png" alt-text="Screenshot of second factor request.":::
+
+1. You'll get a notification on your phone. Select **Approve Sign-in?**.
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/approve.png" alt-text="Screenshot of approval request.":::
+
+1. Enter the number you see on the browser or app screen into Microsoft Authenticator.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/number.png" alt-text="Screenshot of number match.":::
+
+1. Select **Yes** and user will be authenticated and signed in.
 
 ## Understanding the authentication binding policy
 
@@ -79,12 +125,6 @@ The authentication binding policy helps determine the strength of authentication
 ### Certificate strengths
 
 An admin can determine whether the certificates are single-factor or multifactor strength. For more information, see the documentation that maps [NIST Authentication Assurance Levels to Azure AD Auth Methods](https://aka.ms/AzureADNISTAAL), which builds upon [NIST 800-63B SP 800-63B, Digital Identity Guidelines: Authentication and Lifecycle Mgmt](https://csrc.nist.gov/publications/detail/sp/800-63b/final).
-
-### Single-factor certificate authentication
-
-When a user has a single-factor certificate, they can't perform multifactor authentication. There's no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
-
-:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
 ### Multifactor certificate authentication 
 

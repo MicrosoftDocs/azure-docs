@@ -28,11 +28,11 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * [Symmetric keys](./concepts-symmetric-key-attestation.md)
 
 ::: zone pivot="programming-language-ansi-c"
-This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it's strongly recommended to help protect sensitive information like your device certificate's private key.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
-A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it's strongly recommended to help protect sensitive information like your device certificate's private key.
 ::: zone-end
 
 In this tutorial, you'll complete the following objectives:
@@ -871,7 +871,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
+While HSM hardware isn't required, it's recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`:
 
@@ -1041,7 +1041,7 @@ In the rest of this section, you'll use your Windows command prompt.
    >
    > Additional parameters can be passed to change the TransportType (-t) and the GlobalDeviceEndpoint (-g). For a full list of parameters type `dotnet run -- --help`.
 
-5. To register your second device, re-run the sample using its full chain certificate.
+5. To register your second device, rerun the sample using its full chain certificate.
 
     ```cmd
     run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
@@ -1255,7 +1255,7 @@ In the following steps, you'll use both your Windows command prompt and your Git
         private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
         ```
 
-    1. The sample defaults to using HTTPS as the transport protocol. If you want to change the protocol, comment out the following line and uncomment the line for the protocol you want to use.
+    1. The sample defaults to using HTTPS as the transport protocol. If you want to change the protocol, comment out the following line, and uncomment the line for the protocol you want to use.
 
         ```java
         private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
@@ -1490,13 +1490,13 @@ When you're finished testing and exploring this device client sample, use the fo
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the devices you registered in this tutorial. For example, *device-01* and *device-02*..
+4. Select the check box next to the *DEVICE ID* of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 
 5. At the top of the page, select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you provisioned X.509 devices using an enrollment group to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
+In this tutorial, you provisioned multiple X.509 devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [How to use allocation policies](how-to-use-allocation-policies.md)
+> [Use custom allocation policies](tutorial-custom-allocation-policies.md)

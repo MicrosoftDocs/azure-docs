@@ -17,7 +17,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -63,17 +63,6 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
     --subnet-prefixes 10.1.0.0/24
-
-```
-
-To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnet \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNet \
-    --disable-private-link-service-network-policies true
 ```
 
 ### Create standard load balancer
@@ -209,16 +198,6 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --address-prefixes 11.1.0.0/16 \
     --subnet-name mySubnetPE \
     --subnet-prefixes 11.1.0.0/24
-```
-
-To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnetPE \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNetPE \
-    --disable-private-endpoint-network-policies true
 ```
 
 ### Create endpoint and connection

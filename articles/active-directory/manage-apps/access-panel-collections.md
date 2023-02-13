@@ -37,7 +37,7 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 2. Go to **Azure Active Directory** > **Enterprise Applications**.
 
-3. Under **Manage**, select **Collections**.
+3. Under **Manage**, select **App launchers**.
 
 4. Select **New collection**. In the **New collection** page, enter a **Name** for the collection (we recommend not using "collection" in the name. Then enter a **Description**.
 

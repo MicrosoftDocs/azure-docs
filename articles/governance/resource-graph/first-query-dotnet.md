@@ -1,9 +1,10 @@
 ---
 title: "Quickstart: Your first .NET Core query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET Core and run your first query.
-ms.date: 07/09/2021
+ms.date: 01/06/2023
 ms.topic: quickstart
 ms.custom: devx-track-csharp
+ms.author: timwarner
 ---
 # Quickstart: Run your first Resource Graph query using .NET Core
 
@@ -37,12 +38,11 @@ required packages.
    dotnet new console --name "argQuery"
    ```
 
-1. Change directories into the new project folder and install the required packages for Azure
-   Resource Graph:
+1. Change directories into the new project folder and install the required packages for Azure Resource Graph:
 
    ```dotnetcli
    # Add the Resource Graph package for .NET Core
-   dotnet add package Microsoft.Azure.Management.ResourceGraph --version 2.0.0
+   dotnet add package Azure.ResourceManager.ResourceGraph --version 1.0.0
 
    # Add the Azure app auth package for .NET Core
    dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.5.0
@@ -56,8 +56,8 @@ required packages.
    using System.Threading.Tasks;
    using Microsoft.IdentityModel.Clients.ActiveDirectory;
    using Microsoft.Rest;
-   using Microsoft.Azure.Management.ResourceGraph;
-   using Microsoft.Azure.Management.ResourceGraph.Models;
+   using Azure.ResourceManager.ResourceGraph;
+   using Azure.ResourceManager.ResourceGraph.Models;
 
    namespace argQuery
    {

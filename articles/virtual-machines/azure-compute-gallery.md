@@ -49,7 +49,7 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 100 galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
-- 100 image version replicas, per subscription, per region however 50 replicas should be sufficient for most use cases
+- 100 replicas per image version however 50 replicas should be sufficient for most use cases
 - Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
@@ -289,12 +289,44 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - For disaster recovery scenarios, it is a best practice is to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
 
+- Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
+
+```
+{ 
+  "properties": { 
+    "publishingProfile": { 
+      "targetRegions": [ 
+        { 
+          "name": "West US", 
+          "regionalReplicaCount": 1, 
+          "storageAccountType": "Standard_LRS", 
+          // encryption info         
+        }
+      ], 
+      "replicaCount": 1, 
+      "publishedDate": "2018-01-01T00:00:00Z", 
+      "storageAccountType": "Standard_LRS" 
+    }, 
+    "storageProfile": { 
+      "source": { 
+        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
+      }, 
+    }, 
+   “safetyProfile”: { 
+      “allowDeletionOfReplicatedLocations” : false 
+    }, 
+  }, 
+  "location": "West US", 
+  "name": "1.0.0" 
+} 
+```
+
 
 ## SDK support
 
 The following SDKs support creating Azure Compute Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [.NET](/dotnet/api/overview/azure/virtualmachines#management-apis)
 - [Java](/java/azure/)
 - [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)

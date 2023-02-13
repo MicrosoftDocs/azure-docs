@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 01/12/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -19,7 +19,6 @@ Language identification is used to identify languages spoken in audio when compa
 
 Language identification (LID) use cases include:
 
-* [Standalone language identification](#standalone-language-identification) when you only need to identify the language in an audio source.
 * [Speech-to-text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text.
 * [Speech translation](#speech-translation) when you need to identify the language in an audio source and then translate it to another language.
 
@@ -27,7 +26,7 @@ Note that for speech recognition, the initial latency is higher with language id
 
 ## Configuration options
 
-Whether you use language identification [on its own](#standalone-language-identification), with [speech-to-text](#speech-to-text), or with [speech translation](#speech-translation), there are some common concepts and configuration options.
+Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
 - Define a list of [candidate languages](#candidate-languages) that you expect in the audio.
 - Decide whether to use [at-start or continuous](#at-start-and-continuous-language-identification) language identification.
@@ -111,13 +110,15 @@ You can choose to prioritize accuracy or latency with language identification.
 
 > [!NOTE]
 > Latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, Java ([for speech to text only](#speech-to-text)), and Python.
+
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results.
 
 * **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned within 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.
-* **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous LID in `Accuracy` mode the results are returned within no set time frame for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property.
+* **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. Continuous LID in `Accuracy` mode isn't supported with [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition.
 
 > [!IMPORTANT]
-> With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy`with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. Only [standalone language identification](#standalone-language-identification) supports continuous LID with `Accuracy` prioritization.  
+> With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy` with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. 
+ 
 Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration.
 
 ::: zone pivot="programming-language-csharp"
@@ -169,6 +170,7 @@ Language identification is completed with recognition objects and operations. Yo
 
 > [!NOTE]
 > Don't confuse recognition with identification. Recognition can be used with or without language identification.
+
 Let's map these concepts to the code. You will either call the recognize once method, or the start and stop continuous recognition methods. You choose from:
 
 - Recognize once with at-start LID
@@ -246,60 +248,6 @@ recognizer.stop_continuous_recognition()
 
 ::: zone-end
 
-## Standalone language identification
-
-You use standalone language identification when you only need to identify the language in an audio source.
-
-> [!NOTE]
-> Standalone source language identification is only supported with the Speech SDKs for C#, C++, and Python.
-::: zone pivot="programming-language-csharp"
-
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
-
-### [Recognize once](#tab/once)
-
-:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionInAccuracyWithFile":::
-
-### [Continuous recognition](#tab/continuous)
-
-:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionContinuousWithFile":::
-
----
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
-
-### [Recognize once](#tab/once)
-
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionWithMicrophone":::
-
-### [Continuous recognition](#tab/continuous)
-
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionInContinuousModeWithFileInput":::
-
----
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
-
-### [Recognize once](#tab/once)
-
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechLanguageDetectionWithFile":::
-
-### [Continuous recognition](#tab/continuous)
-
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
-
----
-
-::: zone-end
-
 ## Speech-to-text
 
 You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
@@ -351,7 +299,6 @@ var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/
 var endpointUrl = new Uri(endpointString);
 
 var config = SpeechConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
-// can switch "Latency" to "Accuracy" depending on priority
 config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
 
 var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
@@ -497,7 +444,6 @@ result.close();
 :::code language="java" source="~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java" id="SpeechContinuousRecognitionAndLanguageId":::
 
 ---
-
 
 ::: zone-end
 
@@ -1112,8 +1058,8 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the Priority (optional, default Latency, either Latency or Accuracy is accepted)
-translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
+# Set the Priority (optional, default Latency)
+translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
 auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])

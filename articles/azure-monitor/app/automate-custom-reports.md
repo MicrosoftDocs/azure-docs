@@ -24,7 +24,7 @@ Each enterprise has its unique reporting needs, such as:
 
 ## Automate custom report emails
 
-You can [programmatically query Application Insights](https://dev.applicationinsights.io/) data to generate custom reports on a schedule. The following options can help you get started quickly:
+You can [programmatically query Application Insights](/rest/api/application-insights/) data to generate custom reports on a schedule. The following options can help you get started quickly:
 
 * [Automate reports with Power Automate](../logs/logicapp-flow-connector.md).
 * [Automate reports with Azure Logic Apps](automate-with-logic-apps.md).
@@ -146,6 +146,6 @@ These steps only apply if you don't already have a SendGrid account configured.
 ## Next steps
 
 * Learn more about creating [Analytics queries](../logs/get-started-queries.md).
-* Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
+* Learn more about [programmatically querying Application Insights data](/rest/api/application-insights/)
 * Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Learn more about [Power Automate](https://ms.flow.microsoft.com).

@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2021
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ---
@@ -46,7 +46,6 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
-[high-availability-guide]:high-availability-guide.md
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
@@ -80,7 +79,7 @@ ms.custom: H1Hack27Feb2017
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -198,7 +197,8 @@ Before you start the installation, review the following articles:
 
 * [Prepare Azure infrastructure SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-file-share]
 
-* [High availability for SAP NetWeaver on Azure VMs][high-availability-guide]
+* [High availability for SAP NetWeaver on Azure VMs]
+* 
 
 You need the following executables and DLLs from SAP:
 * SAP Software Provisioning Manager (SWPM) installation tool version SPS25 or later.
@@ -318,7 +318,8 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 
 Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  
 Restart the SAP ASCS/SCS instance. 
-Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance][high-availability-guide]. 
+Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158). 
+
 
 ## Install a DBMS instance and SAP application servers
 

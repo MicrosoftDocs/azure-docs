@@ -159,9 +159,6 @@ You can enable network isolation for managed online endpoints to secure the foll
 * Inbound scoring requests.
 * Outbound communication with the workspace, Azure Container Registry, and Azure Blob Storage.
 
-> [!IMPORTANT]
-> Using network isolation for managed online endpoints is a __preview__ feature, and isn't fully supported.
-
 For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
 
 ## Optional: Enable public access

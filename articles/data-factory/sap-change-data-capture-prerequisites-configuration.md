@@ -82,7 +82,7 @@ SAP Landscape Transformation Replication Server (SLT) is a database trigger-enab
 
       1. In **Scenario for RFC Communication**, select **Operational Data Provisioning (ODP)**.
 
-      1. In **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT-<your queue alias>`.
+      1. In **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT~<your queue alias>`.
 
    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-slt-configurations.png" alt-text="Screenshot of the SAP SLT configuration dialog.":::
 

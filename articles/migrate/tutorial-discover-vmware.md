@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/13/2022
-ms.custom: mvc, subject-rbac-steps
+ms.date: 12/12/2022
+ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
@@ -130,6 +130,9 @@ To set up a new project:
 1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#azure-government).
 
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Screenshot that shows how to add project details for a new Azure Migrate project.":::
+
+    > [!Note]
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
 
 1. Select **Create**.
 1. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -257,7 +260,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
 1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
-    Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure.
+   The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 

@@ -72,6 +72,15 @@ Authenticator leverages the native Apple cryptography to achieve FIPS 140, Secur
 
 FIPS 140 compliance for Microsoft Authenticator on Android is in progress and will follow soon.
 
+## Determining Microsoft Authenticator registration type in My Security-Info 
+Managining and adding additional Microsoft Authenticator registrations can be performed by users by accessing https://aka.ms/mysecurityinfo or by selecting Security info from  from My Account. Specific icons are used to differentiate whether the Microsoft Authenticator registration is capable of passwordless phone sign-in or MFA. 
+
+Authenticator registration type | Icon
+------ | ------
+Microsoft Authenticator: Passwordless phone sign-in   | <img width="43" alt="Microsoft Authenticator passwordless sign-in Capable" src="https://user-images.githubusercontent.com/50213291/211923744-d025cd70-4b88-4603-8baf-db0fc5d28486.png">  
+Microsoft Authenticator: MFA capable | <img width="43" alt="Microsoft Authenticator MFA Capable" src="https://user-images.githubusercontent.com/50213291/211921054-d11983ad-4e0d-4612-9a14-0fef625a9a2a.png">
+
+
 ## Next steps
 
 - To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).

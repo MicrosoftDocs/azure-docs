@@ -10,6 +10,8 @@ ms.custom: devx-track-js
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure SDK for Node.js. 
 
 The following versions are supported:

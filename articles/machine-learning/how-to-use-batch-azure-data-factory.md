@@ -38,7 +38,7 @@ Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web
 You can use a service principal or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
 
 > [!IMPORTANT]
-> When your data is stored in cloud locations instead of Azure Machine Learning Data Stores, the identity of the compute is used to read the data instead of the identity used to invoke the endpoint.
+> Batch Endpoints can consume data stored in storage accounts instead of Azure Machine Learning Data Stores or Data Assets. However, you may need to configure additional permissions for the identity of the compute where the batch endpoint runs on. See [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data).
 
 # [Using a Managed Identity](#tab/mi)
 
@@ -132,11 +132,16 @@ The pipeline requires the following parameters to be configured:
 To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
-2. Select __Pipeline__ > __Import from pipeline template__
-3. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
-4. A preview of the pipeline will show up in the portal. Click __Use this template__.
-5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
-6. Configure the parameters of the batch deployment you are using:
+
+1. Select __Pipeline__ > __Import from pipeline template__
+
+1. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
+
+1. A preview of the pipeline will show up in the portal. Click __Use this template__.
+
+1. The pipeline will be created for you with the name __Run-BatchEndpoint__.
+
+1. Configure the parameters of the batch deployment you are using:
 
   # [Using a Managed Identity](#tab/mi)
   
@@ -152,7 +157,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
   > Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
 
   > [!TIP]
-  > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
+  > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the inner pipeline but pass them as parameters from the outer pipeline as shown in the following image:
   > 
   > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline when invoked from another pipeline.":::
 

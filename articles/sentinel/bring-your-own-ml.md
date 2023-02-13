@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Machine Learning (ML) is one of the major underpinnings of Microsoft Sentinel, and one of the main attributes that set it apart. Microsoft Sentinel offers ML in several experiences: built-in to the [Fusion](fusion.md) correlation engine and Jupyter notebooks, and the newly available Build-Your-Own ML (BYO ML) platform. 

@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/13/2022
+ms.date: 12/16/2022
 ms.author: mbullwin
 recommendations: false
 ---
@@ -102,7 +102,7 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
 
     ```python
     from azure.ai.anomalydetector import AnomalyDetectorClient
-    from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
+    from azure.ai.anomalydetector.models import *
     from azure.core.credentials import AzureKeyCredential
     import pandas as pd
     import os
@@ -111,17 +111,17 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
-    client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
+    client = AnomalyDetectorClient(ENDPOINT, AzureKeyCredential(API_KEY))
 
     series = []
     data_file = pd.read_csv(DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
     for index, row in data_file.iterrows():
         series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 
-    request = DetectRequest(series=series, granularity=TimeGranularity.daily)
+    request = UnivariateDetectionOptions(series=series, granularity=TimeGranularity.DAILY)
 
-    change_point_response = client.detect_change_point(request)
-    anomaly_response = client.detect_entire_series(request)
+    change_point_response = client.detect_univariate_change_point(request)
+    anomaly_response = client.detect_univariate_entire_series(request)
 
     for i in range(len(data_file.values)):
         if (change_point_response.is_change_point[i]):
@@ -180,7 +180,7 @@ To visualize the anomalies and change points in relation to the sample data seri
 
     ```python
     from azure.ai.anomalydetector import AnomalyDetectorClient
-    from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
+    from azure.ai.anomalydetector.models import *
     from azure.core.credentials import AzureKeyCredential
     import pandas as pd
     import matplotlib.pyplot as plt
@@ -190,17 +190,17 @@ To visualize the anomalies and change points in relation to the sample data seri
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
-    client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
+    client = AnomalyDetectorClient(ENDPOINT, AzureKeyCredential(API_KEY))
 
     series = []
     data_file = pd.read_csv(DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
     for index, row in data_file.iterrows():
         series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 
-    request = DetectRequest(series=series, granularity=TimeGranularity.daily)
+    request = UnivariateDetectionOptions(series=series, granularity=TimeGranularity.DAILY)
 
-    change_point_response = client.detect_change_point(request)
-    anomaly_response = client.detect_entire_series(request)
+    change_point_response = client.detect_univariate_change_point(request)
+    anomaly_response = client.detect_univariate_entire_series(request)
 
     for i in range(len(data_file.values)):
         temp_date_to_num = mdates.date2num(data_file.values[i])

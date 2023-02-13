@@ -9,6 +9,8 @@ ms.date: 10/11/2019
 
 # Azure Data Lake Analytics is upgrading to the .NET Framework v4.7.2
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v4.5.2 to .NET Framework v4.7.2. This change introduces a small risk of breaking changes if your U-SQL code uses custom assemblies, and those custom assemblies use .NET libraries.
 
 This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL runtime (the default runtime) will now always be 4.7.2. There isn't a side-by-side option for .NET Framework versions.

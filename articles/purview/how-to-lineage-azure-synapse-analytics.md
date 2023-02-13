@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 12/14/2022
 ---
 # How to get lineage from Azure Synapse Analytics into Microsoft Purview
 
@@ -53,6 +53,10 @@ In your Microsoft Purview account, you can browse assets and choose type "Azure 
 Select the Synapse account -> pipeline -> activity, you can view the lineage information.
 
 :::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse the Azure Synapse pipeline lineage in Microsoft Purview." lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
+
+## Monitor the Azure Synapse Analytics links
+
+In Microsoft Purview governance portal, you can [monitor the Azure Synapse Analytics links](how-to-monitor-data-map-population.md#monitor-links).
 
 ## Next steps
 

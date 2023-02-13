@@ -107,7 +107,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 #### Modify the Python notebook
 
-1. In the first cell of the python notebook, set the value of the `storage_account` variable to the name of the primary storage account. 
+1. In the first cell of the Python notebook, set the value of the `storage_account` variable to the name of the primary storage account. 
 
 2. Update the value of the `container_name` variable to the name of the container in that account that you specified when you created the Synapse workspace.
 

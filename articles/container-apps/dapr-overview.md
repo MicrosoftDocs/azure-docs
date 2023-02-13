@@ -189,7 +189,7 @@ When creating a secret store component in container apps, you can provide sensit
 - For an **Azure Key Vault secret store**, use managed identity to establish the connection.
 - For **non-Azure secret stores**, use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
-The following component showcases the simplest possible secret store configuration. This example publisher and subscriber applications configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
+The following component showcases the simplest possible secret store configuration. In this example, publisher and subscriber applications are configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
 
 ```yaml
 componentType: secretstores.azure.keyvault
@@ -199,7 +199,7 @@ metadata:
     value: [your_keyvault_name]
   - name: azureEnvironment
     value: "AZUREPUBLICCLOUD"
-  - name: azureClientId
+  - name: azureClientId # Only required if using user-assigned managed identity
     value: [your_managed_identity_client_id]
 scopes:
   - publisher-app
@@ -223,7 +223,7 @@ metadata:
     value: "AZUREPUBLICCLOUD"
   - name: azureTenantId
     value: "[your_tenant_id]"
-  - name: azureClientId
+  - name: azureClientId 
     value: "[your_client_id]"
   - name: azureClientSecret
     secretRef: azClientSecret

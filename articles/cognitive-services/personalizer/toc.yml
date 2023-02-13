@@ -116,7 +116,7 @@
   - name: .NET
     items:
     - name: Reference
-      href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
+      href: /dotnet/api/overview/azure/personalizer
     - name: NuGet package
       href: https://go.microsoft.com/fwlink/?linkid=2092272
   - name: Go

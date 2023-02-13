@@ -1,8 +1,8 @@
 ---
 title: Azure Dedicated Host SKU Retirement Migration Guide
 description: Walkthrough on how to migrate a retiring Dedicated Host SKU
-author: brittanyrowe
-ms.author: brittanyrowe
+author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to

@@ -35,16 +35,19 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
 
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
+```
+
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated worker process.
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/).
 
-<!--
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
--->
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
+```
 
 <!-- awaiting bundle support
 # [C# script](#tab/csharp-script)

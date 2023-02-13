@@ -43,6 +43,15 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which su
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
+### <a name="2.6.5"></a>2.6.5
+* Removed test dependency `com.google.guava/guava` due to security vulnerabilities
+* Upgraded dependency `com.fasterxml.jackson.core/jackson-databind` to 2.14.0
+* Upgraded dependency `commons-codec/commons-codec` to 1.15
+* Upgraded dependency `org.json/json` to 20180130
+
+### <a name="2.6.4"></a>2.6.4
+* Fixed the retry policy for read timeouts
+
 ### <a name="2.6.3"></a>2.6.3
 * Fixed a retry policy when `GoneException` is wrapped in `IllegalStateException` - - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
 

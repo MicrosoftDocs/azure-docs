@@ -43,7 +43,7 @@ Azure OpenAI's model names typically correspond to the following standard naming
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
 
-For example, our most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
+For example, our most powerful GPT-3 model is called `text-davinci-003`, while our most powerful Codex model is called `code-davinci-002`.
 
 > Older versions of the GPT-3 models are available, named `ada`, `babbage`, `curie`, and `davinci`. These older models do not follow the standard naming conventions, and they are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
 
@@ -62,7 +62,7 @@ The GPT-3 models can understand and generate natural language. The service offer
 - `text-ada-001`
 - `text-babbage-001`
 - `text-curie-001`
-- `text-davinci-002`
+- `text-davinci-003`
 
 While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting, because it will produce the best results and validate the value our service can provide. Once you have a prototype working, you can then optimize your model choice with the best latency/performance balance for your application.
 
@@ -166,6 +166,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
 | Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
+| Text-davinci-003 | Yes | No | East US | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
 \*Models available by request only. Please open a support request.

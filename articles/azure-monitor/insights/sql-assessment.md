@@ -190,7 +190,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## SQL Health Check solution FAQ
+## Frequently asked questions
 
 *What checks are performed by the SQL Assessment solution?*
 

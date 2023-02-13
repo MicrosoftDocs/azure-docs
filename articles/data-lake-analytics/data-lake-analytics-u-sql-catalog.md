@@ -8,6 +8,8 @@ ms.date: 05/09/2017
 ---
 # Get started with the U-SQL Catalog in Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Create a TVF
 
 In the previous U-SQL script, you repeated the use of EXTRACT to read from the same source file. With the U-SQL table-valued function (TVF), you can encapsulate the data for future reuse.  

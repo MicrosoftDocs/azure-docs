@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # How an IoT Edge device can be used as a gateway
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
@@ -62,6 +62,9 @@ Beginning with version 1.2 of IoT Edge, transparent gateways can handle connecti
 ### Parent and child relationships
 
 You declare transparent gateway relationships in IoT Hub by setting the IoT Edge gateway as the *parent* of a downstream device *child* that connects to it.
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 The parent/child relationship is established at three points in the gateway configuration:
 

@@ -16,18 +16,20 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 - Specific days of the week
 - Session limits per session host
 
+To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
 > - Autoscale doesn't support scaling of ephemeral disks.
 > - Autoscale doesn't support scaling of generalized VMs.
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
-> - Autoscale is currently only available in the public cloud.
+> - Autoscale is available in Azure and Azure Government.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
 >[!IMPORTANT]
->Deploying scaling plans with autoscale is currently limited to the following Azure regions in the public cloud:
+>Deploying scaling plans with autoscale in Azure is currently limited to the following regions:
 >
 >   - Australia East
 >   - Canada Central

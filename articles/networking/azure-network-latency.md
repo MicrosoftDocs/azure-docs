@@ -23,6 +23,9 @@ The monthly Percentile P50 round trip times between Azure regions for the past 3
 
 :::image type="content" source="media/azure-network-latency/azure-network-latency-thmb-july-2022.png" alt-text="Chart of the inter-region latency statistics as of June 30, 2022." lightbox="media/azure-network-latency/azure-network-latency-july-2022.png":::
 
+> [IMPORTANT!}
+> Monthly latency numbers across Azure regions do not change regulary. Given this, you can expect an update of this table every 6 to 9 months outside of the addition of new regions. When new regions come online, we will update this document as soon as data is available.
+
 ## Next steps
 
 Learn about [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).

@@ -138,7 +138,6 @@ The provisioning service continues running back-to-back incremental cycles indef
 - The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
 - A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This will not break the links between source and target objects. To break the links use [Restart synchronizationJob](https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) with the following request: 
 
-# [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_restart"

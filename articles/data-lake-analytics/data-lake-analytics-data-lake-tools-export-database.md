@@ -9,6 +9,8 @@ ms.date: 11/27/2017
 
 # Export a U-SQL database
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 In this article, learn how to use [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) to export a U-SQL database as a single U-SQL script and downloaded resources. You can import the exported database to a local account in the same process.
 
 Customers usually maintain multiple environments for development, test, and production. These environments are hosted on both a local account, on a developer's local computer, and in an Azure Data Lake Analytics account in Azure. 

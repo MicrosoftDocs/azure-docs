@@ -10,8 +10,6 @@ ms.author: juliako
 
 # Examine the Azure Video Indexer output
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 For information, see [Azure Video Indexer insights](insights-overview.md).

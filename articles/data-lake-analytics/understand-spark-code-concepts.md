@@ -9,6 +9,8 @@ ms.date: 05/17/2022
 
 # Understand Apache Spark code for U-SQL developers
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 This section provides high-level guidance on transforming U-SQL Scripts to Apache Spark.
 
 - It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)

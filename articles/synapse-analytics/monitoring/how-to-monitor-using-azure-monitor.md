@@ -101,13 +101,13 @@ Here are the logs emitted by Azure Synapse Analytics workspaces:
 | --- | --- | --- |
 | SynapseGatewayApiRequests | GatewayApiRequests | Azure Synapse gateway API requests. |
 | SynapseRbacOperations | SynapseRbacOperations | Azure Synapse role-based access control (SRBAC) operations. |
-| SynapseBuiltinSqlReqsEnded | BuiltinSqlReqsEnded | Azure Synapse built-in serverless SQL pool ended requests. |
+| SynapseBuiltinSqlPoolRequestsEnded | BuiltinSqlReqsEnded | Azure Synapse built-in serverless SQL pool ended requests. |
 | SynapseIntegrationPipelineRuns | IntegrationPipelineRuns | Azure Synapse integration pipeline runs. |
 | SynapseIntegrationActivityRuns | IntegrationActivityRuns | Azure Synapse integration activity runs. |
 | SynapseIntegrationTriggerRuns | IntegrationTriggerRuns | Azure Synapse integration trigger runs. |
 
    > [!NOTE]  
-   > The event **SynapseBuiltinSqlReqsEnded** is only emitted for queries that read data from storage. It will not be emitted for queries that only process metadata.
+   > The event **SynapseBuiltinSqlPoolRequestsEnded** is only emitted for queries that read data from storage. It will not be emitted for queries that only process metadata.
 
 
 ### Dedicated SQL pool logs

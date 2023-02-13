@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 08/24/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 ---
 
@@ -221,19 +221,19 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          1. Click OK
       1. IP address 10.90.90.9 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.90.90.9** and **frontend.NW1.ERS**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **backend.NW1**)
-      1. Click Add a virtual machine.
-      1. Select Virtual machine
-      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-      1. Click Add  
-      
+   1. Create a single back-end pool: 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. Enter the name of the new back-end pool (for example, **backend.NW1**).
+      2. Select **NIC** for Backend Pool Configuration. 
+      1. Select **Add a virtual machine**.
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.       
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
          1. Enter the name of the new health probe (for example **health.NW1.ASCS**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Select TCP as protocol, port 620**00**, keep Interval 5  
          1. Click OK
       1. Port 621**01** for ASCS ERS
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.NW1.ERS**)
@@ -247,43 +247,6 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          3. **Make sure to enable Floating IP**
          4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
-1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these steps instead to create basic load balancer:  
-   1. Create the frontend IP addresses
-      1. IP address 10.90.90.10 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **frontend.NW1.ASCS**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.90.90.10**)
-         1. Click OK
-      1. IP address 10.90.90.9 for the ASCS ERS
-         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.90.90.9** and **frontend.NW1.ERS**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **backend.NW1**)
-      1. Click Add a virtual machine.
-      1. Select the Availability Set you created earlier for ASCS 
-      1. Select the virtual machines of the (A)SCS cluster
-      1. Click OK
-   1. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **health.NW1.ASCS**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
-         1. Click OK
-      1. Port 621**01** for ASCS ERS
-            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.NW1.ERS**)
-   1. Load-balancing rules
-      1. 32**00** TCP for ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **lb.NW1.ASCS.3200**)
-         1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**)
-         1. Keep protocol **TCP**, enter port **3200**
-         1. Increase idle timeout to 30 minutes
-         1. **Make sure to enable Floating IP**
-         1. Click OK
-      1. Additional ports for the ASCS
-         * Repeat the steps above under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
-      1. Additional ports for the ASCS ERS
-         * Repeat the steps above under "d" for ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
 
       
       > [!IMPORTANT]

@@ -1,7 +1,9 @@
 ---
 title: Migrate from Azure Data Lake Storage Gen1 to Gen2 using the Azure portal
+titleSuffix: Azure Storage
 description: You can simplify the task of migrating from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 by using the Azure portal.
 author: normesta
+
 ms.topic: how-to
 ms.author: normesta
 ms.date: 09/12/2022

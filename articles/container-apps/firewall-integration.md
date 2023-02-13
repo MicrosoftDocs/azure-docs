@@ -26,7 +26,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 | Protocol | Port | ServiceTag | Description |
 |--|--|--|--|
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 | Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
 ### Outbound with ServiceTags
@@ -45,7 +45,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP | `123` | \* | NTP server. |
 | TCP | `5671` | \* | Container Apps control plane. |
 | TCP | `5672` | \* | Container Apps control plane. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
 

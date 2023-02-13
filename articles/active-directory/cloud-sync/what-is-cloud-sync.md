@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/17/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

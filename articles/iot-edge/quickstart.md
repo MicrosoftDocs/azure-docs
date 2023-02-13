@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 07/05/2022
+ms.date: 10/20/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own Windows Client device to see how easy it is to use Azure IoT Edge for Linux on Windows. If you wish to use Windows Server or an Azure VM to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
@@ -35,7 +35,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Create a cloud resource group to manage all the resources you'll use in this quickstart.
 
@@ -211,7 +211,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that sends t
 ![Diagram that shows the step to deploy a module.](./media/quickstart/deploy-module.png)
 
 <!--
-[!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+[!INCLUDE [iot-edge-deploy-module](includes/iot-edge-deploy-module.md)]
 
 Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2
 -->
@@ -323,7 +323,7 @@ az group list
 ```
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

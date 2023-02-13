@@ -137,6 +137,9 @@ Set up a new project.
 
    ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
 
+   > [!Note]
+   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
+
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 

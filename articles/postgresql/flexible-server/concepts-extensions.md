@@ -156,6 +156,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.6.2            | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -164,7 +165,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
@@ -215,6 +216,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -223,7 +225,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
@@ -274,6 +276,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/12/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -282,7 +285,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0           | PostGIS SFCGAL functions|
@@ -333,6 +336,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -341,7 +345,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.5           | PostGIS SFCGAL functions|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.5           | PostGIS tiger geocoder and reverse geocoder|
@@ -490,8 +494,25 @@ For more details on restore method wiith Timescale enabled database see [Timesca
 > [!NOTE]
 > When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
 
+## pg_hint_plan
 
-
+`pg_hint_plan` makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments, like
+```sql
+/*+ SeqScan(a) */
+```
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
+Example:
+```sql
+  /*+
+      HashJoin(a b)
+      SeqScan(a)
+    */
+    SELECT *
+      FROM pgbench_branches b
+      JOIN pgbench_accounts a ON b.bid = a.bid
+     ORDER BY a.aid;
+```
+The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
 ## Next steps
 
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

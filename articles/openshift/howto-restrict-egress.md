@@ -5,18 +5,15 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 06/02/2022
+ms.date: 12/15/2022
 ---
-# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
+# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
 This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster will be proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 ## Before you begin
 
 This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md).
-
-> [!IMPORTANT]
-> ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
 
 ## Minimum Required FQDN - Proxied through ARO service
 

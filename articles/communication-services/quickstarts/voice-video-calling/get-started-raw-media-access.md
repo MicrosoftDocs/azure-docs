@@ -9,11 +9,15 @@ ms.date: 06/30/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-plat-android-web-ios
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other
 ---
 
 # QuickStart: Add raw media access to your app
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Raw media with Windows](./includes/raw-media/raw-media-access-windows.md)]
+::: zone-end
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Raw media with Android](./includes/raw-media/raw-media-access-android.md)]

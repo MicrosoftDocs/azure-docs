@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 09/11/2022
+ms.date: 01/09/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -23,6 +23,8 @@ Security DevOps uses the following Open Source tools:
 
 ## Prerequisites
 
+- An Azure subscription If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
 - Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
@@ -35,7 +37,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Select a repository on which you want to configure the GitHub action.
+1. Select a repository you want to configure the GitHub action to.
 
 1. Select **Actions**.
 

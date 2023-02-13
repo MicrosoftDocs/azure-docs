@@ -36,7 +36,7 @@ sections:
           * Additional brokered connections, with an overage charge for more than the number included
           * More than a single [consumer group](event-hubs-features.md#consumer-groups)
           * [Capture](event-hubs-capture-overview.md)
-          * [Kafka integration](event-hubs-for-kafka-ecosystem-overview.md)
+          * [Kafka integration](azure-event-hubs-kafka-overview.md)
           
           For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
           

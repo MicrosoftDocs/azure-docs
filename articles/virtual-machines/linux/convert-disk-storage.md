@@ -33,7 +33,7 @@ This example shows how to convert all of a VM's disks to premium storage. Howeve
  ```azurecli
 
 #resource group that contains the virtual machine
-rgName='yourResourceGroup'
+$rgName='yourResourceGroup'
 
 #Name of the virtual machine
 vmName='yourVM'
@@ -70,7 +70,7 @@ For your dev/test workload, you might want to have a mix of Standard and Premium
  ```azurecli
 
 #resource group that contains the managed disk
-rgName='yourResourceGroup'
+$rgName='yourResourceGroup'
 
 #Name of your managed disk
 diskName='yourManagedDiskName'

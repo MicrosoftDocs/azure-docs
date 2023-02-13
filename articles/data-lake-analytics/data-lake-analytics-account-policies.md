@@ -8,11 +8,15 @@ ms.date: 04/30/2018
 ---
 # Manage Azure Data Lake Analytics using Account Policies
 
-Account policies help you control how resources an Azure Data Lake Analytics account are used. These policies allow you to control the cost of using Azure Data Lake Analytics. For example, with these policies you can prevent unexpected cost spikes by limiting how many AUs the account can simultaneously use.## Account-level policies
+Account policies help you control how resources an Azure Data Lake Analytics account are used. These policies allow you to control the cost of using Azure Data Lake Analytics. For example, with these policies you can prevent unexpected cost spikes by limiting how many AUs the account can simultaneously use.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
+## Account-level policies
 
 These policies apply to all jobs in a Data Lake Analytics account.
 
-## Maximum number of AUs in a Data Lake Analytics account
+### Maximum number of AUs in a Data Lake Analytics account
 
 A policy controls the total number of Analytics Units (AUs) your Data Lake Analytics account can use. By default, the value is set to 250. For example, if this value is set to 250 AUs, you can have one job running with 250 AUs assigned to it, or 10 jobs running with 25 AUs each. Additional jobs that are submitted are queued until the running jobs are finished. When running jobs are finished, AUs are freed up for the queued jobs to run.
 
@@ -26,7 +30,7 @@ To change the number of AUs for your Data Lake Analytics account:
    > [!NOTE]
    > If you need more than the default (250) AUs, in the portal, click **Help+Support** to submit a support request. The number of AUs available in your Data Lake Analytics account can be increased.
 
-## Maximum number of jobs that can run simultaneously
+### Maximum number of jobs that can run simultaneously
 
 This policy limits how many jobs can run simultaneously. By default, this value is set to 20. If your Data Lake Analytics has AUs available, new jobs are scheduled to run immediately until the total number of running jobs reaches the value of this policy. When you reach the maximum number of jobs that can run simultaneously, subsequent jobs are queued in priority order until one or more running jobs complete (depending on available AUs).
 
@@ -40,7 +44,7 @@ To change the number of jobs that can run simultaneously:
    > [!NOTE]
    > If you need to run more than the default (20) number of jobs, in the portal, click **Help+Support** to submit a support request. The number of jobs that can run simultaneously in your Data Lake Analytics account can be increased.
 
-## How long to keep job metadata and resources
+### How long to keep job metadata and resources
 
 When your users run U-SQL jobs, the Data Lake Analytics service keeps all related files. These files include the U-SQL script, the DLL files referenced in the U-SQL script, compiled resources, and statistics. The files are in the /system/ folder of the default Azure Data Lake Storage account. This policy controls how long these resources are stored before they are automatically deleted (the default is 30 days). You can use these files for debugging, and for performance-tuning of jobs that you'll rerun in the future.
 

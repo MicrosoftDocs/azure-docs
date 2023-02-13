@@ -6,9 +6,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2022
-ms.author: mimart
-author: msmimart
+ms.date: 01/09/2023
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
@@ -83,8 +83,7 @@ Microsoft account |  This user is homed in a Microsoft account and authenticates
 {host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and isn't a Gmail address or a Microsoft account.
-phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
+mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 ### Directory synced
