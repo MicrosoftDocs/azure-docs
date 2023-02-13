@@ -35,7 +35,7 @@ var vnetName = 'vnet-${suffix}'
 
 Optionally, you can use **Quickfix** to replace the `concat` with string interpolation:
 
-:::image type="content" source="./media/linter-rule-prefer-interpolation/linter-rule-prefer-interpolation-quick-fix.png" alt-text="The screenshot of Prefer interpolation linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-prefer-interpolation/linter-rule-prefer-interpolation-quick-fix.png" alt-text="The screenshot of Prefer interpolation linter rule quick fix.":::
 
 ## Next steps
 
