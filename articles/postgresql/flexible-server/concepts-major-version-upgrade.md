@@ -131,9 +131,9 @@ Run the **ANALYZE** operation to refresh the pg_statistic table. You should do t
 ```
 ANALYZE VERBOSE
 ```
-[!NOTE]  
+> [!NOTE]   
 
-The VERBOSE flag is optional, but using it shows you the progress. 
+> The VERBOSE flag is optional, but using it shows you the progress. 
 
 ## Next steps
 
