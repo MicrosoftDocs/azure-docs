@@ -82,6 +82,8 @@ Data is stored within the region your connector is created in. You should consid
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 
+Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
+
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
 Exemptions are not available for Defender for DevOps within Microsoft Defender for Cloud.
