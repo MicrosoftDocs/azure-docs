@@ -126,7 +126,7 @@ To complete the configuration modification, do the following steps:
 1. Sign in to the Azure portal and select your Azure HDInsight Apache Kafka cluster.
 1. Go to the Ambari UI by clicking **Ambari home** under **Cluster dashboards**.
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SASL_SSL://localhost:9093`
-1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
+1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SASL_SSL`
 
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-with-sasl.png" alt-text="Editing Kafka ssal configuration properties in Ambari" border="true":::
 
