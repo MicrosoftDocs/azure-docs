@@ -512,12 +512,15 @@ Although we do our best to provide a stable and reliable service, sometimes thin
 * [DeploymentCrashLoopBackOff](#error-deploymentcrashloopbackoff)
 * [KubernetesCrashLoopBackOff](#error-kubernetescrashloopbackoff)
 * [NamespaceNotFound](#error-namespacenotfound)
-* [EndpointNotFound](#error-endpointnotfound)
+* [UserScriptInitFailed](#error-userscriptinitfailed)
+* [UserScriptImportError](#error-userscriptimporterror)
+* [UserScriptFunctionNotFound](#error-userscriptfunctionnotfound)
 * [EndpointAlreadyExists](#error-endpointalreadyexists)
 * [ScoringFeUnhealthy](#error-scoringfeunhealthy)
 * [ValidateScoringFailed](#error-validatescoringfailed)
 * [InvalidDeploymentSpec](#error-invaliddeploymentspec)
 * [PodUnschedulable](#error-podunschedulable)
+* [PodOutOfMemory](#error-podoutofmemory)
 * [InferencingClientCallFailed](#error-inferencingclientcallfailed )
 
 
@@ -538,10 +541,12 @@ In this case, you can check the cluster network policy and the workspace contain
 
 ### ERROR: DeploymentCrashLoopBackOff 
 
-The reason you might run into this error when creating/updating Kubernetes online deployments. To mitigate this error, refer to the following steps:
-* If deployment log exist, you can check if there are any error message to indicate the error detail. 
-* Otherwise, please following [ERROR: ResourceNotReady](#error-resourcenotready) part. 
-* It may also happened if the deployment pod need more memory than deployment's limit. 
+The reason you might run into this error when creating/updating Kubernetes online deployments is the user container crashed initializing. There are two possible reasons for this error:
+* User script `score.py` has syntax error or import error then raise exceptions in initializing.
+* Or deployment pod need more memory than deployment's limit.
+
+To mitigate this error, first you can check the deployment logs for any exceptions in user scripts. If error persists, try to extend resources/instance type memory limit.  
+ 
 
 ### ERROR: KubernetesCrashLoopBackOff
 
@@ -617,7 +622,7 @@ To mitigate this error, refer to the following steps:
 
 ### ERROR: PodOutOfMemory 
 
-The reason you might run into this error is the memory limit you give for deployment is insufficient. You can set the memory limit to a larger value or use a bigger instance type to mitigate this error.
+The reason you might run into this error when you creating/updating online deployment is the memory limit you give for deployment is insufficient. You can set the memory limit to a larger value or use a bigger instance type to mitigate this error.
 
 ### ERROR: InferencingClientCallFailed 
 
