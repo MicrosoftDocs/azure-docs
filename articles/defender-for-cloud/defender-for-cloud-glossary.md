@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 01/25/2023
+ms.date: 02/13/2023
 ms.topic: article
 ---
 
@@ -25,8 +25,10 @@ This glossary provides a brief description of important terms and concepts for t
 |**ANH** | Adaptive network hardening| [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md)
 |**APT** | Advanced Persistent Threats | [Video: Understanding APTs](/events/teched-2012/sia303)|
 | **Arc-enabled Kubernetes**| Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center.|[What is Azure Arc-enabled Logic Apps? (Preview)](../logic-apps/azure-arc-enabled-logic-apps-overview.md)
+|**ARG**| Azure Resource Graph-an Azure service designed to extend Azure Resource Management by providing resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment.| [Azure Resource Graph Overview](../governance/resource-graph/overview.md)|
 |**ARM**| Azure Resource Manager-the deployment and management service for Azure.| [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md)|
 |**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](/security/benchmark/azure/baselines/security-center-security-baseline) |
+|**Attack Path Analysis**| A graph-based algorithm that scans the cloud security graph, exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.| [What is attack path analysis?](concept-attack-path.md#what-is-attack-path-analysis) |
 |**Auto-provisioning**| To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to quietly deploy the Azure Monitor Agent on your servers.| [Configure auto provision](../iot-dps/quick-setup-auto-provision.md)|
 
 ## B
@@ -77,6 +79,7 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**GCP**| Google Cloud Platform | [Onboard a GPC Project](../active-directory/cloud-infrastructure-entitlement-management/onboard-gcp.md)|
 |**GKE**| Google Kubernetes Engine, Google's managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md)|
+|**Governance**| A set of rules and policies adopted by companies that run services in the cloud. The goal of cloud governance is to enhance data security, manage risk, and enable the smooth operation of cloud systems.|[Governance Overview](governance-rules.md)|
 
 ## I
 
