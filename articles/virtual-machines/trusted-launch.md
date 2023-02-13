@@ -41,14 +41,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Dv5-series, Dsv5-series
 - Ddv5-series, Ddsv5-series
 - Dasv5-series, Dadsv5-series
+- Esv3-series, Ev4-series, Esv4-series
+- Edv4-series, Edsv4-series
+- Eav4-series, Easv4-series
 - Ev5-series, Esv5-series
 - Edv5-series, Edsv5-series
 - Easv5-series, Eadsv5-series
-- Eav4-series, Easv4-series
-- Ev4-series, Esv4-series, Esv3-series
-- Edv4-series, Edsv4-series
 - Fsv2-series
+- FX-series
 - Lsv2-series
+- Lsv3-series, Lasv3-series
 - NCasT4_v3-series
 - NVadsA10 v5-series
 
