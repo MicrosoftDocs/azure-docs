@@ -7,7 +7,7 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 02/13/2023
 ---
 
 
@@ -33,7 +33,9 @@ Azure OpenAI Service runs on Azure infrastructure that accrues costs when you de
 
 Azure OpenAI base series and Codex series models are charged per 1,000 tokens. Costs vary depending on which model series you choose: Ada, Babbage, Curie, Davinci, or Code-Cushman.
 
-Our models understand and process text by breaking it down into tokens. For reference, each token is roughly four characters for typical English text.
+Our models understand and process text by breaking it down into tokens. For reference, each token is roughly four characters for typical English text. Token costs are for both input and output. 
+
+So if you have a 1,000 token JavaScript code sample that you ask an OpenAI model to convert to Python. You would be charged approximately 1,000 tokens for the initial input request sent, and 1,000 more tokens for the output that is received in response. In practice, the token usage wouldn't be this 1:1. A conversion from one programming language to another could result in a longer or shorter output depending on many different factors.
 
 ### Base Series and Codex series fine-tuned models
 
