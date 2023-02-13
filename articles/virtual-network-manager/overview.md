@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 01/31/2023
+ms.date: 02/06/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
@@ -16,11 +16,11 @@ ms.custom: references_regions, ignite-fall-2021
 Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager and hub and spoke connectivity configurations. 
 >
-> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Mesh connectivity configurations and security admin rules remain in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## How does Azure Virtual Network Manager work?
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagram of management group in Virtual Network Manager.":::
