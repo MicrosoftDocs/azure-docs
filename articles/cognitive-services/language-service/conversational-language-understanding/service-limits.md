@@ -92,16 +92,17 @@ The following limits are observed for the conversational language understanding.
 
 |Item|Lower Limit| Upper Limit |
 | --- | --- | --- |
-|Count of utterances per project | 1 | 25,000|
+|Number of utterances per project | 1 | 25,000|
 |Utterance length in characters (authoring) | 1 | 500 |
 |Utterance length in characters (prediction) | 1 | 1000 |
-|Count of intents per project | 1 | 500|
-|Count of entities per project | 1 | 500|
-|Count of list synonyms per entity| 0 | 20,000 |
-|Count of prebuilt components per entity| 0 | 7 |
-|Count of regular expressions per project| 0 | 20 |
-|Count of trained models per project| 0 | 10 |
-|Count of deployments per project| 0 | 10 |
+|Number of intents per project | 1 | 500|
+|Number of entities per project | 0 | 350|
+|Number of list synonyms per entity| 0 | 20,000 |
+|Number of list synonyms per project| 0 | 2,000,000 |
+|Number of prebuilt components per entity| 0 | 7 |
+|Number of regular expressions per project| 0 | 20 |
+|Number of trained models per project| 0 | 10 |
+|Number of deployments per project| 0 | 10 |
 
 ## Naming limits
 
