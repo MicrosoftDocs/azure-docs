@@ -220,7 +220,7 @@ let freeTables = dynamic([
 Usage 
 | where DataType !in (freeTables) 
 | where TimeGenerated > ago(30d) 
-| where IsBillable = false 
+| where IsBillable == false 
 | summarize MonthlyPotentialUnderbilledGB=sum(Quantity)/1000 by DataType
 ```
 
