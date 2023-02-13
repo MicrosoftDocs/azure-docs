@@ -120,7 +120,7 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 
 
-:::image type="content" source="media/concepts-major-version-upgrade/upgrade- verification.png" alt-text="Diagram of Upgraded version to Flexible server after major version upgrade.":::
+:::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible server after major version upgrade.":::
 
 
 ## Post Upgrade
