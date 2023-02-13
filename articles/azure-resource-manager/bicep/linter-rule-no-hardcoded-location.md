@@ -40,7 +40,7 @@ You can fix it by creating a new `location` string parameter (which may optional
 
 Use **Quick Fix** to create a location parameter and replace the string literal with the parameter name. See the following screenshot:
 
-:::image type="content" source="./media/linter-rule-no-hardcoded-location/linter-rule-no-hardcoded-location-quick-fix.png" alt-text="The screenshot of No hardcoded location linter rule warning with quickfix":::
+:::image type="content" source="./media/linter-rule-no-hardcoded-location/linter-rule-no-hardcoded-location-quick-fix.png" alt-text="The screenshot of No hardcoded location linter rule warning with quickfix.":::
 
 The following example fails this test because the resource's `location` property uses a variable with a string literal.
 
