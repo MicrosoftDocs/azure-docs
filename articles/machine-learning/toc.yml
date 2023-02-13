@@ -611,6 +611,8 @@
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+            - name: Debug scoring script with inference HTTP server
+              href: how-to-inference-server-http.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
@@ -651,9 +653,6 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: Inference HTTP server
-          displayName: local debug
-          href: how-to-inference-server-http.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning

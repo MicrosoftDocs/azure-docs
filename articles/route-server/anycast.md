@@ -1,12 +1,13 @@
 ---
-title: 'Propagating anycast routes to on-premises'
-description: Learn about how to advertise the same route from different regions with Azure Route Server.
+title: Propagating anycast routes to on-premises
+description: Learn about advertising the same route from different regions with Azure Route Server.
 services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 02/03/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
 # Anycast routing with Azure Route Server

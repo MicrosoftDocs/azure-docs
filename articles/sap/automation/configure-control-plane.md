@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 12/28/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ---
 
 # Configure the control plane

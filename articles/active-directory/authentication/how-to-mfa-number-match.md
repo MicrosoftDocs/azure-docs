@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 02/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -366,13 +366,13 @@ Regardless of their default method, any user who is prompted to sign-in with Aut
 
 No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
 
-### What happens if a user runs an older version of Microsoft Authenticator?
+### What happens if a user runs an older version of Microsoft Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.  
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in if they use Android versions prior to 6.2006.4198, or iOS versions prior to 6.4.12.
 
-### Why is my user prompted to tap on one out of three numbers instead of entering the number in their Microsoft Authenticator app?
+### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number instead of entering the number in their Microsoft Authenticator app. These authentications won't fail, but we highly recommend that users update to the latest version of the app to be able to enter the number. 
+Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator if they use Android versions prior to 6.2108.5654, or iOS versions prior to 6.5.82, so they can use number match.
 
 ## Next steps
 
