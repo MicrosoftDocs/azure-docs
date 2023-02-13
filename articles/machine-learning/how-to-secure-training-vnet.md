@@ -135,9 +135,9 @@ The following configurations are in addition to those listed in the [Prerequisit
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
-    - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
+    - [Azure's outbound connectivity methods](../load-balancer/load-balancer-outbound-connections.md#scenarios).
 
-    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](/azure/virtual-network/service-tags-overview) article.
+    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](../virtual-network/service-tags-overview.md) article.
 
 Use the following information to create a compute instance or cluster with no public IP address:
 

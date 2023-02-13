@@ -1,22 +1,16 @@
 ---
-title: Azure virtual network TAP overview | Microsoft Docs
+title: Azure virtual network TAP overview
 description: Learn about virtual network TAP. Virtual network TAP provides you a deep copy of virtual machine network traffic that can be streamed to a packet collector.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: ganesr
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: allensu
 ---
-
 
 # Virtual network TAP
 > [!IMPORTANT]

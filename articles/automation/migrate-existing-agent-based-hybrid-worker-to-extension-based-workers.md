@@ -110,7 +110,7 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 #### [Bicep template](#tab/bicep-template)
 
-You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](/articles/azure-resource-manager/bicep/overview.md)
+You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](/azure/azure-resource-manager/bicep/overview)
 
 ```Bicep
 param automationAccount string

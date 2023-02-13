@@ -1,22 +1,15 @@
 ---
-title: Deploy Azure virtual network container networking | Microsoft Docs
+title: Deploy Azure virtual network container networking
 description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: NarayanAnnamalai
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: allensu
-ms.custom: 
-
 ---
 
 # Deploy the Azure Virtual Network container network interface plug-in
