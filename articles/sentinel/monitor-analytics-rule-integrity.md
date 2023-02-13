@@ -167,6 +167,64 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
     | \<*number*> entities were dropped in alert \<*name*> due to entity mapping issues.   |   |
     | The query resulted in \<*number*> events, which exceeds the maximum of \<*limit*> results allowed for \<*rule type*> rules with alert-per-row event-grouping configuration. Alert-per-row was generated for first \<*limit*-1> events and an additional aggregated alert was generated to account for all events.<br>- \<*number*> = number of events returned by the query<br>- \<*limit*> = currently 150 alerts for scheduled rules, 30 for NRT rules<br>- \<*rule type*> = Scheduled or NRT
 
+## Use the auditing and health monitoring workbook
+
+At the top of the screen, choose a subscription and workspace for which to display information.
+
+You can also choose a time range. The default is the past 7 days.
+
+### Overview tab
+
+- Health summary
+    - Analytics rule run by status, over time (line graph)
+    - Analytics rule run by status (pie chart)
+    - Total running unique rule (numeric display)
+    - Analytics health summary by reason (chart)
+    - Analytics rule with failure and warning occurrence (chart)
+    - Failure and warning event (table)
+
+- Audit summary
+    - Analytics rule audit by activity, over time (line graph)
+    - Analytics rule audit by activity (pie chart)
+    - Analytics rule audit by activity volume
+
+### Health tab
+
+Filters available for Status (success, failure, etc.) and Rule type (scheduled/NRT). The filters apply to the entire page.
+
+- Analytics rule run trending over time (line graph, time brush enabled)
+
+Filter available for Reason, to apply to the remainder of the page.
+
+- Analytics rule run by status (pie chart)
+- Number of unique rules run by rule type and status (chart)
+    - Select a status to filter the remaining charts for that status.
+    - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Number of unique reasons by status (chart)
+    - Select a status to filter the remaining charts for that status.
+    - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Occurrences of unique reason by status (chart)
+    - Select a reason to filter the following charts for that reason.
+    - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Unique analytics rules with trendlines, by status ("Analytics rule by status and trending") (chart)
+    - Select a rule to drill down and show a new table with all the runnings of that rule (in the selected time frame).
+    - Clear that table by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Health details for analytics rule: \<name of rule selected in the previous chart> (table)
+
+### Audit tab
+
+Filter available for rule types. The filter applies to everything on the page.
+
+- Analytics rule audit trending by activity (trending?) (bar graph, time brush enabled)
+- Number of audit events by activity and rule type (chart)
+    - Select an activity to filter the following charts for that activity.
+    - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Audit activity by rule name (table)
+    - Select a rule name to filter the following table for that rule, and to drill down and show a new table with all the activity on that rule (in the selected time frame).
+    - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
+- Audit activity by caller (table)
+- Audit activity for rule: \<name of rule selected in the previous chart> (table)
+    - Select the value in the ExtendedProperties column to open a side panel displaying the changes made to the rule.
 
 ## Next steps
 
