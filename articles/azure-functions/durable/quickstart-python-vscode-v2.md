@@ -7,7 +7,6 @@ ms.date: 06/15/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete
-zone_pivot_groups: python-mode-functions
 ---
 
 # Create your first durable function in Python
@@ -44,8 +43,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Choose an empty folder location for your project and choose **Select**.
 
-::: zone pivot="python-mode-configuration"
-
 1. Follow the prompts and provide the following information:
 
     | Prompt | Value | Description |
@@ -55,21 +52,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
-
-::: zone pivot="python-mode-decorators" 
-
-1. Follow the prompts and provide the following information:
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | Select a language | Python (Programming Model V2) | Create a local Python Functions project using the V2 programming model. |
-    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
-    | Select a template for your project's first function | Skip for now | |
-    | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
-
-::: zone-end
-
 
 Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
@@ -123,8 +105,6 @@ A basic Durable Functions app contains three functions:
 * *Activity function*: It's called by the orchestrator function, performs work, and optionally returns a value.
 * *Client function*: It's a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
 
-::: zone pivot="python-mode-configuration"
-
 ### Orchestrator function
 
 You use a template to create the durable function code in your project.
@@ -172,42 +152,6 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
 You now have a Durable Functions app that can be run locally and deployed to Azure.
-
-::: zone pivot="python-mode-decorators" 
-
-Using the V2 Python programming model, all these functions can be placed in a single file. To do this, replace the contents of `function_app.py` with the following code.
-
-``Python
-import azure.functions as func
-import azure.durable_functions as df
-
-myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-# An HTTP-Triggered Function with a Durable Functions Client binding
-@myApp.route(route="orchestrators/{functionName}")
-@myApp.durable_client_input(client_name="client")
-async def durable_trigger(req: func.HttpRequest, client):
-    function_name = req.route_params.get('functionName')
-    instance_id = await client.start_new(function_name)
-    response = client.create_check_status_response(req, instance_id)
-    return response
-
-# Orchestrator
-@myApp.orchestration_trigger(context_name="context")
-def my_orchestrator(context):
-    result1 = yield context.call_activity("hello", "Seattle")
-    result2 = yield context.call_activity("hello", "Tokyo")
-    result3 = yield context.call_activity("hello", "London")
-
-    return [result1, result2, result3]
-
-# Activity
-@myApp.activity_trigger(input_name="myInput")
-def hello(myInput: str):
-    return "Hello " + myInput   
-```
-
-::: zone-end
 
 ## Test the function locally
 
