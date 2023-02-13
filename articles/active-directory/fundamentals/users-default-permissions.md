@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 02/13/2023
 ms.author: barclayn
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18, contperf-fy21q1"
@@ -22,6 +22,7 @@ In Azure Active Directory (Azure AD), all users are granted a set of default per
 This article describes those default permissions and compares the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
 ## Member and guest users
+
 The set of default permissions depends on whether the user is a native member of the tenant (member user) or whether the user is brought over from another directory as a business-to-business (B2B) collaboration guest (guest user). For more information about adding guest users, see [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md). Here are the capabilities of the default permissions:
 
 * *Member users* can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. These users can also read all directory information (with a few exceptions). 
@@ -61,6 +62,13 @@ You can restrict default permissions for member users in the following ways:
 | **Restrict non-admin users from creating tenants** | Users can create tenants in the Azure AD and Entra administration portal under Manage tenant. The creation of a tenant is recorded in the Audit log as category DirectoryManagement and activity Create Company. Anyone who creates a tenant will become the Global Administrator of that tenant. The newly created tenant does not inherit any settings or configurations. </p><p></p><p>**What does this switch do?** <br> Setting this option to **Yes** restricts creation of Azure AD tenants to the Global Administrator or tenant creator roles. Setting this option to **No** allows non-admin users to create Azure AD tenants. Tenant create will continue to be recorded in the Audit log. </p><p></p><p>**How do I grant only a specific non-administrator users the ability to create new tenants?** <br> Set this option to Yes, then assign them the tenant creator role.|
 | **Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag doesn't prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`. |
 
+
+>[!NOTE]
+> The Restrict non-admin users from creating tenants option is also available through the [portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/UserSettings)
+
+
+:::image type="content" source="media/user-default-permissions/tenant-creation.png" alt-text="Screenshot showing the option to restrict non admins from creating tenants":::
+
 ## Restrict guest users' default permissions
 
 You can restrict default permissions for guest users in the following ways.
@@ -78,16 +86,19 @@ Permission | Setting explanation
 ## Object ownership
 
 ### Application registration owner permissions
+
 When a user registers an application, they're automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions that the app requests. They can also manage the tenant-specific configuration of the application, such as the single sign-on (SSO) configuration and user assignments. 
 
 An owner can also add or remove other owners. Unlike global administrators, owners can manage only the applications that they own.
 
 ### Enterprise application owner permissions
+
 When a user adds a new enterprise application, they're automatically added as an owner. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. 
 
 An owner can also add or remove other owners. Unlike global administrators, owners can manage only the applications that they own.
 
 ### Group owner permissions
+
 When a user creates a group, they're automatically added as an owner for that group. As an owner, they can manage properties of the group (such as the name) and manage group membership. 
 
 An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can manage only the groups that they own. 
@@ -95,9 +106,11 @@ An owner can also add or remove other owners. Unlike global administrators and u
 To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
 
 ### Ownership permissions
+
 The following tables describe the specific permissions in Azure AD that member users have over owned objects. Users have these permissions only on objects that they own.
 
 #### Owned application registrations
+
 Users can perform the following actions on owned application registrations:
 
 | **Action** | **Description** |
@@ -113,6 +126,7 @@ Users can perform the following actions on owned application registrations:
 | microsoft.directory/applications/restore | Restore applications in Azure AD. |
 
 #### Owned enterprise applications
+
 Users can perform the following actions on owned enterprise applications. An enterprise application consists of a service principal, one or more application policies, and sometimes an application object in the same tenant as the service principal.
 
 | **Action** | **Description** |
@@ -134,6 +148,7 @@ Users can perform the following actions on owned enterprise applications. An ent
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on sign-in reports in Azure AD. |
 
 #### Owned devices
+
 Users can perform the following actions on owned devices:
 
 | **Action** | **Description** |
@@ -142,6 +157,7 @@ Users can perform the following actions on owned devices:
 | microsoft.directory/devices/disable | Disable devices in Azure AD. |
 
 #### Owned groups
+
 Users can perform the following actions on owned groups.
 
 > [!NOTE]
