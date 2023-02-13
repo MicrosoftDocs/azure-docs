@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/13/2023
 
 ms.author: justinha
 author: justinha
@@ -50,17 +50,19 @@ Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Make sure you include the header row in your CSV file. 
 
-Once properly formatted as a CSV file, a Global Administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the resulting CSV file.
+Once properly formatted as a CSV file, a global administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.  
 
 Once any errors have been addressed, the administrator then can activate each key by selecting **Activate** for the token and entering the OTP displayed on the token. You can activate a maximum of 200 OATH tokens every 5 minutes. 
 
-Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
+Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant. 
+
+Make sure to only assign each token to a single user.
+In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
 >[!IMPORTANT]
 >The preview is only supported in Azure Global and Azure Government clouds.
-
 
 ## Determine OATH token registration type in mysecurityinfo 
 Users can manage and add OATH token registrations by accessing https://aka.ms/mysecurityinfo or by selecting Security info from My Account. Specific icons are used to differentiate whether the OATH token registration is hardware or software based.  
