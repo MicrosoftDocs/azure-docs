@@ -103,7 +103,7 @@ Verify the cause of this issue with the following query on SQL Server system met
         ```
 1. Execute the query and view the text output. If the query run result shows `Column before primary key was deleted.`, it can be confirmed that Snapshot is stuck because of primary key column order error. Proceed with the below resolution steps. 
 
-## Potential Causes
+## Potential causes
 
 The SQL Server source database publisher is having issues with identifying the primary key columns during schema export due to the column count changes. This can occur when the primary key column(s) are not defined as the first column(s) in a table, and column(s) to the left of the primary key column(s) are dropped, before enabling change feed. The columns could have been dropped any time in the past. In this scenario, the SQL publisher uses an incorrect `column_id` to query the primary key column(s).
 
