@@ -4,8 +4,8 @@ titleSuffix: Azure Storage
 description: Get started developing a Java application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
 author: pauljewellmsft
-ms.author: pauljewell
 
+ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/16/2022
@@ -73,7 +73,9 @@ import com.azure.storage.blob.models.*;
 import com.azure.storage.blob.specialized.*;
 import com.azure.storage.common.*;
 ```
+
 Blob client library information:
+
 - [com.azure.storage.blob](/java/api/com.azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
 - [com.azure.storage.blob.models](/java/api/com.azure.storage.blob.models): Contains utility classes, structures, and enumeration types.
 - [com.azure.storage.blob.specialized](/java/api/com.azure.storage.blob.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).

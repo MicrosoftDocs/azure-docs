@@ -4,8 +4,8 @@ titleSuffix: Azure Storage
 description: Get started developing a .NET application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
 author: pauljewellmsft
-ms.author: pauljewell
 
+ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/30/2023
