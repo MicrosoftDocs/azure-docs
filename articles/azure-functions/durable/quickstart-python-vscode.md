@@ -55,6 +55,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
+::: zone-end
 
 ::: zone pivot="python-mode-decorators" 
 
@@ -67,7 +68,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
-
 ::: zone-end
 
 
@@ -172,12 +172,13 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
 You now have a Durable Functions app that can be run locally and deployed to Azure.
+::: zone-end
 
 ::: zone pivot="python-mode-decorators" 
 
 Using the V2 Python programming model, all these functions can be placed in a single file. To do this, replace the contents of `function_app.py` with the following code.
 
-``Python
+```Python
 import azure.functions as func
 import azure.durable_functions as df
 

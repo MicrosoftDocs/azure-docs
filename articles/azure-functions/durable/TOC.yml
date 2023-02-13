@@ -27,13 +27,8 @@
     displayName: get started, chaining
     href: quickstart-js-vscode.md
   - name: CReate durable function - Python
-    items:
-      - name: Create durable function - Python (V1)
-        displayName: get started, chaining
-        href: quickstart-python-vscode.md
-      - name: Create durable function - Python (V2)
-        displayName: get started, chaining
-        href: quickstart-python-vscode-v2.md
+    displayName: get started, chaining
+    href: quickstart-python-vscode.md
   - name: Create durable function - PowerShell
     displayName: get started, chaining
     href: quickstart-powershell-vscode.md
