@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 # Check the encryption status of a blob
 
-Every block blob, append blob, or page blob in Azure Storage is encrypted with Azure Storage encryption. Blobs created prior to this date continue to be encrypted by a background process.
+Every block blob, append blob, or page blob in Azure Storage is encrypted with Azure Storage encryption.
 
 This article shows how to determine whether a given blob has been encrypted.
 
