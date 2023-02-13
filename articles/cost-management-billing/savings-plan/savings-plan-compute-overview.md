@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 02/03/2023
+ms.date: 02/08/2023
 ms.author: banders
 ---
 
@@ -91,7 +91,7 @@ Savings plan purchases can't be canceled or refunded.
 
 ## Charges covered by savings plan
 
-- Virtual Machines - A savings plan only covers the virtual machine and cloud services compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure, A, G, and GS series. Spot VMs aren't covered by savings plans.
+- Virtual Machines - A savings plan only covers the virtual machine compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure, A, G, and GS series. Spot VMs aren't covered by savings plans.
 - Azure Dedicated Hosts - Only the compute costs are included with the dedicated hosts.
 - Container Instances
 - Azure Premium Functions

@@ -116,6 +116,13 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 
 ^ **Max Connections** here represents the configured value for _max_connections_ server parameter, and this metric is pooled every 30 minutes.
 
+#### Considerations when using the enhanced metrics
+
+- There is **50 database** limit on metrics with `database name` dimension.
+  * On **Burstable** SKU -  this limit is 10 `database name` dimension
+- `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
+- The `database name` in metrics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
+
 ## Autovacuum metrics
 
 Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure database for postgres flexible server. Each metric is emitted at a **30 minute** frequency, and has up to **93 days** of retention. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
@@ -142,9 +149,13 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**User Tables Vacuumed** (Preview)               |tables_vacuumed_user_tables    |Count|Number of user only tables that have been vacuumed in this database                                     |DatabaseName|No             |
 |**Vacuum Counter User Tables** (Preview)         |vacuum_count_user_tables       |Count|Number of times user only tables have been manually vacuumed in this database (not counting VACUUM FULL)|DatabaseName|No             |
 
+#### Considerations when using the autovacuum metrics
 
+- There is **30 database** limit on metrics with `database name` dimension.
+  * On **Burstable** SKU -  this limit is 10 `database name` dimension
+- `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
 
-#### Applying filters and splitting on metrics with dimension
+## Applying filters and splitting on metrics with dimension
 
 In the above list of metrics, some of the metrics have dimension such as `database name`, `state` etc. [Filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [Splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) are allowed for the metrics that have dimensions. These features show how various metric segments ("dimension values") affect the overall value of the metric. You can use them to identify possible outliers.
 
@@ -156,13 +167,6 @@ Here in this example below, we have done **splitting** by `State` dimension and 
 ![Screenshot of sessions by state.](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
 
 For more details on setting-up charts with dimensional metrics, see [Metric chart examples](../../azure-monitor/essentials/metric-chart-samples.md)
-
-#### Considerations when using the enhanced metrics
-
-- There is **50 database** limit on metrics with `database name` dimension.
-  * On **Burstable** SKU -  this limit is 10 `database name` dimension
-- `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
-- The `database name` in metrics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
 
 ## Server logs
 In addition to the metrics, Azure Database for PostgreSQL also allows you to configure and access PostgreSQL standard logs. To learn more about logs, visit the [logging concepts doc](concepts-logging.md).

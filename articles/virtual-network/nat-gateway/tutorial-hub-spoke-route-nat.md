@@ -858,4 +858,4 @@ If you're not going to continue to use this application, delete the created reso
 
 Advance to the next article to learn how to use an Azure Gateway Load Balancer for highly available network virtual appliances:
 > [!div class="nextstepaction"]
-> [Gateway Load Balancer](/azure/load-balancer/gateway-overview)
+> [Gateway Load Balancer](../../load-balancer/gateway-overview.md)
