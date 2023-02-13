@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.6.0</version>
+    <version>2.11.0</version>
 </dependency>
 ```
 
@@ -133,6 +133,33 @@ To use the Spring Cloud Azure Config starter to have your application communicat
         }
 
     }
+    ```
+
+1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+   If you use Windows PowerShell, run the following command:
+
+    ```azurepowershell
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+   If you use macOS or Linux, run the following command:
+
+    ```cmd
+    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    ```
+
+### Build and run the app locally
+
+1. Open command prompt to the root directory and run the following commands to build your Spring Boot application with Maven and run it.
+
+    ```cmd
+    mvn clean package
+    mvn spring-boot:run
     ```
 
 1. After your application is running, use *curl* to test your application, for example:
