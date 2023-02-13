@@ -220,9 +220,7 @@ A binding is added to the `bindings` array in your *function.json*, which should
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.py* file. You use the queue_output decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-cosmos-db-output-binding).
-
-Add the following decorator to your function code in *function_app.py*:
+Binding attributes are defined directly in the *function_app.py* file. You use the `cosmos_db_output` decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-cosmos-db-output-binding):
 
 ```python
 @app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
@@ -386,7 +384,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 
 # [v2](#tab/v2)
 
-Update *HttpExample\\function_app.py* to match the following code, add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
+Update *HttpExample\\function_app.py* to match the following code. Add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func
@@ -397,8 +395,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 @app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
-    collection_name="my-container", connection_string_setting="CosmosDbConnectionString")
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", collection_name="my-container" connection_string_setting="CosmosDbConnectionString")
 def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
     outputDocument: func.Out[func.Document]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
