@@ -472,6 +472,8 @@
         href: data-connectors/isc-bind.md
       - name: Ivanti Unified Endpoint Management
         href: data-connectors/ivanti-unified-endpoint-management.md
+      - name: Jamf Protect
+        href: data-connectors/jamf-protect.md
       - name: JBoss Enterprise Application Platform
         href: data-connectors/jboss-enterprise-application-platform.md
       - name: Juniper IDP

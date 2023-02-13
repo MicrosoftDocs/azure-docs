@@ -286,6 +286,10 @@ Data connectors are available as part of the following offerings:
 
 - [Ivanti Unified Endpoint Management](data-connectors/ivanti-unified-endpoint-management.md)
 
+## Jamf Software, LLC
+
+- [Jamf Protect](data-connectors/jamf-protect.md)
+
 ## Juniper
 
 - [Juniper IDP](data-connectors/juniper-idp.md)
