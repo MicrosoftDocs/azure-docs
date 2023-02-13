@@ -140,7 +140,7 @@ The **Commands** tab lets you run commands on the device.
 
 ## Next steps
 
-A suggested next step is to learn more about integrating IoT Cetral with other services:
+A suggested next step is to learn more about integrating IoT Central with other services:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
