@@ -23,8 +23,8 @@ User and group quotas enable you to restrict the logical space that a user or gr
 
 You can restrict user capacity consumption on Azure NetApp Files volumes by setting user and/or group quotas on volumes. User and group quotas differ from volume quotas in the way that they further restrict volume capacity consumption at the user and group level.
 
-To set a [volume quota](volume-quota-introduction.md), you can use the Azure portal or the Azure NetApp Files API to specify the maximum storage capacity for a volume. Once the volume quota is set, it defines the size of the volume, and there is no restriction on how much capacity any user can consume.
-To restrict users’ capacity consumption, you can set a user and/or group quota. You can set default and/or individual quotas. Once user or group quotas are set, users will not be able to store more data in the volume than the specified user or group quota limit.
+To set a [volume quota](volume-quota-introduction.md), you can use the Azure portal or the Azure NetApp Files API to specify the maximum storage capacity for a volume. Once the volume quota is set, it defines the size of the volume, and there's no restriction on how much capacity any user can consume.
+To restrict users’ capacity consumption, you can set a user and/or group quota. You can set default and/or individual quotas. Once user or group quotas are set, users can't store more data in the volume than the specified user or group quota limit.
 
 By combining volume and user quotas, you can ensure that storage capacity is distributed efficiently and prevent any single user, or group of users, from consuming excessive amounts of storage.
 
@@ -37,7 +37,7 @@ This section describes the behavior of user and group quotas.
 The following concepts and behavioral aspects apply to user and group quotas:
 * The volume capacity that can be consumed can be restricted at the user and/or group level.   
     * User quotas are available for SMB, NFS and dual-protocol volumes. 
-    * Group quotas are not supported on SMB and dual-protocol volumes.
+    * Group quotas are **not** supported on SMB and dual-protocol volumes.
 * When a user or group consumption reaches the maximum configured quota, further space consumption is prohibited.
 * Individual user quota takes precedence over default user quota.
 * Individual group quota takes precedence over default group quota.
@@ -53,7 +53,7 @@ A default user quota automatically applies a quota limit to *all users* accessin
 
 ### Individual user quota
 
-An individual user quota applies a quota to *individual target user* accessing the volume. The target user can be specified by a UNIX user id (UID) or a Windows security identifier (SID), depending on volume protocol (NFS or SMB). Multiple individual user quota settings can be defined on a volume. Each user can only consume the amount of storage as defined by their individual user quota setting. No single user can exhaust the volume’s capacity, as long as the individual user quota is less than the volume quota. Individual user quotas override a default user quota, where applicable. The following diagram depicts this behavior.
+An individual user quota applies a quota to *individual target user* accessing the volume. The target user can be specified by a UNIX user ID (UID) or a Windows security identifier (SID), depending on volume protocol (NFS or SMB). Multiple individual user quota settings can be defined on a volume. Each user can only consume the amount of storage as defined by their individual user quota setting. No single user can exhaust the volume’s capacity, as long as the individual user quota is less than the volume quota. Individual user quotas override a default user quota, where applicable. The following diagram depicts this behavior.
 
 :::image type="content" source="../media/azure-netapp-files/individual-user-quota.png" alt-text="Diagram showing behavior of individual user quota." lightbox="../media/azure-netapp-files/individual-user-quota.png":::
 
@@ -65,13 +65,13 @@ You can create quota exceptions for specific users by allowing those users less 
 
 ### Default group quota
 
-A default group quota automatically applies a quota limit to *all users within all groups* accessing the volume without creating separate quotas for each target group. The total consumption for all users in any group cannot exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. A single user can potentially consume the entire group quota. The following diagram depicts this behavior.
+A default group quota automatically applies a quota limit to *all users within all groups* accessing the volume without creating separate quotas for each target group. The total consumption for all users in any group can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. A single user can potentially consume the entire group quota. The following diagram depicts this behavior.
 
 :::image type="content" source="../media/azure-netapp-files/default-group-quota.png" alt-text="Diagram showing behavior of default group quota." lightbox="../media/azure-netapp-files/default-group-quota.png":::
 
 ### Individual group quota
 
-An individual group quota applies a quota to *all users within an individual target group* accessing the volume. The total consumption for all users *in that group* can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. The group is specified by a Unix group id (GID). Individual group quotas override default group quotas where applicable. The following diagram depicts this behavior.
+An individual group quota applies a quota to *all users within an individual target group* accessing the volume. The total consumption for all users *in that group* can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. The group is specified by a UNIX group ID (GID). Individual group quotas override default group quotas where applicable. The following diagram depicts this behavior.
 
 :::image type="content" source="../media/azure-netapp-files/individual-group-quota.png" alt-text="Diagram showing behavior of individual group quota." lightbox="../media/azure-netapp-files/individual-group-quota.png":::
 
@@ -89,11 +89,11 @@ You can combine the various previously described quota options to achieve very s
 
 ## Observing user quota settings and consumption
 
-Users can observe user quota settings and consumption from their client systems connected to the NFS, SMB, or dual-protocol volumes respectively. Azure NetApp Files currently does not support reporting of group quota settings and consumption explicitly. The following sections describe how users can view their user quota setting and consumption.
+Users can observe user quota settings and consumption from their client systems connected to the NFS, SMB, or dual-protocol volumes respectively. Azure NetApp Files currently doesn't support reporting of group quota settings and consumption explicitly. The following sections describe how users can view their user quota setting and consumption.
 
 ### Windows client
 
-Windows users can observe their user quota and consumption in Windows Explorer and by running the dir command. Assume a scenario where a 2TiB volume with a 100MiB default or individual user quota has been configured. On the client, this will be represented as follows:
+Windows users can observe their user quota and consumption in Windows Explorer and by running the dir command. Assume a scenario where a 2-TiB volume with a 100-MiB default or individual user quota has been configured. On the client, this scenario is represented as follows:
 
 * Administrator view:
 
@@ -105,15 +105,18 @@ Windows users can observe their user quota and consumption in Windows Explorer a
 
 ### Linux client
 
-Linux users can observe their *user* quota and consumption by using the [`quota(1)`](https://man7.org/linux/man-pages/man1/quota.1.html) command. Assume a scenario where a 2-TiB volume with a 100-MiB default or individual user quota has been configured. On the client, this will be represented as follows:
+Linux users can observe their *user* quota and consumption by using the [`quota(1)`](https://man7.org/linux/man-pages/man1/quota.1.html) command. Assume a scenario where a 2-TiB volume with a 100-MiB default or individual user quota has been configured. On the client, this scenario is represented as follows:
 
 :::image type="content" source="../media/azure-netapp-files/user-quota-linux-view.png" alt-text="Example showing how to use the quota command.":::
 
-Azure NetApp Files currently does not support group quota reporting. However, you know you have reached your group’s quota limit when you receive a `Disk quota exceeded` error in writing to the volume while you haven’t reached your user quota yet.
+Azure NetApp Files currently doesn't support group quota reporting. However, you know you've reached your group’s quota limit when you receive a `Disk quota exceeded` error in writing to the volume while you haven’t reached your user quota yet.
 
-In the following scenario, users `user4` and `user5` are members of `group2`. The group `group2` has a 200-MiB default or individual group quota assigned. The volume is already populated with 150 MiB of data owned by user `user4`. User `user5` appears to have 100 MiB quota available as reported by the `quota(1)` command, but `user5` can’t consume more than 50 MiB due to the remaining group quota for `group2`. User `user5` receives a `Disk quota exceeded`a error message after writing 50 MiB, despite not reaching the user quota.
+In the following scenario, users `user4` and `user5` are members of `group2`. The group `group2` has a 200-MiB default or individual group quota assigned. The volume is already populated with 150 MiB of data owned by user `user4`. User `user5` appears to have a 100-MiB quota available as reported by the `quota(1)` command, but `user5` can’t consume more than 50 MiB due to the remaining group quota for `group2`. User `user5` receives a `Disk quota exceeded` error message after writing 50 MiB, despite not reaching the user quota.
 
 :::image type="content" source="../media/azure-netapp-files/exceed-disk-quota.png" alt-text="Example showing a scenario of exceeding disk quota.":::
+
+> [!IMPORTANT] 
+> For quota reporting to work, the client needs access to port 4049/UDP on the Azure NetApp Files volumes’ storage endpoint. When using NSGs with standard network features on the Azure NetApp Files delegated subnet, make sure that access is enabled.
 
 ## Next steps
 
