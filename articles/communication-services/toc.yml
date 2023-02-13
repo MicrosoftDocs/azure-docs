@@ -156,7 +156,7 @@ items:
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
-    href: concepts/client-and-server-architecture.md
+    href: https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture
   - name: Identity and authentication
     items:
     - name: Identity 

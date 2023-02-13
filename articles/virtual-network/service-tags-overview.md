@@ -96,7 +96,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | No |
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
-| **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
+| **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Both | Yes | No |
 | **Dynamics365BusinessCentral** | This tag or the IP addresses covered by this tag can be used to restrict access from/to the Dynamics 365 Business Central Services. | Both | No | Yes |
 | **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center PowerShell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
