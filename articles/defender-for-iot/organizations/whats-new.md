@@ -19,8 +19,61 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) <br><br> [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br><br> [Focusing inventory (Public preview)](#focusing-inventory-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
+### Device inventory GA in the Azure portal
+
+The Device inventory blade is now Generally Available (GA) via the Azure Portal, allowing you to confidently manage devices at scale from a single pane of glass.
+
+The Device inventory gives you an overview of all devices within your environment. Identify equipment details such as manufacturer, type, serial number, firmware and more. These details will assist you to proactively address vulnerabilities which compromise your most critical assets.
+
+- **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
+
+- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling 
+
+- **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
+
+Enhancements to the Device inventory:
+
+- **Export** device inventory to review offline and compare notes with your teams
+
+- **Delete irrelevant devices** that no longer exist or are no longer functional
+
+- **[Merge devices](#merge-duplicate-devices-in-the-azure-device-inventory)** to tune your network devices
+
+- **Edit your devices** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information
+
+- **Deep search** on any field to enhance device discovery, enabling the ability to quickly find the devices that matter most
+
+- **Filter by any field**, such as by type to identify Industrial devices, or time to determine active and inactive devices, plus much more
+
+- **Edit your table** to reflect only the data you are interested in viewing
+
+- **Rich security, governance and admin controls** provide the ability to assign admins, restrict who can merge, delete and edit devices on an owner’s behalf
+
+For more information, see [Manage your IoT devices with the device inventory](../device-builders/how-to-manage-device-inventory-on-the-cloud.md).
+
+#### Merge duplicate devices in the Azure Device inventory
+
+The Defender for IoT Device inventory page in the Azure portal now supports the ability to merge duplicate devices in the Azure portal. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
+
+For more information on merging devices in the Azure portal, see ( to new merge devices section in manage device inventory doc).
+
+### Focusing inventory (Public preview)
+
+Now in public preview:
+
+- Focused inventory
+- Grouping enhancements
+
+**Focused inventory**
+
+Search and filter for local and routed devices in the device inventory in Azure, as defined by the subnets in your sensor. This will help to reduce noise and focus your inventory on important devices. The filter is on and set to local by default, change this as needed.  
+
+**Grouping enhancements**
+
+New grouping categories have been added in the device inventory. Group your devices in the device inventory in Azure by class, data source, location, Purdue level, site, type, vendor and zone.  
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
