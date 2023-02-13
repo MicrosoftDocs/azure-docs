@@ -23,17 +23,17 @@ To complete this tutorial, you need to have an existing Azure SQL database and s
 
 | Resource | Description |
 |---|---|
-| [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in to [create a single database guide](/azure/azure-sql/database/single-database-create-quickstart). |
-| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started guide](getting-started.md).  |
+| [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in the [create a single database](/azure/azure-sql/database/single-database-create-quickstart) guide. |
+| [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide.  |
 | [Azure Data Studio](https://aka.ms/azuredatastudio) | Data client used to create a sample table and add sample data. |
 
-Begin by configuring your database to work with Azure Static Web Apps database connection feature.
+Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
 ## Configure database security
 
-To work in a development environment, you need to allowlist your IP address for access to the database. You also need to allowlist Azure resources so that Static Web Apps workers can access your database when you deploy.
+To work in a development environment, you need to allowlist your IP address, and some Azure resources so the Static Web Apps worker can access the database.
 
-1. Go to your Azure SQL Server the [Azure portal](https://portal.azure.com).
+1. Go to your Azure SQL Server in the [Azure portal](https://portal.azure.com).
 
 1. Under the *Security* section, select **Networking**.
 
@@ -205,11 +205,11 @@ Before moving on to the next step, review the following table that explains diff
 
 | Feature | Explanation |
 |---|---|
-| Database connection | The database connection string is pulled from an environment variable named `DATABASE_CONNECTION_STRING`. |
-| API endpoint | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed through `/data-api/graphql`. |
-| API Security | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
-| Entity model | Entities are defined according to the document or table names. The setting `entity.<NAME>.source` points to the entity name. Note how the API endpoint name doesn't need to be identical to the table name. |
-| Entity security | Entity permissions are defined in `entity.<NAME>.permissions` array. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
+| **Database connection** | The database connection string is pulled from an environment variable named `DATABASE_CONNECTION_STRING`. |
+| **API endpoint** | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed through `/data-api/graphql`. |
+| **API Security** | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
+| **Entity model** | Entities are defined according to the document or table names. The setting `entity.<NAME>.source` points to the entity name. Note how the API endpoint name doesn't need to be identical to the table name. |
+| **Entity security** | Entity permissions are defined in `entity.<NAME>.permissions` array. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
 
 With the static web app configured to connect to the database, you can now verify the connection.
 
@@ -231,9 +231,13 @@ Now you can run your website and manipulate data in the database directly.
 
 1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 
+    To install, use `npm install`.
+
     ```bash
     npm install -g @azure/static-web-apps-cli
     ```
+
+    To update, use `npm update`.
 
     ```bash
     npm update
@@ -250,9 +254,6 @@ Now you can run your website and manipulate data in the database directly.
 The following commands are implemented as framework-agnostic code.
 
 To run each command, open the developer tools and paste in each command into the browser's developer console window.
-
-> [!NOTE]
-> Keys sent in requests must match the database column capitalization.
 
 ### Return all items
 
@@ -303,10 +304,7 @@ Run the following code in the browser's console window to select all items.
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-            "Content-Length": query.length,
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: query })
       });
       const result = await response.json();
@@ -341,8 +339,8 @@ Run the following code in the browser's console window to get an item by its uni
     try {
       const endpoint = `http://localhost:4280/data-api/api/people/Id/${id}`;
       const response = await fetch(endpoint);
-      const data = await response.json();
-      console.table(data.value);
+      const result = await response.json();
+      console.table(result.value);
     } catch (error) {
       console.error(error);
     }
@@ -372,10 +370,7 @@ Run the following code in the browser's console window to get an item by its uni
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-            "Content-Length": query.length,
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: query })
       });
       const result = await response.json();
@@ -403,9 +398,9 @@ Run the following code in the browser's console window to update a record.
 
 ::: zone pivot="static-web-apps-rest"
 
-`PUT` updates the whole record, `PATCH` does a partial update.
+Static Web Apps support both the `PUT` and `PATCH` verbs. A `PUT` request updates the whole record, while `PATCH` does a partial update.
 
-This example uses a `PUT` verb to do the update.
+This example uses a `PUT` request to do the update.
 
 ```javascript
 (() => {
@@ -415,9 +410,7 @@ This example uses a `PUT` verb to do the update.
       const endpoint = 'http://localhost:4280/data-api/api/people/Id';
       const response = await fetch(`${endpoint}/${id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
       const result = await response.json();
@@ -527,14 +520,14 @@ Run the following code in the browser's console window to create a new record.
         }
       }`;
   
-    const res = await fetch(endpoint, {
+    const result = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query })
     });
   
-    const data = await res.json();
-    console.table(data);
+    const response = await result.json();
+    console.table(response);
   }
   
   create({ Name: "Pedro" });
@@ -608,7 +601,6 @@ Run the following code in the browser's console window to delete a record.
   
       const result = await response.json();
       console.log(`Record deleted: ${result.data.deletePeople.Id}`);
-
     } catch(error) {
         console.error(error);
     }
@@ -629,7 +621,7 @@ The browser's console window now displays a table showing the response from the 
 
 ## Clean up resources
 
-If you want to remove the resources created during this tutorial, you need to unlink the database and remove sample data.
+If you want to remove the resources created during this tutorial, you need to unlink the database and remove the sample data.
 
 1. **Unlink database**: Open your static web app in the Azure portal. Under the *Settings* section, select **Database connection**. Next to the linked database, select **View details**. In the *Database connection details* window, select the **Unlink** button.
 
