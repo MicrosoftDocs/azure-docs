@@ -4,7 +4,7 @@ description: Use the available metrics to diagnose your degraded or unavailable 
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
+ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: mbender

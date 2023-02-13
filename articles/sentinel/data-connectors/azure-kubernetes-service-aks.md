@@ -3,7 +3,7 @@ title: "Azure Kubernetes Service (AKS) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Azure Kubernetes Service (AKS) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 02/13/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

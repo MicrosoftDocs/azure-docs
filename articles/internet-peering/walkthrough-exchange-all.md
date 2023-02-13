@@ -1,13 +1,13 @@
 ---
 title: Exchange peering walkthrough
-titleSuffix: Azure
-description: Exchange peering walkthrough
+description: Exchange peering walkthrough.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: halkazwini
+ms.custom: template-how-to
 ---
 
 
