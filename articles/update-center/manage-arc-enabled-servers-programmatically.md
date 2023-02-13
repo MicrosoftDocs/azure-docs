@@ -21,7 +21,7 @@ Support for Azure REST API to manage Azure Arc-enabled servers is available thro
 To trigger an update assessment on your Azure Arc-enabled server, specify the following POST request:
 
 ```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview`
+POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview`
 {
 }
 ```
@@ -31,7 +31,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
+az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
 ```
 
 The format of the request body for version 2020-08-15 is as follows:
@@ -64,7 +64,7 @@ Invoke-AzRestMethod
 To trigger an update deployment to your Azure Arc-enabled server, specify the following POST request:
 
 ```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview`
+POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview`
 ```
 
 #### Request body
@@ -90,7 +90,7 @@ The following table describes the elements of the request body:
 To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
 
 ```rest
-POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview
+POST on 'subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview
 
 {
         "maximumDuration": "PT120M",
