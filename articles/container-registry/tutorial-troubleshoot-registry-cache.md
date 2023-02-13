@@ -67,7 +67,7 @@ Learn more about the [Cache Terminology](tutorial-registry-cache.md##terminology
 
 ### Cache rule Limit
 
-If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 50 cache rules created. 
+If you're facing issues while creating a Cache rule, we recommend verifying if you've more than 50 cache rules created. 
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
