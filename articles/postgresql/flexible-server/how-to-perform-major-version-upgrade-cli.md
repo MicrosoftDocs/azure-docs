@@ -12,7 +12,7 @@ ms.date: 02/13/2023
 
 #  Major Version Upgrade of a flexible server - Flexible Server with Azure CLI
 
-[! INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform Major Version Upgrade in flexible server using Azure CLI.
 
