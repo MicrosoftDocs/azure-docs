@@ -141,7 +141,7 @@ After you've received a successful response from the app provisioning endpoint, 
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform. There are a few different cases:
 
-- [Access token request with a shared secret](#first-case-access-token-request-with-shared_secret)
+- [Access token request with a shared secret](#first-case-access-token-request-with-a-shared-secret)
 - [Access token request with a certificate](#second-case-access-token-request-with-a-certificate)
 - [Access token request with a federated credential](#third-case-access-token-request-with-a-federated-credential)
 
