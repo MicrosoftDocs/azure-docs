@@ -33,6 +33,7 @@ With ingress enabled, your application is assigned a fully qualified domain name
 
 For HTTP ingress, traffic is routed to individual applications based on the FQDN in the host header.
 
+
 For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its *exposedPort* number.
 
 For applications with external ingress visibility, the following conditions apply:
@@ -45,9 +46,24 @@ You can get access to the environment's unique identifier by querying the enviro
 
 ## How to enable ingress
 
-Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
+Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.  
 
-#[ARM template](#tab/arm-template)
+
+>[!NOTE]
+> This is in the concept article.  It's relevant in both places. But should we have it in both places?
+
+The following settings are available when enabling ingress:
+
+| Property | Description | Values | Required |
+|---|---|---|---|
+| `external` | Whether your ingress-enabled app is accessible outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
+| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
+| `exposedPort` | (TCP ingress only) The port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment and can't be `80` or `443`. | A port number from `1` to `65535`. | No |
+| `transport` | The transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect HTTP/1 or HTTP/2 (default), `tcp` for TCP. | No |
+| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
+
+
+# [ARM template](#tab/arm-template)
 
 The ingress configuration section of the container app template has the following form:
 
@@ -64,7 +80,7 @@ The ingress configuration section of the container app template has the followin
 }
 ```
 
-#[CLI](#tab/cli)
+# [CLI](#tab/cli)
 
 Enable ingress for your container app by using the `az containerapp ingress` command.
 
@@ -77,7 +93,7 @@ az containerapp ingress enable \
     --external <external>
 ```
 
-#[Portal](#tab/portal)
+# [Portal](#tab/portal)
 
 Enable ingress for your container app by using the portal.
 
@@ -86,7 +102,7 @@ Enable ingress for your container app by using the portal.
 
 ## How to disable ingress
 
-#[ARM template](#tab/arm-template)
+# [ARM template](#tab/arm-template)
 
 Disable ingress for your container app by using the `ingress` configuration property.  Set the `external` property to `false`:
 
@@ -101,7 +117,10 @@ Disable ingress for your container app by using the `ingress` configuration prop
 }
 ```
 
-#[CLI](#tab/cli)
+> [!NOTE]
+> To disable ingress for your application, omit the `ingress` configuration property entirely.
+
+# [CLI](#tab/cli)
 
 Disable ingress for your container app by using the `az containerapp ingress` command.
 
@@ -111,7 +130,7 @@ az containerapp ingress disable \
     --resource-group <resource-group> \
 ```
 
-#[Portal](#tab/portal)
+# [Portal](#tab/portal)
 
 Disable ingress for your container app by using the portal.
 
@@ -129,41 +148,20 @@ You can configure ingress settings for your container app by using the `ingress`
 - IP address restrictions. For more information, see [IP address restrictions](./ip-restrictions.md).
 - Client certificate authentication. For more information see [Client certificate authentication](./client-certificate-authentication-howto.md).
 
-The following settings are available when configuring ingress:
-
-| Property | Description | Values | Required |
-|---|---|---|---|
-| `external` | Whether your ingress-enabled app is accessible outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
-| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-| `exposedPort` | (TCP ingress only) The port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment and can't be `80` or `443`. | A port number from `1` to `65535`. | No |
-| `transport` | The transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect HTTP/1 or HTTP/2 (default), `tcp` for TCP. | No |
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
-
-> [!NOTE]
-> To disable ingress for your application, omit the `ingress` configuration property entirely.
-
-## Configure ingress
-
 > [!NOTE] 
 > Need information about the flags that are available in the CLI and the portal.
 
 > [!NOTE] 
 > How far do we want to go with this?  Do we want to show how to configure ingress in the portal?  In the CLI? In the ARM template?
 
-## HTTP headers
+### Transport type
 
-The HTTP headers are used to pass protocol and metadata related information between client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.
+### Internal ingress
 
-> [!NOTE] 
-> why is X-Forwarded-Proto needed?
+### Traffic splitting
 
-The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are added to the request or response.
 
-| Header | Description | Values | Required |
-|---|---|---|---|
-| `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
-
-### Configure HTTP headers
+## Configure HTTP headers
 
 > [!NOTE] 
 > Add information about how to configure HTTP headers.
