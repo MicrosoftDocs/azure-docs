@@ -19,14 +19,14 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) <br><br> [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br><br> [Focusing inventory (Public preview)](#focusing-inventory-public-preview) |
+| **OT networks** | **Cloud features**: <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal)<br>- <br> [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Device inventory GA in the Azure portal
 
-The Device inventory blade is now Generally Available (GA) via the Azure Portal, allowing you to confidently manage devices at scale from a single pane of glass.
+The **Device inventory** page in the Azure portal is now Generally Available (GA), providing a centralized view across all your detected devices, at scale.
 
-The Device inventory gives you an overview of all devices within your environment. Identify equipment details such as manufacturer, type, serial number, firmware and more. These details will assist you to proactively address vulnerabilities which compromise your most critical assets.
+Defender for IoT's device inventory helps you identify details about specific devices, such as manufacturer, type, serial number, firmware, and more. Gathering details about your devices helps your teams proactively investigate vulnerabilities that can compromise your most critical assets.
 
 - **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
 
@@ -34,7 +34,7 @@ The Device inventory gives you an overview of all devices within your environmen
 
 - **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
 
-Enhancements to the Device inventory:
+The **Device inventory** GA includes the following UI enhancements:
 
 - **Export** device inventory to review offline and compare notes with your teams
 
