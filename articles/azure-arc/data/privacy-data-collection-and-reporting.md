@@ -15,9 +15,12 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmit to Microsoft. 
 
-Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL.
+Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to:
 
-## Related products
+- Azure Arc-enabled SQL Managed Instance
+- Azure Arc-enabled PostgreSQL
+
+## Azure Arc-enabled data services
 
 Azure Arc-enabled data services may use some or all of the following products:
 
@@ -37,8 +40,8 @@ The following table describes the type of data, how it is sent, and requirement.
 
 |Data category|What data is sent?|How is it sent?|Is it required?
 |:----|:----|:----|:----|
-|Operational Data|Metrics and logs|Automatic, when configured to do so|No
-Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
+|Operational Data|Metrics and logs|Automatically, when configured to do so|No
+Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatically |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
 
 ### Indirectly connected
@@ -49,8 +52,8 @@ The following table describes the type of data, how it is sent, and requirement.
 
 |Data category|What data is sent?|How is it sent?|Is it required?
 |:----|:----|:----|:----|
-|Operational Data|Metrics and logs|Manual|No
-Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
+|Operational Data|Metrics and logs|Manually|No
+Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manually |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
 
 
@@ -71,6 +74,16 @@ If the data is sent to Azure Monitor or Log Analytics, you can choose which Azur
 ## Inventory data 
 
 The collected inventory data is represented by several Azure resource types.  The following sections show the properties, types, and descriptions that are collected for each resource type: 
+
+Every database instance and the data controller itself will be reflected in Azure as an Azure resource in Azure Resource Manager. 
+
+There are three resource types: 
+
+- Azure Arc-enabled SQL Managed Instance 
+- Azure Arc-enabled PostgreSQL server 
+- Data controller
+
+The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
 ### SQL Server - Azure Arc
 
@@ -143,17 +156,40 @@ The following JSON document is an example of the SQL Server - Azure Arc resource
 
 The following JSON document is an example of the SQL Server database - Azure Arc resource. 
 
-Every database instance and the data controller itself will be reflected in Azure as an Azure resource in Azure Resource Manager. 
+```json
+{
+    "name": "newDb80",
+    "collationName": "SQL_Latin1_General_CP1_CI_AS",
+    "databaseCreationDate": "2023-01-09T03:40:45Z",
+    "compatibilityLevel": 150,
+    "state": "Online",
+    "isReadOnly": false,
+    "recoveryMode": "Full",
+    "databaseOptions": {
+        "isAutoCloseOn": false,
+        "isAutoShrinkOn": false,
+        "isAutoCreateStatsOn": true,
+        "isAutoUpdateStatsOn": true,
+        "isRemoteDataArchiveEnabled": false,
+        "isMemoryOptimizationEnabled": true,
+        "isEncrypted": false,
+        "isTrustworthyOn": false
+    },
+    "backupInformation": {},
+    "provisioningState": "Succeeded"
+}
+```
 
-There are three resource types: 
+### Azure Arc data controller
 
-- Azure Arc-enabled SQL Managed Instance 
-- Azure Arc-enabled PostgreSQL server 
-- Data controller
+| Description | Property name | Property type|
+|:--|:--|:--|
+| Location information | OnPremiseProperty | public: OnPremiseProperty |
+| The raw Kubernetes information (`kubectl get datacontroller`) | K8sRaw | object | 
+| Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime | 
+| Data controller state | ProvisioningState | string | 
 
-The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
-
-### Data controller 
+#### Data controller 
 
 - Location information
    - `public OnPremiseProperty OnPremiseProperty` 
@@ -164,7 +200,20 @@ The following sections show the properties, types, and descriptions that are col
 - Data controller state
    - `string: ProvisioningState` 
 
-### Azure Arc-enabled PostgreSQL
+
+
+### PostgreSQL server - Azure Arc
+
+| Description | Property name | Property type|
+|:--|:--|:--|
+| The data controller ID | DataControllerId | string |
+| The instance admin name | Admin | string |
+| Username and password for basic authentication | BasicLoginInformation | public: BasicLoginInformation | 
+| The raw Kubernetes information (`kubectl get postgres12`) | K8sRaw | object |
+| Last uploaded date from on premises cluster | LastUploadedDate | System.DateTime |
+| Group provisioning state | ProvisioningState | string |
+
+#### Azure Arc-enabled PostgreSQL
 
 - The data controller ID
    - `string: DataControllerId`
@@ -179,7 +228,22 @@ The following sections show the properties, types, and descriptions that are col
 - Group provisioning state
    - `string: ProvisioningState` 
 
-### SQL Managed Instance 
+### SQL managed instance - Azure Arc
+
+| Description | Property name | Property type|
+|:--|:--|:--|
+| The managed instance ID | DataControllerId | string |
+| The instance admin username | Admin | string |
+| The instance start time | StartTime | string |
+| The instance end time | EndTime | string |
+| The raw kubernetes information (`kubectl get sqlmi`) | K8sRaw | object |
+| Username and password for basic authentication | BasicLoginInformation | BasicLoginInformation |
+| Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime |
+| SQL managed instance provisioning state | ProvisioningState | string |
+
+The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
+
+#### SQL managed instance 
 
 - The managed instance ID
    - `public string: DataControllerId` 
@@ -198,7 +262,7 @@ The following sections show the properties, types, and descriptions that are col
 - SQL managed instance provisioning state
    - `public string: ProvisioningState` 
 
-### Examples
+## Examples
 
 Example of resource inventory data JSON document that is sent to Azure to create Azure resources in your subscription. 
 
