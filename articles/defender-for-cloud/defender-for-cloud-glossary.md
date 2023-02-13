@@ -18,7 +18,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](adaptive-application-controls.md)
 |**AAD**| Azure Active Directory (Azure AD) is a cloud-based identity and access management service.| [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md)
 | **ACR Tasks** | A suite of features within Azure container registry | [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml) |
-|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [NSG](#n) rules.|[What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening#what-is-adaptive-network-hardening.md) |
+|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules.|[What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening.md#what-is-adaptive-network-hardening) |
 |**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) |
 |**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](/azure-stack/aks-hci/kubernetes-concepts)|
 |**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](alerts-overview.md)|
@@ -124,7 +124,7 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**NGAV**| Next Generation Anti-Virus |
 **NIST** | National Institute of Standards and Technology|[National Institute of Standards and Technology](https://www.nist.gov/)
-|**NSG**| Network Security Group |[NSGs](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)|
+|**NSG**| Network Security Group |[network security groups (NSGs)](../virtual-network/network-security-groups-overview.md)|
 
 ## P
 
