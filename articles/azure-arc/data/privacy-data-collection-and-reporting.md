@@ -17,7 +17,7 @@ This article describes the data that Azure Arc-enabled data services transmit to
 
 Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL.
 
-## Azure Arc-enabled data services
+## Related products
 
 Azure Arc-enabled data services may use some or all of the following products:
 
@@ -142,67 +142,6 @@ The following JSON document is an example of the SQL Server - Azure Arc resource
 | Provisioning state | provisioningState | string |
 
 The following JSON document is an example of the SQL Server database - Azure Arc resource. 
-
-<!-----
-```json
-{
-    "name": "newDb80",
-    "collationName": "SQL_Latin1_General_CP1_CI_AS",
-    "databaseCreationDate": "2023-01-09T03:40:45Z",
-    "compatibilityLevel": 150,
-    "state": "Online",
-    "isReadOnly": false,
-    "recoveryMode": "Full",
-    "databaseOptions": {
-        "isAutoCloseOn": false,
-        "isAutoShrinkOn": false,
-        "isAutoCreateStatsOn": true,
-        "isAutoUpdateStatsOn": true,
-        "isRemoteDataArchiveEnabled": false,
-        "isMemoryOptimizationEnabled": true,
-        "isEncrypted": false,
-        "isTrustworthyOn": false
-    },
-    "backupInformation": {},
-    "provisioningState": "Succeeded"
-}
-```
-
-### Azure Arc data controller
-
-| Description | Property name | Property type|
-|:--|:--|:--|
-| Location information | OnPremiseProperty | public: OnPremiseProperty |
-| The raw Kubernetes information (`kubectl get datacontroller`) | K8sRaw | object | 
-| Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime | 
-| Data controller state | ProvisioningState | string | 
-
-### PostgreSQL server - Azure Arc
-
-| Description | Property name | Property type|
-|:--|:--|:--|
-| The data controller ID | DataControllerId | string |
-| The instance admin name | Admin | string |
-| Username and password for basic authentication | BasicLoginInformation | public: BasicLoginInformation | 
-| The raw Kubernetes information (`kubectl get postgres12`) | K8sRaw | object |
-| Last uploaded date from on premises cluster | LastUploadedDate | System.DateTime |
-| Group provisioning state | ProvisioningState | string |
-
-### SQL managed instance - Azure Arc
-
-| Description | Property name | Property type|
-|:--|:--|:--|
-| The managed instance ID | DataControllerId | string |
-| The instance admin username | Admin | string |
-| The instance start time | StartTime | string |
-| The instance end time | EndTime | string |
-| The raw kubernetes information (`kubectl get sqlmi`) | K8sRaw | object |
-| Username and password for basic authentication | BasicLoginInformation | BasicLoginInformation |
-| Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime |
-| SQL managed instance provisioning state | ProvisioningState | string |
-
-The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
-------->
 
 Every database instance and the data controller itself will be reflected in Azure as an Azure resource in Azure Resource Manager. 
 
