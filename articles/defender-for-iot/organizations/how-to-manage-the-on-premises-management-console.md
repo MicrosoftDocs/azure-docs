@@ -11,7 +11,7 @@ This article covers on-premises management console options like backup and resto
 
 ## Download software for the on-premises management console
 
-You may need to download software for your on-premises management console if you're installing Defender for IoT software on your own appliances, or updating software versions.
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
 In Defender for IoT in the Azure portal, use one of the following options:
 
@@ -23,8 +23,6 @@ In Defender for IoT in the Azure portal, use one of the following options:
 - If you're updating your on-premises management console together with connected OT sensors, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
-For more information, see [Install Microsoft Defender for IoT on-premises management console software](/ot-deploy/install-software-on-premises-management-console.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ## Upload an activation file
 
