@@ -70,7 +70,7 @@ If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't pro
 > "**providerNamespace**": "Microsoft.Network", </br> 
 > "**enrollmentType**": "AutoApprove" </br> 
 >  
-> This provision to circumvent the virtual network permission check by using this feature control is **available only for a limited period, until 6th April 2023**. Ensure all the roles and permissions managing Application Gateways are updated by then, as there will be no further extensions. Read more about [Preview Feature registration](../azure-resource-manager/management/preview-features.md?tabs=azure-portal). 
+> The provision to circumvent the virtual network permission check by using this feature control is **available only for a limited period, until 6th April 2023**. Ensure all the roles and permissions managing Application Gateways are updated by then, as there will be no further extensions. Read more about [Preview Feature registration](../azure-resource-manager/management/preview-features.md?tabs=azure-portal). 
 
 ## Network security groups
 
