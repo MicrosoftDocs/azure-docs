@@ -84,18 +84,21 @@ Users who report an MFA prompt as suspicious are set to **High User Risk**. Admi
 
 To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
 
-1. In the Azure portal, click **Azure AD** > **Security** > **Authentication Methods** > **Settings**. 
+1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
 1. Set **Report Suspicious Activity** to **Enabled**. 
 1. Select **All users** or a specific group. 
 
-### View fraud reports
+### View suspicious activity events 
 
-When a user reports fraud, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user) and in the Audit logs.
+When a user reports a MFA prompt as suspicious, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user), in the Audit logs, and in the Risk detections report.   
 
-- To view fraud reports in the Sign-ins report, select **Azure Active Directory** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard Azure AD Sign-ins report and appears in the **Result Detail** as **MFA denied, Fraud Code Entered**.
+- To view the risk detections report, select **Azure Active Directory** > **Security** > **Identity Protection** > **Risk detection**.  The risk event is part of the standard **Risk Detections** report, and will appear as Detection Type **User Reported Suspicious Activity**, Risk level **High**, Source **End user reported**. 
 
-- To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type **Fraud reported - user is blocked for MFA** or **Fraud reported - no action taken** based on the tenant-level settings for fraud report.
- 
+- To view fraud reports in the Sign-ins report, select **Azure Active Directory** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Azure AD Sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
+
+- To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
+
+
 ## Notifications
 
 You can configure Azure AD to send email notifications when users report fraud alerts. These notifications are typically sent to identity administrators, because the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
