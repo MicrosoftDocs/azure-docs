@@ -31,7 +31,7 @@ To revoke the old Token Signing Certificate that AD FS is currently using, you n
 1. Document both your on-premises and cloud Token Signing Certificate thumbprint and expiration dates by running `PS C:\>Get-MsolFederationProperty -DomainName <domain>`.
 1. Copy down the thumbprint. You'll use it later to remove the existing certificates.
 
-You can also get the thumbprint by using AD FS Management. Go to **Service** > **Certificates**, right-click the certificate, select **View certificate** and then select **Details**.
+You can also get the thumbprint by using AD FS Management. Go to **Service** > **Certificates**, right-click the certificate, select **View certificate**, and then select **Details**.
 
 ## Determine whether AD FS renews the certificates automatically
 By default, AD FS is configured to generate token signing and token decryption certificates automatically. It does so both during the initial configuration and when the certificates are approaching their expiration date.
