@@ -4,7 +4,7 @@ description: This article describes how to perform major version upgrade in Azur
 ms.author: kabharati
 author: rajsell
 ms.service: postgresql
-ms.subservice: flexible-server
+ms.subservice: flexible-Server
 ms.topic: how-to
 ms.date: 02/13/2023
 ---

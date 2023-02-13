@@ -633,6 +633,12 @@
         href: flexible-server/how-to-restart-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-restart-server-cli.md
+    - name: Major Version Upgrade
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-perform-major-version-upgrade-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-perform-major-version-upgrade-cli.md
     - name: Restore a server
       items:
       - name: Azure portal
