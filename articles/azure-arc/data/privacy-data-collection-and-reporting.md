@@ -82,7 +82,7 @@ The collected inventory data is represented by several Azure resource types.  Th
 | SQL Server Edition | edition | string  |
 | Containing server resource ID | containerResourceId |  string  |
 | Virtual cores | vCore | string  |
-| Connecticity status | status | string  |
+| Connectivity status | status | string  |
 | SQL Server patch level | patchLevel | string  |
 | Collation | collation | string |
 | Current version | currentVersion | string |
