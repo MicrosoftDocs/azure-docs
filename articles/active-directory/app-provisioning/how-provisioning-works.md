@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/10/2023
+ms.date: 02/13/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -131,7 +131,7 @@ After the initial cycle, all other cycles will:
 10. Persist a new watermark at the end of the incremental cycle, which provides the starting point for the later incremental cycles.
 
 > [!NOTE]
-> You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
+> You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as *accountEnabled*.
 
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
