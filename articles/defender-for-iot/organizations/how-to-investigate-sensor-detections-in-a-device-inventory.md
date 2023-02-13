@@ -159,9 +159,9 @@ The following table describes the device properties shown in the **Device invent
 | **FQDN lookup time** | The device's FQDN lookup time |
 | **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Authorization** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
-| **Scanner device** | Defined as a network scanning device by the user. |
-| **Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Known as Scanner** | Defined as a network scanning device by the user. |
+| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
 | **MAC Address** | The MAC address of the device. |
 | **Name** | The name of the device as the sensor discovered it, or as entered by the user. |

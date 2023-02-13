@@ -67,9 +67,9 @@ Now in public preview:
 - Focused inventory
 - Grouping enhancements
 
-**Focused inventory**
+**Focused inventory - version 22.2.6 and above**
 
-Search and filter for local and routed devices in the device inventory in Azure, as defined by the subnets in your sensor. This will help to reduce noise and focus your inventory on important devices. The filter is on and set to local by default, change this as needed.  
+Search and filter for local and routed devices in the device inventory in Azure, as defined by the subnets in your sensor. This will help to reduce noise and focus your inventory on important devices. The filter is on and set to all by default, change this as needed.
 
 **Grouping enhancements**
 
