@@ -146,8 +146,9 @@ After any errors are addressed, the administrator can activate each key by selec
 
 Users can have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. 
 
-Make sure to only assign each token to a single user.
-In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
+>[!IMPORTANT]
+>Make sure to only assign each token to a single user.
+>In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
 ## Phone call settings
 
