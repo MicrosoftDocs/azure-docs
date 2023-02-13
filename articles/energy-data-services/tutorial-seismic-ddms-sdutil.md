@@ -27,7 +27,7 @@ Windows
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe)
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-- [Linux Subsystem Ubuntu](https://learn.microsoft.com/windows/wsl/install)
+- [Linux Subsystem Ubuntu](/windows/wsl/install)
 
 Linux
 
@@ -301,9 +301,9 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Usage for Azure Data Manager for Energy
+## Usage for Azure Data Manager for Energy Preview
 
-Azure Data Manager for Energy instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
+Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
 
 1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 

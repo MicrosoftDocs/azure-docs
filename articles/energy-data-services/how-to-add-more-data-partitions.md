@@ -13,7 +13,7 @@ ms.custom: template-how-to, ignite-2022
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-In this article, you'll learn how to add data partitions to an existing Azure Data Manager for Energy instance. The concept of "data partitions" is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. 
+In this article, you'll learn how to add data partitions to an existing Azure Data Manager for Energy Preview instance. The concept of "data partitions" is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. 
 
 Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partition's life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&trade;)
 

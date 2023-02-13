@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy - Steps to perform a CSV parser ingestion #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a CSV parser ingestion #Required; page title is displayed in search results. Include the brand.
 description: This tutorial shows you how to perform CSV parser ingestion #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
@@ -37,8 +37,8 @@ In this tutorial, you'll learn how to:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search and select *Azure Active Directory > Properties > Tenant ID* in the Azure portal. |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  | Same as App ID or Client_ID mentioned above |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  | Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a refresh token and save it. This refresh token is required later to generate a user token. |
-  | DNS                | URI                      | `<instance>`.energy.azure.com         | Overview page of Azure Data Manager for Energy instance|
-  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Azure Data Manager for Energy instance|
+  | DNS                | URI                      | `<instance>`.energy.Azure.com         | Overview page of Azure Data Manager for Energy Preview instance|
+  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Azure Data Manager for Energy Preview instance|
 
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
 
@@ -52,7 +52,7 @@ In this tutorial, you'll learn how to:
   > [!NOTE]
   >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
   
-* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Azure Data Manager for Energy Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)
+* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Azure Data Manager for Energy Preview instance details](#get-azure-data-manager-for-energy-preview-instance-details)
 * The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
   :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png":::

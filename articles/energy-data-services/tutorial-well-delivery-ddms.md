@@ -31,7 +31,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 - An Azure subscription
 - An instance of [Azure Data Manager for Energy Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 
-## Get your Azure Data Manager for Energy instance details
+## Get your Azure Data Manager for Energy Preview instance details
 
 The first step is to get the following information from your [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
@@ -67,17 +67,17 @@ Next, set up Postman:
 
        :::image type="content" source="media/tutorial-well-delivery/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-well-delivery/postman-import-files.png":::
   
-1. In the Postman environment, update **CURRENT VALUE** with the information from your [Azure Data Manager for Energy instance](#get-your-microsoft-energy-data-services-instance-details):
+1. In the Postman environment, update **CURRENT VALUE** with the information from your [Azure Data Manager for Energy Preview instance](#get-your-azure-data-manager-for-energy-preview-instance-details):
 
    1. In Postman, in the left menu, select **Environments**, and then select **WellDelivery Environment**.
 
-   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy instance details](#get-your-microsoft-energy-data-services-instance-details). Scroll to see all relevant variables.
+   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy Preview instance details](#get-your-microsoft-energy-data-services-instance-details). Scroll to see all relevant variables.
 
    :::image type="content" source="media/tutorial-well-delivery/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Well Delivery DDMS environment.":::
 
 ## Send a Postman request
 
-The Postman collection for Well Delivery DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Azure Data Manager for Energy instance.
+The Postman collection for Well Delivery DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Azure Data Manager for Energy Preview instance.
 
 For an example of how to send a Postman request, see the [Wellbore DDMS tutorial](tutorial-wellbore-ddms.md#send-an-example-postman-request).
 
@@ -87,7 +87,7 @@ In the next sections, generate a token, and then use it to work with Well Delive
 
 To generate a token:
 
-1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Azure Data Manager for Energy instance.
+1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Azure Data Manager for Energy Preview instance.
 
      ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
@@ -104,7 +104,7 @@ To generate a token:
 
 ## Use Well Delivery DDMS APIs to work with well data records
 
-Successfully completing the Postman requests that are described in the following Well Delivery DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy instance.
+Successfully completing the Postman requests that are described in the following Well Delivery DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy Preview instance.
 
 ### Create a well
 
@@ -158,13 +158,13 @@ Method: GET
 
 ### Delete a wellbore record
 
-You can delete a wellbore record in your Azure Data Manager for Energy instance by using Well Delivery DDMS APIs. For example:
+You can delete a wellbore record in your Azure Data Manager for Energy Preview instance by using Well Delivery DDMS APIs. For example:
 
 :::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well-bore.png" alt-text="Screenshot that shows how to use an API to delete a wellbore record.":::
 
 ### Delete a well record
 
-You can delete a well record in your Azure Data Manager for Energy instance by using Well Delivery DDMS APIs. For example:
+You can delete a well record in your Azure Data Manager for Energy Preview instance by using Well Delivery DDMS APIs. For example:
 
 :::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well.png" alt-text="Screenshot that shows how to use an API to delete a well record.":::
 

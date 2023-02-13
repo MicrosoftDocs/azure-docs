@@ -1,6 +1,6 @@
 ---
 title: Data security and encryption in Microsoft Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
-description: Guide on security in Azure Data Manager for Energy and how to set up customer managed keys on Azure Data Manager for Energy #Required; article description that is displayed in search results. 
+description: Guide on security in Azure Data Manager for Energy Preview and how to set up customer managed keys on Azure Data Manager for Energy Preview #Required; article description that is displayed in search results. 
 author: NandiniMurali #Required; your GitHub user alias, with correct capitalization.
 ms.author: Nandinim #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
@@ -8,7 +8,7 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 10/06/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
-#Customer intent: As a developer, I want to set up customer-managed keys on Azure Data Manager for Energy.
+#Customer intent: As a developer, I want to set up customer-managed keys on Azure Data Manager for Energy Preview.
 ---
 # Data security and encryption in Azure Data Manager for Energy Preview
 
@@ -16,25 +16,25 @@ This article provides an overview of security features in Azure Data Manager for
 
 ## Encrypt data at rest
 
-Azure Data Manager for Energy Preview uses several storage resources for storing metadata, user data, in-memory data etc. The platform uses service-side encryption to automatically encrypt all the data when it is persisted to the cloud. Data encryption at rest protects your data to help you to meet your organizational security and compliance commitments. All data in Azure Data Manager for Energy is encrypted with Microsoft-managed keys by default.
+Azure Data Manager for Energy Preview uses several storage resources for storing metadata, user data, in-memory data etc. The platform uses service-side encryption to automatically encrypt all the data when it is persisted to the cloud. Data encryption at rest protects your data to help you to meet your organizational security and compliance commitments. All data in Azure Data Manager for Energy Preview is encrypted with Microsoft-managed keys by default.
 In addition to Microsoft-managed key, you can use your own encryption key to protect the data in Azure Data Manager for Energy Preview. When you specify a customer-managed key, that key is used to protect and control access to the Microsoft-managed key that encrypts your data.
 
 ## Encrypt data in transit
 
 Azure Data Manager for Energy Preview  supports Transport Layer Security (TLS 1.2) protocol to protect data when it’s traveling between the cloud services and customers. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, and algorithm flexibility.
 
-In addition to TLS, when you interact with Azure Data Manager for Energy, all transactions take place over HTTPS. 
+In addition to TLS, when you interact with Azure Data Manager for Energy Preview, all transactions take place over HTTPS. 
 
 ## Set up Customer Managed Keys (CMK) for Azure Data Manager for Energy Preview instance
 > [!IMPORTANT]
-> You cannot edit CMK settings once the Azure Data Manager for Energy instance is created.
+> You cannot edit CMK settings once the Azure Data Manager for Energy Preview instance is created.
 
 ### Prerequisites
 
 **Step 1- Configure the key vault**
 
 1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?
-2. Using customer-managed keys with Azure Data Manager for Energy requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
+2. Using customer-managed keys with Azure Data Manager for Energy Preview requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
 
    [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png#lightbox)
@@ -54,10 +54,10 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 2.	You can create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 
 ### Configure customer-managed keys for an existing account
-1.	Create a **Azure Data Manager for Energy** instance.
+1.	Create a **Azure Data Manager for Energy Preview** instance.
 2.	Select the **Encryption** tab.
 
-   [![Screenshot of Encyption tab while creating Azure Data Manager for Energy](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
+   [![Screenshot of Encyption tab while creating Azure Data Manager for Energy Preview](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
  
 3.	In the encryption tab, select **Customer-managed keys (CMK)**. 
 4.	For using CMK, you need to select the key vault where the key is stored. 
@@ -79,7 +79,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 12.	Next, select “**Review+Create**” after completing other tabs. 
 13.	Select the "**Create**" button. 
-14.	A Azure Data Manager for Energy instance is created with customer-managed keys.
+14.	A Azure Data Manager for Energy Preview instance is created with customer-managed keys.
 15.	Once CMK is enabled you will see its status on the **Overview** screen.
 
     [![Screenshot of CMK enabled on MEDS overview page](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png#lightbox)

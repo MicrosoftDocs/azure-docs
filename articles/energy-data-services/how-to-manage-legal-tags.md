@@ -5,7 +5,7 @@ author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitaliza
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/19/2022
+ms.date: 02/20/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -42,7 +42,7 @@ Run the below curl command in Azure Cloud Bash to create a legal tag for a given
 ```
 
 ### Sample request
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/legal/v1/legaltags' \
@@ -144,7 +144,7 @@ Run the below curl command in Azure Cloud Bash to get the legal tag associated w
 ```
 
 ### Sample request
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request GET 'https://medstest.energy.azure.com/api/legal/v1/legaltags/medstest-dp1-legal-tag' \

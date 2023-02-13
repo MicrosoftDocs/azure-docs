@@ -1,5 +1,5 @@
 ---
-title: How to generate a refresh token for Microsoft Azure Data Manager for Energy #Required; page title is displayed in search results. Include the brand.
+title: How to generate a refresh token for Microsoft Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to generate a refresh token #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.

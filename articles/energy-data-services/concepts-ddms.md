@@ -58,7 +58,7 @@ OSDU&trade; R3 M8 is the base for the scope of the Azure Data Manager for Energy
 
 ## Learn more: OSDU&trade; DDMS community principles
 
-[OSDU&trade; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&trade;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Azure Data Manager for Energy.
+[OSDU&trade; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&trade;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Azure Data Manager for Energy Preview.
 
 ## DDMS requirements
 

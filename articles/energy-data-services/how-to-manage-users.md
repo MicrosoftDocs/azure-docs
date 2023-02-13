@@ -88,7 +88,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Azure Data Manager for Energy Preview instance. 
 
 ## User management activities
-You can manage user's access to your Azure Data Manager for Energy instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. 
+You can manage user's access to your Azure Data Manager for Energy Preview instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. 
 
 You'll need to input `object-id` (OID) of the users as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy Preview Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
 
@@ -98,7 +98,7 @@ You'll need to input `object-id` (OID) of the users as parameters in the calls t
 
 ### Get the list of all available groups 
 
-Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for Energy instance and its data partitions.
+Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for Energy Preview instance and its data partitions.
 
 ```bash
     curl --location --request GET "https://<URI>/api/entitlements/v2/groups/" \
@@ -125,7 +125,7 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/users@medstest-dp1.dataservices.energy/members' \
@@ -165,7 +165,7 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.search.user@medstest-dp1.dataservices.energy/members' \
@@ -199,7 +199,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups associated 
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request GET 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
@@ -229,7 +229,7 @@ Consider a Azure Data Manager for Energy instance named "medstest" with a data p
 
 ### Delete entitlement groups of a given user
 
-Run the below curl command in Azure Cloud Bash to delete a given user to your Azure Data Manager for Energy instance data partition.
+Run the below curl command in Azure Cloud Bash to delete a given user to your Azure Data Manager for Energy Preview instance data partition.
 
 As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER that can manage users in that group.
 
@@ -241,7 +241,7 @@ As stated above, **DO NOT** delete the OWNER of a group unless you have another 
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
+Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request DELETE 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
