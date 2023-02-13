@@ -26,13 +26,13 @@ The original set of commands are action orientated. The updated set of commands,
 ## When to use action or managed commands
 
 The original set of commands are action orientated. You should consider using this set of commands for situations where you need to run:
-- A small script to get a content from a VM 
+- A small script to get a content from a VM
 - A script to configure a VM (set registry keys, change configuration) 
 - A one time script for diagnostics
 
 See [Action Run Commands for Linux](./linux/run-command.md) and [Action Run Commands for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
 
-The updated set of commands, currently in Public Preview, are management orientated. Consider using managed run commands if your needs align to the following examples:
+The updated set of commands are management orientated. Consider using managed run commands if your needs align to the following examples:
 - Script needs to run as part of VM deployment 
 - Recurrent script execution is needed 
 - Multiple scripts needs to execute sequentially 

@@ -1,6 +1,6 @@
 ---
-title: Angular plugin for Application Insights JavaScript SDK
-description: How to install and use Angular plugin for Application Insights JavaScript SDK. 
+title: Angular plug-in for Application Insights JavaScript SDK
+description: Learn how to install and use the Angular plug-in for the Application Insights JavaScript SDK. 
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -10,22 +10,21 @@ ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# Angular plugin for Application Insights JavaScript SDK
+# Angular plug-in for the Application Insights JavaScript SDK
 
-The Angular plugin for the Application Insights JavaScript SDK, enables:
+The Angular plug-in for the Application Insights JavaScript SDK enables:
 
-- Tracking of router changes
-- Tracking uncaught exceptions
+- Tracking of router changes.
+- Tracking uncaught exceptions.
 
 > [!WARNING]
-> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+> The Angular plug-in *isn't* ECMAScript 3 (ES3) compatible.
 
-> [!IMPORTANT]
-> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
+When we add support for a new Angular version, our npm package becomes incompatible with down-level Angular versions. Continue to use older npm packages until you're ready to upgrade your Angular version.
 
-## Getting started
+## Get started
 
-Install npm package:
+Install an npm package:
 
 ```bash
 npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
@@ -65,7 +64,7 @@ export class AppComponent {
 }
 ```
 
-To track uncaught exceptions, setup ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+To track uncaught exceptions, set up `ApplicationinsightsAngularpluginErrorService` in `app.module.ts`:
 
 ```js
 import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
@@ -83,24 +82,24 @@ import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applica
 export class AppModule { }
 ```
 
-## Enable Correlation
+## Enable correlation
 
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+Correlation generates and sends data that enables distributed tracing and powers [Application Map](../app/app-map.md), the [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+In JavaScript, correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ### Route tracking
 
-The Angular Plugin automatically tracks route changes and collects other Angular specific telemetry. 
+The Angular plug-in automatically tracks route changes and collects other Angular-specific telemetry.
 
 > [!NOTE]
-> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+> Set `enableAutoRouteTracking` to `false`. If it's set to `true`, when the route changes, duplicate `PageViews` might be sent.
 
 ### PageView
 
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+If a custom `PageView` duration isn't provided, the `PageView` duration defaults to a value of `0`.
 
 ## Next steps
 
-- To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md)
-- [Angular plugin on GitHub](https://github.com/microsoft/applicationinsights-angularplugin-js)
+- To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
+- See the [Angular plug-in on GitHub](https://github.com/microsoft/applicationinsights-angularplugin-js).
