@@ -34,8 +34,8 @@ items:
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
   - name: JavaScript
     items:
-    - name: Azure.AI.TextAnalytics namespace
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: AI.Text.Language namespace
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
   - name: Python
     items:
     - name: Azure.AI.TextAnalytics namespace
@@ -70,7 +70,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples
     - name: Python
@@ -333,7 +333,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -364,7 +364,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -373,17 +383,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 - name: Language detection
   items:
   - name: Language detection overview
@@ -399,7 +399,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -445,7 +445,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -454,17 +464,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 
 - name: Key phrase extraction
   items:
@@ -481,7 +481,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -531,7 +531,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -540,17 +550,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 
 - name: Named Entity Recognition (NER)
   items:
@@ -567,7 +567,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -611,7 +611,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -620,17 +630,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 - name: Orchestration workflow
   items:
   - name: Orchestration workflow overview
@@ -720,7 +720,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -911,7 +911,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -961,7 +961,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -970,17 +980,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 
 - name: Text Analytics for health
   items:
@@ -997,7 +997,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
@@ -1049,7 +1049,17 @@ items:
             href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Latest
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+      - name: Preview
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -1058,17 +1068,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-      - name: v3.1
-        items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
 - name: Summarization (preview)
   items:
   - name: Summarization overview
