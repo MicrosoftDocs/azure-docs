@@ -4,7 +4,7 @@ description: Learn how to gain comprehensive visibility and insights over extern
 titleSuffix: Defender EASM and External Attack Surface Management (EASM) and Defender for Cloud
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/10/2023
+ms.date: 01/24/2023
 ---
 
 # What is an external attack surface?

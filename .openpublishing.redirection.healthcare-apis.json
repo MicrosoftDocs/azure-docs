@@ -586,7 +586,11 @@
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-data-flow.md",
-        "redirect_url": "/azure/healthcare-apis/iot/data-flow",
+        "redirect_url": "/azure/healthcare-apis/iot/understand-service",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/data-flow.md",
+        "redirect_url": "/azure/healthcare-apis/iot/understand-service",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-device-mappings.md",
@@ -630,7 +634,11 @@
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-calculated-functions-mappings.md",
-        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-mappings",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-mappings",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iot-jsonpath-content-mappings.md",

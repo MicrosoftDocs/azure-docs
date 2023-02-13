@@ -175,5 +175,5 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Next steps
 
-Learn about [managing deployments, models, and finetuning with the REST API](/rest/api/cognitiveservices/azureopenai/deployments/create).
+Learn about [managing deployments, models, and finetuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/deployments/create).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

@@ -44,16 +44,16 @@ In order to enable the jump host VM (or self-hosted agent VMs if using [Azure Ba
 
 Azure Machine Learning batch deployments run on compute clusters. To secure batch deployment jobs, those compute clusters have to be deployed in a virtual network too.
 
-1. Create an Azure Machine Learning [computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster).
+1. Create an Azure Machine Learning [computer cluster in the virtual network](how-to-secure-training-vnet.md).
 2. Ensure all related services have private endpoints configured in the network. Private endpoints are used for not only Azure Machine Learning workspace, but also its associated resources such as Azure Storage, Azure Key Vault, or Azure Container Registry. Azure Container Registry is a required service. While securing the Azure Machine Learning workspace with virtual networks, please note that there are [some prerequisites about Azure Container Registry](how-to-secure-workspace-vnet.md#prerequisites).
-4. If your compute instance uses a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources.
+4. If your compute instance uses a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#compute-instancecluster-with-public-ip) so that management services can submit jobs to your compute resources.
     
     > [!TIP]
     > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
 
-1. Extra NSG may be required depending on your case. Please see [Limitations for Azure Machine Learning compute cluster](how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1).
+1. Extra NSG may be required depending on your case. For more information, see [How to secure your training environment](how-to-secure-training-vnet.md).
 
-For more details about how to configure compute clusters networking read [Secure an Azure Machine Learning training environment with virtual networks](how-to-secure-training-vnet.md#azure-machine-learning-compute-clusterinstance-1).
+For more information, see the [Secure an Azure Machine Learning training environment with virtual networks](how-to-secure-training-vnet.md) article.
 
 ## Using two-networks architecture
 

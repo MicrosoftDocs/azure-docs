@@ -90,7 +90,7 @@ The hub virtual network contains the firewall subnet that is associated with the
 
     | Setting | Value |
     | ------- | ----- |
-    | Bastion name | Enter **myFirewall**. |
+    | Firewall name | Enter **myFirewall**. |
     | Firewall subnet address space | Enter **10.1.2.0/26**. |
     | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-Firewall**. </br> Select **OK**. |
 

@@ -1,6 +1,6 @@
 ---
-title: Configure privileged access groups settings in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to configure role-assignable groups settings in Azure AD Privileged Identity Management (PIM).
+title: Configure PIM for Groups settings (preview) - Azure Active Directory
+description: Learn how to configure PIM for Groups settings (preview).
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -10,62 +10,86 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
+ms.date: 01/27/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Configure privileged access group settings (preview) in Privileged Identity Management
+# Configure PIM for Groups settings (preview)
 
-Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-## Open role settings
+You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
-Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, the Privileged Role Administrator role, or the group Owner role.
+## Update role settings
 
-1. Open **Azure AD Privileged Identity Management**.
+Follow these steps to open the settings for a group role. 
 
-1. Select **Privileged access (Preview)**.
-    >[!NOTE]
-    > Approver doesn't have to be member of the group, owner of the group or have Azure AD role assigned.
+1. [Sign in to Azure AD portal](https://aad.portal.azure.com).
 
-1. Select the group that you want to manage.
+1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
 
-    ![Privileged access groups filtered by a group name](./media/groups-role-settings/group-select.png)
+1. Select the group that you want to configure role settings for.
 
 1. Select **Settings**.
 
-    ![Settings page listing group settings for the selected group](./media/groups-role-settings/group-settings-select-role.png)
+1. Select the role you need to configure role settings for – **Member** or **Owner**.
 
-1. Select the Owner or Member role whose settings you want to view or change. You can view the current settings for the role in the **Role setting details** page.
+   :::image type="content" source="media/pim-for-groups/pim-group-17.png" alt-text="Screenshot of where to select the role you need to configure role settings for." lightbox="media/pim-for-groups/pim-group-17.png":::
 
-    ![Role setting details page listing several assignment and activation settings](./media/groups-role-settings/group-role-setting-details.png)
+1. Review current role settings.
 
-1. Select **Edit** to open the **Edit role setting** page. The **Activation** tab allows you to change the  role activation settings, including whether to allow permanent eligible and active assignments.
+1. Select **Edit** to update role settings. 
 
-    ![Edit role settings page with Activation tab open](./media/groups-role-settings/role-settings-activation-tab.png)
+    :::image type="content" source="media/pim-for-groups/pim-group-18.png" alt-text="Screenshot of where to select Edit to update role settings." lightbox="media/pim-for-groups/pim-group-18.png":::
 
-1. Select the **Assignment** tab  to open the assignment settings tab. These settings control the Privileged Identity Management assignment settings for this role.
+1. Once finished, select **Update**.
 
-    ![Role Assignment tab in role settings page](./media/groups-role-settings/role-settings-assignment-tab.png)
+## Role settings
 
-1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
+### Activation maximum duration
 
-    ![Role Notifications tab in role settings page](./media/groups-role-settings/role-settings-notification-tab.png)
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
-1. Select the **Update** button at any time to update the role settings.
+### On activation, require multi-factor authentication
 
-In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-- **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any other recipients.  
-- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
-- **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
-- **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
-## Assignment duration
+For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+
+### On activation, require Azure AD Conditional Access authentication context (Public Preview)
+
+You can require users who are eligible for a role to satisfy Conditional Access policy requirements: use specific authentication method enforced through Authentication Strengths, elevate the role from Intune compliant device, comply with Terms of Use, and more. 
+
+To enforce this requirement, you need to:
+
+1.	Create Conditional Access authentication context.
+1.	Configure Conditional Access policy that would enforce requirements for this authentication context.
+1.	Configure authentication context in PIM settings for the role.
+
+:::image type="content" source="media/pim-for-groups/pim-group-21.png" alt-text="Screenshot of the Edit role settings Member page." lightbox="media/pim-for-groups/pim-group-21.png":::
+
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+
+### Require justification on activation
+
+You can require that users enter a business justification when they activate the eligible assignment.
+
+### Require ticket information on activation
+
+You can require that users enter a support ticket when they activate the eligible assignment. This is information only field and correlation with information in any ticketing system is not enforced.
+
+### Require approval to activate
+
+You can require approval for activation of eligible assignment. Approver doesn’t have to be group member or owner. When using this option, you have to select at least one approver (we recommend to select at least two approvers), there are no default approvers.
+
+To learn more about approvals, see [Approve activation requests for PIM for Groups members and owners (preview)](groups-approval-workflow.md).
+
+### Assignment duration
 
 You can choose from two assignment duration options for each assignment type (eligible and active) when you configure settings for a role. These options become the default maximum duration when a user is assigned to the role in Privileged Identity Management.
 
@@ -86,48 +110,23 @@ And, you can choose one of these **active** assignment duration options:
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
-## Require multifactor authentication
+### Require multi-factor authentication on active assignment
 
-Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
+You can require that administrator or group owner provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-### Require multifactor authentication on active assignment
+Administrator or group owner may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
-This option requires admins must complete multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+### Require justification on active assignment
 
-To require multifactor authentication when creating an active role assignment, select the **Require Multi-Factor Authentication on active assignment** check box.
+You can require that users enter a business justification when they create an active (as opposed to eligible) assignment.
 
-### Require multifactor authentication on activation
+In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
 
-You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
-
-To require multifactor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
-
-For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
-
-## Activation maximum duration
-
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
-
-## Require justification
-
-You can require that users enter a business justification when they activate. To require justification, check the **Require justification on active assignment** box or the **Require justification on activation** box.
-
-## Require approval to activate
-
-If you want to require approval to activate a role, follow these steps.
-
-1. Check the **Require approval to activate** check box.
-
-1. Select **Select approvers** to open the **Select a member or group** page.
-
-    ![Select a user or group pane to select approvers](./media/groups-role-settings/group-settings-select-approvers.png)
-
-1. Select at least one user or group and then click **Select**. You can add any combination of users and groups. You must select at least one approver. There are no default approvers.
-
-    Your selections will appear in the list of selected approvers.
-
-1. Once you have specified your all your role settings, select **Update** to save your changes.
+- **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any other recipients.  
+- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
+- **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
+- **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an email requiring admins to approve an extension request will be triggered.
 
 ## Next steps
 
-- [Assign privileged access group membership or ownership in PIM](groups-assign-member-owner.md)
+- [Assign eligibility for a group (preview) in Privileged Identity Management](groups-assign-member-owner.md)

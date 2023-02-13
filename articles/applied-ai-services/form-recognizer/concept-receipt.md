@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 01/25/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -157,20 +157,18 @@ See how data, including time and date of transactions, merchant information, and
 ## Supported languages and locales v3.0
 
 >[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+> Form Recognizer auto-detects language and locale data.
 
 The receipt model supports all English receipts and the following locales:
 
-|Language| Locale code |
+|Supported Languages| Details |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
-|French | 'fr' |
-|Spanish | `es` |
-
+|&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
+|&bullet; Dutch| Netherlands (nl)|
+|&bullet; French | France (fr) |
+|&bullet; Japanese | Japan (ja)|
+|&bullet; Portuguese| Portugal (-pt), Brazil (-br)|
+|&bullet; Spanish | Spain (es) |
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"

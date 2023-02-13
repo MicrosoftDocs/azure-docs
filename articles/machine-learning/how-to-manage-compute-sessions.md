@@ -47,3 +47,9 @@ In contrast to notebook sessions, terminal sessions are terminated when you clos
 Select **Manage active sessions** in the terminal toolbar to open the session management panel and shut down the sessions you no longer need. In the following image, you can see that the tooltip shows the count of active terminal sessions.
 
 :::image type="content" source="media/how-to-manage-compute-sessions/terminal-sessions-button.png" alt-text="Screenshot of terminal sessions button in toolbar." lightbox="media/how-to-manage-compute-sessions/terminal-sessions-button.png":::
+
+## Next steps
+
+* [How to create and manage files in your workspace](how-to-manage-files.md)
+* [Run Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
+* [Access a compute instance terminal in your workspace](how-to-access-terminal.md)

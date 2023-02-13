@@ -274,6 +274,8 @@
         href: battery-management-information-system-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beable
+        href: beable-tutorial.md
       - name: Bealink
         href: bealink-tutorial.md  
       - name: Beatrust
@@ -384,6 +386,8 @@
         href: cakehr-tutorial.md
       - name: Campus Café
         href: campus-cafe-tutorial.md
+      - name: Canva
+        href: canva-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -544,6 +548,8 @@
         href: competencyiq-tutorial.md
       - name: Compliance ELF
         href: complianceelf-tutorial.md
+      - name: Compliance Genie
+        href: compliance-genie-tutorial.md
       - name: Concur
         href: concur-tutorial.md
       - name: SAP Concur Travel and Expense
@@ -692,6 +698,8 @@
         href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
+      - name: DojoNavi
+        href: dojonavi-tutorial.md
       - name: Domo
         href: domo-tutorial.md
       - name: dominKnow|ONE
@@ -915,8 +923,6 @@
         href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
-      - name: Firstbird
-        href: firstbird-tutorial.md
       - name: FiscalNote
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -1255,6 +1261,8 @@
         href: iserver-portal-tutorial.md
       - name: i-Sight
         href: isight-tutorial.md
+      - name: IT-Conductor
+        href: it-conductor-tutorial.md
       - name: ITRP
         href: itrp-tutorial.md
       - name: itslearning
@@ -1359,12 +1367,16 @@
         href: klaxoon-saml-tutorial.md
       - name: Klue
         href: klue-tutorial.md
+      - name: Kno2fy
+        href: kno2fy-tutorial.md
       - name: KnowBe4 Security Awareness Training
         href: knowbe4-tutorial.md
       - name: Knowledge Anywhere LMS
         href: knowledge-anywhere-lms-tutorial.md
       - name: KnowledgeOwl
         href: knowledgeowl-tutorial.md
+      - name: Knowledge Work
+        href: knowledge-work-tutorial.md
       - name: Kontiki
         href: kontiki-tutorial.md
       - name: Korn Ferry 360
@@ -1707,10 +1719,18 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Access Manager for Oracle E-Business Suite
+        href: oracle-access-manager-for-oracle-ebs-tutorial.md
+      - name: Oracle Access Manager for Oracle Retail Merchandising
+        href: oracle-access-manager-for-oracle-retail-merchandising-tutorial.md
       - name: Oracle Cloud Infrastructure Console
         href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
+      - name: Oracle IDCS for E-Business Suite
+        href: oracle-idcs-for-ebs-tutorial.md
+      - name: Oracle IDCS for PeopleSoft
+        href: oracle-idcs-for-peoplesoft-tutorial.md 
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
       - name: OrgVitality SSO
@@ -1773,6 +1793,8 @@
         href: pendo-tutorial.md
       - name: Penji
         href: penji-tutorial.md
+      - name: Pennylane
+        href: pennylane-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart
@@ -1927,6 +1949,8 @@
         href: r-and-d-tax-credit-services-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
+      - name: Radancy's Employee Referrals
+        href: radancys-employee-referrals-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -1959,6 +1983,8 @@
         href: rescana-tutorial.md
       - name: Resource Central – SAML SSO for Meeting Room Booking System
         href: resource-central-tutorial.md
+      - name: Respondent
+        href: respondent-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
       - name: RetrieverMediaDatabase
@@ -2333,6 +2359,8 @@
         href: talent-palette-tutorial.md
       - name: Talentsoft
         href: talentsoft-tutorial.md
+      - name: Talon
+        href: talon-tutorial.md
       - name: Tango Analytics
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
@@ -2607,6 +2635,8 @@
         href: webce-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: WebTMA
+        href: webtma-tutorial.md
       - name: Wedo
         href: wedo-tutorial.md
       - name: Weekdone
@@ -3178,6 +3208,8 @@
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
         href: storegate-provisioning-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-provisioning-tutorial.md
       - name: Swit
         href: swit-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)

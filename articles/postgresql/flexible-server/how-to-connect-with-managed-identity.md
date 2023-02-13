@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using Managed Identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 11/04/2022
+ms.date: 01/24/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -13,12 +13,9 @@ ms.custom:
   - devx-track-azurecli
 ---
 
-# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server Preview
+# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
-
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 You can use both system-assigned and user-assigned managed identities to authenticate to Azure Database for PostgreSQL. This article shows you how to use a system-assigned managed identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.
 

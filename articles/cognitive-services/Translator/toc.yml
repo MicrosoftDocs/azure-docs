@@ -12,7 +12,7 @@ items:
     href: language-support.md
   - name: Pricing
     displayName: cost,free,standard,custom,tier,S1,S2,S3,S4,C2,C3,C4,D3,hosting
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator
   - name: What's new?
     displayName: release,ga,update,support
     href: whats-new.md
@@ -87,7 +87,7 @@ items:
         href: containers/translator-container-configuration.md
       - name: Use containers in disconnected environments
         displayName: text,docker,pull,mcr,registry,commitment,parameters
-        href: ../containers/disconnected-containers.md
+        href: containers/translator-disconnected-containers.md
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md

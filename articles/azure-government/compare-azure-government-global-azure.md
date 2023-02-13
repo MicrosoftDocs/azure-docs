@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/09/2023
+ms.date: 02/10/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -127,11 +127,10 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government:
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-  - Teams Channel
   - Direct Line Speech Channel
   - Telephony Channel (Preview)
   - Microsoft Search Channel (Preview)
@@ -241,6 +240,10 @@ The following features have known limitations in Azure Government:
 
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+
+### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
+
+Azure Active Directory B2C is **not available** in Azure Government.
 
 ### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
 
@@ -356,7 +359,11 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 ## Security
 
-This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=payment-hsm,azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/)
+
+For feature variations and limitations, see [Microsoft Defender for Endpoint for US Government customers](/microsoft-365/security/defender-endpoint/gov).
 
 ### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 
@@ -377,12 +384,6 @@ For feature variations and limitations, see [Cloud feature availability for US G
 ## Storage
 
 This section outlines variations and considerations when using Storage services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
-
-### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
-
-The following Azure managed disks **features aren't currently available** in Azure Government:
-
-- Zone-redundant storage (ZRS)
 
 ### [Azure NetApp Files](../azure-netapp-files/index.yml)
 

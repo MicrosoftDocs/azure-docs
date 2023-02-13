@@ -1,8 +1,9 @@
 ---
 title: Create alerts with Dynamic Thresholds in Azure Monitor
 description: Create alerts with machine learning-based Dynamic Thresholds.
-author: yanivlavi
-ms.author: yalavi
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.reviewer: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
 ---

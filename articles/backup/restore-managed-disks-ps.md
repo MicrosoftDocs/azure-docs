@@ -3,6 +3,8 @@ title: Restore Azure Managed Disks via Azure PowerShell
 description: Learn how to restore Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Managed Disks using Azure PowerShell
