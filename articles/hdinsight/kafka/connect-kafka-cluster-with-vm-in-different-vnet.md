@@ -4,7 +4,7 @@ description: Learn how to do Apache Kafka operations using a Apache Kafka REST p
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/09/2023
+ms.date: 02/14/2023
 ---
 
 # How to connect Kafka cluster with VM in different VNet
@@ -14,19 +14,23 @@ Learn how to connect Kafka cluster with VM in different VNet
 This Document lists steps that must be followed to set up connectivity between VM and HDI Kafka residing in two different VNet. 
 
 1. Create two different VNETs where HDInsight Kafka cluster and VM will be hosted respectively. For more infomration, see [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
-1. Note that these two  VNETs must be peered, so that IP addresses of their subnets must not overlap with each other. For more infomration, see [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
-1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. This is like how HDInsight clusters are created in portal with the VNet option For more infomration, see [Create an Apache Kafka cluster](/azure/hdinsight/kafka/apache-kafka-get-started.md#create-an-apache-kafka-cluster)
-1. Create a Virtual Machine in the second VNet. While creating the VM specify the second VNet name where this virtual machine must be deployed. For more more information, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
-1. Once the above steps are completed and Kafka cluster and VM are in running state, make sure to add your local machine IP address in the NSG rule of both the subnets.
-Image 1
-   This step is to ensure that you can SSH into the kafka headnodes as well as the Virtual machine. 
-1.Make sure that the peering status shows as connected. (Peering step was mentioned in step 2) 
+
+3. Note that these two  VNETs must be peered, so that IP addresses of their subnets must not overlap with each other. For more infomration, see [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+
+  Make sure that the peering status shows as connected.
+  
+   Image 1
+   
+1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more infomration, see [Create an Apache Kafka cluster](/azure/hdinsight/kafka/apache-kafka-get-started.md#create-an-apache-kafka-cluster)
+
+3. Create a Virtual Machine in the second VNet. While creating the VM specify the second VNet name where this virtual machine must be deployed. For more more information, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
+
+Note: Once the above steps are completed and Kafka cluster and VM are in running state, make sure to add your local machine IP address in the NSG rule of both the subnets.
+
 Image 2
-1. After this we can copy the entries of the file /etc/host from kafka headnode to VM.  
-Image 3.
-1. Remove the “headnodehost” string entries from the file. For example, the above image has headnodehost entry for the ip 10.0.0.16. After removal it will be like
-Image 4.
-1. After these entries are made, try to reach the Kafka Ambari dashboard using the curl command using the hn0 or hn1 FQDN as below
+
+1. This step is to ensure that you can SSH into the Kafka headnodes as well as the Virtual machine. 
+1. After this we can copy the entries of the file /etc/host from Kafka headnode to VM.  
 
    ```
    curl hn0-vnetka.glarbkztnoqubmzjylls33qnse.bx.internal.cloudapp.net:8080 
@@ -87,18 +91,17 @@ Image 4.
 
    </html>”
    ```
+   Image 5
+   
+   > [!Note] 
+   > 1.In Windows VM , static hostnames are added in the file hosts present in the path `C:\Windows\System32\drivers\etc\`
+   > This document assumes that the Ambari server is active on hn0. If the Ambari server is active on hn1 use the FQDN of hn1 to access the Ambari UI. 
+      
+    
 1. You can also use send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application,
+   
    https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
    
-1. Make sure to create the topic inside the Kafka cluster using the below command, 
-   ```
-   /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS 
-   ```
-1. After creating the topic, we can use the below commands to produce and consume. The $KAFKABROKERS must be replace appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
-   ```
-   java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS 
-   java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS 
-   ```
 1. After this you will get an output as below 
     
    Producer output:
