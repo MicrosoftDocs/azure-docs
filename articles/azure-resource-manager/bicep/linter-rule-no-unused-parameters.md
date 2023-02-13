@@ -21,7 +21,7 @@ To reduce confusion in your template, delete any parameters that are defined but
 
 You can use **Quick Fix** to remove the unused parameters:
 
-:::image type="content" source="./media/linter-rule-no-unused-parameters/linter-rule-no-unused-parameters-quick-fix.png" alt-text="The screenshot of No unused parameters linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-no-unused-parameters/linter-rule-no-unused-parameters-quick-fix.png" alt-text="The screenshot of No unused parameters linter rule quick fix.":::
 
 ## Next steps
 
