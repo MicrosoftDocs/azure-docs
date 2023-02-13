@@ -83,13 +83,13 @@ Create a sample table and seed it with sample data to match the tutorial.
 
     ```sql
     CREATE TABLE [dbo].[MyTestPeopleTable] (
-        [ID]       INT          IDENTITY (1, 1) NOT NULL,
+        [Id]       INT          IDENTITY (1, 1) NOT NULL,
         [Name]     VARCHAR (25) NULL
     );
     ```
 
     > [!NOTE]
-    > The `ID` field is auto-incremented.
+    > The `Id` field is auto-incremented.
 
 1. Run the following script to add data into the *MyTestPeopleTable* table.
 
@@ -145,6 +145,14 @@ The rest this tutorial focuses on working with local files in your static web ap
 ## Create the database configuration file
 
 Next, create a configuration file that your static web app uses to interface with the database.
+
+1. Open your terminal and create a new variable to hold your connection string.
+
+    ```bash
+    DATABASE_CONNECTION_STRING=<YOUR_CONNECTION_STRING>
+    ```
+
+  Make sure to replace `<YOUR_CONNECTION_STRING>` with the connections string value you set aside in a text editor.
 
 1. In the local repository of your static web app, create a new folder named **db-config**.
 
