@@ -39,7 +39,7 @@ param adminPassword string
 
 Optionally, you can use **Quick Fix** to remove the insecured default value:
 
-:::image type="content" source="./media/linter-rule-secure-parameter-default/linter-rule-secure-parameter-default-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-secure-parameter-default/linter-rule-secure-parameter-default-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix.":::
 
 Or, by providing an empty string for the default value.
 
