@@ -56,7 +56,7 @@ Optionally, you can use **Quick Fix** to fix the issues:
 
 linter-rule-prefer-unquoted-property-names-quick-fix
 
-:::image type="content" source="./media/linter-rule-prefer-unquoted-property-names/linter-rule-prefer-unquoted-property-names-quick-fix.png" alt-text="The screenshot of Prefer unquoted property names quick fix":::
+:::image type="content" source="./media/linter-rule-prefer-unquoted-property-names/linter-rule-prefer-unquoted-property-names-quick-fix.png" alt-text="The screenshot of Prefer unquoted property names quick fix.":::
 
 ## Next steps
 
