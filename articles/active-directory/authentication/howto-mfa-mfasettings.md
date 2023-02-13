@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 02/13/2023
 
 ms.author: justinha
 author: justinha
@@ -98,6 +98,15 @@ When a user reports a MFA prompt as suspicious, the event shows up in the Sign-i
 
 - To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
 
+### Manage suspicious activity events 
+
+Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock). 
+
+### Report suspicious activity and fraud alert 
+
+**Report Suspicious Activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report Suspicious Activity** with a targeted test group. 
+
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report Suspicious Activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
 
 ## Notifications
 
