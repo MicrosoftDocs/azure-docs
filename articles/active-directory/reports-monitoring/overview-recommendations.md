@@ -165,7 +165,7 @@ To get started, follow these instructions to work with recommendations using Mic
     GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'&$expand=impactedResources
     ```
 
-For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendation).
+For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendations-api-overview).
 
 ## Next steps
 
