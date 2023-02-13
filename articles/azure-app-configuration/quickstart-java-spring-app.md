@@ -141,13 +141,13 @@ To use the Spring Cloud Azure Config starter to have your application communicat
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-   If you use Windows PowerShell, run the following command:
+    If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
     $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-   If you use macOS or Linux, run the following command:
+    If you use macOS or Linux, run the following command:
 
     ```cmd
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
