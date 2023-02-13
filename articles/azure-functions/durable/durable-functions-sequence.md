@@ -88,8 +88,6 @@ All Python orchestration functions must include the [`durable-functions` package
 
 The `context` object lets you call other *activity* functions and pass input parameters using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
 
----
-
 # [Python (V2)](#tab/python-v2)
 
 #### function.json
@@ -170,8 +168,6 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
----
-
 # [Python (V2)](#tab/python-v2)
 
 #### E1_SayHello/function.json
@@ -230,8 +226,6 @@ To interact with orchestrators, the function must include a `durableClient` inpu
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
 
 Use the `DurableOrchestrationClient` constructor to obtain a Durable Functions client. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
-
----
 
 # [Python (V2)](#tab/python-v2)
 
