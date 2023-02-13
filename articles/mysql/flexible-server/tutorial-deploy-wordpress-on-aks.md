@@ -116,7 +116,7 @@ The server created has the below attributes:
 
 ## Container definitions
 
-In following example, we are creating 2 containers - a Nginx web server and PHP FastCGI processor, based on official Docker images: `nginx` and `wordpress` (  `fpm` version with FastCGI support), published on Docker Hub.
+In the following example, we're creating two containers, a Nginx web server and a PHP FastCGI processor, based on official Docker images `nginx` and `wordpress` ( `fpm` version with FastCGI support), published on Docker Hub.
 
 Alternatively you can build custom docker image(s) and deploy image(s) into [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
