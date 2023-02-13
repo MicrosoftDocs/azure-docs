@@ -41,7 +41,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
    * [ASP.NET Core](./asp-net-core.md): Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live Metrics is enabled by default.
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
-   * [Java](./java-in-process-agent.md): Live Metrics is enabled by default.
+   * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.

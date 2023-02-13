@@ -5,12 +5,8 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
-editor: ''
-tags:
-ms.assetid:
 ms.service: virtual-network
 ms.topic: sample
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: allensu

@@ -60,6 +60,14 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## Auto-upgrade in the Azure portal
+
+If you're using the Azure portal, you can find auto-upgrade settings under the *Settings* > *Cluster configuration* blade by selecting *Upgrade version*. By default, the `Patch` channel is selected.
+
+:::image type="content" source="./media/auto-upgrade-cluster/portal-upgrade.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'patch' selected, and several APIs deprecated between the selected Kubernetes version and the cluster's current version are described.":::
+
+The Azure portal also highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see [the Kubernetes API Removal and Deprecation process][k8s-deprecation].
+
 ## Using auto-upgrade with Planned Maintenance
 
 If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. 
@@ -92,3 +100,4 @@ The following best practices will help maximize your success when using auto-upg
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [release-tracker]: release-tracker.md
+[k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement

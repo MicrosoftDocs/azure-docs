@@ -15,21 +15,19 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmit to Microsoft. 
 
-> [!NOTE]
-> Azure Arc-enabled data services do not store any customer data, and do not store/process metadata outside the region the customer deploys the service instance in. This applies to Azure Arc-enabled SQL Managed Instance, Azure Arc-enabled PostgreSQL, and Azure Arc-enabled SQL Server.
+Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL.
 
 ## Azure Arc-enabled data services
 
 Azure Arc-enabled data services may use some or all of the following products:
 
-- SQL Managed Instance – Azure Arc 
+- Azure Arc-enabled SQL Managed Instance 
 - Azure Arc-enabled PostgreSQL
 - Azure Data Studio
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 - Azure CLI (az)
-- Azure Data CLI (`azdata`) 
 
 ### Directly connected
 
@@ -42,7 +40,6 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Automatic, when configured to do so|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ### Indirectly connected
 
@@ -55,7 +52,7 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Manual|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+
 
 ## Operational data
 
@@ -146,6 +143,7 @@ The following JSON document is an example of the SQL Server - Azure Arc resource
 
 The following JSON document is an example of the SQL Server database - Azure Arc resource. 
 
+<!-----
 ```json
 {
     "name": "newDb80",
@@ -204,6 +202,66 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 | SQL managed instance provisioning state | ProvisioningState | string |
 
 The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
+------->
+
+Every database instance and the data controller itself will be reflected in Azure as an Azure resource in Azure Resource Manager. 
+
+There are three resource types: 
+
+- Azure Arc-enabled SQL Managed Instance 
+- Azure Arc-enabled PostgreSQL server 
+- Data controller
+
+The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
+
+### Data controller 
+
+- Location information
+   - `public OnPremiseProperty OnPremiseProperty` 
+- The raw Kubernetes information (`kubectl get datacontroller`) 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
+- Last uploaded date from on-premises cluster.
+   - `System.DateTime: LastUploadedDate` 
+- Data controller state
+   - `string: ProvisioningState` 
+
+### Azure Arc-enabled PostgreSQL
+
+- The data controller ID
+   - `string: DataControllerId`
+- The instance admin name
+   - `string: Admin`
+- Username and password for basic authentication
+   - `public: BasicLoginInformation BasicLoginInformation` 
+- The raw Kubernetes information (`kubectl get postgres12`) 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
+- Last uploaded date from on premises cluster. 
+   - `System.DateTime: LastUploadedDate` 
+- Group provisioning state
+   - `string: ProvisioningState` 
+
+### SQL Managed Instance 
+
+- The managed instance ID
+   - `public string: DataControllerId` 
+- The instance admin username 
+   - `string: Admin` 
+- The instance start time 
+   - `string: StartTime`
+- The instance end time 
+   - `string: EndTime` 
+- The raw kubernetes information (`kubectl get sqlmi`) 
+   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
+- Username and password for basic authentication. 
+   - `public: BasicLoginInformation BasicLoginInformation`
+- Last uploaded date from on-premises cluster. 
+   - `public: System.DateTime LastUploadedDate` 
+- SQL managed instance provisioning state
+   - `public string: ProvisioningState` 
+
+### Examples
+
+Example of resource inventory data JSON document that is sent to Azure to create Azure resources in your subscription. 
 
 ```json
 { 
@@ -314,5 +372,4 @@ In support situations, you may be asked to provide database instance logs, Kuber
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
-
 
