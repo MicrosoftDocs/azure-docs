@@ -58,7 +58,7 @@ Upgrade a server from this PG 11 to PG 14
 ```azurecli
 az postgres server upgrade -g myresource-group -n myservername -v mypgversion
 
-
+```
 
 ## Next steps
 * Learn about [Major Version Upgrade](concepts-major-version-upgrade.md)
