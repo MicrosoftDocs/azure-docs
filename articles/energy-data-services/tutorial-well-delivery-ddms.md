@@ -71,7 +71,7 @@ Next, set up Postman:
 
    1. In Postman, in the left menu, select **Environments**, and then select **WellDelivery Environment**.
 
-   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy Preview instance details](#get-your-microsoft-energy-data-services-instance-details). Scroll to see all relevant variables.
+   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy Preview instance details](#get-your-azure-data-manager-for-energy-preview-instance-details). Scroll to see all relevant variables.
 
    :::image type="content" source="media/tutorial-well-delivery/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Well Delivery DDMS environment.":::
 
