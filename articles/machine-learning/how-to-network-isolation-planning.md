@@ -57,7 +57,12 @@ In this diagram, the compute instance and cluster need to access Azure Machine L
 
 ### Managed online endpoint
 
-Azure Machine Learning managed online endpoint has built-in network isolation without your VNet. If you want to disallow public access to your endpoint, set the `public_network_access` flag to disabled. When this flag is disabled, your endpoint can be accessed via the private endpoint of your workspace. If you want to use a private storage account for your deployment, set the `egress_public_network_access` flag disabled. It automatically creates private endpoints to access your private resources. 
+Azure Machine Learning managed online endpoint has built-in network isolation without your VNet. If you want to disallow public access to your endpoint, set the `public_network_access` flag to disabled. When the `public_network_access` flag is disabled:
+
++ Inbound scoring requests are received using the private endpoint of the Azure Machine Learning workspace.
++ The managed online endpoint can't be reached from public networks.
+
+If you want to use a private storage account for your deployment, set the `egress_public_network_access` flag disabled. It automatically creates private endpoints to access your private resources. 
 
 :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of managed online endpoint configuration in a VNet.":::
 
