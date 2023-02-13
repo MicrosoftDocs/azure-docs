@@ -1727,6 +1727,8 @@
         href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
+      - name: Oracle IDCS for E-Business Suite
+        href: oracle-idcs-for-ebs-tutorial.md
       - name: Oracle IDCS for PeopleSoft
         href: oracle-idcs-for-peoplesoft-tutorial.md 
       - name: OrgChart Now
