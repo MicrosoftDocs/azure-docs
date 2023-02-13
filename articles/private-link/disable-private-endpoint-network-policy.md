@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 07/26/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-how-to
 ---
+
 # Manage network policies for private endpoints
 
 By default, network policies are disabled for a subnet in a virtual network. To utilize network policies like UDR and NSG support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
