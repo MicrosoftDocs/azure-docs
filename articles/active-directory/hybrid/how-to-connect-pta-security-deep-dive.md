@@ -83,7 +83,7 @@ The Authentication Agents use the following steps to register themselves with Az
 
 ![Agent registration](./media/how-to-connect-pta-security-deep-dive/pta1.png)
 
-1. Azure AD first requests that a Hybrid Identity Administratoristrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the 
+1. Azure AD first requests that a Hybrid Identity Administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the 
 2. The Authentication Agent then generates a key pair: a public key and a private key.
     - The key pair is generated through standard RSA 2048-bit encryption.
     - The private key stays on the on-premises server where the Authentication Agent resides.
@@ -211,7 +211,7 @@ To auto-update an Authentication Agent:
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quickstart](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoptadpdownload) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [How it works](how-to-connect-pta-how-it-works.md): Learn the basics of how Azure AD Pass-through Authentication works.
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.

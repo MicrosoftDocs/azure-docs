@@ -1,9 +1,10 @@
 ---
-title: Device implementation in Azure IoT Central | Microsoft Docs
+title: Device implementation
+titleSuffix: Azure IoT Central
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2022
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -131,7 +132,7 @@ az iot central device manual-failover \
 > [!TIP]
 > To find the **Application ID**, navigate to **Application > Management** in your IoT Central application.
 
-If the command succeeds, you see output that looks like the following:
+If the command succeeds, you see output that looks like the following example:
 
 ```output
 Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus

@@ -29,6 +29,8 @@ items:
   items:
   - name: Multicloud monitoring
     href: best-practices-multicloud.md
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
   - name: Security
     items:
     - name: Security baseline
@@ -74,8 +76,6 @@ items:
         href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
-  - name: Migrate from Splunk to Azure Monitor Logs
-    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -688,32 +688,24 @@ items:
       items:
       - name: Overview
         href: app/opentelemetry-overview.md
-      - name: .NET
-        href: app/opentelemetry-enable.md?tabs=net
-      - name: JavaScript
+      - name: Get started (.NET, Node.js, Python and Java)
+        href: app/opentelemetry-enable.md
+      - name: Java (supplemental)
         items:
-        - name: Browser
-          href: app/javascript.md
-        - name: Node.js
-          href: app/opentelemetry-enable.md?tabs=nodejs
-      - name: Java
-        items:
-        - name: Overview
-          href: app/opentelemetry-enable.md?tabs=java
         - name: Spring Boot
           href: app/java-spring-boot.md
-        - name: Java Profiler
+        - name: Profiler
           href: app/java-standalone-profiler.md
-        - name: Configuration options
-          href: app/java-standalone-config.md
-        - name: Advanced configurations
+        - name: Configuration
           items:
-            - name: JMX metrics
-              href: app/java-jmx-metrics-configuration.md
-            - name: Sampling overrides
-              href: app/java-standalone-sampling-overrides.md
-            - name: Telemetry processors
-              items:
+          - name: General
+            href: app/java-standalone-config.md
+          - name: JMX metrics
+            href: app/java-jmx-metrics-configuration.md
+          - name: Sampling overrides
+            href: app/java-standalone-sampling-overrides.md
+          - name: Telemetry processors
+            items:
               - name: Overview
                 href: app/java-standalone-telemetry-processors.md
               - name: Examples
@@ -722,8 +714,6 @@ items:
           href: app/java-standalone-arguments.md
         - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
-      - name: Python
-        href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (workspace-based)

@@ -11095,6 +11095,11 @@
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-data-inventory.md",
       "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/product-data-billable-resources",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/create-access-review-privileged-access-groups.md",
+      "redirect_url": "/azure/active-directory/governance/create-access-review-pim-for-groups",
+      "redirect_document_id": false
     }
   ]
 }
