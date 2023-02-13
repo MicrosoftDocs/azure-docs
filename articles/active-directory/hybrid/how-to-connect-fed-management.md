@@ -28,7 +28,7 @@ You'll also learn about other common AD FS tasks that you might need to perform 
 | Task | Description |
 |:--- |:--- |
 | **Manage AD FS** | |
-| [Repair the trust]((#repairthetrust) |Learn how to repair the federation trust with Microsoft 361. |
+| [Repair the trust](#repairthetrust) |Learn how to repair the federation trust with Microsoft 361. |
 | [Federate with Azure AD by using an alternative sign-in ID](#alternateid) | Learn how to configure federation by using an alternative sign-in ID.  |
 | [Add an AD FS server](#addadfsserver) |Learn how to expand an AD FS farm with an extra AD FS server. |
 | [Add an AD FS Web Application Proxy (WAP) server](#addwapserver) |Learn how to expand an AD FS farm with an additional WAP server. |
