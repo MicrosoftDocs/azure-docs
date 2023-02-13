@@ -128,7 +128,7 @@ To complete the configuration modification, do the following steps:
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SASL_SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-with-sasl.png" alt-text="Editing Kafka ssal configuration properties in Ambari" border="true":::
 
 1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. 
 
@@ -149,9 +149,11 @@ To complete the configuration modification, do the following steps:
    
    1. If you are setting up authentication and encryption, then the screenshot will look like
 
-     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Editing kafka-env template property in Ambari authentication as required" border="true":::
      
    1. If you are setting up encryption only, then the screenshot will look like  
+   
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Editing kafka-env template property in Ambari authentication as none" border="true":::
 
 1. Restart all Kafka brokers.
 
