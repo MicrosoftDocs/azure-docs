@@ -30,57 +30,23 @@ Defender for IoT's device inventory helps you identify details about specific de
 
 - **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
 
-- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling 
+- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling
 
 - **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
 
 The **Device inventory** GA includes the following UI enhancements:
 
-
 |Enhancement |Description  |
 |---------|---------|
-|**Grid-level enhancements**| - **Export the entire device inventory** to review offline and compare notes with your teams   <br>- **Delete irrelevant devices** that no longer exist or are no longer functional <br>- **[Merge devices](xref)** to fine-tune the device list if the sensor has discovered separate network entities that are associated with a single, unique device. For example. a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.<br>- **Edit your table views** to reflect only the data you are interested in viewing  |
-|**Device-level enhancements**| - **Edit device details** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information     |
-|**Filter and search enhancements** |  - **Run deep searches on any device inventory field** to quickly find the devices that matter most<br>- **Filter the device inventory by any field**. For example, filter by *Type* to identify *Industrial* devices, or time fields to determine active and inactive devices.|
+|**Grid-level enhancements**| - **[Export the entire device inventory](how-to-manage-device-inventory-for-organizations.md#export-the-device-inventory-to-csv)** to review offline and compare notes with your teams   <br>- **[Delete irrelevant devices](how-to-manage-device-inventory-for-organizations.md#delete-a-device)** that no longer exist or are no longer functional <br>- **[Merge devices](how-to-manage-device-inventory-for-organizations.md#merge-duplicate-devices)** to fine-tune the device list if the sensor has discovered separate network entities that are associated with a single, unique device. For example. a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.<br>- **[Edit your table views](how-to-manage-device-inventory-for-organizations.md#reference-of-editable-fields)** to reflect only the data you are interested in viewing  |
+|**Device-level enhancements**| - **[Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details)** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information     |
+|**Filter and search enhancements** |  - **[Run deep searches on any device inventory field](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)** to quickly find the devices that matter most <br>- **[Filter the device inventory by any field](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)**. For example, filter by *Type* to identify *Industrial* devices, or time fields to determine active and inactive devices.|
 
-Rich security, governance and admin controls also provide the ability to assign admins, restricting who can merge, delete and edit devices on an owner’s behalf
+Rich security, governance and admin controls also provide the ability to assign admins, restricting who can merge, delete and edit devices on an owner’s behalf.
 
-- **Delete irrelevant devices** that no longer exist or are no longer functional
+### Device inventory grouping enhancements (Public preview)
 
-- **[Merge devices](#merge-duplicate-devices-in-the-azure-device-inventory)** to tune your network devices
-
-- **Edit device details** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information
-
-- **Deep search** on any field to enhance device discovery, enabling the ability to quickly find the devices that matter most
-
-- **Filter by any field**, such as by type to identify Industrial devices, or time to determine active and inactive devices, plus much more
-
-- **Edit your table** to reflect only the data you are interested in viewing
-
-- **Rich security, governance and admin controls** provide the ability to assign admins, restrict who can merge, delete and edit devices on an owner’s behalf
-
-For more information, see [Manage your IoT devices with the device inventory](../device-builders/how-to-manage-device-inventory-on-the-cloud.md).
-
-#### Merge duplicate devices in the Azure Device inventory
-
-The Defender for IoT Device inventory page in the Azure portal now supports the ability to merge duplicate devices in the Azure portal. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
-
-For more information on merging devices in the Azure portal, see ( to new merge devices section in manage device inventory doc).
-
-### Focusing inventory (Public preview)
-
-Now in public preview:
-
-- Focused inventory
-- Grouping enhancements
-
-**Focused inventory - version 22.2.6 and above**
-
-Search and filter for local and routed devices in the device inventory in Azure, as defined by the subnets in your sensor. This will help to reduce noise and focus your inventory on important devices. The filter is on and set to all by default, change this as needed.
-
-**Grouping enhancements**
-
-New grouping categories have been added in the device inventory. Group your devices in the device inventory in Azure by class, data source, location, Purdue level, site, type, vendor and zone.  
+The **Device inventory** page on the Azure portal supports new grouping categories. Now you can group your device inventory by *class*, *data source*, *location*, *Purdue level*, *site*, *type*, *vendor*, and *zone*. For more information, see [View full device details](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
