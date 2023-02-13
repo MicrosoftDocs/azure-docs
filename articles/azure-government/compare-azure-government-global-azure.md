@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/02/2023
+ms.date: 02/10/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -127,11 +127,10 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government:
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-  - Teams Channel
   - Direct Line Speech Channel
   - Telephony Channel (Preview)
   - Microsoft Search Channel (Preview)
