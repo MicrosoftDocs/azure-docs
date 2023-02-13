@@ -37,14 +37,14 @@ ms.author: pafarley
     |--|--|
     | **Create options** | Custom Vision uses two separate resources together. The **Training** resource lets you train models, and the **Prediction** resource lets you publish and query models. Select **Both** if you're starting the project from scratch. |
     | **Subscription** | Select one of your available Azure subscriptions. |
-    | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
+    | **Resource group** | The Azure resource group that contains your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
     | **Region** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
     | **Training pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](../../custom-vision-service/limits-and-quotas.md).|
     | **Prediction pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](../../custom-vision-service/limits-and-quotas.md).
 1. Select **Review + create**.
 
-#### [Form Recognizer](#form-recognizer)
+#### [Form Recognizer](#tab/form-recognizer)
 
 1. Select the following link to create a Form Recognizer resource:
    - [Form Recognizer service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)
