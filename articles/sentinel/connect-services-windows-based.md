@@ -176,6 +176,17 @@ For the Windows DNS Server and Windows Firewall connectors, select the **Install
 
 You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
 
+### Troubleshoot your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+
+1. Make sure that DNS analytics logs on your servers are [enabled](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#to-enable-dns-diagnostic-logging).
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](../azure-monitor/insights/dns-analytics.md).
+
 ## Next steps
 
 For more information, see:
