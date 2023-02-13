@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory recommendations? | Microsoft Docs
+title: What are Azure Active Directory recommendations? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory recommendations.
 services: active-directory
 author: shlipsey3
@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# What is Azure Active Directory recommendations?
+# What are Azure Active Directory recommendations?
 
-Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure Active Directory (Azure AD) recommendations feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
+Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure Active Directory (Azure AD) recommendations feature helps monitor the status of your tenant so you don't have to. The Azure AD recommendations feature helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
 
 The Azure AD recommendations feature provides you with personalized insights with actionable guidance to:
 
@@ -28,19 +28,19 @@ The Azure AD recommendations feature provides you with personalized insights wit
 - Improve the state of your Azure AD tenant.
 - Optimize the configurations for your scenarios.
 
-This article gives you an overview of how you can use Azure AD recommendations. As an administrator, you should review your tenant's recommendations, and their associated resources periodically. 
+This article gives you an overview of how you can use Azure AD recommendations. As an administrator, you should review your tenant's Azure AD recommendations, and their associated resources periodically. 
 
 ## What it is 
 
-Azure AD recommendations is the Azure AD specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage data to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
+The Azure AD recommendations feature is the Azure AD specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage data to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
 
-*Azure AD recommendations* uses similar data to support you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. Azure AD recommendations provide a holistic view into your tenant's security, health, and usage. 
+*Azure AD recommendations* use similar data to support you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. Azure AD recommendations provide a holistic view into your tenant's security, health, and usage. 
  
 ## How it works
 
-On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. Recommendations are listed in order of priority so you can quickly determine where to focus first. 
+On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first. 
 
-Recommendations contain a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
+Each recommendations contain a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-preview-option-tenant-overview.png)
 
@@ -109,11 +109,16 @@ The recommendations listed in the following table are available to all Azure AD 
 
 1. Follow the **Action plan**.
 
-1. If applicable, right-click on a resource in a recommendation, select **Mark as**, then select a status.
+1. If applicable, *right-click on the status* of a resource in a recommendation, select **Mark as**, then select a status.
 
+    - The status for the resource appears as regular text, but you can right-click on the status to open the menu.
+    - You can set each resource to a different status as needed.
+    
     ![Screenshot of the status options for a resource.](./media/overview-recommendations/resource-mark-as-option.png)
 
-1. If you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
+1. The recommendation service will automatically mark the recommendation as complete, but if you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
+
+    ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/overview-recommendations/recommendations-object.png)
 
     - Mark a recommendation as **Completed** if all impacted resources have been addressed.
         - Active resources may still appear in the list of resources for manually completed recommendations. If the resource is completed, the service will update the status the next time the service runs. 
