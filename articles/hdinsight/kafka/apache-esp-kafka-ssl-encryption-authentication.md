@@ -125,7 +125,7 @@ To complete the configuration modification, do the following steps:
 
 1. Sign in to the Azure portal and select your Azure HDInsight Apache Kafka cluster.
 1. Go to the Ambari UI by clicking **Ambari home** under **Cluster dashboards**.
-1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SASL_SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
@@ -134,15 +134,24 @@ To complete the configuration modification, do the following steps:
 
    
    > [!Note] 
-   > Note: This step is only required if you are setting up authentication and encryption.
+   > This step is only required if you are setting up authentication and encryption.
    
     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
 
 1. Here's the screenshot that shows Ambari configuration UI with these changes.
-
-    For HDI version 4.0 or 5.0
+     
+   > [!Note] 
+   > 1. ssl.keystore.location and ssl.truststore.location is the complete path of your keystore, truststore location in Certificate Authority (hn0)
+   > 1. ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example,`  MyServerPassword123`
+   > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
+   
+   For HDI version 4.0 or 5.0
+   
+   1. If you are setting up authentication and encryption, then the screenshot will look like
 
      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+     
+   1. If you are setting up encryption only, then the screenshot will look like  
 
 1. Restart all Kafka brokers.
 
@@ -193,7 +202,9 @@ These steps are detailed in the following code snippets.
 1. Create the file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
 
     ```config
-    security.protocol=SSL
+    security.protocol=SASL_SSL
+    sasl.mechanism=GSSAPI
+    sasl.kerberos.service.name=kafka
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
@@ -282,12 +293,16 @@ The details of each step are given.
 1. Create a file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
 
     ```bash
-    security.protocol=SSL
+    security.protocol=SASL_SSL
+	     sasl.mechanism=GSSAPI
+    sasl.kerberos.service.name=kafka
+
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ssl.keystore.location=/home/sshuser/ssl/kafka.client.keystore.jks
     ssl.keystore.password=MyClientPassword123
     ssl.key.password=MyClientPassword123
+
     ```
 
 ## Verification
