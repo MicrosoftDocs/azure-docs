@@ -437,7 +437,7 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Open *app.yaml* in a code editor.
 
-1. Replace the `volumes: null` definition in the `template` section a `volumes:` definition referencing the storage volume.  The template section should look like the following:
+1. Replace the `volumes: null` definition in the `template` section with a `volumes:` definition referencing the storage volume.  The template section should look like the following:
 
     ```yml
     template:
