@@ -17,7 +17,7 @@ This article describes the data that Azure Arc-enabled data services transmit to
 
 Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL.
 
-## Azure Arc-enabled data services
+## Related products
 
 Azure Arc-enabled data services may use some or all of the following products:
 
