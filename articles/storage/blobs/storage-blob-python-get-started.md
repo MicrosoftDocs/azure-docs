@@ -55,7 +55,7 @@ You can authorize a `BlobServiceClient` object by using an Azure Active Director
 
 ## [Azure AD](#tab/azure-ad)
 
-To authorize with Azure AD, you'll need to use a [security principal](/azure/active-directory/develop/app-objects-and-service-principals). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+To authorize with Azure AD, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
