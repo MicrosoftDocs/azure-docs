@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal)<br>- <br> [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Cloud features**: <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal)<br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Device inventory GA in the Azure portal
