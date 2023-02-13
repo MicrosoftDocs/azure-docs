@@ -156,7 +156,7 @@ Virtual WAN supports 2 active site-to-site VPN gateway instances in a virtual hu
 
 While Virtual WAN VPN supports many algorithms, our recommendation is GCMAES256 for both IPSEC Encryption and Integrity for optimal performance. AES256 and SHA256 are considered less performant and therefore performance degradation such as latency and packet drops can be expected for similar algorithm types.
 
-Packets per second or PPS is a factor of the total # of packets and the throughput supported per instance. This is best understood with an example. Lets say a 1 scale unit 500-Mbps site-to-site VPN gateway instance is deployed in a virtual WAN hub. Assuming a packet size of 1480, expected PPS for that vpn gateway instance *at a minimum* = [(500 Mbps * 1024 * 1024) /8/1480] ~ 43690.
+Packets per second or PPS is a factor of the total # of packets and the throughput supported per instance. This is best understood with an example. Lets say a 1 scale unit 500-Mbps site-to-site VPN gateway instance is deployed in a virtual WAN hub. Assuming a packet size of 1400, expected PPS for that vpn gateway instance *at a maximum* = [(500 Mbps * 1024 * 1024) /8/1400] ~ 47000.
 
 Virtual WAN has concepts of VPN connection, link connection and tunnels. A single VPN connection consists of link connections. Virtual WAN supports up to 4 link connections in a VPN connection. Each link connection consists of two IPsec tunnels that terminate in two instances of an active-active VPN gateway deployed in a virtual hub. The total number of tunnels that can terminate in a single active instance is 1000, which also implies that throughput for 1 instance will be available aggregated across all the tunnels connecting to that instance. Each tunnel also has certain throughput values. For GCM algorithm, a tunnel can support up to a maximum 1.25 Gbps. In cases of multiple tunnels connected to a lower value scale unit gateway, it's best to evaluate the need per tunnel and plan for a VPN gateway that is an aggregate value for throughput across all tunnels terminating in the VPN instance.
 
@@ -306,7 +306,7 @@ Yes. Customers can now create more than one hub in the same region for the same 
 If a virtual hub learns the same route from multiple remote hubs, the order in which it decides is as follows:
 1.	Select routes with Longest Prefix Match (LPM).
 2.	Prefer static routes learned from the virtual hub route table over BGP routes.
-3.	Select best path based on the [Virtual hub routing preference](https://learn.microsoft.com/azure/virtual-wan/about-virtual-hub-routing-preference) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
+3.	Select best path based on the [Virtual hub routing preference](about-virtual-hub-routing-preference.md) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
 
     * **ExpressRoute** (This is the default setting)
         1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
