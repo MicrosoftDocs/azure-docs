@@ -30,7 +30,7 @@ Room participants can be assigned one of the following roles: **Presenter**, **A
 
 Participants with `Consumer` role will be receiving only the live stream. They will not be able to speak or share video or screen. Developers should not show the unmute, share video, and screen option to end users/consumers. Live stream supports both open and closed Rooms. In Open Rooms the default role is `Consumer`.
 On the other hand, Participants with other roles will receive both real-time and live stream. Developers can choose either stream to play.
-Pleae check [participant roles and permissions](../../concepts/rooms/room-concept#predefined-participant-roles-and-permissions) to know more about the roles capabilities.
+Pleae check [participant roles and permissions](../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions) to know more about the roles capabilities.
 
 ### Place a Rooms call (start live streaming)
 Live streaming will start when the Rooms call starts.
