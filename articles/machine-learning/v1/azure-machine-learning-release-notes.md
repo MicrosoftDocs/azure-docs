@@ -23,12 +23,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2023-13-02
 
 ### Azure Machine Learning SDK for Python v1.49.0
-  + **azureml-automl-core**
-    + azureml-sdk and azureml-train-automl-client now support Python version 3.10
   + **azureml-automl-dnn-nlp**
     + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
-  + **azureml-automl-runtime**
-    + Clean up missing y before training
   + **azureml-contrib-automl-dnn-forecasting**
     + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
     + Forecast horizon visuals for train-set as well as test-set are now available while running the TCN training experiment.
