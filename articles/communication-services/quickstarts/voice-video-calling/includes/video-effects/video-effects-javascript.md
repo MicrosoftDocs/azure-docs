@@ -15,7 +15,7 @@ ms.custom: mode-other
 You can use the Video effects feature to add effects to your video in video calls. This feature enables developers to build background visual effects and background video replacement into the calling experience. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy. In addition to enhanced confidentiality, background blur allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 >[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+> The Calling Video effects are available starting on the public preview version [1.10.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.10.0-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
 
 > [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
@@ -32,12 +32,15 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
+
+> [!NOTE]
+> Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 > [!NOTE]
 > Currently there are two available video effects:
 > - Background blur
 > - Background replacement with an image
->
 
 To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
@@ -47,7 +50,7 @@ import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/commun
 
 // Get the video effects feature api on the LocalVideoStream 
 // (here, localVideoStream is the LocalVideoStream object you created while setting up video calling)
-const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
+const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
 
 // Subscribe to useful events 

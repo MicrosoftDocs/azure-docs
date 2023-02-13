@@ -128,8 +128,8 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 
   | Source port | Direction | Protocol | Source / Destination | Purpose |
   |-------------|-----------|----------|----------------------|---------|
-  | 443 | Outbound | TCP | Private endpoint / Storage account | Storage account |
-  | 445 | Outbound | TCP | Private endpoint / Subnet integrated with Standard logic app | Server Message Block (SMB) File Share |
+  | 443 | Outbound | TCP | Subnet integrated with Standard logic app  / Storage account | Storage account |
+  | 445 | Outbound | TCP | Subnet integrated with Standard logic app  / Storage account | Server Message Block (SMB) File Share |
 
 - For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service. With virtual network integration, make sure that no firewall or network security policy blocks these connections. If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 

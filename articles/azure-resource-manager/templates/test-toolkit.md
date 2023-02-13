@@ -316,6 +316,7 @@ The easiest way to add the test toolkit to your pipeline is with third-party ext
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.
 
+For Release Pipeline:
 ```json
 {
   "environment": {},
@@ -343,9 +344,24 @@ Or, you can implement your own tasks. The following example shows how to downloa
   }
 }
 ```
+For Pipeline YAML definition:
+```yaml
+- pwsh: |
+   New-Item '$(ttk.folder)' -ItemType Directory
+   Invoke-WebRequest -uri '$(ttk.uri)' -OutFile "$(ttk.folder)/$(ttk.asset.filename)" -Verbose
+   Get-ChildItem '$(ttk.folder)' -Recurse
+   
+   Write-Host "Expanding files..."
+   Expand-Archive -Path '$(ttk.folder)/*.zip' -DestinationPath '$(ttk.folder)' -Verbose
+   
+   Write-Host "Expanded files found:"
+   Get-ChildItem '$(ttk.folder)' -Recurse
+  displayName: 'Download TTK'
+```
 
 The next example shows how to run the tests.
 
+For Release Pipeline:
 ```json
 {
   "environment": {},
@@ -372,6 +388,24 @@ The next example shows how to run the tests.
     "workingDirectory": ""
   }
 }
+```
+For Pipeline YAML definition:
+```yaml
+- pwsh: |
+   Import-Module $(ttk.folder)/arm-ttk/arm-ttk.psd1 -Verbose
+   $testOutput = @(Test-AzTemplate -TemplatePath "$(sample.folder)")
+   $testOutput
+   
+   if ($testOutput | ? {$_.Errors }) {
+      exit 1 
+   } else {
+       Write-Host "##vso[task.setvariable variable=result.best.practice]$true"
+       exit 0
+   } 
+  errorActionPreference: continue
+  failOnStderr: true
+  displayName: 'Run Best Practices Tests'
+  continueOnError: true
 ```
 
 ## Next steps

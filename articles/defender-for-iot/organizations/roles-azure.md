@@ -38,6 +38,9 @@ Roles for management actions are applied to user roles across an entire Azure su
 | **Manage Azure device inventory (write access)**   <br>Apply per subscription or site | - | ✔ |✔ | ✔ |
 | **View Azure workbooks**<br>Apply per subscription or site   | ✔ | ✔ |✔ | ✔ |
 | **Manage Azure workbooks (write access)**  <br>Apply per subscription or site |  - | ✔ |✔ | ✔ |
+| **[View Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | ✔ | ✔ |✔ | ✔ |
+| **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
+
 
 ## Enterprise IoT security
 

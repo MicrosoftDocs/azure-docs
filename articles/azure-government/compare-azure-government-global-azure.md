@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/26/2023
+ms.date: 02/10/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -127,11 +127,10 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government:
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-  - Teams Channel
   - Direct Line Speech Channel
   - Telephony Channel (Preview)
   - Microsoft Search Channel (Preview)
@@ -241,6 +240,10 @@ The following features have known limitations in Azure Government:
 
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+
+### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
+
+Azure Active Directory B2C is **not available** in Azure Government.
 
 ### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
 

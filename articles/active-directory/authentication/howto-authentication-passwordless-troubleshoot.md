@@ -122,7 +122,7 @@ To view the Azure AD Kerberos Server Objects and verify they are in good order, 
     # Specify the on-premises AD DS domain.
     $domain = "corp.contoso.com"
 
-    # Enter an Azure Active Directory Global Admin username and password.
+    # Enter an Azure Active Directory Global Administrator username and password.
     $cloudCred = Get-Credential
 
     # Enter a Domain Admin username and password.

@@ -17,17 +17,29 @@ ms.date: 01/27/2023
 
 Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Using a sophisticated query language and curated visualization you can quickly analyze millions of records to identify, understand, and respond to critical patterns in your monitoring data.
 
-This article explains how to migrate your Splunk, Splunk Cloud, or Splunk Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
+This article explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis. 
 
 For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+## Why migrate to Azure Monitor?
 
-## Compare offerings
+The benefits of migrating to Azure Monitor include:
+
+- Fully managed, Software as a Service (SaaS) platform with:
+    - Automatic upgrades and scaling. 
+    - [Simple per-GB pay-as-you-go pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+    - [Cost optimization and monitoring features](../../azure-monitor/best-practices-cost.md) and low-cost [Basic logs](../logs/basic-logs-configure.md).  
+- Cloud-native monitoring and observability, including:
+    - [End-to-end, at-scale monitoring](../overview.md).
+    - [Native monitoring of Azure resources](../essentials/platform-logs-overview.md).
+    - [Privacy and compliance](../security-controls-policy.md).
+- Native integration with a range of complementary Azure services, such as [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management, [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) for automation, [Azure Managed Grafana](../../managed-grafana/overview.md) for dashboarding, and [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md)  for advanced analysis and response capabilities.
+
+## Compare offerings 
 
 |Splunk offering|Azure offering|
 |---|---|
-|Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments.|
-|Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
-|Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
+|Splunk Observability|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel. Azure Monitor offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.|
+|Splunk Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
 
 |Azure Monitor Logs |Similar Splunk concept|Description|
@@ -73,7 +85,7 @@ To set up a Log Analytics workspace for data collection:
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. [Define each table's log data plan](../logs/basic-logs-configure.md). 
     
-        The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities. If youYou can 
+        The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities.  
     
     1. [Set a data retention and archiving policy for specific tables](../logs/data-retention-archive.md), if you need them to be different from the workspace-level data retention and archiving policy. 
     1. [Modify the table schema](../logs/create-custom-table.md) based on your data model.
@@ -144,7 +156,6 @@ To export your historical data from Splunk:
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - [Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
-- Learn more about roles and permissions in Sentinel [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 

@@ -339,6 +339,11 @@
         - name: GPU extension issues
           href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
 
+    - name: Azure Kubernetes service
+      items:
+        - name: Deploy AKS on Azure Stack Edge
+          href: azure-stack-edge-deploy-aks-on-azure-stack-edge.md
+  
     - name: Kubernetes
       items:
       - name: What is Kubernetes?
@@ -517,7 +522,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2210 - Current
+    - name: 2301 - Current
+      href: azure-stack-edge-gpu-2301-release-notes.md
+    - name: 2210
       href: azure-stack-edge-gpu-2210-release-notes.md
     - name: 2209
       href: azure-stack-edge-gpu-2209-release-notes.md
@@ -634,7 +641,9 @@
       href: azure-stack-edge-migrate-fpga-gpu.md  
   - name: Release notes
     items:
-      - name: 2101 - Current
+      - name: 2301 - Current
+        href: azure-stack-edge-2301-release-notes.md
+      - name: 2101
         href: azure-stack-edge-2101-release-notes.md
       - name: 2007
         href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json

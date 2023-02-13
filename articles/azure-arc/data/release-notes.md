@@ -28,7 +28,7 @@ For complete release version information, see [Version log](version-log.md#janua
 New for this release:
 
 - Arc data services:
-   - Kafka separate mode - Description of this change and all customer and developer impacts are enumerated in the linked feature.
+   - Kafka separate mode
 
 - Arc-SQL MI
    - Time series functions are available.
@@ -1018,9 +1018,9 @@ This release introduces the following breaking changes:
 
 ### Additional changes
 
-* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgresSQL instances so that the backup of one PostgresSQL instance can be restored in another instance.
+* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgreSQL instances so that the backup of one PostgreSQL instance can be restored in another instance.
 
-* New short names for PostgresSQL custom resource definitions:
+* New short names for PostgreSQL custom resource definitions:
   * `pg11`
   * `pg12`
 * Telemetry upload provides user with either:

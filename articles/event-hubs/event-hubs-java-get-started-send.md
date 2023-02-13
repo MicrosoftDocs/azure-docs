@@ -11,6 +11,9 @@ ms.custom: devx-track-java, mode-api
 
 This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
 
+> [!TIP]
+> If you're working with Azure Event Hubs resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Event Hubs, see [Spring Cloud Stream with Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub).
+
 ## Prerequisites
 
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart.

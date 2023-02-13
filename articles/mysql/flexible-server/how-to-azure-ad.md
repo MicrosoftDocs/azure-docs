@@ -160,7 +160,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 - Launch MySQL Workbench and Select the Database option, then select **Connect to database**.
 - In the hostname field, enter the MySQL FQDN for example, mysql.database.azure.com.
-- In the username field, enter the MySQL Azure Active Directory administrator name and append this with the MySQL server name, not the FQDN for example, user@tenant.onmicrosoft.com.
+- In the username field, enter the MySQL Azure Active Directory administrator name. For example, user@tenant.onmicrosoft.com.
 - In the password field, select **Store in Vault** and paste in the access token from the file for example, C:\temp\MySQLAccessToken.txt.
 - Select the advanced tab and ensure that you check **Enable Cleartext Authentication Plugin**.
 - Select OK to connect to the database.

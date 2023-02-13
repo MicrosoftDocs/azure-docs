@@ -46,19 +46,19 @@ items:
       items:
       - name: Device mappings
         href: how-to-configure-device-mappings.md
-      - name: CalculatedContentTemplate mappings
-        href: how-to-use-calculatedcontenttemplate-mappings.md
+      - name: CalculatedContent mappings
+        href: how-to-use-calculatedcontent-mappings.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Custom functions
-        href: how-to-use-custom-functions.md  
+        href: how-to-use-custom-functions.md
+      - name: Create copies of mappings
+        href: how-to-create-mappings-copies.md  
     - name: Destination
       expanded: false
       items:
       - name: FHIR destination mappings
         href: how-to-configure-fhir-mappings.md
-  - name: Create copies of mappings
-    href: how-to-create-mappings-copies.md
   - name: Monitor
     expanded: false
     items:

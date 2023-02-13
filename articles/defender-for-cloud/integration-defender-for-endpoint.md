@@ -117,7 +117,7 @@ To deploy the MDE unified solution, you'll need to use the [REST API call](#enab
     > [!NOTE]
     > If the status is **Off**, use the instructions in [Users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
-1. Select **Fix** to see the components that are not enabled.
+1. Select **Fix** to see the components that aren't enabled.
 
 
     :::image type="content" source="./media/integration-defender-for-endpoint/fix-defender-for-endpoint.png" alt-text="Screenshot of Fix button that enables Microsoft Defender for Endpoint support.":::
@@ -154,10 +154,14 @@ The MDE agent unified solution is deployed to all of the machines in the selecte
 
 #### Linux
 
-You'll deploy Defender for Endpoint to your Linux machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
+You'll deploy Defender for Endpoint to your Linux machines in one of these ways, depending on whether you've already deployed it to your Windows machines:
 
-- [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
-- [New users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- Enable for a specific subscription in the Azure portal environment settings
+  - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
+  - [New users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [Enable for multiple subscriptions in the Azure portal dashboard](#enable-for-multiple-subscriptions-in-the-azure-portal-dashboard)
+- Enable for multiple subscriptions with a PowerShell script
+
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
 
@@ -172,7 +176,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     > [!NOTE]
     > If the status is **Off** isn't selected, use the instructions in [Users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
-1. Select **Fix** to see the components that are not enabled.
+1. Select **Fix** to see the components that aren't enabled.
 
 
     :::image type="content" source="./media/integration-defender-for-endpoint/fix-defender-for-endpoint.png" alt-text="Screenshot of Fix button that enables Microsoft Defender for Endpoint support.":::
@@ -213,6 +217,8 @@ If you've never enabled the integration for Windows, endpoint protection enables
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
+1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+
 1. In the status of the Endpoint protection component, select **On** to enable the integration with Microsoft Defender for Endpoint.
 
     :::image type="content" source="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png" alt-text="Screenshot of Status toggle that enables Microsoft Defender for Endpoint." lightbox="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png":::
@@ -225,6 +231,8 @@ If you've never enabled the integration for Windows, endpoint protection enables
 
     Onboarding might take up to 1 hour.
 
+1. Select **Continue** and **Save** to save your settings.
+
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
     `mdatp health`
@@ -236,6 +244,21 @@ If you've never enabled the integration for Windows, endpoint protection enables
     `licensed: true`
 
     In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
+
+##### Enable for multiple subscriptions in the Azure portal dashboard
+
+If one or more of your subscriptions don't have Endpoint protections enabled for Linux machines, you'll see an insight panel in the Defender for Cloud dashboard. The insight panel tells you about subscriptions that have Defender for Endpoint integration enabled for Windows machines, but not for Linux machines. You can use the insight panel to see the affected subscriptions with the number of affected resources in each subscription. Subscriptions that don't have Linux machines show no affected resources. You can then select the subscriptions to enable endpoint protection for Linux integration.
+
+After you select **Enable** in the insight panel, Defender for Cloud:
+
+- Automatically onboards your Linux machines to Defender for Endpoint in the selected subscriptions.
+- Detects any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud.
+
+Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to verify installation and deployment status of Defender for Endpoint on a Linux machine.
+
+##### Enable for multiple subscriptions with a PowerShell script
+
+Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
 
 ### Enable the MDE unified solution at scale
 
@@ -320,8 +343,9 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Disable the integration:
     1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
-    1. Open **Integrations** and clear the checkbox for **Allow Microsoft Defender for Endpoint to access my data**.
-    1. Select **Save**.
+    1. In the Monitoring coverage column of the Defender for Servers plan, select **Settings**.
+    1. In the status of the Endpoint protection component, select **Off** to disable the integration with Microsoft Defender for Endpoint.
+    1. Select **Continue** and **Save** to save your settings.
 
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
 

@@ -52,7 +52,7 @@ where:
 
 :::zone pivot="msgraph-powershell"
 
-1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Administrator user account.
 1. Run the following command to create the enterprise application:
 
    ```powershell
