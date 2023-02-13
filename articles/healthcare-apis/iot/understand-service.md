@@ -31,7 +31,7 @@ The MedTech service device message data processing follows these steps and in th
 ## Ingest
 Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
-The device message event hub uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
+The device message event hub uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the device message event hub.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device message data.
@@ -80,7 +80,7 @@ The MedTech service buffers the FHIR Observations resources created during the t
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it's created in the FHIR service. If the FHIR Observation resource already existed, it gets updated in the FHIR service.
 
-The FHIR service uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the FHIR service.
+The FHIR service uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the FHIR service.
 
 ## Next steps
 
