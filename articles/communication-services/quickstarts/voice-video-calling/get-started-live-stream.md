@@ -13,7 +13,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# Live Stream Quick Start
+# Live stream quick start
 
 Live streaming will empower Contoso to engage thousands of online attendees by adding interactive live audio and video streaming functionality into their web and 
 mobile applications that their audiences will love, no matter where they are. Interactive Live Streaming is the ability to broadcast media content to thousands of online 
@@ -25,7 +25,7 @@ attendees while enabling some attendees to share their live audio and video, int
 - [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role-based streaming.
 - The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quick start.
 
-## Live Streaming with Rooms
+## Live streaming with Rooms
 Room participants can be assigned one of the following roles: **Presenter**, **Attendee** and **Consumer**. By default, a user is assigned an **Consumer** role, if no other role is assigned.
 
 Participants with `Consumer` role will be receiving only the live stream. They will not be able to speak or share video or screen. Developers should not show the unmute, share video, and screen option to end users/consumers. Live stream supports both open and closed Rooms. In Open Rooms the default role is `Consumer`.
@@ -41,7 +41,7 @@ const context = { roomId: '<RoomId>' }
 const call = callAgent.join(context);
 ```
 
-### Receive Live Stream
+### Receive live stream
 Contoso can use the `Features.LiveStream` to get the live stream and play it.
 
 ```typescript
@@ -78,7 +78,7 @@ const subscribeToLiveVideoStream = async (liveVideoStream) => {
 
 ```
 
-### Count Participants in both Real-time and Streaming Media Lane
+### Count participants in both real-time and streaming media lane
 Web SDK already exposes `Call.totalParticipantCount` (available in beta release) which includes all participants count (Presenter, Attendee, Consumer, Participants in the lobby etc.). We have added a new API `Call.feature(Features.LiveStream).participantCount` under the `LiveStream` feature to have the count of streaming participants. `Call.feature(Features.LiveStream).participantCount` represents the number of participants receiving the streaming media only.
 
 ```typescript
