@@ -60,7 +60,7 @@ Since application gateway resources are deployed within a virtual network resour
 
 You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that users or Service Principals who operate application gateways have at least **Microsoft.Network/virtualNetworks/subnets/join/action** or some higher permission such as the built-in [Network contributor](../role-based-access-control/built-in-roles.md) role on the virtual network. Visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md) to know more on subnet permissions. 
 
-If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose.
+If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose. Also, [allow sufficient time](../role-based-access-control/troubleshooting.md?tabs=bicep#symptom---role-assignment-changes-are-not-being-detected) after you make changes to a role assignments.
 
 > [!NOTE]
 > As a temporary extension, we have introduced a subscription-level Azure Feature Exposure Control (AFEC) flag to help you fix the permissions for all your users and/or service principals' permissions. Register for this interim feature on your own through a subscription owner, contributor, or custom role. </br>
