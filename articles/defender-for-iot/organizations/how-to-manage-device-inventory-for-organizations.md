@@ -145,6 +145,7 @@ Examples of this scenario might include a laptop with both WiFi and a physical n
 
 > [!NOTE]
 > Once the devices are merged, they cannot be unmerged. To unmerge devices, you'll need to delete the merged device and wait for it to be rediscovered by the sensors as it was originally.
+
 **To manually merge devices**:
 
 1. In the **Device inventory** page, select two or more devices you would like to merge, and then select **Merge** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-icon.png" border="false"::: in the toolbar at the top of the page.
