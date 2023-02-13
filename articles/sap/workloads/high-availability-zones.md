@@ -6,6 +6,7 @@ manager: ericl
 tags: azure-resource-manager
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/19/2022
