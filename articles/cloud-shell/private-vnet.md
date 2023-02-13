@@ -1,5 +1,5 @@
 ---
-author: sdwheeler
+author: jahelmic
 description: Deploy Cloud Shell into an Azure virtual network
 manager: mkluck
 ms.author: sewhee
@@ -73,6 +73,8 @@ container resources:
   the internal resources from outside.
 - Accessible from specified networks: In this configuration, administrators must access the Azure
   portal from a computer running in the appropriate network to be able to use Cloud Shell.
+- Disabled: When the networking relay is set to disabled, the computer running Azure Cloud Shell
+  must be connected to the same IP address within the VNET network or via VPN/Express route.
 
 ## Storage requirements
 
