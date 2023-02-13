@@ -26,7 +26,7 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 | ------- | ----------- |
 | [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
-| [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
+| [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD Multi-Factor Authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
@@ -76,24 +76,17 @@ To unblock a user, complete the following steps:
 1. Enter a comment in the **Reason for unblocking** box.
 1. Select **OK** to unblock the user.
 
-## Fraud alert
+## Report suspicious activity
 
-The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using the Microsoft Authenticator app or through their phone.
+A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection) for more comprehensive coverage and capability. 
 
-The following fraud alert configuration options are available:
+Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](https://learn.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies).  
 
-* **Automatically block users who report fraud**. If a user reports fraud, the Azure AD Multi-Factor Authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks the account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
-* **Code to report fraud during initial greeting**. When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it. If automatic blocking is enabled, after the user presses **0#** to report fraud, they need to press **1** to confirm the account blocking.
+To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
 
-   > [!NOTE]
-   > The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
-
-To enable and configure fraud alerts, complete the following steps:
-
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Fraud alert**.
-1. Set **Allow users to submit fraud alerts** to **On**.
-1. Configure the **Automatically block users who report fraud** or **Code to report fraud during initial greeting** setting as needed.
-1. Select **Save**.
+1. In the Azure portal, click **Azure AD** > **Security** > **Authentication Methods** > **Settings**. 
+1. Set **Report Suspicious Activity** to **Enabled**. 
+1. Select **All users** or a specific group. 
 
 ### View fraud reports
 
