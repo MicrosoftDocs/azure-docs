@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/13/2023
 ---
 
-# Major Version Upgrade of a flexible server
+# Major Version Upgrade of a Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -36,19 +36,19 @@ Follow these steps to upgrade your flexible server to the major version of your 
 
 4. During upgrade, users have to wait for the process to complete. You can resume accessing the server once the server is back online.
 
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
+:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-progress.png" alt-text="Diagram of deployment progress for Major Version Upgrade.":::
 
 
 5. Once the upgrade is successful,you can expand the Deployment details tab and click **Operation details** to see more information about upgrade process like duration, provisioning state etc.
 
 
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
+:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-success.png" alt-text="Diagram of successful deployment of for Major Version Upgrade.":::
  
 
 6. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version
 
 
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible server after major version upgrade.":::
+:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible server after Major Version Upgrade.":::
 
 ## Next steps
 
