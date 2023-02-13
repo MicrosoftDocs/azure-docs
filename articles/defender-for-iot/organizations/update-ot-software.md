@@ -25,9 +25,9 @@ To perform the procedures described in this article, make sure that you have:
 
     |Update scenario  |Method details  |
     |---------|---------|
-    |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to update your on-premises management console before updating your sensors.|
-    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>Remote updates require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.       |
-    |**Locally-managed sensors**     |  Locally-managed sensors can be updated via an on-premises management console, or directly using a downloaded update package.       |
+    |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to [update your on-premises management console](#update-your-on-premises-management-console) *before* updating your sensors.|
+    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#remote-via-the-azure-portal-public-previewtabportal) require that your OT sensor have version [22.2.3](release-notes.md#2223) or later already installed.       |
+    |**Locally-managed sensors**     |  Locally-managed sensors can be updated via a connected on-premises management console, or directly using a downloaded update package.       |
 
 - **Required access permissions**:
 
@@ -55,7 +55,9 @@ To perform the procedures described in this article, make sure that you have:
 
 This section describes how to update OT sensors directly from the Azure portal, via an on-premises management console, manually from the OT sensor console, or manually via the sensor's CLI.
 
-Sending or downloading an update package and running the update are two separate steps, which can be done one right after the other or at different times. For example, you might want to first send the update to your sensor or download and update package, and then have an administrator run the update later on, during a planned maintenance window.
+Sending or downloading an update package and running the update are two separate steps, which can be done one right after the other or at different times. 
+
+For example, you might want to first send the update to your sensor or download and update package, and then have an administrator run the update later on, during a planned maintenance window.
 
 > [!IMPORTANT]
 > If you're using an on-premises management console, make sure that you've [updated the on-premises management console](#update-an-on-premises-management-console) *before* updating any connected sensors.
@@ -68,7 +70,7 @@ Select the update method you want to use:
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
 
-### Send the software update to your OT sensor:
+### Send the software update to your OT sensor
 
 1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then locate the OT sensors with legacy, but [supported versions](#prerequisites) installed.
 
@@ -106,7 +108,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
-# [OT sensor UI](#tab/sensor)
+# [Via the OT sensor UI](#tab/sensor)
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
@@ -142,7 +144,7 @@ This procedure describes how to manually download the new sensor software versio
 
     The update process starts, and may take about 30 minute and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
-# [On-premises management console](#tab/onprem)
+# [Via the On-premises management console](#tab/onprem)
 
 This procedure describes how to update several OT sensors simultaneously from an on-premises management console.
 
@@ -219,7 +221,7 @@ If you're updating multiple, locally-managed OT sensors, make sure to update the
 
     If updates fail, a retry option appears with an option to download the failure log. Retry the update process or open a support ticket with the downloaded log files for assistance.
 
-# [OT sensor CLI](#tab/cli)
+# [Via the OT sensor CLI](#tab/cli)
 
 This procedure describes how to update OT sensor software via the CLI, directly on the OT sensor.
 
@@ -307,13 +309,13 @@ Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/lega
 
 ## Update an on-premises management console
 
-This procedure describes how to update an on-premises management console software. You might need these steps before updating OT sensors remotely from the Azure portal or as a standalone update process.
-
-If you're updating the on-premises management console as part of an OT sensor process, you must update your on-premises management console *before* updating your OT sensors.
+This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#remote-via-the-azure-portal-public-previewtabportal) or as a standalone update process.
 
 Updating an on-premises management console takes about 30 minutes.
 
 > [!IMPORTANT]
+> If you're updating the on-premises management console as part of an OT sensor process, you must update your on-premises management console *before* updating your OT sensors.
+>
 > The software version on your on-premises management console must be equal to or greater than that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
 >
 

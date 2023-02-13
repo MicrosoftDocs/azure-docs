@@ -21,7 +21,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 |---------|---------|---------|---------|---------|
 | **[Grant permissions to others](manage-users-portal.md)**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
 |  **Onboard [OT](onboard-sensors.md) or [Enterprise IoT sensors](eiot-sensor.md)** [*](#enterprise-iot-security) <br>Apply per subscription only | -       |  ✔       |   ✔      | ✔ |
-|  **[Download OT sensor and on-premises management console software](update-ot-software.md#download-update-packages-from-the-azure-portal)**<br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
+|  **[Download OT sensor and on-premises management console software](update-ot-software.md#download-the-update-package-from-the-azure-portal)**<br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 | **[Download sensor endpoint details](how-to-manage-sensors-on-the-cloud.md#endpoint)** <br>Apply per subscription only |  ✔    |  ✔       |   ✔      | ✔ |
 |  **[Download sensor activation files](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor)** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
 |  **[View values on the Plans and pricing page](how-to-manage-subscriptions.md)** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
