@@ -8,6 +8,8 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
+
+# Review Stage 3: PM Review - (ADO-54212).
 ---
 
 # Tutorial: Register an application with the Microsoft identity platform
