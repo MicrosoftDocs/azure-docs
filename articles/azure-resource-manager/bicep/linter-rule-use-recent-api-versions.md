@@ -24,7 +24,7 @@ Use the most recent API version, or one that is no older than 730 days.
 
 Use **Quick Fix** to use the latest API versions:
 
-:::image type="content" source="./media/linter-rule-use-recent-api-versions/linter-rule-use-recent-api-versions-quick-fix.png" alt-text="The screenshot of Simplify interpolation linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-use-recent-api-versions/linter-rule-use-recent-api-versions-quick-fix.png" alt-text="The screenshot of Simplify interpolation linter rule quick fix.":::
 
 ## Next steps
 
