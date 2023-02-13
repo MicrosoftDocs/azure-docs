@@ -126,7 +126,7 @@ Each piece of content or solution has one of the following content sources:
 |**Content hub**   |Solutions deployed by the Content hub that support lifecycle management         |
 |**Standalone** |Standalone content deployed by the Content hub that is automatically kept up-to-date |
 |**Custom**  |Content or solutions you've customized in your workspace         |
-|**Gallery content**     |Content from the feature galleries that don't support lifecycle management. This content source is retiring soon. For more information see [OOTB content centralization changes](sentinel-content-centralize).     |
+|**Gallery content**     |Content from the feature galleries that don't support lifecycle management. This content source is retiring soon. For more information see [OOTB content centralization changes](sentinel-content-centralize.md).     |
 |**Repositories**   |Content or solutions from a repository connected to your workspace      |
 
 ## Next steps
