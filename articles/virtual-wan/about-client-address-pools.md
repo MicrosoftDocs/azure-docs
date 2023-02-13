@@ -2,7 +2,6 @@
 title: 'About client address pools for P2S User VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn about client address pools for User VPN P2S.
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
@@ -60,7 +59,7 @@ The following table summarizes the available scale unit choices for Point-to-sit
 
 Point-to-site VPN address pool assignments are done automatically by Virtual WAN. See the following basic guidelines for specifying address pools.
 
-* One gateway instance allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique IPv4 addresses. If less than 10,000 addresses are assigned to each instance  incoming connections will be rejected after all allocated IP addresses have been assigned.
+* One gateway instance allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique IPv4 addresses. If less than 10,000 addresses are assigned to each instance, incoming connections will be rejected after all allocated IP addresses have been assigned.
 * Multiple address pool ranges are automatically combined and assigned to a **single** gateway instance. This process is done in a round-robin manner for any gateway instances that have less than 10,000 IP addresses. For example, a pool with 5,000 addresses can be combined automatically by Virtual WAN with another pool that has 8,000 addresses and is assigned to a single gateway instance.
 * A single address pool is only assigned to a single gateway instance by Virtual WAN.
 * Address pools must be distinct. There can be no overlap between address pools.
