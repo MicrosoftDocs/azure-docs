@@ -40,7 +40,7 @@ param mypassword string
 
 Optionally, you can use **Quick Fix** to add the secure decorator:
 
-:::image type="content" source="./media/linter-rule-secure-secrets-in-parameters/linter-rule-secure-secrets-in-parameters-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix":::
+:::image type="content" source="./media/linter-rule-secure-secrets-in-parameters/linter-rule-secure-secrets-in-parameters-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix.":::
 
 ## Silencing false positives
 
