@@ -93,8 +93,6 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
- [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
-
 ### Application configuration file
 
 Configure the Azure Database for MySQL credentials in the `application.yml` configuration file in the `cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample` directory. Replace the values of `${AZURE_COSMOS_ENDPOINT}` and `${COSMOS_DATABASE}`.
@@ -151,7 +149,7 @@ The sample code has already been added, you don't need to add any code.
 Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
 
 >[!TIP]
-> Before starting the following sections, replace the variables in *application.yml* with real values. If you use Passwordless authentication, use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication.
+> Before starting the following sections, replace the variables in *application.yml* with real values. If you use Passwordless authentication, [create the custom role](/azure/cosmos-db/nosql/quickstart-java?tabs=passwordlesssync%2Csign-in-azure-cli#create-the-custom-role) and use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication.
 
 1. In the git terminal window, `cd` to the sample code folder.
 
