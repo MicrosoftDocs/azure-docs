@@ -62,7 +62,7 @@ In this section, you test connectivity between two connected virtual machines.
 
     - Network security group rules allow traffic between the two virtual machines.
     - The two virtual machines are directly connected (VM2 is the next hop of VM1).
-    - Azure default system route is used to route traffic between the two virtual machines (Route table Id: System route).
+    - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
     - 66 probes were successfully sent with average latency of 2 ms.
 
     :::image type="content" source="./media/network-watcher-connectivity-portal/virtual-machine-connected-test-result.png" alt-text="Screenshot of connection troubleshoot results after testing the connection between two connected virtual machines.":::
@@ -99,14 +99,14 @@ In this section, you test connectivity between two virtual machines that have co
 
 1. Select **Test connection**.
 
-    The test results show that the two virtual machines are not communicating:
+    The test results show that the two virtual machines aren't communicating:
 
-    - The two virtual machines are not connected (no probes were sent from VM1 to VM3).
-    - There is no route between the two virtual machines (Next hop type: None).
-    - Azure default system route is the route table used (Route table Id: System route).
+    - The two virtual machines aren't connected (no probes were sent from VM1 to VM3).
+    - There's no route between the two virtual machines (Next hop type: None).
+    - Azure default system route is the route table used (Route table ID: System route).
     - Network security group rules allow traffic between the two virtual machines.
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/virtual-machines-test-result.png" alt-text="Screenshot of connection troubleshoot results after testing the connection between two virtual machines that are not communicating.":::
+    :::image type="content" source="./media/network-watcher-connectivity-portal/virtual-machines-test-result.png" alt-text="Screenshot of connection troubleshoot results after testing the connection between two virtual machines that aren't communicating.":::
 
 ## Test connectivity with `www.bing.com`
 

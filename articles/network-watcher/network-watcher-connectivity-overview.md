@@ -18,7 +18,7 @@ With the increase of sophisticated and high-performance workloads in Azure, ther
 
 The connection troubleshoot feature of Azure Network Watcher helps reduce the amount of time to diagnose and troubleshoot network connectivity issues. The results returned can provide insights about the root cause of the connectivity problem and whether it's due to a platform or user configuration issue.
 
-Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing a comprehensive method of performing all connection major checks to detect issues pertaining to network security groups, user-defined routes, and blocked ports and . It provides the following results with actionable insights where a step-by-step guide or corresponding documentation is provided for faster resolution:
+Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing a comprehensive method of performing all connection major checks to detect issues pertaining to network security groups, user-defined routes, and blocked ports. It provides the following results with actionable insights where a step-by-step guide or corresponding documentation is provided for faster resolution:
 
 - Connectivity test with different destination types (VM, URI, FQDN, or IP Address).
 - Configuration issues that impact reachability.
@@ -120,4 +120,4 @@ The Connection troubleshoot feature returns fault types about the connection. Th
 ### Next steps
 
 - Learn more about [Network Watcher](network-watcher-monitoring-overview.md) 
-- Learn how to use connection troubleshoot using the [Azure Portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), the [Azure CLI](network-watcher-connectivity-cli.md), or [REST API](network-watcher-connectivity-rest.md).
+- Learn how to use connection troubleshoot using the [Azure portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), the [Azure CLI](network-watcher-connectivity-cli.md), or [REST API](network-watcher-connectivity-rest.md).
