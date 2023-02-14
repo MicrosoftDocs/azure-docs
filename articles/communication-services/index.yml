@@ -20,7 +20,7 @@ highlightedContent:
       url: ./overview.md
     - title: What's new for developers in Azure Communication Services?
       itemType: whats-new
-      url: ./overview.md #TODO
+      url: ./whats-new.md #TODO
     - title: Explore our scenario-based solutions
       itemType: get-started
       url: ./overview.md #TODO
