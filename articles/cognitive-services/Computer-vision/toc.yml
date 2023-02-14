@@ -150,11 +150,11 @@ items:
         href: concept-tagging-images-40.md
       - name: Image descriptions
         href: concept-describing-images-40.md
-      - name: Reading text (preview)
+      - name: Reading text
         href: concept-ocr.md
       - name: Smart-cropped thumbnails
         href: concept-generating-thumbnails-40.md
-      - name: People detection (preview)
+      - name: People detection
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
