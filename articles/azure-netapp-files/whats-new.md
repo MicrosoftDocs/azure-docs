@@ -21,9 +21,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 <!-- Date TBD -->
 
-* [Double encryption at rest](double-encryption-at-rest.md) (Preview)
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) (Preview)
 
-
+    Azure NetApp Files supports double encryption for increased protection of sensitive data.
 
 ## December 2022
 
