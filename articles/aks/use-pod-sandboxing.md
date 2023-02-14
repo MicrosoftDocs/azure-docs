@@ -69,13 +69,13 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 * Kata containers may not reach the IOPS performance limits that traditional containers can reach on Azure Files and high performance local SSD.
 
-* [Microsoft Defender for Containers][defender-for-containers] does not support assessing Kata runtime pods.
+* [Microsoft Defender for Containers][defender-for-containers] doesn't support assessing Kata runtime pods.
 
-* [Container Insights][container-insights] does not support monitoring of Kata runtime pods in the preview release.
+* [Container Insights][container-insights] doesn't support monitoring of Kata runtime pods in the preview release.
 
-* [Kata][kata-network-limitations] host-network is not supported.
+* [Kata][kata-network-limitations] host-network isn't supported.
 
-* [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] are not supported in the preview release.
+* [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] aren't supported in the preview release.
 
 ## How it works
 
@@ -208,7 +208,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify isolation configuration
 
-1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example we are accessing the container inside the *untrusted* pod.
+1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example you're accessing the container inside the *untrusted* pod.
 
     ```bash
     kubectl exec -it untrusted -- /bin/bash
@@ -265,7 +265,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Cleanup
 
-If you are finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
+If you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
 ```azurecli
 az aks delete --resource-group myResourceGroup --name myAKSCluster
