@@ -395,5 +395,4 @@ For more information, see the following documentation:
 
 ## Next steps
 
-[General information about connectors, triggers, and actions]()
-
+[General information about connectors, triggers, and actions](/connectors/connectors)
