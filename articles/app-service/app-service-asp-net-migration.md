@@ -26,7 +26,7 @@ Azure Migrate recently announced at-scale, agentless discovery, and assessment o
 
 Once you have successfully assessed readiness, you should proceed with migration of ASP.NET web apps to Azure App Services.  
 
-There are existing tools which enable migration of a standalone ASP.Net web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-modernize-asp-net-appservice-code.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.NET application hosted on multiple on-premises IIS servers.  
+There are existing tools which enable migration of a standalone ASP.NET web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-modernize-asp-net-appservice-code.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.NET application hosted on multiple on-premises IIS servers.  
 
 Azure Migrate provides at-scale, agentless discovery, and assessment of ASP.NET web apps. You can discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
 

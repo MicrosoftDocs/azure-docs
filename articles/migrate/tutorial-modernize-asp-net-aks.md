@@ -26,11 +26,11 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-Before you begin this tutorial, you should:
+Before you begin this tutorial, you should address the following:
 
-1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-2. [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
-3. Go to the existing project or [create a new project](./create-manage-projects.md).
+ - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+ - [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
+ - Go to the existing project or [create a new project](./create-manage-projects.md).
 
 ### Limitations
 
@@ -48,7 +48,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
-2. In the **Specify intent** blade, > **What do you want to migrate?**, select **ASP.NET web apps** from the drop down.
+2. In the **Specify intent** blade, > **What do you want to migrate?**, select **ASP.NET web apps** from the drop-down.
 3. In **Where do you want to migrate to?**, select **Azure Kubernetes Service (AKS)**.
 4. In **Virtualization type**, select **VMware vSphere**.
 5. In **On-premises appliance**, choose the appliance which discovered your desired web apps on vSphere.
