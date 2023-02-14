@@ -9,37 +9,36 @@ ms.date: 02/14/2023
 
 # How to connect Kafka cluster with VM in different VNet
 
-Learn how to connect Kafka cluster with VM in different VNet
-
 This Document lists steps that must be followed to set up connectivity between VM and HDI Kafka residing in two different VNet. 
 
-1. Create two different VNets where HDInsight Kafka cluster and VM will be hosted respectively. For more infomration, see [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+1. Create two different VNets where HDInsight Kafka cluster and VM will be hosted respectively. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
 
-1. Note that these two  VNetTs must be peered, so that IP addresses of their subnets must not overlap with each other. For more infomration, see [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
+   > [!Note]
+   > These two  VNetTs must be peered, so that IP addresses of their subnets must not overlap with each other. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
-   Make sure that the peering status shows as connected.
+1. Make sure that the peering status shows as connected.
   
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kakfa-event-peering-window.png" alt-text="Screenshot showing Kafka event peering." border="true":::
    
-1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more infomration, see [Create an Apache Kafka cluster](/azure/hdinsight/kafka/apache-kafka-get-started.md#create-an-apache-kafka-cluster)
+1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more information, see [Create an Apache Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster)
 
-1. Create a Virtual Machine in the second VNet. While creating the VM specify the second VNet name where this virtual machine must be deployed. For more more information, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
+1. Create a Virtual Machine in the second VNet. While creating the VM specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 
     > [!Note]
     > Once the above steps are completed and Kafka cluster and VM are in running state, make sure to add your local machine IP address in the NSG rule of both the subnets.
 
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/add-inbound-security-rule.png" alt-text="Screenshot showing how to add inbound security rules." border="true":::
 
-1. This step is to ensure that you can SSH into the Kafka headnodes as well as the Virtual machine. 
-1. After this we can copy the entries of the file /etc/host from Kafka headnode to VM.
+1. This step is to ensure that you can SSH into the Kafka headnodes and the Virtual machine. 
+1. After this step, we can copy the entries of the file /etc/host from Kafka headnode to VM.
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/etc-host-output.png" alt-text="Screenshot showing etc host file output." border="true":::
    
-1. Remove the “headnodehost” string entries from the file. For example, the above image has headnodehost entry for the ip 10.0.0.16. After removal it will be as below.
+1. Remove the `headnodehost` string entries from the file. For example, the above image has `headnodehost` entry for the ip 10.0.0.16. After removal, it will be as
 
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/modified-etc-hosts-output.png" alt-text="Screenshot showing modified etc hosts output file output." border="true":::
 
-1. After these entries are made, try to reach the Kafka Ambari dashboard using the curl command using the hn0 or hn1 FQDN as below,
+1. After these entries are made, try to reach the Kafka Ambari dashboard using the curl command using the hn0 or hn1 FQDN as
    
    From Linux VM
    
@@ -107,28 +106,28 @@ This Document lists steps that must be followed to set up connectivity between V
     :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/windows-vm.png" alt-text="Screenshot showing windows VM output." border="true":::
     
    > [!Note] 
-   > 1.In Windows VM , static hostnames are added in the file hosts present in the path `C:\Windows\System32\drivers\etc\`
-   > This document assumes that the Ambari server is active on hn0. If the Ambari server is active on hn1 use the FQDN of hn1 to access the Ambari UI. 
+   > 1. In Windows VM , static hostnames are added in the file hosts present in the path `C:\Windows\System32\drivers\etc\`
+   > 1. This document assumes that the Ambari server is active on hn0. If the Ambari server is active on hn1 use the FQDN of hn1 to access the Ambari UI. 
    
 1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application, https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
    
-   Make sure to create the topic inside the Kafka cluster using the below command, 
+   Make sure to create the topic inside the Kafka cluster using the command
      
    `java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS` 
 
-1. After creating the topic, we can use the below commands to produce and consume. The $KAFKABROKERS must be replaced appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
+1. After creating the topic, we can use the commands to produce and consume. The $KAFKABROKERS must be replaced appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
     
    ```
    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS `
    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS 
    ```
    
-1. After this you will get an output as 
+1. After this you get an output as 
     
-   Producer output:
+   1. Producer output:
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-producer-output.png" alt-text="Screenshot showing Kafka producer output VM." border="true":::
      
-   Consumer output: 
+   1. Consumer output: 
     
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-consumer-output.png" alt-text="Screenshot showing Kafka producer output." border="true"::: 
