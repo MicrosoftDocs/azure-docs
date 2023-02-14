@@ -1,6 +1,5 @@
 ---
 title: Confidential containers on ACI
-description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 description: An overview of confidential containers on ACI. 
 ms.topic: conceptual
 ms.author: tomcassidy
