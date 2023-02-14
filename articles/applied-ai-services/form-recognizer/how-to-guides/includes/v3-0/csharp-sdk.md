@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -38,7 +38,7 @@ ms.custom: devx-track-csharp
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* Finally, you'll need a document file at a URL location. For this project, you can use the sample forms provided in the table below for each feature:
+* Finally, you need a document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
 
     **Sample documents**
 

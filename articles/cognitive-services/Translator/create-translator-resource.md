@@ -1,7 +1,7 @@
 ---
 title: Create a Translator resource
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create an Azure Cognitive Services Translator resource and get a key and endpoint URL.
+description: This article shows you how to create an Azure Cognitive Services Translator resource and get a key and endpoint URL.
 services: cognitive-services
 author: laujan
 ms.author: lajanuar
@@ -14,11 +14,11 @@ ms.date: 02/14/2023
 
 # Create a Translator resource
 
-In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
+In this article, you learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
 
 ## Prerequisites
 
-To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free 12-month subscription**](https://azure.microsoft.com/free/).
+To get started, you need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free 12-month subscription**](https://azure.microsoft.com/free/).
 
 ## Create your resource
 
@@ -48,7 +48,7 @@ The Translator service can be accessed through two different resource types:
    * Only one free tier is available per subscription.
    * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
 
-1. If you've created a multi-service resource, you'll need to confirm additional usage details via the check boxes.
+1. If you've created a multi-service resource, you need to confirm more usage details via the check boxes.
 
 1. Select **Review + Create**.
 
@@ -95,7 +95,7 @@ To delete the resource group:
 
 ## How to get started with Translator
 
-In our quickstart, you'll learn how to use the Translator service with REST APIs.
+In our quickstart, you learn how to use the Translator service with REST APIs.
 
 > [!div class="nextstepaction"]
 > [Get Started with Translator](quickstart-translator.md)
