@@ -140,19 +140,19 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 ## Run the console app
 
-1. In the git terminal window, `cd` to the azure-cosmos-db-graph-python-getting-started folder.
+1. Start in a terminal window in the root of the folder where you cloned the sample app. If you are using VS Code, you can open a terminal window by selecting **Terminal** > **New Terminal**. Typically, you'll create a virtual environment to run the code. For more information, see [Python virtual environments](https://docs.python.org/3/tutorial/venv.html).
 
-    ```git
-    cd "./git-samples\azure-cosmos-db-graph-python-getting-started"
+    ```bash
+    cd azure-cosmos-db-graph-python-getting-started
     ```
 
-2. In the git terminal window, use the following command to install the required Python packages.
+1. Install the required Python packages.
 
    ```
    pip install -r requirements.txt
    ```
 
-3. In the git terminal window, use the following command to start the Python application.
+1. Start the Python application.
     
     ```
     python connect.py
