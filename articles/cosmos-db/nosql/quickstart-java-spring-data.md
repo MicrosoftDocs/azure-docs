@@ -91,7 +91,7 @@ git clone https://github.com/Azure-Samples/azure-spring-boot-samples.git
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to **Run the app**. 
 
-### [Passwordless (Recommended)](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
@@ -121,7 +121,7 @@ After creating the Azure Cosmos DB account, database and container, Spring Boot/
 
 The sample code has already been added, you don't need to add any code.
 
-### [Password](#tab/password)
+## [Password](#tab/password)
 
 ### Application configuration file
 
