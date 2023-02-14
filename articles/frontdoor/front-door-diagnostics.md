@@ -1,18 +1,16 @@
 ---
-title: Monitoring metrics and logs in - Azure Front Door (classic)
+title: Monitor metrics and logs in Azure Front Door (classic)
 description: This article describes the different metrics and access logs that Azure Front Door (classic) supports
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/22/2022
 ms.author: duau
 ---
 
-# Monitoring metrics and logs in Azure Front Door (classic)
+# Monitor metrics and logs in Azure Front Door (classic)
 
 When using Azure Front Door (classic), you can monitor resources in the following ways:
 
