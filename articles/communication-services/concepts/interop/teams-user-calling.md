@@ -104,10 +104,11 @@ The following list presents the set of features that are currently available in 
 |                   | Interact with a poll                                                                                                | ❌ |
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 | Accessibility     | Receive closed captions                                                                                             | ❌ |
-| Advanced call routing   | Does start a call and add user operations honor forwarding rules                                              |   ✔️      |
+| Advanced call routing   | Start a call and add user operations honor forwarding rules                                              |   ✔️      |
 |                   | Read and configure call forwarding rules                                                                             |   ❌      |
-|                   | Does start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
+|                   | Start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
 |                   | Read and configure simultaneous ringing                                                                              |   ❌      |
+|                   | Start a call and add user operations honor "Do not disturb" status                                                 |   ✔️      |
 |                   | Placing participant on hold plays music on hold                                                                      |   ❌      |
 |                   | Being placed by Teams user on Teams client on hold plays music on hold                                               |   ✔️      |
 |                   | Park a call                                                                                                          |   ❌      |
