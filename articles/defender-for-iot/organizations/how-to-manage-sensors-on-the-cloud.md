@@ -117,7 +117,7 @@ You may need to reactivate an OT sensor because you want to:
 In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
-1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
+1. [Onboard the sensor again](onboard-sensors.md#onboard-an-ot-sensor), registering it with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
 ### Reactivate an OT sensor for upgrades to version 22.x from a legacy version

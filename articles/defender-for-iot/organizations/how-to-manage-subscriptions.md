@@ -144,7 +144,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use.
 
-1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-ot-sensors).
+1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-an-ot-sensor).
 
     - Replicate site and sensor hierarchy as is.
 
