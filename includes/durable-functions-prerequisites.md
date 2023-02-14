@@ -13,10 +13,15 @@ ms.author: glenga
 * [Complete the quickstart article](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
-* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/main/samples)
+* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=node-model-v3)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/v2.x/samples)
+  
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=node-model-v4)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/v3.x/samples-js)
 
 # [Python](#tab/python)
 
