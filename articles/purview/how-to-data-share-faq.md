@@ -1,28 +1,31 @@
 ---
 title: Microsoft Purview Data Sharing FAQ
 description: Microsoft Purview Data Sharing frequently asked questions (FAQ) and answers.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 02/14/2023
 ---
 # FAQ: Azure Storage in-place data share with Microsoft Purview Data Sharing (preview)
 
-Here are some frequently asked questions for Microsoft Purview Data Sharing. 
+Here are some frequently asked questions for Microsoft Purview Data Sharing.
 
 ## What are the key terms related to data sharing?
 
-* **Data Provider** - Organization that shares data. 
+* **Data Provider** - Organization that shares data.
 * **Data Consumer** - Organization that receives shared data from a data provider.
+* **Asset**	- For storage in-place sharing, an asset is a storage account, and the list of files and folders you want to share from the storage account.
 * **Share** - A share is a set of data that can be shared from provider to consumer. It's a set of assets. You can have one asset with files/folders from one storage account, and another asset with files/folders from a different storage account.
 * **Collection** - A [collection](catalog-permissions.md) is a tool Microsoft Purview uses to group assets, sources, shares, and other artifacts into a hierarchy for discoverability and to manage access control. A root collection is created automatically when you create your Microsoft Purview account and you're granted all the roles to the root collection. You can use the root collection (default) or create child collections for data sharing.
-* **Asset**	- For storage in-place sharing, an asset is a storage account. You can specify a list of files and folders you want to share from the storage account.
-* **Recipient** - A recipient is a user or service principal to which the share is sent. 
+* **Recipient** - A recipient is a user or service principal to which the share is sent.
 
 ##	Can I use the API or SDK for storage in-place sharing?
+
 Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purview) for programmatic experience to share data.
+
+We have a [guide for getting started with the .NET SDK](quickstart-data-share-dot-net.md).
 
 ##	What are the roles and permissions required to share data or receive shares?
 
