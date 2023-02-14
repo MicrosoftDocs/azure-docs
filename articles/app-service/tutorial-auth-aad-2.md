@@ -14,13 +14,13 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses a ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
@@ -130,6 +130,20 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
     }
     ```
 
+## Create resource group and app plan
+
+1. Create a resource group to manage related resources. 
+
+    ```azurecli-interactive
+    az group create --name myAuthResourceGroup --location "West Europe"
+    ```
+
+1. Create an App Service plan to manage to web apps.
+    
+    ```azurecli-interactive
+    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
+    ```
+
 ## Deploy apps to Azure
 
 In this step, use the Cloud Shell from the Azure portal to create App Service web apps and deploy the two App Service apps.
@@ -139,24 +153,22 @@ In this step, use the Cloud Shell from the Azure portal to create App Service we
 In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
-az group create --name myAuthResourceGroup --location "West Europe"
-cd frontend
-az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1
+az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
 cd ../backend
-az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1
+az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in Azure App Service](quickstart-dotnetcore.md).
+In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). 
 
 ```azurecli-interactive
-cd backend
-az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1
+cd frontend
+az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
 cd ../backend
-az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1
+az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
 ```
 
 ::: zone-end
@@ -165,11 +177,18 @@ az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os
 > Save the URLs of the Git remotes for your front-end app and back-end app, which are shown in the output from `az webapp create`.
 >
 
-## Configure auth
+## Configure authentication
 
-In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
+In this step, you enable authentication and authorization for the two apps. You use Azure Active Directory as the identity provider. 
 
-You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
+You also configure the front-end app to: 
+
+- Grant the front-end app access to the back-end app
+- Configure App Service to return a usable token
+- Use the token in your code.
+
+For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
+
 
 ### Enable authentication and authorization for back-end app
 
@@ -195,20 +214,37 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app. However, stay on the **Authentication** page for the front-end app because you'll use it in the next step.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, *you still can't access the data from the back-end app*, because the back-end app now requires Azure Active Directory sign-in from the front-end app. You need to do three things:
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
 
-- Grant the front end access to the back end
+    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
+
+1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
+
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+
+1. Accept the default settings and select **Add**.
+
+    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
+
+1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+
+    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
+
+
+### Grant front-end app access to back end
+
+Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. To complete the authentication, you need to do three things:
+
+- Grant the frontend app access to the back-end app
 - Configure App Service to return a usable token
-- Use the token in your code
+- Use the token in your code.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
-### Grant front-end app access to back end
-
-Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
+In this step, you **grant the front-end app access to the backend app** on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
 1. In the **Authentication** page for the front-end app, select your front-end app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
