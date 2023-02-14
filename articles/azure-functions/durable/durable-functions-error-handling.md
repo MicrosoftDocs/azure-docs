@@ -2,7 +2,7 @@
 title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -95,41 +95,63 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df.orchestrator(function*(context) {
+module.exports = df.orchestrator(function* (context) {
     const transferDetails = context.df.getInput();
 
-    yield context.df.callActivity("DebitAccount",
-        {
-            account = transferDetails.sourceAccount,
-            amount = transferDetails.amount,
-        }
-    );
+    yield context.df.callActivity("DebitAccount", {
+        account: transferDetails.sourceAccount,
+        amount: transferDetails.amount,
+    });
 
     try {
-        yield context.df.callActivity("CreditAccount",
-            {
-                account = transferDetails.destinationAccount,
-                amount = transferDetails.amount,
-            }
-        );
-    }
-    catch (error) {
+        yield context.df.callActivity("CreditAccount", {
+            account: transferDetails.destinationAccount,
+            amount: transferDetails.amount,
+        });
+    } catch (error) {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        yield context.df.callActivity("CreditAccount",
-            {
-                account = transferDetails.sourceAccount,
-                amount = transferDetails.amount,
-            }
-        );
+        yield context.df.callActivity("CreditAccount", {
+            account: transferDetails.sourceAccount,
+            amount: transferDetails.amount,
+        });
+    }
+})
+```
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("transferFunds", function* (context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("debitAccount", {
+        account: transferDetails.sourceAccount,
+        amount: transferDetails.amount,
+    });
+
+    try {
+        yield context.df.callActivity("creditAccount", {
+            account: transferDetails.destinationAccount,
+            amount: transferDetails.amount,
+        });
+    } catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("creditAccount", {
+            account: transferDetails.sourceAccount,
+            amount: transferDetails.amount,
+        });
     }
 });
 ```
+
 # [Python](#tab/python)
 
 ```python
@@ -248,7 +270,7 @@ public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext con
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -261,6 +283,23 @@ module.exports = df.orchestrator(function*(context) {
         new df.RetryOptions(firstRetryIntervalInMilliseconds, maxNumberOfAttempts);
 
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("callActivityWithRetry", function* (context) {
+    const firstRetryIntervalInMilliseconds = 5000;
+    const maxNumberOfAttempts = 3;
+
+    const retryOptions = new df.RetryOptions(firstRetryIntervalInMilliseconds, maxNumberOfAttempts);
+
+    yield context.df.callActivityWithRetry("flakyFunction", retryOptions);
 
     // ...
 });
@@ -372,7 +411,11 @@ catch (TaskFailedException)
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
+
+JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
 
 JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
 
@@ -474,7 +517,7 @@ public static async Task<bool> Run([OrchestrationTrigger] TaskOrchestrationConte
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -485,6 +528,30 @@ module.exports = df.orchestrator(function*(context) {
 
     const activityTask = context.df.callActivity("FlakyFunction");
     const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
+```
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const { DateTime } = require("luxon");
+
+df.app.orchestration("timerOrchestrator", function* (context) {
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime).plus({ seconds: 30 });
+
+    const activityTask = context.df.callActivity("flakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toJSDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
     if (winner === activityTask) {
