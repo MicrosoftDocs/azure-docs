@@ -57,6 +57,8 @@ Generally after training a model you would review its evaluation details. In thi
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
 
+## Test deployed model
+
 [!INCLUDE [Test model](../language-studio/test-model.md)]
 
 > [!div class="nextstepaction"]

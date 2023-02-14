@@ -9,8 +9,6 @@ ms.date: 10/26/2022
 ms.author: aahi
 ---
 
-## Test deployed model
-
 To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):
 1. Select **Testing deployments** from the left side menu.
 
