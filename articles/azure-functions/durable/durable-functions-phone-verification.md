@@ -63,7 +63,7 @@ Here is the code that implements the function:
 
 Here is the code that implements the `smsPhoneVerification` orchestration function:
 
-:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="2-6,8-57":::
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="2-6,8-47":::
 
 # [Python](#tab/python)
 
