@@ -369,11 +369,11 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
@@ -383,7 +383,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 - name: Language detection
   items:
   - name: Language detection overview
@@ -450,11 +450,11 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
@@ -464,7 +464,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 
 - name: Key phrase extraction
   items:
@@ -536,11 +536,11 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
@@ -550,7 +550,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 
 - name: Named Entity Recognition (NER)
   items:
@@ -616,11 +616,11 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
@@ -630,7 +630,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 - name: Orchestration workflow
   items:
   - name: Orchestration workflow overview
@@ -775,11 +775,11 @@ items:
       - name: v3.1
         items:
           - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true&preserve-view=true
           - name: Python
             href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
           - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
 
@@ -966,11 +966,11 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
@@ -980,7 +980,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 
 - name: Text Analytics for health
   items:
@@ -1054,21 +1054,21 @@ items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Preview
         items:
           - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true&preserve-view=true
           - name: Python
             href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
 - name: Summarization (preview)
   items:
   - name: Summarization overview
@@ -1115,7 +1115,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
       - name: Conversation summarization
         items:
         - name: .NET
