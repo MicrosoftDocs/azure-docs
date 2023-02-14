@@ -31,7 +31,7 @@ In this tutorial, you are deploying a hello world application that generates a h
 
 There are two properties added to the ACI resource definition to make the container group confidential: 
 
-1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property is not added, the container group will is deployed as Standard SKU. 
+1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property is not added, the container group will be deployed as Standard SKU. 
 2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object is not added to the resource, you'll only receive hardware attestation, and all software is allowed to run within the container group.
 
 Save this ARM template on your local machine as **template.json**.

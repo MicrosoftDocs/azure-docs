@@ -33,7 +33,7 @@ sections:
           What Windows base OS images are supported?
         answer: |
           > [!NOTE]
-          > Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14th, 2021, ACI will no longer support deployments using older version numbers. 
+          > Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14, 2021, ACI will no longer support deployments using older version numbers. 
           > [!NOTE]
           > Confidential containers on Azure Container Instances currently does not support Windows containers. 
 
@@ -155,7 +155,7 @@ sections:
       - question: | 
           When should I use Confidential containers on Azure Container Instances? 
         answer: |
-          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees such as machine learning workloads that utilize data sets that include personally identifiable information or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
+          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees such as machine learning workloads that utilize data sets that include personal data or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
       - question: | 
           How do I generate a confidential computing enforcement policy?
         answer: |
