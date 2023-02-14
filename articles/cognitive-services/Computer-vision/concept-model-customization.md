@@ -100,11 +100,11 @@ Although Florence models have great few-shot capability (achieving great model p
 
 If your data labeling budget is constrained, our recommended workflow is to repeat the following steps:
 
-1. Collect $N$ images per class, where $N$ images are easy for you to collect (for example, $N=3$)
+1. Collect `N` images per class, where `N` images are easy for you to collect (for example, `N=3`)
 1. Train a model and test it on your evaluation set.
-1. If the model performance is-
+1. If the model performance is:
    -  **Good enough** (performance is better than expected or close to your previous experiments with less data collected): Stop here and use this model.
-   - **Not good enough** (performance is still below expectation or better than your previous experiment with less data collected at a reasonable margin): Collect $N+\delta$ images, and go back to Step 2.
+   - **Not good enough** (performance is still below expectation or better than your previous experiment with less data collected at a reasonable margin): Collect `2N` images, and go back to Step 2.
 
 ### How much training budget should I specify?
 
