@@ -1,5 +1,5 @@
 ---
-title: 'Disable network policies for Azure Private Link service source IP address '
+title: 'Disable network policies for Azure Private Link service source IP address'
 description: Learn how to disable network policies for Azure private Link
 services: private-link
 author: asudbring
@@ -7,10 +7,10 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 02/02/2023
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-how-to
 ms.devlang: azurecli
-
 ---
+
 # Disable network policies for Private Link service source IP
 
 In order to choose a source IP address for your Private Link service, an explicit disable setting `privateLinkServiceNetworkPolicies` is required on the subnet. This setting is only applicable for the specific private IP address you chose as the source IP of the Private Link service. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 

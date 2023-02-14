@@ -5,21 +5,17 @@ items:
   items:
   - name: Azure Monitor Overview
     href: overview.md
-  - name: Observability data in Azure Monitor
-    href: observability-data.md
-  - name: What can you monitor?
-    href: monitor-reference.md
   - name: Getting started
     items:
     - name: Get started with Azure Monitor
       href: getting-started.md
-    - name: Planning
+    - name: Plan your implementation
       href: best-practices-plan.md
     - name: Configure data collection
       href: best-practices-data-collection.md
     - name: Analysis and visualizations
       href: best-practices-analysis.md
-    - name: Alerts and automated actions
+    - name: Configure alerts and automated actions
       href: best-practices-alerts.md
     - name: Optimize costs
       href: best-practices-cost.md
@@ -29,6 +25,8 @@ items:
   items:
   - name: Multicloud monitoring
     href: best-practices-multicloud.md
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
   - name: Security
     items:
     - name: Security baseline
@@ -74,8 +72,6 @@ items:
         href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
-  - name: Migrate from Splunk to Azure Monitor Logs
-    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -138,6 +134,16 @@ items:
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
     href: azure-cli-metrics-alert-sample.md
+- name: Data sources
+  items:
+  - name: Overview of data sources
+    href: data-sources.md
+  - name: Platform logs
+    href: essentials/platform-logs-overview.md
+  - name: Activity log
+    href: essentials/activity-log.md
+  - name: Resource logs
+    href: essentials/resource-logs.md
 - name: Data collection
   items: 
   - name: Overview
@@ -157,16 +163,6 @@ items:
     - name: Edit a data collection rule
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
-  - name: Data sources
-    items:
-      - name: Overview of data sources
-        href: data-sources.md
-      - name: Platform logs
-        href: essentials/platform-logs-overview.md
-      - name: Activity log
-        href: essentials/activity-log.md
-      - name: Resource logs
-        href: essentials/resource-logs.md
   - name: Diagnostic Settings
     items:
     - name: Overview 
@@ -688,32 +684,24 @@ items:
       items:
       - name: Overview
         href: app/opentelemetry-overview.md
-      - name: .NET
-        href: app/opentelemetry-enable.md?tabs=net
-      - name: JavaScript
+      - name: Get started (.NET, Node.js, Python and Java)
+        href: app/opentelemetry-enable.md
+      - name: Java (supplemental)
         items:
-        - name: Browser
-          href: app/javascript.md
-        - name: Node.js
-          href: app/opentelemetry-enable.md?tabs=nodejs
-      - name: Java
-        items:
-        - name: Overview
-          href: app/opentelemetry-enable.md?tabs=java
         - name: Spring Boot
           href: app/java-spring-boot.md
-        - name: Java Profiler
+        - name: Profiler
           href: app/java-standalone-profiler.md
-        - name: Configuration options
-          href: app/java-standalone-config.md
-        - name: Advanced configurations
+        - name: Configuration
           items:
-            - name: JMX metrics
-              href: app/java-jmx-metrics-configuration.md
-            - name: Sampling overrides
-              href: app/java-standalone-sampling-overrides.md
-            - name: Telemetry processors
-              items:
+          - name: General
+            href: app/java-standalone-config.md
+          - name: JMX metrics
+            href: app/java-jmx-metrics-configuration.md
+          - name: Sampling overrides
+            href: app/java-standalone-sampling-overrides.md
+          - name: Telemetry processors
+            items:
               - name: Overview
                 href: app/java-standalone-telemetry-processors.md
               - name: Examples
@@ -722,8 +710,6 @@ items:
           href: app/java-standalone-arguments.md
         - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
-      - name: Python
-        href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (workspace-based)
@@ -1091,7 +1077,7 @@ items:
     href: insights/resource-group-insights.md
   - name: Troubleshoot insights
     href: insights/troubleshoot-workbooks.md 
-- name: Visualizations
+- name: Visualize
   items:
   - name: Workbooks
     items:
