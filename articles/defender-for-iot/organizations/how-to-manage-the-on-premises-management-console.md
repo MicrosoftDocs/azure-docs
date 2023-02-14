@@ -24,6 +24,7 @@ In Defender for IoT in the Azure portal, use one of the following options:
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#update-an-on-premises-management-console).
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
