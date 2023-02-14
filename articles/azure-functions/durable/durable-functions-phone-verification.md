@@ -117,7 +117,7 @@ And here is the code that generates the four-digit challenge code and sends the 
 
 Here is the code that generates the four-digit challenge code and sends the SMS message:
 
-:::code language="javascript" source="~/azure-functions-durable-js/samples-js/functions/smsPhoneVerification.js" range="1-2,4-6,49-71":::
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="1-2,4-6,49-71":::
 
 # [Python](#tab/python)
 
