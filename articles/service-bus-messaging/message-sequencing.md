@@ -19,6 +19,9 @@ The absolute arrival order matters, for example, in business scenarios in which 
 
 The time-stamping capability acts as a neutral and trustworthy authority that accurately captures the UTC time of arrival of a message, reflected in the **EnqueuedTimeUtc** property. The value is useful if a business scenario depends on deadlines, such as whether a work item was submitted on a certain date before midnight, but the processing is far behind the queue backlog.
 
+> [!NOTE]
+> Sequence number on its own guarantees the queuing order of messages, but not the extraction order, which requires [sessions](message-sessions.md). 
+
 ## Scheduled messages
 
 You can submit messages to a queue or topic for delayed processing; for example, to schedule a job to become available for processing by a system at a certain time. This capability realizes a reliable distributed time-based scheduler.
