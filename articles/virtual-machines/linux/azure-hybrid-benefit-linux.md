@@ -16,16 +16,19 @@ ms.custom: kr2b-contr-experiment
 
 # Azure Hybrid Benefit for Linux (RHEL & SLES) virtual machines
 
+## What is Azure Hybrid Benefit?
+
 Azure Hybrid Benefit for Linux virtual machines enables you to take advantage of discounted reserved instance rates for your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) VMs. This results in cost savings by applying the licensing costs for RHEL and SLES on top of the discounted rate of reserved instances. This article explains the two Azure Hybrid Benefit licensing models and the process of converting to and between them. 
 
+> [!Note]
 > “Customers may see savings estimated to up to 76% with Azure Hybrid Benefit for Linux."             
 
-> [!Note] 
+> [!Disclaimer] 
 > The 76% savings is based on one standard D2s v3 Azure VM with RHEL or SLES subscription in the East US region running at a pay-as-you-go rate vs a reduced rate for a 3-year reserved instance plan. Based on Azure pricing as of October 2022. Prices subject to change. Actual savings may vary based on location, instance type, or usage.
 
-## Defining PAYG and BYOS
+## Defining Pay-as-you-go (PAYG) and Bring-your-own-subscription (BYOS)
 
-In Azure, there are two main licensing pricing options: 'pay-as-you-go' and 'bring-your-own-subscription'. 'Pay-as-you-go' is a pricing option where you pay for the resources you use on an hourly or monthly basis. You only pay for what you use and can scale up or down as needed. On the other hand, 'bring your own subscription' is a licensing option where you can use your existing licenses for certain software, in this case RHEL and SLES, on Azure virtual machines. You can use your existing licenses and won't have to purchase new ones for use in Azure.
+In Azure, there are two main licensing pricing options: 'pay-as-you-go' (PAYG) and 'bring-your-own-subscription' (BYOS). 'PAYG' is a pricing option where you pay for the resources you use on an hourly or monthly basis. You only pay for what you use and can scale up or down as needed. On the other hand, 'BYOS' is a licensing option where you can use your existing licenses for certain software, in this case RHEL and SLES, on Azure virtual machines. You can use your existing licenses and won't have to purchase new ones for use in Azure.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-byos-cost.png" alt-text="Diagram that shows the use of Azure Hybrid Benefit to switch Linux virtual machines from bring-your-own-subscription to pay-as-you-go.":::
 
@@ -42,7 +45,7 @@ Azure dedicated host instances and SQL hybrid benefits aren't eligible for Azure
 
 ## Getting started with PAYG Azure Hybrid Benefit
 
-### Red Hat PAYG Azure Hybrid Benefit overview
+### Red Hat (RHEL) PAYG Azure Hybrid Benefit
 
 Azure Hybrid Benefit for pay-as-you-go virtual machines for RHEL is available to Red Hat customers who meet the following criteria:
 
@@ -58,7 +61,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 1. Follow the recommended [next steps](https://access.redhat.com/articles/5419341) to configure update sources for your RHEL virtual machines and for RHEL subscription compliance guidelines.
 
 
-### SUSE PAYG Azure Hybrid Benefit overview
+### SUSE (SLES) PAYG Azure Hybrid Benefit
 
 Azure Hybrid Benefit for pay-as-you-go virtual machines for SUSE is available to customers who have:
 
@@ -166,7 +169,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's `licenseType` value. A `licenseType` value of `RHEL_BYOS` or `SLES_BYOS` indicates that your virtual machine has Azure Hybrid Benefit enabled. [Learn more about attested metadata](./instance-metadata-service.md#attested-data).
 
-## PAYG for reserved instance VMs
+### PAYG for reserved instance VMs
 
 [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. Azure Hybrid Benefit for pay-as-you-go virtual machines is available for reserved instances.
 
@@ -179,7 +182,7 @@ This means that if you've purchased compute costs at a discounted rate by using 
 
 ## Getting started with BYOS Azure Hybrid Benefit
 
-### Red Hat - BYOS Azure Hybrid Benefit
+### Red Hat (RHEL) BYOS Azure Hybrid Benefit
 
 To start using Azure Hybrid Benefit for Red Hat:
 
@@ -208,7 +211,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 > [!Note]
 > In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.  
 
-### SLES - BYOS Azure Hybrid Benefit
+### SUSE (SLES) BYOS Azure Hybrid Benefit
 
 To start using Azure Hybrid Benefit for SLES virtual machines:
 
