@@ -23,7 +23,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
-## February 2022
+## February 2023
 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.31**
 

@@ -1,16 +1,17 @@
 ---
-title: Upgrade from Basic Internal to Standard Internal - Azure Load Balancer
-description: This article shows you how to upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU
+title: Upgrade an internal basic load balancer - No outbound connections required
+titleSuffix: Azure Load Balancer
+description: This article shows you how to upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/15/2022
 ms.author: mbender
-ms.custom: FY23 content-maintenance
+ms.custom: template-how-to, engagement-fy23
 ---
 
-# Upgrade Azure Internal Load Balancer- No Outbound Connection Required
+# Upgrade an internal basic load balancer - No outbound connections required
 
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 

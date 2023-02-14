@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/08/2022
+ms.date: 02/03/2023
 ms.author: danlep
 ---
 
@@ -66,7 +66,7 @@ class Authorization
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated
+-  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
 
 ### Usage notes
 
