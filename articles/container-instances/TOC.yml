@@ -72,7 +72,7 @@
   - name: Confidential computing enforcement policies
     href: container-instances-cce-policy-concepts.md
   - name: Generating policies using Azure CLI
-    href: container-instances-container-instances-confcom-cli-concepts.md
+    href: container-instances-confcom-cli-concepts.md
 - name: How-to guides
   items:
   - name: Deploy
