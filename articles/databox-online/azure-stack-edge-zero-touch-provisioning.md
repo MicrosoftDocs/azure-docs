@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/07/2023
+ms.date: 02/14/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -427,17 +427,27 @@ Use the following steps to fetch and then enable or disable proactive logging fo
 
 1.	Fetch the device log consent configuration.
 	
-   ```azurepowershell
-   Get-DeviceLogConsent
-   ```
+    ```azurepowershell
+    Get-DeviceLogConsent
+    ```
 
 1.	Enable device log consent.
 	
-   ```azurepowershell
-   Set-DeviceLogConsent -logConsent $true
-   ```
+    ```azurepowershell
+    Set-DeviceLogConsent -logConsent $true
+    ```
 
-   Here's sample output:
+    Here's sample output:
+
+    ```output
+    PS C:\ztp> Get-DeviceLogConsent
+    False
+    PS C:\ztp> Set-DeviceLogConsent -logConsent $true
+    True
+    PS C:\ztp> Get-DeviceLogConsent
+    True
+    PS C:\ztp>
+    ```
 
 ## Run device diagnostics
 
@@ -604,7 +614,7 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
     ```
 
-   Here is sample output:
+    Here is sample output:
 
 
 1.	Create a VIP object with the VIP properties and DHCP configuration.
@@ -638,6 +648,7 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     ```azurepowershell
     Get-DeviceConfigurationStatus | To-json
     ```
+
 1.	Fetch the updated device configuration.
 
     ```azurepowershell
