@@ -122,7 +122,7 @@ Instead of binding to an `IDurableActivityContext`, you can bind directly to the
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
-# [JavaScript (V3 Model)](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 #### E1_SayHello/function.json
 
@@ -197,7 +197,7 @@ Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the 
 
 # [JavaScript (V4 Model)](#tab/javascript-v4)
 
-[~code-javascript[v3.x](~/azure-functions-durable-js/samples-js/functions/httpStart.js)
+[~code-javascript[v3.x](~/azure-functions-durable-js-v3/samples-js/functions/httpStart.js)
 
 Tp interact with orchestrators, the function must include a `durableClient` input binding and register it by passing in the `extraInputs` argument when registering the function. A `durableClient` input can be obtained by calling `df.input.durableClient()`.
 
