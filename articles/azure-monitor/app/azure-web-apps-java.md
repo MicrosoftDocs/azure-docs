@@ -66,9 +66,13 @@ In order to enable telemetry collection with Application Insights, only the foll
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
-## Java agent update
+## Manually deploy the latest Application Insights Java version
 
-To update to the latest version of the Application Insights Java agent, you can follow these steps:
+The Application Insights Java version is updated automatically as part of App Services updates.
+
+If you encounter an issue that's fixed in the latest version of Application Insights Java, you can update it manually. 
+
+To manually update, follow these steps:
 
 1. Upload the Java agent jar file to App Service
 
@@ -78,8 +82,10 @@ To update to the latest version of the Application Insights Java agent, you can 
 
     > c. Then, deploy the Java agent jar file to App Service using the following command: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}`. Alternatively, you can use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#3---configure-the-maven-plugin) to deploy the agent through the Maven plugin.
 
-2. Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, `JAVA_OPTS`, with the value `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
-3. Disable Application Insights via the Application Insights tab in the Azure portal.
+2. Disable Application Insights via the Application Insights tab in the Azure portal.
+
+3. Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, `JAVA_OPTS`, with the value `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
+
 4. Restart the app, leaving the **Startup Command** field blank, to apply the changes.
 
 > [!NOTE]
