@@ -142,7 +142,7 @@ Two options are available for connecting Microsoft Defender for IoT sensors to t
 - [Connect from the sensor console](#connect-sensors-to-the-on-premises-management-console-from-the-sensor-console)
 - [Connect sensors by using tunneling](#connect-sensors-by-using-tunneling)
 
-After connecting, set up sites and zones and assign each sensor to a zone to [monitor detected data segmented separately](../monitor-zero-trust.md). 
+After connecting, set up sites and zones and assign each sensor to a zone to [monitor detected data segmented separately](monitor-zero-trust.md). 
 
 For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 
