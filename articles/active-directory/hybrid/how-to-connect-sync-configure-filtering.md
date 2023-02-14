@@ -50,23 +50,21 @@ The filtering configuration is retained when you install or upgrade to a newer v
 
 If you have more than one forest, then you must apply the filtering configurations that are described in this topic to every forest (assuming that you want the same configuration for all of them).
 
-### Disable the scheduled task
+### Disable the synchronization scheduler
 To disable the built-in scheduler that triggers a synchronization cycle every 30 minutes, follow these steps:
 
-1. Go to a PowerShell prompt.
-2. Run `Set-ADSyncScheduler -SyncCycleEnabled $False` to disable the scheduler.
-3. Make the changes that are documented in this article.
-4. Run `Set-ADSyncScheduler -SyncCycleEnabled $True` to enable the scheduler again.
+1. Open Windows Powershell, import the ADSync module and disable the scheduler using the follwoing commands
 
-**If you use an Azure AD Connect build before 1.1.105.0**  
-To disable the scheduled task that triggers a synchronization cycle every three hours, follow these steps:
+```Powershell
+import-module ADSync
+Set-ADSyncScheduler -SyncCycleEnabled $False
+```
 
-1. Start **Task Scheduler** from the **Start** menu.
-2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Disable**.  
-   ![Task Scheduler](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
-3. You can now make configuration changes and run the sync engine manually from the **Synchronization Service Manager** console.
+2. Make the changes that are documented in this article. Then re-enable the scheduler again with the following command
 
-After you've completed all your filtering changes, don't forget to come back and **Enable** the task again.
+```Powershell
+Set-ADSyncScheduler -SyncCycleEnabled $True
+```
 
 ## Filtering options
 You can apply the following filtering configuration types to the directory synchronization tool:
