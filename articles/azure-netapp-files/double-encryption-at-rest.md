@@ -22,7 +22,7 @@ By default, an Azure NetApp Files capacity pool uses single encryption at rest. 
 
 This article explains what double encryption at rest does to help you determine whether to use this feature.  
 
-## When to use double encryption at rest
+## Uses of double encryption at rest
 
 Critical data is often found in places such as financial institutions, military users, customer data, government records, and health care medical records.  While single encryption at rest may be sufficient for most data, consider using double encryption at rest for data where a breach of confidentiality would be catastrophic. Leaks of information such as customer sensitive data, names, addresses, and government identification can result in extremely high liability, and it can be mitigated by having data confidentiality protected by double encryption at rest.
 
