@@ -5,7 +5,7 @@ author: sandeepraichura
 ms.author: saraic
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: gallery
+ms.subservice: shared-image-gallery
 ms.date: 02/02/2023
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
