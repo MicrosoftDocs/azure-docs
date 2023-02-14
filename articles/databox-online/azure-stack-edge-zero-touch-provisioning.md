@@ -196,18 +196,18 @@ Run the following cmdlets in PowerShell:
    Set-Login "https://<IP address>" "<Password>"
    ```
 
-1. Before you run the device configuration operation, ensure that the JSON file uses the `node.name` of the device to be changed. 
+1. Before you run the device configuration operation, ensure that the JSON file uses the `nodeName` of the device to be changed. 
 
    > [!NOTE]
-   > Each device has a unique `node.name`. To change device configuration settings, the `node.name` in the JSON file must match the `node.name` of the device to be changed.
+   > Each device has a unique `nodeName`. To change device configuration settings, the `nodeName` in the JSON file must match the `nodeName` of the device to be changed.
 
-   Fetch the `node.name` from the device with the following command in PowerShell:
+   Fetch the `nodeName` from the device with the following command in PowerShell:
 
    ```azurepowershell
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing `node.name` for the device:
+   Here's an example of output showing `nodeName` for the device:
 
    ```output
 
@@ -608,61 +608,78 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     Get-DeviceConfiguration | To-json
     ```
 
-1.	Set the VIP property, with a static ACS configuration.
-
-    ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
-    ```
-
-    Here is sample output:
-
-
-1.	Create a VIP object with the VIP properties and DHCP configuration.
-
-    ```azurepowershell
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.11"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
-    ```
-    For a DHCP configuration:
-
-    ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
-    ```
-
-1.	Create a package.
-
-    ```azurepowershell
-    $p = New-Package -VIP $nfsvip
-    ```
-
-1.	Run the package.
-
-    ```azurepowershell
-    $newCfg = Set-DeviceVip -vip $nfsVip $p
-    ```
-
-    Here's a sample output:
-
-1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
-
-    ```azurepowershell
-    Get-DeviceConfigurationStatus | To-json
-    ```
-
-1.	Fetch the updated device configuration.
-
-    ```azurepowershell
-    Get-DeviceConfiguration | To-json
-    ```
-
-1.	Fetch the updated VIP configuration property.
+1. Fetch the device VIP configuration.
 
     ```azurepowershell
     Get-DeviceVip | to-json
     ```
 
-    Here's a sample output:
+1. Set the VIP property with a static ACS configuration. 
 
+    ```azurepowershell
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    ```
+
+1. Update the device with the VIP property.
+
+    ```azurepowershell
+    Set-DeviceVip -vip $acsVip
+    ```
+
+    Here is sample output:
+
+    ```output
+    acsVIP                       nfsVIP
+    ------                       ------
+    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File Syst...
+    ```
+
+1. Fetch the updated device VIP configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+    Here is sample output:
+
+   ```output
+    {
+    "acsVIP":  {
+                   "type":  "ACS",
+                   "name":  "Azure Consistent Services",
+                   "address":  "192.168.181.10",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  true
+                               },
+                   "isDhcpEnabled":  false
+               },
+    "nfsVIP":  {
+                   "type":  "NFS",
+                   "name":  "Network File System",
+                   "address":  null,
+                   "network":  null,
+                   "isDhcpEnabled":  false
+               },
+    "clusterNetworks":  [
+                            {
+                                "name":  "Cluster Network 1",
+                                "address":  "192.168.0.0",
+                                "subnet":  "255.255.0.0",
+                                "dhcpEnabled":  true
+                            },
+                            {
+                                "name":  "Cluster Network 4",
+                                "address":  "10.126.72.0",
+                                "subnet":  "255.255.248.0",
+                                "dhcpEnabled":  true
+                            }
+                        ]
+    }
+    PS C:\ztp> 
+    ```
 
 ## Troubleshooting
 
