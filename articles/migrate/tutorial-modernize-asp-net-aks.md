@@ -68,7 +68,7 @@ In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discove
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-config.png" alt-text="Screenshot of the Application configurations blade.":::
 
-4. Select the application and click on the **App directories** link to open the Application directories blade. Provide the path to folders/files that need to be copied for the application to run and click Save. Based on the option selected from the drop down, these artifacts are either be copied directly into the container image or mounted as a persistent volume on the cluster via Azure file share. If persistent volume is chosen, the target can be configured in the advanced settings.
+4. Select the application and click on the **App directories** link to open the Application directories blade. Provide the path to folders/files that need to be copied for the application to run and click Save. Based on the option selected from the drop-down, these artifacts are either be copied directly into the container image or mounted as a persistent volume on the cluster via Azure file share. If persistent volume is chosen, the target can be configured in the advanced settings.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories blade.":::
 
