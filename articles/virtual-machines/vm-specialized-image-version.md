@@ -48,7 +48,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate that the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`.
 
@@ -68,7 +68,7 @@ Once you have a specialized image version, you can create one or more new VMs us
 
 In this example, we're using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
-Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
+Using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 
 Replace resource names as needed in this example. 
 
@@ -159,7 +159,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
 1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
+1. Under **Administrator account**, the username is greyed out because the username and credentials from the source VM are used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you're finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
@@ -169,7 +169,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 
-You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
+You'll need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
 
 ### [CLI](#tab/cli2)
 
@@ -264,7 +264,7 @@ New-AzVM `
 ---
 ## RBAC - from another tenant or organization
 
-If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to log in to each tenant to verify you have access.
+If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to sign in to each tenant to verify you have access.
 
 You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
 

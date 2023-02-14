@@ -26,7 +26,7 @@ An Azure Compute Gallery helps you build structure and organization around your 
 
 With a gallery, you can share your resources to everyone, or limit sharing to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
 
-<sup>1</sup> The Azure Compute Gallery service is not a global resource. For disaster recovery scenarios, it is a best practice is to have at least two galleries, in different regions.
+<sup>1</sup> The Azure Compute Gallery service isn't a global resource. For disaster recovery scenarios, it's a best practice is to have at least two galleries, in different regions.
 
 ## Images 
 
@@ -50,15 +50,15 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 - 100 replicas per image version however 50 replicas should be sufficient for most use cases
-- Any disk attached to the image must be less than or equal to 1TB in size
-- Resource move is not supported for 'Azure compute gallery' resources
+- Any disk attached to the image must be less than or equal to 1 TB in size
+- Resource move isn't supported for 'Azure compute gallery' resources
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
  
 ## Scaling
 Azure Compute Gallery allows you to specify the number of replicas you want to keep. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
 
-With Azure Compute Gallery, you can deploy up to a 1,000 VM instances in a virtual machine scale set. You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a copy of your resource, this helps scale your deployments linearly with each extra replica. While we understand no two resources or regions are the same, here's our general guideline on how to use replicas in a region:
+With Azure Compute Gallery, you can deploy up to a 1,000 VM instances in a scale set. You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a copy of your resource, this helps scale your deployments linearly with each extra replica. While we understand no two resources or regions are the same, here's our general guideline on how to use replicas in a region:
 
 - For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image.
 - For each scale set you create concurrently, we recommend you keep one replica.

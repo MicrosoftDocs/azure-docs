@@ -43,7 +43,7 @@ Allowed characters for gallery name are uppercase or lowercase letters, digits, 
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
-1. In the **Azure Compute Gallery** page, click **Add**.
+1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
 1. In **Resource group**, select a resource group from the drop-down or select **Create new** and type a name for the new resource group.
 1. In **Name**, type a name for the name of the gallery.
@@ -119,7 +119,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
-1. In the **Azure Compute Gallery** page, click **Add**.
+1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
 1. Complete all of the details on the page.
 1. At the bottom of the page, select **Next: Sharing method**.
@@ -128,7 +128,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
    :::image type="content" source="media/create-gallery/share-direct.png" alt-text="Screenshot showing the option to share using both role-based access control and share directly.":::
 
-1. When you are done, select **Review + create**.
+1. When you're done, select **Review + create**.
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
@@ -186,7 +186,7 @@ To start sharing the gallery with a subscription or tenant, use see [Share a gal
 <a name=community></a>
 ## Create a community gallery
 
-A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery will be the prefix you provide, plus a unique GUID.
+A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery is the prefix you provide, plus a unique GUID.
 
 During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
@@ -195,13 +195,13 @@ During the preview, make sure that you create your gallery, image definitions, a
 > 
 > To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
-When creating an image to share with the community, you'll need to provide contact information. This information will be shown **publicly**, so be careful when providing:
+When creating an image to share with the community, you need to provide contact information. This information is shown **publicly**, so be careful when providing:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
 - Legal agreement URL
 
-Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
+Information from your image definitions is also publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
 
 ### Prerequisites
 
@@ -209,7 +209,7 @@ Information from your image definitions will also be publicly available, like wh
 
 ### [CLI](#tab/cli2)
 
-The `--public-name-prefix` value is used to create a name for the public version of your gallery. The `--public-name-prefix` will be the first part of the public name, and the last part will be a GUID, created by the platform, that is unique to your gallery.
+The `--public-name-prefix` value is used to create a name for the public version of your gallery. The `--public-name-prefix` is the first part of the public name, and the last part will be a GUID, created by the platform, that is unique to your gallery.
 
 ```azurecli-interactive
 location=westus
@@ -232,7 +232,7 @@ az sig create \
    --public-name-prefix $prefix
 ``` 
 
-The output of this command will give you the public name for your community gallery in the `sharingProfile` section, under `publicNames`.
+The output of this command gives you the public name for your community gallery in the `sharingProfile` section, under `publicNames`.
 
 To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
