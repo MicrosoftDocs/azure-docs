@@ -19,7 +19,8 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 ### Microsoft Purview prerequisites
 
 * [A Microsoft Purview account](create-catalog-portal.md).
-* No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+* A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview governance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+* To use the SDK, no Microsoft Purview permission is needed.
 * Your data recipient's Azure sign-in email address, which you use to send the invitation to receive a share. The recipient's email alias won't work.
 
 ### Azure Storage account prerequisites
