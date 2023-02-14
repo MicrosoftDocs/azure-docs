@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 12/2/2022
+ms.date: 02/14/2023
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -135,7 +135,7 @@ App Service Environment v3 is available in the following regions:
 | Southeast Asia       | ✅                           | ✅                          | ✅                           |
 | Sweden Central       | ✅                           | ✅                          |                              |
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
-| Switzerland West     |                              |                             | ✅                           | 
+| Switzerland West     | ✅                           |                             | ✅                           | 
 | UAE Central          |                              |                             | ✅                           | 
 | UAE North            | ✅                           |                             | ✅                           | 
 | UK South             | ✅                           | ✅                          | ✅                           | 
