@@ -76,10 +76,9 @@ Use the Image Analysis client library for C# to analyze an image to read text an
     Within the application directory, install the Computer Vision client library for .NET with the following command:
 
     ```console
-    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+    dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
+    dotnet add package  Azure.AI.Vision.Core --prerelease 
     ```
-
-    [installation path?](tbd)
     
     ---
 
