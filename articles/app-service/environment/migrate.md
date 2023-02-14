@@ -34,6 +34,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - East US
 - East US 2
 - France Central
+- France South
 - Germany North
 - Germany West Central
 - Japan East
