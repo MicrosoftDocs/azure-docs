@@ -254,10 +254,10 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](../azure-resource-manager/management/lock-resources.md).
 
-- Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create the a version of the image or VM application.
+- Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create a version of the image or VM application.
  For more information about which regions support ZRS, see [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
-- Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VM’s concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
+- Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VMs concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
 
 - Maintain separate galleries for production and test images, don’t put them in a single gallery.
 
