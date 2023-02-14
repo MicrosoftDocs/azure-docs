@@ -94,6 +94,9 @@ A Red Hat pull secret enables your cluster to access Red Hat container registrie
 
 When running the `az aro create` command, you can specify a custom domain for your cluster by using the `--domain foo.example.com` parameter.
 
+> [!NOTE]
+> Although adding a domain name is optional when creating a cluster through Azure CLI, a domain name is needed when adding a cluster through the portal. See [Quickstart: Deploy an Azure Red Hat OpenShift cluster using the Azure portal](quickstart-portal.md#create-an-azure-red-hat-openshift-cluster) for more information. 
+
 If you provide a custom domain for your cluster note the following points:
 
 * After creating your cluster, you must create 2 DNS A records in your DNS server for the `--domain` specified:
