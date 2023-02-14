@@ -195,7 +195,7 @@ Follow these steps to get started:
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
 
 > [!NOTE]
-> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](https://learn.microsoft.com/en-us/azure/data-factory/continuous-integration-delivery-sample-script#script-execution-and-parameters) to execute the provided script.
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script#script-execution-and-parameters.md) to execute the provided script.
 
 ## Next steps
 
