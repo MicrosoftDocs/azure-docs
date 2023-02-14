@@ -50,43 +50,43 @@ The following subsections describe and depict the behavior of the various quota 
 
 A default user quota automatically applies a quota limit to *all users* accessing the volume without creating separate quotas for each target user. Each user can only consume the amount of storage as defined by the default user quota setting. No single user can exhaust the volume’s capacity, as long as the default user quota is less than the volume quota. The following diagram depicts this behavior.
 
-:::image type="content" source="../media/azure-netapp-files/default-user-quota.png" alt-text="Diagram showing behavior of default user quota." lightbox="../media/azure-netapp-files/default-user-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/default-user-quota.png" alt-text="Diagram showing behavior of default user quota.":::
 
 ### Individual user quota
 
 An individual user quota applies a quota to *individual target user* accessing the volume. The target user can be specified by a UNIX user ID (UID) or a Windows security identifier (SID), depending on volume protocol (NFS or SMB). Multiple individual user quota settings can be defined on a volume. Each user can only consume the amount of storage as defined by their individual user quota setting. No single user can exhaust the volume’s capacity, as long as the individual user quota is less than the volume quota. Individual user quotas override a default user quota, where applicable. The following diagram depicts this behavior.
 
-:::image type="content" source="../media/azure-netapp-files/individual-user-quota.png" alt-text="Diagram showing behavior of individual user quota." lightbox="../media/azure-netapp-files/individual-user-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/individual-user-quota.png" alt-text="Diagram showing behavior of individual user quota.":::
 
 ### Combining default and individual user quotas 
 
 You can create quota exceptions for specific users by allowing those users less or more capacity than a default user quota setting by combining default and individual user quota settings. In the following example, individual user quotas are set for `user1`, `user2`, and `user3`. Any other user is subjected to the default user quota setting. The individual quota settings can be smaller or larger than the default user quota setting. The following diagram depicts this behavior.
 
-:::image type="content" source="../media/azure-netapp-files/combine-default-individual-user-quota.png" alt-text="Diagram showing behavior when you combine default and individual user quotas." lightbox="../media/azure-netapp-files/combine-default-individual-user-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/combine-default-individual-user-quota.png" alt-text="Diagram showing behavior when you combine default and individual user quotas.":::
 
 ### Default group quota
 
 A default group quota automatically applies a quota limit to *all users within all groups* accessing the volume without creating separate quotas for each target group. The total consumption for all users in any group can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. A single user can potentially consume the entire group quota. The following diagram depicts this behavior.
 
-:::image type="content" source="../media/azure-netapp-files/default-group-quota.png" alt-text="Diagram showing behavior of default group quota." lightbox="../media/azure-netapp-files/default-group-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/default-group-quota.png" alt-text="Diagram showing behavior of default group quota.":::
 
 ### Individual group quota
 
 An individual group quota applies a quota to *all users within an individual target group* accessing the volume. The total consumption for all users *in that group* can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. The group is specified by a UNIX group ID (GID). Individual group quotas override default group quotas where applicable. The following diagram depicts this behavior.
 
-:::image type="content" source="../media/azure-netapp-files/individual-group-quota.png" alt-text="Diagram showing behavior of individual group quota." lightbox="../media/azure-netapp-files/individual-group-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/individual-group-quota.png" alt-text="Diagram showing behavior of individual group quota.":::
 
 ### Combining individual and default group quota
 
 You can create quota exceptions for specific groups by allowing those groups less or more capacity than a default group quota setting by combining default and individual group quota settings. Group quotas aren’t applicable to SMB and dual-protocol volumes. In the following example, individual group quotas are set for `group1` and `group2`. Any other group is subjected to the default group quota setting. The individual group quota settings can be smaller or larger than the default group quota setting. The following diagram depicts this scenario.
 
-:::image type="content" source="../media/azure-netapp-files/combine-default-individual-group-quota.png" alt-text="Diagram showing behavior when you combine default and individual group quotas." lightbox="../media/azure-netapp-files/combine-default-individual-group-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/combine-default-individual-group-quota.png" alt-text="Diagram showing behavior when you combine default and individual group quotas.":::
 
 ### Combining default and individual user and group quotas
 
 You can combine the various previously described quota options to achieve very specific quota definitions. You can create very specific quota definitions by (optionally) starting with defining a default group quota, followed by individual group quotas matching your requirements. Then you can further tighten individual user consumption by first (optionally) defining a default user quota, followed by individual user quotas matching individual user requirements. Group quotas aren’t applicable to SMB and dual-protocol volumes. In the following example, a default group quota has been set as well as individual group quotas for `group1` and `group2`. Furthermore, a default user quota has been set as well as individual quotas for `user1`, `user2`, `user3`, `user5`, and `userZ`. The following diagram depicts this scenario.
 
-:::image type="content" source="../media/azure-netapp-files/combine-default-individual-user-group-quota.png" alt-text="Diagram showing behavior when you combine default and individual user and group quotas." lightbox="../media/azure-netapp-files/combine-default-individual-user-group-quota.png":::
+:::image type="content" source="../media/azure-netapp-files/combine-default-individual-user-group-quota.png" alt-text="Diagram showing behavior when you combine default and individual user and group quotas.":::
 
 ## Observing user quota settings and consumption
 
@@ -98,11 +98,11 @@ Windows users can observe their user quota and consumption in Windows Explorer a
 
 * Administrator view:
 
-    :::image type="content" source="../media/azure-netapp-files/user-quota-administrator-view.png" alt-text="Screenshot showing administrator view of user quota and consumption." lightbox="../media/azure-netapp-files/user-quota-administrator-view.png":::
+    :::image type="content" source="../media/azure-netapp-files/user-quota-administrator-view.png" alt-text="Screenshot showing administrator view of user quota and consumption.":::
 
 * User view:
 
-    :::image type="content" source="../media/azure-netapp-files/user-quota-user-view.png" alt-text="Screenshot showing user view of user quota and consumption." lightbox="../media/azure-netapp-files/user-quota-user-view.png":::
+    :::image type="content" source="../media/azure-netapp-files/user-quota-user-view.png" alt-text="Screenshot showing user view of user quota and consumption.":::
 
 ### Linux client
 
