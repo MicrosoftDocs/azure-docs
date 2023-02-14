@@ -92,11 +92,11 @@ items:
 - name: Resources
   items: 
     - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/?query=azure%20load%20testing
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/load-testing/
     - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=load-testing
     - name: Supported Azure resource types
       href: resource-supported-azure-resource-types.md
     - name: Service limits

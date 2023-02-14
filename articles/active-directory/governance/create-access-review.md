@@ -96,7 +96,7 @@ If you are reviewing access to an application, then before creating the review, 
    If you choose either **Managers of users** or **Group owner(s)**, you can also specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
 
     >[!IMPORTANT]
-    > For Privileged Access Groups (Preview), you must select **Group owner(s)**. It is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewer(s). Eligible owners are not included. If there are no active owners when the review begins, the fallback reviewer(s) will be assigned to the review.
+    > For PIM for Groups (Preview), you must select **Group owner(s)**. It is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewer(s). Eligible owners are not included. If there are no active owners when the review begins, the fallback reviewer(s) will be assigned to the review.
 
       ![Screenshot that shows New access review.](./media/create-access-review/new-access-review.png)
 
@@ -226,7 +226,7 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 
 Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Administrator, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
@@ -302,7 +302,7 @@ After one or more access reviews have started, you might want to modify or updat
 ## Next steps
 
 - [Complete an access review of groups or applications](complete-access-review.md)
-- [Create an access review of Privileged Access Groups (preview)](create-access-review-privileged-access-groups.md)
+- [Create an access review of PIM for Groups (preview)](create-access-review-pim-for-groups.md)
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
 

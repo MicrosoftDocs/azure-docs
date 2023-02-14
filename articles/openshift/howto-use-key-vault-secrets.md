@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift 
+title: Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift
 description: This article explains how to use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift.
 author: johnmarco
 ms.author: johnmarc
@@ -68,7 +68,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
     ```
     helm install -n k8s-secrets-store-csi csi-secrets-store \
        secrets-store-csi-driver/secrets-store-csi-driver \
-       --version v1.0.1 \
+       --version v1.3.1 \
        --set "linux.providersDir=/var/run/secrets-store-csi-providers"
     ```
     Optionally, you can enable autorotation of secrets by adding the following parameters to the command above:
@@ -111,7 +111,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
        csi-secrets-store-provider-azure/csi-secrets-store-provider-azure \
        --set linux.privileged=true --set secrets-store-csi-driver.install=false \
        --set "linux.providersDir=/var/run/secrets-store-csi-providers" \
-       --version=v1.0.1
+       --version=v1.4.1
     ```
 
 1. Set SecurityContextConstraints to allow the CSI driver to run:
@@ -180,7 +180,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 
     ```
     cat <<EOF | kubectl apply -f -
-     apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+     apiVersion: secrets-store.csi.x-k8s.io/v1
      kind: SecretProviderClass
      metadata:
        name: azure-kvname
@@ -295,6 +295,7 @@ Uninstall the Key Vault Provider and the CSI Driver.
 
     ```
     helm uninstall -n k8s-secrets-store-csi csi-secrets-store
+    oc delete project k8s-secrets-store-csi
     ```
 
 1. Delete the SecurityContextConstraints:

@@ -74,7 +74,7 @@ Here are errors that might happen when you export your logic app as a custom con
 
 To connect to the logic app that you exported with your Power Automate flow:
 
-1. Sign in to [Power Automate](https://flow.microsoft.com).
+1. Sign in to [Power Automate](https://make.powerautomate.com).
 
 1. From the **Power Automate** home page menu, select **My flows**.
 
@@ -102,7 +102,7 @@ To connect to the logic app that you exported with your Power Automate flow:
 
 ## Delete logic app connector from Power Automate
 
-1. Sign in to [Power Automate](https://flow.microsoft.com).
+1. Sign in to [Power Automate](https://make.powerautomate.com).
 
 1. On the **Power Automate** home page, select **Data** &gt; **Custom connectors** in the menu.
 

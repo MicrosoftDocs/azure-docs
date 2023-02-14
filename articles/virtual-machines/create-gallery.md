@@ -31,7 +31,7 @@ The gallery is a top-level resource that can be shared in multiple ways:
 
 ## Naming
 
-Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name can't contain dashes. Gallery names must be unique within your subscription. 
+Allowed characters for gallery name are uppercase (A-Z) and lowercase (a-z) letters, digits (0-9), dots (or periods) `.`, and underscores `_`. The gallery name can't contain dashes `-`. Gallery names must be unique within your subscription.
 
 
 ## Create a private gallery

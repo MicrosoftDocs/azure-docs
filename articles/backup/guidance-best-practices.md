@@ -4,9 +4,9 @@ description: Discover the best practices and guidance for backing up cloud and o
 ms.topic: conceptual
 ms.date: 12/22/2022
 ms.reviewer: dapatil
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Backup cloud and on-premises workloads to cloud
@@ -161,7 +161,7 @@ While scheduling your backup policy, consider the following points:
 
 ### Retention considerations
 
-* Short-term retention can be "minutes" or "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
+* Short-term retention can be "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
 
 * Long-term retention:
 
@@ -367,7 +367,7 @@ You can configure such critical alerts and route them to any preferred notificat
 
 #### Automatic Retry of Failed Backup Jobs
 
-Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions3 or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need tp invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
+Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need to invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
 You can achieve this by retrieving relevant backup data via Azure Resource Graph (ARG) and combine it with corrective [PowerShell/CLI procedure](/azure/architecture/framework/resiliency/auto-retry). 
 
 Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell.

@@ -167,6 +167,8 @@ items:
       href: how-to-dev-guide-py-sdk.md
     - name: JavaScript / TypeScript REST SDK Developers Guide
       href: how-to-dev-guide-js-sdk.md
+    - name: Java REST SDK Developers Guide
+      href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
     - name: Map control

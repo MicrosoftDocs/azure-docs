@@ -5,9 +5,9 @@ ms.date: 01/11/2022
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a virtual machine in Azure

@@ -31,6 +31,9 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./windows/quick-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -139,7 +142,7 @@
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
-    href: ./workloads/sap/get-started.md
+    href: ../sap/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
@@ -429,6 +432,8 @@
     items:
     - name: Overview
       href: azure-compute-gallery.md
+    - name: What's new 
+      href: compute-gallery-whats-new.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
@@ -436,6 +441,8 @@
       items: 
       - name: RBAC
         href: share-gallery.md
+      - name: App registration
+        href: share-using-app-registration.md
       - name: Direct share
         href: share-gallery-direct.md
       - name: Community gallery
@@ -667,6 +674,9 @@
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
+      - name: Image Builder Reliability
+        displayName: Image builder, images, building, reliability, resiliency, recovery
+        href: image-builder-reliability.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -875,9 +885,9 @@
       href: ./linux/run-command.md
     - name: Action Run Commands for Windows
       href: ./windows/run-command.md
-    - name: Managed Run Commands for Linux (preview)
+    - name: Managed Run Commands for Linux
       href: ./linux/run-command-managed.md
-    - name: Managed Run Commands for Windows (preview)
+    - name: Managed Run Commands for Windows
       href: ./windows/run-command-managed.md
   - name: Extensions
     items:

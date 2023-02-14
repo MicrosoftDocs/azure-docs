@@ -4,9 +4,9 @@ description: An overview of Backup vaults.
 ms.topic: conceptual
 ms.date: 10/19/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Backup vaults overview
 
