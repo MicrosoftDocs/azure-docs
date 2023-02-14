@@ -17,7 +17,7 @@ Users with Administrator privileges can manage users of the Confidential Ledger.
 The following client libraries are available to manage users. Learn about each by following the links below:
 
 - [Python](#python-client-library)
-- [.NET](#.net-client-library)
+- [.NET](#net-client-library)
 - [Java](#java-client-library)
 
 ## Sign in to Azure

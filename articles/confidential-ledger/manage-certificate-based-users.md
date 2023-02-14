@@ -15,7 +15,7 @@ For certificate based users, their user id is the fingerprint of their PEM certi
 The following client libraries are available to manage users. Learn about each by following the links below:
 
 - [Python](#python-client-library)
-- [.NET](#.net-client-library)
+- [.NET](#net-client-library)
 - [Java](#java-client-library)
 
 ## Sign in to Azure
