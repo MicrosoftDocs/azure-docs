@@ -27,11 +27,8 @@ We recommend sharing at the Gallery level for the best experience. We don't reco
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-
-
-|  | Share with: |  |  |  |  |
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in   Azure |
 |---|---|---|---|---|---|
-| Sharing Type: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in   Azure |
 | RBAC Sharing | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |

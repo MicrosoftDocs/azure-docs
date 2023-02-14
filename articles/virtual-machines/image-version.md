@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/13/2022
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
@@ -355,7 +355,7 @@ az sig image-version create `
 ```
 
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 ```azurepowershell-interactive
 # Set variables 

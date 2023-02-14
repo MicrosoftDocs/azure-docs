@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -171,7 +171,7 @@ If the subscription where the gallery resides is within the same tenant, images 
 
 You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 
 
 ```azurecli-interactive
@@ -190,7 +190,7 @@ az vm create\
    --specialized
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 
 ```azurepowershell-interactive
@@ -260,6 +260,7 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+
 ---
 ## RBAC - from another tenant or organization
 
@@ -267,7 +268,7 @@ If the image you want to use is stored in a gallery that isn't in the same tenan
 
 You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli3)
 
 You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
@@ -299,7 +300,7 @@ az vm create --resource-group $resourcegroup \
     --specialized
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell3)
 
 
 You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
@@ -383,6 +384,7 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+
 ---
 
 ## Community gallery
@@ -393,7 +395,7 @@ New-AzVM `
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli4)
 
 To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image`, which will be in the following format:
 
@@ -433,7 +435,7 @@ When using a community image, you'll be prompted to accept the legal terms. The 
 To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
 ```
 
-### [Portal](#tab/portal2)
+### [Portal](#tab/portal4)
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
@@ -463,7 +465,7 @@ To create the VM from community gallery image, you must accept the license agree
 
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli5)
 
 To create a VM using the latest version of an image shared to your subscription or tenant, you need the ID of the image in the following format:
 
@@ -511,7 +513,7 @@ az vm create\
    --specialized
 ```
 
-### [Portal](#tab/portal2)
+### [Portal](#tab/portal5)
 
 > [!NOTE]
 > **Known issue**: In the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.

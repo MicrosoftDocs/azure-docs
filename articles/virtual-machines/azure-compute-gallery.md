@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 07/22/2022
+ms.date: 02/14/2023
 ms.reviewer: cynthn
 
 ---
@@ -89,9 +89,8 @@ The regions that a resource is replicated to can be updated after creation time.
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
 
-|  | Share with: |  |  |  |  |
+| Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
 |---|---|---|---|---|---|
-| Sharing Type: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
 | [RBAC Sharing](#rbac) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](#shared-directly-to-a-tenant-or-subscription)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](#community-gallery) | Yes | Yes | Yes | No | Yes |
