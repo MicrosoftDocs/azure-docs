@@ -14,7 +14,7 @@ zone_pivot_groups: node-functions-model
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function orchestrates and chains together calls to other functions. You then publish the function code to Azure.
+In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
 
 >[!NOTE]
@@ -36,7 +36,7 @@ To complete this tutorial:
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 ::: zone-end
 ::: zone pivot="node-model-v4"
-* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version v4.0.4915 or above.
+* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.4915` or above.
 ::: zone-end
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
@@ -92,7 +92,7 @@ A package.json file is also created in the root folder.
 
 To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
 ::: zone pivot="node-model-v4"
-To use programming model V4, you need to install the preview `v3.x` version of `durable-functions`, which is compatible with the V4 model.
+To use the V4 programming model, you need to install the preview `v3.x` version of `durable-functions`.
 ::: zone-end
 
 1. Use the *View* menu or Ctrl+Shift+` to open a new terminal in VS Code.
@@ -101,7 +101,7 @@ To use programming model V4, you need to install the preview `v3.x` version of `
 1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
 ::: zone-end
 ::: zone pivot="node-model-v4"
-1. Install the `durable-functions` preview `3.x` npm package by running `npm install durable-functions@preview` in the root directory of the function app.
+1. Install the `durable-functions` npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
 ::: zone-end
 
 ## Creating your functions
@@ -166,7 +166,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 ::: zone pivot="node-model-v4"
 
 One of the benefits of the V4 Programming Model is the flexibility of where you write your functions.
-In the V4 Model, you use a template to create all three functions in one file in your project.
+In the V4 Model, you can use a template to create all three functions in one file in your project.
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
@@ -174,7 +174,7 @@ In the V4 Model, you use a template to create all three functions in one file in
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions orchestrator | Create a file with a Durable Functions orchestration, and Activity function, and a Durable Client starter function. |
+    | Select a template for your function | Durable Functions orchestrator | Create a file with a Durable Functions orchestration, an Activity function, and a Durable Client starter function. |
     | Choose a durable storage type | Azure Storage (Default) | Select the storage backend used for Durable Functions. |
     | Provide a function name | hello | Name used for your durable functions |
 
