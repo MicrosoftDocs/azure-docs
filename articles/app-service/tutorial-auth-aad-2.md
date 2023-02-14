@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/13/2023
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
+# Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -47,11 +48,11 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 ## Authentication provided by Azure App Service
 
-The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There is no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
+The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
 TBD - conceptual image here
 
-The frontend app will be configured to be allowed to securely use the backend API. The frontend application provides a Microsoft login for the user, then allows the user to get their _fake_ profile from the backend. 
+The frontend app is configured to be allowed to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. 
 
 This authentication from the frontend to the backend requires changes to the frontend application. The frontend passes the authenticated user access token, injected by App Service, `x-ms-token-aad-access-token`, to the backend as the bearer token. 
 
@@ -129,7 +130,7 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
     }
     ```
 
-## Deploy apps to azure
+## Deploy apps to Azure
 
 In this step, use the Cloud Shell from the Azure portal to create App Service web apps and deploy the two App Service apps.
 
@@ -178,11 +179,11 @@ You use Azure Active Directory as the identity provider. For more information, s
 
     :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
 
-1. In your back-end app's left menu, select **Authentication**, and then click **Add identity provider**.
+1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-1. Accept the default settings and click **Add**.
+1. Accept the default settings and select **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
@@ -229,7 +230,7 @@ authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
-The commands effectively adds a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
+The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT token that includes the back end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
@@ -256,6 +257,15 @@ Your apps are now configured. The front end is now ready to access the back end 
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
+### Configure app setting
+
+The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting.
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings BACKEND_URL=<back-end-app-name>
+```
+
+
 ### Configure CORS
 
 In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
@@ -264,15 +274,75 @@ In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp co
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'
 ```
 
-This step is not related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
+This step isn't related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 ### Browse to the apps
+
+1. Use the frontend web site in a browser. The URL is in the formate of `https://<FRONTEND-APP-NAME>.azurewebsites.net/`.
+1. The browser requests your authentication to the web app. Complete the authentication.
+1. After authentication completes, the frontend application returns the home page of the app.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
+
+1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
+1. The backend end responds with the _fake_ hard-coded profile name: `John Doe`.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-profile.png" alt-text="Screenshot of web browser showing frontend application after successfully getting fake profile from backend app.":::
 
 ## When access tokens expire
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## Troubleshooting
+
+The frontend and backend app both have `debug` routes to help debug the authentication when this application doesn't return the fake profile.
+
+### Did the application source code deploy correctly to each web app?
+
+1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
+1. In the new browser tab, select **Browse Directory -> Site wwwroot**.
+1. Verify the following are in the directory:
+
+    * package.json
+    * node_modules.tar.gz
+    * /src/index.js 
+
+1. Verify the package.json's `name` property is the same as the web name, either `front-end` or `api-b`.
+
+### Did the application start correctly
+
+Both the web apps should return something when the home page is requested. If you can't reach `/debug` on a web app, the app didn't start correctly. Review the error logs for that web app. 
+
+1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
+1. In the new browser tab, select **Browse Directory -> Deployment Logs**.
+1. Review each log to find any reported issues. 
+
+### Is the front-end web app configured correctly?
+
+In the front-end app, verify the **Settings -> Configuration** has app settings it needs
+
+* BACKEND_URL: the URL of the API (b) app, such as `https://backend.azurewebsites.net/get-profile`
+* SCM_DO_BUILD_DURING_DEPLOYMENT: true
+
+### Does the front-end web app have a valid and correctly scoped token?
+
+Each web site has a `/debug` route to help with this. 
+
+Use the debug route to verify the front-end web app has a token.
+
+1. Verify that the token isn't expired. The debug route decodes the `exp` property in the token in another property `IsExpired`. This value should be false.
+1. Verify that the token has the correct scope: The debug route displays the `scp` property for the scope. This value should be `user_impersonation`.
+
+The `/debug` route also displays the HTTP headers and the environment variables, if you need them. 
+
+### Does the back-end web app return an empty profile `{}`? 
+
+1. Refresh your front-end app's user token with a route like: `https://frontend.azurewebsites.net/.auth/refresh`.
+1. Retry to get your profile from the API server with a route like: `https://frontend.azurewebsites.net/get-profile`
+
+### Is the front-end web app able to talk to the back-end web app?
+
+Because the client web app calls the API web app from server source code, this isn't something you can see in the browser network traffic. The back-end web app returns any errors to the client web app.
 
 ## Clean up resources
 
