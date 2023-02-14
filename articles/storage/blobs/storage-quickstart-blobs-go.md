@@ -51,7 +51,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
 ```
 
-This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for `storage-quickstart.go` file.
+This command clones the repository to your local git folder. To open the Go sample for Blob Storage, look for the file named `storage-quickstart.go`.
 
 ## Authenticate to Azure and authorize access to blob data
 
@@ -83,7 +83,7 @@ You can authorize access to data in your storage account using the following ste
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
-Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/developer/go/azure-sdk-authentication-managed-identity) tutorial.
+Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, the same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/developer/go/azure-sdk-authentication-managed-identity) tutorial.
 
 To learn more about different authentication methods, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
@@ -198,8 +198,8 @@ The following code example lists the blobs in the specified container:
 // List the blobs in the container
 fmt.Println("Listing the blobs in the container:")
 
-pager := client.NewListBlobsFlatPager(containerName, &container.ListBlobsFlatOptions{
-	Include: container.ListBlobsInclude{Snapshots: true, Versions: true},
+pager := client.NewListBlobsFlatPager(containerName, &azblob.ListBlobsFlatOptions{
+	Include: azblob.ListBlobsInclude{Snapshots: true, Versions: true},
 })
 
 for pager.More() {
@@ -231,7 +231,7 @@ handleError(err)
 err = retryReader.Close()
 handleError(err)
 
-// Print the content of the blob we created
+// Print the contents of the blob we created
 fmt.Println("Blob contents:")
 fmt.Println(downloadedData.String())
 ```
