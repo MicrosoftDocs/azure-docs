@@ -46,6 +46,8 @@ Once you set up the private link, it's used automatically whenever search connec
 
 + An Azure PaaS resource from the list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
+<a name="group-ids"></a>
+
 ### Supported resource types
 
 You can create a shared private link for the following resources.
@@ -91,7 +93,6 @@ These Private Link tutorials provide steps for creating a private endpoint for A
 + Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource(Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multi-tenant environment. Instructions for meeting this requirement are provided in this article.
-
 
 ## 1 - Create a shared private link
 
@@ -287,11 +288,11 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 ## 6 - Test the shared private link
 
-1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet.
+1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool. You can't use **Import data** or the Azure portal, but if you have Postman desktop app, you can make a REST API call that invokes search functionality that makes an outbound request to the private endpoint.Assuming your search service is not also configured for a private connection, the client connection can be over the public internet.
+1. Choose a tool. You can't use **Import data** or the Azure portal, but if you have Postman desktop app, you can make a REST API call that invokes search functionality that makes an outbound request to the private endpoint. Assuming your search service is not also configured for a private connection, the client connection to Search can be over the public internet.
 
-1. Set the connection string to the Azure PaaS resource. The format of the connection string doesn't change for shared private link. 
+1. Set the connection string to the Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service uses the shared private link internally.
 
    For indexer workloads, the connection string is in the data source definition. An example of a data source might look like this:
 
