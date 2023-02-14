@@ -332,4 +332,4 @@ This section includes the common errors that may occur when running the benchmar
 
 ## Next steps
 
-- Implement cost-effective read and writes by implementing a [key value store](../key-value-store-cost.md).
+- Learn more about the benchmarking tool with the [Getting Started guide](https://github.com/Azure/azure-db-benchmarking/tree/main/cosmos/sql/tools/java/ycsb/recipes).
