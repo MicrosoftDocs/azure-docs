@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 02/13/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -35,15 +35,13 @@ Azure Files on-premises AD DS authentication is only supported against the AD fo
 
 A forest trust is a transitive trust between two AD forests that allows users in any of the domains in one forest to be authenticated in any of the domains in the other forest.
 
-## Multi-forest setup and validation
+## Multi-forest setup
 
 To configure a multi-forest setup, we'll perform the following steps:
 
 - Collect domain information and VNET connections between domains
 - Establish and configure a trust
 - Set up identity-based authentication and hybrid user accounts
-- Configure name suffix routing
-- Validate that the trust is working
 
 ### Collect domain information
 
@@ -97,13 +95,49 @@ Once the trust is established, follow these steps to create a storage account an
 
 Repeat steps 4-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
 
-### Configure name suffix routing
+## Configure domain suffixes
 
 As explained above, the way Azure Files registers in AD DS is almost the same as a regular file server, where it creates an identity (by default a computer account, could also be a service logon account) that represents the storage account in AD DS for authentication. The only difference is that the registered service principal name (SPN) of the storage account ends with **file.core.windows.net**, which doesn't match with the domain suffix. Because of the different domain suffix, you'll need to configure a suffix routing policy to enable multi-forest authentication.
 
 Because the suffix **file.core.windows.net** is the suffix for all Azure Files resources rather than a suffix for a specific AD domain, the client's domain controller doesn't know which domain to forward the request to, and will therefore fail all requests where the resource isn't found in its own domain.  
 
-For example, when users in a domain in **Forest 1** want to reach a file share with the storage account registered against a domain in **Forest 2**, this won't automatically work because the service principal of the storage account doesn't have a suffix matching the suffix of any domain in **Forest 1**. We can address this issue by configuring a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
+For example, when users in a domain in **Forest 1** want to reach a file share with the storage account registered against a domain in **Forest 2**, this won't automatically work because the service principal of the storage account doesn't have a suffix matching the suffix of any domain in **Forest 1**.
+
+You can configure domain suffixes using one of the following methods:
+
+- [Modify storage account suffix and add a CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) (recommended)
+- [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule)
+
+### Modify storage account name suffix and add CNAME record
+
+You can solve the domain routing issue by modifying the suffix of the storage account name associated with the Azure file share, and then adding a CNAME record to route the new suffix to the endpoint of the storage account. 
+
+In our example, we have the domains **onpremad1.com** and **onpremad2.com**, and we have **onprem1sa** and **onprem2sa** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. We want to allow access to both storage accounts from clients who belong to each forest. To do this, we need to modify the SPN suffixes of the storage account:
+ 
+**onprem1sa.onpremad1.com -> onprem1sa.file.core.windows.net**
+ 
+**onprem2sa.onpremad2.com -> onprem2sa.file.core.windows.net**
+ 
+This will allow clients to mount the share with `net use \\onprem1sa.onpremad1.com` because clients in either **onpremad1** or **onpremad2** will know to search **onpremad1.com** to find the proper resource for that storage account.
+
+To use this method, complete the following steps:
+
+1. Modify the SPN of the storage account using the setspn tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
+
+   ```
+   setspn -s cifs/<storage-account-name>.<DomainDnsRoot> <storage-account-name>
+   ```
+
+2. Add a CNAME entry
+
+
+
+### Add custom name suffix and routing rule
+
+If you've already modified the storage account name suffix and added a CNAME record as described in the previous section, you can skip this step. If you'd rather not make DNS changes or modify the storage account name suffix, you can configure a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
+
+> [!NOTE]
+> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 First, you must add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've [established trust](#establish-and-configure-trust) between the two forests. Then follow these steps:
 
@@ -122,9 +156,6 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 1. Select **Properties** and then **Name Suffix Routing**.
 1. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
 1. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
-
-> [!NOTE]
-> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 ## Validate that the trust is working
 
@@ -176,11 +207,7 @@ Kdc Called: onpremad1.onpremad1.com
 
 ```
 
-If you don't see the above output, proceed to the next section to add custom name suffixes for a temporary fix.
-
-## Add custom name suffixes
-
-If specifying mapping for specific suffixes to specific realms doesn't work, follow these steps to provide alternative UPN suffixes to make multi-forest authentication work.
+If you see the above output, you're done. If you don't, follow these steps to provide alternative UPN suffixes to make multi-forest authentication work.
 
 First, add a new custom suffix on **Forest 1**.
 
@@ -188,7 +215,7 @@ First, add a new custom suffix on **Forest 1**.
 1. Open the **Active Directory Domains and Trusts** console.
 1. Right-click on **Active Directory Domains and Trusts**.
 1. Select **Properties**, and then select **Add**.
-1. Add an alternative UPN Suffix such as "onprem1sa.file.core.windows.net".
+1. Add an alternative UPN suffix such as "onprem1sa.file.core.windows.net".
 1. Select **Apply**, then **OK** to close the wizard.
 
 Next, add the suffix routing rule on **Forest 2**.
@@ -204,5 +231,5 @@ Next, add the suffix routing rule on **Forest 2**.
 
 For more information, see these resources:
 
-- [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
+- [Overview of Azure Files identity-based authentication support (SMB only)](storage-files-active-directory-overview.md)
 - [FAQ](storage-files-faq.md)
