@@ -6,10 +6,9 @@ ms.topic: include
 ms.date: 12/7/2022
 ---
 
-<!---
 At this time, a test or preview build is not available for the next release.
---->
 
+<!--
 February 2023 preview release is now available.
 
 |Component|Value|
@@ -37,22 +36,4 @@ February 2023 preview release is now available.
 |Arc-enabled Kubernetes helm chart extension version|1.16.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 
-**New for this release:**
-
-- Arc PostgreSQL | Automated Backups
-- Arc PostgreSQL | Settings via configuration framework
-- Arc PostgreSQL | Point-in-Time Restore
-- Arc PostgreSQL | Turn backups on/off
-- Arc PostgreSQL | Require client connections to use SSL
-- Arc PostgreSQL | Active Directory |  Customer-managed bring your own keytab
-- Arc PostgreSQL | Active Directory | Configure in Azure command line client
-- Arc PostgreSQL | Enable Extensions via Kubernetes Custom Resource Definition
-- Arc SQL MI | Service-Managed Transparent Data Encryption | Preview
-- Arc SQL MI | Service-Managed Credential Rotation | Preview
-- Arc Data Services | Initial Extended Events Functionality | Preview
-- Arc Data Services | Arc SQL MI | Backups | Produce automated backups from readable secondary
-    - The built-in automatic backups are performed on secondary replicas when available.
-
-
-**Customer reported issues addressed**
-- Azure CLI Extension | Optional imageTag for controller creation by defaulting to the image tag of the bootstrapper
+-->

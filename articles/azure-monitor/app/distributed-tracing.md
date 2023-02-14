@@ -29,7 +29,7 @@ The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and
 
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](../app/nodejs.md)
 * [JavaScript](./javascript.md#enable-distributed-tracing)
 * [Python](opencensus-python.md)
@@ -47,7 +47,7 @@ A complete observability story includes all three pillars, but currently our [Az
 The following pages consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 
 * [.NET](opentelemetry-enable.md?tabs=net)
-* [Java](java-in-process-agent.md)
+* [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
 

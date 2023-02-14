@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 02/01/2023
+ms.date: 02/09/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,25 +18,40 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | February 2023 |
-| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | February 2023 |
+| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is will be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-will-be-deprecated) | February 2023 |
+| [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
+| [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 
-### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
-
-**Estimated date for change: February 2023**
-
-The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
-
-We recommend that you use the recommendation to remediate vulnerabilities in your containers. Remediating the recommendation won't affect your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
-
-### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault is set to be deprecated
+### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault will be deprecated
 
 **Estimated date for change: February 2023**
 
 The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
 
 The related [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1) will also be replaced by this new policy in all standards displayed in the regulatory compliance dashboard.
+
+### Three alerts in Defender for Azure Resource Manager plan will be deprecated
+
+**Estimated date for change: March 2023**
+
+As we continue to improve the quality of our alerts, the following three alerts from the Defender for ARM plan will be deprecated:
+1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
+1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
+1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
+
+You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
+
+In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for ARM plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
+
+### Alerts automatic export to Log Analytics workspace will be deprecated
+
+**Estimated date for change: March 2023**
+
+Currently, Defender for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
+
+You can export your security alerts to a dedicated Log Analytics workspace with the [Continuous Export](continuous-export.md#set-up-a-continuous-export) feature. 
+If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
 
 ### Deprecation and improvement of selected alerts for Windows and Linux Servers
 
