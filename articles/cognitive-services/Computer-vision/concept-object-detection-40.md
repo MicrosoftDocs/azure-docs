@@ -27,7 +27,7 @@ Try out the capabilities of object detection quickly and easily in your browser 
 
 ## Object detection example
 
-The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.
+The following JSON response illustrates what the Analysis 4.0 API returns when detecting objects in the example image.
 
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 

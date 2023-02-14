@@ -67,11 +67,11 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 
 ### Select visual features
 
-The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two.
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two.
 
 #### [REST](#tab/rest)
 
-You can specify which features you want to use by setting the URL query parameters of the [Analyze API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
+You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
 
 |URL parameter | Value | Description|
 |---|---|--|
@@ -226,7 +226,7 @@ This section shows you how to parse the results of the API call. It includes the
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analysis 4.0 API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
 #### [REST](#tab/rest)
 

@@ -23,7 +23,7 @@ Version 4.0 of Image Analysis offers the ability to detect people appearing in i
 
 ## People detection example
 
-The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
+The following JSON response illustrates what the Analysis 4.0 API returns when describing the example image based on its visual features.
 
 ![Photo of a woman in a kitchen.](./Images/windows-kitchen.jpg)
 

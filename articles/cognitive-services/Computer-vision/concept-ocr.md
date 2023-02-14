@@ -282,4 +282,4 @@ The following JSON response illustrates what the v4.0 Analyze Image API returns 
 
 ## Next steps
 
-Follow the v4.0 REST API sections in the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Analyze API.
+Follow the v4.0 REST API sections in the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Analysis 4.0 API.

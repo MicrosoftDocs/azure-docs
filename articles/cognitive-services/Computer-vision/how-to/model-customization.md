@@ -254,7 +254,7 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 
 ## Next steps
 
-In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze API, so you can query your custom model from an application.
+In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analysis 4.0 API, so you can query your custom model from an application.
 
 * [Call the Analyze Image API](./call-analyze-image-40.md)
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.

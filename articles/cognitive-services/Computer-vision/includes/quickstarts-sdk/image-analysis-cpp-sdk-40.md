@@ -22,7 +22,7 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 > You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **tbd**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
 
 > [!TIP]
-> The Analyze API can do many different operations. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
+> The Analysis 4.0 API can do many different operations. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
@@ -132,11 +132,11 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analyze API features.
+In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../../how-to/call-analyze-image-40.md)
+>[Call the Analysis 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp).

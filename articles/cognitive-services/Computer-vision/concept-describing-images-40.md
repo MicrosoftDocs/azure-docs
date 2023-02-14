@@ -27,7 +27,7 @@ Try out the image captioning features quickly and easily in your browser using V
 
 ## Image caption example
 
-The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
+The following JSON response illustrates what the Analysis 4.0 API returns when describing the example image based on its visual features.
 
 ![Photo of a man pointing at a screen](./Media/quickstarts/presentation.png)
 
