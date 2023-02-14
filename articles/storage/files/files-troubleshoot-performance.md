@@ -1,6 +1,6 @@
 ---
 title: Azure Files performance troubleshooting guide
-description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
+description: Troubleshoot performance issues with Azure file shares and discover potential causes and associated workarounds for these problems.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
@@ -11,7 +11,7 @@ ms.subservice: files
 ---
 # Troubleshoot Azure Files performance issues
 
-This article lists common problems related to Azure file share performance, and provides potential causes and workarounds.
+This article lists common problems related to Azure file share performance, and provides potential causes and workarounds. To get the most value from this troubleshooting guide, we recommend first reading [Understand Azure Files performance](understand-performance.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -20,13 +20,67 @@ This article lists common problems related to Azure file share performance, and 
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-## High latency, low throughput, and general performance issues
+## General performance troubleshooting
 
-### Cause 1: Share was throttled
+First, rule out some common reasons why you might be having performance problems.
 
-Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](storage-files-scale-targets.md#azure-file-share-scale-targets).
+### You're running an old operating system
 
-To confirm whether your share is being throttled, you can access and use Azure metrics in the portal.
+If your client virtual machine (VM) is running Windows 8.1 or Windows Server 2012 R2, or an older Linux distro or kernel, you might experience performance issues when accessing Azure file shares. Either upgrade your client OS or apply the fixes below.
+
+# [Windows](#tab/windows)
+
+## Considerations for Windows 8.1 and Windows Server 2012 R2
+
+Clients that are running Windows 8.1 or Windows Server 2012 R2 might see higher than expected latency when accessing Azure file shares for I/O-intensive workloads. Make sure that the [KB3114025](https://support.microsoft.com/help/3114025) hotfix is installed. This hotfix improves the performance of create and close handles.
+
+You can run the following script to check whether the hotfix has been installed:
+
+`reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+
+If hotfix is installed, the following output is displayed:
+
+`HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
+
+> [!Note]
+> Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
+
+
+# [Linux](#tab/linux)
+
+## Low IOPS on CentOS Linux or RHEL
+
+### Cause
+
+An I/O depth of greater than 1 isn't supported on older versions of CentOS Linux or RHEL.
+
+### Workaround
+
+- Upgrade to CentOS Linux 8.2+ or RHEL 8.2+.
+- Change to Ubuntu.
+- For other Linux VMs, upgrade the kernel to 5.0 or later.
+
+---
+
+
+### Your workload is being throttled
+
+Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. For example, if the client exceeds baseline IOPS, it will get throttled by the Azure Files service. Throttling can result in the client experiencing poor performance.
+
+To understand the limits for standard and premium file shares, see [File share and file scale targets](storage-files-scale-targets.md#azure-file-share-scale-targets). Depending on your workload, throttling can often be avoided by moving from standard to premium Azure file shares.
+
+To learn more about how throttling at the share level or storage account level can cause high latency, low throughput, and general performance issues, see [Share or account is being throttled](#cause-1-share-or-account-is-being-throttled).
+
+To receive alerts, see ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) and [How to create alerts if a premium file share is close to being throttled](#how-to-create-alerts-if-a-premium-file-share-is-close-to-being-throttled).
+
+## High latency, low throughput, or low IOPS
+
+### Cause 1: Share or account is being throttled
+
+To confirm whether your share or storage account is being throttled, you can access and use Azure metrics in the portal.
+
+> [!IMPORTANT]
+> For standard storage accounts with large file shares (LFS) enabled, throttling occurs at the account level, not the share level.
 
 1. In the Azure portal, go to your storage account.
 
@@ -38,13 +92,18 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 1. Add a filter for **Response type**, and then check to see whether any requests have been throttled. 
 
-    For standard file shares, the following response types are logged if a request is throttled:
+    For standard file shares that don't have large file shares enabled, the following response types are logged if a request is throttled at the share level:
 
     - SuccessWithThrottling
     - SuccessWithShareIopsThrottling
     - ClientShareIopsThrottlingError
 
-    For premium file shares, the following response types are logged if a request is throttled:
+    For standard file shares that have large file shares enabled, the following response types are logged if a request is throttled at the client account level:
+
+    - ClientAccountRequestThrottlingError
+    - ClientAccountBandwidthThrottlingError
+
+    For premium file shares, the following response types are logged if a request is throttled at the share level:
 
     - SuccessWithShareEgressThrottling
     - SuccessWithShareIngressThrottling
@@ -62,13 +121,10 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
     ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
-    > [!NOTE]
-    > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
-
 #### Solution
 
 - If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
-- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
+- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
 
@@ -112,23 +168,24 @@ If you're using SMB MultiChannel and the number of channels you have exceeds fou
 
 Set the Windows per NIC setting for SMB so that the total channels don't exceed four. For example, if you have two NICs, you can set the maximum per NIC to two using the following PowerShell cmdlet: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
-## Very high latency for requests
 
-### Cause
+### Very high latency for requests
 
-The client virtual machine (VM) could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
+#### Cause
 
-### Solution
+The client VM could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
+
+#### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
 - For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
-## Client unable to achieve maximum throughput supported by the network
+### Client unable to achieve maximum throughput supported by the network
 
-### Cause
+#### Cause
 One potential cause is a lack of SMB multi-channel support for standard file shares. Currently, Azure Files supports only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
-### Workaround
+#### Workaround
 
 - For premium file shares, [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 - Obtaining a VM with a bigger core might help improve throughput.
@@ -136,181 +193,55 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 - Use REST APIs where possible.
 - For NFS file shares, nconnect is available, in preview. Not recommended for production workloads.
 
-## Throughput on Linux clients is significantly lower than that of Windows clients
+### Throughput on Linux clients is significantly lower than that of Windows clients
 
-### Cause
+#### Cause
 
 This is a known issue with the implementation of the SMB client on Linux.
 
-### Workaround
+#### Workaround
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with a `nosharesock` option, and spread the load across these mount points.
 - On Linux, try mounting with a `nostrictsync` option to avoid forcing an SMB flush on every `fsync` call. For Azure Files, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (`ls -l` command). Directly querying file metadata by using the `stat` command will return the most up-to-date file metadata.
 
-## High latencies for metadata-heavy workloads involving extensive open/close operations
+### High latencies for metadata-heavy workloads involving extensive open/close operations
 
-### Cause
+#### Cause
 
 Lack of support for directory leases.
 
-### Workaround
+#### Workaround
 
 - If possible, avoid using an excessive opening/closing handle on the same directory within a short period of time.
 - For Linux VMs, increase the directory entry cache timeout by specifying `actimeo=<sec>` as a mount option. By default, the timeout is 1 second, so a larger value, such as 3 or 5 seconds, might help.
-- For CentOS Linux or Red Hat Enterprise Linux (RHEL) VMs, upgrade the system to CentOS Linux 8.2 or RHEL 8.2. For other Linux VMs, upgrade the kernel to 5.0 or later.
+- For CentOS Linux or Red Hat Enterprise Linux (RHEL) VMs, upgrade the system to CentOS Linux 8.2 or RHEL 8.2. For other Linux distros, upgrade the kernel to 5.0 or later.
 
-## Low IOPS on CentOS Linux or RHEL
 
-### Cause
+## Create alerts
 
-An I/O depth of greater than 1 is not supported on CentOS Linux or RHEL.
-
-### Workaround
-
-- Upgrade to CentOS Linux 8 or RHEL 8.
-- Change to Ubuntu.
-
-## Slow enumeration of files and folders
-
-### Cause
-
-This problem can occur if there isn't enough cache on the client machine for large directories.
-
-### Solution
-
-To resolve this problem, adjust the **DirectoryCacheEntrySizeMax** registry value to allow caching of larger directory listings in the client machine:
-
-- Location: `HKLM\System\CCS\Services\Lanmanworkstation\Parameters`
-- Value name: `DirectoryCacheEntrySizeMax` 
-- Value type: `DWORD` 
- 
-For example, you can set it to `0x100000` and see if performance improves.
-
-## Slow file copying to and from Azure file shares in Windows
-
-You might see slow performance when you try to transfer files to the Azure Files service.
-
-- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
--	Use the right copy method:
-    -	Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
-    -	Use [Robocopy](storage-how-to-create-file-share.md) between file shares on an on-premises computer.
-
-### Considerations for Windows 8.1 or Windows Server 2012 R2
-
-For clients that are running Windows 8.1 or Windows Server 2012 R2, make sure that the [KB3114025](https://support.microsoft.com/help/3114025) hotfix is installed. This hotfix improves the performance of create and close handles.
-
-You can run the following script to check whether the hotfix has been installed:
-
-`reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
-
-If hotfix is installed, the following output is displayed:
-
-`HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
-
-> [!Note]
-> Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
-
-<a id="slowfilecopying"></a>
-## Slow file copying to and from Azure Files in Linux
-
-- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
-- Use the right copy method:
-    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
-    - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
-    - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
-    - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
-    - Open source third party tools such as:
-        - [GNU Parallel](https://www.gnu.org/software/parallel/).
-        - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
-        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
-        - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
-- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate --size <size> <file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
-    - `for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - and then copy files without extending writes in parallel: `find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
-
-## Jittery or sawtooth pattern for IOPS
-
-### Cause
-
-The client application consistently exceeds baseline IOPS. Currently, there's no service-side smoothing of the request load. If the client exceeds baseline IOPS, it will get throttled by the service. The throttling can result in the client experiencing a jittery or sawtooth IOPS pattern. In this case, the average IOPS achieved by the client might be lower than the baseline IOPS.
-
-### Workaround
-- Reduce the request load from the client application, so that the share doesn't get throttled.
-- Increase the quota of the share so that the share doesn't get throttled.
-
-## Excessive DirectoryOpen/DirectoryClose calls
-
-### Cause
-
-If the number of **DirectoryOpen/DirectoryClose** calls is among the top API calls and you don't expect the client to make that many calls, the issue might be caused by the antivirus software that's installed on the Azure client VM.
-
-### Workaround
-
-- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
-## Slow performance from Windows 8.1 or Server 2012 R2
-
-### Cause
-
-Higher than expected latency accessing Azure file shares for I/O-intensive workloads.
-
-### Workaround
-
-- Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
-
-## SMB Multichannel is not being triggered.
-
-### Cause
-
-Recent changes to SMB Multichannel config settings without a remount.
-
-### Solution
- 
--	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
--	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
-
-## High latency on web sites hosted on file shares 
-
-### Cause  
-
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
-
-To confirm, you can use Azure Metrics in the portal - 
-
-1. In the Azure portal, go to your storage account. 
-1. In the left menu, under Monitoring, select Metrics. 
-1. Select File as the metric namespace for your storage account scope. 
-1. Select Transactions as the metric. 
-1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB or NFS) or ClientThrottlingError (for REST).
-
-### Solution 
-
-- If file change notification is not used,  disable file change notification (preferred).
-    - [Disable file change notification](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) by updating FCNMode. 
-    - Update the IIS Worker Process (W3WP) polling interval to 0 by setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` in your registry and restart the W3WP process. To learn about this setting, see [Common registry keys that are used by many parts of IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
-- Increase frequency of the file change notification polling interval to reduce volume.
-    - Update the W3WP worker process polling interval to a higher value (e.g. 10mins or 30mins) based on your requirement. Set `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [in your registry](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) and restart the W3WP process.
-- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume. By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you do not want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-    - Set IIS  virtual directory "allowSubDirConfig" setting in Web.Config to *false* to exclude mapped physical child directories from the scope.  
-
-## How to create an alert if a file share is throttled
+### How to create an alert if a file share is throttled
 
 1. Go to your **storage account** in the **Azure portal**.
 2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
 4. Click **Add condition** to add a condition.
-5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
+5. You'll see a list of signals supported for the storage account, select the **Transactions** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
 7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
 
-    For standard file shares, select the following response types:
+    For standard file shares that don't have large file shares enabled, select the following response types (requests are throttled at the share level):
 
     - SuccessWithThrottling
     - SuccessWithShareIopsThrottling
     - ClientShareIopsThrottlingError
 
-    For premium file shares, select the following response types:
+    For standard file shares that have large file shares enabled, select the following response types (requests are throttled at the storage account level):
+
+    - ClientAccountRequestThrottlingError
+    - ClientAccountBandwidthThrottlingError
+
+    For premium file shares, select the following response types (requests are throttled at the share level):
 
     - SuccessWithShareEgressThrottling
     - SuccessWithShareIngressThrottling
@@ -320,29 +251,24 @@ To confirm, you can use Azure Metrics in the portal -
     - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
+   > If the response types aren't listed in the **Dimension values** drop-down, this means the resource hasn't been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the response type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
 8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
 
    > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend having only one file share per storage account.
 
-9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
+9. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and select **Done**.
 
     > [!TIP]
-    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Select **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
-13. Click **Create alert rule** to create the alert.
+13. Select **Create alert rule** to create the alert.
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
-
-## Slow performance when unzipping files in SMB file shares
-Depending on the exact compression method and unzip operation used, decompression operations may perform more slowly on an Azure file share than on your local disk. This is often because unzipping tools perform a number of metadata operations in the process of performing the decompression of a compressed archive. For the best performance, we recommend copying the compressed archive from the Azure file share to your local disk, unzipping there, and then using a copy tool such as Robocopy (or AzCopy) to copy back to the Azure file share. Using a copy tool like Robocopy can compensate for the decreased performance of metadata operations in Azure Files relative to your local disk by using multiple threads to copy data in parallel. 
-
-## How to create alerts if a premium file share is trending toward being throttled
+### How to create alerts if a premium file share is close to being throttled
 
 1. In the Azure portal, go to your storage account.
 2. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
@@ -380,6 +306,112 @@ Depending on the exact compression method and unzip operation used, decompressio
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
+
+## Slow enumeration of files and folders
+
+### Cause
+
+This problem can occur if there isn't enough cache on the client machine for large directories.
+
+### Solution
+
+To resolve this problem, adjust the **DirectoryCacheEntrySizeMax** registry value to allow caching of larger directory listings in the client machine:
+
+- Location: `HKLM\System\CCS\Services\Lanmanworkstation\Parameters`
+- Value name: `DirectoryCacheEntrySizeMax` 
+- Value type: `DWORD` 
+ 
+For example, you can set it to `0x100000` and see if performance improves.
+
+
+## Slow file copying to and from Azure file shares
+
+# [Windows](#tab/windows)
+
+### Slow file copying to and from Azure Files in Windows
+
+You might see slow performance when you try to transfer files to the Azure Files service.
+
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+-	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+-	Use the right copy method:
+    -	Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
+    -	Use [Robocopy](storage-how-to-create-file-share.md) between file shares on an on-premises computer.
+
+# [Linux](#tab/linux)
+
+<a id="slowfilecopying"></a>
+### Slow file copying to and from Azure Files in Linux
+
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+- Use the right copy method:
+    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
+    - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
+    - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - Open source third party tools such as:
+        - [GNU Parallel](https://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
+        - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
+- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate --size <size> <file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
+    - `for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - and then copy files without extending writes in parallel: `find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+
+---
+
+
+## Excessive DirectoryOpen/DirectoryClose calls
+
+### Cause
+
+If the number of **DirectoryOpen/DirectoryClose** calls is among the top API calls and you don't expect the client to make that many calls, the issue might be caused by the antivirus software that's installed on the Azure client VM.
+
+### Workaround
+
+- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+
+
+## SMB Multichannel is not being triggered
+
+### Cause
+
+Recent changes to SMB Multichannel config settings without a remount.
+
+### Solution
+ 
+-	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 seconds, and remount the share to trigger the multichannel.
+-	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
+
+## Slow performance when unzipping files in SMB file shares
+Depending on the exact compression method and unzip operation used, decompression operations may perform more slowly on an Azure file share than on your local disk. This is often because unzipping tools perform a number of metadata operations in the process of performing the decompression of a compressed archive. For the best performance, we recommend copying the compressed archive from the Azure file share to your local disk, unzipping there, and then using a copy tool such as Robocopy (or AzCopy) to copy back to the Azure file share. Using a copy tool like Robocopy can compensate for the decreased performance of metadata operations in Azure Files relative to your local disk by using multiple threads to copy data in parallel. 
+
+## High latency on web sites hosted on file shares
+
+### Cause
+
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+
+To confirm, you can use Azure Metrics in the portal.
+
+1. In the Azure portal, go to your storage account. 
+1. In the left menu, under Monitoring, select Metrics. 
+1. Select File as the metric namespace for your storage account scope. 
+1. Select Transactions as the metric. 
+1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB or NFS) or ClientThrottlingError (for REST).
+
+### Solution
+
+- If file change notification isn't used, disable file change notification (preferred).
+    - [Disable file change notification](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) by updating FCNMode. 
+    - Update the IIS Worker Process (W3WP) polling interval to 0 by setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` in your registry and restart the W3WP process. To learn about this setting, see [Common registry keys that are used by many parts of IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Increase frequency of the file change notification polling interval to reduce volume.
+    - Update the W3WP worker process polling interval to a higher value (e.g. 10mins or 30mins) based on your requirement. Set `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [in your registry](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) and restart the W3WP process.
+- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume. By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you don't want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Set IIS virtual directory "allowSubDirConfig" setting in Web.Config to *false* to exclude mapped physical child directories from the scope.  
+
+
 ## See also
 - [Understand Azure Files performance](understand-performance.md)
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
 - [Azure Files FAQ](storage-files-faq.md)
