@@ -27,7 +27,6 @@ This article helps you understand this new feature, and how to implement it.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
-
 ### Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
@@ -74,19 +73,21 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 * [Container Insights][container-insights] is not supported
 
-* [Kata][kata-network-limitations](https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network) host-network is not supported.
+* [Kata][kata-network-limitations] host-network is not supported.
 
 ## How it works
 
 To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
 
+:::image type="content" source="media/use-pod-sandboxing/pod-sandboxing-architecture.png" alt-text="Diagram of the AKS pod sandboxing components.":::
+
 The solution architecture is based on the following components:
 
-* [Mariner](https://learn.microsoft.com/EN-us/azure/aks/use-mariner) AKS Container Host
+* [Mariner][mariner-overview] AKS Container Host
 * Microsoft Hyper-V Hypervisor
 * Azure-tuned Dom0 Linux Kernel
-* Open-source [Cloud-Hypervisor](https://www.cloudhypervisor.org/) Virtual Machine Monitor (VMM)
-* Integration with [Kata Container](https://katacontainers.io/) framework
+* Open-source [Cloud-Hypervisor][cloud-hypervisor] Virtual Machine Monitor (VMM)
+* Integration with [Kata Container][kata-container] framework
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
 
@@ -290,6 +291,8 @@ kubectl delete pod pod-name
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
+[cloud-hypervisor]: https://www.cloudhypervisor.org
+kata-container]: https://katacontainers.io 
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azu
@@ -309,3 +312,4 @@ kubectl delete pod pod-name
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
+[mariner-overview]: use-mariner.md
