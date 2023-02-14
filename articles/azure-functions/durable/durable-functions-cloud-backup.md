@@ -169,7 +169,7 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 
 The JavaScript implementation of `copyFileToBlob` uses an Azure Storage output binding to upload the files to Azure Blob storage.
 
-[!code-javascript[Main](~/azure-functions-durable-js-v3/samples/functions/backupSiteContent.js?range=51-71)
+[!code-javascript[Main](~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js?range=51-71)
 
 # [Python](#tab/python)
 
