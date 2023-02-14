@@ -44,7 +44,7 @@ Additionally, the following changes don't trigger a packet core reinstall, but w
 - Modifying the access network configuration.
 - Modifying an attached data network's configuration.
 
-If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
+If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. You should allow up to two hours for the process to complete.
 
 If you're making a change that doesn't require a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
