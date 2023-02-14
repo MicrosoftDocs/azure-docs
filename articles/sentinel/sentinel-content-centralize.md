@@ -76,13 +76,13 @@ Specific impact to the gallery content templates for each of these galleries are
 
 Here's an example of an Analytics rule before and after the centralization changes and the tool has run.
 - The active Analytics rule won't change at all. We can see it's based on an Analytics rule template that will be retired.
-    :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-active-2.png" alt-text="This screenshot shows an active Analytics rule before centralization changes.":::
+    :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-active-2.png" alt-text="This screenshot shows an active Analytics rule before centralization changes." lightbox="media/sentinel-content-centralize/before-tool-analytic-rule-active-2.png":::
 
 - This screenshot shows an Analytics rule template that will be retired.
-    :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-templates-2.png" alt-text="This screenshot shows the Analytics rule template that will be retired.":::
+    :::image type="content" source="media/sentinel-content-centralize/before-tool-analytic-rule-templates-2.png" alt-text="This screenshot shows the Analytics rule template that will be retired." lightbox="media/sentinel-content-centralize/before-tool-analytic-rule-templates-2.png":::
 
 - After the tool has been run to reinstate the Analytics rule template, the source changes to the solution it's reinstated from.
-    :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="This screenshot shows the Analytics rule template after being reinstated from the Content hub Azure Active Directory solution.":::
+    :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="This screenshot shows the Analytics rule template after being reinstated from the Content hub Azure Active Directory solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
 
 ## Action needed
 - Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of templates. 
