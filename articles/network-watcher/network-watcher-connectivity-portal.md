@@ -143,6 +143,8 @@ In this section, you test connectivity between a virtual machines and `www.bing.
 
     - Connectivity test is successful with 66 probes sent with an average latency of 3 ms.
 
+    :::image type="content" source="./media/network-watcher-connectivity-portal/bing-test-result.png" alt-text="Screenshot of connection troubleshoot results after testing the connection with Microsoft Bing search engine.":::
+
 ## Next steps
 
 Learn how to [automate virtual machines packet captures](network-watcher-alert-triggered-packet-capture.md)
