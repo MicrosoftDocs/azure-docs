@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/14/2023
 ms.author: normesta
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
