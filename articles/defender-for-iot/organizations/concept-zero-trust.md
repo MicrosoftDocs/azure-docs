@@ -75,15 +75,6 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 |**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
 |**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
 
-For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
-
-|Site  |Zones  |
-|---------|---------|
-|**Paris office**     |    - Ground floor (Guests) <br>- Floor 1 (Sales)  <br>- Floor 2 (Executive)        |
-|**Lagos office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)      |
-|**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
-|**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
-
 ### Zero Trust and air-gapped environments
 
 If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring.
