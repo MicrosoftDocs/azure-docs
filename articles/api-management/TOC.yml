@@ -448,6 +448,8 @@
               href: mock-response-policy.md
             - name: proxy
               href: proxy-policy.md
+            - name: publish-event
+              href: publish-event-policy.md
             - name: publish-to-dapr
               href: publish-to-dapr-policy.md
             - name: quota

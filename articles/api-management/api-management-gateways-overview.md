@@ -91,11 +91,9 @@ The following table compares features available in the managed gateway versus th
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
-| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ✔️<sup>1</sup> | ❌ |
+| [Passthrough GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
+| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ❌ |
 | [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
-
-<sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
 
 ### Policies
 
@@ -104,6 +102,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
+| [GraphQL APIs](api-management-policies.md#next-steps) |  ❌ | ❌ | ✔️ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 
