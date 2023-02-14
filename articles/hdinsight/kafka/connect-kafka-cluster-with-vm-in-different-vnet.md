@@ -24,12 +24,6 @@ This Document lists steps that must be followed to set up connectivity between V
 
 1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 
-    > [!Note]
-    > Once the above steps are completed and Kafka cluster and VM are in running state, make sure to add your local machine IP address in the NSG rule of both the subnets.
-
-   :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/add-inbound-security-rule.png" alt-text="Screenshot showing how to add inbound security rules." border="true":::
-
-1. This step is to ensure that you can SSH into the Kafka headnodes and the Virtual machine. 
 1. After this step, we can copy the entries of the file /etc/host from Kafka headnode to VM.
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/etc-host-output.png" alt-text="Screenshot showing etc host file output." border="true":::
@@ -117,7 +111,7 @@ This Document lists steps that must be followed to set up connectivity between V
    java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
    ```
 
-1. After creating the topic, we can use the commands to produce and consume. The $KAFKABROKERS must be replaced appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
+1. After creating the topic, we can use the below commands to produce and consume. The $KAFKABROKERS must be replaced appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
     
    ```
    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS `
