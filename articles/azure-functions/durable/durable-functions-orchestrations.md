@@ -3,7 +3,7 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
