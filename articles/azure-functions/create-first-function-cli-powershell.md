@@ -51,7 +51,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 9.4.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
