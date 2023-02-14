@@ -659,16 +659,12 @@ items:
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
-        - name: Plugins
-          items:
-          - name: React plugin
-            href: app/javascript-react-plugin.md
-          - name: React Native plugin
-            href: app/javascript-react-native-plugin.md
-          - name: Angular plugin
-            href: app/javascript-angular-plugin.md
-          - name: Click Analytics Auto-collection plugin
-            href: app/javascript-click-analytics-plugin.md
+        - name: Framework Extensions
+          href: app/javascript-framework-extensions.md
+        - name: Feature Extensions (Click Analytics)
+          href: app/javascript-feature-extensions.md
+        - name: Upgrade
+          href: app/javascript-sdk-upgrade.md
         - name: Troubleshoot
           items:
           - name: SDK load failure
