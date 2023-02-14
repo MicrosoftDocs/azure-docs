@@ -1,7 +1,7 @@
 ---
 title: Matrices of Defender for Servers features in foundational CSPM, Azure Arc, multicloud, and endpoint protection solutions
 description: Learn about the environments where you can protect servers and virtual machines with Defender for Servers.
-ms.topic: overview
+ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
 ms.date: 01/01/2023

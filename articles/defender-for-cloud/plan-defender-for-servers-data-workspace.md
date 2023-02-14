@@ -171,7 +171,7 @@ You can learn how to [Analyze usage in Log Analytics workspace](../azure-monitor
 
 Based on your usage, you won't be billed until you've used your daily allowance. If you're receiving a bill, it's only for the data used after the 500-MB limit is reached, or for other service that doesn't fall under the coverage of Defender for Cloud.
 
-## How can I manage my costs?
+### How can I manage my costs?
 
 You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
 > [!IMPORTANT]

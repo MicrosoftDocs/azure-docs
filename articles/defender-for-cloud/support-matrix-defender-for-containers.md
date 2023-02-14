@@ -1,7 +1,7 @@
 ---
 title: Matrices of Defender for Containers features in Azure, multicloud, and on-premises environments
 description: Learn about the container and Kubernetes services that you can protect with Defender for Containers.
-ms.topic: overview
+ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
 ms.date: 01/01/2023
@@ -10,11 +10,9 @@ ms.custom: references_regions, ignite-2022
 
 # Defender for Containers feature availability
 
-These tables show the features that are available, by environment, for Microsoft Defender for Containers.
+These tables show the features that are available, by environment, for Microsoft Defender for Containers. For more information about Defender for Containers, see [Microsoft Defender for Containers](../defender-for-containers/overview.md).
 
-## Supported features by environment 
-
-### Azure (AKS)
+## Azure (AKS)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
@@ -37,9 +35,9 @@ These tables show the features that are available, by environment, for Microsoft
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
 
-#### Additional environment information
+### Additional environment information
 
-##### Registries and images
+#### Registries and images
 
 | Aspect | Details |
 |--|--|
@@ -47,7 +45,7 @@ These tables show the features that are available, by environment, for Microsoft
 | OS Packages | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
 | Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-##### Kubernetes distributions and configurations
+#### Kubernetes distributions and configurations
 
 | Aspect | Details |
 |--|--|
@@ -60,9 +58,9 @@ These tables show the features that are available, by environment, for Microsoft
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-##### Network restrictions
+#### Network restrictions
 
-###### Private link
+##### Private link
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
@@ -72,7 +70,7 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-### AWS (EKS)
+## AWS (EKS)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
@@ -90,15 +88,15 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-#### Additional environment information
+### Additional environment information
 
-##### Images
+#### Images
 
 | Aspect | Details |
 |--|--|
 | Registries and images | **Unsupported** <br>• Images that have at least one layer over 2 GB<br> • Public repositories and manifest lists <br>• Images in the AWS management account aren't scanned so that we don't create resources in the management account. |
 
-##### Kubernetes distributions and configurations
+#### Kubernetes distributions and configurations
 
 | Aspect | Details |
 |--|--|
@@ -111,9 +109,9 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-##### Network restrictions
+#### Network restrictions
 
-###### Private link
+##### Private link
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
@@ -123,11 +121,11 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-###### Outbound proxy support
+##### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-### GCP (GKE)
+## GCP (GKE)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup> | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
@@ -145,9 +143,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-#### Additional information
+### Additional information
 
-##### Kubernetes distributions and configurations
+#### Kubernetes distributions and configurations
 
 | Aspect | Details |
 |--|--|
@@ -160,9 +158,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-##### Network restrictions
+#### Network restrictions
 
-###### Private link
+##### Private link
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
@@ -172,11 +170,11 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-###### Outbound proxy support
+##### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-### On-premises Arc-enabled machines
+## On-premises Arc-enabled machines
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
@@ -202,9 +200,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 <sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
 
 
-#### Additional information
+### Additional information
 
-##### Registries and images
+#### Registries and images
 
 | Aspect | Details |
 |--|--|
@@ -212,7 +210,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | OS Packages | **Supported** <br> • Alpine Linux 3.12-3.15 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
 | Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-##### Kubernetes distributions and configurations
+#### Kubernetes distributions and configurations
 
 | Aspect | Details |
 |--|--|
@@ -225,7 +223,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-##### Supported host operating systems
+#### Supported host operating systems
 
 Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
 
@@ -244,9 +242,9 @@ Defender for Containers relies on the **Defender extension** for several feature
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
-##### Network restrictions
+#### Network restrictions
 
-###### Private link
+##### Private link
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
@@ -256,7 +254,7 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-###### Outbound proxy support
+##### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 

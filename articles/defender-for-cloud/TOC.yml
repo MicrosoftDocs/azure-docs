@@ -156,25 +156,23 @@
       - name: Reference list of attack paths and cloud security graph components
         displayName: attack, paths, security, graph, components
         href: attack-path-reference.md
-  - name: Protect servers
+  - name: Plan Defender for Servers deployment
     items:
-    - name: Plan Defender for Servers deployment
-      items:
-      - name: Get started
-        displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
-        href: plan-defender-for-servers.md
-      - name: Review data residency and workspace design 
-        href: plan-defender-for-servers-data-workspace.md
-      - name: Determine roles and access
-        href: plan-defender-for-servers-roles.md
-      - name: Select a plan
-        href: plan-defender-for-servers-select-plan.md
-      - name: Review agents and extensions
-        href: plan-defender-for-servers-agents.md
-      - name: Scale a Defender for Servers deployment
-        href: plan-defender-for-servers-scale.md
-      - name: Common questions
-        href: faq-defender-for-servers.yml
+    - name: Get started
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
+      href: plan-defender-for-servers.md
+    - name: Review data residency and workspace design 
+      href: plan-defender-for-servers-data-workspace.md
+    - name: Determine roles and access
+      href: plan-defender-for-servers-roles.md
+    - name: Select a plan
+      href: plan-defender-for-servers-select-plan.md
+    - name: Review agents and extensions
+      href: plan-defender-for-servers-agents.md
+    - name: Scale a Defender for Servers deployment
+      href: plan-defender-for-servers-scale.md
+    - name: Common questions
+      href: faq-defender-for-servers.yml
   - name: Protect cloud workloads
     items:
     - name: Agentless scanning

@@ -1,7 +1,7 @@
 ---
 title: Features supported in different Azure cloud environments - Microsoft Defender for Cloud
 description: Learn about the Azure cloud environments where Defender for Cloud can be used.
-ms.topic: overview
+ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
 ms.date: 02/07/2023
