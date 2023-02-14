@@ -59,7 +59,7 @@ You can access shared data from storage clients like Azure Synapse Analytics Spa
 
 ## Does the recipient of the share need to be a user's email address or can I share data with an application?
 
-Through the UI, you can share data with recipient's Azure sign in email or using service principal's object ID and tenant ID.
+Through the UI, you can share data with recipient's Azure sign-in email or using service principal's object ID and tenant ID.
 
 [Through API and SDK, you also send invitation to object ID of a user principal or service principal](quickstart-data-share-dotnet.md#send-invitation-to-a-service). Also, you can optionally specify a tenant ID that you want the share to be received into.  
 
@@ -83,7 +83,7 @@ To troubleshoot issues with sharing data, refer to the [troubleshooting section 
 
 ## Is there support for Private endpoints, VNET and IP restrictions?
 
-Private endpoints, VNET, and IP restrictions are supported for data share for storage. Blob should be chosen as the target sub-resource when creating a private endpoint for storage accounts.
+Private endpoints, VNET, and IP restrictions are supported for data share for storage. Blob should be chosen as the target subresource when creating a private endpoint for storage accounts.
 
 ## Next steps
 
