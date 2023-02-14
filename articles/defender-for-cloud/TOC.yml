@@ -13,6 +13,18 @@
   - name: Important upcoming changes
     displayName: release notes, changelog, news
     href: upcoming-changes.md
+  - name: Common questions
+    items:
+    - name: General questions
+      href: faq-general.yml
+    - name: Permissions questions
+      href: faq-permissions.yml
+    - name: Data collection and agent questions
+      href: faq-data-collection-agents.yml
+    - name: Azure Virtual Machines questions
+      href: faq-vms.yml
+    - name: Azure Log Analytics questions
+      href: faq-azure-monitor-logs.yml
 
 - name: Quickstarts
   items:
@@ -568,18 +580,6 @@
     href: /rest/api/defenderforcloud/
   - name: Security baseline
     href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
-  - name: FAQ for Microsoft Defender for Cloud
-    items:
-    - name: General questions
-      href: faq-general.yml
-    - name: Permissions questions
-      href: faq-permissions.yml
-    - name: Data collection and agent questions
-      href: faq-data-collection-agents.yml
-    - name: Virtual Machines questions
-      href: faq-vms.yml
-    - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md

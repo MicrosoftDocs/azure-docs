@@ -167,4 +167,4 @@ This page explained what monitoring components are and how to enable them.
 Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
-- Protecting workloads with [the Defender plans](defender-for-cloud-introduction.md#cloud-workload-protections-cwp)
+- Protecting workloads with [the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads)

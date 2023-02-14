@@ -80,4 +80,4 @@ Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 ## Next steps
 
-Learn about Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#cloud-workload-protections-cwp).
+Learn about Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).

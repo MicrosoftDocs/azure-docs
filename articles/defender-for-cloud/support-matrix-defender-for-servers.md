@@ -15,6 +15,10 @@ This article provides information about the environments where you can protect s
 
 The following tables show the features that are supported for virtual machines and servers in Azure, Azure Arc, and other clouds.
 
+- [Windows machines](#windows-machines)
+- [Linux machines](#linux-machines)
+- [Multicloud machines](#multicloud-machines)
+
 ### Windows machines
 
 | **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for Servers required** |

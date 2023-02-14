@@ -10,7 +10,7 @@ ms.custom: references_regions, ignite-2022
 
 # Defender for Containers feature availability
 
-These tables show the features that are available, by environment, for Microsoft Defender for Containers. For more information about Defender for Containers, see [Microsoft Defender for Containers](../defender-for-containers/overview.md).
+These tables show the features that are available, by environment, for Microsoft Defender for Containers. For more information about Defender for Containers, see [Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ## Azure (AKS)
 
@@ -240,7 +240,7 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Ubuntu 20.04
 - Ubuntu 22.04
 
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
+Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage.
 
 #### Network restrictions
 

@@ -40,4 +40,4 @@ In this article, you learned about the workload protections dashboard.
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-Learn more about the [advanced protections provided by the Defender plans](defender-for-cloud-introduction.md#cloud-workload-protections-cwp).
+Learn more about the [advanced protections provided by the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).

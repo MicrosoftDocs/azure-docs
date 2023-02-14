@@ -17,7 +17,7 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 
 ## Secure cloud applications
 
-Defender for Cloud helps you to incorporate good security practices early during the software development process. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for Cloud currently supports Defender for DevOps, and Defender for GitHub.
+Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for Cloud currently includes Defender for DevOps.
 
 Today’s applications require security awareness at the code, infrastructure, and runtime levels to make sure that deployed applications are hardened against attacks.
 
@@ -29,7 +29,7 @@ Today’s applications require security awareness at the code, infrastructure, a
 
 The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
 
-Defender for Cloud includes Foundational CSPM (Free) capabilities for free. You can also enable advanced CSPM capabilities and cloud workload protections by enabling paid Defender plans.
+Defender for Cloud includes Foundational CSPM (Free) capabilities for free. You can also enable advanced CSPM capabilities by enabling paid Defender plans.
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 | ---------- | --------------------------- | ----------- | ------------------------- |
@@ -45,11 +45,9 @@ Defender for Cloud includes Foundational CSPM (Free) capabilities for free. You 
 
 ## Protect cloud workloads
 
-### Cloud workload protections
-
 Proactive security principles require that you implement security practices that protect your workloads from threats. Cloud workload protections (CWP) surface workload-specific recommendations that lead you to the right security controls to protect your workloads.
 
-When your environment is threatened, you need to know right away the nature and severity of the threat so you can plan your response. After you identify a threat in your environment, you need to quickly respond to limit the risk to your resources. 
+When your environment is threatened, security alerts right away indicate the nature and severity of the threat so you can plan your response. After you identify a threat in your environment, you need to quickly respond to limit the risk to your resources.
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 | ---------- | --------------------------- | ----------- | ------------------------- |
@@ -58,8 +56,8 @@ When your environment is threatened, you need to know right away the nature and 
 | Protect cloud databases | Protect your entire database estate with attack detection and threat response for the most popular database types in Azure to protect the database engines and data types, according to their attack surface and security risks. | [Deploy specialized protections for cloud and on-premises databases](quickstart-enable-database-protections.md) | - [Defender for Azure SQL Databases](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br>- [Defender for SQL servers on machines](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br>- [Defender for Open-source relational databases](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br>- [Defender for Azure Cosmos DB](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Protect containers | Secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications with environment hardening, vulnerability assessments, and run-time protection. | [Find security risks in your containers](defender-for-containers-introduction.md) | [Defender for Containers](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | [Infrastructure service insights](asset-inventory.md) | Diagnose weaknesses in your application infrastructure that can leave your environment susceptible to attack. | - [Identify attacks targeting applications running over App Service](defender-for-app-service-introduction.md)</br>- [Detect attempts to exploit Key Vault accounts](defender-for-key-vault-introduction.md)</br>- [Get alerted on suspicious Resource Manager operations](defender-for-resource-manager-introduction.md)</br>- [Expose anomalous DNS activities](defender-for-dns-introduction.md) | - [Defender for App Service](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for Key Vault](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for Resource Manager](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for DNS](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-| [Security alerts](alerts-overview.md) | Get informed of real-time events that threaten the security of your environment. Alerts are categorized and assigned severity levels to indicate proper responses. | [Manage security alerts]( managing-and-responding-alerts.md) | [Any workload protection Defender plan](#cloud-workload-protections-cwp) |
-| [Security incidents](alerts-overview.md#what-are-security-incidents) | Correlate alerts to identify attack patterns and integrate with Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions to respond to threats and limit the risk to your resources. | [Export alerts to SIEM, SOAR, or ITSM systems](export-to-siem.md) | [Any workload protection Defender plan](#cloud-workload-protections-cwp) |
+| [Security alerts](alerts-overview.md) | Get informed of real-time events that threaten the security of your environment. Alerts are categorized and assigned severity levels to indicate proper responses. | [Manage security alerts]( managing-and-responding-alerts.md) | [Any workload protection Defender plan](#protect-cloud-workloads) |
+| [Security incidents](alerts-overview.md#what-are-security-incidents) | Correlate alerts to identify attack patterns and integrate with Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions to respond to threats and limit the risk to your resources. | [Export alerts to SIEM, SOAR, or ITSM systems](export-to-siem.md) | [Any workload protection Defender plan](#protect-cloud-workloads) |
 
 ## Learn More
 
