@@ -307,7 +307,7 @@ Then you define these elements for the resulting alert actions by using:
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for activity log alerts.
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
         
