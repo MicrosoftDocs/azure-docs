@@ -139,7 +139,7 @@ items:
       - name: Multifactor authentication gaps 
         href: workbook-mfa-gaps.md
 
-- name: Recommendations
+- name: Azure AD Recommendations
   items:
     - name: Switch to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md

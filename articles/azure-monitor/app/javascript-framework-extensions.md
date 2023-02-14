@@ -1,23 +1,30 @@
 ---
-title: React plug-in for Application Insights JavaScript SDK 
-description: Learn how to install and use the React plug-in for the Application Insights JavaScript SDK. 
+title: Framework extensions for Application Insights JavaScript SDK
+description: Learn how to install and use JavaScript framework extensions for the Application Insights JavaScript SDK. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 02/13/2023
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# React plug-in for Application Insights JavaScript SDK
+# Framework extensions for Application Insights JavaScript SDK
+
+In addition to the core SDK, there are also plugins available for specific frameworks, such as the [React plugin](javascript-framework-extensions.md?tabs=react), the [React Native plugin](javascript-framework-extensions.md?tabs=reactnative), and the [Angular plugin](javascript-framework-extensions.md?tabs=angular).
+
+These plugins provide extra functionality and integration with the specific framework.
+
+## [React](#tab/react)
+
+### React Application Insights JavaScript SDK plug-in
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
 - Tracking of route changes.
 - React components usage statistics.
 
-## Get started
+### Get started
 
 Install the npm package:
 
@@ -27,7 +34,7 @@ npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsigh
 
 ```
 
-## Basic usage
+### Basic usage
 
 Initialize a connection to Application Insights:
 
@@ -86,13 +93,13 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-## Configuration
+### Configuration
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
 
-### React components usage tracking
+#### React components usage tracking
 
 To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
 
@@ -109,11 +116,11 @@ You can also run custom queries to divide Application Insights data to generate 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
-## Use React Hooks
+### Use React Hooks
 
 [React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
 
-### Use React Context
+#### Use React Context
 
 The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
@@ -154,7 +161,7 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-### useTrackMetric
+#### useTrackMetric
 
 The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments. First is the Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook. The second is an identifier for the component for tracking, such as its name.
 
@@ -175,7 +182,7 @@ export default MyComponent;
 
 It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. The Hook needs to be explicitly provided to user events if there's a need to run on particular interactions.
 
-### useTrackEvent
+#### useTrackEvent
 
 The `useTrackEvent` Hook is used to track any custom event that an application might need to track, such as a button click or other API call. It takes four arguments:
 
@@ -220,7 +227,7 @@ export default MyComponent;
 
 When the Hook is used, a data payload can be provided to it to add more data to the event when it's stored in Application Insights.
 
-## React error boundaries
+### React error boundaries
 
 [Error boundaries](https://reactjs.org/docs/error-boundaries.html) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
@@ -240,13 +247,13 @@ const App = () => {
 
 The `AppInsightsErrorBoundary` requires two props to be passed to it. They're the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the error boundary, and the `onError` component appears.
 
-## Enable correlation
+### Enable correlation
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
 In JavaScript, correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
-### Route tracking
+#### Route tracking
 
 The React plug-in automatically tracks route changes and collects other React-specific telemetry.
 
@@ -255,13 +262,165 @@ The React plug-in automatically tracks route changes and collects other React-sp
 
 For `react-router v6` or other scenarios where router history isn't exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
 
-### PageView
+#### PageView
 
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of `0`.
 
-## Sample app
+### Sample app
 
 Check out the [Application Insights React demo](https://github.com/Azure-Samples/application-insights-react-demo).
+
+## [React Native](#tab/reactnative)
+
+### React Native plugin for Application Insights JavaScript SDK
+
+The React Native plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
+
+- **Unique Device ID** (Also known as Installation ID.)
+- **Device Model Name** (Such as iPhone X, Samsung Galaxy Fold, Huawei P30 Pro etc.)
+- **Device Type** (For example, handset, tablet, etc.)
+
+### Requirements
+
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/), therefore it doesn't work with Create React Native App.
+
+### Getting started
+
+Install and link the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+
+```zsh
+
+npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
+npm install --save react-native-device-info
+react-native link react-native-device-info
+
+```
+
+### Initializing the plugin
+
+To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+
+```
+
+### Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+
+#### PageView
+
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
+
+ 
+## [Angular](#tab/angular)
+
+## Angular plugin for Application Insights JavaScript SDK
+
+The Angular plugin for the Application Insights JavaScript SDK, enables:
+
+- Tracking of router changes
+- Tracking uncaught exceptions
+
+> [!WARNING]
+> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+
+> [!IMPORTANT]
+> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
+
+### Getting started
+
+Install npm package:
+
+```bash
+npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
+```
+
+### Basic usage
+
+Set up an instance of Application Insights in the entry component in your app:
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+```js
+import { Component } from '@angular/core';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+        const appInsights = new ApplicationInsights({ config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [angularPlugin],
+        extensionConfig: {
+            [angularPlugin.identifier]: { router: this.router }
+        }
+        } });
+        appInsights.loadAppInsights();
+    }
+}
+```
+
+To track uncaught exceptions, setup ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
+```
+
+### Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+
+#### Route tracking
+
+The Angular Plugin automatically tracks route changes and collects other Angular specific telemetry. 
+
+> [!NOTE]
+> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+
+#### PageView
+
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
+
+---
 
 ## Next steps
 
