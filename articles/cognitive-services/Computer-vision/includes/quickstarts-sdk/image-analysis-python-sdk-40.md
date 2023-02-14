@@ -22,7 +22,7 @@ Use the Image Analysis client library for Python to analyze a remote image and g
 > [!TIP]
 > The Analyze API can do many different operations other than generate captions. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
-[Reference documentation](tbd) | [Library source code](tbd) | [Package (PiPy)](tbd) | [Samples](tbd)
+[Reference documentation](tbd) | [Library source code](tbd) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision/) | [Samples](tbd)
 
 ## Prerequisites
 
