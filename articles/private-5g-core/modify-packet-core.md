@@ -28,7 +28,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Plan a maintenance window
 
@@ -38,13 +38,19 @@ The following modifications will trigger a packet core reinstall, during which y
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 
-If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
+Additionally, the following changes don't trigger a packet core reinstall, but will require you to manually perform a reinstall to allow the new configuration to take effect:
 
-If you're making a change that doesn't trigger a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
+- Connecting a new Azure Stack Edge device.
+- Modifying the access network configuration.
+- Modifying an attached data network's configuration.
+
+If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
+
+If you're making a change that doesn't require a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 ## Back up deployment information
 
-The following list contains the data that will be lost over a packet core reinstall. If you're making a change that triggers a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
@@ -72,7 +78,8 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
 
-7. Choose the next step:
+7. If you're making a change that requires a packet core reinstall, enable the **Enable changes to configuration that require a reinstall to take effect** toggle.
+1. Choose the next step:
    - If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
@@ -157,7 +164,5 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 
 ## Next steps
 
-Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after you modify it.
-
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
-- [Packet core dashboards](packet-core-dashboards.md)
+- If you made a configuration change that requires a manual packet core reinstall, follow [Reinstall the packet core instance in a site](reinstall-packet-core.md).
+- Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.
