@@ -34,11 +34,11 @@ ms.custom: devdivchpfy22, engagement-fy23
     | **Enable purge protection**      | Unchecked       | This option is disabled by default. Optionally turn on purge protection to prevent the permanent deletion of your App Configuration store and its contents during the selected retention period. Once enabled, purge protection can't be disabled. |
 
 1. Skip to the next numbered item of this list to use default configuration settings, or review the information below to configure additional settings:
-
    1. Select **Next: Networking >** and optionally select a public access option:
+
         | Setting                        | Suggested value | Description                                                                                                                                                                                                                                        |
         |--------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | **Public access**              | Automatic       | <ul><li>*Automatic*: public access is enabled unless you configure a private endpoint in your store. This option is selected by default.</li><li>*Disabled*: restricts access to configured private endpoints.</li><li>*Enabled*: all networks can access this resource.</li></ul>                                                                                                                                                                 |
+        | **Public access**              | Automatic       | <ul><li>*Automatic*: public access is enabled unless you configure a private endpoint in your store. This option is selected by default.</li><li>*Disabled*: restricts access to configured private endpoints.</li><li>*Enabled*: all networks can access this resource.</li></ul> |
 
    1. Select **Next: Tags >** and optionally add tags. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 1. Select **Review + create** to validate your settings.
