@@ -46,7 +46,7 @@ You may use a private DNS zone ending with one of the names listed above (ex: pr
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
-### <a name="dns"></a>Does Azure Bastion support Private Link?"
+### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
 

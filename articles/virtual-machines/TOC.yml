@@ -142,7 +142,7 @@
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
-    href: ./workloads/sap/get-started.md
+    href: ../sap/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
@@ -672,6 +672,9 @@
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
+      - name: Image Builder Reliability
+        displayName: Image builder, images, building, reliability, resiliency, recovery
+        href: image-builder-reliability.md
     - name: Build image with Packer
       items:
       - name: Linux

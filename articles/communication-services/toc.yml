@@ -274,7 +274,7 @@ items:
   items:
   - name: Identity
     items:
-    - name: Identity 
+    - name: Overview 
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
@@ -390,7 +390,7 @@ items:
             href: concepts/interop/teams-user/government-cloud.md
     - name: Rooms
       items:
-      - name: Rooms overview
+      - name: Overview
         href: concepts/rooms/room-concept.md
   - name: Chat
     items:
@@ -408,7 +408,7 @@ items:
     items:
     - name: Telephony
       items:
-      - name: Telephony Concepts
+      - name: Overview
         href: concepts/telephony/telephony-concept.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
