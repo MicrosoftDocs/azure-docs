@@ -90,7 +90,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -102,6 +102,23 @@ module.exports = df.orchestrator(function*(context) {
     output.push(yield context.df.callActivity("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return output;
+});
+```
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const helloActivityName = "sayHello";
+
+df.app.orchestration("helloSequence", function* (context) {
+    const output = [];
+    output.push(yield context.df.callActivity(helloActivityName, "Tokyo"));
+    output.push(yield context.df.callActivity(helloActivityName, "Seattle"));
+    output.push(yield context.df.callActivity(helloActivityName, "Cairo"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello Cairo!"]
     return output;
 });
 ```
@@ -289,7 +306,7 @@ public static async Task CheckSiteAvailable(
 
 The feature is not currently supported in dotnet-isolated worker. Instead, write an activity which performs the desired HTTP call.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -297,6 +314,20 @@ const df = require("durable-functions");
 module.exports = df.orchestrator(function*(context) {
     const url = context.df.getInput();
     var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("checkSiteAvailable", function* (context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp({ method: "GET", url });
     if (res.statusCode >= 400) {
         // handling of error codes goes here
     }
@@ -412,7 +443,7 @@ public static async Task<object> Mapper(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (V3 Model)](#tab/javascript-v3)
 
 #### Orchestrator
 
@@ -427,7 +458,7 @@ module.exports = df.orchestrator(function*(context) {
     const weather = yield context.df.callActivity("GetWeather", location);
 
     // ...
-};
+});
 ```
 
 #### `GetWeather` Activity
@@ -438,6 +469,29 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# [JavaScript (V4 Model)](#tab/javascript-v4)
+
+
+```javascript
+const getWeatherActivityName = "getWeather";
+
+df.app.orchestration("getWeatherOrchestrator", function* (context) {
+    const location = {
+        city: "Seattle",
+        state: "WA",
+    };
+    const weather = yield context.df.callActivity(getWeatherActivityName, location);
+
+    // ...
+});
+
+df.app.activity(getWeatherActivityName, async function (location) {
+    const { city, state } = location; // destructure properties into variables
+
+    // ...
+});
 ```
 
 # [Python](#tab/python)
