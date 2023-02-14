@@ -616,7 +616,6 @@ df.app.orchestration("monitorDemo", function* (context) {
 
     // Perform more work here, or let the orchestration end.
 });
-
 ```
 
 # [Python](#tab/python)
@@ -1306,7 +1305,6 @@ app.get("signalEntityDemo", async function (request, context) {
     const entityId = new df.EntityId("Counter", "myCounter");
     await client.signalEntity(entityId, "add", 1);
 });
-
 ```
 
 # [Python](#tab/python)
