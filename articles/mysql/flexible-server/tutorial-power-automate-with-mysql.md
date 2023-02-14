@@ -22,7 +22,7 @@ In this quickstart shows how to create an automated workflow usingPower automate
 
 ## Prerequisites
 
-* An account on [flow.microsoft.com](https://flow.microsoft.com).
+* An account on [make.powerautomate.com](https://make.powerautomate.com).
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
@@ -46,7 +46,7 @@ For this tutorial, we'll use **instant cloud flow* that can be triggered manuall
 ## Specify an event to start the flow
 Follow the steps to create an instant cloud flow with a manual trigger.
 
-1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
+1. In [Power Automate](https://make.powerautomate.com), select **Create** from the navigation bar on the left.
 2. Under **Start from blank*, select **Instant cloud flow**.
 3. Give your flow a name in the **Flow name" field and select **Manually trigger a flow**. 
 

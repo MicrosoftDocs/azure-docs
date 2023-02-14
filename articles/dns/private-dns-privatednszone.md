@@ -32,7 +32,6 @@ To understand how many private DNS zones you can create in a subscription and ho
     | --- | --- | --- |
     |azclient.ms	| azclient.us	| azclient.cn
     |azure.com |	azure.us	| azure.cn
-    |azure-api.net	| azure-api.us	| azure-api.cn
     |cloudapp.net |	usgovcloudapp.net	| chinacloudapp.cn
     |core.windows.net |	core.usgovcloudapi.net	| core.chinacloudapi.cn
     |microsoft.com |	microsoft.us |	microsoft.cn

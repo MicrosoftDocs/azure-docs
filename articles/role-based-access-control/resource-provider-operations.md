@@ -163,6 +163,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | **Other** |
 | [Microsoft.Chaos](#microsoftchaos) |
+| [Microsoft.Dashboard](#microsoftdashboard) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 | [Microsoft.LoadTestService](#microsoftloadtestservice) |
 | [Microsoft.ServicesHub](#microsoftserviceshub) |
@@ -13841,6 +13842,39 @@ Azure service: [Azure Chaos Studio](../chaos-studio/index.yml)
 > | Microsoft.Chaos/targets/capabilities/write | Creates or update a Capability resource that extends a Target resource. |
 > | Microsoft.Chaos/targets/capabilities/delete | Deletes a Capability resource that extends a Target resource. |
 > | Microsoft.Chaos/targets/capabilities/read | Gets all Capabilities that extend a Target resource. |
+
+### Microsoft.Dashboard
+
+Azure service: [Azure Managed Grafana](../managed-grafana/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Dashboard/grafana/action | Operate grafana |
+> | Microsoft.Dashboard/checkNameAvailability/action | Checks if grafana resource name is available |
+> | Microsoft.Dashboard/register/action | Registers the subscription for the Microsoft.Dashboard resource provider |
+> | Microsoft.Dashboard/unregister/action | Unregisters the subscription for the Microsoft.Dashboard resource provider |
+> | Microsoft.Dashboard/grafana/read | Read grafana |
+> | Microsoft.Dashboard/grafana/write | Write grafana |
+> | Microsoft.Dashboard/grafana/delete | Delete grafana |
+> | Microsoft.Dashboard/grafana/PrivateEndpointConnectionsApproval/action | Approve PrivateEndpointConnection |
+> | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxy |
+> | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/read | Get PrivateEndpointConnectionProxy |
+> | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/write | Create/Update PrivateEndpointConnectionProxy |
+> | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/delete | Delete PrivateEndpointConnectionProxy |
+> | Microsoft.Dashboard/grafana/privateEndpointConnections/read | Get PrivateEndpointConnection |
+> | Microsoft.Dashboard/grafana/privateEndpointConnections/write | Update PrivateEndpointConnection |
+> | Microsoft.Dashboard/grafana/privateEndpointConnections/delete | Delete PrivateEndpointConnection |
+> | Microsoft.Dashboard/grafana/privateLinkResources/read | Get PrivateLinkResources |
+> | Microsoft.Dashboard/locations/read | Get locations |
+> | Microsoft.Dashboard/locations/operationStatuses/read | Get operation statuses |
+> | Microsoft.Dashboard/locations/operationStatuses/write | Write operation statuses |
+> | Microsoft.Dashboard/operations/read | List operations available on Microsoft.Dashboard resource provider |
+> | Microsoft.Dashboard/registeredSubscriptions/read | Get registered subscription details |
+> | **DataAction** | **Description** |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role |
 
 ### Microsoft.DigitalTwins
 
