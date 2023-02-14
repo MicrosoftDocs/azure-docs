@@ -40,7 +40,7 @@ public String funqyHello() {
 }
 ```
 
-Azure Functions Java has its own set of Azure-specific annotations, but these annotations aren't necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
+Azure Functions Java has its own set of Azure-specific annotations, but these annotations aren't necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](./functions-reference-java.md).
 
 Unless you specify otherwise, the function's name is the same as the method name. You can also use the following command to define the function name with a parameter to the annotation:
 
@@ -293,9 +293,9 @@ Sign in to [the portal](https://aka.ms/publicportal) and ensure that you've sele
 
 Now that you've opened your Azure function in the portal, here are more features that you can access from the portal:
 
-* Monitor the performance of your Azure function. For more information, see [Monitoring Azure Functions](/azure/azure-functions/monitor-functions).
-* Explore telemetry. For more information, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data).
-* Set up logging. For more information, see [Enable streaming execution logs in Azure Functions](/azure/azure-functions/streaming-logs).
+* Monitor the performance of your Azure function. For more information, see [Monitoring Azure Functions](./monitor-functions.md).
+* Explore telemetry. For more information, see [Analyze Azure Functions telemetry in Application Insights](./analyze-telemetry-data.md).
+* Set up logging. For more information, see [Enable streaming execution logs in Azure Functions](./streaming-logs.md).
 
 ## Clean up resources
 
@@ -316,7 +316,7 @@ In this article, you learned how to:
 
 To learn more about Azure Functions and Quarkus, see the following articles and references:
 
-* [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java)
-* [Quickstart: Create a Java function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-java)
-* [Azure Functions documentation](/azure/azure-functions/)
-* [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud) 
+* [Azure Functions Java developer guide](./functions-reference-java.md)
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](./create-first-function-vs-code-java.md)
+* [Azure Functions documentation](./index.yml)
+* [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud)
