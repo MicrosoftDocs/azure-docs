@@ -62,21 +62,28 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Following the prompts, provide the following information:
 
-
+::: zone pivot="node-model-v3"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
-    ::: zone pivot="node-model-v3"
     | Select a JavaScript programming model | Model V3 | Choose the V3 programming model. |
-    ::: zone-end
-    ::: zone pivot="node-model-v4"
-    | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
-    ::: zone-end
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
+::: zone-end
+::: zone pivot="node-model-v4"
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a template for your project's first function | Skip for now | |
+    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+
+::: zone-end
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
@@ -94,7 +101,7 @@ To use programming model V4, you need to install the preview `v3.x` version of `
 ::: zone pivot="node-model-v3"
 1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
 ::: zone-end
-::: zone pivot="nodel-model-v4"
+::: zone pivot="node-model-v4"
 1. Install the `durable-functions` preview `3.x` npm package by running `npm install durable-functions@preview` in the root directory of the function app.
 ::: zone-end
 
