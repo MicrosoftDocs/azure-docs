@@ -198,6 +198,11 @@ Now, you can use the existing Azure Storage account to check the status of the b
 
     :::image type="content" source="media/benchmarking-framework/storage-blob-aggregation-results.png" alt-text="Screenshot of the content of the aggregation results blob.":::
 
+    ```output
+    Operation,Count,Throughput,Min(microsecond),Max(microsecond),Avg(microsecond),P9S(microsecond),P99(microsecond)
+    READ,180000,299,706,448255,1079,1159,2867
+    ```
+
 ### [Azure CLI](#tab/azure-cli)
 
 1. Query the job record in a storage table named `ycsbbenchmarkingmetadata` using [`az storage entity query`](/cli/azure/storage/entity#az-storage-entity-query).
