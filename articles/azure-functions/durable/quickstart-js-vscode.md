@@ -126,6 +126,7 @@ You use a template to create the durable function code in your project.
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
+    | Choose a durable storage type. | Azure Storage (Default) | Select the storage backend used for Durable Functions. |
     | Provide a function name | HelloOrchestrator | Name of your durable function |
 
 You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
@@ -175,6 +176,7 @@ In the V4 Model, you use a template to create all 3 functions in one file in you
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a template for your function | Durable Functions orchestrator | Create a file with a Durable Functions orchestration, and Activity function, and a Durable Client starter function. |
+    | Choose a durable storage type | Azure Storage (Default) | Select the storage backend used for Durable Functions. |
     | Provide a function name | durableHello1 | Name used for your durable functions |
 
 Open *src/functions/durableHello1.js* to view the functions you just created.
