@@ -213,6 +213,9 @@ There are some limitations for sharing your gallery to the community:
 
 **A**: Azure is not responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
 
+**Q: Is Community gallery sharing functionality part of Azure Marketplace?**
+
+**A**: No, Community gallery sharing is not part of Azure Marketplace, it's a feature of 'Azure Compute Gallery'. Anyone with an Azure subscription can use 'Community gallery' and make their images public.
 
 **Q: I have concerns about an image, who do I contact?**
 
