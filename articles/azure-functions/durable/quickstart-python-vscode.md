@@ -233,8 +233,8 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 ::: zone-end
 
-    > [!NOTE]
-    > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
+> [!NOTE]
+> For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
 2. Durable Functions require an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
@@ -264,40 +264,40 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 ::: zone pivot="python-mode-configuration"
 
-    ```json
-    {
-        "name": "HelloOrchestrator",
-        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
-        "runtimeStatus": "Completed",
-        "input": null,
-        "customStatus": null,
-        "output": [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ],
-        "createdTime": "2020-03-18T21:54:49Z",
-        "lastUpdatedTime": "2020-03-18T21:54:54Z"
-    }
-    ```
+```json
+{
+    "name": "HelloOrchestrator",
+    "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
+    "runtimeStatus": "Completed",
+    "input": null,
+    "customStatus": null,
+    "output": [
+        "Hello Tokyo!",
+        "Hello Seattle!",
+        "Hello London!"
+    ],
+    "createdTime": "2020-03-18T21:54:49Z",
+    "lastUpdatedTime": "2020-03-18T21:54:54Z"
+}
+```
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-    ```json
-    {
-        "name": "hello_orchestrator",
-        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
-        "runtimeStatus": "Completed",
-        "input": null,
-        "customStatus": null,
-        "output": [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ],
-        "createdTime": "2020-03-18T21:54:49Z",
-        "lastUpdatedTime": "2020-03-18T21:54:54Z"
-    }
-    ```
+```json
+{
+    "name": "hello_orchestrator",
+    "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
+    "runtimeStatus": "Completed",
+    "input": null,
+    "customStatus": null,
+    "output": [
+        "Hello Tokyo!",
+        "Hello Seattle!",
+        "Hello London!"
+    ],
+    "createdTime": "2020-03-18T21:54:49Z",
+    "lastUpdatedTime": "2020-03-18T21:54:54Z"
+}
+```
 ::: zone-end
 
 
