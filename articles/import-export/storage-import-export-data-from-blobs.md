@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 03/14/2022
+ms.date: 02/13/2023
 ms.author: alkohli
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
@@ -42,7 +42,7 @@ You must:
 
 # [Portal](#tab/azure-portal-preview)
 
-Perform the following steps to order an import job in Azure Import/Export. The Azure Import/Export service will create a job of the type "Data Box."
+Perform the following steps to order an import job in Azure Import/Export. The Azure Import/Export service creates a job of the type "Data Box."
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
@@ -104,7 +104,7 @@ Perform the following steps to order an import job in Azure Import/Export. The A
         <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
 :::image-end:::
 
-    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
+    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file can't be empty.
 
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
@@ -121,7 +121,7 @@ Perform the following steps to order an import job in Azure Import/Export. The A
 1. In **Return shipping**:
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
-   1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
+   1. Enter a **Carrier account number**. The account number for a valid carrier account is required.
    1. In the **Return address** area, use **+ Add Address** to add the address to ship to.
 
       ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-07-export-job.png)
@@ -324,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 2: Ship the drives
 
-If you do not know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
+If you don't know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
 
 [!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
@@ -336,8 +336,8 @@ If you do not know the number of drives you need, see [Determine how many drives
 
 When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available in the portal.
 
-1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
-2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
+1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Select **Import/Export** tab.
+2. Select your export job from the list. Go to **Encryption** and copy the keys.
 
    ![Screenshot of the Encryption blade for an export job in Azure Import Export Jobs. The Encryption menu item and Copy button for the key are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
@@ -351,7 +351,7 @@ Use the following command to unlock the drive:
 
    `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`
 
-Here is an example of the sample input.
+Here's an example of the sample input.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
