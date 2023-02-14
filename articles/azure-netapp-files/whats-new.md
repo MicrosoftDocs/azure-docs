@@ -19,6 +19,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+<!-- Date TBD -->
+
+* [Double encryption at rest](double-encryption-at-rest.md) (Preview)
+
+
+
 ## December 2022
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
