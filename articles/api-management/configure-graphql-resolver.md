@@ -1,25 +1,25 @@
 ---
-title: Configure GraphQL resolver for field in schema
-description: Configure a GraphQL resolver for a field in an object type specified in a GraphQL schema
+title: Configure GraphQL resolver in Azure API Management
+description: Configure a GraphQL resolver in Azure AI Management for a field in an object type specified in a GraphQL schema
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 02/10/2023
+ms.date: 02/13/2023
 ms.author: danlep
 ---
 
-# Set up a GraphQL resolver
+# Configure a GraphQL resolver
 
-Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
+Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API) and resolver-scoped policies. 
 
 <!-- link to GQL overview topic -->
 
 
-* A resolver is invoked only when a matching GraphQL operation is executed. 
+* A resolver is invoked only when a matching object type and field is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
-* *Order of policy evaluation or scope*?
+* Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes.
 
 
 
@@ -40,8 +40,8 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
         :::image type="content" source="media/configure-graphql-resolver/add-resolver.png" alt-text="Screenshot of adding a resolver from a field in GraphQL schema in the portal.":::
 1. On the **Create Resolver** page, update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
 1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario.
-    1. Update the required `<http-request>` element with policies to transform the GraphQL operation to an HTTP request. See [Supported elements in http-request](#supported-elements-in-http-request-element).
-    1. Optionally add an `<http-response>` element, and add child policies to transform the HTTP response of the resolver. See [Supported elements in http-response](#supported-elements-in-http-response-element). If the `<http-response>` element isn't specified, the response is returned as a raw string.
+    1. Update the required `<http-request>` element with policies to transform the GraphQL operation to an HTTP request. See [Supported elements in http-request](#supported-elements-in-http-request).
+    1. Optionally add an `<http-response>` element, and add child policies to transform the HTTP response of the resolver. See [Supported elements in http-response](#supported-elements-in-http-response). If the `<http-response>` element isn't specified, the response is returned as a raw string.
     1. Select **Create**.
     
         :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal.":::
@@ -55,9 +55,9 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
 
 ## http-data-source elements
 
-The `<http-data-source>` element consists of a required `<http-request>` element and an optional `<http->
+The `<http-data-source>` element consists of a required `<http-request>` element followed optionally by an `<http-response>` element.
 
-### Supported elements in http-request element
+### Supported elements in http-request
 
 > [!NOTE]
 > Each child element may be specified at most once. Elements must be specified in the order listed.
@@ -72,7 +72,7 @@ The `<http-data-source>` element consists of a required `<http-request>` element
 | authentication-certificate  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
 
 
-## Supported elements in http-response element
+### Supported elements in http-response
 
 > [!NOTE]
 > Each child element may be specified at most once. Elements must be specified in the order listed.
