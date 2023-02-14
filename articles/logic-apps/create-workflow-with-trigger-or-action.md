@@ -372,7 +372,7 @@ The following example shows the **Shared** connectors gallery when you add a tri
 
 After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
 
-The following example selected the **** operations collection and shows the available triggers:
+The following example selected the **365 Training** connector and shows the available triggers:
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow with '365 Training' connector and triggers.":::
 
@@ -380,7 +380,7 @@ The following example shows the **Shared** connectors gallery when you add an ac
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow, and 'Shared' connectors for actions gallery.":::
 
-The following example selected the **Azure Queue Storage** connector and shows the available triggers:
+The following example selected the **365 Training** connector and shows the available actions:
 
 :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with '365 Training' connector and actions.":::
 
