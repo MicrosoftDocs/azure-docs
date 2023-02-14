@@ -37,9 +37,11 @@ To work in a development environment, you need to allowlist your IP address, and
 
 1. Under the *Security* section, select **Networking**.
 
-1. Select the **Add your client IPv4 address** button.
+1. Under the *Public access* tab, next to *Public network access*, select **Selected networks**.
 
-1. Select the **Allow Azure services and resources to access this server** checkbox.
+1. Under the *Firewall rules* section, select the **Add your client IPv4 address** button.
+
+1. Under the *Exceptions* section, select the **Allow Azure services and resources to access this server** checkbox.
 
 1. Select **Save**.
 
@@ -55,7 +57,7 @@ You need the database connection string to set up your development environment.
 
 1. From the *ADO.NET (SQL authentication)* box, copy the connection string and set it aside in a text editor.
 
-    1. Make sure to replace the `{your_password}` placeholder in the connection string with your password.
+    Make sure to replace the `{your_password}` placeholder in the connection string with your password.
 
 ## Create sample data
 
@@ -71,7 +73,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. When the Azure Data Studio dialog window opens asking *Are you sure you want to connect?* appears, select **Open**.
 
-1. In the *Connection* window, enter the SQL Server user name and password.
+1. In the *Connection* window, enter the SQL Server name, user name and password, and select your database.
 
 1. Select **Connect**.
 
@@ -149,10 +151,10 @@ Next, create a configuration file that your static web app uses to interface wit
 1. Open your terminal and create a new variable to hold your connection string.
 
     ```bash
-    DATABASE_CONNECTION_STRING=<YOUR_CONNECTION_STRING>
+    DATABASE_CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
     ```
 
-  Make sure to replace `<YOUR_CONNECTION_STRING>` with the connections string value you set aside in a text editor.
+    Make sure to replace `<YOUR_CONNECTION_STRING>` with the connections string value you set aside in a text editor.
 
 1. In the local repository of your static web app, create a new folder named **db-config**.
 
