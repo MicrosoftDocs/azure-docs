@@ -71,7 +71,7 @@ After yielding from `context.df.Task.all`, we know that all function calls have 
 
 Here is the code that implements the orchestrator function:
 
-[!code-javascript[Main](~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js?range=1-36)
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1-9,11-36":::
 
 Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function were *not* yielded, which allows them to run in parallel. When we pass this array of tasks to `context.df.Task.all`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
@@ -125,7 +125,7 @@ The function uses the `readdirp` module (version 2.x) to recursively read the di
 
 Here is the implementation of the `getFileList` activity function:
 
-[!code-javascript[Main](~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js?range=38-49)
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,7,37-49":::
 
 The function uses the `readdirp` module (version 3.x) to recursively read the directory structure.
 
@@ -169,7 +169,7 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 
 The JavaScript implementation of `copyFileToBlob` uses an Azure Storage output binding to upload the files to Azure Blob storage.
 
-[!code-javascript[Main](~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js?range=51-71)
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1-2,3-4,8-9,51-71":::
 
 # [Python](#tab/python)
 

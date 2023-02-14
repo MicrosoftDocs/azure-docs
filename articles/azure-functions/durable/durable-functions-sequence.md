@@ -67,7 +67,7 @@ The `context` object contains a `df` durable orchestration context object that l
 > [!NOTE]
 > JavaScript Durable Functions for the V4 node programming model is available for the Functions 4.16+ runtime only.
 
-:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js?range=1-14":::
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
 
 All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the preview `v3.x` of `durable-functions`. There are three significant differences between an orchestrator function and other JavaScript functions:
 
@@ -145,7 +145,7 @@ Unlike the orchestration function, an activity function needs no special setup. 
 
 The implementation of `sayHello` is a relatively trivial string formatting operation.
 
-:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js?range=37-41":::
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-4, 37-41":::
 
 Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is the first argument to the function. The second argument is the invocation context, which is not used in this example.
 
