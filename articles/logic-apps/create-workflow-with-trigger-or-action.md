@@ -246,11 +246,11 @@ The following steps use the Azure portal, but you can also use the following too
 
      The following example shows the preview designer for a Standard workflow with an existing trigger and shows the **In-App** group selected. The list shows the available operation collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, the preview designer for Standard logic app workflow with a trigger, and 'In-App' connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, the preview designer for Standard logic app workflow with a trigger, and In-App connectors with actions gallery.":::
 
      The following example shows the preview designer for a Standard workflow with an existing trigger and shows the **Shared** group selected. The list shows the available operation collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard-preview#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, the preview designer for Standard logic app workflow with a trigger, and 'Shared' connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, the preview designer for Standard logic app workflow with a trigger, and Shared connectors with actions gallery.":::
 
 1. From the operation collection or connector list, select the collection or connector that you want. After the actions list appears, select the action that you want.
 
@@ -276,31 +276,31 @@ Under the search box, a row shows the available operation collections and connec
 
 The following example shows the **Built-in** triggers gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the 'Built-in' triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the Built-in triggers gallery.":::
 
 The following example shows the **Built-in** actions gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the 'Built-in' actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the Built-in actions gallery.":::
 
 #### Standard operations
 
 The following example shows the **Standard** triggers gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/standard-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the 'Standard' triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/standard-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the Standard triggers gallery.":::
 
 The following example shows the **Standard** actions gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/standard-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the 'Standard' actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/standard-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the Standard actions gallery.":::
 
 #### Enterprise operations
 
 The following example shows the **Enterprise** triggers gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/enterprise-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the 'Enterprise' triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/enterprise-triggers-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app with blank workflow, and the Enterprise triggers gallery.":::
 
 The following example shows the **Enterprise** actions gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/enterprise-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the 'Enterprise' actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/enterprise-actions-consumption.png" alt-text="Screenshot showing Azure portal, designer for Consumption logic app workflow with Recurrence trigger, and the Enterprise actions gallery.":::
 
 For more information, see the following documentation:
 
@@ -317,21 +317,21 @@ In the **Add a trigger** or **Add an action** pane, under the search box, the **
 
 The following example shows the **Built-in** triggers gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app with blank stateful workflow, and 'Built-in' triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app with blank stateful workflow, and Built-in triggers gallery.":::
 
 The following example shows the **Built-in** actions gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-actions-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, and 'Built-in' actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/built-in-actions-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, and Built-in actions gallery.":::
 
 #### Azure operations
 
 The following example shows the **Azure** triggers gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/azure-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app with blank stateful workflow, and 'Azure' triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/azure-triggers-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app with blank stateful workflow, and Azure triggers gallery.":::
 
 The following example shows the **Azure** actions gallery:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/azure-actions-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, and 'Azure' actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/azure-actions-standard.png" alt-text="Screenshot showing Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, and Azure actions gallery.":::
 
 For more information, see the following documentation:
 
@@ -348,41 +348,41 @@ In the **Browse operations** pane, the connectors gallery lists the available op
 
 The following example shows the **In-App** collections and connectors gallery when you add a trigger:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and 'In-App' connectors gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and In-App connectors gallery.":::
 
 After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
 
 The following example selected the **Schedule** operations collection and shows the trigger named **Recurrence**:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and 'Schedule' operations collection with the 'Recurrence' trigger.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and 'Schedule' operations collection with the Recurrence trigger.":::
 
 The following example shows the **In-App** collections and connectors gallery when you add an action:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with Recurrence trigger, and 'In-App' connectors gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with Recurrence trigger, and In-App connectors gallery.":::
 
 The following example selected the **Azure Queue Storage** connector and shows the available triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with 'Azure Queue Storage' connector and actions.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with Azure Queue Storage connector and actions.":::
 
 #### Shared (Azure) operations
 
 The following example shows the **Shared** connectors gallery when you add a trigger:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and 'Shared' connectors for triggers gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow, and Shared connectors for triggers gallery.":::
 
 After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
 
 The following example selected the **365 Training** connector and shows the available triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow with '365 Training' connector and triggers.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app with blank stateful workflow with 365 Training connector and triggers.":::
 
 The following example shows the **Shared** connectors gallery when you add an action:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow, and 'Shared' connectors for actions gallery.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow, and Shared connectors for actions gallery.":::
 
 The following example selected the **365 Training** connector and shows the available actions:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with '365 Training' connector and actions.":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions-standard-preview.png" alt-text="Screenshot showing Azure portal, preview designer for Standard logic app stateful workflow with 365 Training connector and actions.":::
 
 For more information, see the following documentation:
 
