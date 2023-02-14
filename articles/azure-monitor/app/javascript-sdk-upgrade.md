@@ -46,3 +46,7 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
    ```
 
 Test in an internal environment to verify the monitoring telemetry is working as expected. If all works, update your API signatures appropriately to SDK v2 and deploy in your production environments.
+
+## Next steps
+- To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
+- To learn about the Kusto Query Language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).

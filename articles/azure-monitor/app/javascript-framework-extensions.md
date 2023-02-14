@@ -1,6 +1,6 @@
 ---
 title: Framework extensions for Application Insights JavaScript SDK
-description: Learn how to install and use Javascript framework extensions for the Application Insights JavaScript SDK. 
+description: Learn how to install and use JavaScript framework extensions for the Application Insights JavaScript SDK. 
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.reviewer: mmcc
 
 In addition to the core SDK, there are also plugins available for specific frameworks, such as the [React plugin](javascript-framework-extensions.md?tabs=react), the [React Native plugin](javascript-framework-extensions.md?tabs=reactnative), and the [Angular plugin](javascript-framework-extensions.md?tabs=angular).
 
-These plugins provide additional functionality and integration with the specific framework.
+These plugins provide extra functionality and integration with the specific framework.
 
 ## [React](#tab/react)
 
@@ -282,7 +282,7 @@ The React Native plugin for Application Insights JavaScript SDK collects device 
 
 ### Requirements
 
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin will only work in react-native apps. It will not work with [apps using the Expo framework](https://docs.expo.io/), therefore it will not work with Create React Native App.
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/), therefore it doesn't work with Create React Native App.
 
 ### Getting started
 
@@ -321,11 +321,11 @@ appInsights.loadAppInsights();
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 #### PageView
 
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
 
  
 ## [Angular](#tab/angular)
@@ -407,7 +407,7 @@ export class AppModule { }
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 #### Route tracking
 
@@ -418,7 +418,7 @@ The Angular Plugin automatically tracks route changes and collects other Angular
 
 #### PageView
 
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
 
 ---
 
