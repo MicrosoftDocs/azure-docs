@@ -1,7 +1,7 @@
 ---
 title: Use .NET to manage data in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
-description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that has hierarchical namespace enabled.
+description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -79,7 +79,7 @@ This example creates a container named `my-file-system`.
 
 Create a directory reference by calling the [DataLakeFileSystemClient.CreateDirectoryAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) method.
 
-This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`.
+This example adds a directory named `my-directory` to a container, and then adds a subdirectory named `my-subdirectory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
 
@@ -87,11 +87,11 @@ This example adds a directory named `my-directory` to a container, and then adds
 
 Rename or move a directory by calling the [DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync) method. Pass the path of the desired directory a parameter.
 
-This example renames a sub-directory to the name `my-subdirectory-renamed`.
+This example renames a subdirectory to the name `my-subdirectory-renamed`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
-This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`.
+This example moves a directory named `my-subdirectory-renamed` to a subdirectory of a directory named `my-directory-2`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 

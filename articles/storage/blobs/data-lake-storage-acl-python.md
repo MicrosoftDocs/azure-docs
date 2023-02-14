@@ -32,7 +32,7 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
 
@@ -89,7 +89,7 @@ You can authorize access to data using your account access keys (Shared Key). Th
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls-recursively) section of this article.
+When you *set* an ACL, you **replace** the entire ACL including all of its entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls-recursively) section of this article.
 
 This section shows you how to:
 
@@ -116,7 +116,7 @@ This example gets and sets the ACL of a file named `my-file.txt`. The string `rw
 
 ## Set ACLs recursively
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs recursively](#update-acls-recursively) section of this article.
+When you *set* an ACL, you **replace** the entire ACL including all of its entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs recursively](#update-acls-recursively) section of this article.
 
 Set ACLs recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
@@ -126,7 +126,7 @@ This example sets the ACL of a directory named `my-parent-directory`.
 
 This method accepts a boolean parameter named `is_default_scope` that specifies whether to set the default ACL. if that parameter is `True`, the list of ACL entries are preceded with the string `default:`.
 
-The entries of the ACL give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+The entries of the ACL give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read and execute permissions. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read and execute permissions.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_SetACLRecursively":::
 

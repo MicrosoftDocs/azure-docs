@@ -1,7 +1,7 @@
 ---
 title: Use Java to manage data in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
-description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that has hierarchical namespace enabled.
+description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -90,7 +90,7 @@ This example creates a container named `my-file-system`.
 
 Create a directory reference by calling the **DataLakeFileSystemClient.createDirectory** method.
 
-This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`.
+This example adds a directory named `my-directory` to a container, and then adds a subdirectory named `my-subdirectory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateDirectory":::
 
@@ -98,11 +98,11 @@ This example adds a directory named `my-directory` to a container, and then adds
 
 Rename or move a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter.
 
-This example renames a sub-directory to the name `my-subdirectory-renamed`.
+This example renames a subdirectory to the name `my-subdirectory-renamed`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_RenameDirectory":::
 
-This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`.
+This example moves a directory named `my-subdirectory-renamed` to a subdirectory of a directory named `my-directory-2`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_MoveDirectory":::
 

@@ -1,7 +1,7 @@
 ---
 title: Use JavaScript (Node.js) to manage data in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
-description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that has hierarchical namespace enabled.
+description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -28,7 +28,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
-- If you are using this package in a Node.js application, you'll need Node.js 8.0.0 or higher.
+- If you're using this package in a Node.js application, you'll need Node.js 8.0.0 or higher.
 
 ## Set up your project
 
@@ -132,7 +132,7 @@ async function CreateDirectory(fileSystemClient) {
 
 Rename or move a directory by calling the **DirectoryClient.rename** method. Pass the path of the desired directory a parameter.
 
-This example renames a sub-directory to the name `my-directory-renamed`.
+This example renames a subdirectory to the name `my-directory-renamed`.
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
@@ -143,7 +143,7 @@ async function RenameDirectory(fileSystemClient) {
 }
 ```
 
-This example moves a directory named `my-directory-renamed` to a sub-directory of a directory named `my-directory-2`.
+This example moves a directory named `my-directory-renamed` to a subdirectory of a directory named `my-directory-2`.
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
