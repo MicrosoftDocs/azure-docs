@@ -7,16 +7,16 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/10/2023
+ms.date: 02/14/2023
 ---
 
 # Changes to the Azure reservation exchange policy
 
-Exchanges will be unavailable for all compute reservations - Azure Virtual Machine reservations, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**.
+Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect.
 
 Microsoft launched Azure savings plan for compute and it's designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plans providing the flexibility automatically, we’re adjusting our reservations exchange policy.
 
-You can continue to exchange VM sizes (with instance size flexibility). However, Microsoft is ending exchanges for regions and instance series for these Azure compute reservations. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect.
+You can continue to exchange VM sizes (with instance size flexibility). However, Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
 
 The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 
