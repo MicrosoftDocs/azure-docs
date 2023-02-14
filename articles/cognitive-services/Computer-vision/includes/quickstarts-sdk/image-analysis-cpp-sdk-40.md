@@ -70,7 +70,9 @@ Use the Image Analysis client library for C++ to analyze an image and generate c
 ## Output
 
 ```console
-tbd
+Please wait for image analysis results...
+ Caption:
+   "A man pointing at a screen", Confidence 0.489159
 ```
 
 > [!div class="nextstepaction"]

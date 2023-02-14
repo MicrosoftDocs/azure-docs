@@ -76,7 +76,8 @@ Use the Image Analysis client library for Python to analyze a remote image and g
 ## Output
 
 ```console
-tbd
+ Captions:
+   'a man pointing at a screen', Confidence 0.4891
 ```
 
 > [!div class="nextstepaction"]

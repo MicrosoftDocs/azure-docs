@@ -42,13 +42,13 @@ To analyze an image for various visual features, do the following steps:
     1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.jpg`) to the URL of a different image to be analyzed.
+    1. Optionally, change the image URL in the request body (`https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Description&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.jpg'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Description&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
     ```
 
 > [!div class="nextstepaction"]
@@ -61,21 +61,29 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ```json
 {
-    "modelVersion": "2022-10-12-preview",
-    "metadata":
-    {
-        "width": 800,
-        "height": 1067
+    "kind": "imageAnalysisResult",
+    "metadata": {
+        "height": 692,
+        "width": 1038
     },
-    "descriptionResult":
-    {
-        "values":
-        [
-            {
-                "text": "Angel Falls in a mountain",
-                "confidence": 0.3540295958518982
-            }
-        ]
+    "describeResult": {
+    "description": {
+      "tags": [
+        "text",
+        "person",
+        "indoor",
+        "electronics",
+        "television",
+        "standing",
+        "display"
+      ],
+      "captions": [
+        {
+          "text": "a man pointing at a screen",
+          "confidence": 0.4891590476036072
+        }
+      ]
+    }
     }
 }
 ```
