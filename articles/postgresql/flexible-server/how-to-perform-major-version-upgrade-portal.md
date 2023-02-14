@@ -18,7 +18,7 @@ This article provides a step-by-step procedure to perform Major Version Upgrade 
 > [!NOTE]  
 > Major Version Upgrade action is irreversible. Please perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment.
 
-Follow these steps to upgrade your flexible server to the major version of your choice:
+## Follow these steps to upgrade your flexible server to the major version of your choice:
 
 
 
