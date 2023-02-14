@@ -412,7 +412,7 @@ In the following example, the claims transformation extracts the following claim
 
 ## GetClaimsFromJsonArrayV2
 
-Get a list of specified elements from Json string collection. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarrayv2) of this claims transformation.
+Get a list of specified elements from a string collection JSON elements. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarrayv2) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
