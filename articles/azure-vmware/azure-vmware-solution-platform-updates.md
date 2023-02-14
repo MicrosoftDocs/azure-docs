@@ -29,7 +29,7 @@ AV52 is now available in the East US 2 Region. This node size is used for inte
 
 You can use customer-managed keys to bring and manage your master encryption keys to encrypt van. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
-**Azure NetApp Files**    
+**Azure NetApp Files - more storage options available**    
 
 You can use Azure NetApp Files volumes as a file share for Azure VMware Solution workloads using Network File System (NFS) or Server Message Block (SMB).
 
