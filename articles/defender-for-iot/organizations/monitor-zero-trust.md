@@ -134,7 +134,7 @@ To verify the security posture of a specific device, run an **Attack vector** re
 
     Leave the **Exclude Devices** and **Exclude Subnets** blank to include all detected traffic in your simulation.
 
-1. Select **Save** and wait for the simulation to finish running. The time it takes to depends on the amount of traffic detected by your sensor.
+1. Select **Save** and wait for the simulation to finish running. The time it takes depends on the amount of traffic detected by your sensor.
 
 1. Expand the new simulation and select any of the detected items to view more details on the right. For example:
 
@@ -156,7 +156,7 @@ In the Azure portal, view Defender for IoT data by site and zone from the follow
 
 - **Alerts**: Group or filter alerts by site only. Add the **Site** or **Zone** column to your grid to sort your data within your group.
 
-- **Workbooks**: Open the [**Vulnerabilities** workbook](workbooks.md#view-workbooks) to view detected vulnerabilities per site. You may also want to [create custom workbooks](workbooks.md#create-custom-workbooks) for your own organization to view more data by site and zone.
+- **Workbooks**: Open the Defender for IoT [**Vulnerabilities** workbook](workbooks.md#view-workbooks) to view detected vulnerabilities per site. You may also want to [create custom workbooks](workbooks.md#create-custom-workbooks) for your own organization to view more data by site and zone.
 
 - **Sites and sensors**: [Filter the sensors](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal) listed by site or zone.
 
@@ -213,7 +213,7 @@ Connect your Defender for IoT data to Microsoft Sentinel to have your security o
 > [!div class="nextstepaction"]
 > [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 
-Continue checking the **Vulnerabilities** workbook to check for new vulnerabilities in your network.
+Continue checking the Defender for IoT [**Vulnerabilities** workbook](workbooks.md#view-workbooks) to check for new vulnerabilities in your network.
 
 > [!div class="nextstepaction"]
 > [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)

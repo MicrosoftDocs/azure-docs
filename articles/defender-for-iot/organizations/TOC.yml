@@ -36,6 +36,8 @@
       href: iot-advanced-threat-monitoring.md
   - name: Investigate an OT network alert
     href: respond-ot-alert.md
+  - name: Monitor with Zero Trust
+    href: monitor-zero-trust.md
 - name: Concepts
   items:
     - name: Subscription billing
