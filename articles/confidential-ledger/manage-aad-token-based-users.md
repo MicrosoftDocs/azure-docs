@@ -21,7 +21,7 @@ The following client libraries can be used to manage users. Learn more about eac
 - Java
 
 > [!NOTE]
-> Login to Azure using either the Azure CLI or Azure PowerShell. The instructions are available at https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli or https://learn.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azps-8.3.0 respectively.  
+> Login to Azure using either the Azure CLI or Azure PowerShell. The instructions are available at [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) or [Sign in with Azure PowerShell](powershell/azure/authenticate-azureps) respectively.  
 
 Get the Confidential Ledger's id and the identity service endpoint from the Azure Portal as it is needed to create a client to manage the users. This image shows the properties in the Azure portal.
 
