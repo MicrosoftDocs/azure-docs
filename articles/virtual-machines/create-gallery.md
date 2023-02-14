@@ -23,11 +23,12 @@ The Azure Compute Gallery lets you share custom VM images and application packag
 
 The gallery is a top-level resource that can be shared in multiple ways:
 
-| Share with\: | Option |
-|----|----|
-| [Specific people, groups, or service principals](#create-a-private-gallery) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#create-a-direct-shared-gallery) | Direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
-| [Everyone](#create-a-community-gallery) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
+|  | Share with: |  |  |  |  |
+|---|---|---|---|---|---|
+| Sharing Type: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in   Azure |
+| [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
 ## Naming
 
@@ -237,7 +238,7 @@ The output of this command will give you the public name for your community gall
 To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
 ### [REST](#tab/rest2)
-To create gallery, submit a PUT request:
+To create a gallery, submit a PUT request:
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01

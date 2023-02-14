@@ -88,11 +88,13 @@ The regions that a resource is replicated to can be updated after creation time.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-| [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#shared-directly-to-a-tenant-or-subscription) | Direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
-| [Everyone](#community-gallery) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
+
+|  | Share with: |  |  |  |  |
+|---|---|---|---|---|---|
+| Sharing Type: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
+| [RBAC Sharing](#rbac) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](#shared-directly-to-a-tenant-or-subscription)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](#community-gallery) | Yes | Yes | Yes | No | Yes |
 
 ### RBAC
 
