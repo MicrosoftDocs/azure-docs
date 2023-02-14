@@ -31,7 +31,7 @@ The following regions and maximum resources are available to container groups wi
 > [!NOTE]
 > Some regions don't support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
 
-| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support | Confidential SKU (preview) | 
+| Region | Max CPU | Max memory (GB) | VNET max CPU | VNET max memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support | Confidential SKU (preview) | 
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: | :----: |
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
 | Australia Southeast | 4 | 16 | 4 | 16 | 50 | N/A | N | N |

@@ -7,10 +7,10 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 02/28/2023
-ms.custom: "seodec18, mvc, devx-track-js"
+ms.custom: seodec18, mvc, devx-track-js
 ---
 
-# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure portal
+# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure portal (preview)
 
 In this tutorial, you will use Azure portal to deploy a Confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
 

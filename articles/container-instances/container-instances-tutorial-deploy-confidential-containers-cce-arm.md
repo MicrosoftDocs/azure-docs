@@ -7,10 +7,10 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 02/28/2023
-ms.custom: "seodec18, mvc, devx-track-js"
+ms.custom: seodec18, mvc, devx-track-js
 ---
 
-# Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy 
+# Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
 
 Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
 
