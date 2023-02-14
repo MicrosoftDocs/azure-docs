@@ -117,7 +117,7 @@ If you provide your own images, you are responsible for updating them.
 For more information on the base images, see the following links:
 
 * [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) GitHub repository.
-* [Deploy a TensorFlow model using a custom container](how-to-deploy-custom-container.md)
+* [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md)
 
 ## Next steps
 
