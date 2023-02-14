@@ -62,7 +62,7 @@ Create an L2 Isolation domain:
 
 ```azurecli
 az nf l2domain create \
---resource-group "NFCresourcegroupname" \
+--resource-group "NFresourcegroupname" \
 --resource-name "example-l2domain" \
 --location "eastus" \
 --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname" \
@@ -83,7 +83,7 @@ Expected output:
   "name": "example-l2domain",
   "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFCresourcegroupname",
+  "resourceGroup": "NFresourcegroupname",
   "systemData": {
     "createdAt": "2022-11-02T05:59:00.534027+00:00",
     "createdBy": "email@address.com",
@@ -733,7 +733,8 @@ The Fabric ASN (created during network fabric creation) is needed for creating e
 The diagram represents an example Network Function, with three different internal networks Trust, Untrust and Management (`Mgmt`).
 Each of the internal networks is created in its own L3 Isolation Domain (`L3 ISD`).
 
-:::image type="content" source="media/Network-Function.png" alt-text="Network Function networking diagram":::
+<!--- IMG ![Network Function networking diagram](CDocs/media/network-function-networking.png) IMG --->
+:::image type="content" source="media/network-function-networking.png" alt-text="Network Function networking diagram":::
 Figure Network Function networking diagram
 
 ### Create required L3 Isolation Domains

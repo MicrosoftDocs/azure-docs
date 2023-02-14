@@ -43,8 +43,7 @@ Microsoft will work with the partner to enable this offering in the marketplace.
 
 ### Azure Network Function Manager
 
-The Azure [Network Function Manager
-[(ANFM)](../network-function-manager/overview.md)
+The Azure [Network Function Manager (ANFM)](/azure/network-function-manager/overview)
 provides a cloud native orchestration and managed experience for
 pre-certified network functions (from the Azure Marketplace). The ANFM
 provides consistent Azure managed applications experience for network functions.
@@ -53,7 +52,8 @@ provides consistent Azure managed applications experience for network functions.
 
 Here are the steps of the NF Deployment pre-certification
 
-:::image type="content" source="media/nfm-precert-process.png" alt-text="Pre-Certification Process.":::
+<!--- IMG ![Pre-Certification Process](CDocs/media/nfm-precert-process.png) IMG --->
+:::image type="content" source="media/nfm-precert-process.png" alt-text="Pre-Certification Process":::
 Figure: Pre-Certification (precert) Process
 
 ## Prerequisites and process for partner On-boarding to the Pre-Cert Lab

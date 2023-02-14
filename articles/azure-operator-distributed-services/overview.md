@@ -13,17 +13,12 @@ ms.service: Azure Operator Distributed Services
 Azure Operator Distributed Services (AODS) is the next-generation hybrid cloud platform for telecommunication operators.
 AODS is purpose-built for operators' network-intensive workloads and mission-critical applications.
 AODS supports both our first-party and a wide variety of third party virtualized or containerized telco network functions.
-The platform automates life cycle management of:
-
-* network fabric
-* bare metal hosts
-* storage appliances.
-
-This automation applies to both infrastructure and tenant Kubernetes clusters.
+The platform automates life cycle management of network fabric, bare metal hosts, storage appliances, and both infrastructure and tenant Kubernetes clusters.
 AODS meets operators' security, resiliency, observability and performance requirements to achieve meaningful business results.
 The platform seamlessly integrates compute, network, and storage.
 The user can operate and deploy the platform end-to-end via Azure portal, CLI, or APIs.
 
+<!--- IMG ![Azure Operator Distributed Services Overview diagram](CDocs/media/AODS-Platform-for Operator-Core-ORAN.png) IMG --->
 :::image type="content" source="media/AODS-Platform-for Operator-Core-ORAN.png" alt-text="Azure Operator Distributed Services Overview diagram":::
 Figure: Azure Operator Distributed Services Overview
 
@@ -43,22 +38,24 @@ These NFs are tested for deployment and lifecycle management on AODS before they
 For example, you can provision and manage AODS through Azure portal or Azure CLI.
 Operators can monitor logs and metrics via Azure Monitor, and analyze telemetry data using Log Analytics or Azure AI/Machine Learning framework.
 * **Unified governance and compliance** – As an Azure service, AODS extends Azure management and services to operator's premises.
-Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview) and [Azure Policy](../governance/policy/overview).
+Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](/azure/role-based-access-control/overview) and [Azure Policy](/azure/governance/policy/overview).
 
 ## How AODS works
 
-AODS requires curated hardware Bill of Materials, comprised of commercially available off-the-shelf servers, network switches, and storage arrays. The infrastructure, deployed in operators' on-premises data center, is Linux-based, in alignment with Network Function needs, telecommunications industry trends, and relevant open-source communities. AODS supports both virtualized network functions (VNFs) and containerized network functions (CNFs).
+AODS requires curated hardware Bill of Materials. It is comprised of commercially available off-the-shelf servers, network switches, and storage arrays. The infrastructure is deployed in operator's on-premises data center. Operators or System Integrators must make sure they [meet the prerequisites and follow the guidance](quickstarts-platform-deployment.md). 
 
-The diagram below illustrates the AODS architecture. 
+The service that manages the AODS infrastructure is hosted in Azure. Operators can choose an Azure region that supports AODS for any on-premises AODS infrastructure or deployment.  The diagram illustrates the architecture of the AODS service.
 
+<!--- IMG ![How AODS works diagram](CDocs/media/architecture-overview.png) IMG --->
 :::image type="content" source="media/architecture-overview.png" alt-text="How AODS works diagram":::
 Figure: How AODS works
-1. The management layer of AODS is built on Azure Resource Mananager (ARM), which provides consistent user experience in Azure Portal and API. 
-2. A number of Azure Resource Providers provide modeling and lifecycle management of AODS resources such as bare metal machines, clusters, network fabrics, etc.
-3. AODS controllers, i.e., Cluster Manager and Network Fabric Controller, are deployed in a managed VNet connected to operators' on-premises network. They enable functionalities such as infrastructure bootstrapping, configurations etc.
-4. AODS is built on many other Azure services such as Azure Active Directory, Azure Monitor, Azure Keyvault, Azure Container Registries, Azure Kubernetes Services, etc.
+
+1. The management layer of AODS is built on Azure Resource Manager (ARM), that provides consistent user experience in Azure portal and API.
+2. Azure Resource Providers provide modeling and lifecycle management of [AODS resources](./concepts-resource-types.md) such as bare metal machines, clusters, network devices, etc.
+3. AODS controllers, that is, Cluster Manager and Network Fabric Controller, are deployed in a managed Virtual Network (vNET) connected to operator's on-premises network. The controllers enable functionalities such as infrastructure bootstrapping, configurations, service upgrades etc.
+4. AODS is integrated with many Azure services such as Azure Monitor, Azure Container Registries, and Azure Kubernetes Services.
 5. Azure Arc enables a seamless integration of Azure cloud services and on-premises environments, translating between the ARM models and the Kubernetes resource definitions.
-6. ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations. 
+6. ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations.
 
 ## Key features
 
@@ -71,7 +68,7 @@ The same Linux distribution supports Azure cloud infrastructure and edge service
 It includes a small set of core packages by default, whereas each service running on top of it can install more packages.
 [CBL-Mariner](https://microsoft.github.io/CBL-Mariner/docs/) is a lightweight OS and consumes limited system resources. It's engineered to be efficient.
 For example, it has a fast boot time. Small footprints with locked-down packages also mean minimal attack surface.
-On identifying a security vulnerability, the CBL-Mariner team makes the latest security patches and fixes available with the goal of fast turn-around time.
+On identifying a security vulnerability, the CBL-Mariner team makes the latest security patches and fixes available with the goal of fast turn-around time. Running the infrastructure on Linux aligns with Network Function needs, telecommunication industry trends, and relevant open-source communications. AODS supports both virtualized network functions (VNFs) and containerized network functions (CNFs).
 
 ### Bare metal and cluster management
 
@@ -90,7 +87,7 @@ Network Packet Broker (NPB) is an integral part of the network fabric in AODS. N
 
 ### Azure Hybrid Kubernetes Service
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets users focus on developing and deploying their own workloads while letting Azure handle the management and operational overheads. [AKS-Hybrid](https://learn.microsoft.com/en-us/azure/aks/hybrid/) is a new mode designed for AODS. While Azure still manages the core infrastructure of the cluster including the control plane, the cluster itself runs on an operator's facility.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets users focus on developing and deploying their workloads while letting Azure handle the management and operational overheads. In [AKS-Hybrid](/azure/aks/hybrid/) the Kubernetes cluster is deployed on-premises. Azure still performs the traditional operational management activities such as updates, certificate rotations, etc.
 
 ### Network Functions Virtualization Infrastructure capabilities
 
@@ -109,6 +106,11 @@ Azure Network Function Manager (ANFM) is a service that allows Network Equipment
 After bootstrap, AODS automatically streams the metrics and logs from the operator's premises to Azure Monitor and Log Analytics workspace of:
 
 * the infrastructure stack (compute, network and storage), and
-* the workload stacks (for example, AKS-Hybrid). 
+* the workload stacks (for example, AKS-Hybrid).
 
-Log Analytics has a rich analytical tool-set that operators can use for troubleshooting or correlating for operational insights. And, Azure Monitor lets operators specify alerts. 
+Log Analytics has a rich analytical tool-set that operators can use for troubleshooting or correlating for operational insights. And, Azure Monitor lets operators specify alerts.
+
+## Next steps
+
+* Learn more about AODS [resource models](concepts-resource-types.md)
+* Review [AODS deployment prerequisites and steps](quickstarts-platform-prerequisities.md)

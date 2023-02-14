@@ -148,7 +148,7 @@ Your VM will require one Cloud Services Network. You'll need the egress endpoint
 
 AODS Virtual Machines (VM) can be used for hosting VNF(s) within a Telco network.
 AODS provides `az networkcloud virtualmachine create` to enable users to create a customized
-VM. For creating an AODS virtual machine on your cluster, have it [Microsoft Azure Arc-enrolled](https://learn.microsoft.com//azure/azure-arc/servers/overview),
+VM. For creating an AODS virtual machine on your cluster, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
 #### Parameters

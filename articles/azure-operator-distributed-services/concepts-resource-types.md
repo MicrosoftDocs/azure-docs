@@ -13,6 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 This article introduces you to the Azure Operator Distributed Services (AODS) components represented as Azure resources in Azure Resource Manager.
 
+<!--- IMG ![Resource Types](CDocs/media/resource-types.png) IMG --->
 :::image type="content" source="media/resource-types.png" alt-text="Resource Types":::
 Figure: Resource model
 
@@ -24,8 +25,8 @@ Your AODS Cluster (or simply instance) platform components include the infrastru
 
 The Network Fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an AODS instance.
 The NFC resource is created in the Resource group specified by you in your Azure subscription.
-NFC is hosted in a [Microsoft Azure Virtual Network](../virtual-network/virtual-networks-overview.md) in an Azure region.
-The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
+The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 An NFC can manage the network fabric of up to 32 AODS instances.
 
 ### Network Fabric

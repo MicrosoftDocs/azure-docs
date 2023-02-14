@@ -13,6 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 The AODS observability framework provides operational insights into your AODS instances. It supports logging, monitoring and alerting (LMA), analytics and visualization of operational (platform and workloads) data and metrics.
 
+<!--- IMG ![AODS Logging, Monitoring and Alerting (LMA) Framework](CDOCs/media/lma-framework.png) IMG --->
 :::image type="content" source="media/lma-framework.png" alt-text="AODS Logging, Monitoring and Alerting (LMA) Framework":::
 Figure: AODS Logging, Monitoring and Alerting (LMA) Framework
 
@@ -44,7 +45,7 @@ These logs and metrics are used to observe the state of the platform. You can se
 AODS observability allows you to collect the same kind of data as other Azure
 resources. The data collected for each AODS instance can be viewed in your LAW (Log Analytics workspace).
 
- You can learn about monitoring Azure resources [here](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
+ You can learn about monitoring Azure resources [here](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data).
 
 ### Collection and Routing
 
@@ -66,7 +67,7 @@ created for running Containerized and Virtualized Network Functions. The log dat
 * Collection of logs from AKS-Hybrid clusters and the applications deployed on top.
 
 You'll need to enable the collection of the logs from the tenant AKS-Hybrid clusters and Virtual Machines.
-You should follow the steps to deploy the [Azure monitoring agents](../azure-monitor/agents/agents-overview.md#install-the-agent-and-configure-data-collection). The data would be collected in your Azure Log
+You should follow the steps to deploy the [Azure monitoring agents](/azure/azure-monitor/agents/agents-overview#install-the-agent-and-configure-data-collection). The data would be collected in your Azure Log
 Analytics Workspace.
 
 ### AODS Logs storage
@@ -74,7 +75,7 @@ Analytics Workspace.
 Data in Azure Monitor Logs is stored in tables where each table has its own set
 of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields; see the [common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields; see the [common schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema).
 
 The logs from AODS platform are stored in the following tables:
 
@@ -97,10 +98,11 @@ The logs from AODS platform are stored in the following tables:
 
 The 'InsightMetrics' table in the Logs section contains the metrics collected from Bare Metal Machines and the undercloud Kubernetes cluster. In addition, a few selected metrics collected from the undercloud can be observed by opening the Metrics tab from the Azure Monitor menu.
 
-:::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Azure Monitor Metrics Selection.":::
+<!--- IMG ![Azure Monitor Metrics Selection](CDocs/media/azure-monitor-metrics-selection.png) IMG --->
+:::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Azure Monitor Metrics Selection":::
 Figure: Azure Monitor Metrics Selection
 
-See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)** for details on using this tool.
+See **[Getting Started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)** for details on using this tool.
 
 #### Workbooks
 
@@ -113,7 +115,7 @@ You can use the sample Azure Resource Manager alarm templates for [AODS alerting
 
 ## Log Analytic workspace
 
-A [Log Analytics workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview.md)
+A [Log Analytics workspace (LAW)](/azure/azure-monitor/logs/log-analytics-workspace-overview)
 is a unique environment to log data from Azure Monitor and
 other Azure services. Each workspace has its own data repository and configuration but may
 combine data from multiple services. Each workspace consists of multiple data tables.

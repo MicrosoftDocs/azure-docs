@@ -11,6 +11,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Tenant Workloads Deployment Prerequisites
 
+<!--- IMG ![Tenant Workload Deployment Flow](CDocs//media/tenant-workload-deployment-flow.png) IMG --->
 :::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Tenant Workload Deployment Flow":::
 Figure: Tenant Workload Deployment Flow
 
@@ -50,9 +51,9 @@ You'll need:
 
 ### Review Azure Container Registry
 
-[Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
-The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](https://learn.microsoft.com/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
-For more details, also see [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/).
+[Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
+The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
+For more details, also see [Azure Container Registry](/azure/container-registry/).
 
 ## Install CLI extensions
 

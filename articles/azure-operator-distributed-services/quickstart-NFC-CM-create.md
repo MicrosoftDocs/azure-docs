@@ -28,9 +28,9 @@ Each AODS instance consists of network fabric, compute and storage infrastructur
   - Microsoft.ManagedNetworkFabric
   - Microsoft.HybridContainerService
   - Microsoft.HybridNetwork
-- Establish [ExpressRoute](../azure/expressroute/expressroute-introduction.md) connectivity
+- Establish [ExpressRoute](/azure/azure/expressroute/expressroute-introduction) connectivity
   from your on-premises network to an Azure Region:
-  - ExpressRoute circuit [creation and verification](../azure/expressroute/expressroute-howto-circuit-portal-resource-manager.md)
+  - ExpressRoute circuit [creation and verification](/azure/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
     can be performed via the Azure portal
   - In the ExpressRoute blade, ensure Circuit status indicates the status
     of the circuit on the Microsoft side. Provider status indicates if
