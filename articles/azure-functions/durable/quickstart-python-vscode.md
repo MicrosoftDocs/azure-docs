@@ -66,7 +66,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a language | Python (Programming Model V2) | Create a local Python Functions project using the V2 programming model. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
-    | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 ::: zone-end
 
@@ -176,7 +175,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 ::: zone pivot="python-mode-decorators" 
 
-Using the V2 Python programming model, all these functions can be placed in a single file. To do this, replace the contents of `function_app.py` with the following code.
+To create a basic Durable Functions app using these 3 function types, replace the contents of `function_app.py` with the following Python code.
 
 ```Python
 import azure.functions as func
@@ -187,7 +186,7 @@ myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 # An HTTP-Triggered Function with a Durable Functions Client binding
 @myApp.route(route="orchestrators/{functionName}")
 @myApp.durable_client_input(client_name="client")
-async def durable_trigger(req: func.HttpRequest, client):
+async def http_start(req: func.HttpRequest, client):
     function_name = req.route_params.get('functionName')
     instance_id = await client.start_new(function_name)
     response = client.create_check_status_response(req, instance_id)
@@ -195,7 +194,7 @@ async def durable_trigger(req: func.HttpRequest, client):
 
 # Orchestrator
 @myApp.orchestration_trigger(context_name="context")
-def my_orchestrator(context):
+def hello_orchestrator(context):
     result1 = yield context.call_activity("hello", "Seattle")
     result2 = yield context.call_activity("hello", "Tokyo")
     result3 = yield context.call_activity("hello", "London")
@@ -203,10 +202,18 @@ def my_orchestrator(context):
     return [result1, result2, result3]
 
 # Activity
-@myApp.activity_trigger(input_name="myInput")
-def hello(myInput: str):
-    return "Hello " + myInput   
+@myApp.activity_trigger(input_name="city")
+def hello(city: str):
+    return "Hello " + city   
 ```
+
+Review the table below for an explanation of each function and it's purpose in the sample.
+
+| Method | Description |
+| -----  | ----------- |
+| **`hello_orchestrator`** | The orchestrator function, which describes the workflow. In this case, the orchestration starts, invokes three functions in a sequence, and returns the ordered results of all 3 functions in a list.  |
+| **`hello`** | The activity function, containing the business logic being orchestrator. The function returns a simple greeting to the city passed as an argument. |
+| **`http_start`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
 
 ::: zone-end
 
@@ -214,16 +221,26 @@ def hello(myInput: str):
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. If you don't have it installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
 
+::: zone pivot="python-mode-configuration"
+
 1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Press <kbd>F5</kbd> or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+
+::: zone-end
+
+::: zone pivot="python-mode-decorators" 
+
+1. To test your function, set a breakpoint in the `hello` activity function code. Press <kbd>F5</kbd> or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+
+::: zone-end
 
     > [!NOTE]
     > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions require an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
+2. Durable Functions require an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-select-storage.png" alt-text="Screenshot of how to create a storage account.":::
 
-1. Follow the prompts and provide the following information to create a new storage account in Azure:
+3. Follow the prompts and provide the following information to create a new storage account in Azure:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -233,17 +250,19 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     | Select a resource group | *unique name* | Name of the resource group to create |
     | Select a location | *region* | Select a region close to you |
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
+4. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
-1. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+5. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+6. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
    The request will query the orchestration instance for the status. You must get an eventual response, which shows the instance has completed and includes the outputs or results of the durable function. It looks like:
+
+::: zone pivot="python-mode-configuration"
 
     ```json
     {
@@ -261,8 +280,28 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "lastUpdatedTime": "2020-03-18T21:54:54Z"
     }
     ```
+::: zone-end
+::: zone pivot="python-mode-decorators" 
+    ```json
+    {
+        "name": "hello_orchestrator",
+        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2020-03-18T21:54:49Z",
+        "lastUpdatedTime": "2020-03-18T21:54:54Z"
+    }
+    ```
+::: zone-end
 
-1. To stop debugging, press <kbd>Shift+F5</kbd> in Visual Studio Code.
+
+7. To stop debugging, press <kbd>Shift+F5</kbd> in Visual Studio Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
