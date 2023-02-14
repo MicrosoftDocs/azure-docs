@@ -54,10 +54,10 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 * NorthEurope  
 * WestEurope  
 * SouthEastAsia
-* EastUS2
-* WestUS2
-* GermanyWestCentral
-* AustraliaEast
+* EastUS2 (coming soon)
+* WestUS2 (coming soon)
+* GermanyWestCentral (coming soon)
+* AustraliaEast (coming soon)
 
 > [!NOTE]
 > By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Managed Airflow preview.  
