@@ -5,21 +5,21 @@ ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
-# Caching for Azure Container Registry
+# Caching for Azure Container Registry (Preview)
 
-Azure Container Registry (ACR) introduces its new feature Caching for ACR. This feature allows users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
+Caching for Azure Container Registry (Preview) feature allows users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
 This article is part one in a four-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
-> * Caching for ACR - Overview
+> * Caching for ACR (preview) 
 > * Enable Caching for ACR - Azure portal
 > * Enable Caching for ACR with authentication - Azure portal
 > * Troubleshooting guide for Caching for ACR
 
-## Caching for ACR
+## Caching for ACR (Preview)
 
-Caching for ACR enables you to cache container images from public and private repositories. 
+Caching for ACR (preview) enables you to cache container images from public and private repositories. 
 
 Implementing Caching for ACR provides the following benefits:
 
@@ -27,13 +27,13 @@ Implementing Caching for ACR provides the following benefits:
 
 ***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Docker Rate Limit:***  Docker has updated their terms of services to rate limit pulls for customers. The rate limit of the pull depends on the  type of account in use. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more docker hub rate limit [here][docker-rate-limit]. 
+***Docker Rate Limit:***  Docker has updated their terms of services to rate limit pulls for customers. The rate limit of the pull depends on the  type of account in use. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more Docker Hub rate limit [here][docker-rate-limit]. 
 
  
 ## Terminology 
 
-- Cache Rule
-    -  A Cache Rule is a rule you can create to pull artifacts from a supported repository into your cache. A cache rule contains four parts:
+- Cache Rule - A Cache Rule is a rule you can create to pull artifacts from a supported repository into your cache.
+    -   A cache rule contains four parts:
         
         1. Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
 
@@ -48,7 +48,7 @@ Implementing Caching for ACR provides the following benefits:
 
         1. Credentials  - The name of your credentials.
 
-        2. Source registry Login Server - The login server of your source registry. Only `docker.io` is supported. 
+        2. Source registry Login Server - The login server of your source registry. Only `docker.io` is supported currently. 
 
         3. Source Authentication - The key vault locations to store credentials. 
         
@@ -58,18 +58,18 @@ Implementing Caching for ACR provides the following benefits:
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but aren't included in this release.
 
-- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR doesn't automatically pull new version of images when a new version is available. It is on the roadmap but isn't supported in this release. 
+- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but isn't supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
 - Caching for ACR only supports 50 cache rules.
 
-- Caching for ACR is only available by using the Azure portal. The Azure CLI is released in the coming weeks.  
+- Caching for ACR is only available by using the Azure portal. The Azure CLI will be released in the coming weeks.  
 
 ## Next steps
 
-* To enable Caching for ACR using the Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
+* To enable Caching for ACR (preview) using the Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
 
 <!-- LINKS - External -->
 
-[docker-rate-limit]:aka.ms/docker-rate-limit
+[docker-rate-limit]:http://aka.ms/docker-rate-limit
