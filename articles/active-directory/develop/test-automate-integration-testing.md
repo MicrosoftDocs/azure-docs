@@ -126,7 +126,7 @@ Now that you're set up, you can write your automated tests. The following are te
 1. .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
 1. JavaScript example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [Playwright](https://playwright.dev/), a common testing framework.
 
-# [.NET](#tab/dotnet)
+## [.NET](#tab/dotnet)
 
 ### Set up your appsettings.json file
 
@@ -257,11 +257,11 @@ public class ApiTests : IClassFixture<ClientFixture>
 }
 ```
 
-# [JavaScript](#tab/JavaScript)
+## [JavaScript](#tab/JavaScript)
 
 ### Set up your authConfig.json file
 
-Add the client ID and the tenant ID of the test app you previously created, the necessary scopes, the key vault URI and the secret name to the authConfig.js file of your test project.
+Add the client ID and the tenant ID of the test app you previously created, the key vault URI and the secret name to the authConfig.js file of your test project.
 
 ```javascript
 export const msalConfig = {
