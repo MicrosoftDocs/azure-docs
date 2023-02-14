@@ -158,7 +158,7 @@ Follow these steps to get started:
      displayName: 'Install npm package'
    
    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-   # Enter the appropriate subscription and name for the source factory. Please note only one of either "Validate" or "Validate and Generate ARM temmplate" is required. Running # running both is unnecssary
+   # Enter the appropriate subscription and name for the source factory. Please note only one of either "Validate" or "Validate and Generate ARM temmplate" is required. Running both is unnecssary
    
    - task: Npm@1
      inputs:
