@@ -92,11 +92,7 @@ The `context` object lets you call other *activity* functions and pass input par
 
 #### function.json
 
-If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
-
-[!code-json[dajusto/add-v2-samples](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
-
-The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
+[!code-json[dajusto/add-v2-samples](~/samples-durable-functions-python/samples-v2/function_app.py)]
 
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
