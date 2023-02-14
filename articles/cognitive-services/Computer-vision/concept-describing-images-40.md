@@ -16,7 +16,7 @@ ms.custom: seodec18, ignite-2022
 
 # Image caption generation (version 4.0 preview)
 
-Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several captions based on different visual features, and each caption is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
+Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several captions based on different visual features, and each caption is given a confidence score. The final output is a list of captions ordered from highest to lowest confidence.
 
 At this time, English is the only supported language for image captioning.
 
@@ -33,23 +33,7 @@ The following JSON response illustrates what the Analyze API returns when descri
 
 
 ```json
-{
-    "metadata":
-    {
-        "width": 239,
-        "height": 300
-    },
-    "descriptionResult":
-    {
-        "values":
-        [
-            {
-                "text": "a city with tall buildings",
-                "confidence": 0.3551448881626129
-            }
-        ]
-    }
-}
+tbd
 ```
 
 ## Use the API
