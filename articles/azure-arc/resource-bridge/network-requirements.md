@@ -25,7 +25,7 @@ DNS Server must have internal and external endpoint resolution. The appliance VM
 
 ### Configuration file example
 
-The example below highlights a couple key requirements for Arc resource bridge when creating the configuration files. The IPs for k8snodeippoolstart and k8snodeippoolend reside in the subnet range designated in ipaddressprefix. The ipaddressprefix is provided in the format of the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation.
+The example below highlights a couple key requirements for Arc resource bridge when creating the configuration files. The IPs for `k8snodeippoolstart` and `k8snodeippoolend` reside in the subnet range designated in `ipaddressprefix`. The `ipaddressprefix` is provided in the format of the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation.
 
 azurestackhciprovider:
 <br> virtualnetwork:
