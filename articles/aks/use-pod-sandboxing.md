@@ -69,17 +69,19 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 * Kata containers may not reach the IOPS performance limits that traditional containers can reach on Azure Files and high performance local SSD.
 
-* [Microsoft Defender for Containers][defender-for-containers] is not supported
+* [Microsoft Defender for Containers][defender-for-containers] does not support assessing Kata runtime pods.
 
-* [Container Insights][container-insights] is not supported
+* [Container Insights][container-insights] does not support monitoring of Kata runtime pods in the preview release.
 
 * [Kata][kata-network-limitations] host-network is not supported.
+
+* [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] are not supported in the preview release.
 
 ## How it works
 
 To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
 
-:::image type="content" source="media/use-pod-sandboxing/pod-sandboxing-architecture.png" alt-text="Diagram of the AKS pod sandboxing components.":::
+:::image type="content" source="media/use-pod-sandboxing/pod-sandbox-architecture.png" alt-text="Diagram of the AKS pod sandbox components.":::
 
 The solution architecture is based on the following components:
 
@@ -313,3 +315,5 @@ kata-container]: https://katacontainers.io
 [defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
 [mariner-overview]: use-mariner.md
+[csi-storage-driver]: csi-storage-drivers.md
+[csi-secret-store driver]: csi-secrets-store-driver.md
