@@ -88,8 +88,6 @@ The solution architecture is based on the following components:
 * Open-source [Cloud-Hypervisor](https://www.cloudhypervisor.org/) Virtual Machine Monitor (VMM)
 * Integration with [Kata Container](https://katacontainers.io/) framework
 
-![image](https://user-images.githubusercontent.com/50749048/218833321-007248c5-dc05-4816-97f4-6781a1d88a15.png)
-
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
 
 For a pod to use this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
