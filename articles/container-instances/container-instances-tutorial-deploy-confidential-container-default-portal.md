@@ -67,19 +67,9 @@ Once its **Status** is *Running*, navigate to the containers IP address on port 
 
 Congratulations! You have deployed a confidential container on Azure Container Instances which is displaying a hardware attestation report in your browser. 
 
-## View the confidential computing enforcement policy 
-
-**TO DO** - ADD PICTURE OF PROPERTIES TAB WITH CCE POLICY.
-
 ## Clean up resources
 
 When you're done with the container, select **Overview** for the *myconfidentialcontainer* container instance, then select **Delete**.
-
-**TO DO** - ADD PICTURE OF DELETION.
-
-Select **Yes** when the confirmation dialog appears.
-
-**TO DO** - ADD PICTURE OF DELETION CONFIRMATION.
 
 ## Next steps
 
