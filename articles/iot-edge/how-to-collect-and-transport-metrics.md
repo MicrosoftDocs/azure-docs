@@ -386,11 +386,11 @@ To view the metrics from your IoT Edge device in your IoT Central application:
 
 * Add the **IoT Edge Metrics standard interface** as an inherited interface to your [device template](../iot-central/core/concepts-device-templates.md):
 
-  :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface." lightbox="media/how-to-collect-and-transport-metrics/add-metrics-interface.png":::
 
 * Use the telemetry values defined in the interface to build any [dashboards](../iot-central/core/howto-manage-dashboards.md) you need to monitor your IoT Edge devices:
 
-  :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry.":::
+  :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry." lightbox="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png":::
 
 >[!NOTE]
 >Be aware of additional costs with this option. Metrics messages will count against your IoT Central message quota.
