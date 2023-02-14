@@ -19,13 +19,13 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 ### Microsoft Purview prerequisites
 
-* [A Microsoft Purview account](create-catalog-portal.md). 
-* No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
-* Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work. The object ID and tenant ID of your recipient, if an application.
+* [A Microsoft Purview account](create-catalog-portal.md).
+* A minimum of Data Reader role is needed on a Microsoft Purview collection to use data sharing in the governance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+* Your data recipient's Azure sign-in email address, or the object ID and tenant ID of the recipient application, that you'll use to send the invitation to receive a share. The recipient's email alias won't work.
 
 ### Azure Storage account prerequisites
 
-* Your Azure subscription must be registered for the **AllowDataSharing** preview feature. Follow the below steps using Azure portal or PowerShell. 
+* Your Azure subscription must be registered for the **AllowDataSharing** preview feature. Follow the below steps using Azure portal or PowerShell.
 
     # [Portal](#tab/azure-portal)
     1. In the [Azure portal](https://portal.azure.com), select your Azure subscription.
@@ -47,7 +47,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     ```
     The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
-* A source storage account **created after the registration step is completed**. Source storage account can be in a different Azure region from your Microsoft Purview account, but needs to follow the configurations below:
+* A source storage account **created after the registration step is completed**. Source storage account can be in a different Azure region from your Microsoft Purview account, but needs to follow these configurations:
 
     > [!NOTE]
     > The following are supported storage account configurations:
@@ -61,15 +61,15 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 * If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft. Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share provider adding an asset if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located.
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 
-* A storage account needs to be registered in the collection to create a share using the Microsoft Purview compliance portal experience. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step is not required to use the SDK.
+* A storage account needs to be registered in the collection to create a share using the Microsoft Purview compliance portal experience. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step isn't required to use the SDK.
 
 ## Create a share
 
-1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
+1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share data from using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
 
    :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="Screenshot that shows the Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**
+1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**.
 
    :::image type="content" source="./media/how-to-share-data/select-data-share.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true":::
 
@@ -77,12 +77,10 @@ This registration is only needed the first time when sharing or receiving data i
 
    :::image type="content" source="./media/how-to-share-data/create-share-details.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true":::
 
-1. Search for and add all the assets you'd like to share out at the folder and file level, and then select **Continue**.
+1. Search for and add all the assets you'd like to share out at the container, folder, and file level, and then select **Continue**.
 
    > [!IMPORTANT]
-   > Only files and folders that belong to the current Blob or ADLSGen2 Storage account can be added to the share.
-   > [!NOTE]
-   > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported.
+   > Only containers, files, and folders that belong to the current Blob or ADLSGen2 Storage account can be added to the share.
 
    :::image type="content" source="./media/how-to-share-data/add-asset.png" alt-text="Screenshot showing the add assets window, with a file and a folder selected to share." border="true":::
 
@@ -92,7 +90,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Select **Add Recipient** and select **User** or **App**. 
 
-    To share data to a user, select **User**, then enter the Azure login email address of who you want to share data with. By default, the option to enter email address of user is shown.
+    To share data to a user, select **User**, then enter the Azure sign-in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
     :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true":::  
 
@@ -100,14 +98,16 @@ This registration is only needed the first time when sharing or receiving data i
 
     :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true":::  
 
-1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by selecting **Add Recipient** multiple times.
 
-You've now created your share. The recipients of your share will receive an invitation and they can view the share invitation in their Microsoft Purview account. 
+You've now created your share. The recipients of your share will receive an invitation and they can view the share invitation in their Microsoft Purview account.
 
-When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. Refer to [Microsoft Purview data sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
+When a share is created, a new asset of type sent share is ingested into the Microsoft Purview catalog, in the same collection as the storage account from which you created the share. You can search for it like any other asset in the data catalog.
+
+You can also track lineage for data shared using Microsoft Purview. See, [Microsoft Purview Data Sharing lineage](how-to-lineage-purview-data-sharing.md) to learn more about share assets and data sharing lineage.
 
 > [!NOTE]
-   > Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
+> Shares created using the SDK without registering the storage account with Microsoft Purview will not be ingested into the catalog. User can register their storage account if desired. If a storage account is un-registered or re-registered to a different collection, share assets of that storage account continue to be in the initial collection.
 
 ## Update a sent share
 
@@ -118,7 +118,7 @@ Once a share is created, you can update description, assets, and recipients.
 
 You can find your sent shares one of two ways:
 
-* Access the blob storage or ADLS Gen2 asset in the data catalog, open it, then select **Data Share** and **Manage data shares**. There you'll be able to see all the shares for that asset. Select a share, and then select the **Edit** option.
+* Access the blob storage or ADLS Gen2 asset where the data was shared from in the data catalog. Open it, then select **Data Share** and **Manage data shares**. There you're able to see all the shares for that asset. Select a share, and then select the **Edit** option.
 
    :::image type="content" source="./media/how-to-share-data/manage-data-shares.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Manage data shares button highlighted." border="true":::
 
@@ -149,15 +149,15 @@ Save any changes by selecting **Save**.
 
 On the **Asset** tab of the [edit share page](#update-a-sent-share) you can see all the shared files and folders.
 
-You can **remove** any files or folders from the share by selecting the delete button in the asset's row however you can't remove all the assets of a sent share.
+You can **remove** any containers, files, or folders from the share by selecting the delete button in the asset's row however you can't remove all the assets of a sent share.
 
 :::image type="content" source="./media/how-to-share-data/remove-asset.png" alt-text="Screenshot of the Asset tab of the edit page, with the delete button highlighted next to an asset." border="true":::
 
-You can **add new assets** by selecting the **Edit** button and then searching for and selecting any other files and folders in the asset that you would like to add.
+You can **add new assets** by selecting the **Edit** button and then searching for and selecting any other containers, files, and folders in the asset that you would like to add.
 
 :::image type="content" source="./media/how-to-share-data/edit-assets.png" alt-text="Screenshot of the Asset tab of the edit page, with the edit button highlighted." border="true":::
 
-Once you've selected your assets, select **Add**, and then you'll see your new asset in the Asset tab.
+Once you've selected your assets, select **Add**, and you'll see your new asset in the Asset tab.
 
 Save all your changes by selecting the **Save** button.
 
@@ -180,9 +180,9 @@ You can **add recipients** by selecting the **Add recipients** button.
 
 :::image type="content" source="./media/how-to-share-data/add-recipients.png" alt-text="Screenshot of the Recipients tab of the edit page showing the Add recipients button highlighted." border="true":::
 
-Select **Add Recipient** again and select **User** or **App**"
+Select **Add Recipient** again and select **User** or **App**.
 
-To share data to a user, select **User**, then enter the Azure login email address of who you want to share data with. By default, the option to enter email address of user is shown.
+To share data to a user, select **User**, then enter the Azure sign-in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
 :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the edit recipients page  with the add recipient button highlighted, default user email option shown." border="true":::  
 
@@ -213,19 +213,19 @@ Here are some common issues for sharing data and how to troubleshoot.
 If you're getting an error related to *quota* when creating a Microsoft Purview account, it means your organization has exceeded [Microsoft Purview service limit](how-to-manage-quotas.md). If you require an increase in limit, contact support.
 
 ### Can't find my Storage account asset in the Catalog
-* Data source is not registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan is not necessary.
-* Data source is registered to a Microsoft Purview collection that you do not have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
+
+There are a couple possible reasons:
+
+* The data source isn't registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan isn't necessary.
+* Data source is registered to a Microsoft Purview collection that you don't have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
 
 ### Can't create shares or edit shares
-* Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
+
+* You don't have permission to the data store where you want to share data from. Check the [prerequisites](#prerequisites-to-share-data) for required data store permissions.
 
 ### Can't view list of shares in the storage account asset
- * Permission issue to the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
-### Issue add or update asset
-If you failed to add or update asset, it's likely due to the following reasons:
-
-* You tried to share data from a *storage container*. Sharing from container isn't currently supported. You can select all files and folders within the container to share.
+ * You don't have enough permissions the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
 ## Next steps
 
