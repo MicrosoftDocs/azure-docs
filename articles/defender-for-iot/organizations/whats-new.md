@@ -28,7 +28,7 @@ If you're running a local software update on your OT sensor or on-premises manag
 
 For example:
 
-:::image type="content" source="media/update-ot-software/local-update-wizard.png" alt-text="Screenshot of the new Local update pane on the Sites and sensors page.":::
+:::image type="content" source="media/update-ot-software/local-update-wizard.png" alt-text="Screenshot of the new Local update pane on the Sites and sensors page." lightbox="media/update-ot-software/local-update-wizard.png":::
 
 - Threat intelligence updates are also now available only from the **Sites and sensors** page > **Threat intelligence update (Preview)** option.
 

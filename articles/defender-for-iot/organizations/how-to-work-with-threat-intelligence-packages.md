@@ -42,17 +42,15 @@ To view the most recent package delivered, in the Azure portal, select **Sites a
 
 Details about the most recent package available are shown in the **Sensor TI update** pane. For example:
 
-:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/ti-local-update.png" alt-text="Screenshot of the Sensor TI update pane with the most recent threat intelligence package.":::
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/ti-local-update.png" alt-text="Screenshot of the Sensor TI update pane with the most recent threat intelligence package." lightbox="media/how-to-work-with-threat-intelligence-packages/ti-local-update.png":::
 
 ## Update threat intelligence packages
 
 Update threat intelligence packages on your OT sensors using any of the following methods:
 
-- Have updates pushed to cloud-connected OT sensors automatically as they're released
-- Manually push updates to cloud-connected OT sensors
-- Download an update package and manually upload it to your OT sensor. Alternately, upload the package to an on-premises management console and push the updates from there to any connected OT sensors.
-
-Users with Defender for IoT Security Reader permissions can automatically and manually push packages to sensors.
+- [Have updates pushed](#automatically-push-updates-to-cloud-connected-sensors) to cloud-connected OT sensors automatically as they're released
+- [Manually push](#manually-push-updates-to-cloud-connected-sensors) updates to cloud-connected OT sensors
+- [Download an update package](#manually-update-locally-managed-sensors) and manually upload it to your OT sensor. Alternately, upload the package to an on-premises management console and push the updates from there to any connected OT sensors.
 
 ### Automatically push updates to cloud-connected sensors
 
@@ -72,7 +70,7 @@ Your *cloud connected* sensors can be automatically updated with threat intellig
 
 **To manually push updates to a single OT sensor**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors**, and locate the OT sensor your want to update.
+1. In Defender for IoT on the Azure portal, select **Sites and sensors**, and locate the OT sensor you want to update.
 1. Select the options (**...**) menu for the selected sensor and then select **Push Threat Intelligence update**. 
 
 The **Threat Intelligence update status** field displays the update progress.
@@ -84,9 +82,9 @@ The **Threat Intelligence update status** field displays the update progress.
 
 The **Threat Intelligence update status** field displays the update progress for each selected sensor.
 
-### Manually update locally-managed sensors
+### Manually update locally managed sensors
 
-If you're working with locally-managed OT sensors, you'll need to download the updated threat intelligence packages and upload them manually on your sensors.
+If you're working with locally managed OT sensors, you'll need to download the updated threat intelligence packages and upload them manually on your sensors.
 
 If you're also working with an on-premises management console, we recommend that you upload the threat intelligence package to the on-premises management console and push the update from there.
 
