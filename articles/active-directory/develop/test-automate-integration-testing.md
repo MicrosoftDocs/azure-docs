@@ -299,6 +299,18 @@ let tokenCache;
 const KVUri = keyVaultConfig.keyVaultUri;
 const secretName = keyVaultConfig.secretName;
 
+async function getCredentials() {
+    try {
+        const credential = new DefaultAzureCredential();
+        const secretClient = new SecretClient(KVUri, credential);
+        const secret = await secretClient.getSecret(keyVaultConfig.secretName);
+        const password = secret.value;
+        return [secretName, password];
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 test.beforeAll(async () => {
     const pca = new PublicClientApplication(msalConfig);
     const [username, password] = await getCredentials();
