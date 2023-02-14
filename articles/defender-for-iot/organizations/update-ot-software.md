@@ -377,11 +377,11 @@ For more information, see [Versioning and support for on-premises software versi
 
 1. (Optional) After updating from a legacy OT sensor version, you may have leftover IoT Hubs that are no longer in use. In such cases:
 
-    1. Review your IoT hubs to ensure that it's not being used by other services.
-
+    1. Review your IoT hubs to ensure that they're not being used by other services.
     1. Verify that your sensors are connected successfully.
-
-    1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
+    1. Delete any private IoT Hubs that are no longer needed. 
+    
+    For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
 
 ## Next steps
 
