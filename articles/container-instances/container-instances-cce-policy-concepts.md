@@ -1,6 +1,6 @@
 ---
 title: Confidential containers on ACI CCE concepts
-description: Learn more about cce policies and the components that are used. 
+description: Learn more about CCE policies and the components that are used. 
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
