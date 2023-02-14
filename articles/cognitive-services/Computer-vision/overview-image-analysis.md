@@ -50,10 +50,9 @@ You can analyze images to provide insights about their visual features and chara
 
 You can create and train custom models to do image classification or object detection. Bring your own images, label them with custom tags, and Image Analysis will train a model customized for your use case. [Model customization](./concept-model-customization.md)
 
-### Extract text from images (v4.0 preview only)
+### Read text from images (v4.0 preview only)
 
-Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
-
+Version 4.0 preview of Image Analysis offers the ability to extract readable text from images. Compared with the async Computer Vision 3.2 Read API, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get OCR along with other insights in a single API call. [Extract text from images](concept-ocr.md)
 
 ### Detect people in images (v4.0 preview only)
 
@@ -83,9 +82,9 @@ Identify and categorize an entire image, using a [category taxonomy](Category-Ta
 
 ### Generate image captions
 
-Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. 
+Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The captions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. 
 
-The version 4.0 image captioning model is a more advanced implementation. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 [Describe an image (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describing-images-40.md)
 
@@ -113,11 +112,9 @@ Analyze color usage within an image. Computer Vision can determine whether an im
 
 Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. 
 
-The version 4.0 smart cropping model is a more advanced implementation. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0 preview)](concept-generating-thumbnails-40.md)
-
-:::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
 
 ### Moderate content in images (v3.2 only)
 
@@ -151,4 +148,5 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Image Analysis by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
+- [Quickstart (v4.0 preview): Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md)
+- [Quickstart (v3.2): Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
