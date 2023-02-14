@@ -41,7 +41,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `credentials.tenant_id` | string | The service principal tenant ID. **Required if `credentials` is specified.** | | |
 | `credentials.client_id` | string | The service principal client ID. **Required if `credentials` is specified.** | | |
 | `credentials.client_secret` | string | The service principal client secret. **Required if `credentials` is specified.** | | |
-| `credentials.resource_url` | string | The resource URL that specifies the operations that performed on the Azure Data Lake Storage Gen2 account. | | `https://storage.azure.com/` |
+| `credentials.resource_url` | string | The resource URL that specifies the operations that will be performed on the Azure Data Lake Storage Gen2 account. | | `https://storage.azure.com/` |
 | `credentials.authority_url` | string | The authority URL used for user authentication. | | `https://login.microsoftonline.com` |
 
 ## Remarks
