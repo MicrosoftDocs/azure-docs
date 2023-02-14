@@ -75,12 +75,28 @@ The specified training budget is the calibrated **compute time**, not the **wall
 
 The following are some common reasons for training failure:
 
-- `Training diverged`: The training can't learn meaningful things from your data. Some common causes are:
+- `diverged`: The training can't learn meaningful things from your data. Some common causes are:
    - Data is not enough: providing more data should help.
    - Data is of poor quality: check if your images are of low resolution, extreme aspect ratios, or if annotations are wrong.
-- `Budget not enough`: Your specified budget isn't enough for the size of your dataset and model type you're training. Specify a larger budget.
-- `Dataset corrupt`: Usually this means your provided images aren't accessible or the annotation file is in the wrong format.
-- `Unknown`: This could be a backend issue. Reach out to support for investigation.
+- `notEnoughBudget`: Your specified budget isn't enough for the size of your dataset and model type you're training. Specify a larger budget.
+- `datasetCorrupt`: Usually this means your provided images aren't accessible or the annotation file is in the wrong format.
+- `datasetNotFound`: dataset cannot be found
+- `unknown`: This could be a backend issue. Reach out to support for investigation.
+
+## Why does the evaluation fail for my object detection model?
+
+Below are the possible reasons:
+- `internalServerError`: An unknown error occurred. Please try again later.
+- `modelNotFound`: The specified model was not found.
+- `datasetNotFound`: The specified dataset was not found.
+- `datasetAnnotationsInvalid`: An error occurred while trying to download or parse the ground truth annotations associated with the test dataset.
+- `datasetEmpty`: The test dataset did not contain any "ground truth" annotations.
+
+## Why does my dataset registration fail?
+
+The API responses should be informative enough. They are:
+- `DatasetAlreadyExists`: A dataset with the same name exists
+- `DatasetInvalidAnnotationUri`: "An invalid URI was provided among the annotation URIs at dataset registration time.
 
 ### Can I control the hyper-parameters or use my own models in training?
 
@@ -103,8 +119,13 @@ If your data labeling budget is constrained, our recommended workflow is to repe
 1. Collect `N` images per class, where `N` images are easy for you to collect (for example, `N=3`)
 1. Train a model and test it on your evaluation set.
 1. If the model performance is:
-   -  **Good enough** (performance is better than expected or close to your previous experiments with less data collected): Stop here and use this model.
-   - **Not good enough** (performance is still below expectation or better than your previous experiment with less data collected at a reasonable margin): Collect `2N` images, and go back to Step 2.
+
+   - **Good enough** (performance is better than your expectation or performance close to your previous experiment with less data collected): Stop here and use this model.
+   - **Not good** (performance is still below your expectation or better than your previous experiment with less data collected at a reasonable margin): 
+   - Collect more images for each class&mdash;a number that's easy for you to collect&mdash;and go back to Step 2.
+   - If you notice the performance is not improving any more after a few iterations it could be because:
+      - this problem is not well defined or is too hard. Reach out to us for case-by-case analysis.
+      - the training data might be of low quality: check if there are wrong annotations or very low-pixel images.
 
 ### How much training budget should I specify?
 
