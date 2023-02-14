@@ -1,18 +1,19 @@
 ---
-title: Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
-description: How to install and use Click Analytics Auto-collection plugin for Application Insights JavaScript SDK. 
+title: Feature extensions for Application Insights JavaScript SDK (Click Analytics)
+description: Learn how to install and use JavaScript feature extensions (Click Analytics) for Application Insights JavaScript SDK. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/13/2023
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
+# Feature extensions for Application Insights JavaScript SDK (Click Analytics)
 
-This plugin automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
+App Insights JavaScript SDK feature extensions are extra features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
+
+In this article, we cover the Click Analytics plugin that automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -87,19 +88,19 @@ appInsights.loadAppInsights();
 
 1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
 2. The `name` of the customEvent is populated based on the following rules:
-    1.  The `id` provided in the `data-*-id` will be used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" will be the customEvent name.
-    2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element will be used as the customEvent name. If both `id` and content name are present, precedence is given to `id`.
-    3. If `useDefaultContentNameOrId` is false, then the customEvent name will be "not_specified".
+    1.  The `id` provided in the `data-*-id` is used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" is the customEvent name.
+    2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element is used as the customEvent name. If both `id` and content name are present, precedence is given to `id`.
+    3. If `useDefaultContentNameOrId` is false, then the customEvent name is "not_specified".
 
     > [!TIP]
-    > Our recommendations is to set `useDefaultContentNameOrId` to true for generating meaningful data.  
+    > We recommend settings `useDefaultContentNameOrId` to true for generating meaningful data.  
 3. `parentDataTag` does two things:
-    1. If this tag is present, the plugin will fetch the `data-*` attributes and values from all the parent HTML elements of the clicked element.
-    2. To improve efficiency, the plugin uses this tag as a flag, when encountered it will stop itself from further processing the DOM (Document Object Model) upwards.
+    1. If this tag is present, the plugin fetches the `data-*` attributes and values from all the parent HTML elements of the clicked element.
+    2. To improve efficiency, the plugin uses this tag as a flag, when encountered it stops itself from further processing the DOM (Document Object Model) upwards.
     
     > [!CAUTION]
     > Once `parentDataTag` is used, the SDK will begin looking for parent tags across your entire application and not just the HTML element where you used it.
-4. `customDataPrefix` provided by the user should always start with `data-`, for example `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes, that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) will drop attributes that it doesn't understand, unless they start with `data-`.
+4. `customDataPrefix` provided by the user should always start with `data-`, for example `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) drop attributes that it doesn't understand, unless they start with `data-`.
 
     The `*` in `data-*`  may be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
     - The name must not start with "xml", whatever case is used for these letters.
@@ -123,7 +124,7 @@ The following are some of the key properties captured by default when the plugin
 | actionType            | Action type that caused the click event. Can be left or right click. | CL              |
 | baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
 | clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
-| content               | Placeholder to store additional `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
+| content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
 | parentId              | ID or name of the parent element                                           | navbarContainer |
 
@@ -143,8 +144,8 @@ The following are some of the key properties captured by default when the plugin
 | urlCollectHash        | Boolean                            | False   | Enables the logging of values after a "#" character of the URL.                |
 | urlCollectQuery       | Boolean                            | False   | Enables the logging of the query string of the URL.                            |
 | behaviorValidator     | Function                           | Null  | Callback function to use for the `data-*-bhvr` value validation. For more information, go to [behaviorValidator section](#behaviorvalidator).|
-| defaultRightClickBhvr | String (or) number                 | ''      | Default Behavior value when Right Click event has occurred. This value will be overridden if the element has the `data-*-bhvr` attribute. |
-| dropInvalidEvents     | Boolean                            | False   | Flag to drop events that do not have useful click data.                                                                                   |
+| defaultRightClickBhvr | String (or) number                 | ''      | Default Behavior value when Right Click event has occurred. This value is overridden if the element has the `data-*-bhvr` attribute. |
+| dropInvalidEvents     | Boolean                            | False   | Flag to drop events that don't have useful click data.                                                                                   |
 
 ### IValueCallback
 
@@ -158,17 +159,17 @@ The following are some of the key properties captured by default when the plugin
 
 | Name                      | Type    | Default   | Default Tag to Use in HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | Boolean | False     | N/A         |Collects standard HTML attribute for contentName when a particular element is not tagged with default customDataPrefix or when customDataPrefix is not provided by user. |
+| useDefaultContentNameOrId | Boolean | False     | N/A         |Collects standard HTML attribute for contentName when a particular element isn't tagged with default customDataPrefix or when customDataPrefix isn't provided by user. |
 | customDataPrefix          | String  | `data-`   | `data-*`| Automatic capture content name and value of elements that are tagged with provided prefix. For example, `data-*-id`, `data-<yourcustomattribute>` can be used in the HTML tags.   |
 | aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| Plugin supports a JSON blob attribute instead of individual `data-*` attributes. |
 | metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when capture. For example, `custom-` can be used in the HTML meta tag. |
-| captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled this will override provided metaDataPrefix. |
+| captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled it overrides provided metaDataPrefix. |
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
-| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute will be ignored by the plugin for capturing telemetry data.|
+| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute are ignored by the plugin for capturing telemetry data.|
 
 ### behaviorValidator
 
-The behaviorValidator functions automatically checks that tagged behaviors in code conform to a pre-defined list. This ensures tagged behaviors are consistent with your enterprise's established taxonomy. It is not required or expected that most Azure Monitor customers will use these functions, but they're available for advanced scenarios. There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions do not solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
+The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
 
 | Name                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -365,7 +366,7 @@ appInsights.loadAppInsights();
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 
