@@ -377,15 +377,15 @@ main().catch(console.error);
 
 - The [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK].
 
-[JS-SDK]: /javascript/api/@azure-rest/maps-search?view=azure-node-preview
+[JS-SDK]: /javascript/api/@azure-rest/maps-search
 
 [defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
 
-[searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress?view=azure-node-preview
+[searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 
-[FuzzySearchRequest]: /javascript/api/@azure-rest/maps-search/fuzzysearch?view=azure-node-preview
+[FuzzySearchRequest]: /javascript/api/@azure-rest/maps-search/fuzzysearch
  
-[FuzzySearchResult]: /javascript/api/@azure-rest/maps-search/searchfuzzysearch200response?view=azure-node-preview
+[FuzzySearchResult]: /javascript/api/@azure-rest/maps-search/searchfuzzysearch200response
 
 
 [search]: /rest/api/maps/search
@@ -396,7 +396,7 @@ main().catch(console.error);
 
 [authentication]: azure-maps-authentication.md
 [Identity library]: /javascript/api/overview/azure/identity-readme
-[core auth package]: /javascript/api/@azure/core-auth/?view=azure-node-latest
+[core auth package]: /javascript/api/@azure/core-auth/
 
 [Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
