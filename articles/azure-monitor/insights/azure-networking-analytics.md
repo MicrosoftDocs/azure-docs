@@ -41,7 +41,7 @@ For more information, see [Network Performance Monitor](../../networking/network
 If diagnostic logs aren't enabled for Application Gateway, only the default metric data would be populated within the workbook.
 
 ## Review Azure networking data collection details
-The Application Gateway analytics and the network security group analytics management solutions collect diagnostics logs directly from Application Gateways and network security groups. It isn't necessary to write the logs to Azure Blob Storage, and no agent is required for data collection.
+The Application Gateway analytics and the network security group analytics management solutions collect diagnostics logs directly from Application Gateway and network security groups. It isn't necessary to write the logs to Azure Blob Storage, and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Application Gateway analytics and the network security group analytics.
 
