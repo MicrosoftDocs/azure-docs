@@ -40,7 +40,7 @@ The Azure AD recommendations feature is the Azure AD specific implementation of 
 
 On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first. 
 
-Each recommendations contain a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
+Each recommendation contains a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-preview-option-tenant-overview.png)
 
@@ -60,7 +60,7 @@ The **Priority** of a recommendation could be low, medium, or high. These values
 - **Medium**: Should do. No severe risk if action isn't taken.
 - **Low**: Might do. No security risks or health concerns if action isn't taken.
 
-The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you'll need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
+The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
 
 The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
 
@@ -84,7 +84,7 @@ The following roles provide *update and read-only* access to recommendations:
 - Cloud apps Administrator
 - Apps Administrator
 
-Azure AD recommendations is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
+The Azure AD recommendations feature is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
 
 Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type, but others require the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
 
@@ -116,7 +116,7 @@ The recommendations listed in the following table are available to all Azure AD 
     
     ![Screenshot of the status options for a resource.](./media/overview-recommendations/resource-mark-as-option.png)
 
-1. The recommendation service will automatically mark the recommendation as complete, but if you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
+1. The recommendation service automatically marks the recommendation as complete, but if you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
 
     ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/overview-recommendations/recommendations-object.png)
 
