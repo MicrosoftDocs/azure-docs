@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 02/14/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
