@@ -16,20 +16,11 @@ ms.author: pafarley
 > [!IMPORTANT]
 > Select the Image Analysis API version that best fits your requirements.
 >
-> | Version | Features available | Recommendation |
-> |----------|--------------|-------------------------|
-> | v4.0 | Tags, Objects, Descriptions, People, Read text, Smart crop | Better models; use version 4.0 if it supports your use case. |
-> | v3.2 | Tags, Objects, Descriptions, Brands, Faces, Image type, Color scheme, Landmarks, Celebrities, Adult content, Smart crop,  | Wider range of features; use version 3.2 if your use case is not yet supported in version 4.0 |
+> | Version | Features available | Recommendation&nbsp;|
+> |:----------|--------------|-------------------------|
+> | version&nbsp;4.0 | Read text, Captions, Tags, Object detection, Custom image classification / object detection, People, Smart crop | Better models; use version 4.0 if it supports your use case. |
+> | version&nbsp;3.2 | Tags, Objects, Descriptions, Brands, Faces, Image type, Color scheme, Landmarks, Celebrities, Adult content, Smart crop | Wider range of features; use version 3.2 if your use case is not yet supported in version 4.0 |
 > 
-> We recommend you use the Image Analysis 4.0 API, except in the following cases:
-> * You want to use any of the Image Analysis features that are only available in Image Analysis 3.2:
->    * Brand detection
->    * Image categorization
->    * Face detection
->    * Get thumbnail
->    * Landmark detection
->    * Celebrity recognition
->    * Image type analysis
->    * Color scheme analysis
->    * Adult content detection
-> * You want to do image captioning and your Azure Computer Vision resource is outside the 4.0-supported regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US. The image captioning feature in Image Analysis 4.0 is only supported in these Azure regions. Image captioning in version 3.2 is available in all Computer Vision regions.
+> We recommend you use the Image Analysis 4.0 API if it supports your use case. Use version 3.2 if your use case is not yet supported by 4.0.
+>
+> You'll also need to use version 3.2 if you want to do image captioning and your Azure Computer Vision resource is outside these Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US. The image captioning feature in Image Analysis 4.0 is only supported in these Azure regions. Image captioning in version 3.2 is available in all Computer Vision regions.
