@@ -28,6 +28,7 @@ The Genomics Data Lake is hosted in the West US 2 and West Central US Azure regi
 | [OpenCravat](dataset-open-cravat.md) | OpenCravat: Open Custom Ranked Analysis of Variants Toolkit |
 | [ENCODE](dataset-encode.md) | ENCODE: Encyclopedia of DNA Elements |
 | [GATK Resource Bundle](dataset-gatk-resource-bundle.md) | GATK Resource bundle |
+| [TCGA Open Data](dataset-tcga.md) | TCGA Open Data |
 
 ## Next steps
 
