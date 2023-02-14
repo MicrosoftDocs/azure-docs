@@ -294,7 +294,7 @@ kubectl delete pod pod-name
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
 [cloud-hypervisor]: https://www.cloudhypervisor.org
-kata-container]: https://katacontainers.io 
+[kata-container]: https://katacontainers.io 
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azu
