@@ -138,10 +138,7 @@ ANALYZE VERBOSE
 
 ## Next steps
 
-- To learn how to create and populate Azure AD, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-- To learn how to manage Azure AD users for Flexible Server, see [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
+- Learn about [business continuity](./concepts-business-continuity.md).
+- Learn about [zone-redundant high availability](./concepts-high-availability.md).
+- Learn about [backup and recovery](./concepts-backup-restore.md).
 
-<!--Image references-->
-
-[1]: ./media/concepts-azure-ad-authentication/authentication-flow.png
-[2]: ./media/concepts-azure-ad-authentication/admin-structure.png
