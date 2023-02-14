@@ -14,7 +14,7 @@ zone_pivot_groups: node-functions-model
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
+In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function orchestrates and chains together calls to other functions. You then publish the function code to Azure.
 
 
 >[!NOTE]
@@ -143,7 +143,7 @@ Next, you'll add the referenced `Hello` activity function.
     | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
 Finally, you'll add an HTTP triggered function that starts the orchestration.
 
@@ -165,8 +165,8 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 ::: zone-end
 ::: zone pivot="node-model-v4"
 
-One of the benefits of the V4 Programming Model is the flexibity of where you write your functions.
-In the V4 Model, you use a template to create all 3 functions in one file in your project.
+One of the benefits of the V4 Programming Model is the flexibility of where you write your functions.
+In the V4 Model, you use a template to create all three functions in one file in your project.
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
@@ -178,11 +178,11 @@ In the V4 Model, you use a template to create all 3 functions in one file in you
     | Choose a durable storage type | Azure Storage (Default) | Select the storage backend used for Durable Functions. |
     | Provide a function name | durableHello1 | Name used for your durable functions |
 
-Open *src/functions/durableHello1.js* to view the functions you just created.
+Open *src/functions/durableHello1.js* to view the functions you created.
 
 You've created an orchestrator called `durableHello1Orchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `durableHello1`.
 
-You've also added the `durableHello1` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You've also added the `durableHello1` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
 Lastly, you've also added an HTTP triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
@@ -232,7 +232,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   The request queries the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
 
     ::: zone pivot="node-model-v3"
     ```json
@@ -271,7 +271,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     ```
     ::: zone-end
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+2. To stop debugging, press **Shift + F5** in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
