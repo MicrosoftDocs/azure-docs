@@ -91,9 +91,9 @@ git clone https://github.com/Azure-Samples/azure-spring-boot-samples.git
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app](#run-the-app).
 
-# [Passwordless (Recommended)](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
-[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+ [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
 ### Application configuration file
 
@@ -121,113 +121,37 @@ After creating the Azure Cosmos DB account, database and container, Spring Boot/
 
 The sample code has already been added, you don't need to add any code.
 
-# [Password](#tab/password)
+## [Password](#tab/password)
 
 ### Application configuration file
 
 Here we showcase how Spring Boot and Spring Data enhance user experience - the process of establishing an Azure Cosmos DB client and connecting to Azure Cosmos DB resources is now config rather than code. At application startup Spring Boot handles all of this boilerplate using the settings in **application.yml**:
 
 ```yaml
-cosmos:
-  uri: ${ACCOUNT_HOST}
-  key: ${ACCOUNT_KEY}
-  secondaryKey: ${SECONDARY_ACCOUNT_KEY}
-  queryMetricsEnabled: true # Populate query metrics
-dynamic:
-  collection:
-    name: spel-property-collection
+spring:
+  cloud:
+    azure:
+      cosmos:
+        key: ${AZURE_COSMOS_KEY}
+        endpoint: ${AZURE_COSMOS_ENDPOINT}
+        database: ${COSMOS_DATABASE}
 ```
 
 Once you create an Azure Cosmos DB account, database, and container, just fill-in-the-blanks in the config file and Spring Boot/Spring Data will automatically do the following: (1) create an underlying Java SDK `CosmosClient` instance with the URI and key, and (2) connect to the database and container. You're all set - **no more resource management code!**
 
 ### Java source
 
-The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Data Azure Cosmos DB.
-
-1. Create a new Java file named *MessageProperties.java* as an entity stored in Azure Cosmos DB. The following code ignores the `getters` and `setters` methods.
-
-    ```java
-    import org.springframework.boot.context.properties.ConfigurationProperties;
-    
-    @ConfigurationProperties(prefix = "cosmos")
-    public class CosmosProperties {
-    
-        private String uri;
-    
-        private String key;
-    
-        private String secondaryKey;
-    
-        private boolean queryMetricsEnabled;
-    }
-    ```
-
-1. Create a new Java file named *AzureCosmosDbConfiguration.java*. It is used to create a client to connect to Cosmos DB.
-
-    ```java
-    import com.azure.cosmos.CosmosClientBuilder;
-    import com.azure.cosmos.DirectConnectionConfig;
-    import com.azure.spring.data.cosmos.config.AbstractCosmosConfiguration;
-    import com.azure.spring.data.cosmos.config.CosmosConfig;
-    import com.azure.spring.data.cosmos.core.ResponseDiagnostics;
-    import com.azure.spring.data.cosmos.core.ResponseDiagnosticsProcessor;
-    import com.azure.spring.data.cosmos.repository.config.EnableReactiveCosmosRepositories;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.boot.context.properties.EnableConfigurationProperties;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
-    import org.springframework.context.annotation.PropertySource;
-    import org.springframework.lang.Nullable;
-    
-    @Configuration
-    @EnableConfigurationProperties(CosmosProperties.class)
-    @EnableReactiveCosmosRepositories
-    @PropertySource("classpath:application.yml")
-    public class AzureCosmosDbConfiguration extends AbstractCosmosConfiguration {
-        private static final Logger logger = LoggerFactory.getLogger(AzureCosmosDbConfiguration.class);
-    
-        @Autowired
-        private CosmosProperties properties;
-    
-        @Bean
-        public CosmosClientBuilder cosmosClientBuilder() {
-            DirectConnectionConfig directConnectionConfig = DirectConnectionConfig.getDefaultConfig();
-            return new CosmosClientBuilder()
-                .endpoint(properties.getUri())
-                .key(properties.getKey())
-                .directMode(directConnectionConfig);
-        }
-    
-        @Bean
-        public CosmosConfig cosmosConfig() {
-            return CosmosConfig.builder()
-                               .responseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation())
-                               .enableQueryMetrics(properties.isQueryMetricsEnabled())
-                               .build();
-        }
-    
-        @Override
-        protected String getDatabaseName() {
-            return "testdb";
-        }
-    
-        private static class ResponseDiagnosticsProcessorImplementation implements ResponseDiagnosticsProcessor {
-    
-            @Override
-            public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
-                logger.info("Response Diagnostics {}", responseDiagnostics);
-            }
-        }
-    }
-    ```
+The sample code has already been added, you don't need to add any code.
 
 ---
+
 
 ## Run the app
 
 Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
+
+>[!TIP]
+> Before starting the following sections, replace the variables in *application.yml* with real values. If you use Passwordless authentication, use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication.
 
 1. In the git terminal window, `cd` to the sample code folder.
 
