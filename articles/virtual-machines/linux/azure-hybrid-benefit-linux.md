@@ -82,7 +82,7 @@ To start using Azure Hybrid Benefit for SUSE:
 
 In the Azure portal, you can enable Azure Hybrid Benefit on existing virtual machines or on new virtual machines at the time that you create them.
 
-### Enable PAYG Azure Hybrid Benefit on an existing virtual machine in the Azure portal
+#### Enable PAYG Azure Hybrid Benefit on an existing virtual machine in the Azure portal
 
 To enable Azure Hybrid Benefit on an existing virtual machine:
 
@@ -92,7 +92,7 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 ![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-### Enable PAYG Azure Hybrid Benefit when creating a virtual machine in the Azure portal
+#### Enable PAYG Azure Hybrid Benefit when creating a new virtual machine in the Azure portal
 
 To enable Azure Hybrid Benefit when you create a virtual machine, use the following procedure. (The SUSE workflow is the same as the RHEL example shown here.)
 
@@ -112,7 +112,7 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
 You can use the `az vm update` command to update existing virtual machines. For RHEL virtual machines, run the command with a `--license-type` parameter of `RHEL_BYOS`. For SLES virtual machines, run the command with a `--license-type` parameter of `SLES_BYOS`.
 
-### Enable PAYG Azure Hybrid Benefit using the Azure CLI
+#### Enable PAYG Azure Hybrid Benefit using the Azure CLI
 ```azurecli
 # This will enable Azure Hybrid Benefit on a RHEL virtual machine
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
@@ -120,7 +120,7 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 # This will enable Azure Hybrid Benefit on a SLES virtual machine
 az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 ```
-### Disable PAYG Azure Hybrid Benefit using the Azure CLI
+#### Disable PAYG Azure Hybrid Benefit using the Azure CLI
 To disable Azure Hybrid Benefit, use a `--license-type` value of `None`:
 
 ```azurecli
@@ -128,7 +128,7 @@ To disable Azure Hybrid Benefit, use a `--license-type` value of `None`:
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-### Enable PAYG Azure Hybrid Benefit on a large number of virtual machines using the Azure CLI
+#### Enable PAYG Azure Hybrid Benefit on a large number of virtual machines using the Azure CLI
 To enable Azure Hybrid Benefit on a large number of virtual machines, you can use the `--ids` parameter in the Azure CLI:
 
 ```azurecli
@@ -232,8 +232,6 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 1. You should now be connected to the SUSE public cloud update infrastructure on Azure. The relevant repositories will be installed on your machine.
 
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action will remove all repositories from your virtual machine and stop the billing.
-
-### RHEL - BYOS Azure Hybrid Benefit
 
 After you successfully install the `AHBForRHEL` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
 
