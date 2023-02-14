@@ -3,19 +3,21 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 12/07/2021
-# To add: close and reopen, review request status, update contact info
+ms.date: 09/01/2022
 ---
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com). You can also create and manage requests programmatically by using the [Azure support ticket REST API](/rest/api/support) or [Azure CLI](/cli/azure/azure-cli-support-request). Additionally, you can view your open requests in the [Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com).
+
+> [!TIP]
+> You can create and manage requests programmatically by using the [Azure support ticket REST API](/rest/api/support) or [Azure CLI](/cli/azure/azure-cli-support-request). Additionally, you can view open requests, reply to your support engineer, or edit the severity of your ticket in the [Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 To manage a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ## View support requests
 
-View the details and status of support requests by going to **Help + support** >  **All support requests**.
+View the details and status of support requests by going to **Help + support** >  **All support requests** in the Azure portal.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="All support requests":::
 
@@ -64,13 +66,11 @@ To change your **Advanced diagnostic information** selection after the request h
 
 ## Upload files
 
-You can use the file upload option to upload diagnostic files or any other files that you think are relevant to a support request.
+You can use the file upload option to upload a diagnostic file, such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
 
 1. On the **All support requests** page, select the support request.
 
-1. On the **Support Request** page, browse to find your file, then select **Upload**. Repeat the process if you have multiple files.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Upload file":::
+1. On the **Support Request** page, select the **File upload** box, then browse to find your file and select **Upload**.
 
 ### File upload guidelines
 
@@ -78,40 +78,9 @@ Follow these guidelines when you use the file upload option:
 
 - To protect your privacy, don't include personal information in your upload.
 - The file name must be no longer than 110 characters.
-- You can't upload more than one file.
+- You can't upload more than one file. To include multiple different files, package them together in a compressed format such as .zip.
 - Files can't be larger than 4 MB.
-- All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
-
-| 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
-|-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | .dat  | .har        | .odx  | .rar     | .uccapilog | .xlam   |
-| .a          | .db   | .hwl        | .oft  | .rdl     | .uccplog   | .xlr    |
-| .abc        | .DMP  | .ics        | .old  | .rdlc    | .udcx      | .xls    |
-| .adm        | .do_  | .ini        | .one  | .re_     | .vb_       | .xlsb   |
-| .aspx       | .doc  | .java       | .osd  | .remove  | .vbs_      | .xlsm   |
-| .ATF        | .docm | .jpg        | .OUT  | .ren     | .vcf       | .xlsx   |
-| .b          | .docx | .LDF        | .p1   | .rename  | .vsd       | .xlt    |
-| .ba_        | .dotm | .letterhead | .pcap | .rft     | .wdb       | .xltx   |
-| .bak        | .dotx | .lo_        | .pdb  | .rpt     | .wks       | .xml    |
-| .blg        | .dtsx | .log        | .pdf  | .rte     | .wma       | .xmla   |
-| .CA_        | .eds  | .lpk        | .piz  | .rtf     | .wmv       | .xps    |
-| .CAB        | .emf  | .manifest   | .pmls | .run     | .wmz       | .xsd    |
-| .cap        | .eml  | .master     | .png  | .saz     | .wps       | .xsn    |
-| .catx       | .emz  | .mdmp       | .potx | .sql     | .wpt       | .xxx    |
-| .CFG        | .err  | .mof        | .ppt  | .sqlplan | .wsdl      | .z_     |
-| .compressed | .etl  | .mp3        | .pptm | .stp     | .wsp       | .z01    |
-| .Config     | .evt  | .mpg        | .pptx | .svclog  | .wtl       | .z02    |
-| .cpk        | .evtx | .ms_        | .prn  | .tdb     | -          | .zi     |
-| .cpp        | .EX   | .msg        | .psf  | .tdf     | -          | .zi_    |
-| .cs         | .ex_  | .mso        | .pst  | .text    | -          | .zip    |
-| .CSV        | .ex0  | .msu        | .pub  | .thmx    | -          | .zip_   |
-| .cvr        | .FRD  | .nfo        | -     | .tif     | -          | .zipp   |
-| -           | .gif  | -           | -     | .trc     | -          | .zipped |
-| -           | .guid | -           | -     | .TTD     | -          | .zippy  |
-| -           | .gz   | -           | -     | .tx_     | -          | .zipx   |
-| -           | -     | -           | -     | .txt     | -          | .zit    |
-| -           | -     | -           | -     | -        | -          | .zix    |
-| -           | -     | -           | -     | -        | -          | .zzz    |
+- All files must have a valid file name extension, such as *.docx* or *.xlsx*. Most file name extensions are supported, but you can't upload files with the extensions .bat, .cmd, .exe, .ps1, .js, .vbs, .com, .lnk, .reg, .bin,. cpl, .inf, .ins, .isu, .job, .jse, .msi, .msp, .paf, .pif, .rgs, .scr, .sct, .vbe, .vb, .ws, .wsf, or .wsh.
 
 ## Close a support request
 
@@ -123,7 +92,7 @@ To reopen a closed support request, create a [new message](#send-a-message), whi
 
 ## Cancel a support plan
 
-To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal).
 
 ## Next steps
 

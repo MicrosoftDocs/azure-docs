@@ -3,13 +3,13 @@ title: Language Detection language support
 titleSuffix: Azure Cognitive Services
 description: This article explains which natural languages are supported by the Language Detection API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
@@ -19,7 +19,7 @@ Use this article to learn which natural languages are supported by Language Dete
 
 
 > [!NOTE]
-> Languages are added as new [model versions](how-to/call-api.md#specify-the-language-detection-model) are released. The current model version for Language Detection is `2021-01-05`.
+> Languages are added as new [model versions](how-to/call-api.md#specify-the-language-detection-model) are released. The current model version for Language Detection is `2022-10-01`. However, to detect Japanese in better quality, we recommend you use the previous version `2021-11-20`.
 
 The Language Detection feature can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. The returned language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 

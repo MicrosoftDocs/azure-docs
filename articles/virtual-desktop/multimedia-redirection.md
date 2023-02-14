@@ -1,175 +1,209 @@
 ---
-title: Multimedia redirection on Azure Virtual Desktop - Azure
-description: How to use multimedia redirection for Azure Virtual Desktop (preview).
-author: Heidilohr
+title: Use multimedia redirection on Azure Virtual Desktop - Azure
+description: How to use multimedia redirection on Azure Virtual Desktop.
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: helohr
+ms.date: 02/07/2023
+ms.author: daknappe
 manager: femila
 ---
-# Multimedia redirection for Azure Virtual Desktop (preview)
+# Use multimedia redirection on Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Multimedia redirection for Azure Virtual Desktop is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
 
->[!NOTE]
->Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
+> [!NOTE]
+> Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 10 machines. Multimedia redirection requires the Windows Desktop client, version 1.2.2222 or later.
+>Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3916 or later](users/connect-windows.md) with Insider releases enabled. For more information, see [Prerequisites](#prerequisites).
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media element from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on YouTube. To test YouTube within your organization's deployment, you'll need to [enable an extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+## Prerequisites
 
-## Requirements
+Before you can use multimedia redirection on Azure Virtual Desktop, you'll need the following things:
 
-Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
-to do these things:
+- An Azure Virtual Desktop deployment.
+- Microsoft Edge or Google Chrome installed on your session hosts.
+- Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
+- Windows Desktop client, version 1.2.3916 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
-1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 10 or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+## Install the multimedia redirection extension
 
-2. [Create a host pool for your users](create-host-pools-azure-marketplace.md).
+For multimedia redirection to work, there are two parts to install on your session hosts: the host component and the browser extension for Edge or Chrome. You install the host component and browser extension from an MSI file, and you can also get and install the browser extension from Microsoft Edge Add-ons or the Chrome Web Store, depending on which browser you're using.
 
-3. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, set the following registry information:
+### Install the host component
 
-   - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
-   - **Type**: REG_SZ
-   - **Name**: ReleaseRing
-   - **Data**: insider
+To install the host component on your session hosts, you can install the MSI manually on each session host or use your enterprise deployment tool with `msiexec`. To install the MSI manually, you'll need to:
 
-   To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
+1. Sign in to a session host as a local administrator.
 
-4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install the multimedia redirection extensions for your internet browser on your Azure VM. Multimedia redirection for Azure Virtual Desktop currently only supports Microsoft Edge and Google Chrome.
+1. Download the [MMR host MSI installer](https://aka.ms/avdmmr/msi).
 
-## Managing group policies for the multimedia redirection browser extension
+1. Open the file that you downloaded to run the setup wizard.
 
-Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
+1. Follow the prompts. Once it's completed, select **Finish**.
 
-In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
+### Install the browser extension
 
-- You can install the extension without user interaction.
+Next, you'll need to install the browser extension. This is installed on session hosts where you already have Edge or Chrome available. Installing the host component also installs the browser extension. Users will see a prompt that says **New Extension added**. In order to use the app, they'll need to enable the extension. A user can enable the extension by doing the following:
+
+1. Sign in to Azure Virtual Desktop and open Edge or Chrome.
+
+1. At the prompt to enable the extension, select **Turn on extension**. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
+
+   :::image type="content" source="./media/mmr-extension-enable.png" alt-text="A screenshot of the prompt to enable the extension.":::
+
+   >[!IMPORTANT]
+   >If the user selects **Remove extension**, it will be removed from the browser and they will need to add it from Microsoft Edge Add-ons or the Chrome Web Store. To install it again, see [Installing the browser extension manually](#install-the-browser-extension-manually).
+
+You can also automate installing the browser extension from Microsoft Edge Add-ons or the Chrome Web Store for all users by [using Group Policy](#install-the-browser-extension-using-group-policy).
+
+Using Group Policy has the following benefits:
+
+- You can install the extension silently and without user interaction.
 - You can restrict which websites use multimedia redirection.
-- You can pin the extension icon in Google Chrome by default. The extension icon is already pinned by default in Microsoft Edge, so you'll only need to change this setting in Chrome.
+- You can pin the extension icon in Google Chrome by default.
 
-### Configure Microsoft Edge group policies for multimedia redirection
+#### Install the browser extension manually
 
-To configure the group policies, you'll need to edit the Microsoft Edge Administrative Template. You should see the extension configuration options under **Administrative Templates Microsoft Edge Extensions** > **Configure extension management settings**.
+If you need to install the browser extension separately, you can download it from Microsoft Edge Add-ons or the Chrome Web Store.
 
-The following code is an example of a Microsoft Edge group policy that makes the browser install the multimedia redirection extension and only lets multimedia redirection load on YouTube:
+To install the multimedia redirection extension manually, follow these steps:
 
-```cmd
-{ "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } }
-```
+1. Sign in to Azure Virtual Desktop.
 
-To learn more about group policy configuration, see [Microsoft Edge group policy](/DeployEdge/configure-microsoft-edge).
+1. In your browser, open one of the following links, depending on which browser you're using:
 
-### Configure Google Chrome group policies for multimedia redirection
+   - For **Microsoft Edge**: [Microsoft Multimedia Redirection Extension](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
 
-To configure the Google Chrome group policies, you'll need to edit the Google Chrome Administrative Template. You should see the extension configuration options under **Administrative Templates** > **Google** > **Google Chrome Extensions** > **Extension management settings**.
+   - For **Google Chrome**: [Microsoft Multimedia Redirection Extension](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-The following example is much like the code example in [Configure Microsoft Edge group policies for multimedia redirection](#configure-microsoft-edge-group-policies-for-multimedia-redirection). This policy will force the multimedia redirection extension to install with the icon pinned in the top-right menu, and will only allow multimedia redirection to load on YouTube.
+1. Install the extension by selecting **Get** (for Microsoft Edge) or **Add to Chrome** (for Google Chrome), then at the additional prompt, select **Add extension**. Once the installation is finished, you'll see a confirmation message saying that you've successfully added the extension.
 
-```cmd
-{ "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "toolbar_pin": "force_pinned", "update_url": "https://clients2.google.com/service/update2/crx" } }
-```
+#### Install the browser extension using Group Policy
 
-Additional information on configuring [Google Chrome group policy](https://support.google.com/chrome/a/answer/187202#zippy=%2Cwindows).
+You can install the multimedia redirection extension using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or using the Local Group Policy Editor for each session host. This process will change depending on which browser you're using.
 
-## Run the multimedia redirection extension manually on a browser
+# [Edge](#tab/edge)
 
-MMR uses remote apps and the session desktop for Microsoft Edge and Google Chrome browsers. Once you've fulfilled [the requirements](#requirements), open your supported browser. If you didn't install the browsers or extension with a group policy, users will need to manually run the extension. This section will tell you how to manually run the extension in one of the currently supported browsers.
+1. Download and install the Microsoft Edge administrative template by following the directions in [Configure Microsoft Edge policy settings on Windows devices](/deployedge/configure-microsoft-edge#1-download-and-install-the-microsoft-edge-administrative-template)
 
-### Microsoft Edge
-
-To run the extension on Microsoft Edge manually, look for the yellow exclamation mark on the overflow menu. You should see a prompt to enable the Azure Virtual Desktop Multimedia Redirection extension. Select **Enable extension**.
-
-### Google Chrome
-
-To run the extension on Google Chrome manually, look for the notification message that says the new extension was installed, as shown in the following screenshot. 
-
-![A screenshot of the Google Chrome taskbar. There's a notification tab that says "New Extension Added."](media/chrome-notification.png)
-
-Select the notification to allow your users to enable the extension. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
-
-### The multimedia redirection status icon
-
-To quickly tell if multimedia redirection is active in your browser, we've added the following icon states:
-
-| Icon State  | Definition  |
-|-----------------|-----------------|
-| ![The default Azure Virtual Desktop program icon with no status applied.](./media/icon-default.png) | The default icon appearance with no status applied. |
-| ![The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](./media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
-| ![The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](./media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
-
-Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
-
-## Support during public preview
-Microsoft Support is not handling issues for multimedia redirection during public preview.
-
-If you run into any issues, you can tell us in the feedback hub on both the client and VM host.
-
-To send us feedback:
-
-1. Open the **feedback hub** on both the client and server.
-
-2. Select **Report a problem**.
-
-3. Use the same title on both issue reports, but specify where you're submitting the report from by putting either "[Client]" or "[Host]" at the beginning.
-
-    For example, if you're submitting an issue from the client, you'd format it like this:
-
-    >[Client] Title of your report
-
-    If you're submitting an issue from the host, you'd format it like this:
-
-    >[Host] Title of your report
-
-4. In the **Explain in more detail** field, describe the issue you're experiencing. We recommend also including the URL of the video you were watching when the issue happened.
-
-5. Once you're done, select **Next**.
-
-6. Select the **Problem** bubble, then select **Apps** and **Remote Desktop** from the two drop-down menus, as shown in the following screenshot.
-
-    ![A screenshot of the "2. Choose a category" window. The user has selected the Problem bubble, then has selected Apps and Remote Desktop in the drop-down menus below it.](media/problem-category.png)
-
-7. Select **Next**.
-
-8. Check to see if there's a similar issue in the list to the one you plan to submit.
+1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    
-   - If a bubble appears that links to an active bug, make sure the bug's description matches the issue you're reporting. If it does, select the bubble, then select **Link to bug**, as shown in the following screenshot.
+   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   
+   - To configure it locally, open the **Local Group Policy Editor** on the session host.
 
-    ![A screenshot of the "3. Find similar feedback" window. The user has selected the bubble for the option "Link to bug number 32350300 Active."](media/link-to-bug.png)
+1. Go to **Computer Configuration** > **Administrative Templates** > **Microsoft Edge** > **Extensions**.
 
-    - If you don't see a similar issue, select **Make new bug**.
+1. Open the policy setting **Configure extension management settings** and set it to **Enabled**.
 
-    ![A screenshot of the "3. Find similar feedback window." This time, the "Link to bug" option is absent, and the user has instead selected "Make new bug."](media/make-new-bug.png)
+1. In the field for **Configure extension management settings**, enter the following:
 
-9. Select **Next**.
+   ```json
+   { "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } }
+   ```
 
-10. In the **Add more details** window, select **Include data about Remote Desktop (Default)**, then answer all questions with as much detail as possible.
+   You can specify additional parameters to allow or block specific domains. For example, to only allow *youtube.com*, enter the following:
 
-    If you'd like to add a video recording of the issue, select **Include data about Remote Desktop (Default)**, then select the **Start recording** button. While recording, open Remote Desktop and do the process that led to the issue happening. When you're done, return to the browser, then test the video to make sure it recorded properly.
+   ```json
+   { "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } }
+   ```
 
-    Once you're done, agree to send the attached files and diagnostics to Microsoft, then select **Submit**.
+1. Apply the changes by running the following command in Command Prompt or PowerShell on each session host:
 
-### Known issues and limitations
+   ```cmd
+   gpupdate /force
+   ```
 
-The following issues are ones we're already aware of, so you won't need to report them:
+# [Google Chrome](#tab/google-chrome)
 
-- Multimedia redirection only works on the Windows Desktop client, not the web client.
+1. Download and install the Google Chrome administrative template by following the instructions in [Set Chrome Browser policies on managed PCs](https://support.google.com/chrome/a/answer/187202#zippy=%2Cwindows)
 
-- Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
+1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
+   
+   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   
+   - To configure it locally, open the **Local Group Policy Editor** on the session host.
 
-- During public preview, multimedia redirection will be disabled on all sites except YouTube. However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+1. Go to **Computer Configuration** > **Administrative Templates** > **Microsoft Edge** > **Extensions**.
 
-- There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
+1. Open the policy setting **Configure extension management settings** and set it to **Enabled**.
 
-    - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
-    - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
+1. In the field for **Configure extension management settings**, enter the following:
 
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+   ```json
+   { "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "update_url": "https://clients2.google.com/service/update2/crx" } }
+   ```
 
-- When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+   You can specify additional parameters to allow or block specific domains. For example, to only allow *youtube.com* and pin the extension to the toolbar, enter the following:
+
+   ```json
+   { "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "toolbar_pin": "force_pinned", "update_url": "https://clients2.google.com/service/update2/crx" } }
+   ```
+
+1. Apply the changes by running the following command in Command Prompt or PowerShell on each session host:
+
+   ```cmd
+   gpupdate /force
+   ```
+
+---
+
+## Check the extension status
+
+Once you've installed the extension, you can check its status by visiting a website with media content, such as one from the list at [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
+
+:::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the MMR extension in the Microsoft Edge extension bar.":::
+
+Another way you can check the extension status is by selecting the extension icon, then you'll see a list of **Features supported on this website** with a green check mark if the website supports that feature.
+
+## Teams live events
+
+To use multimedia redirection with Teams live events:
+
+1. Sign in to Azure Virtual Desktop.
+
+1. Open the link to the Teams live event in either the Edge or Chrome browser.
+
+1. Make sure you can see a green play icon as part of the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green play icon is there, MMR is enabled for Teams live events.
+
+1. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the native Teams app, MMR won't work.
+
+   :::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
+
+## Enable video playback for all sites
+
+Multimedia redirection is currently limited to the sites listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. However, you can enable video playback for all sites to allow you to test the feature with other websites. To enable video playback for all sites:
+
+1. Select the extension icon in your browser.
+
+1. Select **Show Advanced Settings**.
+
+1. Toggle **Enable video playback for all sites(beta)** to **on**.
+
+## Redirected video outlines
+
+Redirected video outlines will allow you to highlight the currently redirected video elements. When this is enabled, you will see a bright highlighted border around the video element that is being redirected. To enable redirected video outlines:
+
+1. Select the extension icon in your browser.
+
+1. Select **Show Advanced Settings**.
+
+1. Toggle **Redirected video outlines** to **on**. You will need to refresh the webpage for the change to take effect.
+
+### Video status overlay
+
+When you enable video status overlay, you'll see a short message at the top of the video player that indicates the redirection status of the current video. The message will disappear after five seconds.  To enable video status overlay:
+
+1. Select the extension icon in your browser.
+
+2. Select **Show Advanced Settings**.
+
+3. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
 ## Next steps
 
-If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).
+For more information about multimedia redirection and how it works, see [What is multimedia redirection for Azure Virtual Desktop?](multimedia-redirection-intro.md).
+
+To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
+
+If you're interested in learning more about using Teams for Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).

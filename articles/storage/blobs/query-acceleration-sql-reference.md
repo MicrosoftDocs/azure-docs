@@ -2,8 +2,8 @@
 title: Query acceleration SQL language reference
 titleSuffix: Azure Storage
 description: Learn how to use query acceleration sql syntax.
-services: storage
 author: normesta
+
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/09/2020
@@ -240,7 +240,7 @@ A SELECT statement may contain either one or more projection expressions or a si
 |--|--|
 |[COUNT(\*)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
 |[COUNT(expression)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
-|[AVERAGE(expression)](/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
+|[AVG(expression)](/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
 |[MIN(expression)](/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
 |[MAX(expression](/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
 |[SUM(expression)](/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|

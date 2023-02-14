@@ -7,7 +7,7 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -88,6 +88,20 @@ AzureDiagnostics
 | extend kbId_ = tostring(parse_json(properties_s).kbId)
 | where score_ == 0
 | project question_, answer_, score_, kbId_
+```
+
+### Prebuilt question answering inference calls
+
+```kusto
+// Show logs from AzureDiagnostics table 
+// Lists the latest logs in AzureDiagnostics table, sorted by time (latest first). 
+AzureDiagnostics
+| where OperationName == "CustomQuestionAnswering QueryText"
+| extend answer_ = tostring(parse_json(properties_s).answer)
+| extend question_ = tostring(parse_json(properties_s).question)
+| extend score_ = tostring(parse_json(properties_s).score)
+| extend requestid = tostring(parse_json(properties_s)["apim-request-id"])
+| project TimeGenerated, requestid, question_, answer_, score_
 ```
 
 ## Next steps

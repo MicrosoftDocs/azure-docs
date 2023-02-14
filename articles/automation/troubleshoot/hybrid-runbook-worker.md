@@ -78,7 +78,7 @@ You have two options for resolving this issue:
 
 * Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
-### <a name="vm-automatically-dropped"></a>Scenario: Windows Azure VMs automatically dropped from a hybrid worker group
+### <a name="vm-automatically-dropped"></a>Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group
 
 #### Issue
 
@@ -90,7 +90,7 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 #### Resolution
 
-Start the worker machine, and then rereregister it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on the Hybrid Runbook Worker
 
@@ -142,7 +142,7 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ##### Log Analytics gateway not configured
 
-Follow the steps mentioned [here](/azure/azure-monitor/agents/gateway#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
 
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
@@ -346,11 +346,11 @@ To resolve this issue, remove the following registry key, restart `HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python script:
 
 `Failed to deregister worker. [response_status=404]`
 

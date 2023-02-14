@@ -41,6 +41,8 @@ To develop against the Partner API, ExpressRoute partners leverage a test custom
 ### 1. Enlist subscriptions
 
 To request the test partner and test customer setup, enlist two Pay-As-You-Go Azure subscriptions to your ExpressRoute engineering contact:
+* **ExpressRoute_API_Provider_Sub:** This subscription will be used to manage production ExpressRoute circuits created in peering locations.
+
 * **ExpressRoute_API_Dev_Provider_Sub:** This subscription will be used to manage ExpressRoute circuits created in test peering locations on dummy devices and ports.
 
 * **ExpressRoute_API_Dev_Customer_Sub:** This subscription will be used to create ExpressRoute circuits in test peering locations that map to dummy devices and ports.
@@ -62,7 +64,7 @@ The authentication process involves two main steps:
 
 ### 4. Provide Network Contributor permission to the client application
 
-Once authentication has been successfully configured, you need to grant Network Contributor access to your client application, under the Dev_Provider_Sub. To grant permission, sign in to the [Azure portal](https://ms.portal.azure.com/#home) and complete the following steps:
+Once authentication has been successfully configured, you need to grant Network Contributor access to your client application, under the Dev_Provider_Sub. To grant permission, sign in to the [Azure portal](https://portal.azure.com/#home) and complete the following steps:
 
 1. Navigate to Subscriptions and select the Dev_Provider_Sub
 2. Navigate to Access Control (IAM)

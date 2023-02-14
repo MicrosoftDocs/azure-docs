@@ -2,12 +2,12 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 09/28/2022
 ---
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define output values
 
@@ -114,13 +114,9 @@ To get an output value from a module, use the following syntax:
 <module-name>.outputs.<property-name>
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-```bicep
-publicIPAddress: {
-  id: publicIP.outputs.resourceID
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
 
 ## Get output values
 
@@ -146,6 +142,10 @@ az deployment group show \
 ```
 
 ---
+
+## Object sorting in outputs
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Next steps
 

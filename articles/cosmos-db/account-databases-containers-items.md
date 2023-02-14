@@ -1,134 +1,108 @@
 ---
 title: Azure Cosmos DB resource model
-description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos account. 
-author: markjbrown
-ms.author: mjbrown
+description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos DB account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos DB account. 
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/12/2021
-ms.reviewer: sngun
-
+ms.date: 08/03/2022
 ---
 
 # Azure Cosmos DB resource model
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, you should initially create an Azure Cosmos account in your Azure resource group in the required subscription, and then databases, containers, items under it. This article describes the Azure Cosmos DB resource model and different entities in the resource model hierarchy.
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-The Azure Cosmos account is the fundamental unit of global distribution and high availability. Your Azure Cosmos account contains a unique DNS name and you can manage an account by using the Azure portal or the Azure CLI, or by using different language-specific SDKs. For more information, see [how to manage your Azure Cosmos account](how-to-manage-database-account.md). For globally distributing your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single region or multiple write regions. For more information, see [how to add and remove Azure regions to your account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on an account.
+Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, create an Azure Cosmos DB account in an Azure resource group in your subscription. You then create databases and containers within the account.
 
-## Elements in an Azure Cosmos account
+Your Azure Cosmos DB account contains a unique DNS name and can be managed using the Azure portal, ARM or Bicep templates, Azure PowerShell, Azure CLI, or any of the Azure Management SDK's or REST API. For more information, see [how to manage your Azure Cosmos DB account](how-to-manage-database-account.md). For replicating your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single region or multiple write regions. For more information, see [how to add and remove Azure regions to your account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on an account.
 
-An Azure Cosmos container is the fundamental unit of scalability. You can virtually have an unlimited provisioned throughput (RU/s) and storage on a container. Azure Cosmos DB transparently partitions your container using the logical partition key that you specify in order to elastically scale your provisioned throughput and storage.
+## Elements in an Azure Cosmos DB account
 
-Currently, you can create a maximum of 50 Azure Cosmos accounts under an Azure subscription (this is a soft limit that can be increased via support request). A single Azure Cosmos account can virtually manage an unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers. The following image shows the hierarchy of elements in an Azure Cosmos account:
+Currently, you can create a maximum of 50 Azure Cosmos DB accounts under an Azure subscription (this is a soft limit that can be increased via support request). A single Azure Cosmos DB account can virtually manage an unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more databases within your account, then one or more containers to store your data. The following image shows the hierarchy of elements in an Azure Cosmos DB account:
 
-:::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Hierarchy of an Azure Cosmos account" border="false":::
-
-After you create an account under your Azure subscription, you can manage the data in your account by creating databases, containers, and items. 
+:::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Hierarchy of an Azure Cosmos DB account" border="false":::
 
 The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos DB account entities" border="false":::
 
-## Azure Cosmos databases
+## Azure Cosmos DB databases
 
-You can create one or multiple Azure Cosmos databases under your account. A database is analogous to a namespace. A database is the unit of management for a set of Azure Cosmos containers. The following table shows how a database is mapped to various API-specific entities:
+In Azure Cosmos DB, a database is similar to a namespace. A database is simply a group of containers. The following table shows how a database is mapped to various API-specific entities:
 
-| Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Apache Cassandra | API for MongoDB | API for Apache Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos database | Database | Keyspace | Database | Database | NA |
+|Azure Cosmos DB database | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> With Table API accounts, when you create your first table, a default database is automatically created in your Azure Cosmos account.
+> With API for Table accounts, to maintain compatibility with Azure Storage Tables, tables in Azure Cosmos DB are created at the account level.
 
-### Operations on an Azure Cosmos database
+## Azure Cosmos DB containers
 
-You can interact with an Azure Cosmos database with Azure Cosmos APIs as described in the following table:
+An Azure Cosmos DB container is where data is stored. Unlike most relational databases which scale up with larger VM sizes, Azure Cosmos DB scales out. Data is stored on one or more servers, called partitions. To increase throughput or storage, more partitions are added. This provides a virtually an unlimited amount of throughput and storage for a container. When a container is created, you need to supply a partition key. This is a property you select from your documents to store. The value of that property is then used to route data to the partition to be written, updated, or deleted. It can also be used in the WHERE clause in queries for efficient data retrieval.
 
-| Operation | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
-| --- | --- | --- | --- | --- | --- | --- |
-|Enumerate all databases| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Read database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Create new database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Update database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-
-## Azure Cosmos containers
-
-An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partitioning-overview.md). 
+The underlying storage mechanism for data in Azure Cosmos DB is called a physical partition. These can have a throughput amount up to 10,000 RU/s and store up to 50 GB of data. Azure Cosmos DB abstracts this with a logical partition which can store up to 20 GB of data. Logical partitions allow the service to provide greater elasticity and better management of data on the underlying physical partitions as more partitions are added. To learn more about partitioning and partition keys, see [Partition data](partitioning-overview.md).
 
 When you create a container, you configure throughput in one of the following modes:
 
-* **Dedicated provisioned throughput mode**: The throughput provisioned on a container is exclusively reserved for that container and it is backed by the SLAs. To learn more, see [How to provision throughput on a container](how-to-provision-container-throughput.md).
+* **Dedicated throughput**: The throughput provisioned on a container is exclusively reserved for that container. There are two types of dedicated throughput, standard and autoscale. To learn more, see [How to provision throughput on a container](how-to-provision-container-throughput.md).
 
-* **Shared provisioned throughput mode**: These containers share the provisioned throughput with the other containers in the same database (excluding containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared throughput” containers. To learn more, see [How to provision throughput on a database](how-to-provision-database-throughput.md).
+* **Shared throughput**: Here throughput is specified at the database level, then shared with up to 25 containers within the database, (excluding containers that have been configured with dedicated throughput). This can be a good option when all of the containers in the database have similar requests and storage needs or when you don't need predictable performance on the data. To learn more, see [How to provision throughput on a database](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> You can configure shared and dedicated throughput only when creating the database and container. To switch from dedicated throughput mode to shared throughput mode (and vice versa) after the container is created, you have to create a new container and migrate the data to the new container. You can migrate the data by using the Azure Cosmos DB change feed feature.
+> You can not go between dedicated and shared throughput. Containers created in a shared throughput database, cannot be updated to have dedicated throughput. To change a container from shared to dedicated throughput, a new container must be created and data copied to it.
 
-An Azure Cosmos container can scale elastically, whether you create containers by using dedicated or shared provisioned throughput modes.
+Containers are schema-agnostic. Items within a container can have arbitrary schemas or different entities so long as they share the same partition key. For example, an item that represents a customer and one or more items representing all their orders, can be placed in the *same container*. By default, all data added to a container is automatically indexed without requiring explicit indexing. You can customize the indexing for a container by configuring its [indexing policy](index-overview.md).
 
-A container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed without requiring explicit index or schema management. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
+You can set [Time to Live (TTL)](time-to-live.md) on selected items in a container or for the entire container to silently delete those items automatically in the background with unused throughput to avoid impacting performance. However, even if not deleted, any data that has expired will not appear in any reads made. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
-You can set [Time to Live (TTL)](time-to-live.md) on selected items in a container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
-
-You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container.
+Azure Cosmos DB provides a built-in change data capture capability called, [change feed](change-feed.md) that can be used to subscribe to all the changes to data within your container. For more information, see [Change feed in Azure Cosmos DB](change-feed.md).
 
 You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your container.
 
-You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, no new or updated items with values that duplicate the values specified by the unique key constraint can be created. To learn more, see [Unique key constraints](unique-keys.md).
+Data within a container must have a unique `id` property value for each logical partition key value. This can be useful when you want to have a unique constraint within your container.  You can also specify a [unique key constraint](unique-keys.md) on your Azure Cosmos DB container that uses one or more different properties and ensures uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, no new or updated items with values that duplicate the values specified by the unique key constraint can be created. To learn more, see [Unique key constraints](unique-keys.md).
 
 A container is specialized into API-specific entities as shown in the following table:
 
-| Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+|Azure Cosmos DB container | Container | Table | Collection | Graph | Table |
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don’t create two containers with the same name but different casing. Some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
-### Properties of an Azure Cosmos container
+### Properties of an Azure Cosmos DB container
 
-An Azure Cosmos container has a set of system-defined properties. Depending on which API you use, some properties might not be directly exposed. The following table describes the list of system-defined properties:
+An Azure Cosmos DB container has a set of system-defined properties. Depending on which API you use, some properties might not be directly exposed. The following table describes the list of system-defined properties:
 
-| System-defined property | System-generated or user-configurable | Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| System-defined property | System-generated or user-configurable | Purpose | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | System-generated | Unique identifier of container | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Last updated timestamp of the container | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the container | Yes | No | No | No | No |
-|id | User-configurable | User-defined unique name of the container | Yes | Yes | Yes | Yes | Yes |
-|indexingPolicy | User-configurable | Provides the ability to change the index path, index type, and index mode | Yes | No | No | No | Yes |
+|id | User-configurable | Name of the container | Yes | Yes | Yes | Yes | Yes |
+|indexingPolicy | User-configurable | Provides the ability to change indexes | Yes | No | Yes | Yes | Yes |
 |TimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](time-to-live.md). | Yes | No | No | No | Yes |
 |changeFeedPolicy | User-configurable | Used to read changes made to items in a container. For details, see [Change feed](change-feed.md). | Yes | No | No | No | Yes |
 |uniqueKeyPolicy | User-configurable | Used to ensure the uniqueness of one or more values in a logical partition. For more information, see [Unique key constraints](unique-keys.md). | Yes | No | No | No | Yes |
 |AnalyticalTimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](analytical-store-introduction.md). | Yes | No | Yes | No | No |
 
-### Operations on an Azure Cosmos container
+## Azure Cosmos DB items
 
-An Azure Cosmos container supports the following operations when you use any of the Azure Cosmos APIs:
+Depending on which API you use, data can represent either an item in a container, a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos DB item:
 
-| Operation | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
-| --- | --- | --- | --- | --- | --- | --- |
-| Enumerate containers in a database | Yes | Yes | Yes | Yes | NA | NA |
-| Read a container | Yes | Yes | Yes | Yes | NA | NA |
-| Create a new container | Yes | Yes | Yes | Yes | NA | NA |
-| Update a container | Yes | Yes | Yes | Yes | NA | NA |
-| Delete a container | Yes | Yes | Yes | Yes | NA | NA |
-
-## Azure Cosmos items
-
-Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos item:
-
-| Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Item | Row | Document | Node or edge | Item |
+| Azure Cosmos DB item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 
-Every Azure Cosmos item has the following system-defined properties. Depending on which API you use, some of them might not be directly exposed.
+Every Azure Cosmos DB item has the following system-defined properties. Depending on which API you use, some of them might not be directly exposed.
 
-| System-defined property | System-generated or user-configurable| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| System-defined property | System-generated or user-defined | Purpose | API for NoSQL | API for Cassandra | DB API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | System-generated | Unique identifier of the item | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
@@ -138,25 +112,25 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
 
 > [!NOTE]
-> Uniqueness of the `id` property is only enforced within each logical partition. Multiple documents can have the same `id` property with different partition key values.
+> Uniqueness of the `id` property is enforced within each logical partition. Multiple documents can have the same `id` property with different partition key values.
 
 ### Operations on items
 
-Azure Cosmos items support the following operations. You can use any of the Azure Cosmos APIs to perform the operations.
+Azure Cosmos DB items support the following operations. You can use any of the Azure Cosmos DB APIs to perform the operations.
 
-| Operation | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
-| --- | --- | --- | --- | --- | --- | --- |
-| Insert, Replace, Delete, Upsert, Read | No | Yes | Yes | Yes | Yes | Yes |
+| Operation | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
+| --- | --- | --- | --- | --- | --- |
+| Insert, Replace, Delete, Upsert, Read | Yes | Yes | Yes | Yes | Yes |
 
 ## Next steps
 
-Learn how to manage your Azure Cosmos account and other concepts:
+Learn how to manage your Azure Cosmos DB account and other concepts:
 
-* To learn more, see the [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) learn module.
-* [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
+* To learn more, see the [Azure Cosmos DB API for NoSQL](/training/modules/intro-to-azure-cosmos-db-core-api/) training module.
+* [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
-* [VNET service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
-* [IP-firewall for your Azure Cosmos account](how-to-configure-firewall.md)
-* [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
-* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [VNET service endpoint for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
+* [IP-firewall for your Azure Cosmos DB account](how-to-configure-firewall.md)
+* [How-to add and remove Azure regions to your Azure Cosmos DB account](how-to-manage-database-account.md)
+* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

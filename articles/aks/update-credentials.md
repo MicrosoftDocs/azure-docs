@@ -16,6 +16,10 @@ You may also have [integrated your AKS cluster with Azure Active Directory (Azur
 
 Alternatively, you can use a managed identity for permissions instead of a service principal. Managed identities are easier to manage than service principals and do not require updates or rotations. For more information, see [Use managed identities](use-managed-identity.md).
 
+> [!NOTE]
+> - When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command
+> - If you don't specify a service principal with Azure CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used
+
 ## Before you begin
 
 You need the Azure CLI version 2.0.65 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
@@ -37,7 +41,7 @@ To check the expiration date of your service principal, use the [az ad sp creden
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id "$SP_ID" --query "[].endDate" -o tsv
+az ad sp credential list --id "$SP_ID" --query "[].endDateTime" -o tsv
 ```
 
 ### Reset the existing service principal credential
@@ -55,7 +59,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 With a variable set that contains the service principal ID, now reset the credentials using [az ad sp credential reset][az-ad-sp-credential-reset]. The following example lets the Azure platform generate a new secure secret for the service principal. This new secure secret is also stored as a variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name "$SP_ID" --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --id "$SP_ID" --query password -o tsv)
 ```
 
 Now continue on to [update AKS cluster with new service principal credentials](#update-aks-cluster-with-new-service-principal-credentials). This step is necessary for the Service Principal changes to reflect on the AKS cluster.
@@ -67,7 +71,7 @@ If you chose to update the existing service principal credentials in the previou
 To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --role Contributor
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
@@ -103,8 +107,11 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal "$SP_ID" \
-    --client-secret "$SP_SECRET"
+    --client-secret "${SP_SECRET:Q}"
 ```
+
+> [!NOTE]
+> `${SP_SECRET:Q}` escapes any special characters in `SP_SECRET`, which can cause the command to fail. The above example works for Azure Cloud Shell and zsh terminals. For BASH terminals, use `${SP_SECRET@Q}`.
 
 For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 

@@ -1,13 +1,12 @@
 ---
 title: GPU Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of GPU optimized ADH SKUs.
-author: brittanyrowe
-ms.author: brittanyrowe
-ms.reviewer: mimckitt
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+author: vamckMS
+ms.author: vakavuru
+ms.reviewer: mattmcinnes
+ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 01/23/2023
 ---
 
 # GPU Optimized Azure Dedicated Host SKUs
@@ -37,7 +36,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## NVsv3
 ### NVsv3-Type1
 
-The NVsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (E5-2690 v4) processor with NVDIDIA Tesla M60 GPUs and NVIDIA GRID technology. It offers 28 physical cores, 48 vCPUs, and 448 GiB of RAM. The NVsv3-Type1 runs [NVv3-series](nvv3-series.md) VMs.
+The NVsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (E5-2690 v4) processor with NVIDIA Tesla M60 GPUs and NVIDIA GRID technology. It offers 28 physical cores, 48 vCPUs, and 448 GiB of RAM. The NVsv3-Type1 runs [NVv3-series](nvv3-series.md) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a NVsv3-Type1 host.
 

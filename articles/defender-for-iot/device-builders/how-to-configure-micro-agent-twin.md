@@ -1,8 +1,6 @@
 ---
 title: Configure a micro agent twin
 description: Learn how to configure a micro agent twin.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: how-to
 ms.date: 01/16/2022
 ---
@@ -23,7 +21,7 @@ Learn how to configure a micro agent twin.
 
 **To view and update the micro agent twin configuration**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
 1. Search for, and select **IoT Hub**.
 
@@ -45,11 +43,44 @@ Learn how to configure a micro agent twin.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
-1. Change the value of any field by adding the field to the `"desired"` section with the new value.
+1. Change the value of any field by adding the field to the `"desired"` section with the new value. 
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/desired.png" alt-text="Screenshot of the sample output of the module identity twin.":::
 
-    The agent successfully set the new configuration if the value of `"latest_state"`, under the `"reported"` section will show `"success"`.
+    For example:
+
+    ```
+    "desired": {
+        "Baseline_Disabled": false,
+        "Baseline_MessageFrequency": "Low",
+        "Baseline_GroupsDisabled": "",
+        "Baseline_ChecksDisabled": "",
+        "SystemInformation_Disabled": false,
+        "SystemInformation_MessageFrequency": "Low",
+        "SBoM_Disabled": false,
+        "SBoM_MessageFrequency": "Low",
+        "NetworkActivity_Disabled": false,
+        "NetworkActivity_MessageFrequency": "Medium",
+        "NetworkActivity_Devices": "eth0",
+        "NetworkActivity_CacheSize": 256,
+        "Process_Disabled": false,
+        "Process_MessageFrequency": "Medium",
+        "Process_PollingInterval": 100000,
+        "Process_Mode": 1,
+        "Process_CacheSize": 256,
+        "LogCollector_Disabled": false,
+        "LogCollector_MessageFrequency": "Low",
+        "Heartbeat_Disabled": false,
+        "Heartbeat_MessageFrequency": "Low",
+        "Login_Disabled": false,
+        "Login_MessageFrequency": "Medium",
+        "IothubModule_MessageTimeout": 2880,
+        "CollectorsCore_PriorityIntervals": "30,120,1440"
+    }
+    ```
+    For the full list of supported properties, see [Micro agent configurations](concept-micro-agent-configuration.md).
+
+    The agent successfully set the new configuration if the value of `"latest_state"`, under the `"reported"` section shows `"success"`.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/reported-success.png" alt-text="Screenshot of a successful configuration change.":::
 
@@ -57,4 +88,8 @@ Learn how to configure a micro agent twin.
 
 ## Next steps
 
-You learned how to configure a micro agent twin. Continue on to learn about other [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
+You learned how to configure a micro agent twin. For more information about micro agent configurations and event aggregation, see:
+
+- [Micro agent configurations](concept-micro-agent-configuration.md)
+
+- [Micro agent event collection](concept-event-aggregation.md)

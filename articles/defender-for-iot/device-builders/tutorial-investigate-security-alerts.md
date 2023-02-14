@@ -9,12 +9,15 @@ ms.date: 01/13/2022
 
 This tutorial will help you learn how to investigate, and remediate the alerts issued by Defender for IoT. Remediating alerts is the best way to ensure compliance, and protection across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate security alerts
 > - Investigate security alert details
 > - Investigate alerts in Log Analytics workspace
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
 ## Prerequisites
 
@@ -26,9 +29,9 @@ In this tutorial you will learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md)
 
 - You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
 
@@ -40,7 +43,7 @@ The Defender for IoT security alert list displays all of the aggregated security
 
 **To investigate security alerts**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -52,7 +55,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 **To investigate security alert details**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -72,7 +75,7 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
 **To access your alerts in your Log Analytics workspace after configuration**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -82,11 +85,7 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to select to investigate in the log analytics workspace.":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md)
+> Learn how to [integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)

@@ -1,17 +1,16 @@
 ---
 title: Exchange a SAML token issued by Active Directory Federation Services (AD FS) for a Microsoft Graph access token
-titleSuffix: Microsoft identity platform
 description: Learn how to fetch data from Microsoft Graph without prompting an AD FS-federated user for credentials by using the SAML bearer assertion flow.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2022
-ms.author: marsma
-ms.reviewer: hpsin, jelledruyts, paulgarn
+ms.author: owenrichards
+ms.reviewer: nickludwig, jelledruyts, paulgarn
 ---
 
 # Exchange a SAML token issued by AD FS for a Microsoft Graph access token
@@ -38,9 +37,9 @@ The SAML assertion is posted to the OAuth token endpoint. The endpoint processes
 
 ## Register the application with Azure AD
 
-Start by registering the application in the [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
+Start by registering the application in the [portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 
-1. Sign in to the [app registration page of the portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Azure portal. Otherwise we could have used the registrations in Azure AD).
+1. Sign in to the [app registration page of the portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Azure portal. Otherwise we could have used the registrations in Azure AD).
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
     1. **Name** - Enter a meaningful application name that will be displayed to users of the app.
@@ -95,3 +94,5 @@ For more information about app registration and authentication flow, see:
 
 - [Register an application with the Microsoft identity platform](quickstart-register-app.md)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+
+<!-- _This article was originally contributed by [Umesh Barapatre](https://github.com/umeshbarapatre)._ -->

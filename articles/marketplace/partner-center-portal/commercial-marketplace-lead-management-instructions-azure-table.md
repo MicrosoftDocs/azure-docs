@@ -4,9 +4,9 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 12/02/2021
+author: urimsft
+ms.author: uridor
+ms.date: 12/07/2022
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads
@@ -46,7 +46,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
 
-1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
+1. (Optional) From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
@@ -54,7 +54,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 ## (Optional) Use Power Automate to get lead notifications
 
-You can use [Power Automate](/power-automate/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Power Automate](/power-automate/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://make.powerautomate.com/).
 
 ### Lead notification example
 

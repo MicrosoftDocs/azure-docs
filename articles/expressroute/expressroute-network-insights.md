@@ -52,6 +52,10 @@ The *Availability* tab tracks ARP and BGP availability, plotting the data for bo
 
 :::image type="content" source="./media/expressroute-network-insights/arp-bgp-availability.png" alt-text="Screenshot of availability metric graphs." lightbox="./media/expressroute-network-insights/arp-bgp-availability-expanded.png":::
 
+>[!NOTE]
+>During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>
+
 ### Throughput
 
 Similarly, the *Throughput* tab plots the total throughput of ingress and egress traffic for the circuit in bits/second. You can also view throughput for individual connections and each type of configured peering.
@@ -74,7 +78,7 @@ Lastly, the Gateway Metrics tab populates with key metrics charts for a selected
 
 Configure your ExpressRoute connection.
   
-* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../azure-monitor/insights/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
+* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../network-watcher/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
 * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

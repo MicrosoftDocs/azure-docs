@@ -3,7 +3,6 @@ title: Azure Active Directory and transactable SaaS offers in the commercial mar
 description: Learn how Azure Active Directory works with transactable SaaS offers in the Microsoft commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -50,7 +49,6 @@ This table provides details for the purchase management process steps.
 | 2. After purchasing, the buyer selects **Configure account** in Azure Marketplace or **Configure now** in AppSource, which directs the buyer to the publisher’s landing page for this offer. The buyer must be able to sign in to the publisher’s SaaS application with Azure AD SSO and must only be asked for minimal consent that does not require Azure AD administrator approval. | Design a [landing page](azure-ad-transactable-saas-landing-page.md) for the offer so that it receives a user with their Azure AD or Microsoft account (MSA) identity and facilitates any additional provisioning or setup that’s required. | Required |
 | 3. The publisher requests purchase details from the SaaS fulfillment API. | Using an [access token](./partner-center-portal/pc-saas-registration.md) generated from the landing page’s Application ID, [call the resolve endpoint](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) to retrieve specifics about the purchase. | Required |
 | 4. Through Azure AD and the Microsoft Graph API, the publisher gathers the company and user details required to provision the buyer in the publisher’s SaaS application.  | Decompose the Azure AD user token to find name and email, or [call the Microsoft Graph API](/graph/use-the-api) and use delegated permissions to [retrieve information](/graph/api/user-get) about the user who is logged in. | Required |
-||||
 
 ## Process steps for subscription management
 
@@ -64,7 +62,6 @@ This table describes the details about the subscription management process steps
 | ------------ | ------------- | ------------- |
 | 5. The publisher manages the subscription to the SaaS application through the SaaS fulfillment API. | Handle subscription changes and other management tasks through the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md).<br><br>This step requires an access token as described in process step 3. | Required |
 | 6. When using metered pricing, the publisher emits usage events to the metering service API. | If your SaaS app features usage-based billing, make usage notifications through the [Marketplace metering service APIs](marketplace-metering-service-apis.md).<br><br>This step requires an access token as described in Step 3. | Required for metering |
-||||
 
 ## Process steps for user management
 
@@ -79,7 +76,6 @@ Process steps 7 through 9 are optional user management process steps. They provi
 | 7. Azure AD administrators at the buyer’s company can optionally manage access for users and groups through Azure AD. | No publisher action is required to enable this if Azure AD SSO is set up for users (Step 9). | Not applicable |
 | 8. The Azure AD Provisioning Service communicates changes between Azure AD and the publisher’s SaaS application. | [Implement a SCIM endpoint](../active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md) to receive updates from Azure AD as users are added and removed. | Recommended |
 | 9. After the app is permissioned and provisioned, users from the buyer’s company can use Azure AD SSO to log in to the publisher’s SaaS application. | [Use Azure AD SSO](../active-directory/manage-apps/what-is-single-sign-on.md) to enable users to sign in once with one account to the publisher’s SaaS application. | Recommended |
-||||
 
 ## Next steps
 

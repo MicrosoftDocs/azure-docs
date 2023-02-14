@@ -2,11 +2,9 @@
 title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)' 
 description: This tutorial will show you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
@@ -138,7 +136,7 @@ We recommend you ensure only Azure Front Door edges can communicate with your we
 
 ## Clean up resources
 
-When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Front Door, and WAF policy:
+When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \

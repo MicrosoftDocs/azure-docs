@@ -6,272 +6,411 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/29/2021
+ms.date: 02/09/2023
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector multivariate client library for Python. Follow these steps to install the package start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+<a href="/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector" target="_blank">Library reference documentation</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector" target="_blank">Library source code</a> | <a href="https://pypi.org/project/azure-ai-anomalydetector/" target="_blank">Package (PyPi)</a> |<a href="https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py" target="_blank">Find the sample code on GitHub</a>
+
+Get started with the Anomaly Detector multivariate client library for Python. Follow these steps to install the package, and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
 Use the Anomaly Detector multivariate client library for Python to:
 
 * Detect system level anomalies from a group of time series.
-* When any individual time series won't tell you much and you have to look at all signals to detect a problem.
+* When any individual time series won't tell you much, and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
-
-[Library reference documentation](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Sample code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
 
 ## Prerequisites
 
-* [Python 3.x](https://www.python.org/)
-* The [Pandas data analysis library](https://pandas.pydata.org/)
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
-    You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+* <a href="https://www.python.org/" target="_blank">Python 3.x</a>
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+## Set up
 
-## Setting up
-
-### Install the client library
-
-After installing Python, you can install the client libraries with:
+Install the client library. You can install the client library with:
 
 ```console
-pip install pandas
-pip install --upgrade azure-ai-anomalydetector
+pip install --upgrade azure.ai.anomalydetector
 ```
 
-### Create a new python application
+### Create a storage account
 
- Create a new Python file and import the following libraries.
+Multivariate Anomaly Detector requires your sample file to be stored as a .zip file in Azure Blob Storage.
+
+1. Create an <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
+2. Go to Access Control(IAM), and select **ADD** to Add role assignment.
+3. Search role of **Storage Blob Data Reader**, highlight this account type and then select **Next**.
+4. Select **assign access to Managed identity**, and Select **Members**, then choose the **Anomaly Detector resource** that you created earlier, then select **Review + assign**.
+
+This configuration can sometimes be a little confusing, if you have trouble we recommend consulting our [multivariate Jupyter Notebook sample](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/SDK%20Sample/%F0%9F%86%95MVAD-SDK-Demo.ipynb), which walks through this process more in-depth.
+
+### Download sample data
+
+This quickstart uses two files for sample data `sample_data_5_3000.csv` and `5_3000.json`. These files can both be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/)
+
+ You can also download the sample data by running:
+
+```cmd
+curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/sample_data_5_3000.csv" --output sample_data_5_3000_.csv
+```
+
+```cmd
+curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/5_3000.json" --output 5_3000_.json
+```
+
+### Upload sample data to Storage Account
+
+1. Go to your Storage Account, select Containers and create a new container.
+2. Select **Upload** and upload sample_data_5_3000.csv
+3. Select the data that you uploaded and copy the Blob URL as you need to add it to the code sample in a few steps.
+
+## Retrieve key and endpoint
+
+To successfully make a call against the Anomaly Detector service, you need the following values:
+
+|Variable name | Value |
+|--------------------------|-------------|
+| `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+### Create environment variables
+
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
+```
+
+```CMD
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+---
+
+### Create a new Python application
+
+1. Create a new Python file called **sample_multivariate_detect.py**. Then open it up in your preferred editor or IDE.
+
+2. Replace the contents of sample_multivariate_detect.py with the following code. You need to modify the paths for the variables `blob_url_path` and `local_json_file_path`.
 
 ```python
+import json
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 from azure.ai.anomalydetector import AnomalyDetectorClient
-from azure.ai.anomalydetector.models import DetectionRequest, ModelInfo
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
-```
+from azure.ai.anomalydetector.models import *
 
-Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. 
-
-> [!NOTE]
-> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
-
-```python
-subscription_key = "ANOMALY_DETECTOR_KEY"
-anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
-```
+blob_url_path = "Path-to-sample-file-in-your-storage-account"  # example path: https://docstest001.blob.core.windows.net/test/sample_data_5_3000.csv
+local_json_file_path = "Local-path-to-sample-json-file" # example where file is in same local directory as your Python script: "5_3000.json"
 
 
+class MultivariateSample:
+    def __init__(self, subscription_key, anomaly_detector_endpoint):
+        self.sub_key = subscription_key
+        self.end_point = anomaly_detector_endpoint
 
-## Code examples
+        # Create an Anomaly Detector client
 
-These code snippets show you how to do the following with the Anomaly Detector client library for Python:
+        # <client>
+        self.ad_client = AnomalyDetectorClient(self.end_point, AzureKeyCredential(self.sub_key))
+        # </client>
 
-* [Authenticate the client](#authenticate-the-client)
-* [Train the model](#train-the-model)
-* [Detect anomalies](#detect-anomalies)
-* [Export model](#export-model)
-* [Delete model](#delete-model)
+    def list_models(self):
 
-## Authenticate the client
+        # List models
+        models = self.ad_client.list_multivariate_models(skip=0, top=10)
+        return list(models)
 
-To instantiate a new Anomaly Detector client you need to pass the Anomaly Detector subscription key and associated endpoint. We'll also establish a datasource.  
+    def train(self, body):
 
-To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
+        # Number of models available now
+        try:
+            model_list = self.list_models()
+            print("{:d} available models before training.".format(len(model_list)))
 
-Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
+            # Use sample data to train the model
+            print("Training new model...(it may take a few minutes)")
+            model = self.ad_client.train_multivariate_model(body)
+            trained_model_id = model.model_id
+            print("Training model id is {}".format(trained_model_id))
 
-|timestamp | value|
-|-------|-------|
-|2019-04-01T00:00:00Z| 5|
-|2019-04-01T00:01:00Z| 3.6|
-|2019-04-01T00:02:00Z| 4|
-|`...`| `...` |
+            ## Wait until the model is ready. It usually takes several minutes
+            model_status = None
+            model = None
 
-Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
+            while model_status != ModelStatus.READY and model_status != ModelStatus.FAILED:
+                model = self.ad_client.get_multivariate_model(trained_model_id)
+                print(model)
+                model_status = model.model_info.status
+                print("Model is {}".format(model_status))
+                time.sleep(30)
 
-```python
-class MultivariateSample():
+            if model_status == ModelStatus.FAILED:
+                print("Creating model failed.")
+                print("Errors:")
+                if len(model.model_info.errors) > 0:
+                    print(
+                        "Error code: {}. Message: {}".format(
+                            model.model_info.errors[0].code,
+                            model.model_info.errors[0].message,
+                        )
+                    )
+                else:
+                    print("None")
 
-def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
-    self.sub_key = subscription_key
-    self.end_point = anomaly_detector_endpoint
+            if model_status == ModelStatus.READY:
+                # Model list after training
+                model_list = self.list_models()
 
-    # Create an Anomaly Detector client
+                print("Done.\n--------------------")
+                print("{:d} available models after training.".format(len(model_list)))
 
-    # <client>
-    self.ad_client = AnomalyDetectorClient(AzureKeyCredential(self.sub_key), self.end_point)
-    # </client>
+                # Return the latest model id
+            return trained_model_id
+        except HttpResponseError as e:
+            print(
+                "Error code: {}".format(e.error.code),
+                "Error message: {}".format(e.error.message),
+            )
+        except Exception as e:
+            raise e
 
-    self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
-```
-
-## Train the model
-
-We'll first train the model, check the model's status while training to determine when training is complete, and then retrieve the latest model ID which we will need when we move to the detection phase.
-
-```python
-def train(self, start_time, end_time):
-    # Number of models available now
-    model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
-    print("{:d} available models before training.".format(len(model_list)))
-    
-    # Use sample data to train the model
-    print("Training new model...(it may take a few minutes)")
-    data_feed = ModelInfo(start_time=start_time, end_time=end_time, source=self.data_source)
-    response_header = \
-    self.ad_client.train_multivariate_model(data_feed, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
-    trained_model_id = response_header['Location'].split("/")[-1]
-    
-    # Model list after training
-    new_model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
-    
-    # Wait until the model is ready. It usually takes several minutes
-    model_status = None
-    while model_status != ModelStatus.READY and model_status != ModelStatus.FAILED:
-        model_info = self.ad_client.get_multivariate_model(trained_model_id).model_info
-        model_status = model_info.status
-        time.sleep(10)
-
-    if model_status == ModelStatus.FAILED:
-        print("Creating model failed.")
-        print("Errors:")
-        if model_info.errors:
-            for error in model_info.errors:
-                print("Error code: {}. Message: {}".format(error.code, error.message))
-        else:
-            print("None")
         return None
 
-    if model_status == ModelStatus.READY:
-        # Model list after training
-        new_model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
-        print("Done.\n--------------------")
-        print("{:d} available models after training.".format(len(new_model_list)))
+    def batch_detect(self, model_id, body):
 
-    # Return the latest model id
-    return trained_model_id
-```
+        # Detect anomaly in the same data source (but a different interval)
+        try:
+            result = self.ad_client.detect_multivariate_batch_anomaly(model_id, body)
+            result_id = result.result_id
 
-## Detect anomalies
+            # Get results (may need a few seconds)
+            r = self.ad_client.get_multivariate_batch_detection_result(result_id)
+            print("Get detection result...(it may take a few seconds)")
 
-Use the `detect_anomaly` and `get_dectection_result` to determine if there are any anomalies within your datasource. You will need to pass the model ID for the model that you just trained.
+            while r.summary.status != MultivariateBatchDetectionStatus.READY and r.summary.status != MultivariateBatchDetectionStatus.FAILED:
+                r = self.ad_client.get_multivariate_batch_detection_result(result_id)
+                print("Detection is {}".format(r.summary.status))
+                time.sleep(15)
 
-```python
-def detect(self, model_id, start_time, end_time):
-    # Detect anomaly in the same data source (but a different interval)
-    try:
-        detection_req = DetectionRequest(source=self.data_source, start_time=start_time, end_time=end_time)
-        response_header = self.ad_client.detect_anomaly(model_id, detection_req,
-                                                        cls=lambda *args: [args[i] for i in range(len(args))])[-1]
-        result_id = response_header['Location'].split("/")[-1]
-    
-        # Get results (may need a few seconds)
-        r = self.ad_client.get_detection_result(result_id)
-        while r.summary.status != DetectionStatus.READY and r.summary.status != DetectionStatus.FAILED:
-            r = self.ad_client.get_detection_result(result_id)
-            time.sleep(2)
+            if r.summary.status == MultivariateBatchDetectionStatus.FAILED:
+                print("Detection failed.")
+                print("Errors:")
+                if len(r.summary.errors) > 0:
+                    print("Error code: {}. Message: {}".format(r.summary.errors[0].code, r.summary.errors[0].message))
+                else:
+                    print("None")
+                return None
 
-        if r.summary.status == DetectionStatus.FAILED:
-            print("Detection failed.")
-            print("Errors:")
-            if r.summary.errors:
-                for error in r.summary.errors:
-                    print("Error code: {}. Message: {}".format(error.code, error.message))
-            else:
-                print("None")
-            return None
-    except HttpResponseError as e:
-        print('Error code: {}'.format(e.error.code), 'Error message: {}'.format(e.error.message))
-    except Exception as e:
-        raise e
-    return r
-```
+            return r
 
-## Export model
+        except HttpResponseError as e:
+            print(
+                "Error code: {}".format(e.error.code),
+                "Error message: {}".format(e.error.message),
+            )
+        except Exception as e:
+            raise e
 
-> [!NOTE]
-> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+        return None
 
-If you want to export a model use `export_model` and pass the model ID of the model you want to export:
+    def delete_model(self, model_id):
 
-```python
-def export_model(self, model_id, model_path="model.zip"):
+        # Delete the model
+        self.ad_client.delete_multivariate_model(model_id)
+        model_list = self.list_models()
+        print("{:d} available models after deletion.".format(len(model_list)))
 
-    # Export the model
-    model_stream_generator = self.ad_client.export_model(model_id)
-    with open(model_path, "wb") as f_obj:
-        while True:
-            try:
-                f_obj.write(next(model_stream_generator))
-            except StopIteration:
-                break
-            except Exception as e:
-                raise e
-```
+    def last_detect(self, model_id, variables):
 
-## Delete model
+        # Detect anomaly by sync api
+        r = self.ad_client.detect_multivariate_last_anomaly(model_id, variables)
+        print("Get last detection result")
+        return r
 
-To delete a model use `delete_multivariate_model` and pass the model ID of the model you want to delete:
 
-```python
-def delete_model(self, model_id):
+if __name__ == "__main__":
+    SUBSCRIPTION_KEY = os.environ["ANOMALY_DETECTOR_API_KEY"]
+    ANOMALY_DETECTOR_ENDPOINT = os.environ["ANOMALY_DETECTOR_ENDPOINT"]
 
-    # Delete the mdoel
-    self.ad_client.delete_multivariate_model(model_id)
-    model_list_after_delete = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
-    print("{:d} available models after deletion.".format(len(model_list_after_delete)))
+    ## Create a new sample and client
+    sample = MultivariateSample(SUBSCRIPTION_KEY, ANOMALY_DETECTOR_ENDPOINT)
+
+    # Train a new model
+    time_format = "%Y-%m-%dT%H:%M:%SZ"
+    blob_url = blob_url_path 
+    train_body = ModelInfo(
+        data_source=blob_url,
+        start_time=datetime.strptime("2021-01-02T00:00:00Z", time_format),
+        end_time=datetime.strptime("2021-01-02T05:00:00Z", time_format),
+        data_schema="OneTable",
+        display_name="sample",
+        sliding_window=200,
+        align_policy=AlignPolicy(
+            align_mode=AlignMode.OUTER,
+            fill_n_a_method=FillNAMethod.LINEAR,
+            padding_value=0,
+        ),
+    )
+    model_id = sample.train(train_body)
+
+    # Batch Inference
+    batch_inference_body = MultivariateBatchDetectionOptions(
+        data_source=blob_url,
+        top_contributor_count=10,
+        start_time=datetime.strptime("2021-01-02T00:00:00Z", time_format),
+        end_time=datetime.strptime("2021-01-02T05:00:00Z", time_format),
+    )
+    result = sample.batch_detect(model_id, batch_inference_body)
+    assert result is not None
+
+    print("Result ID:\t", result.result_id)
+    print("Result status:\t", result.summary.status)
+    print("Result length:\t", len(result.results))
+
+    # See detailed inference result
+    for r in result.results:
+        print(
+            "timestamp: {}, is_anomaly: {:<5}, anomaly score: {:.4f}, severity: {:.4f}, contributor count: {:<4d}".format(
+                r.timestamp,
+                r.value.is_anomaly,
+                r.value.score,
+                r.value.severity,
+                len(r.value.interpretation) if r.value.is_anomaly else 0,
+            )
+        )
+        if r.value.interpretation:
+            for contributor in r.value.interpretation:
+                print(
+                    "\tcontributor variable: {:<10}, contributor score: {:.4f}".format(
+                        contributor.variable, contributor.contribution_score
+                    )
+                )
+
+    # *******************************************************************************************************************
+    # Use your own inference data sending to last detection api, you should define your own variables and detectingPoints
+    # *****************************************************************************************************************
+    # define "<YOUR OWN variables>"
+    # variables = [
+    #    {
+    #        "name": "variables_name1",
+    #        "timestamps": ['2021-01-01T00:00:00Z', '2021-01-01T00:01:00Z', ...],
+    #        "values": [0, 0, ...]
+    #    },
+    #    {
+    #        "name": "variables_name2",
+    #        "timestamps": ['2021-01-01T00:00:00Z', '2021-01-01T00:01:00Z', ...],
+    #        "values": [0, 0, ...]
+    #    }
+    # ]
+
+    # Last detection
+    with open(local_json_file_path) as f:
+        variables_data = json.load(f)
+
+    variables = []
+    for item in variables_data["variables"]:
+        variables.append(
+            VariableValues(
+                variable=item["variable"],
+                timestamps=item["timestamps"],
+                values=item["values"],
+            )
+        )
+
+    last_inference_body = MultivariateLastDetectionOptions(
+        variables=variables,
+        top_contributor_count=10,
+    )
+    last_detect_result = sample.last_detect(model_id, last_inference_body)
+
+    assert last_detect_result is not None
+
+    print("Variable States:\t", last_detect_result.variable_states)
+    print("Variable States length:\t", len(last_detect_result.variable_states))
+    print("Results:\t", last_detect_result.results)
+    print("Results length:\t", len(last_detect_result.results))
+
+    # Delete model
+    sample.delete_model(model_id)
 ```
 
 ## Run the application
 
-Before you run the application we need to add some code to call our newly created functions.
+Run the application with the `python` command on your quickstart file.
 
-```python
-if __name__ == '__main__':
-    subscription_key = "ANOMALY_DETECTOR_KEY"
-    anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
-
-    # Create a new sample and client
-    sample = MultivariateSample(subscription_key, anomaly_detector_endpoint, data_source=None)
-
-    # Train a new model
-    model_id = sample.train(datetime(2021, 1, 1, 0, 0, 0), datetime(2021, 1, 2, 12, 0, 0))
-
-    # Reference
-    result = sample.detect(model_id, datetime(2021, 1, 2, 12, 0, 0), datetime(2021, 1, 3, 0, 0, 0))
-    print("Result ID:\t", result.result_id)
-    print("Result summary:\t", result.summary)
-    print("Result length:\t", len(result.results))
-
-    # Export model
-    sample.export_model(model_id, "model.zip")
-
-    # Delete model
-    sample.delete_model(model_id)
-
+```console
+python sample_multivariate_detect.py
 ```
 
-Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
+### Output
 
-We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
+```console
+10 available models before training.
+Training new model...(it may take a few minutes)
+Training model id is 3a695878-a88f-11ed-a16c-b290e72010e0
+{'modelId': '3a695878-a88f-11ed-a16c-b290e72010e0', 'createdTime': '2023-02-09T15:34:23Z', 'lastUpdatedTime': '2023-02-09T15:34:23Z', 'modelInfo': {'dataSource': 'https://docstest001.blob.core.windows.net/test/sample_data_5_3000 (1).csv', 'dataSchema': 'OneTable', 'startTime': '2021-01-02T00:00:00Z', 'endTime': '2021-01-02T05:00:00Z', 'displayName': 'sample', 'slidingWindow': 200, 'alignPolicy': {'alignMode': 'Outer', 'fillNAMethod': 'Linear', 'paddingValue': 0.0}, 'status': 'CREATED', 'errors': [], 'diagnosticsInfo': {'modelState': {'epochIds': [], 'trainLosses': [], 'validationLosses': [], 'latenciesInSeconds': []}, 'variableStates': []}}}
+Model is CREATED
+{'modelId': '3a695878-a88f-11ed-a16c-b290e72010e0', 'createdTime': '2023-02-09T15:34:23Z', 'lastUpdatedTime': '2023-02-09T15:34:55Z', 'modelInfo': {'dataSource': 'https://docstest001.blob.core.windows.net/test/sample_data_5_3000 (1).csv', 'dataSchema': 'OneTable', 'startTime': '2021-01-02T00:00:00Z', 'endTime': '2021-01-02T05:00:00Z', 'displayName': 'sample', 'slidingWindow': 200, 'alignPolicy': {'alignMode': 'Outer', 'fillNAMethod': 'Linear', 'paddingValue': 0.0}, 'status': 'READY', 'errors': [], 'diagnosticsInfo': {'modelState': {'epochIds': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'trainLosses': [1.0493712276220322, 0.5454281121492386, 0.42524269968271255, 0.38019897043704987, 0.3472398854792118, 0.34301353991031647, 0.3219067454338074, 0.3108387663960457, 0.30357857793569565, 0.29986055195331573], 'validationLosses': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'latenciesInSeconds': [0.3412797451019287, 0.25798678398132324, 0.2556419372558594, 0.3165152072906494, 0.2748451232910156, 0.26111531257629395, 0.2571413516998291, 0.257282018661499, 0.2549862861633301, 0.25806593894958496]}, 'variableStates': [{'variable': 'series_0', 'filledNARatio': 0.0, 'effectiveCount': 301, 'firstTimestamp': '2021-01-02T00:00:00Z', 'lastTimestamp': '2021-01-02T05:00:00Z'}, {'variable': 'series_1', 'filledNARatio': 0.0, 'effectiveCount': 301, 'firstTimestamp': '2021-01-02T00:00:00Z', 'lastTimestamp': '2021-01-02T05:00:00Z'}, {'variable': 'series_2', 'filledNARatio': 0.0, 'effectiveCount': 301, 'firstTimestamp': '2021-01-02T00:00:00Z', 'lastTimestamp': '2021-01-02T05:00:00Z'}, {'variable': 'series_3', 'filledNARatio': 0.0, 'effectiveCount': 301, 'firstTimestamp': '2021-01-02T00:00:00Z', 'lastTimestamp': '2021-01-02T05:00:00Z'}, {'variable': 'series_4', 'filledNARatio': 0.0, 'effectiveCount': 301, 'firstTimestamp': '2021-01-02T00:00:00Z', 'lastTimestamp': '2021-01-02T05:00:00Z'}]}}}
+Model is READY
+Done.
+--------------------
+10 available models after training.
+Get detection result...(it may take a few seconds)
+Detection is CREATED
+Detection is READY
+Result ID:	 70a6cdf8-a88f-11ed-a461-928899e62c38
+Result status:	 READY
+Result length:	 301
+timestamp: 2021-01-02 00:00:00+00:00, is_anomaly: 0    , anomaly score: 0.1770, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:01:00+00:00, is_anomaly: 0    , anomaly score: 0.3446, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:02:00+00:00, is_anomaly: 0    , anomaly score: 0.2397, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:03:00+00:00, is_anomaly: 0    , anomaly score: 0.1270, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:04:00+00:00, is_anomaly: 0    , anomaly score: 0.3321, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:05:00+00:00, is_anomaly: 0    , anomaly score: 0.4053, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:06:00+00:00, is_anomaly: 0    , anomaly score: 0.4371, severity: 0.0000, contributor count: 0   
+timestamp: 2021-01-02 00:07:00+00:00, is_anomaly: 1    , anomaly score: 0.6615, severity: 0.3850, contributor count: 5   
+	contributor variable: series_3  , contributor score: 0.2939
+	contributor variable: series_1  , contributor score: 0.2834
+	contributor variable: series_4  , contributor score: 0.2329
+	contributor variable: series_0  , contributor score: 0.1543
+	contributor variable: series_2  , contributor score: 0.0354
+```
 
-Run the application with the `python` command and your file name.
-
+The output results have been truncated for brevity.
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Next steps
-
-* [What is the Anomaly Detector API?](../../overview-multivariate.md)
-* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

@@ -4,6 +4,7 @@ description: Learn how to set a compatibility level for an Azure Stream Analytic
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---
@@ -30,7 +31,7 @@ When you create a new Stream Analytics job, it's a best practice to create it by
 
 ## Set the compatibility level
 
-You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
+You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2020-03-01/streaming-jobs/create-or-replace#compatibilitylevel).
 
 To update the compatibility level of the job in the Azure portal:
 
@@ -70,11 +71,11 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **1.2 level:** If query logic can be parallelized across input source partitions, Azure Stream Analytics creates separate query instances and runs computations in parallel.
 
-### Native Bulk API integration with CosmosDB output
+### Native Bulk API integration with Azure Cosmos DB output
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
+**1.2 level:** Native Bulk API integration with Azure Cosmos DB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 
@@ -106,7 +107,7 @@ Adding a prefix to built-in aggregates also results in error. For example, `mypr
 
 Using the prefix "system" for any user-defined functions results in error.
 
-### Disallow Array and Object as key properties in Cosmos DB output adapter
+### Disallow Array and Object as key properties in Azure Cosmos DB output adapter
 
 **Previous levels:** Array and Object types were supported as a key property.
 

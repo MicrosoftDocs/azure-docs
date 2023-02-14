@@ -1,16 +1,14 @@
 ---
 title: Microsoft Sentinel data source schema reference
 description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ms.date: 11/09/2021
 ---
 
 # Data source schema reference
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists supported Azure and third-party data source schemas, with links to their reference documentation.
 
@@ -21,14 +19,14 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Azure**                            | Azure Active Directory | SigninEvents           | [Azure AD activity reports sign-in properties](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Azure Monitor AuditLogs reference](/azure/azure-monitor/reference/tables/auditlogs) |
 | **Azure**                            | Azure Active Directory | AzureActivity          | [Azure Monitor AzureActivity reference](/azure/azure-monitor/reference/tables/azureactivity) |
-| **Azure**                            | Office                 | OfficeActivity         | Office 365 Management Activity API schemas: <br>- [Common schema ](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange Admin schema ](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange Mailbox schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint Base schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint file operations](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
+| **Azure**                            | Office                 | OfficeActivity         | Office 365 Management Activity API schemas: <br>- [Common schema](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange Admin schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange Mailbox schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint Base schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint file operations](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
 | **Azure**                            | Azure Key Vault         | AzureDiagnostics       | [Azure Monitor AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) |
 | **Host**                             | Linux                  | Syslog                 | [Azure Monitor Syslog reference](/azure/azure-monitor/reference/tables/syslog) |
 | **Network**                          | IIS Logs               | W3CIISLog              | [Azure Monitor W3CIISLog reference](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [Azure Monitor VMConnection reference](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Wire Data Solution     | WireData               | [Azure Monitor WireData reference](/azure/azure-monitor/reference/tables/wiredata) |
 | **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](../network-watcher/traffic-analytics-schema.md) |
-| | | | |
+
 
 > [!NOTE]
 > For more information, see the entire [Azure Monitor data reference](/azure/azure-monitor/reference/).
@@ -52,8 +50,8 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	F5	| BigIP ASM|	CommonSecurityLog|	[Logging Application Security Events](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/14.html)                                                           |
 | **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
-|**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
-| | | | | |
+|**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/appendices/syslog-mapping-cef.aspx) |
+
 
 > [!NOTE]
 > For more information, see also [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).

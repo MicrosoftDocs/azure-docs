@@ -2,28 +2,30 @@
 title: Continuous integration and deployment for Azure Stream Analytics 
 description: This article gives an overview of a continuous integration and deployment (CI/CD) pipeline for Azure Stream Analytics.
 services: stream-analytics
-author: su-jie
-ms.author: sujie
+author: alexlzx
+ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 12/27/2022
 ---
 
 # Continuous integration and deployment (CI/CD) for Azure Stream Analytics
 
-You can deploy your Azure Stream Analytics job continuously by using source control integration. Source control integration enables a workflow in which a code update triggers a resource deployment to Azure. This article outlines the basic steps for creating a continuous integration and deployment (CI/CD) pipeline.
+You can build and deploy your Azure Stream Analytics (ASA) job continuously using a source control integration. Source control integration creates a workflow in which updating code would trigger a resource deployment to Azure. This article outlines the basic steps for creating a continuous integration and continuous delivery (CI/CD) pipeline.
 
 If you're new to Azure Stream Analytics, get started with the [Azure Stream Analytics quickstart](stream-analytics-quick-create-portal.md).
 
 ## Create a CI/CD pipeline
 
-Follow the steps in this guide to create a CI/CD pipeline for Stream Analytics.
+Follow the steps to create a CI/CD pipeline for your Stream Analytics project: 
 
-1. Develop an Azure Stream Analytics query.
+1. Create a Stream Analytics project using VSCode.
+   
+    You can either create a new project or export an existing job to your computer using the ASA Tools extension for Visual Studio Code. Check out these two docs for more information:
+    * [Quickstart: Create a Stream Analytics job using VSCode](./quick-create-visual-studio-code.md) 
+    * [Export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project)
 
-   Use Azure Stream Analytics tools for [Visual Studio Code](./quick-create-visual-studio-code.md) or [Visual Studio](stream-analytics-quick-create-vs.md) to [develop and test queries locally](develop-locally.md). You can also [export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) to a local project.
-
-2. Commit your Azure Stream Analytics projects to your source control system, like a Git repository.
+2. Commit your Stream Analytics project to your source control system, like a Git repository.
 
 3. Use [Azure Stream Analytics CI/CD tools](cicd-tools.md) to build the projects and generate Azure Resource Manager templates for the deployment.
 

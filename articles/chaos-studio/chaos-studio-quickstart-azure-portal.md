@@ -2,8 +2,8 @@
 title: Create and run a chaos experiment using Azure Chaos Studio
 description: Understand the steps to create and run a Chaos Studio experiment in 10mins
 services: chaos-studio
-author: prashabora
-ms.topic: article
+author: prasha-microsoft
+ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
@@ -25,6 +25,11 @@ If this is your first time using Chaos Studio, you must first register the Chaos
 4. In the left-hand navigation, click on **Resource providers**.
 5. In the list of resource providers that appears, search for **Microsoft.Chaos**.
 6. Click on the Microsoft.Chaos provider, and click the **Register** button.
+
+## Create an Azure resource supported by Chaos Studio
+
+Create an azure resource and ensure this is one of the supported [fault providers](chaos-studio-fault-providers.md). Also validate if this resource is being created in the [region](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio) where Chaos Studio is available. In this experiment we choose an Azure Virtual Machine which is one of the supported fault providers for Chaos Studio.
+
 
 ## Enable Chaos Studio on the Virtual Machine you created
 1. Open the [Azure portal](https://portal.azure.com).
@@ -95,7 +100,7 @@ If this is your first time using Chaos Studio, you must first register the Chaos
 ## Run the chaos experiment
 
 1. Open the Azure portal:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 2. Check the box next to the experiments name and click **Start Experiment**.
     ![Start experiment](images/quickstart-experiment-start.png)

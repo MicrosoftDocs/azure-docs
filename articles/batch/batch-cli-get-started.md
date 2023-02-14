@@ -44,7 +44,7 @@ az login
 
 ### Sign in to Batch account
 
-Next, sign in to your Batch account in the Azure CLI using the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This step gives you access to Batch service commands. Then, you can manage Batch resources like pools, jobs, and tasks.
+Next, sign in to your Batch account in the Azure CLI using the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. This step gives you access to Batch service commands. Then, you can manage Batch resources like pools, jobs, and tasks.
 
 You can authenticate your Batch account in the Azure CLI in two ways. The default method is to [authenticate using Azure AD](#authenticate-with-azure-ad). We recommend using this method in most scenarios. Another option is to [use Shared Key authentication](#authenticate-with-shared-key).
 
@@ -123,7 +123,12 @@ To get help with any Batch command, add `-h` to the end of your command. Don't a
 
 To return verbose command output, add `-v` or `-vv` to the end of your command. Use these switches to display the full error output. The `-vv` flag returns the actual REST requests and responses.
 
-To view the command output in JSON format, add `--json` to the end of your command. For example, to display the properties of a pool named **pool001**, run `az batch pool show pool001 --json`. Then, copy and modify the output to [create Batch resources using a JSON configuration file](#create-resources-with-json). 
+To view the command output in JSON format, add `--json` to the end of your command. For example, to display the properties of a pool named **pool001**, run `az batch pool show pool001 --json`. Then, copy and modify the output to [create Batch resources using a JSON configuration file](#create-resources-with-json).
+
+**General Azure CLI troubleshooting**
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

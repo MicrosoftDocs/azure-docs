@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 04/15/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---
@@ -20,4 +20,3 @@ Before using Azure confidential ledger, you must first register the Azure confid
 ## Next Steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Register a confidential ledger service principal](register-ledger-service-principal.md)

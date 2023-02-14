@@ -124,7 +124,7 @@ After deploying the preceding sample, you create two storage accounts that are s
 
 ## Use dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](./bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="3-12,14,15,18":::
 
@@ -165,4 +165,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep in Microsoft Learn](learn-bicep.md)
+> [Learn modules for Bicep](learn-bicep.md)

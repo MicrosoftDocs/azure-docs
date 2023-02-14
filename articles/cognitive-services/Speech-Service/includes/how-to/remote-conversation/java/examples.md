@@ -1,14 +1,14 @@
 ---
-author: amitkumarshukla
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
-ms.author: amishu
+ms.date: 04/25/2022
+ms.author: eur
 ---
 
 ## Upload the audio
 
-Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above).
+Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using the Speech SDK.
 
 This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
 
@@ -103,7 +103,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
      <repository>
        <id>maven-cognitiveservices-speech</id>
        <name>Microsoft Cognitive Services Speech Maven Repository</name>
-       <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+       <url>https://azureai.azureedge.net/maven/</url>
      </repository>
    </repositories>
    ```
@@ -124,7 +124,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
 ### Sample transcription code
 
-After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **getTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
+After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **GetTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
 
 ```java
 // Create the speech config object
@@ -134,7 +134,7 @@ SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey",
 RemoteConversationTranscriptionClient client = new RemoteConversationTranscriptionClient(speechConfig);
 
 // Get the PollerFlux for the remote operation
-PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> remoteTranscriptionOperation = client.getTranscriptionOperation(conversationId);
+PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> remoteTranscriptionOperation = client.GetTranscriptionOperation(conversationId);
 
 // Subscribe to PollerFlux to get the remote operation status
 remoteTranscriptionOperation.subscribe(

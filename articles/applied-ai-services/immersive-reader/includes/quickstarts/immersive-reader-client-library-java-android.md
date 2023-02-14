@@ -3,14 +3,14 @@ title: Immersive Reader Java (Android) client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: dylankil
+author: rwallerms
 manager: guillasi
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
-ms.author: dylankil
+ms.author: rwaller
 ---
 
 [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
@@ -50,6 +50,9 @@ Create a new **/assets** folder.
 ![Create a new assets folder - Android](../../media/android/java/android-studio-assets-folder.png)
 
  Create a file named **env** inside the assets folder. Add the following names and values, and supply values as appropriate. Don't commit this env file into source control because it contains secrets that shouldn't be made public.
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ![Create a new env file - Android](../../media/android/java/android-studio-create-env-file.png)
 
@@ -1309,7 +1312,7 @@ Licensed under the MIT License. -->
             if (!message) {
                 Android.showToast('Message is null or undefined!');
             } else {
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                 var data = {
                     title: message.request.title,
                     chunks: []
@@ -1323,7 +1326,7 @@ Licensed under the MIT License. -->
                     });
                 }
 
-                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                 var options = {
                     onExit: exitCallback,
                     uiZIndex: 2000

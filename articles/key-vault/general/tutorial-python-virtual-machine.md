@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: mvc, devx-track-python, devx-track-azurecli
@@ -79,7 +79,7 @@ Note the value of `publicIpAddress` in the output.
 
 ## Assign an identity to the VM
 
-Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
+Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"
@@ -104,7 +104,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 
 ## Log in to the VM
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux-vm-connect.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
 
 
 To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
@@ -156,7 +156,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
+When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
 az group delete -g myResourceGroup

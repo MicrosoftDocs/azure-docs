@@ -4,7 +4,7 @@ description: Handle feedback for your Azure application offer from the Microsoft
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 9/22/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -13,7 +13,9 @@ author: mingshen-ms
 
 This article explains how to access feedback from the Microsoft Azure Marketplace review team in [Azure DevOps](https://azure.microsoft.com/services/devops/). If critical issues are found in your Azure application offer during the **Microsoft review** step, you can sign into this system to view detailed information about these issues (review feedback). After you fix all issues, you must resubmit your offer to continue to publish it on Azure Marketplace. The following diagram illustrates how this feedback process relates to the publishing process.
 
-![Review feedback process](media/azure-app/review-feedback-process.png)
+You can [download our TTK](../azure-resource-manager/templates/test-toolkit.md) and test your offers locally before you submit them to ensure that they will pass once you go live.
+
+:::image type="content" alt-text="Screenshot of Azure apps verification process." source ="./media/azure-app/azure-apps-verification-process.png" lightbox="./media/azure-app/azure-apps-verification-process.png" :::
 
 Typically, review issues are referenced as a pull request (PR). Each PR is linked to an online Azure DevOps item, which contains details about the issue. The following image displays an example of the Partner Center experience if issues are found during reviews. 
 

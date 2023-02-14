@@ -1,24 +1,21 @@
 ---
-title: Tutorial - Da Vinci PDex - Azure Healthcare APIs (preview)
-description: This tutorial walks through setting up the FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
+title: Tutorial - Da Vinci PDex - Azure Health Data Services
+description: This tutorial walks through setting up FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 11/12/2021
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # Da Vinci PDex
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
-> The FHIR service only supports JSON. The Microsoft open-source FHIR service supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
+> FHIR service only supports JSON. The Microsoft open-source FHIR service supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
 
 ## Touchstone capability statement
 
@@ -36,13 +33,13 @@ The first set of tests that we'll focus on is testing the FHIR service against t
 
 The [second test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/01-Member-Match&activeOnly=false&contentEntry=TEST_SCRIPTS) in the Payer Data Exchange section tests the existence of the [$member-match operation](http://hl7.org/fhir/us/davinci-hrex/2020Sep/OperationDefinition-member-match.html). You can read more about the $member-match operation in our [$member-match operation overview](tutorial-member-match.md).
 
-In this test, you’ll need to load some sample data for the test to pass. We have a rest file [here](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/membermatch.http) with the patient and coverage linked that you will need for the test. Once this data is loaded, you'll be able to successfully pass this test. If the data is not loaded, you'll receive a 422 response due to not finding an exact match.
+In this test, you’ll need to load some sample data for the test to pass. We have a rest file [here](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/membermatch.http) with the patient and coverage linked that you'll need for the test. Once this data is loaded, you'll be able to successfully pass this test. If the data isn't loaded, you'll receive a 422 response due to not finding an exact match.
 
 :::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-script-passed.png" alt-text="Da Vinci PDex test script passed.":::
 
 ## Touchstone patient by reference
 
-The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This set of tests validate that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we have uploaded a [sample resource file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) that you can load to use as well.
+The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This set of tests validates that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we've uploaded a [sample resource file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) that you can load to use as well.
 
 :::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Da Vinci PDex execution passed.":::
 
@@ -57,4 +54,6 @@ The final test we'll walk through is testing patient-everything. For this test, 
 In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn how to test the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 >[!div class="nextstepaction"]
->[Da Vinci Plan Net](davinci-plan-net.md)  
+>[Da Vinci Plan Net](davinci-plan-net.md) 
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

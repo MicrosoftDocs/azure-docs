@@ -1,37 +1,41 @@
 ### YamlMime:Landing
 
-title: Azure Healthcare APIs (preview) documentation
-summary: Documentation for all of Azure Healthcare APIs (preview) capabilities, including features from FHIR, DICOM, and IoT connector.
+title: Azure Health Data Services documentation
+summary: Documentation for all of Azure Health Data Services capabilities, including features from FHIR, DICOM, and MedTech service.
 
 metadata:
-  title: Azure Healthcare APIs documentation
-  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and IoT connector
+  title: Azure Health Data Services documentation
+  description: documentation for all of Azure Health Data Services products and services, including FHIR, DICOM, and MedTech service
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page 
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 12/01/2021
+  ms.date: 12/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: What is Healthcare APIs?
+  - title: What is Azure Health Data Services?
     linkLists:
       - linkListType: overview
         links:
-          - text: About Healthcare APIs
+          - text: About Azure Health Data Services
             url: healthcare-apis-overview.md
           - text: About workspace
             url: workspace-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Health Data Services
+            url: get-started-with-health-data-services.md
       - linkListType: deploy
         links:
-          - text: Getting started with Healthcare APIs
+          - text: Deploy Azure Health Data Services workspace
             url: healthcare-apis-quickstart.md
   
-  - title: Using Healthcare APIs
+  - title: Using Azure Health Data Services
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -39,15 +43,19 @@ landingContent:
             url: authentication-authorization.md
       - linkListType: reference
         links:
-          - text: Healthcare APIs FAQs
+          - text: Azure Health Data Services FAQs
             url: healthcare-apis-faqs.md
   
   - title: FHIR service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About FHIR service
             url: ./fhir/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with FHIR service
+            url: ./fhir/get-started-with-fhir.md
       - linkListType: deploy
         links:
           - text: Deploy FHIR service using portal
@@ -61,10 +69,14 @@ landingContent:
 
   - title: DICOM service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About DICOM service 
             url: ./dicom/dicom-services-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with DICOM service
+            url: ./dicom/get-started-with-dicom.md
       - linkListType: deploy
         links:
           - text: Deploy DICOM service using portal
@@ -76,15 +88,19 @@ landingContent:
           - text: DICOM change feed
             url: ./dicom/pull-dicom-changes-from-change-feed.md
   
-  - title: IoT connector
+  - title: MedTech service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
-          - text: About IoT connector
-            url: ./iot/iot-connector-overview.md
+          - text: About the MedTech service
+            url: ./iot/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with the MedTech service
+            url: ./iot/get-started.md
       - linkListType: deploy
         links:
-          - text: Deploy IoT connector using portal
+          - text: Deploy the MedTech service using portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:

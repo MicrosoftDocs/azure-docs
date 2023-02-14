@@ -3,7 +3,7 @@ title: hbase hbck returns inconsistencies in Azure HDInsight
 description: hbase hbck returns inconsistencies in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/08/2019
+ms.date: 08/28/2022
 ---
 
 # Scenario: `hbase hbck` command returns inconsistencies in Azure HDInsight

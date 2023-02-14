@@ -153,10 +153,10 @@ Learn about accessibility in the Web SDK modules.
 > [!div class="nextstepaction"]
 > [Drawing tools accessibility](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Learn about developing accessible apps with Microsoft Learn:
+Learn about developing accessible apps:
 
 > [!div class="nextstepaction"]
-> [Accessibility in Action Digital Badge Learning Path](https://ready.azurewebsites.net/learning/track/2940)
+> [Accessibility in Action Digital Badge learning path](https://techcommunity.microsoft.com/t5/microsoft-learn/how-to-get-accessibility-in-action-badge/m-p/1735188)
 
 Take a look at these useful accessibility tools:
 > [!div class="nextstepaction"]

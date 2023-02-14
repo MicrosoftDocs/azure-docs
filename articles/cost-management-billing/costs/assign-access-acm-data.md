@@ -1,13 +1,14 @@
 ---
-title: Assign access to Azure Cost Management data
+title: Assign access to Cost Management data
+titleSuffix: Microsoft Cost Management
 description: This article walks you though assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2021
+ms.date: 12/06/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sapnakeshari
+ms.reviewer: micflan
 ms.custom: secdec18
 ---
 
@@ -31,16 +32,16 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 | **Scope** | **Defined at** | **Required access to view data** | **Prerequisite EA setting** | **Consolidates data to** |
 | --- | --- | --- | --- | --- |
-| Billing account<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
+| Billing account¹ | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
 | Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
-| Enrollment account<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
+| Enrollment account² | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
 | Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources/resource groups in the subscription |
 | Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources in the resource group |
 
-<sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
+¹ The billing account is also referred to as the Enterprise Agreement or Enrollment.
 
-<sup>2</sup> The enrollment account is also referred to as the account owner.
+² The enrollment account is also referred to as the account owner.
 
 Direct enterprise administrators can assign the billing account, department, and enrollment account scope the in the [Azure portal](https://portal.azure.com/). For more information, see [Azure portal administration for direct Enterprise Agreements](../manage/direct-ea-administration.md).
 
@@ -70,6 +71,9 @@ To enable an option in the Azure portal:
 After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
 ## Enable access to costs in the EA portal
+
+> [!NOTE]
+> The information in the section applies only to users that have an Enterprise Agreement with a Microsoft partner (indirect EA).
 
 The department scope requires the **DA view charges** option **Enabled** in the EA portal. Configure the option in either the Azure portal or the EA portal. All other scopes require the **AO view charges** option **Enabled** in the EA portal.
 

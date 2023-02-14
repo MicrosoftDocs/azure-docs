@@ -7,17 +7,17 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: conceptual
-ms.date: 05/27/2021
+ms.topic: how-to
+ms.date: 11/29/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Configure Translator Docker containers (preview)
+# Configure Translator Docker containers
 
 Cognitive Services provides each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 
-The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. The container-specific settings are the billing settings.
+The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has both required and optional settings. The required container-specific settings are the billing settings.
 
 ## Configuration settings
 
@@ -26,9 +26,9 @@ The container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Tracks billing information.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetric support to your container.|
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
-|Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
+|Yes|[EULA](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
 |No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
@@ -61,7 +61,7 @@ This setting can be found in the following place:
 | -------- | ---- | --------- | ----------- |
 | Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-container.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). |
 
-## Eula setting
+## EULA setting
 
 [!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 

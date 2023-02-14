@@ -1,14 +1,14 @@
 ---
 title: Control access to IoT Hub by using Azure Active Directory 
-description: Developer guide. How to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
-author: jlian
+description: This article describes how to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
+author: kgremban
 manager: briz
-ms.author: jlian
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.custom: ['Role: Cloud Development']
+ms.date: 01/18/2023
+ms.custom: ['Role: Cloud Development', devx-track-azurecli]
 ---
 
 # Control access to IoT Hub by using Azure Active Directory
@@ -94,14 +94,16 @@ The following table describes the permissions available for IoT Hub service API 
 
 ## Azure AD access and shared access policies
 
-By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies: 
+By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies. 
 
 1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. On the left pane, select **Shared access policies**.
-1. Under **Connect using shared access policies**, select **Deny**.
+1. Under **Connect using shared access policies**, select **Deny**, and review the warning.
     :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
-1. Review the warning, and then select **Save**.
+
+   > [!WARNING]
+   > By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows will fail with "unauthorized" error. Proceed carefully and plan to replace access with Azure AD role based access. **Do not proceed if you use DPS**.
 
 Your IoT Hub service APIs can now be accessed only through Azure AD and RBAC.
 

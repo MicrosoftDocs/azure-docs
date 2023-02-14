@@ -2,15 +2,18 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via REST API
 description: Learn how to use REST API to back up SQL server databases in Azure VMs in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 11/30/2021
-author: v-amallick
+ms.date: 08/11/2022
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SQL server databases in Azure VMs using Azure Backup via REST API
 
 This article describes how to back up SQL server databases in Azure VMs using Azure Backup via REST API.
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -456,6 +459,14 @@ Once you configure a database for backup, backups run according to the policy sc
 
 Triggering an on-demand backup is a *POST* operation.
 
+>[!Note]
+>The retention period of this backup is determined by the type of on-demand backup you have run.
+>
+>- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+>- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+>- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
+
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
@@ -535,4 +546,4 @@ As the backup job is a long running operation, it needs to be tracked as explain
 
 ## Next steps
 
-- Learn how to [restore SQL databases using Rest API](restore-azure-sql-vm-rest-api.md).
+- Learn how to [restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).

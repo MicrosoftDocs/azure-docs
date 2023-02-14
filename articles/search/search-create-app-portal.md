@@ -7,23 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 10/13/2022
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
 
-Use the Azure portal's **Create demo app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live read-only connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
+In this quickstart, you'll use the Azure portal's **Create demo app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live read-only connection to an index on your search service. A default app can include a search bar, results area, sidebar filters, and typeahead support.
 
-The demo app can help you visualize how an index will function in a client app, but it is not intended for production scenarios. Client apps should include security, error handling, and hosting logic that the generated HTML page doesn't provide. When you are ready to create a client app, see [Create your first search app using the .NET SDK](tutorial-csharp-create-first-app.md) for next steps.
+A demo app can help you visualize how an index will function in a client app, but it isn't intended for production scenarios. Production apps should include security, error handling, and hosting logic that the demo app doesn't provide. 
 
 ## Prerequisites
 
-Before you begin, you must have the following:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 + [Microsoft Edge (latest version)](https://www.microsoft.com/edge) or Google Chrome.
 
@@ -39,7 +39,7 @@ When the index is ready to use, move on to the next step.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, from the links on the middle of the page, select **Indexes**. 
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, from the links on the middle of the page, select **Indexes**. 
 
 1. Choose *realestate-us-sample-index* from the list of existing indexes.
 
@@ -68,7 +68,7 @@ In Azure Cognitive Search, faceted navigation is a cumulative filtering experien
 > [!TIP]
 > You can view the full index schema in the portal. Look for the **Index definition (JSON)** link in each index's overview page. Fields that qualify for faceted navigation have "filterable: true" and "facetable: true" attributes.
 
-1. In the wizard, select the **Sidebar** tab at the top of the page. You will see a list of all fields that are attributed as filterable and facetable in the index.
+1. In the wizard, select the **Sidebar** tab at the top of the page. You'll see a list of all fields that are attributed as filterable and facetable in the index.
 
 1. Accept the current selection of faceted fields and continue to the next page.
 
@@ -103,7 +103,7 @@ The wizard supports suggestions, and the fields that can provide suggested resul
       ]
 ```
 
-1. In the wizard, select the **Suggestions** tab at the top of the page. You will see a list of all fields that are designated in the index schema as suggestion providers.
+1. In the wizard, select the **Suggestions** tab at the top of the page. You'll see a list of all fields that are designated in the index schema as suggestion providers.
 
 1. Accept the current selection and continue to the next page.
 
@@ -115,7 +115,7 @@ The wizard supports suggestions, and the fields that can provide suggested resul
 
 1. Open the file and click the Search button. This action executes a query, which can be an empty query (`*`) that returns an arbitrary result set. The page should look similar to the following screenshot. Enter a term and use filters to narrow results. 
 
-The underlying index is composed of fictitious, generated data that has been duplicated across documents, and descriptions sometimes do not match the image. You can expect a more cohesive experience when you create an app based on your own indexes.
+The underlying index is composed of fictitious, generated data that has been duplicated across documents, and descriptions sometimes don't match the image. You can expect a more cohesive experience when you create an app based on your own indexes.
 
 :::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Run the app":::
 
@@ -125,7 +125,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that it's limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

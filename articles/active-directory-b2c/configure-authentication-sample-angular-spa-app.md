@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 09/15/2021
+ms.topic: how-to
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -21,11 +21,11 @@ This article uses a sample Angular single-page application (SPA) to illustrate h
 
 OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0 that you can use to securely sign in a user to an application. This Angular sample uses [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) and the [MSAL Browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to Angular SPAs.
 
-### Sign-in flow
+### Sign in flow
 
 The sign-in flow involves the following steps:
 
-1. The user opens the app and selects **Sign-in**. 
+1. The user opens the app and selects **Sign in**. 
 1. The app starts an authentication request and redirects the user to Azure AD B2C.
 1. The user [signs up or signs in](add-sign-up-and-sign-in-policy.md) and [resets the password](add-password-reset-policy.md), or signs in with a [social account](add-identity-provider.md).
 1. Upon successful sign-in, Azure AD B2C returns an authorization code to the app. The app takes the following actions:
@@ -49,7 +49,7 @@ The following diagram describes the app registrations and the app architecture.
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
-### Sign-out flow
+### Sign out flow
 
 [!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)]
 
@@ -116,8 +116,8 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |Section  |Key  |Value  |
 |---------|---------|---------|
 | b2cPolicies | names |The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). |
-| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
-| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
+| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
+| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
 | Configuration | clientId | The Angular application ID from [step 2.3](#23-register-the-angular-app). |
 | protectedResources| endpoint| The URL of the web API: `http://localhost:5000/api/todolist`. |
 | protectedResources| scopes| The web API scopes that you created in [step 2.2](#22-configure-scopes). For example: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`. |
@@ -145,7 +145,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn,
+         authority: b2cPolicies.authorities.signUpSignIn.authority,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },
@@ -176,9 +176,9 @@ In the sample folder, open the *config.json* file. This file contains informatio
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|credentials|tenantName| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso`.|
+|credentials|tenantName| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso`.|
 |credentials|clientID| The web API application ID from step [2.1](#21-register-the-web-api-application). In the [earlier diagram](#app-registration), it's the application with **App ID: 2**.|
-|credentials| issuer| (Optional) The token issuer `iss` claim value. Azure AD B2C by default returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
+|credentials| issuer| (Optional) The token issuer `iss` claim value. Azure AD B2C by default returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). |
 |policies|policyName|The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). If your application uses multiple user flows or custom policies, specify only one. For example, use the sign-up or sign-in user flow.|
 | resource| scope | The scopes of your web API application registration from [step 2.5](#25-grant-permissions). |
 

@@ -3,12 +3,15 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 10/29/2021
+ms.date: 10/11/2022
 ---
 
 
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Service Bus. The resource provider for these metrics is **Microsoft.ServiceBus/namespaces**.
@@ -37,8 +40,8 @@ The following two types of errors are classified as **user errors**:
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
-|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded. | Entity name|
-|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. | Entity name|
+|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming auto-forwarded messages are included in this metric. And, for the premium tier, they aren't included.  | Entity name|
+|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. The outgoing auto-forwarded messages aren't included in this metric. | Entity name|
 | Messages| No | Count | Average | Count of messages in a queue/topic. | Entity name |
 | Active Messages| No | Count | Average | Count of active messages in a queue/topic. | Entity name |
 | Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
@@ -55,8 +58,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
-|Connections Opened | No | Count | Average | The number of open connections. | Entity name|
-|Connections Closed | No | Count | Average | The number of closed connections. | Entity name|
+|Connections Opened | No | Count | Average | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
+|Connections Closed | No | Count | Average | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
 
 ### Resource usage metrics
 
@@ -65,7 +68,7 @@ The following two types of errors are classified as **user errors**:
 > 
 > The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
 > 
-> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
+> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
@@ -141,9 +144,40 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+### Virtual network and IP filtering logs
+Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---  | ----------- | 
+| SubscriptionId | Azure subscription ID |
+| NamespaceName | Namespace name |
+| IPAddress | IP address of a client connecting to the Service Bus service |
+| Action | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| Reason | Provides a reason why the action was done |
+| Count | Number of occurrences for the given action |
+| ResourceId | Azure Resource Manager resource ID. |
+| Category | ServiceBusVNetConnectionEvent |
+
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
+Here's an example of a virtual network log JSON string:
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Reason": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Category": "ServiceBusVNetConnectionEvent"
+}
+```
 
 ## Runtime audit logs
-Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive messages) in Service Bus.  
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
 
 > [!NOTE] 
 > Runtime audit logs are currently available only in the **premium** tier.  
@@ -188,7 +222,6 @@ Here's an example of a runtime audit log entry:
 
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
-
 
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).

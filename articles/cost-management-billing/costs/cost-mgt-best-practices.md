@@ -1,9 +1,10 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management
+title: Optimize your cloud investment with Cost Management
+titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -208,6 +209,11 @@ For more information, see [Azure IaaS: proper sizing and cost](https://azure.mic
 ### Use purchase discounts
 
 Azure has many discounts that your organization should take advantage of to save money.
+#### Azure savings plan for compute
+
+Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
+
+For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
 
 #### Azure Reservations
 

@@ -1,21 +1,20 @@
 ---
-title: Introduction to resource troubleshooting
+title: Introduction to VPN troubleshoot
 titleSuffix: Azure Network Watcher
-description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
+description: This page provides an overview of Azure Network Watcher VPN troubleshoot capability.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 06/19/2017
-ms.author: damendo
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/31/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
-# Introduction to resource troubleshooting in Azure Network Watcher
+# Introduction to virtual network gateway troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
+Virtual network gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
 ![Screenshot shows Network Watcher V P N Diagnostics.][2]
 
@@ -97,7 +96,8 @@ The resource troubleshooting log files are stored in a storage account after res
 ![zip file][1]
 
 > [!NOTE]
-> In some cases, only a subset of the logs files is written to storage.
+> 1. In some cases, only a subset of the logs files is written to storage.
+> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
@@ -124,6 +124,21 @@ The **CPUStats.txt** file contains CPU usage and memory available at the time of
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
+```
+
+### IKElogs.txt
+
+The **IKElogs.txt** file contains any IKE activity that was found during monitoring.
+
+The following example shows the contents of an IKElogs.txt file.
+
+```
+Remote <IPaddress>:500: Local <IPaddress>:500: [RECEIVED][SA_AUTH] Received IKE AUTH message
+Remote <IPaddress>:500: Local <IPaddress>:500: Received Traffic Selector payload request- [Tsid 0x729  ]Number of TSIs 2: StartAddress 10.20.0.0 EndAddress 10.20.255.255 PortStart 0 PortEnd 65535 Protocol 0, StartAddress 192.168.100.0 EndAddress 192.168.100.255 PortStart 0 PortEnd 65535 Protocol 0 Number of TSRs 1:StartAddress 0.0.0.0 EndAddress 255.255.255.255 PortStart 0 PortEnd 65535 Protocol 0
+Remote <IPaddress>:500: Local <IPaddress>:500: [SEND] Proposed Traffic Selector payload will be (Final Negotiated) - [Tsid 0x729  ]Number of TSIs 2: StartAddress 10.20.0.0 EndAddress 10.20.255.255 PortStart 0 PortEnd 65535 Protocol 0, StartAddress 192.168.100.0 EndAddress 192.168.100.255 PortStart 0 PortEnd 65535 Protocol 0 Number of TSRs 1:StartAddress 0.0.0.0 EndAddress 255.255.255.255 PortStart 0 PortEnd 65535 Protocol 0
+Remote <IPaddress>:500: Local <IPaddress>:500: [RECEIVED]Received IPSec payload: Policy1:Cipher=DESIntegrity=Md5
+IkeCleanupQMNegotiation called with error 13868 and flags a
+Remote <IPaddress>:500: Local <IPaddress>:500: [SEND][NOTIFY] Sending Notify Message - Policy Mismatch
 ```
 
 ### IKEErrors.txt
@@ -212,5 +227,5 @@ Elapsed Time            330 sec
 To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
-[1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[1]: ./media/network-watcher-troubleshoot-overview/gateway-tenant-worker-logs-new.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png

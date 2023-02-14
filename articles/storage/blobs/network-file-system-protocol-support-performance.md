@@ -1,18 +1,20 @@
 ---
-title: NFS 3.0 performance considerations in Azure Blob storage| Microsoft Docs
+title: NFS 3.0 performance considerations in Azure Blob storage
+titleSuffix: Azure Storage
 description: Optimize the performance of your Network File System (NFS) 3.0 storage requests by using the recommendations in this article.
 author: normesta
+
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/03/2022
 ms.author: normesta
 ms.reviewer: yzheng
 ---
 
 # Network File System (NFS) 3.0 performance considerations in Azure Blob storage
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support for Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support for Azure Blob storage](network-file-system-protocol-support.md).
 
 ## Add clients to increase throughput
 
@@ -39,12 +41,12 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 
 ## Improve read ahead size to increase large file read throughput
 
-The read_ahead_kb kernel parameter represents the amount of additional data that should be read after fulfilling a given read request. You can increase this parameter to 16MB to improve large file read throughput.
+The read_ahead_kb kernel parameter represents the amount of additional data that should be read after fulfilling a given read request. You can increase this parameter to 16 MiB to improve large file read throughput.
 
 ```
 export AZMNT=/your/container/mountpoint
 
-echo 15728640 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+echo 16384 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
 ```
 
 ## Avoid frequent overwrites on data
@@ -69,6 +71,6 @@ Some applications may require low latency in addition to high throughput. You ca
 
 ## Next steps
 
-- To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
+- To learn more about NFS 3.0 support for Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support for Azure Blob storage](network-file-system-protocol-support.md).
 
 - To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).

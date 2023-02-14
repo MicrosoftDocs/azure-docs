@@ -4,10 +4,9 @@ description: Learn about the concept of revisions in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: johndowns
- 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/22/2022
 ms.author: jodowns
 ms.custom: fasttrack-new, devx-track-azurepowershell
 ---
@@ -31,14 +30,12 @@ With revisions you can:
 
 Each revision to your API can be accessed using a specially formed URL. Append `;rev={revisionNumber}` at the end of your API URL, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 3 of the `customers` API:
 
-`https://apis.contoso.com/customers;rev=3?customerId=123`
+`https://apis.contoso.com/customers;rev=3/leads?customerId=123`
 
-By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
-
-A revision can be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. You can mark a revision as offline using the Azure portal. If you use PowerShell, you can use the `Set-AzApiManagementApiRevision` cmdlet and set the `Path` argument to `$null`.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](ip-filter-policy.md) to prevent external callers from accessing a revision that is still under development.
 
 > [!NOTE]
-> We suggest taking revisions offline when you aren't using them for testing.
+> The `;rev={id}` must be appended to the API ID, and not the URI path.
 
 ## Current revision
 
@@ -66,6 +63,13 @@ When you set a revision as current you can also optionally specify a public chan
 >
 > These properties can only be changed in the current revision.  If your edits change any of the above 
 > properties of a non-current revision, the error message `Can't change property for non-current revision` will be displayed.
+
+## Take a revision offline
+
+A revision can be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. You can mark a revision as offline using the Azure portal.
+
+> [!NOTE]
+> We suggest taking revisions offline when you aren't using them for testing.
 
 ## Versions and revisions
 

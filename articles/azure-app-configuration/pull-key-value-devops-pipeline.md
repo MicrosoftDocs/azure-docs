@@ -2,11 +2,11 @@
 title: Pull settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
 services: azure-app-configuration
-author: drewbatgit
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.author: drewbat
+ms.author: malev
 ---
 
 # Pull settings to App Configuration with Azure Pipelines
@@ -19,7 +19,7 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 - App Configuration store - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.). 
-- [Node 10](https://nodejs.org/en/blog/release/v10.21.0/) - for users running the task on self-hosted agents. 
+- [Node 16](https://nodejs.org/en/blog/release/v16.16.0/) - for users running the task on self-hosted agents. 
 
 ## Create a service connection
 

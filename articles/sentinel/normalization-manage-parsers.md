@@ -1,17 +1,15 @@
 ---
-title: Manage Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
-description: This article explains how to manage Advanced SIEM Information Model (ASIM) parsers, add a customer parser, and replace a built-in parser.
+title: Manage Advanced Security Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to manage Advanced Security Information Model (ASIM) parsers, add a customer parser, and replace a built-in parser.
 author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# Manage Advanced SIEM Information Model (ASIM) parsers (Public preview)
+# Manage Advanced Security Information Model (ASIM) parsers (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
+Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -26,6 +24,8 @@ You may need to manage the source-specific parsers used by each unifying parser 
   - Prevent automated updates by preserving the version of the source-specific parser used by the unifying parser.
 
   - Use a modified version of a built-in parser.
+
+- **Configure a source-specific parser**, for example to define the sources that send information relevant to the parser.
 
 This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
 
@@ -49,7 +49,9 @@ Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the
 
     You can deploy initial, empty, unifying custom parsers to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas. For more information, see [Deploy initial ASIM empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) in the Microsoft Sentinel GitHub repository.
 
-- **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimExceptionWatchlist) repository.
+- **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
+
+- **To define source type for built-in and custom parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
 
 ### Add a custom parser to a built-in unifying parser
 
@@ -59,10 +61,12 @@ Make sure to add both a filtering custom parser and a parameter-less custom pars
 
 The syntax of the line to add is different for each schema:
 
-| Schema | Filtering  parser | Parameter&#8209;less&nbsp;parser | 
-| ------ | ---------------------------------------- | --------------------- |
-| DNS    | **Name**: `Im_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | **Name**: `ASim_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_` |
-| | |
+| Schema | Parser |  Line to add
+| ------ | ---------------------- | ---------------------------------------- |
+| DNS    | `Im_DnsCustom` | `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | 
+| NetworkSession    | `Im_NetworkSessionCustom` | `_parser_name_  (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` | 
+| WebSession  | `Im_WebSessionCustom`| `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | 
+
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
@@ -82,17 +86,16 @@ To modify an existing, built-in source-specific parser:
 
 1. Add a record to the `ASim Disabled Parsers` watchlist.
 
-1. Define the `CallerContext` value with the names of any unifying parsers you want to exclude the parser from.
+1. Define the `CallerContext` value as `Exclude<parser name>`, where `<parser name>` is the name of the unifying parsers you want to exclude the parser from.
 
-1. Define the `SourceSpecificParser` value with the name of the parser you want to exclude, without a version specifier. 
+1. Define the `SourceSpecificParser` value `Exclude<parser name>`, where `<parser name>`is the name of the parser you want to exclude, without a version specifier. 
 
-For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist:
+For example, to exclude the Azure Firewall DNS parser, add the following record to the watchlist:
 
 | CallerContext | SourceSpecificParser | 
 | ------------- | ------------- |
-| `_Im_Dns` | `_Im_Dns_AzureFirewall` |
-| `_ASim_Dns` | `_ASim_Dns_AzureFirewall` | 
-| | |
+| `Exclude_Im_Dns` | `Exclude_Im_Dns_AzureFirewall` |
+
 
 ### Prevent an automated update of a built-in parser
 
@@ -115,16 +118,16 @@ To add a custom parser, insert a line to the `union` statement in the workspace-
 
 Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
-| Schema |  Filtering  parser | Parameter&#8209;less&nbsp;parser |
-| ------ | -------------- | --------------------- |
-| **Authentication**  | **Name:** `ImAuthentication`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, targetusername_has)` | **Name:** `ASimAuthentication`<br><br> **Line to add:** `_parser_name_` |
-| **DNS**   |  **Name:** `ImDns`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any,`<br>` responsecodename, response_has_ipv4, response_has_any_prefix,`<br>` eventtype)` | **Name:** `ASimDns`<br><br>**Line to add:** `_parser_name_` |
-| **File Event** | | **Name:** `imFileEvent`<br><br>**Line to add:** `_parser_name_` |
-| **Network Session** | **Name:** `imNetworkSession`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any,`<br>` httpuseragent_has_any, hostname_has_any, dvcaction, eventresult)` | **Name:** `ASimNetworkSession`<br><br>**Line to add:** `_parser_name_` |
-| **Process Event** | | **Names:**<br> - `imProcess`<br> - `imProcessCreate`<br> - `imProcessTerminate`<br><br>**Line to add:**  `_parser_name_` |
-| **Registry Event** | | **Name:** `imRegistry`<br><br>**Line to add:** `_parser_name_` |
-| **Web Session** | **Name:** `imWebSession`<br><br>**Line to add:**<br> `_parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name:** `ASimWebSession`<br><br>**Line to add:**  `_parser_name_` | 
-| |  |  
+| Schema |   Parser | Line to add |
+| ------ | -------------- | ------------- |
+| **Authentication**  | `ImAuthentication` | `_parser_name_ (starttime, endtime, targetusername_has)` | 
+| **DNS**   |  `ImDns` | `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any,`<br>` responsecodename, response_has_ipv4, response_has_any_prefix,`<br>` eventtype)` |
+| **File Event** | `imFileEvent` | `_parser_name_` |
+| **Network Session** | `imNetworkSession` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any,`<br>` httpuseragent_has_any, hostname_has_any, dvcaction, eventresult)` | 
+| **Process Event** | - `imProcess`<br> - `imProcessCreate`<br> - `imProcessTerminate` |  `_parser_name_` |
+| **Registry Event** | `imRegistry`<br><br> | `_parser_name_` |
+| **Web Session** | `imWebSession`<br><br> | `_parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` |
+
 
 When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
 
@@ -168,19 +171,26 @@ For example, the following code shows a DNS filtering unifying parser, having re
   Generic( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
 ```
 
+## Configure the sources relevant to a source-specific parser
+
+Some parsers requires you to update the list of sources that are relevant to the parser. For example, a parser that uses Syslog data, may not be able to determine what Syslog events are relevant to the parser. Such a parser may use the `Sources_by_SourceType` watchlist to determine which sources send information relevant to the parser. For such parses add a record for each relevant source to the watchlist:
+- Set the `SourceType` field to the parser specific value specified in the parser documentation. 
+- Set the `Source` field to the identifier of the source used in the events. You may need to query the original table, such as Syslog, to determine the correct value.
+
 ## <a name="next-steps"></a>Next steps
 
-This article discusses managing the Advanced SIEM Information Model (ASIM) parsers.
+This article discusses managing the Advanced Security Information Model (ASIM) parsers.
 
 Learn more about ASIM parsers:
 
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

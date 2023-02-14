@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning
@@ -154,7 +154,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Azure AD provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 

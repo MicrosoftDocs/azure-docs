@@ -3,7 +3,7 @@ title: Language Understanding service encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Language Understanding (LUIS), and how to enable and manage CMK. 
 author: erindormier
-manager: venkyv
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -14,6 +14,9 @@ ms.author: egeaney
 ---
 
 # Language Understanding service encryption of data at rest
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 The Language Understanding service automatically encrypts your data when it is persisted to the cloud. The Language Understanding service encryption protects your data and helps you meet your organizational security and compliance commitments.
 

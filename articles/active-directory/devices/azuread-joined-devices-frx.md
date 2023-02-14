@@ -1,79 +1,63 @@
 ---
-title: Join a new Windows 10 device with Azure AD during a first run | Microsoft Docs
-description: How users can set up Azure AD Join during the out of box experience.
+title: Join a new Windows 10 device with Azure AD during the out of box experience
+description: How users can set up Azure AD Join during OOBE.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 08/31/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: ravenn
-
-#Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Join a new Windows 10 device with Azure AD during a first run
+# Azure AD join a new Windows device during the out of box experience
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see the [introduction to device management in Azure Active Directory](overview.md).
+Starting in Windows 10 users can join new Windows devices to Azure AD during the first-run out-of-box experience (OOBE). This functionality enables you to distribute shrink-wrapped devices to your employees or students. 
 
-With Windows 10, You can join a new device to Azure AD during the first-run out-of-box experience (OOBE).  
-This enables you to distribute shrink-wrapped devices to your employees or students.
-
-If you have either Windows 10 Professional or Windows 10 Enterprise installed on a device, the experience defaults to the setup process for company-owned devices.
-
-In the Windows *out-of-box experience*, joining an on-premises Active Directory (AD) domain is not supported. If you plan to join a computer to an AD domain, during setup, you should select the link **Set up Windows with a local account**. You can then join the domain from the settings on your computer.
- 
-In this tutorial, you learn how to join a device to Azure AD during FRX:
- > [!div class="checklist"]
-> * Prerequisites
-> * Joining a device
-> * Verification
+This functionality pairs well with mobile device management platforms like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) and tools like [Windows Autopilot](/mem/autopilot/windows-autopilot) to ensure devices are configured according to your standards.
 
 ## Prerequisites
 
-To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+To Azure AD join a Windows device, the device registration service must be configured to enable you to register devices. For more information about prerequisites, see the article [How to: Plan your Azure AD join implementation](azureadjoin-plan.md).
 
-In addition, if your tenant is federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and sign in to the device with a password.
+> [!TIP]
+> Windows Home Editions do not support Azure AD join. These editions can still access many of the benefits by using [Azure AD registration](concept-azure-ad-register.md). 
+> 
+> For information about how complete Azure AD registration on a Windows device see the support article [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
-## Joining a device
+## Join a new Windows 11 device to Azure AD
 
-**To join a Windows 10 device to Azure AD during FRX:**
+Your device may restart several times as part of the setup process. Your device must be connected to the Internet to complete Azure AD join.
 
-1. When you turn on your new device and start the setup process, you should see the  **Getting Ready** message. Follow the prompts to set up your device.
-1. Start by customizing your region and language. Then accept the Microsoft Software License Terms.
- 
-    <!--![Customize for your region](./media/azuread-joined-devices-frx/01.png)-->
+1. Turn on your new device and start the setup process. Follow the prompts to set up your device.
+1. When prompted **How would you like to set up this device?**, select **Set up for work or school**.
+   :::image type="content" source="media/azuread-joined-devices-frx/windows-11-first-run-experience-work-or-school.png" alt-text="Screenshot of Windows 11 out-of-box experience showing the option to set up for work or school.":::
+1. On the **Let's set things up for your work or school** page, provide the credentials that your organization provided. 
+   1. Optionally you can choose to **Sign in with a security key** if one was provided to you.
+   1. If your organization requires it, you may be prompted to perform multifactor authentication.
+   :::image type="content" source="media/azuread-joined-devices-frx/windows-11-first-run-experience-device-sign-in-info.png" alt-text="Screenshot of Windows 11 out-of-box experience showing the sign-in experience.":::
+1. Continue to follow the prompts to set up your device.
+1. Azure AD checks if an enrollment in mobile device management is required and starts the process.
+   1. Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if applicable.
+1. If you sign in with a managed user account, Windows takes you to the desktop through the automatic sign-in process. Federated users are directed to the Windows sign-in screen to enter your credentials.
+   :::image type="content" source="media/azuread-joined-devices-frx/windows-11-first-run-experience-complete-automatic-sign-in-desktop.png" alt-text="Screenshot of Windows 11 at the desktop after first run experience Azure AD joined.":::
 
-1. Select the network you want to use for connecting to the Internet.
-1. Click **This device belongs to my organization**. 
-
-    <!--![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)-->
-
-1. Enter the credentials that were provided to you by your organization, and then click **Sign in**.
-
-    <!--![Sign-in screen](./media/azuread-joined-devices-frx/03.png)-->
-
-1. Your device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
-1. If you are a user in a non-federated domain, enter your credentials directly on the Azure AD-hosted page. 
-1. You are prompted for a multi-factor authentication challenge. 
-1. Azure AD checks whether an enrollment in mobile device management is required.
-1. Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if applicable.
-1. If you are:
-   - A managed user, Windows takes you to the desktop through the automatic sign-in process.
-   - A federated user, you are directed to the Windows sign-in screen to enter your credentials.
+For more information about the out-of-box experience, see the support article [Join your work device to your work or school network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973).
 
 ## Verification
 
-To verify whether a device is joined to your Azure AD, review the **Access work or school** dialog on your Windows device. The dialog should indicate that you are connected to your Azure AD directory.
+To verify whether a device is joined to your Azure AD, review the **Access work or school** dialog on your Windows device found in **Settings** > **Accounts**. The dialog should indicate that you're connected to Azure AD, and provides information about areas managed by your IT staff.
 
-![Access work or school](./media/azuread-joined-devices-frx/13.png)
+:::image type="content" source="media/azuread-joined-devices-frx/windows-11-access-work-or-school.png" alt-text="Screenshot of Windows 11 Settings app showing current connection to Azure AD.":::
 
 ## Next steps
 
-- For more information, see the [introduction to device management in Azure Active Directory](overview.md).
 - For more information about managing devices in the Azure AD portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
+- [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
+- [Overview of Windows Autopilot](/mem/autopilot/windows-autopilot)
+- [Passwordless authentication options for Azure Active Directory](../authentication/concept-authentication-passwordless.md)

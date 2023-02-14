@@ -4,9 +4,9 @@ description: Learn how to back up Azure Database for PostgreSQL using Azure Powe
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure PostgreSQL databases using Azure PowerShell
@@ -290,8 +290,6 @@ Lifecycle  : {Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api202102
 Name       : Default
 ObjectType : AzureRetentionRule
 ```
-
-## Trigger an on-demand backup
 
 To trigger an on-demand backup, use the [Backup-AzDataProtectionBackupInstanceAdhoc](/powershell/module/az.dataprotection/backup-azdataprotectionbackupinstanceadhoc?view=azps-5.7.0&preserve-view=true) command.
 

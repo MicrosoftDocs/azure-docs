@@ -66,20 +66,23 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
-
-    > [!NOTE]
-    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
-
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
+   
+    # [JavaScript](#tab/javascript)
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
     ```json
     {
-        "version": "2.0"
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[3.3.*, 4.0.0)"
+        }
     }
     ```
-   b. Run command to install specific function extension package.
+    
+    # [C#](#tab/csharp)
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -115,11 +118,7 @@ In this tutorial, you learn how to:
         var path = require('path');
 
         module.exports = function (context, req) {
-            var index = 'index.html';
-            if (process.env["HOME"] != null)
-            {
-                index = path.join(process.env["HOME"], "site", "wwwroot", index);
-            }
+            var index = context.executionContext.functionDirectory + '/../index.html';
             context.log("index.html path: " + index);
             fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
@@ -142,13 +141,9 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ExecutionContext context, ILogger log)
         {
-            string indexFile = "index.html";
-            if (Environment.GetEnvironmentVariable("HOME") != null)
-            {
-                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
-            }
+            var indexFile = Path.Combine(context.FunctionAppDirectory, "index.html");
             log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
@@ -360,19 +355,19 @@ Use the following commands to create these items.
 
 1. If you haven't done so already, sign in to Azure:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
-    ```bash
+    ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
     ```
 
 1. Create a general-purpose storage account in your resource group and region:
 
-    ```bash
+    ```azurecli
     az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
     ```
 
@@ -380,13 +375,15 @@ Use the following commands to create these items.
 
     # [JavaScript](#tab/javascript)
 
-    ```bash
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
+    > [!NOTE]
+    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
     # [C#](#tab/csharp)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
@@ -457,10 +454,10 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Quick start: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

@@ -3,7 +3,7 @@ title: Configure Question Answering service
 description: This document outlines advanced configurations for custom question answering enabled resources.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -22,10 +22,13 @@ If you create a language resource and its dependencies (such as Search) through 
 1.  Go to your language resource in the Azure portal.
 
 2.  Select **Features** and select the Azure Cognitive Search service you want to link with your language resource.
-
-> [!div class="mx-imgBorder"]
-> ![Add QnA to TA](../media/configure-resources/update-custom-feature.png)
-
+    
+    > [!NOTE]
+    > Your Language resource will retain your Azure Cognitive Search keys. If you update your search resource (for example, regenerating your keys), you will need to select **Update Azure Cognitive Search keys for the current search service**.
+    
+    > [!div class="mx-imgBorder"]
+    > ![Add QnA to TA](../media/configure-resources/update-custom-feature.png)
+    
 3.  Select **Save**.
 
 ## Next steps

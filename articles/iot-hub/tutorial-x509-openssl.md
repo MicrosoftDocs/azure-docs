@@ -1,18 +1,18 @@
 ---
 title: Tutorial - Use OpenSSL to create X.509 test certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Use OpenSSL to create CA and device certificates for Azure IoT hub
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
-ms.author: lizross
+ms.date: 02/24/2022
+ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates.
 ---
 
-# Tutorial: Using OpenSSL to create test certificates
+# Tutorial: Use OpenSSL to create test certificates
 
 Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
 
@@ -203,18 +203,9 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-From the *subca* directory, create a new serial number in the *rootca/db/serial* file for the subordinate CA certificate.
-
-```bash
-  openssl rand -hex 16 > ../rootca/db/serial
-```
-
->[!IMPORTANT]
->You must create a new serial number for every subordinate CA certificate and every device certificate that you create. Different certificates cannot have the same serial number.
-
 This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
 
-Use the configuration file to generate a private key and a certificate signing request (CSR).
+From the *subca* directory, use the configuration file to generate a private key and a certificate signing request (CSR).
 
 ```bash
   openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
@@ -228,7 +219,7 @@ Submit the CSR to the root CA and use the root CA to issue and sign the subordin
 
 ## Step 7 - Demonstrate proof of possession
 
-You now have both a root CA certificate and a subordinate CA certificate. You can use either one to sign device certificates. The one you choose must be uploaded to your IoT Hub. The following steps assume that you are using the subordinate CA certificate. To upload and register your subordinate CA certificate to your IoT Hub:
+You now have both a root CA certificate and a subordinate CA certificate. You can use either one to sign device certificates. The one you choose must be uploaded to your IoT Hub. The following steps assume that you're using the subordinate CA certificate. To upload and register your subordinate CA certificate to your IoT Hub:
 
 1. In the Azure portal, navigate to your IoTHub and select **Settings > Certificates**.
 
@@ -306,7 +297,7 @@ To generate a client certificate, you must first generate a private key. The fol
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country Name**, **Organization Name**, and so on.
+Create a certificate signing request (CSR) for the key. You don't need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country Name**, **Organization Name**, and so on.
 
 ```bash
 openssl req -new -key device.key -out device.csr
@@ -333,7 +324,7 @@ Check that the CSR is what you expect.
 openssl req -text -in device.csr -noout
 ```
 
-Send the CSR to the subordinate CA for signing into the certificate hierarchy. Specify `client_ext` in the `-extensions` switch. Notice that the `Basic Constraints` in the issued certificate indicate that this certificate is not for a CA. If you are signing multiple certificates, be sure to update the serial number before generating each certificate by using the openssl `rand -hex 16 > db/serial` command.
+Send the CSR to the subordinate CA for signing into the certificate hierarchy. Specify `client_ext` in the `-extensions` switch. Notice that the `Basic Constraints` in the issued certificate indicate that this certificate isn't for a CA. If you're signing multiple certificates, be sure to update the serial number before generating each certificate by using the openssl `rand -hex 16 > db/serial` command.
 
 ```bash
 openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_ext
@@ -341,7 +332,7 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
 
 ```bash
 openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx

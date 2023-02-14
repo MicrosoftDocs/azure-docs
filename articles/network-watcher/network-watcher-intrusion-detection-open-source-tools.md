@@ -3,22 +3,21 @@ title: Perform network intrusion detection with open source tools
 titleSuffix: Azure Network Watcher
 description: This article describes how to use Azure Network Watcher and open source tools to perform network intrusion detection
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 09/15/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Perform network intrusion detection with Network Watcher and open source tools
 
 Packet captures are a key component for implementing network intrusion detection systems (IDS) and performing Network Security Monitoring (NSM). There are several open source IDS tools that process packet captures and look for signatures of possible network intrusions and malicious activity. Using the packet captures provided by Network Watcher, you can analyze your network for any harmful intrusions or vulnerabilities.
 
-One such open source tool is Suricata, an IDS engine that uses rulesets to monitor network traffic and triggers alerts whenever suspicious events occur. Suricata offers a multi-threaded engine, meaning it can perform network traffic analysis with increased speed and efficiency. For more details about Suricata and its capabilities, visit their website at https://suricata-ids.org/.
+One such open source tool is Suricata, an IDS engine that uses rulesets to monitor network traffic and triggers alerts whenever suspicious events occur. Suricata offers a multi-threaded engine, meaning it can perform network traffic analysis with increased speed and efficiency. For more details about Suricata and its capabilities, visit their website at https://suricata.io/.
 
 ## Scenario
 
@@ -74,7 +73,7 @@ While the logs that Suricata produces contain valuable information about what's 
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-supported JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 
 1. Download the correct binary package for your system:
 

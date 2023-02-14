@@ -9,6 +9,12 @@ ms.date: 08/31/2021
 
 # Configure Linux desired state with Azure Automation State Configuration using PowerShell
 
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
+> [!IMPORTANT]
+> The desired state configuration VM extension for Linux will be [retired on **September 30, 2023**](https://aka.ms/dscext4linuxretirement). If you're currently using the desired state configuration VM extension for Linux, you should start planning your migration to the machine configuration feature of Azure Automanage by using the information in this article.
+
 In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to an Azure Linux virtual machine to check whether it complies with a desired state. The desired state is to identify if the apache2 service is present on the node.
 
 Azure Automation State Configuration allows you to specify configurations for your machines and ensure those machines are in a specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
@@ -206,7 +212,7 @@ Get-AzAutomationDscNodeConfiguration `
 
 Register the Azure Linux VM as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) cmdlet only supports VMs running Windows OS. The Azure Linux VM will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 
-1. Construct a python script with the registration command using PowerShell for later execution on your Azure Linux VM by running the following code:
+1. Construct a Python script with the registration command using PowerShell for later execution on your Azure Linux VM by running the following code:
 
    ```powershell
     $primaryKey = (Get-AzAutomationRegistrationInfo `

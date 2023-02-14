@@ -2,46 +2,45 @@
 title: Onboard a management group to Microsoft Defender for Cloud
 description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/24/2023
 ---
 
 # Enable Defender for Cloud on all subscriptions in a management group
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
 
 To onboard a management group and all its subscriptions:
 
-1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition **Enable Defender for Cloud on your subscription**.
+1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition `Enable Microsoft Defender for Cloud on your subscription`.
 
-    :::image type="content" source="./media/get-started/enable-security-center-policy.png" alt-text="The Azure Policy definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/enable-microsoft-defender-for-cloud-policy.png" alt-text="Screenshot showing the Azure Policy definition Enable Defender for Cloud on your subscription." lightbox="media/get-started/enable-microsoft-defender-for-cloud-policy-extended.png":::
 
 1. Select **Assign** and ensure you set the scope to the MG level.
 
-    :::image type="content" source="./media/get-started/assign-policy.png" alt-text="Assigning the definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/assign-policy.png" alt-text="Screenshot showing how to assign the definition Enable Defender for Cloud on your subscription.":::
 
     > [!TIP]
     > Other than the scope, there are no required parameters.
 
-1. Select **Create a remediation task** to ensure all existing subscriptions that don't have Defender for Cloud enabled, will get onboarded.
+1. Select **Remediation**, and select **Create a remediation task** to ensure all existing subscriptions that don't have Defender for Cloud enabled, will get onboarded.
 
-    :::image type="content" source="./media/get-started/remediation-task.png" alt-text="Creating a remediation task for the Azure Policy definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/remediation-task.png" alt-text="Screenshot that shows how to create a remediation task for the Azure Policy definition Enable Defender for Cloud on your subscription.":::
 
-1. When the definition is assigned it will:
+1. Select **Review + create**.
 
-    1. Detect all subscriptions in the MG that aren't yet registered with Defender for Cloud.
-    1. Mark those subscriptions as “non-compliant”.
-    1. Mark as "compliant" all registered subscriptions (regardless of whether they have Defender for Cloud's enhanced security features on or off).
+1. Review your information and select **Create**.
 
-    The remediation task will then enable Defender for Cloud, for free, on the non-compliant subscriptions.
+When the definition is assigned, it will:
 
-> [!IMPORTANT]
-> The policy definition will only enable Defender for Cloud on **existing** subscriptions. To register newly created subscriptions, open the compliance tab, select the relevant non-compliant subscriptions, and create a remediation task.Repeat this step when you have one or more new subscriptions you want to monitor with Defender for Cloud.
+- Detect all subscriptions in the MG that aren't yet registered with Defender for Cloud.
+- Mark those subscriptions as “non-compliant”.
+- Mark as "compliant" all registered subscriptions (regardless of whether they have Defender for Cloud's enhanced security features on or off).
+
+The remediation task will then enable Defender for Cloud's basic functionality on the non-compliant subscriptions.
 
 ## Optional modifications
 
-There are a variety of ways you might choose to modify the Azure Policy definition: 
+There are various ways you might choose to modify the Azure Policy definition: 
 
 - **Define compliance differently** - The supplied policy classifies all subscriptions in the MG that aren't yet registered with Defender for Cloud as “non-compliant”. You might choose to set it to all subscriptions without Defender for Cloud's enhanced security features enabled.
 

@@ -1,17 +1,18 @@
 ---
 title: Move an Azure Cosmos DB account to another region
 description: Learn how to move an Azure Cosmos DB account to another region.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 05/13/2021
-ms.author: mjbrown
+ms.custom: subject-moving-resources, ignite-2022
+ms.date: 03/15/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes how to either:
 
@@ -30,7 +31,7 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
     When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
     
-    To start a failover, see [Perform manual failover on an Azure Cosmos account](how-to-manage-database-account.md#manual-failover).
+    To start a failover, see [Perform manual failover on an Azure Cosmos DB account](how-to-manage-database-account.md#manual-failover).
 
 1. Remove the original region.
 
@@ -41,11 +42,14 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 ## Migrate Azure Cosmos DB account metadata
 
-Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually. 
+Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually.
 
-A near-zero-downtime migration for the SQL API requires the use of the [change feed](change-feed.md) or a tool that uses it. If you're migrating the MongoDB API, the Cassandra API, or another API, or to learn more about options for migrating data between accounts, see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md). 
+> [!IMPORTANT]
+> It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
 
-The following steps demonstrate how to migrate an Azure Cosmos DB account for the SQL API and its data from one region to another:
+A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](change-feed.md) or a tool that uses it. If you're migrating from the API for MongoDB, Cassandra, or another API, or to learn more about options for migrating data between accounts, see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](migration-choices.md). 
+
+The following steps demonstrate how to migrate an Azure Cosmos DB account for the API for NoSQL and its data from one region to another:
 
 1. Create a new Azure Cosmos DB account in the desired region.
 
@@ -53,7 +57,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 1. Create a new database and container.
 
-    To create a new database and container, see [Create an Azure Cosmos container](how-to-create-container.md).
+    To create a new database and container, see [Create an Azure Cosmos DB container](how-to-create-container.md).
 
 1. Migrate data by using the Azure Cosmos DB Live Data Migrator tool.
 
@@ -75,7 +79,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 ## Next steps
 
-For more information and examples on how to manage the Azure Cosmos account as well as databases and containers, read the following articles:
+For more information and examples on how to manage the Azure Cosmos DB account as well as databases and containers, read the following articles:
 
-* [Manage an Azure Cosmos account](how-to-manage-database-account.md)
+* [Manage an Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Change feed in Azure Cosmos DB](change-feed.md)

@@ -1,8 +1,7 @@
 ---
 title: Provide anomaly feedback to the Metrics Advisor service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results. 
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -63,9 +62,9 @@ As the figure below shows, you could select `ChangePoint` for the feedback Type,
 
 ## Seasonality
 
-For seasonal data, when we perform anomaly detection, one step is to estimate the period(seasonality) of the time series, and apply it to the anomaly detection phase. Sometimes, it's hard to identify a precise period, and the period may also change. An incorrectly defined period may have side effects on your anomaly detection results. You can find the current period from a tooltip, its name is `Min Period`.
+For seasonal data, when we perform anomaly detection, one step is to estimate the period(seasonality) of the time series, and apply it to the anomaly detection phase. Sometimes, it's hard to identify a precise period, and the period may also change. An incorrectly defined period may have side effects on your anomaly detection results. You can find the current period from a tooltip, its name is `Min Period`. `Window` is a recommended window size to detect the last point within the window. `Window` usually is \(`Min Period` &times; 4 \) + 1. 
 
-:::image type="content" source="../media/feedback/min-period.png" alt-text="Tooltip overlay with the words Period and the number seven highlighted in red.":::
+:::image type="content" source="../media/feedback/min-period.png" alt-text="Tooltip overlay with the words Min Period and the number seven highlighted in red.":::
 
 You can provide feedback for period to fix this kind of anomaly detection error. As the figure shows, you can set a period value. The unit `interval` means one granularity. Here zero intervals means the data is non-seasonal. You could also select `AutoDetect` if you want to cancel previous feedback and let the pipeline detect period automatically. 
  

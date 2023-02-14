@@ -1,10 +1,10 @@
 ---
-author: CelesteDG
+author: cilwerner
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
-ms.date: 05/13/2019
-ms.author: celested
+ms.date: 01/27/2023
+ms.author: cwerner
 ---
 
 ## Help and support

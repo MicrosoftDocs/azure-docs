@@ -1,15 +1,22 @@
 ---
 title: Update Azure Percept DK over-the-air
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
-author: nkhuyent
+author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 02/07/2023
 ms.custom: template-how-to, ignite-fall-2021
+ROBOTS: NOINDEX
 ---
 
 # Update Azure Percept DK over-the-air
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
+
+>[!CAUTION]
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
 
 Follow this guide to learn how to update the OS and firmware of the carrier board of your Azure Percept DK over-the-air (OTA) with Device Update for IoT Hub.
 
@@ -19,6 +26,12 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 - [Azure subscription](https://azure.microsoft.com/free/)
 - [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your dev kit to a Wi-Fi network, created an IoT Hub, and connected your dev kit to the IoT Hub
 - [Device Update for IoT Hub has been successfully configured](./how-to-set-up-over-the-air-updates.md)
+- Make sure you are using the **old version** of the Device Update for IoT Hub. To do that, navigate to **Device management** > **Updates** in your IoT Hub, select the **switch to the older version** link in the banner.
+
+  :::image type="content" source="media/how-to-update-over-the-air/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/how-to-update-over-the-air/switch-banner.png":::
+    > [!CAUTION]
+    > The devkit is currently incompatible with latest changes in the Device Update for IoT Hub service. Therefore, it is important to switch to the **older version** of the Device Update of Iot Hub as instructed above before moving forward. 
+
 
 ## Import your update file and manifest file
 

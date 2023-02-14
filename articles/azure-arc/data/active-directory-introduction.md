@@ -3,47 +3,74 @@ title: Introduction to Azure Arc-enabled data services with Active Directory aut
 description: Introduction to Azure Arc-enabled data services with Active Directory authentication
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 12/15/2021
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
+# Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
-This article describes Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication by bring your own keytab (BYOK) where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
+Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed Instance uses an existing on-premises Active Directory (AD) domain for authentication. 
+
+This article describes how to enable Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
+-  Customer-managed keytab (CMK) 
+-  Service-managed keytab (SMK)  
+
+The notion of Active Directory(AD) integration mode describes the process for keytab management including: 
+- Creating AD account used by SQL Managed Instance
+- Registering Service Principal Names (SPNs) under the above AD account.
+- Generating keytab file 
 
 ## Background
+To enable Active Directory authentication for SQL Server on Linux and Linux containers, use a [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file). The keytab file is a cryptographic file containing service principal names (SPNs), account names and hostnames. SQL Server uses the keytab file for authenticating itself to the Active Directory (AD) domain and authenticating its clients using Active Directory (AD). Do the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance: 
 
-In order to support Active Directory authentication for SQL Managed Instance, a SQL Managed Instance must be deployed in an environment that allows it to communicate with the Active Directory domain.
-To facilitate this, Azure Arc introduces a new Kubernetes-native [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. You can specify this kind of resource in the CRD. An Active Directory Connector custom resource stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts.
+- [Deploy data controller](create-data-controller-indirect-cli.md) 
+- [Deploy a customer-managed keytab AD connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a service-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
+- [Deploy SQL managed instances](deploy-active-directory-sql-managed-instance.md)
 
-This custom resource deploys a DNS proxy service that mediates between the SQL Managed Instance DNS resolver and the two upstream DNS servers:
+The following diagram shows how to enable Active Directory authentication for Azure Arc-enabled SQL Managed Instance:
 
-1. Kubernetes DNS servers
-2. Active Directory DNS servers
+![Actice Directory Deployment User journey](media/active-directory-deployment/active-directory-user-journey.png)
 
-When a SQL Managed Instance is deployed with Active Directory Authentication enabled, it will reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication.
 
-## Active Directory Connector and SQL Managed Instance
+## What is an Active Directory (AD) connector?
 
-![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
+In order to enable Active Directory authentication for SQL Managed Instance, the instance must be deployed in an environment that allows it to communicate with the Active Directory domain. 
 
-## Bring Your Own Keytab (BYOK) 
+To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. It provides Azure Arc-enabled SQL managed instances running on the same data controller the ability to perform Active Directory authentication.
 
-The following are the steps for user to set up:
+## Compare AD integration modes
 
-1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
-1. Providing a DNS name belonging to the Active Directory DNS domain for the SQL Managed Instance endpoint.
-1. Creating a DNS record in Active Directory for the SQL endpoint.
-1. Providing a port number for the SQL Managed Instance endpoint.
-1. Registering Service Principal Names (SPNs) under the AD account in Active Directory domain for the SQL endpoint.
-1. Creating and providing a keytab file for SQL Managed Instance containing entries for the AD account and SPNs.
+What is the difference between the two Active Directory integration modes?
+
+To enable Active Directory authentication for Arc-enabled SQL Managed Instance, you need an Active Directory connector where you specify the Active Directory integration deployment mode. The two Active Directory integration modes are:
+
+- Customer-managed keytab
+- Service-managed keytab 
+
+The following section compares these modes.
+
+|                  |Customer-managed keytab​|System-managed keytab|
+|------------------|---------|--------|
+|**Use cases**|Small and medium size businesses who are familiar with managing Active Directory objects and want flexibility in their automation process |All sizes of businesses - seeking to highly automated Active Directory management experience|
+|**User provides**|An Active Directory account and SPNs under that account, and a [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file) for Active Directory authentication |An [Organizational Unit (OU)](../../active-directory-domain-services/create-ou.md) and a domain service account has [sufficient permissions](deploy-system-managed-keytab-active-directory-connector.md?#prerequisites) on that OU in Active Directory.|
+|**Characteristics**|User managed. Users bring the Active Directory account, which impersonates the identity of the managed instance and the keytab file. |System managed. The system creates a domain service account for each managed instance and sets SPNs automatically on that account. It also, creates and delivers a keytab file to the managed instance. |
+|**Deployment process**| 1. Deploy data controller <br/> 2. Create keytab file <br/>3. Set up keytab information to Kubernetes secret<br/> 4. Deploy AD connector, deploy SQL managed instance<br/><br/>For more information, see [Deploy a customer-managed keytab Active Directory connector](deploy-customer-managed-keytab-active-directory-connector.md)  | 1. Deploy data controller, deploy AD connector<br/>2. Deploy SQL managed instance<br/><br/>For more information, see [Deploy a system-managed keytab Active Directory connector](deploy-system-managed-keytab-active-directory-connector.md) |
+|**Manageability**|You can create the keytab file by following the instructions from [Active Directory utility (`adutil`)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction). Manual keytab rotation. |Managed keytab rotation.|
+|**Limitations**|We do not recommend sharing keytab files among services. Each service should have a specific keytab file. As the number of keytab files increases the level of effort and complexity increases. |Managed keytab generation and rotation. The service account will require sufficient permissions in Active Directory to manage the credentials. <br/> <br/> Distributed Availability Group is not supported.|
+
+For either mode, you need a specific Active Directory account, keytab, and Kubernetes secret for each SQL managed instance.
+
+## Enable Active Directory authentication in Arc-enabled SQL Managed Instance
+
+When you deploy SQL Managed Instance with the intention to enable Active Directory authentication, the deployment needs to reference an Active Directory connector instance to use. Referencing the Active Directory connector in managed instance specification automatically sets up the needed environment in the SQL Managed Instance container for the managed instance to authenticate with Active Directory.
 
 ## Next steps
 
-* [Deploy Active Directory (AD) connector](deploy-active-directory-connector.md)
-* [Deploy Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
-* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)
+* [Deploy a customer-managed keytab Active Directory (AD) connector](deploy-customer-managed-keytab-active-directory-connector.md)
+* [Deploy a system-managed keytab Active Directory (AD) connector](deploy-system-managed-keytab-active-directory-connector.md)
+* [Deploy an Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
+* [Connect to Azure Arc-enabled SQL Managed Instance using Active Directory authentication](connect-active-directory-sql-managed-instance.md)

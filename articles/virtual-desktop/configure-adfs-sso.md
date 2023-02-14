@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Virtual Desktop AD FS single sign-on - Azure
-description: How to configure AD FS single sign-on for a Azure Virtual Desktop environment.
+title: Configure single sign-on for Azure Virtual Desktop using AD FS - Azure
+description: How to configure single sign-on for an Azure Virtual Desktop environment using Active Directory Federation Services.
 services: virtual-desktop
 author: Heidilohr
 manager: lizross
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: helohr
 ---
-# Configure AD FS single sign-on for Azure Virtual Desktop
+# Configure single sign-on for Azure Virtual Desktop using AD FS
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
 
@@ -35,8 +35,8 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 
 The following Azure Virtual Desktop clients support this feature:
 
-* [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Web client](./user-documentation/connect-web.md)
+* [Windows Desktop client](./users/connect-windows.md)
+* [Web client](./users/connect-web.md)
 
 ## Configure the certificate authority to issue certificates
 
@@ -48,7 +48,7 @@ You must properly create the following certificate templates so that AD FS can u
 After you create these certificate templates, you'll need to enable the templates on the certificate authority so AD FS can request them.
 
 > [!NOTE]
-> This solution generates new short term certificates for every user logon which can fill up the Certificate Authority database over time if you have a lot of users. You can avoid this by [setting up a CA for non-persistent certificate processing](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)).
+> This solution generates new short-term certificates every time a user signs in, which can fill up the Certificate Authority database if you have many users. You can avoid overloading your database by [setting up a CA for non-persistent certificate processing](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)). If you do this, on the duplicated smartcard logon certificate template, make sure you enable only **Do not store certificates and requests in the CA database**. Don't enable **Do not include revocation information in issued certificates** or the configuration won't work.
 
 ### Create the enrollment agent certificate template
 
@@ -275,5 +275,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Now that you've configured single sign-on, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using your new credentials, check out these articles:
 
-* [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Connect with the web client](./user-documentation/connect-web.md)
+* [Connect with the Windows Desktop client](./users/connect-windows.md)
+* [Connect with the web client](./users/connect-web.md)

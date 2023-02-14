@@ -2,14 +2,14 @@
 title: "Configure translation"
 titleSuffix: Azure Applied AI Services
 description: This article will show you how to configure the various options for translation.
-author: metanMSFT
-manager: guillasi
+author: rwallerms
+manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/06/2022
-ms.author: metang
+ms.author: rwaller
 ---
 
 # How to configure Translation

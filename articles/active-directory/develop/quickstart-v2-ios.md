@@ -1,9 +1,8 @@
 ---
-title: "Quickstart: Add sign in with Microsoft to an iOS or macOS app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign in with Microsoft to an iOS or macOS app"
 description: In this quickstart, learn how an iOS or macOS app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,7 +10,7 @@ ms.topic: portal
 ms.workload: identity
 ms.date: 01/14/2022
 ROBOTS: NOINDEX
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
@@ -27,6 +26,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
+> 
 > In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and get an access token to call the Microsoft Graph API.
 > 
 > The quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.

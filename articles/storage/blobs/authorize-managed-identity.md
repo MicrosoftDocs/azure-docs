@@ -3,12 +3,12 @@ title: Authorize access to blob data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize blob data access from applications running in Azure VMs, function apps, and others.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/11/2021
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: santoshc
 ms.subservice: common
 ms.devlang: csharp
@@ -45,6 +45,8 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
 
 To get a token that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. You can then use the token to create a service client object that is authorized to perform data operations in Azure Storage. For more information about using the **DefaultAzureCredential** class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+
+For this code sample to work properly, first assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to the security principal. This built-in role provides read and write access to blob data in your storage account.
 
 The following code example shows how to get an access token and use it to create a service client object, then uses the service client to upload a new blob:
 

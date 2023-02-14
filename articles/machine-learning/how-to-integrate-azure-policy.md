@@ -2,9 +2,9 @@
 title: Audit and manage Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
-author: aashishb
-ms.author: aashishb 
-ms.date: 11/30/2021
+author: jhirono
+ms.author: jhirono 
+ms.date: 10/20/2022
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -56,6 +56,9 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
 
+> [!IMPORTANT]
+> Azure Machine Learning studio cannot be added in cloud apps in Azure AD Conditional Access, as the studio UI is a client application.
+
 ## Enable self-service using landing zones
 
 Landing zones are an architectural pattern to set up Azure environments that accounts for scale, governance, security, and productivity. A data landing zone is an administator-configured environment that an application team uses to host a data and analytics workload.
@@ -98,7 +101,7 @@ To configure this policy, set the effect parameter to __DeployIfNotExists__. Set
 
 ### Workspace should use user-assigned managed identity
 
-Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md).
+Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
 
 To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
 

@@ -1,21 +1,18 @@
 ---
-title: Patient-everything - Azure Healthcare APIs
+title: Patient-everything - Azure Health Data Services
 description: This article explains how to use the Patient-everything operation.
 services: healthcare-apis
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/09/2021
-ms.author: cavoeg
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Using Patient-everything in FHIR service
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the FHIR specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service), Patient-everything is available to pull data related to a specific patient.
+The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the Fast Healthcare Interoperability Resources (FHIR&#174;) specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in Azure Health Data Services(hereby called FHIR service), Patient-everything is available to pull data related to a specific patient.
 
 ## Use Patient-everything
 To call Patient-everything, use the following command:
@@ -27,10 +24,10 @@ GET {FHIRURL}/Patient/{ID}/$everything
 > [!Note]
 > You must specify an ID for a specific patient. If you need all data for all patients, see [$export](../data-transformation/export-data.md). 
 
-The FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type `searchset` with the following information:
+FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type `searchset` with the following information:
  
 * [Patient resource](https://www.hl7.org/fhir/patient.html).
-* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that aren't of [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
+* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that aren't of [see also](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
 * If there are `seealso` link reference(s) to other patient(s), the results will include Patient-everything operation against the `seealso` patient(s) listed.
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html).
 * [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. 
@@ -40,7 +37,7 @@ The FHIR service validates that it can find the patient matching the provided pa
 
 
 ## Patient-everything parameters
-The FHIR service supports the following query parameters. All of these parameters are optional:
+FHIR service supports the following query parameters. All of these parameters are optional:
 
 |Query parameter        |  Description|
 |-----------------------|------------|
@@ -123,7 +120,9 @@ If a patient is found for each of these calls, you'll get back a 200 response wi
 
 ## Next steps
 
-Now that you know how to use the Patient-everything operation, you can learn about the search options.
+Now that you know how to use the Patient-everything operation, you can learn about the search options. For more information, see
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR search](overview-of-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

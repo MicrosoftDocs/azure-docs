@@ -2,21 +2,21 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 12/23/2021
+ms.date: 02/11/2022
 ms.custom: references_regions 
 ms.reviewer: caishwarya
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Move a Recovery Services vault across Azure Subscriptions and Resource Groups
+# Move a Recovery Services vault across Azure subscriptions and resource groups
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
 
 ## Supported regions
 
-All public regions and sovereign regions are supported, except France Central, France South, Germany Northeast, Germany Central, China North, China North2, China East, and China East2.
+All public regions and sovereign regions are supported, except France South, France Central, Germany Northeast and Germany Central.
 
 ## Prerequisites for moving Recovery Services vault
 

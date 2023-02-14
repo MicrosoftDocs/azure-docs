@@ -8,12 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
 ms.author: aahi
 ---
 
 # Configure Language Understanding Docker containers 
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 The **Language Understanding** (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 

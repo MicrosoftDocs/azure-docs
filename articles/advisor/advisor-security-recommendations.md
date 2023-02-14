@@ -23,9 +23,9 @@ For more information about security recommendations, see [Review your security r
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor cost recommendations](advisor-cost-recommendations.md)
-* [Advisor performance recommendations](advisor-performance-recommendations.md)
-* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor cost recommendations](advisor-reference-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-reference-performance-recommendations.md)
+* [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)
 * [Advisor REST API](/rest/api/advisor/)
  

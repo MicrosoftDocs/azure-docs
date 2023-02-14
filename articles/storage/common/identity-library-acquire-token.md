@@ -3,14 +3,15 @@ title: Use the Azure Identity library to get an access token for authorization
 titleSuffix: Azure Storage
 description: Learn to use the Azure Identity client library to get an access token that your applications can use to authorize access to data in Azure Storage. With the Azure Identity library, you can use the same code to get the access token in the development environment or in Azure. 
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/16/2021
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: santoshc
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -36,7 +37,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 
 - [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
 - [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md)
-- [Assign an Azure role for access to table data (preview)](../tables/assign-azure-role-data-access.md)
+- [Assign an Azure role for access to table data](../tables/assign-azure-role-data-access.md)
 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container, queue, or table.
@@ -53,7 +54,7 @@ If your development environment does not support single sign-on or login via a w
 
 ### Create the service principal
 
-To create a service principal with Azure CLI and assign an Azure role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command. Provide an Azure Storage data access role to assign to the new service principal. Additionally, provide the scope for the role assignment. For more information about the built-in roles provided for Azure Storage, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+To create a service principal with Azure CLI and assign an Azure role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. Additionally, provide the scope for the role assignment. For more information about the built-in roles provided for Azure Storage, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 

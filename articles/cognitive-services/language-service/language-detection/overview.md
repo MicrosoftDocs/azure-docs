@@ -3,13 +3,13 @@ title: What is language detection in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of language detection in Azure Cognitive Services, which helps you detect the language that text is written in by returning language codes.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: sample
-ms.date: 11/02/2021
-ms.author: aahi
+ms.topic: overview
+ms.date: 07/27/2022
+ms.author: jboback
 ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
@@ -24,9 +24,10 @@ This documentation contains the following types of articles:
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Deploy on premises using Docker containers
 
-Use the available Docker container to [deploy this feature on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
+## Get started with language detection
+
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Responsible AI 
 

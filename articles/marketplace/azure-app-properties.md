@@ -3,11 +3,10 @@ title: How to configure your Azure Application offer properties
 description: Learn how to configure the properties for your Azure application offer in Partner Center (Azure Marketplace). 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 04/08/2022
 ---
 
 # Configure Azure application offer properties
@@ -19,6 +18,8 @@ On the **Properties** page, you’ll define the categories applicable to your of
 ## Select a category for your offer
 
 Under **Categories**, select the **Categories** link and then choose at least one and up to two categories for grouping your offer into the appropriate commercial marketplace search areas. Select up to two subcategories for each primary and secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+If you’re working with a Microsoft product engineering team, select an option from the list to enable product specific certification and a custom Azure portal experience, such as Microsoft Sentinel Solutions.
 
 ## Provide terms and conditions
 

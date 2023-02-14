@@ -3,13 +3,13 @@ title: how to call the Key Phrase Extraction API
 titleSuffix: Azure Cognitive Services
 description: How to extract key phrases by using the Key Phrase Extraction API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: article
-ms.date: 12/10/2021
-ms.author: aahi
+ms.topic: how-to
+ms.date: 01/10/2023
+ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
 
@@ -22,6 +22,9 @@ This feature is useful if you need to quickly identify the main points in a coll
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
@@ -42,9 +45,7 @@ To send an API request, You will need your Language resource endpoint and key.
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits below.
-
-Using the key phrase extraction feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
+Analysis is performed upon receipt of the request. Using the key phrase extraction feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
 [!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
@@ -53,32 +54,9 @@ Using the key phrase extraction feature synchronously is stateless. No data is s
 
 When you receive results from the API, the order of the returned key phrases is determined internally, by the model. You can stream the results to an application, or save the output to a file on the local system.
 
-## Data limits
+## Service and data limits
 
-> [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
-> * A document is a single string of text characters.  
-
-| Limit | Value | 
-|------------------------|---------------|
-| Maximum size of a single document (synchronous) | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum number of characters per request (asynchronous) | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB.  |
-| Max Documents Per Request |  10 |
-
-If a document exceeds the character limit, the API will behave differently depending on the endpoint you're using:
-
-* Asynchronous: The API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
-* Synchronous:  The API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
-
-### Rate limits
-
-Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
+[!INCLUDE [service limits article](../../includes/service-limits-link.md)]
 
 ## Next steps
 

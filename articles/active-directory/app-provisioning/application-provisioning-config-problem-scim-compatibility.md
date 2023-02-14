@@ -3,12 +3,12 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -27,10 +27,10 @@ The provisioning service uses the concept of a job to operate against an applica
 If you are using an application in the gallery, the job generally contains the name of the app (e.g. zoom snowFlake, dataBricks, etc.). You can skip this documentation when using a gallery application. This primarily applies for non-gallery applications with jobID SCIM or customAppSSO.
 
 ## SCIM 2.0 compliance issues and status
-In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. However, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
+In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. We recommend using the new behavior for any new implementations and updating existing implementations. Please note that the customappSSO behavior that was the default prior to December 2018 is not supported anymore. 
 
 > [!NOTE]
-> For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. We have worked to ensure backwards compatibility for the changes we have made by allowing you to revert back to the old jobID or by using a flag. However, as previously mentioned, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
+> For the changes made in 2018, it is possible to revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. We have worked to ensure backwards compatibility for the changes we have made by allowing you to revert back to the old jobID or by using a flag. However, as previously mentioned, we do not recommend implementing old behavior as it is not supported anymore. We recommend using the new behavior for any new implementations and updating existing implementations.
 
 | **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  **Backwards compatibility** |
 |---|---|---|
@@ -73,7 +73,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "False"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
@@ -89,7 +89,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": false
         }
     ]
-}
+  }
   ```
 
 **Requests made to add a single-value string attribute:**

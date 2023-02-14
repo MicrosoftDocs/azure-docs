@@ -1,9 +1,10 @@
 ---
-title: Resource Manager template samples - Azure Route Server
+title: Resource Manager template samples
+titleSuffix: Azure Route Server
 description: Information about sample Azure Resource Manager templates provided for Azure Route Server.
 services: route-server
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: sample
 ms.date: 09/01/2021 
