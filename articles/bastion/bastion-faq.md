@@ -177,7 +177,7 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
-Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
+Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable. Timezone settings for a VM can be manually updated after successfully connecting to the Guest OS. 
 
 ### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
 
