@@ -1,7 +1,7 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
-ms.date: 02/09/2023
+ms.date: 02/14/2023
 ms.topic: how-to
 ---
 
@@ -315,7 +315,7 @@ Upgrade log files are located on the OT sensor machine at `/opt/sensor/logs/lega
 
 ## Update an on-premises management console
 
-This procedure describes how to update an on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#update-ot-sensors) or as a standalone update process.
+This procedure describes how to update on-premises management console software. You might need these steps before [updating OT sensors remotely from the Azure portal](#update-ot-sensors) or as a standalone update process.
 
 Updating an on-premises management console takes about 30 minutes.
 
@@ -327,6 +327,8 @@ Updating an on-premises management console takes about 30 minutes.
 
 ### Download the update package from the Azure portal
 
+This procedure describes how to download an update package for a standalone update. If you're updating your on-premises management console together with connected sensors, we recommend using the **[Update sensors (Preview)](#update-ot-sensors)** menu from on the **Sites and sensors** page instead.
+ 
 1. In Defender for IoT on the Azure portal, select **Getting started** > **On-premises management console**.
 
 1. In the **On-premises management console** area, select the download scenario that best describes your update, and then select **Download**.
@@ -335,7 +337,7 @@ Updating an on-premises management console takes about 30 minutes.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-### Update your on-premises management console
+### Update the on-premises management console software version
 
 1. Sign into your on-premises management console and select **System Settings** > **Version Update**.
 
