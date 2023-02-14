@@ -28,7 +28,6 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
     A collection administrator on the [root collection](reference-azure-purview-glossary.md#root-collection) also automatically has permission to the Microsoft Purview governance portal. If your **root collection administrator** ever needs to be changed, you can [follow the steps in the section below](#administrator-change).
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data share contributor** - A role that can share data within an organization and with other organizations using data sharing capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
@@ -52,7 +51,8 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |I need to put users into roles in the Microsoft Purview governance portal| Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to create workflows for my Microsoft Purview account in the governance portal| Workflow administrator |
-|I need to share data from sources registered in Microsoft Purview | Data share contributor|
+|I need to share data from sources registered in Microsoft Purview | Data reader |
+|I need to receive shared data in Microsoft Purview | Data reader |
 |I need to view insights for collections I'm a part of | Insights reader **or** data curator |
 |I need to create or manage our [self-hosted integration runtime (SHIR)](manage-integration-runtimes.md) | Data source administrator |
 |I need to create managed private endpoints | Data source administrator |

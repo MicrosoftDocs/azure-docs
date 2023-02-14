@@ -10,25 +10,25 @@ ms.date: 01/22/2023
 ---
 # Migration from classic data sharing to updated data sharing in Microsoft Purview in 2023
 
-This article compares classic data sharing with the currently available updated data sharing in Microsoft Purview and outlines the migration process to the updated experience.
+This article compares classic data sharing with the currently available updated data sharing in Microsoft Purview, and outlines the migration process to the updated experience.
 
 > [!IMPORTANT]
-> This migration is applicable only to users of data sharing in Microsoft Purview that started using data sharing prior to the public preview of the current updated data sharing experience in February 2023.
+> This migration is applicable only to users that began sharing data in Microsoft Purview before the public preview of the current data sharing experience. in February 2023.
 
 If you're a new user of data sharing in Microsoft Purview, you'll receive updated data sharing experience and migration isn't necessary.
 
 ## Feature comparison
 
-| | **Classic Data Sharing** | **Updated Data Sharing** |
+| **Feature** | **Classic Data Sharing** | **Updated Data Sharing** |
 |---|---|---|
-|Microsoft Purview Permissions|Data Share Contributor|None to use data sharing SDK. Minimum of Data Reader for data sharing user experience in Microsoft Purview compliance portal|
+|Microsoft Purview Permissions|Data Share Contributor|None to use data sharing SDK. Minimum of Data Reader for data sharing user experience in Microsoft Purview compliance portal.|
 |User experience|Share center for creating and managing shares|ADLS Gen2 and Blob storage assets in the Microsoft Purview Catalog for creating and managing shares from the respective accounts|
 |Share assets| |Discover sent share and received share assets in the Catalog|
 |Share lineage| |See share lineage at the sent share and received share assets|
 
 ## Migration process
 
-Microsoft Purview governance portal users of classic data sharing experience will be seamlessly migrated over to the updated data sharing experience, with no extra action needed.
+Users of the classic data sharing experience will be seamlessly migrated over to the updated data sharing experience, with no extra action needed.
 
 Once the updated data sharing experience becomes available, if you're a user of classic data sharing, you'll see both classic and updated data sharing experiences for two weeks after which you're migrated completely to the updated experience only.
 
