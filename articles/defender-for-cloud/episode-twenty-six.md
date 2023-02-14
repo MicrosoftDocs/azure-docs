@@ -3,7 +3,7 @@ title: Governance capability improvements in Defender for Cloud | Defender for C
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the need for governance and new at scale governance capability
 ms.topic: reference
-ms.date: 02/12/2023
+ms.date: 02/14/2023
 ---
 
 # Governance capability improvements in Defender for Cloud | Defender for Cloud in the field
@@ -11,7 +11,7 @@ ms.date: 02/12/2023
 **Episode description**: In this episode of Defender for Cloud in the Field, Lior Arviv joins Yuri Diogenes to talk about the Governance capability improvements in Defender for Cloud. Lior gives a quick recap of the business need for governance and covers the new at scale governance capability. Lior demonstrates how to deploy governance at scale and how to monitor rules assignments and define priorities.
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=919f847f-4b19-4440-aede-a0917e1d7019" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://aka.ms/docs/player?id=b1581d03-6575-4f13-b2ed-5b0c22d80c63" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [01:13](/shows/mdc-in-the-field/aws-ecr#time=01m13s) - Reviewing the need for cloud security governance
 - [04:10](/shows/mdc-in-the-field/aws-ecr#time=04m10s) - Governance at scale
