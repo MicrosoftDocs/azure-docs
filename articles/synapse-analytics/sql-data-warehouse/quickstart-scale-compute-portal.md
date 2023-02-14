@@ -24,20 +24,20 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**. This quickstart scales **mySampleDataWarehouse**.
+You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named `mySampleDataWarehouse`. This quickstart scales `mySampleDataWarehouse`.
 
 >[!IMPORTANT] 
 >Your SQL pool must be online to scale. 
 
 ## Scale compute
 
-SQL pool compute resources can be scaled by increasing or decreasing data warehouse units. The [Quickstart: create and connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+SQL pool compute resources can be scaled by increasing or decreasing data warehouse units. The [Quickstart: create and connect - portal](create-data-warehouse-portal.md) created `mySampleDataWarehouse` and initialized it with 400 DWUs. The following steps adjust the DWUs for `mySampleDataWarehouse`.
 
 To change data warehouse units:
 
-1. Click **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
-2. Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page. The SQL pool opens.
-3. Click **Scale**.
+1. Select **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
+2. Select `mySampleDataWarehouse` from the **Azure Synapse Analytics (formerly SQL DW)** page. The SQL pool opens.
+3. Select **Scale**.
 
     ![Click Scale](./media/quickstart-scale-compute-portal/click-scale.png)
 

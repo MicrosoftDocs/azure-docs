@@ -24,7 +24,7 @@ Download and install the newest version of [SQL Server Management Studio](/sql/s
 
 ## Create a dedicated SQL pool (formerly SQL DW)
 
-Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) named **mySampleDataWarehouse**. Complete the quickstart to ensure you have a firewall rule and can connect to your dedicated SQL pool (formerly SQL DW) from within SQL Server Management Studio.
+Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) named `mySampleDataWarehouse`. Complete the quickstart to ensure you have a firewall rule and can connect to your dedicated SQL pool (formerly SQL DW) from within SQL Server Management Studio.
 
 ## Connect to the server as server admin
 
@@ -44,9 +44,9 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
     ![Connect to server](./media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-3. Click **Connect**. The Object Explorer window opens in SSMS.
+3. Select **Connect**. The Object Explorer window opens in SSMS.
 
-4. In Object Explorer, expand **Databases**. Then expand **mySampleDataWarehouse** to view the objects in your new database.
+4. In Object Explorer, expand **Databases**. Then expand `mySampleDataWarehouse` to view the objects in your new database.
 
     ![Database objects](./media/quickstart-scale-compute-tsql/connected.png)
 
@@ -56,9 +56,9 @@ The service objective setting contains the number of data warehouse units for th
 
 To view the current data warehouse units for your dedicated SQL pool (formerly SQL DW):
 
-1. Under the connection to **mySampleDataWarehouseservername.database.windows.net**, expand **System Databases**.
-2. Right-click **master** and select **New Query**. A new query window opens.
-3. Run the following query to select from the sys.database_service_objectives dynamic management view.
+1. Under the connection to `mySampleDataWarehouseservername.database.windows.net`, expand **System Databases**.
+2. Right-click on the `master` system database and select **New Query**. A new query window opens.
+3. Run the following query to select from the `sys.database_service_objectives` dynamic management view.
 
     ```sql
     SELECT
@@ -73,17 +73,17 @@ To view the current data warehouse units for your dedicated SQL pool (formerly S
         db.name = 'mySampleDataWarehouse'
     ```
 
-4. The following results show **mySampleDataWarehouse** has a service objective of DW400.
+4. The following results show `mySampleDataWarehouse` has a service objective of DW400.
 
     ![iew-current-dwu](./media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## Scale compute
 
-In dedicated SQL pool (formerly SQL DW), you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+In dedicated SQL pool (formerly SQL DW), you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created `mySampleDataWarehouse` and initialized it with 400 DWUs. The following steps adjust the DWUs for `mySampleDataWarehouse`.
 
 To change data warehouse units:
 
-1. Right-click **master** and select **New Query**.
+1. Right-click on the `master` system database and select **New Query**.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL statement to modify the service objective. Run the following query to change the service objective to DW300.
 
     ```Sql
@@ -97,7 +97,7 @@ To see the progress of the previous change request, you can use the `WAITFORDELA
 
 To poll for the service object change status:
 
-1. Right-click **master** and select **New Query**.
+1. Right-click on the `master` system database and select **New Query**.
 2. Run the following query to poll the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV.
 
     ```sql
@@ -130,7 +130,7 @@ When a dedicated SQL pool (formerly SQL DW) is paused, you can't connect to it w
 
 ## Check operation status
 
-To return information about various management operations on your dedicated SQL pool (formerly SQL DW), run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV. For example, it returns the operation and the  state of the operation, which is IN_PROGRESS or COMPLETED.
+To return information about various management operations on your dedicated SQL pool (formerly SQL DW), run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV. For example, it returns the operation and the  state of the operation, which is IN_PROGRESS or COMPLETED.
 
 ```sql
 SELECT *
