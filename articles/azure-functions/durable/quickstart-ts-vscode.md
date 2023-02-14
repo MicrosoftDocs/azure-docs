@@ -177,13 +177,13 @@ In the V4 Model, you use a template to create all three functions in one file in
     | ------ | ----- | ----------- |
     | Select a template for your function | Durable Functions orchestrator | Create a file with a Durable Functions orchestration, and Activity function, and a Durable Client starter function. |
     | Choose a durable storage type | Azure Storage (Default) | Select the storage backend used for Durable Functions. |
-    | Provide a function name | durableHello1 | Name used for your durable functions |
+    | Provide a function name | hello | Name used for your durable functions |
 
-Open *src/functions/durableHello1.ts* to view the functions you created.
+Open *src/functions/hello.ts* to view the functions you created.
 
-You've created an orchestrator called `durableHello1Orchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `durableHello1`.
+You've created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
 
-You've also added the `durableHello1` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
+You've also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
 Lastly, you've also added an HTTP triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
@@ -198,7 +198,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 ::: zone-end
 ::: zone pivot="node-model-v4"
-1. To test your function, set a breakpoint in the `durableHello1` activity function code (*src/functions/durableHello1.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `hello` activity function code (*src/functions/hello.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 ::: zone-end
 
  > [!NOTE]
@@ -226,7 +226,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 ::: zone-end
 ::: zone pivot="node-model-v4"
-1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`durableHello1Orchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/durableHello1Orchestrator`.
+1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
 ::: zone-end
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
@@ -256,7 +256,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     ::: zone pivot="node-model-v4"
     ```json
     {
-        "name": "durableHello1Orchestrator",
+        "name": "helloOrchestrator",
         "instanceId": "6ba3f77933b1461ea1a3828c013c9d56",
         "runtimeStatus": "Completed",
         "input": "",
@@ -286,7 +286,7 @@ After you've verified that the function runs correctly on your local computer, i
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 ::: zone-end
 ::: zone pivot="node-model-v4"
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/durableHello1Orchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/helloOrchestrator`
 ::: zone-end
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
