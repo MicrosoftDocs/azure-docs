@@ -52,6 +52,18 @@ You can mitigate this data exfiltration risk using [our data exfiltration preven
 
 In this diagram, the compute instance and cluster need to access Azure Machine Learning managed storage accounts to get set-up scripts. Instead of opening the outbound to storage, you can use service endpoint policy with Azure Machine Learning alias to allow the storage access only to Azure Machine Learning storage accounts.
 
+The list of required outbound with data exfiltration protection setting
+|outbound|protocol|port|
+|---|---|---|
+|AzureActiveDirectory|TCP|80/443|
+|AzureResourceManager|TCP|443|
+|AzureMachineLearning|UDP|5831|
+|BatchNodeManagement|TCP|443|
+|mcr.microsoft.com|TCP|443|
+|*.data.mcr.microsoft.com|TCP|443|
+|ml.azure.com|TCP|443|
+|automlresources-prod.azureedge.net|TCP|443|
+
 ### Managed online endpoint
 
 Azure Machine Learning managed online endpoint uses Azure Machine Learning managed VNet, instead of using your VNet. If you want to disallow public access to your endpoint, set the `public_network_access` flag to disabled. When this flag is disabled, your endpoint can be accessed via the private endpoint of your workspace, and it can't be reached from public networks. If you want to use a private storage account for your deployment, set the `egress_public_network_access` flag disabled. It automatically creates private endpoints to access your private resources. 
@@ -126,6 +138,18 @@ This diagram shows the recommended architecture to make all resources private an
 * Managed online endpoints use the private endpoint of the workspace to process incoming requests. A private endpoint is also used to allow managed online endpoint deployments to access private storage.
 
 :::image type="content" source="media/how-to-network-isolation-planning/recommended-network-data-exfiltration.png" alt-text="Diagram of recommended network with data exfiltration protection configuration.":::
+
+The list of required outbound with data exfiltration protection setting
+|outbound|protocol|port|
+|---|---|---|
+|AzureActiveDirectory|TCP|80/443|
+|AzureResourceManager|TCP|443|
+|AzureMachineLearning|UDP|5831|
+|BatchNodeManagement|TCP|443|
+|mcr.microsoft.com|TCP|443|
+|*.data.mcr.microsoft.com|TCP|443|
+|ml.azure.com|TCP|443|
+|automlresources-prod.azureedge.net|TCP|443|
 
 ### Using public workspace
 
